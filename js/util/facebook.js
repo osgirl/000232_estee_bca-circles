@@ -37,8 +37,6 @@ function Facebook()
 		*	@private
 		*/
 		var _setter;
-		
-		var objectToPost = "http://www.cnn.com/2013/07/10/us/alaska-carolina-plane-crash-victims/index.html?hpt=hp_c2";
 
 		//--------------------------------------
 		//+ PRIVATE & PROTECTED INSTANCE METHODS
@@ -70,8 +68,10 @@ function Facebook()
 	    	FB.api(
 		       'https://graph.facebook.com/me/bcacircles:join',
 		       'post',
-		       { object: "bcacircles:circle",
+		       { circle: "http://samples.ogp.me/308553962613651",
 		         privacy: {'value': 'SELF'}
+		         //,
+		         //tags: ["100004250646791", "100003988000326"]
 		         }, 
 		       function(response) {
 		         if (!response) {
@@ -91,6 +91,7 @@ function Facebook()
 		      if (response && response.data){
 		        $(response.data).each(function(index,value){
 				
+				if(value.name.substr(0,4) == "Sean") console.log(value);
 				//get friend's profile picture
 		        	FB.api('/'+value.id+'/picture?type=large', function(res){
 				      if (res && res.data){

@@ -164,17 +164,16 @@
 		  action.  The scope parameter below is what prompts the user for that permission.
 		-->
 		
-		<!-- <div
+		<div
 		  class="fb-login-button"
 		  data-show-faces="true"
 		  data-width="200"
 		  data-max-rows="1"
 		  data-scope="publish_actions">
 		</div>
-		<button id='create_circle_btn'>Create a Circle</button>
 		<button id='show_friendlist_btn'>Show Friendlist</button>
 		<div id='friendlist'></div>
-		<div id='result'></div> -->
+		<div id='result'></div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
