@@ -96,8 +96,8 @@
 						<div id='join_header'><img src='img/headers/join-the-conversation.png'/></div>
 						<div id='join_text' class='light_font'>Show how you're fighting breast cancer by creating a circle, uploading a photo, or tagging posts on Instagram and Twitter with <b>#BCAstrength</b>.</div>
 						<div id='join_btns'>
-							<div id='create_circle_btn' class='pink_btn float_left all_cap'>CREATE A CIRCLE</div>
-							<div id='upload_photo_btn' class='pink_btn float_left all_cap'>UPLOAD A PHOTO</div>
+							<div style='width:50%; float:left;'><div id='create_circle_btn' class='pink_btn float_right all_cap'>CREATE A CIRCLE</div></div>
+							<div style='width:50%; float:right;'><div id='upload_photo_btn' class='pink_btn float_left all_cap'>UPLOAD A PHOTO</div></div>
 						</div>
 					</div>
 					<div id='community'>
@@ -164,7 +164,7 @@
 		  action.  The scope parameter below is what prompts the user for that permission.
 		-->
 		
-		<div
+		<!-- <div
 		  class="fb-login-button"
 		  data-show-faces="true"
 		  data-width="200"
@@ -174,7 +174,7 @@
 		<button id='create_circle_btn'>Create a Circle</button>
 		<button id='show_friendlist_btn'>Show Friendlist</button>
 		<div id='friendlist'></div>
-		<div id='result'></div>
+		<div id='result'></div> -->
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')</script>

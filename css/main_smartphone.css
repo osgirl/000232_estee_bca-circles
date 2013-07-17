@@ -213,8 +213,7 @@ overflow:hidden;
 }
 
 #join_btns{
-	width:100%;
-	margin:10px 0 30px 5px;
+	margin:10px 0 30px 0;
 }
 
 .pink_btn{
@@ -232,7 +231,7 @@ overflow:hidden;
 	zoom: 1;
 }
 
-#join_btns .pink_btn{
+#create_circle_btn{
 	margin-right:3%;
 }
 
@@ -350,6 +349,10 @@ overflow:hidden;
 	float:left;
 }
 
+.float_right{
+	float:right;
+}
+
 .light_font{
 	font-weight:lighter;
 }
@@ -376,7 +379,6 @@ overflow:hidden;
 	left:0;
 }
 
-
 @media only screen and (min-width: 480px) and (orientation:landscape)  {
 
 /* ===============
@@ -391,10 +393,10 @@ overflow:hidden;
 		height:360px;
 	}
 	
-	#join_btns{
+	/*#join_btns{
 		width:100%;
 		margin:10px 0 30px 60px;
-	}
+	}*/
 	
 	#join_fight{
 		text-align:center;
