@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>Place dots in circle example</title>
+
+		<style type="text/css">
+
+			input, button, textarea{
+				display: block;
+			}
+			textarea {
+				min-width: 300px;
+				min-height: 100px;
+			}
+		</style>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>		
+		<script type="text/javascript">
+
+			$('document').ready(function(){
+
+			function createCircle(){		
+
+				//dummy data
+				var _arr_dump = [];
+			for( var i = 0; i < $('#sel').val(); i++ ){
+				_arr_dump.push( "./img/" + (i+1) + ".jpg" );
+			}
+
+			console.log( $('#sel').val() );
+
+				var post_data = {
+					thumbs_url: _arr_dump,
+					user_name: $('#name').val(),
+					content: $('#content').val(),
+				};
+
+
+				$.ajax({
+					url		: './create-circle.php',
+					type	: "POST",
+					data 	: post_data,
+					success : function(data){ _success(data) }
+				});
+				function _success(data){
+					console.log('success ');
+					$('#image').attr('src','data:image/jpeg;base64,'+ data);
+				}
+				function _fail(){
+					console.log('fail');
+				}
+			}
+
+			$('#create').click(createCircle);
+
+		});
+		</script>
+	</head>
+	<body>
+
+		<input id="name" type="text" value="John D."></input>
+		<textarea id="content">Live healthily. Eat anti-oxidant rich food and maintain a healthy weight.</textarea>
+		<select id="sel">
+			<option value=3>3</option>
+			<option value=4>4</option>
+			<option value=5>5</option>
+			<option value=6>6</option>
+			<option value=7>7</option>
+			<option value=8>8</option>
+			<option value=9>9</option>
+			<option value=10 selected>10</option>
+			<option value=11>11 - null, will display empty dot</option>
+			<option value=12>12 - unll, will display empty dot</option>
+		</select>
+		<br/>
+		<br/>
+		<button id="create">Create circle image</button>
+		<br/>
+		<img id="image"/>
+	</body>
+</html>
