@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+ <title>RSS Title</title>
+ <description>This is an example of an RSS feed</description>
+ <link>http://click3x.com</link>
+ 
+ <item>
+  <title>Example entry 1</title>
+  <description>1 Here is some text containing an interesting description.</description>
+  <link>http://www.wikipedia.org/</link>
+  <guid>unique string per item</guid>
+  <pubDate>Mon, 22 Jul 2013 16:10:00 +0000 </pubDate>
+ </item>
+
+  <item>
+  <title>Example entry 2</title>
+  <description>2 Here is some text containing an interesting description.</description>
+  <link>http://www.wikipedia.org/</link>
+  <guid>unique string per item</guid>
+  <pubDate>Mon, 22 Jul 2013 16:20:00 +0000 </pubDate>
+ </item>
+
+  <item>
+  <title>Example entry 3</title>
+  <description>3 Here is some text containing an interesting description.</description>
+  <link>http://www.wikipedia.org/</link>
+  <guid>unique string per item</guid>
+  <pubDate>Mon, 22 Jul 2013 16:30:00 +0000 </pubDate>
+ </item>
+
+ <!-- <item>
+  <title>Example entry 4</title>
+  <description>4 Here is some text containing an interesting description.</description>
+  <link>http://www.wikipedia.org/</link>
+  <guid>unique string per item</guid>
+  <pubDate>Mon, 22 Jul 2013 16:10:00 +0000 </pubDate>
+ </item>
+
+  <item>
+  <title>Example entry 5</title>
+  <description>5 Here is some text containing an interesting description.</description>
+  <link>http://www.wikipedia.org/</link>
+  <guid>unique string per item</guid>
+  <pubDate>Mon, 22 Jul 2013 16:20:00 +0000 </pubDate>
+ </item>
+
+  <item>
+  <title>Example entry 6</title>
+  <description>6 Here is some text containing an interesting description.</description>
+  <link>http://www.wikipedia.org/</link>
+  <guid>unique string per item</guid>
+  <pubDate>Mon, 22 Jul 2013 16:30:00 +0000 </pubDate>
+ </item> -->
+
+ 
+</channel>
+</rss>
