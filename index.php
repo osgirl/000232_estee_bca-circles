@@ -1,196 +1,205 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=0" />
+<?php
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+/*
+ *---------------------------------------------------------------
+ * APPLICATION ENVIRONMENT
+ *---------------------------------------------------------------
+ *
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like logging and error reporting.
+ *
+ * This can be set to anything, but default usage is:
+ *
+ *     development
+ *     testing
+ *     production
+ *
+ * NOTE: If you change these, also change the error_reporting() code below
+ *
+ */
+	define('ENVIRONMENT', 'development');
+/*
+ *---------------------------------------------------------------
+ * ERROR REPORTING
+ *---------------------------------------------------------------
+ *
+ * Different environments will require different levels of error reporting.
+ * By default development will show errors but testing and live will hide them.
+ */
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main_smartphone.css">
-        <link rel="stylesheet" href="css/main_tablet.css">
-        <script src="js/vendor/modernizr-2.6.1.min.js"></script>
-    </head>
-    
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-        <![endif]-->
+if (defined('ENVIRONMENT'))
+{
+	switch (ENVIRONMENT)
+	{
+		case 'development':
+			error_reporting(E_ALL);
+		break;
+	
+		case 'testing':
+		case 'production':
+			error_reporting(0);
+		break;
 
-        <!-- Add your site or application content here -->
-       <div id="fb-root"></div>
-		<script type="text/javascript">
-		  // You probably don't want to use globals, but this is just example code
-		  var fbAppId = '307826036019777';
-		  var objectToLike = 'http://www.cnn.com/2013/07/09/opinion/bors-millenial-comic-strip/index.html?hpt=hp_c7';
+		default:
+			exit('The application environment is not set correctly.');
+	}
+}
 
-		  // This is boilerplate code that is used to initialize the Facebook
-		  // JS SDK.  You would normally set your App ID in this code.
-		
-		  // Additional JS functions here
-		  window.fbAsyncInit = function() {
-		    FB.init({
-		      appId      : fbAppId,        // App ID
-		      status     : true,           // check login status
-		      cookie     : true,           // enable cookies to allow the server to access the session
-		      xfbml      : true            // parse page for xfbml or html5 social plugins like login button below
-		    });
-		
-		    // Put additional init code here
-		  };
-		
-		  // Load the SDK Asynchronously
-		  (function(d, s, id){
-		     var js, fjs = d.getElementsByTagName(s)[0];
-		     if (d.getElementById(id)) {return;}
-		     js = d.createElement(s); js.id = id;
-		     js.src = "//connect.facebook.net/en_US/all.js";
-		     fjs.parentNode.insertBefore(js, fjs);
-		   }(document, 'script', 'facebook-jssdk'));
-		</script>
-		
-		
-		<div id='content_wrap'>
-			<div id='top_nav'>
-				<div id='top_main_nav'>
-					<div class='all_cap'>HOME</div>
-					<div class='all_cap'>CONVERSATION</div>
-					<div class='all_cap'>VIDEO</div>
-					<div class='all_cap'>DONATE</div>
-				</div>
-				<div id='top_sub_nav'>
-					
-				</div>
-			</div>
-			<div id='main_content'>
-				<div id='top_main_content'>
-					<div id='main_image'>
-						<img src='img/pics/stronger-together.png'/>
-					</div>
-					<div id='main_feature'>
-						<div id='featured_header'>
-							<img style='margin-right:10px;' class='float_left' src='img/headers/featured-header.png'/>
-							<div id='featured_nav' class='float_left'>
-								<div class='featured_dot float_left'></div>
-								<div class='featured_dot float_left'></div>
-								<div class='featured_dot float_left'></div>
-							</div>
-						</div>
-						<div id='featured_content'>
-							<div id='featured_circle' class='float_left'></div>
-							<div id='featured_social' class='float_left'>
-								<div id='featured_instagram'></div>
-								<div id='featured_twitter'></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div id='bottom_main_content'>
-					<div id='join_conversation'>
-						<div id='join_header'><img src='img/headers/join-the-conversation.png'/></div>
-						<div id='join_text' class='light_font'>Show how you're fighting breast cancer by creating a circle, uploading a photo, or tagging posts on Instagram and Twitter with <b>#BCAstrength</b>.</div>
-						<div id='join_btns'>
-							<div style='width:50%; float:left;'><div id='create_circle_btn' class='pink_btn float_right all_cap'>CREATE A CIRCLE</div></div>
-							<div style='width:50%; float:right;'><div id='upload_photo_btn' class='pink_btn float_left all_cap'>UPLOAD A PHOTO</div></div>
-						</div>
-					</div>
-					<div id='community'>
-						<div id='community_header'>Community</div>
-						<div class='community_item'>
-							<div class='community_icon float_left'><img src='img/icons/walking.png'/></div>
-							<div>
-								<div class='community_line_1 light_font'>219 People are</div>
-								<div class='community_line_2'>Walking Everyday In October</div>
-							</div>
-						</div>
-						<div class='community_item'>
-							<div class='community_icon float_left'><img src='img/icons/walking.png'/></div>
-							<div>
-								<div class='community_line_1 light_font'>219 People are</div>
-								<div class='community_line_2'>Walking Everyday In October</div>
-							</div>
-						</div>
-						<div class='community_item'>
-							<div class='community_icon float_left'><img src='img/icons/walking.png'/></div>
-							<div>
-								<div class='community_line_1 light_font'>219 People are</div>
-								<div class='community_line_2'>Walking Everyday In October</div>
-							</div>
-						</div>
-						<div class='community_item'>
-							<div class='community_icon float_left'><img src='img/icons/walking.png'/></div>
-							<div>
-								<div class='community_line_1 light_font'>219 People are</div>
-								<div class='community_line_2'>Walking Everyday In October</div>
-							</div>
-						</div>
-						<div class='community_item'>
-							<div class='community_icon float_left'><img src='img/icons/walking.png'/></div>
-							<div>
-								<div class='community_line_1 light_font'>219 People are</div>
-								<div class='community_line_2'>Walking Everyday In October</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id='gallery'>
-				<div class='h_divider_top'></div>
-				<div id='magnet_feed'></div>
-				<div class='h_divider_bottom'></div>
-			</div>
-			<div id='footer'>
-				<div id='join_fight' class='all_cap light_font'>
-					<div id='join_fight_text'>Join the fight<br /><span style='font-size:160%'>donate!</span></div>
-					<div id='donate_btn' class='pink_btn'>DONATE NOW</div>
-				</div>
-				<div id='join_fight_content'>
-					<h1 class='all_cap'>Nunc a euismod odio. Quisque</h1>
-					<p>Fusce in quam eget sem interdum mattis nec ac quam. Aenean dictum elit ut elementum viverra. Ut mollis facilisis ante in consectetur.</p>
-				</div>
-			</div>
-		</div>
-		
-		<!--
-		  Login Button - https://developers.facebook.com/docs/reference/plugins/login
-		
-		  This example needs the 'publish_actions' permission in order to publish an
-		  action.  The scope parameter below is what prompts the user for that permission.
-		-->
-		
-		<div
-		  class="fb-login-button"
-		  data-show-faces="true"
-		  data-width="200"
-		  data-max-rows="1"
-		  data-scope="publish_actions">
-		</div>
-		<button id='show_friendlist_btn'>Show Friendlist</button>
-		<div id='friendlist'></div>
-		<div id='result'></div>
+/*
+ *---------------------------------------------------------------
+ * SYSTEM FOLDER NAME
+ *---------------------------------------------------------------
+ *
+ * This variable must contain the name of your "system" folder.
+ * Include the path if the folder is not in the same  directory
+ * as this file.
+ *
+ */
+	$system_path = 'system';
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
-        <script type="text/javascript" src="js/vendor/video.js"></script>
-        <script type="text/javascript" src="js/vendor/fancybox/jquery.easing-1.3.pack.js"></script>
-        <script type="text/javascript" src="js/vendor/fancybox/jquery.fancybox-1.3.4.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/util/facebook.js"></script>
-        <script src="js/main.js"></script>
-        
+/*
+ *---------------------------------------------------------------
+ * APPLICATION FOLDER NAME
+ *---------------------------------------------------------------
+ *
+ * If you want this front controller to use a different "application"
+ * folder then the default one you can set its name here. The folder
+ * can also be renamed or relocated anywhere on your server.  If
+ * you do, use a full server path. For more info please see the user guide:
+ * http://codeigniter.com/user_guide/general/managing_apps.html
+ *
+ * NO TRAILING SLASH!
+ *
+ */
+	$application_folder = 'application';
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
-    </body>
-</html>
+/*
+ * --------------------------------------------------------------------
+ * DEFAULT CONTROLLER
+ * --------------------------------------------------------------------
+ *
+ * Normally you will set your default controller in the routes.php file.
+ * You can, however, force a custom routing by hard-coding a
+ * specific controller class/function here.  For most applications, you
+ * WILL NOT set your routing here, but it's an option for those
+ * special instances where you might want to override the standard
+ * routing in a specific front controller that shares a common CI installation.
+ *
+ * IMPORTANT:  If you set the routing here, NO OTHER controller will be
+ * callable. In essence, this preference limits your application to ONE
+ * specific controller.  Leave the function name blank if you need
+ * to call functions dynamically via the URI.
+ *
+ * Un-comment the $routing array below to use this feature
+ *
+ */
+	// The directory name, relative to the "controllers" folder.  Leave blank
+	// if your controller is not in a sub-folder within the "controllers" folder
+	// $routing['directory'] = '';
+
+	// The controller class file name.  Example:  Mycontroller
+	// $routing['controller'] = '';
+
+	// The controller function you wish to be called.
+	// $routing['function']	= '';
+
+
+/*
+ * -------------------------------------------------------------------
+ *  CUSTOM CONFIG VALUES
+ * -------------------------------------------------------------------
+ *
+ * The $assign_to_config array below will be passed dynamically to the
+ * config class when initialized. This allows you to set custom config
+ * items or override any default config values found in the config.php file.
+ * This can be handy as it permits you to share one application between
+ * multiple front controller files, with each file containing different
+ * config values.
+ *
+ * Un-comment the $assign_to_config array below to use this feature
+ *
+ */
+	// $assign_to_config['name_of_config_item'] = 'value of config item';
+
+
+
+// --------------------------------------------------------------------
+// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
+// --------------------------------------------------------------------
+
+/*
+ * ---------------------------------------------------------------
+ *  Resolve the system path for increased reliability
+ * ---------------------------------------------------------------
+ */
+
+	// Set the current directory correctly for CLI requests
+	if (defined('STDIN'))
+	{
+		chdir(dirname(__FILE__));
+	}
+
+	if (realpath($system_path) !== FALSE)
+	{
+		$system_path = realpath($system_path).'/';
+	}
+
+	// ensure there's a trailing slash
+	$system_path = rtrim($system_path, '/').'/';
+
+	// Is the system path correct?
+	if ( ! is_dir($system_path))
+	{
+		exit("Your system folder path does not appear to be set correctly. Please open the following file and correct this: ".pathinfo(__FILE__, PATHINFO_BASENAME));
+	}
+
+/*
+ * -------------------------------------------------------------------
+ *  Now that we know the path, set the main path constants
+ * -------------------------------------------------------------------
+ */
+	// The name of THIS file
+	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+
+	// The PHP file extension
+	// this global constant is deprecated.
+	define('EXT', '.php');
+
+	// Path to the system folder
+	define('BASEPATH', str_replace("\\", "/", $system_path));
+
+	// Path to the front controller (this file)
+	define('FCPATH', str_replace(SELF, '', __FILE__));
+
+	// Name of the "system folder"
+	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
+
+
+	// The path to the "application" folder
+	if (is_dir($application_folder))
+	{
+		define('APPPATH', $application_folder.'/');
+	}
+	else
+	{
+		if ( ! is_dir(BASEPATH.$application_folder.'/'))
+		{
+			exit("Your application folder path does not appear to be set correctly. Please open the following file and correct this: ".SELF);
+		}
+
+		define('APPPATH', BASEPATH.$application_folder.'/');
+	}
+
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE BOOTSTRAP FILE
+ * --------------------------------------------------------------------
+ *
+ * And away we go...
+ *
+ */
+require_once BASEPATH.'core/CodeIgniter.php';
+
+/* End of file index.php */
+/* Location: ./index.php */
