@@ -8,12 +8,10 @@
 	  body {
 		padding: 0px 80px 40px 80px;
 	  }
-	  
+	
+
 	  #top_nav{
 		max-width:608px;
-		font-size: 11px;
-	    font-weight: lighter;
-	    letter-spacing: 1px;
 	    padding: 2px 0 7px 0;
 	}
 	
@@ -21,14 +19,11 @@
 		margin-left:1%;
 	}
 	
-	.collapse_mode_show{
+	.vertical_mode_show{
 		padding: 14px 0 14px 0;
 		display:block;
 	}
-	
-	.collapse_mode_hide{
-		display:none;
-	}
+
 	
 	  #content_wrap{
 		max-width:608px;
@@ -52,6 +47,39 @@
 		min-height:228px;
 	}
 	
+	#join_conversation{
+		width:46%;
+		padding:5% 7% 5% 7%;
+		text-align:center;
+	}
+	
+	#community{
+		width:30%;
+		padding:3% 5% 3% 5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+	
+	.user_info{
+		padding:7% 0 0 18%;
+		min-height:0;
+	}
+	
+	.user_stats{
+		float:left;
+	}
+	
+	#my_circles{
+		background:none;
+		width:53%;
+		padding:5% 0 3% 0;
+	}
+	
+	#trending_actions{
+		width:44.5%;
+		padding:5% 0 3% 2.5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+
 }
 
 
@@ -67,9 +95,6 @@
 	  
 	  #top_nav{
 		max-width:939px;
-		font-size: 11px;
-	    font-weight: lighter;
-	    letter-spacing: 1px;
 	    padding: 20px 0 13px 0;
 	}
 	
@@ -78,12 +103,8 @@
 		display:block;
 	}
 	
-	.collapse_mode_show{
+	.vertical_mode_show{
 		display:none;
-	}
-	
-	.collapse_mode_hide{
-		display:block;
 	}
 	
 	  #content_wrap{
@@ -99,17 +120,38 @@
 	 .top_content_span{
 		width:50%;
 	}
-	 
-	 .top_content_sub_span4{
-		width:62%;
-	}
-	
-	.top_content_sub_span2{
-		width:38%;
-	}
 	
 	.social_item{
 		min-height:178px;
+	}
+	
+	#join_conversation{
+		width:46%;
+		padding:5% 7% 5% 7%;
+		text-align:center;
+	}
+	
+	#community{
+		width:30%;
+		padding:3% 5% 3% 5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+	
+	.user_info{
+		padding:3% 2% 3% 2%;
+		width:38%;
+	}
+	
+	#my_circles{
+		padding:3% 0 3% 2.5%;
+		width:30.5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+	
+	#trending_actions{
+		padding:3% 0 3% 2.5%;
+		width:22.5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
 	}
 }
 
@@ -119,29 +161,15 @@
 /* ===============
     Tablet (1024px)
    =============== */
-  
-    body {
-		padding: 75px 20px 40px 20px;
-	}
+ 
 	
 	#top_nav{
 		max-width:984px;
-		font-size: 11px;
-	    font-weight: lighter;
-	    letter-spacing: 1px;
 	    padding: 20px 0 13px 0;
 	}
 	
 	#top_sub_nav{
 		margin:12px 2% 0 0;
-		display:block;
-	}
-	
-	.collapse_mode_show{
-		display:none;
-	}
-	
-	.collapse_mode_hide{
 		display:block;
 	}
 	
@@ -153,18 +181,6 @@
 		max-height:409px;
 		overflow:hidden;
 	 }
-  
-	.top_content_span{
-		width:50%;
-	}
-
-	.top_content_sub_span4{
-		width:62%;
-	}
-	
-	.top_content_sub_span2{
-		width:38%;
-	}
 	
 	.social_item{
 		min-height:187px;
@@ -192,14 +208,6 @@
 		display:block;
 	}
 	
-	.collapse_mode_show{
-		display:none;
-	}
-	
-	.collapse_mode_hide{
-		display:block;
-	}
-	
 	#content_wrap{
 		max-width:1200px;
 	}
@@ -209,17 +217,6 @@
 		overflow:hidden;
 	}
 	
-	.top_content_span{
-		width:50%;
-	}
-	
-	.top_content_sub_span4{
-		width:62%;
-	}
-	
-	.top_content_sub_span2{
-		width:38%;
-	}
 	
 	.social_item{
 		min-height:228px;

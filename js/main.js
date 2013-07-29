@@ -47,10 +47,6 @@ function getLoginStatus(e){
 		openCreateCircle();
 	})
 	
-	$('#upload_photo_btn').unbind('click').click(function(e){
-		//do upload photos
-		console.log("do upload photos")
-	})
 	
 	$('.log_out_status').hide();
 	$('.log_in_status').show();
@@ -61,7 +57,11 @@ function getLogoutStatus(e){
 	$('.sign_in_btn').html('sign in');
 	$('.sign_in_btn').unbind('click').click(facebook.logIn);
 	
-	$('#upload_photo_btn').unbind('click').click(facebook.logIn);
+	$('.create_circle_btn').unbind('click').click(facebook.logIn)
+	
+	$('#upload_photo_btn').unbind('click').click(function(e){
+		console.log('do upload photo');
+	});
 	
 	$('.log_out_status').show();
 	$('.log_in_status').hide();

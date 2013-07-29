@@ -9,9 +9,6 @@
 	}
 	
 	#top_nav{
-		font-size: 11px;
-	    font-weight: lighter;
-	    letter-spacing: 1px;
 	    padding: 2px 25px 7px 0;
 	}
 	
@@ -28,6 +25,10 @@
 		width:100%;
 		min-height:360px;
 		height:auto;
+	}
+	
+	#user_profile_pic{
+		margin-left:30%;
 	}
 
 }
@@ -49,9 +50,6 @@
 	
 	#top_nav{
 		max-width:480px;
-		font-size: 11px;
-	    font-weight: lighter;
-	    letter-spacing: 1px;
 	    padding: 2px 20px 7px 0;
 	}
 	
@@ -62,6 +60,36 @@
 	.social_item{
 		min-height:480px;
 	}
+	
+	.user_info{
+		padding:7% 0 0 15%;
+		text-align:left;
+	}
+	
+	.user_stats{
+		float:none;
+	}
+	
+	#my_circles{
+		padding:2% 0 3% 15%;
+	}
+	
+	#trending_actions{
+		padding:1% 0 7% 15%;
+	}
+	
+	#user_profile_pic{
+		margin-left:0;
+	    margin-bottom:0;
+		float:left;
+	}
+	
+	#user_profile_info{
+		width:55%;
+		float:left;
+	}
+	
+	
 
 }
 
@@ -81,9 +109,6 @@
 	
 	#top_nav{
 		max-width:600px;
-		font-size: 11px;
-	    font-weight: lighter;
-	    letter-spacing: 1px;
 	    padding: 2px 12px 7px 0;
 	}
 	
@@ -112,6 +137,27 @@
 	
 	#featured_circle{
 		min-height:480px;
+	}
+
+	.user_info{
+		padding:7% 0 0 18%;
+		min-height:0;
+	}
+	
+	.user_stats{
+		float:left;
+	}
+	
+	#my_circles{
+		background:none;
+		width:53%;
+		padding:5% 0 3% 0;
+	}
+	
+	#trending_actions{
+		width:44.5%;
+		padding:5% 0 3% 2.5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
 	}
 	  
 }

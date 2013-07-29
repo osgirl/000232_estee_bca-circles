@@ -70,17 +70,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <div class='top_sub_nav_item pull-right collapse_mode_show' style="margin-right:-8px;">
+                    <div class='top_sub_nav_item pull-right vertical_mode_show' style="margin-right:-8px;">
                     	<div id='top_user_name' class='top_user_name user_name_display pull-left' class='all_cap'></div>
 						<div id='sign_in_btn' class='sign_in_btn all_cap pink_text pull-left'>SIGN IN</div>
 						<div class="pull-left"><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div>
 					</div>
-					<div id="collapse_share_module" class='top_sub_nav_item pull-left collapse_mode_show'>
+					<div id="collapse_share_module" class='top_sub_nav_item pull-left vertical_mode_show'>
                     	<div class='facebook_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div>
 						<div class='twitter_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/twitter-large.png'/></div>
 					</div>
-					<div class="pull-left collapse_mode_show" style="margin:0px 6px 0 6px;"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
-					<div class='top_sub_nav_item pull-left collapse_mode_show'>
+					<div class="pull-left vertical_mode_show" style="margin:0px 6px 0 6px;"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
+					<div class='top_sub_nav_item pull-left vertical_mode_show'>
                         <div class="dropdown pull-left">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">ENG</a>
                             <ul class="dropdown-menu">
@@ -204,97 +204,92 @@
 									</div>
 								</div>
 							</div>
-							<div id='community' class='v_divider span5'>
+							<div id='community' class='span5'>
 								<h2>Community</h2>
-								<div class='community_item'>
-									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
-									<div>
-										<div class='community_line_1 light_font'>219 People are</div>
-										<div class='community_line_2'>Walking Everyday In October</div>
-									</div>
-								</div>
-								<div class='community_item'>
-									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
-									<div>
-										<div class='community_line_1 light_font'>219 People are</div>
-										<div class='community_line_2'>Walking Everyday In October</div>
-									</div>
-								</div>
-								<div class='community_item'>
-									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
-									<div>
-										<div class='community_line_1 light_font'>219 People are</div>
-										<div class='community_line_2'>Walking Everyday In October</div>
-									</div>
-								</div>
-								<div class='community_item'>
-									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
-									<div>
-										<div class='community_line_1 light_font'>219 People are</div>
-										<div class='community_line_2'>Walking Everyday In October</div>
-									</div>
-								</div>
+								<table class='community_item'>
+									<tr>
+									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
+									    <td class='community_line_1 light_font'>219 People are</td>
+									</tr>
+									<tr><td class='community_line_2'>Jogging in the park Everyday In October</td></tr>
+								</table>
+								<table class='community_item'>
+									<tr>
+									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
+									    <td class='community_line_1 light_font'>219 People are</td>
+									</tr>
+									<tr><td class='community_line_2'>Walking Everyday In October</td></tr>
+								</table>
+								<table class='community_item'>
+									<tr>
+									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
+									    <td class='community_line_1 light_font'>219 People are</td>
+									</tr>
+									<tr><td class='community_line_2'>Walking Everyday In October</td></tr>
+								</table>
 							</div>
 						</div>
 					</div>
 					<div class='log_in_status'>
 						<div class="row">
-							<div id='user_profile' class="span4">
-								<div id='user_profile_pic' class='span2 float_left'></div>
-								<div class='float_left span2'>
+							<div class="user_info span4">
+								<div id='user_profile_pic'></div>
+								<div id='user_profile_info'>
 									<div id='bottom_user_name' class='user_name_display'></div>
 									<div class='user_location_display'></div>
 									<div id='user_circle_num'>Belongs to <span id='circle_num'>0 Circle</span></div>
 									<div id='create_another_circle' class='create_circle_btn pink_btn all_cap light_font'>Create Another Circle</div>
 								</div>
+								
 							</div>
-							<div id='my_circles' class='v_divider span4'>
+							<div id="my_circles" class='user_stats span4'>
 								<h2>My Circles</h2>
-								<div class='community_item'>
-									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
-									<div>
-										<div class='circle_line_1 light_font pink_text'>Estee Walk for Breast Cancer</div>
-										<div class='circle_line_2'>5 Friends Talking Action</div>
-									</div>
-								</div>
-								<div class='community_item'>
-									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
-									<div>
-										<div class='circle_line_1 light_font pink_text'>Volunteer at my Local Hospital</div>
-										<div class='circle_line_2'>7 Friends Talking Action</div>
-									</div>
-								</div>
-								<div class='community_item'>
-									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
-									<div>
-										<div class='circle_line_1 light_font pink_text'>Raise 1,000 dollars for BCRF</div>
-										<div class='circle_line_2'>4 Friends Talking Action</div>
-									</div>
-								</div>
+								<table class='community_item'>
+									<tr>
+									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
+									    <td class='community_line_1 light_font'><a href="">Estee Walk for Breast Cancer</a></td>
+									</tr>
+									<tr><td class='community_line_2'>5 Friends Talking Action</td></tr>
+								</table>
+								<table class='community_item'>
+									<tr>
+									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
+									    <td class='community_line_1 light_font'><a href="">Volunteer at my Local Hospital</a></td>
+									</tr>
+									<tr><td class='community_line_2'>7 Friends Talking Action</td></tr>
+								</table>
+								<table class='community_item'>
+									<tr>
+									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
+									    <td class='community_line_1 light_font'><a href="">Raise 1,000 dollars for BCRF</a></td>
+									</tr>
+									<tr><td class='community_line_2'>4 Friends Talking Action</td></tr>
+								</table>
 							</div>
-							<div id='trending_actions' class='v_divider span4'>
+							
+							<div id="trending_actions" class='user_stats span4'>
 								<h2>Trending Actions</h2>
-								<div class='community_item'>
-									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
-									<div>
-										<div class='community_line_1 light_font'>219 People are</div>
-										<div class='community_line_2'>Walking Everyday In October</div>
-									</div>
-								</div>
-								<div class='community_item'>
-									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
-									<div>
-										<div class='community_line_1 light_font'>219 People are</div>
-										<div class='community_line_2'>Walking Everyday In October</div>
-									</div>
-								</div>
-								<div class='community_item'>
-									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
-									<div>
-										<div class='community_line_1 light_font'>219 People are</div>
-										<div class='community_line_2'>Walking Everyday In October</div>
-									</div>
-								</div>
+								<table class='community_item'>
+									<tr>
+									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
+									    <td class='community_line_1 light_font'>219 People are</td>
+									</tr>
+									<tr><td class='community_line_2'>Walking Everyday In October</td></tr>
+								</table>
+								<table class='community_item'>
+									<tr>
+									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
+									    <td class='community_line_1 light_font'>219 People are</td>
+									</tr>
+									<tr><td class='community_line_2'>Walking Everyday In October</td></tr>
+								</table>
+								<table class='community_item'>
+									<tr>
+									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
+									    <td class='community_line_1 light_font'>219 People are</td>
+									</tr>
+									<tr><td class='community_line_2'>Walking Everyday In October</td></tr>
+								</table>
 							</div>
 						</div>
 					</div>  
