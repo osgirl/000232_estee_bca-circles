@@ -183,7 +183,7 @@
 	                			<div id="featured_circle"><img src='<?php echo base_url(); ?>img/pics/circle.png'/></div>
 	                		</div>
 	                		<div class="top_content_sub_span2 span2">
-	                			<div id="featured_instagram" class="social_item "><img src='<?php echo base_url(); ?>img/pics/instagram.png'/></div>
+	                			<div id="featured_instagram" class="social_item"><img src='<?php echo base_url(); ?>img/pics/instagram.jpg'/></div>
 	                			<div id="featured_twitter" class="social_item "></div>
 	                		</div>
 	                	</div>
@@ -240,8 +240,8 @@
 					<div class='log_in_status'>
 						<div class="row">
 							<div id='user_profile' class="span4">
-								<!-- <div id='user_profile_pic' class='float_left'></div> -->
-								<div class='float_left'>
+								<div id='user_profile_pic' class='span2 float_left'></div>
+								<div class='float_left span2'>
 									<div id='bottom_user_name' class='user_name_display'></div>
 									<div class='user_location_display'></div>
 									<div id='user_circle_num'>Belongs to <span id='circle_num'>0 Circle</span></div>

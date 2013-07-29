@@ -248,8 +248,8 @@ h2{
 
 #top_content{
 	max-width:100%;
-	min-height:400px;
-	overflow:visible;
+	min-height:390px;
+	overflow:none;
 }
 
 #main_image{
@@ -293,27 +293,24 @@ h2{
 }
 
 .social_item{
-	width:100%;
-	height:240px;
-	overflow:hidden;
-}
-
-.social_item img{
-	max-width:120%;
-	margin-left:-10%;
-	height:auto;
+	min-height:320px;
 }
 
 #featured_circle{
 	background-color:#f38dab;
-	min-height:400px;
+	min-height:380px;
 	overflow:hidden;
+	text-align:center;
 }
 
 #featured_circle img{
 	max-width:90%;
-	margin-left:5%;
 	height:auto;
+}
+
+#featured_instagram{
+    background-color:black;
+    text-align:center;
 }
 
 #featured_twitter{
@@ -590,6 +587,7 @@ h2{
 .auto_resize{
 	max-width:100%;
 	height:auto;
+	width: auto\9; /* ie8 */
 }
 
 
