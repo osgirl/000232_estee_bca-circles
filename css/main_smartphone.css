@@ -1,29 +1,4 @@
-@media only screen and (min-width: 480px) and (orientation:landscape)  {
-
-/* ===============
-    Smartphone (480px)
-   =============== */
-  
-    #content_wrap{
-	  	min-width:480px;
-	}
-	
-	#top_nav{
-		font-size: 11px;
-	    font-weight: lighter;
-	    letter-spacing: 1px;
-	    padding: 2px 20px 7px 0;
-	}
-	
-	#featured_circle{
-		background-color:#f38dab;
-		min-height:400px;
-		overflow:hidden;
-	}
-
-}
-
-@media only screen and (min-width: 360px) and (orientation:portrait)  {
+@media only screen and (min-width: 360px) {
 
 /* ===============
     Smartphone (360px)
@@ -39,6 +14,10 @@
 	    letter-spacing: 1px;
 	    padding: 2px 25px 7px 0;
 	}
+	
+	#collapse_share_module{
+		margin-left:6%;
+	}
   
 	  #top_content{
 		max-height:480px;
@@ -53,25 +32,69 @@
   
 }
 
-@media only screen and (min-width: 640px) and (orientation:landscape)  {
+@media only screen and (min-width: 480px)  {
+
+/* ===============
+    Smartphone (480px)
+   =============== */
+  
+    #content_wrap{
+	  	max-width:480px;
+	}
+	
+	#top_content{
+		max-height:1400px;
+		overflow:hidden;
+	}
+	
+	#top_nav{
+		max-width:480px;
+		font-size: 11px;
+	    font-weight: lighter;
+	    letter-spacing: 1px;
+	    padding: 2px 20px 7px 0;
+	}
+	
+	#collapse_share_module{
+		margin-left:5%;
+	}
+	
+	#featured_circle{
+		background-color:#f38dab;
+		min-height:400px;
+		overflow:hidden;
+	}
+
+}
+
+@media only screen and (min-width: 640px) and (max-width: 768px)  {
 
 /* ===============
     Smartphone (640px)
    =============== */
   
-	  body {
-		padding: 0px 20px 40px 20px;
+	body {
+		padding: 0px 40px 40px 40px;
+	}
+	
+	#content_wrap{
+	  	max-width:560px;
 	}
 	
 	#top_nav{
+		max-width:560px;
 		font-size: 11px;
 	    font-weight: lighter;
 	    letter-spacing: 1px;
 	    padding: 2px 12px 7px 0;
 	}
+	
+	#collapse_share_module{
+		margin-left:2.5%;
+	}
   
 	  #top_content{
-		max-height:480px;
+		max-height:1800px;
 		overflow:hidden;
 	}
 	

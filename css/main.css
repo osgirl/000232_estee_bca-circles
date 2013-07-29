@@ -106,7 +106,7 @@ overflow:hidden;
 
 #content_wrap{
   	min-width:320px;
-  	max-width:1280px;
+  	max-width:1200px;
 }
 
 h2{
@@ -118,10 +118,20 @@ h2{
 /*TOP NAV*/
 
 #top_nav{
+	min-width:320px;
 	font-size: 11px;
     font-weight: lighter;
     letter-spacing: 1px;
     padding: 2px 20px 7px 0;
+}
+
+.collapse_mode_show{
+	padding: 14px 0 14px 0;
+	display:block;
+}
+
+#collapse_share_module{
+	margin-left:8%;
 }
 
 #top_main_nav{
@@ -130,6 +140,7 @@ h2{
 
 #top_sub_nav{
 	margin:12px 2% 0 0;
+	display:none;
 }
 
 #top_sub_nav div{
@@ -196,6 +207,42 @@ h2{
 }
 
 .navbar-fixed-top{margin-bottom:0px;}
+
+.navbar .btn-navbar .icon-bar{
+	display:block;
+	width:25px;
+	height:3px;
+	background-color:#f38dab;
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	border-radius:0;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+}
+
+.navbar .btn-navbar{
+	float:right;
+	padding:7px 10px;
+	margin-left:5px;
+	margin-right:-8px;
+	color:#ffffff;
+	text-shadow:none;
+	background-color:#ffffff;
+	background-image:none;
+	border-color:transparent;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none}
+	
+.navbar .btn-navbar:hover,.navbar .btn-navbar:focus,.navbar .btn-navbar:active,.navbar .btn-navbar.active,.navbar .btn-navbar.disabled,.navbar .btn-navbar[disabled]{
+	color:#ffffff;
+	background-color:#ffffff;
+	*background-color:#ffffff;
+	}
+.navbar .btn-navbar:active,.navbar .btn-navbar.active{
+	background-color:#ffffff \9;
+	}
 
 /*FEATURE AREA*/
 
@@ -314,8 +361,12 @@ h2{
 
 
 #join_conversation{
-	padding:7% 0 7% 0;
+	padding:5%;
 	text-align:center;
+}
+
+#community{
+	padding:5%;
 }
 
 #join_header img{
@@ -395,10 +446,6 @@ h2{
 
 /*footer*/
 
-#footer{
-	padding: 10px 0 10px 0;
-}
-
 #donate_area{
 	min-height:110px;
 }
@@ -409,7 +456,6 @@ h2{
 }
 
 #join_fight_content{
-	width:90%;
 	padding:10px 5% 0 5%;
 }
 	
@@ -430,8 +476,12 @@ h2{
 
 /* privacy and policy utils*/
 
+#footer{
+	padding: 10px 0 10px 0;
+}
+
 #privacy_policy{
-	font-size:12px;
+	font-size:10px;
 }
 
 #privacy_policy_btn{

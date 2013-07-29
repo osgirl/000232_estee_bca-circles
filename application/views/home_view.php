@@ -70,6 +70,42 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
+                    <div class='top_sub_nav_item pull-right collapse_mode_show' style="margin-right:-8px;">
+                    	<div id='top_user_name' class='top_user_name user_name_display pull-left' class='all_cap'></div>
+						<div id='sign_in_btn' class='sign_in_btn all_cap pink_text pull-left'>SIGN IN</div>
+						<div class="pull-left"><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div>
+					</div>
+					<div id="collapse_share_module" class='top_sub_nav_item pull-left collapse_mode_show'>
+                    	<div class='facebook_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div>
+						<div class='twitter_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/twitter-large.png'/></div>
+					</div>
+					<div class="pull-left collapse_mode_show" style="margin:0px 6px 0 6px;"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
+					<div class='top_sub_nav_item pull-left collapse_mode_show'>
+                        <div class="dropdown pull-left">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">ENG</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;German</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Portuguese</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Traditional Chinese</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;French</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Greek</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Hungarian</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Italian</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Korean</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Spanish</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Arabic (read right to left)</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Hebrew (read right to left)</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Russian</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Spanish</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Turkish</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Non-US English</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Vietnamese</a></li>
+                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Czech</a></li>
+                            </ul>
+                        </div>
+                        <div class='flag pull-left'><img src='<?php echo base_url(); ?>img/flags/english.png' /></div>
+                        <div class='language_arrow pull-left'><img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/></div>
+                    </div>
                     <div class="nav-collapse collapse">
                         <ul id='top_main_nav' class="nav">
                             <li><a href="#conversation" class='all_cap'>Conversation</a></li>
@@ -79,8 +115,8 @@
                         </ul>
                         <div id='top_sub_nav' class='pull-right'>
                             <div class='top_sub_nav_item'>
-                            	<div id='top_user_name' class='user_name_display' class='all_cap'></div>
-								<div id='sign_in_btn' class='all_cap pink_text'>SIGN IN</div>
+                            	<div id='top_user_name' class='top_user_name user_name_display' class='all_cap'></div>
+								<div id='sign_in_btn' class='sign_in_btn all_cap pink_text'>SIGN IN</div>
 								<div><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
 							</div>
 							<div><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
@@ -107,14 +143,14 @@
 	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Czech</a></li>
 	                                </ul>
 	                            </div>
-	                            <div id='flag'><img src='<?php echo base_url(); ?>img/flags/english.png' /></div>
-	                            <div id='language_arrow'><img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/></div>
+	                            <div class='flag'><img src='<?php echo base_url(); ?>img/flags/english.png' /></div>
+	                            <div class='language_arrow'><img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/></div>
                             </div>
                             <div><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
                             <div class='top_sub_nav_item'>
                             	<div class='all_cap'>share</div>
-                            	<div id='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
-								<div id='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
+                            	<div class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
+								<div class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
 							</div>
                         </div>
                         
@@ -153,7 +189,6 @@
 	                	</div>
 	                	</div>
 	                </div>
-	              </div>
 	            </div>
 
 	            <div id='bottom_content'>
@@ -161,11 +196,11 @@
 	            		<div class="row">
 							<div id='join_conversation' class="span7">
 								<div id='join_header'><img class='auto_resize' src='<?php echo base_url(); ?>img/headers/join-the-conversation.png'/></div>
-								<div width=200>
+								<div>
 									<div id='join_text' class='light_font'>Show how you're fighting breast cancer by creating a circle, uploading a photo, or tagging posts on Instagram and Twitter with <b>#BCAstrength</b>.</div>
 									<div id='join_btns'>
-										<div style='width:50%; float:left;'><div class='create_circle_btn pink_btn float_right all_cap'>CREATE A CIRCLE</div></div>
-										<div style='width:50%; float:right;'><div id='upload_photo_btn' class='pink_btn float_left all_cap'>UPLOAD A PHOTO</div></div>
+										<div style='width:50%; float:left; text-align: right'><div class='create_circle_btn pink_btn all_cap'>CREATE A CIRCLE</div></div>
+										<div style='width:50%; float:right; text-align: left'><div id='upload_photo_btn' class='pink_btn pull_left all_cap'>UPLOAD A PHOTO</div></div>
 									</div>
 								</div>
 							</div>
@@ -263,16 +298,36 @@
 							</div>
 						</div>
 					</div>  
-	            </div> 
+	            </div>           
+	            
+	            <div id='gallery'>
+					<div class='h_divider_top'></div>
+					<div id='magnet_feed'></div>
+					<div class='h_divider_bottom'></div>
+				</div>
+				
+				<div id='donate_area' class="row">
+					<div id='join_fight' class='span2 all_cap light_font span'>
+						<div id='join_fight_text'>Join the fight<br /><span style='font-size:160%'>donate!</span></div>
+						<div id='donate_btn' class='pink_btn'>DONATE NOW</div>
+					</div>
+					<div id='join_fight_content' class="span5">
+						<h1 class='all_cap'>Nunc a euismod odio. Quisque</h1>
+						<p>Fusce in quam eget sem interdum mattis nec ac quam. Aenean dictum elit ut elementum viverra. Ut mollis facilisis ante in consectetur.</p>
+					</div>
+					<div id='watch_video' class="span5">
+
+					</div>
+				</div>
+
+	            <button onclick="doWallPost();">Do wall post</button>
             </div>
-
-            <hr>
             
-            <button onclick="doWallPost();">Do wall post</button>
 
-            <footer>
-                <p>&copy; Company 2012</p>
-            </footer>
+            <div id="footer">
+                <div style='width:48%; float:left; border-right:#f38dab 1px solid; padding-right:1.5%'><a class='pink_text' href='#' target='blank'><div id='privacy_policy_btn'>Privacy Policy</div></a></div>
+				<div style='width:49%; float:right; padding-left:1%'><a class='pink_text' href='#' target='blank'><div id='term_and_cons_btn'>Terms & Conditions</div></a></div>
+            </div>
 
         </div> <!-- /container -->
 
