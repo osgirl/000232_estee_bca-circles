@@ -476,45 +476,65 @@ h2{
 	
 }
 
-/*footer*/
+/*DONATE*/
 
 #donate_area{
-	min-height:110px;
+	padding:25px 0 25px 0;
+}
+
+#donate_area > div{
+	float:none;
+	margin-bottom:20px;
 }
 
 #join_fight{
 	text-align:center;
-	padding:8px 0 0 0;
 }
 
 #join_fight_content{
-	padding:10px 5% 0 5%;
+	font-size:12px;
+	letter-spacing:1px;
+	line-height:18px;
+	text-align:center;
+	padding:0 4% 0 4%;
 }
-	
+
+#watch_video{
+	background: none; 
+	padding-left:9%;
+}
+
+#watch_video div{
+	float:left;
+	margin-right:5%;
+}
+
+#watch_video_text{
+	font-size:22px;
+	line-height:26px;
+	margin-top:15px;
+	letter-spacing:1px;
+	text-align:left;
+}
 
 #join_fight_text{
 	font-size:14px;
 	line-height:22px;
-}
-
-#join_fight_content h1{
-	font-size:16px;
-}
-
-#join_fight_content p{
-	font-size:12px;
-	margin-top:-10px;
+	
 }
 
 /* privacy and policy utils*/
 
 #footer{
-	padding: 10px 0 10px 0;
+	padding: 0 0 10px 0;
+	letter-spacing:1px;
+	font-size:12px;
 }
 
-#privacy_policy{
-	font-size:10px;
+#footer a:hover{
+	color:#f38dab;
 }
+
 
 #privacy_policy_btn{
 	float:right;

@@ -79,6 +79,36 @@
 		padding:5% 0 3% 2.5%;
 		background:url('../img/assets/v-divider.png') no-repeat left center;
 	}
+	
+	/*DONATE*/
+	
+	#donate_area{
+		padding:25px 0 25px 1%;
+	}
+	
+	#join_fight{
+		width:20%;
+	}
+	
+	#join_fight_content{
+		width:48%;
+		padding:0 2% 0 2%;
+	}
+	
+	#watch_video{
+		padding-left: 5%;
+		width:23%;
+	}
+	
+	#watch_video div{
+		float:left;
+		margin-right:5%;
+	}
+	
+	#watch_video_text{
+		font-size:18px;
+		line-height:22px;
+	}
 
 }
 
@@ -152,6 +182,38 @@
 		padding:3% 0 3% 2.5%;
 		width:22.5%;
 		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+	
+	/*DONATE*/
+	
+	#donate_area{
+		padding:25px 0 25px 6%;
+	}
+	
+	#join_fight{
+		width:16%;
+	}
+	
+	#join_fight_content{
+		width:42%;
+		padding:0 3% 0 1%;
+	}
+	
+	#watch_video{
+		padding-left: 2.5%;
+		width:35.5%;
+	}
+	
+	#watch_video div{
+		float:left;
+		margin-right:5%;
+	}
+	
+	#watch_video_text{
+		font-size:22px;
+		line-height:26px;
+		text-align:left;
+		margin-top:15px;
 	}
 }
 

@@ -307,15 +307,15 @@
 						<div id='donate_btn' class='pink_btn'>DONATE NOW</div>
 					</div>
 					<div id='join_fight_content' class="span5">
-						<h1 class='all_cap'>Nunc a euismod odio. Quisque</h1>
-						<p>Fusce in quam eget sem interdum mattis nec ac quam. Aenean dictum elit ut elementum viverra. Ut mollis facilisis ante in consectetur.</p>
+						<p>Breast cancer affects 1 in 8 women in their lifetime. A donation of $50 raised by a Circle funds approximately one hour of lifesaving research through The Breast Cancer Research Foundation. Donate now and take us a step closer to eradicating this disease.</p>
 					</div>
 					<div id='watch_video' class="span5">
-
+						<div><img src="<?php echo base_url(); ?>img/assets/video-thumb.png"/></div>
+						<div id="watch_video_text" class='pink_text all_cap'>watch the<br/>bca video</div>
 					</div>
 				</div>
 
-	            <button onclick="doWallPost();">Do wall post</button>
+	            <!-- <button onclick="doWallPost();">Do wall post</button> -->
             </div>
             
 

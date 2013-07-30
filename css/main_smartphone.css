@@ -30,6 +30,10 @@
 	#user_profile_pic{
 		margin-left:30%;
 	}
+	
+	#watch_video{
+		padding-left:12%;
+	}
 
 }
 
@@ -87,6 +91,10 @@
 	#user_profile_info{
 		width:55%;
 		float:left;
+	}
+	
+	#watch_video{
+		padding-left:22%;
 	}
 	
 	
@@ -158,6 +166,45 @@
 		width:44.5%;
 		padding:5% 0 3% 2.5%;
 		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+	
+	/*DONATE*/
+	
+	#donate_area{
+		padding:25px 0 25px 2%;
+	}
+
+	#donate_area > div{
+		float:left;
+	}
+	
+	#join_fight{
+		width:20%;
+	}
+	
+	#join_fight_content{
+		width:52%;
+		padding:0 2% 0 3.5%;
+		text-align:left;
+	}
+	
+	#watch_video{
+		background: url('../img/assets/v-divider-short.png') no-repeat left center; 
+		padding-left: 5%;
+		width:25%;
+	}
+
+	#watch_video div{
+		float:none;
+		margin-right:0;
+	}
+	
+	
+	#watch_video_text{
+		font-size:14px;
+		line-height:18px;
+		text-align:center;
+		margin-top:5px;
 	}
 	  
 }
