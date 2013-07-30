@@ -47,21 +47,21 @@ function getLoginStatus(e){
 		openCreateCircle();
 	})
 	
-	$('#upload_photo_btn').unbind('click').click(function(e){
-		//do upload photos
-		console.log("do upload photos")
-	})
 	
 	$('.log_out_status').hide();
 	$('.log_in_status').show();
 }
 
 function getLogoutStatus(e){
-	$('#top_user_name').html("");
-	$('#sign_in_btn').html('sign in');
-	$('#sign_in_btn').unbind('click').click(facebook.logIn);
+	$('.top_user_name').html("");
+	$('.sign_in_btn').html('sign in');
+	$('.sign_in_btn').unbind('click').click(facebook.logIn);
 	
-	$('#upload_photo_btn').unbind('click').click(facebook.logIn);
+	$('.create_circle_btn').unbind('click').click(facebook.logIn)
+	
+	$('#upload_photo_btn').unbind('click').click(function(e){
+		console.log('do upload photo');
+	});
 	
 	$('.log_out_status').show();
 	$('.log_in_status').hide();
@@ -71,8 +71,8 @@ function displayUserInfo(e){
 	var shortenName = userFirstName + " " + userLastName.substr(0,1) + ".";
 	$('.user_name_display').html(shortenName);
 	$('.user_location_display').html(userLocation);
-	$('#sign_in_btn').html('logout');
-	$('#sign_in_btn').unbind('click').click(facebook.logOut);
+	$('.sign_in_btn').html('logout');
+	$('.sign_in_btn').unbind('click').click(facebook.logOut);
 }
 
 function displayUserProfilePic(e){
@@ -82,11 +82,11 @@ function displayUserProfilePic(e){
 
 function enableButtons(){
 	
-	$('#sign_in_btn').mouseover(function(e){
+	$('.sign_in_btn').mouseover(function(e){
 		$(e.currentTarget).css('cursor','pointer');
 	})
 	
-	$('#sign_in_btn').click(facebook.logIn)
+	$('.sign_in_btn').click(facebook.logIn)
 	
 	$('#language_btn').mouseover(function(e){
 		$(e.currentTarget).css('cursor','pointer');

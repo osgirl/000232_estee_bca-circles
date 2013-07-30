@@ -1,5 +1,5 @@
 
-@media only screen and (min-width: 768px) and (orientation:portrait)  {
+@media only screen and (min-width:768px) and (max-width:979px)  {
 
 /* ===============
     Tablet (768px)
@@ -8,14 +8,22 @@
 	  body {
 		padding: 0px 80px 40px 80px;
 	  }
-	  
+	
+
 	  #top_nav{
-		max-width:984px;
-		font-size: 11px;
-	    font-weight: lighter;
-	    letter-spacing: 1px;
+		max-width:608px;
 	    padding: 2px 0 7px 0;
 	}
+	
+	#collapse_share_module{
+		margin-left:1%;
+	}
+	
+	.vertical_mode_show{
+		padding: 14px 0 14px 0;
+		display:block;
+	}
+
 	
 	  #content_wrap{
 		max-width:608px;
@@ -35,28 +43,196 @@
 		width:38%;
 	}
 	
-	#featured_circle{
-		min-height:480px;
+	.social_item{
+		min-height:228px;
 	}
 	
+	#join_conversation{
+		width:46%;
+		padding:5% 7% 5% 7%;
+		text-align:center;
+	}
+	
+	#community{
+		width:30%;
+		padding:3% 5% 3% 5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+	
+	.user_info{
+		padding:7% 0 0 18%;
+		min-height:0;
+	}
+	
+	.user_stats{
+		float:left;
+	}
+	
+	#my_circles{
+		background:none;
+		width:53%;
+		padding:5% 0 3% 0;
+	}
+	
+	#trending_actions{
+		width:44.5%;
+		padding:5% 0 3% 2.5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+	
+	/*DONATE*/
+	
+	#donate_area{
+		padding:25px 0 25px 1%;
+	}
+	
+	#join_fight{
+		width:20%;
+	}
+	
+	#join_fight_content{
+		width:48%;
+		padding:0 2% 0 2%;
+	}
+	
+	#watch_video{
+		padding-left: 5%;
+		width:23%;
+	}
+	
+	#watch_video div{
+		float:left;
+		margin-right:5%;
+	}
+	
+	#watch_video_text{
+		font-size:18px;
+		line-height:22px;
+	}
+
 }
 
-@media only screen and (min-width: 1024px) and (orientation:landscape)  {
+
+@media only screen and (min-width:980px) {
+
+/* ===============
+    Tablet (979px)
+   =============== */
+  
+	body {
+		padding: 75px 20px 40px 20px;
+	}
+	  
+	  #top_nav{
+		max-width:939px;
+	    padding: 20px 0 13px 0;
+	}
+	
+	#top_sub_nav{
+		margin:12px 2% 0 0;
+		display:block;
+	}
+	
+	.vertical_mode_show{
+		display:none;
+	}
+	
+	  #content_wrap{
+		max-width:939px;
+	  }
+		
+  
+	  #top_content{
+		max-height:390px;
+		overflow:hidden;
+	 }
+	 
+	 .top_content_span{
+		width:50%;
+	}
+	
+	.social_item{
+		min-height:178px;
+	}
+	
+	#join_conversation{
+		width:46%;
+		padding:5% 7% 5% 7%;
+		text-align:center;
+	}
+	
+	#community{
+		width:30%;
+		padding:3% 5% 3% 5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+	
+	.user_info{
+		padding:3% 2% 3% 2%;
+		width:38%;
+	}
+	
+	#my_circles{
+		padding:3% 0 3% 2.5%;
+		width:30.5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+	
+	#trending_actions{
+		padding:3% 0 3% 2.5%;
+		width:22.5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+	
+	/*DONATE*/
+	
+	#donate_area{
+		padding:25px 0 25px 6%;
+	}
+	
+	#join_fight{
+		width:16%;
+	}
+	
+	#join_fight_content{
+		width:42%;
+		padding:0 3% 0 1%;
+	}
+	
+	#watch_video{
+		padding-left: 2.5%;
+		width:35.5%;
+	}
+	
+	#watch_video div{
+		float:left;
+		margin-right:5%;
+	}
+	
+	#watch_video_text{
+		font-size:22px;
+		line-height:26px;
+		text-align:left;
+		margin-top:15px;
+	}
+}
+
+
+@media only screen and (min-width: 1024px) {
 
 /* ===============
     Tablet (1024px)
    =============== */
-  
-    body {
-		padding: 75px 20px 40px 20px;
-	}
+ 
 	
 	#top_nav{
 		max-width:984px;
-		font-size: 11px;
-	    font-weight: lighter;
-	    letter-spacing: 1px;
 	    padding: 20px 0 13px 0;
+	}
+	
+	#top_sub_nav{
+		margin:12px 2% 0 0;
+		display:block;
 	}
 	
 	#content_wrap{
@@ -64,69 +240,38 @@
 	}
 	
 	 #top_content{
-		max-height:430px;
+		max-height:409px;
 		overflow:hidden;
 	 }
-  
-	.top_content_span{
-		width:50%;
-	}
-
-	.top_content_sub_span4{
-		width:62%;
-	}
-	
-	.top_content_sub_span2{
-		width:38%;
-	}
 	
 	.social_item{
-		height:200px;
-		overflow:hidden;
-	}
-	
-	#featured_circle{
-		min-height:480px;
-	}
-	
-}
-
-@media only screen and (min-width: 800px) and (orientation:portrait)  {
-
-/* ===============
-    Tablet (800px)
-   =============== */
-	  
-	  #top_nav{
-		font-size: 11px;
-	    font-weight: lighter;
-	    letter-spacing: 1px;
-	    padding: 2px 16px 7px 0;
-	}
-	
-	#featured_circle{
-		min-height:480px;
+		min-height:187px;
 	}
 	
 }
 
 
-@media only screen and (min-width: 1200px) and (orientation:landscape)  {
+@media only screen and (min-width: 1200px)  {
 
 /* ===============
-    Tablet (1024px)
+    Tablet (1200px)
    =============== */
   
     body {
-		padding: 75px 20px 40px 20px;
+		padding: 75px 0px 40px 0px;
 	}
 	
 	#top_nav{
-		max-width:1160px;
+		max-width:1200px;
+	}
+	
+	#top_sub_nav{
+		margin:12px 2% 0 0;
+		display:block;
 	}
 	
 	#content_wrap{
-		max-width:1160px;
+		max-width:1200px;
 	}
   
     #top_content{
@@ -134,25 +279,9 @@
 		overflow:hidden;
 	}
 	
-	.top_content_span{
-		width:50%;
-	}
-	
-	.top_content_sub_span4{
-		width:62%;
-	}
-	
-	.top_content_sub_span2{
-		width:38%;
-	}
 	
 	.social_item{
-		height:240px;
-		overflow:hidden;
-	}
-	
-	#featured_circle{
-		min-height:480px;
+		min-height:228px;
 	}
 	
 }

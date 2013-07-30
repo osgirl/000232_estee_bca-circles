@@ -1,29 +1,4 @@
-@media only screen and (min-width: 480px) and (orientation:landscape)  {
-
-/* ===============
-    Smartphone (480px)
-   =============== */
-  
-    #content_wrap{
-	  	min-width:480px;
-	}
-	
-	#top_nav{
-		font-size: 11px;
-	    font-weight: lighter;
-	    letter-spacing: 1px;
-	    padding: 2px 20px 7px 0;
-	}
-	
-	#featured_circle{
-		background-color:#f38dab;
-		min-height:400px;
-		overflow:hidden;
-	}
-
-}
-
-@media only screen and (min-width: 360px) and (orientation:portrait)  {
+@media only screen and (min-width: 360px) {
 
 /* ===============
     Smartphone (360px)
@@ -34,51 +9,202 @@
 	}
 	
 	#top_nav{
-		font-size: 11px;
-	    font-weight: lighter;
-	    letter-spacing: 1px;
 	    padding: 2px 25px 7px 0;
 	}
+	
+	#collapse_share_module{
+		margin-left:6%;
+	}
   
-	  #top_content{
-		max-height:480px;
-		overflow:hidden;
+	#top_content{
+		max-height:2100px;
+		overflow:none;
 	}
 	
-	#featured_circle{
-		background-color:#f38dab;
-		min-height:400px;
-		overflow:hidden;
+	.social_item{
+		width:100%;
+		min-height:360px;
+		height:auto;
 	}
-  
+	
+	#user_profile_pic{
+		margin-left:30%;
+	}
+	
+	#watch_video{
+		padding-left:12%;
+	}
+
 }
 
-@media only screen and (min-width: 640px) and (orientation:landscape)  {
+@media only screen and (min-width: 480px)  {
+
+/* ===============
+    Smartphone (480px)
+   =============== */
+  
+    #content_wrap{
+	  	max-width:480px;
+	}
+	
+	#top_content{
+		max-height:2300px;
+		overflow:none;
+	}
+	
+	#top_nav{
+		max-width:480px;
+	    padding: 2px 20px 7px 0;
+	}
+	
+	#collapse_share_module{
+		margin-left:5%;
+	}
+	
+	.social_item{
+		min-height:480px;
+	}
+	
+	.user_info{
+		padding:7% 0 0 15%;
+		text-align:left;
+	}
+	
+	.user_stats{
+		float:none;
+	}
+	
+	#my_circles{
+		padding:2% 0 3% 15%;
+	}
+	
+	#trending_actions{
+		padding:1% 0 7% 15%;
+	}
+	
+	#user_profile_pic{
+		margin-left:0;
+	    margin-bottom:0;
+		float:left;
+	}
+	
+	#user_profile_info{
+		width:55%;
+		float:left;
+	}
+	
+	#watch_video{
+		padding-left:22%;
+	}
+	
+	
+
+}
+
+@media only screen and (min-width: 640px)  {
 
 /* ===============
     Smartphone (640px)
    =============== */
   
-	  body {
+	body {
 		padding: 0px 20px 40px 20px;
 	}
 	
+	#content_wrap{
+	  	max-width:600px;
+	}
+	
 	#top_nav{
-		font-size: 11px;
-	    font-weight: lighter;
-	    letter-spacing: 1px;
+		max-width:600px;
 	    padding: 2px 12px 7px 0;
 	}
+	
+	#collapse_share_module{
+		margin-left:2.5%;
+	}
   
-	  #top_content{
-		max-height:480px;
+	#top_content{
+		max-height:1020px;
 		overflow:hidden;
+	 }
+	 
+	.top_content_sub_span4{
+		width:62%;
+		float:left;
+	}
+	
+	.top_content_sub_span2{
+		width:38%;
+		float:left;
+	}
+	
+	.social_item{
+		min-height:228px;
 	}
 	
 	#featured_circle{
-		background-color:#f38dab;
-		min-height:400px;
-		overflow:hidden;
+		min-height:480px;
 	}
-  
+
+	.user_info{
+		padding:7% 0 0 18%;
+		min-height:0;
+	}
+	
+	.user_stats{
+		float:left;
+	}
+	
+	#my_circles{
+		background:none;
+		width:53%;
+		padding:5% 0 3% 0;
+	}
+	
+	#trending_actions{
+		width:44.5%;
+		padding:5% 0 3% 2.5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+	
+	/*DONATE*/
+	
+	#donate_area{
+		padding:25px 0 25px 2%;
+	}
+
+	#donate_area > div{
+		float:left;
+	}
+	
+	#join_fight{
+		width:20%;
+	}
+	
+	#join_fight_content{
+		width:52%;
+		padding:0 2% 0 3.5%;
+		text-align:left;
+	}
+	
+	#watch_video{
+		background: url('../img/assets/v-divider-short.png') no-repeat left center; 
+		padding-left: 5%;
+		width:25%;
+	}
+
+	#watch_video div{
+		float:none;
+		margin-right:0;
+	}
+	
+	
+	#watch_video_text{
+		font-size:14px;
+		line-height:18px;
+		text-align:center;
+		margin-top:5px;
+	}
+	  
 }
