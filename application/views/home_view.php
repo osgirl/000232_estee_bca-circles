@@ -15,6 +15,12 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_smartphone.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_tablet.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-js.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-bca-skin.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+
+        <!-- This a css for popup window. You can merge this to main.css in final production -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/popup.css">
 
         <script src="<?php echo base_url(); ?>js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
@@ -270,20 +276,75 @@
             
             <button onclick="doWallPost();">Do wall post</button>
 
+            <h4>Popup test links</h4>
+            <ul>
+            	<li>
+            		<a onclick="$popup.open({type:'about'});">about </a>
+            	</li>
+            	<li>
+            		<a onclick="$popup.open({type:'video'});">video </a>
+            	</li>
+				<li>
+		 			<a onclick="$popup.open({type:'photo', 
+			            data:{
+			            	source: 'local',
+			            	photo_url: '/img/popups/test_photo_001.jpg'
+			        	} 
+		        	});">photo w/o desc</a>
+            	</li>
+				<li>
+		            <a onclick="$popup.open({type:'photo', 
+			            data:{
+			            	source: 'local',
+			            	author: 'John Doe',
+			            	content: 'Sed ac convallis ante. Nam feugiat mattis ligula, ac adipiscing purus dictum vel. Duis auctor lacus ipsum #BCAstrength',
+			            	photo_url: '/img/popups/test_photo_001.jpg'
+			        	} 
+		        	});">photo/w desc</a>
+            	</li>
+				<li>
+		            <a onclick="$popup.open({type:'photo', 
+			            data:{
+			            	source: 'instagram',
+			            	author: 'MICHAEL BROWN',
+			            	content: 'Monday morning hair routine! @aveda #invati & #volumising tonic keeps the hair I have looking thicker.. What would I do without you! #aveda',
+			            	photo_url: 'http://distilleryimage4.s3.amazonaws.com/ffcaeb30f25b11e2919022000a1f8daa_7.jpg'
+			        	} 
+		        	});">photo (instagram)</a>
+            	</li>
+				<li>
+		            <a onclick="$popup.open({type:'twitter', 
+			            data:{
+			            	author: '@aitebha92',
+			            	content: '@aveda\'s #Invati line smells so good. Hoping it works just as well! #CrossingFingers',
+			            	datetime: 'July 4th, 2013, 3:24pm',
+			            	avatar: 'http://a0.twimg.com/profile_images/3654654271/be74feaf9db3c15aeaada42eb3a3d115_normal.jpeg'
+			        	} 
+		        	});">Twitter</a>
+            	</li>
+
+       
+
             <footer>
                 <p>&copy; Company 2012</p>
             </footer>
 
         </div> <!-- /container -->
 
+
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 
         <script src="<?php echo base_url(); ?>js/vendor/bootstrap.min.js"></script>
 
+        
+
         <script src="<?php echo base_url(); ?>js/plugins.js"></script>
         <script src="<?php echo base_url(); ?>js/util/facebook.js"></script>
         <script src="<?php echo base_url(); ?>js/main.js"></script>
+
+        <script type="text/javascript" src="js/vendor/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
 
         <script>
             var _gaq=[['_setAccount','<?php echo GA_ACCOUNT; ?>'],['_trackPageview']];
@@ -291,5 +352,6 @@
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
+
     </body>
 </html>

@@ -534,6 +534,21 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 # Don't prepend to error (doesn't accept empty string, use whitespace if you need)
 # php_value error_append_string " "
 
+# ----------------------------------------------------------------------
+# CodeIgnitor reroute
+# ----------------------------------------------------------------------
+
+RewriteCond %{REQUEST_URI} ^system.*
+RewriteRule ^(.*)$ /index.php?/$1 [L]
+
+RewriteCond %{REQUEST_URI} ^application.*
+RewriteRule ^(.*)$ /index.php?/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L]
+
+
 # Increase cookie security
 <IfModule php5_module>
   php_value session.cookie_httponly true

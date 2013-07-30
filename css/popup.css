@@ -1,0 +1,316 @@
+/*Global*/
+.popup {
+	margin: 0;
+	background: #FFFFFF;
+}
+
+.popup #popup_footer_share {
+	display: inline-block;
+	list-style-type: none;
+	float: right;
+	margin: 13px 14px 13px 0;
+	padding: 7px 0;
+	font-size: 14px;
+	letter-spacing: 2px;	
+}
+
+.popup #popup_footer_share li {
+	float: left;
+	margin-left: 6px;
+}
+
+.popup .share-ico {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-top: 2px;
+	cursor: pointer;
+}
+
+.popup #popup_footer_share_facebook {
+	background: url('../img/popups/icons/ico_share-sns.png') no-repeat 0 0;
+}
+
+.popup #popup_footer_share_twitter {
+	background: url('../img/popups/icons/ico_share-sns.png') no-repeat -16px 0;
+}
+
+/*About*/
+.popup#popup_about #about_content{
+	font: 13px/24px Helvetica, Arial, sans-serif;
+}
+
+.popup#popup_about #about_content p{
+	margin: 0;
+}
+
+.popup#popup_about #about_header{
+	display: block;
+	margin: 0 auto 3px;
+	padding-left: 2px;
+}
+
+.popup#popup_about #about_logo{
+	display: inline-block;	
+	vertical-align: top;
+	margin-right: 8px;
+}
+
+.popup#popup_about #about_indent_p{
+	display: inline-block;
+	width: 40%;
+}
+
+.popup#popup_about #about_footnote{
+	display: block;
+	float: right;
+	font-size: 11px;
+	font-style: italic;
+	color: #c2c2c2;
+}
+
+/*Photo*/
+.popup#popup_photo {
+	width: 300px;
+	height: 350px;
+	font: 13px/18px Helvetica, Arial, sans-serif;
+}
+
+.popup#popup_photo #photo_img_holder {
+	position: relative;
+	background: #222222;
+}
+
+.popup#popup_photo #photo_img_holder img{
+	width: 100%;
+}
+
+.popup#popup_photo #photo_desc_holder {
+	position: absolute;
+	bottom: 0;
+	width: 93%;
+	padding: 0 2% 0 5%;
+	background: rgba(0,0,0, .6);
+}
+
+.popup#popup_photo #photo_desc_holder h3{	
+	padding-top: 15px;
+	font-size: 14px;
+	line-height: 0;
+	color: #1bd1ff;
+}
+
+.popup#popup_photo #photo_desc_holder p{
+	display: inline-block;
+	margin: 0;
+	padding: 0 0 15px;
+	color: #FFF;
+}
+
+.popup.instagram#popup_photo #photo_desc_holder p{
+	width: 94%;
+}
+
+.popup#popup_photo #ico_instagram{
+	display: inline-block;
+	width: 26px;
+	height: 26px;
+	margin: 0 0 2px 3px;	
+	background-image: url('../img/popups/icons/ico-instagram.png');
+}
+
+/*Twitter*/
+.popup#popup_twitter {
+	width: 250px;
+	height: 250px;
+	padding: 30px 30px 0;
+	font: 18px/26px Helvetica, Arial, sans-serif;
+	color: #FFFFFF;
+	background: #00ccff;
+}
+
+.popup#popup_twitter table{
+	text-align: left;
+}
+
+.popup#popup_twitter img {
+	width: 48px;
+	height: 48px;
+	margin: 0 15px 15px 0 ;
+}
+.popup#popup_twitter h4{
+	font-size: 24px;
+	margin: 0;
+}
+
+.popup#popup_twitter span{
+	display: block;
+	font-size: 12px;
+	line-height: 24px;
+}
+
+/*Video*/
+.popup#popup_video{
+	width: 256px;
+}
+
+.popup#popup_video #popup_video_holder {
+	height: 144px;
+}
+
+.popup#popup_video #popup_video_footer p{
+	display: inline-block;
+	width: 90%;
+	margin: 10px 0 0 15px; 
+	font-size: 12px;
+	line-height: 14px;
+}
+
+.popup#popup_video #popup_footer_share {
+	border-left: 2px #999999 solid;
+}
+
+
+@media only screen and (min-width: 480px)  {
+
+/* ===============
+    Smartphone (480px)
+   =============== */
+
+  	/*Photo*/
+	.popup#popup_photo {
+		width: 400px;
+		height: 440px;
+	}
+
+	/*Video*/
+	.popup#popup_video{
+		width: 384px;
+	}
+	.popup#popup_video #popup_video_holder {
+		height: 216px;
+	}	
+
+}
+
+
+@media only screen and (min-width: 640px) {
+
+/* ===============
+    Smartphone (640px)
+   =============== */
+
+  	/*Photo*/
+	.popup#popup_photo {
+		width: 557px;
+		height: 592px;
+	}
+
+	.popup.instagram#popup_photo {
+		height: 617px;	
+	}
+
+	.popup#popup_photo #photo_desc_holder h3{	
+		padding-top: 15px;
+		font-size: 14px;
+		line-height: 0;
+		color: #1bd1ff;
+	}
+
+	.popup#popup_photo #photo_desc_holder p{
+		margin: 0;
+		padding: 0 0 15px;
+		color: #FFF;	 
+	}
+
+	/*Twitter*/
+	.popup#popup_twitter {
+		width: 527px;
+		height: 203px;
+	}
+
+	/*Video*/
+	.popup#popup_video{
+		width: 512px;
+	}	
+	.popup#popup_video #popup_video_holder {		
+		height: 288px;
+	}
+
+}
+
+
+@media only screen and (min-width: 768px)  {
+/* ===============
+    Tablet portrait (768px) 
+   =============== */
+
+
+	/*Video*/
+
+	.popup#popup_video{
+		width: 640px;
+	}
+
+	.popup#popup_video #popup_video_holder {		
+		height: 360px;
+	}   
+
+	.popup#popup_video #popup_video_footer p{
+		width: 70%;		
+		font-size: 13px;
+		line-height: 16px;
+	}
+
+
+}
+
+@media only screen and (min-width: 1024px) and (orientation:landscape)  {
+/* ===============
+    Tablet (1024px) and desktop
+   =============== */
+
+   	/*About*/
+	.popup#popup_about {
+		width: 894px;
+		height: 368px;
+	}
+
+	.popup#popup_about #about_mrs_lauder {
+		display: inline-block;
+		float: right;
+		width: 398px;
+		height: 368px;
+	}
+
+	.popup#popup_about #about_content {
+		width: 464px;
+		padding: 16px;
+	}
+
+	/*Video*/
+
+	.popup#popup_video{
+		width: 768px;
+	}
+
+	.popup#popup_video #popup_video_holder {		
+		height: 432px;
+	}
+
+	.popup#popup_video #popup_video_footer p{
+		width: 75%;		
+		font-size: 14px;
+		line-height: 18px;
+	}
+
+}
+
+
+@media only screen and (min-width: 1200px) and (orientation:landscape)  {
+
+/* ===============
+    Desktop
+   =============== */
+
+}
