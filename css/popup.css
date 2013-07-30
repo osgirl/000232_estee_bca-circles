@@ -36,34 +36,35 @@
 }
 
 /*About*/
+
+.popup#popup_about{
+	width: 260px;
+}
+
 .popup#popup_about #about_content{
 	font: 13px/24px Helvetica, Arial, sans-serif;
 }
 
 .popup#popup_about #about_content p{
-	margin: 0;
+	margin: 0 10px;
 }
 
 .popup#popup_about #about_header{
 	display: block;
-	margin: 0 auto 3px;
-	padding-left: 2px;
+	margin: 10px auto 10px;
+	width: 80%;
 }
 
 .popup#popup_about #about_logo{
-	display: inline-block;	
-	vertical-align: top;
-	margin-right: 8px;
-}
-
-.popup#popup_about #about_indent_p{
-	display: inline-block;
-	width: 40%;
+	display: block;	
+	margin: 0 auto 10px;
+	width: 80%;
 }
 
 .popup#popup_about #about_footnote{
 	display: block;
 	float: right;
+	margin: 0 10px 10px;
 	font-size: 11px;
 	font-style: italic;
 	color: #c2c2c2;
@@ -200,6 +201,20 @@
     Smartphone (640px)
    =============== */
 
+   	/*About*/
+	.popup#popup_about {
+		width: 398px;
+	}
+
+	.popup#popup_about #about_header{
+		width:  260px;
+	}
+
+	.popup#popup_about #about_logo{
+		width:  265px;
+	}		
+
+
   	/*Photo*/
 	.popup#popup_photo {
 		width: 557px;
@@ -265,7 +280,7 @@
 
 }
 
-@media only screen and (min-width: 1024px) and (orientation:landscape)  {
+@media only screen and (min-width: 1024px)   {
 /* ===============
     Tablet (1024px) and desktop
    =============== */
@@ -283,13 +298,37 @@
 		height: 368px;
 	}
 
+	.popup#popup_about #about_header{
+		width:  260px;
+		height: 18px;
+		margin: 0 auto 3px;
+		padding-left: 2px;
+	}
+
+	.popup#popup_about #about_logo{
+		width:  265px;
+		height: 92px;		
+		display: inline-block;	
+		vertical-align: top;
+		margin-right: 8px;
+	}	
+
+	.popup#popup_about #about_indent_p{
+		display: inline-block;
+		width: 40%;
+	}	
+
 	.popup#popup_about #about_content {
 		width: 464px;
 		padding: 16px;
 	}
 
-	/*Video*/
+	.popup#popup_about #about_content p{
+		margin: 0;
+	}
 
+
+	/*Video*/
 	.popup#popup_video{
 		width: 768px;
 	}
@@ -307,7 +346,7 @@
 }
 
 
-@media only screen and (min-width: 1200px) and (orientation:landscape)  {
+@media only screen and (min-width: 1200px)   {
 
 /* ===============
     Desktop
