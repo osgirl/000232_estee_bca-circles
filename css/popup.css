@@ -73,7 +73,7 @@
 /*Photo*/
 .popup#popup_photo {
 	width: 300px;
-	height: 350px;
+	height: 300px;
 	font: 13px/18px Helvetica, Arial, sans-serif;
 }
 
@@ -181,7 +181,7 @@
   	/*Photo*/
 	.popup#popup_photo {
 		width: 400px;
-		height: 440px;
+		height: 400px;
 	}
 
 	/*Video*/
@@ -217,12 +217,8 @@
 
   	/*Photo*/
 	.popup#popup_photo {
-		width: 557px;
-		height: 592px;
-	}
-
-	.popup.instagram#popup_photo {
-		height: 617px;	
+		width: 550px;
+		height: 550px;
 	}
 
 	.popup#popup_photo #photo_desc_holder h3{	

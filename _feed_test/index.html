@@ -38,9 +38,9 @@
 			    // alert('FeedMagnet Loaded!');
 			    console.log('FeedMagnet Loaded');
 
-			    var feed = $FM.Feed('images').get(); //instagram
-			    var feed = $FM.Feed('updates').get(); //twitter
-			    // var feed = $FM.Feed('website-content').get();
+			    // var feed = $FM.Feed('images').get(); //instagram
+			    // var feed = $FM.Feed('updates').get(); //twitter
+			    var feed = $FM.Feed('website-content').get();
 
 			    feed.connect('new_update', function(self, data) {
 			    var udata = data.update.data;
