@@ -101,6 +101,8 @@ function Facebook()
 		fetchUserInfo: function(){
 			FB.api("/me", function(response){
 				console.log(response)
+				userID 			= response.id;
+				userName 		= response.name;
 	    		userFirstName 	= response.first_name;
 	    		userLastName 	= response.last_name;
 	    		userLocation 	= response.location.name;
@@ -128,92 +130,45 @@ function Facebook()
 		},
 
 	    createCircle: function(){
-	    	//open graph user generated
-	    	// FB.api("me/bcacircles:join?circle=http://samples.ogp.me/308553962613651?&image[0][url]=http://www2.hiren.info/desktopwallpapers/natural/titlis_obwalden_switzerland.jpg&image[0][user_generated]=true", 
-					// "post",
-// 					
-					// { circle: "http://samples.ogp.me/308553962613651?",
-			         // privacy: {'value': 'SELF'}
-			         // // ,
-			         // // tags: ["100004250646791", "100003988000326"]
-			         // }, 
-// 					
-					// function(response) {
-// 	    	
-		         // if (!response) {
-		           // alert('Error occurred.');
-		         // } else if (response.error) {
-		          // $('#result').html('Error: ' + response.error.message);
-		         // } else {
-		          // $('#result').html('<a href=\"https://www.facebook.com/me/activity/' + response.id + '\">' +
-		             // 'Circle created.  ID is ' + response.id + '</a>')
-		         // }
-		       // }
-		    // );
-		    
-		    
-		    //open graph half size image
-		    FB.api("me/bcacircles:join?", 
+	    	//open graph 
+	    	FB.api("me/bcacircles:join?", 
 					"post",
 					
-					{ circle: "http://bca.dev/BCA/index.php",
-					  title: "circle's big image test",
-					  description: "this is just a test",
-					  image: "http://images1.fanpop.com/images/photos/2600000/HQ-France-wallpapers-france-2627157-1600-1200.jpg",
-			          privacy: {'value': 'SELF'}
-			         // ,
-			         // tags: ["100004250646791", "100003988000326"]
+					{ circle: "http://samples.ogp.me/308553962613651?",
+			         privacy: {'value': 'SELF'},
+			         tags: friendTagIDs
 			         }, 
 					
 					function(response) {
 	    	
 		         if (!response) {
-		           console.log('Error occurred.');
+		           alert('Error occurred.');
 		         } else if (response.error) {
-		         	console.log("error", response.error)
-		          //$('#result').html('Error: ' + response.error.message);
+		          $('#result').html('Error: ' + response.error.message);
 		         } else {
-		         	console.log("success", response.id)
-		          // $('#result').html('<a href=\"https://www.facebook.com/me/activity/' + response.id + '\">' +
-		             // 'Circle created.  ID is ' + response.id + '</a>')
+		          $('#result').html('<a href=\"https://www.facebook.com/me/activity/' + response.id + '\">' +
+		             'Circle created.  ID is ' + response.id + '</a>')
 		         }
 		       }
 		    );
-		    
-		    
-		    //wall post
-		    // var opts = {
-                // message : 'Test message',
-                // description : 'Description here',
-                // picture : 'http://images1.fanpop.com/images/photos/2600000/HQ-France-wallpapers-france-2627157-1600-1200.jpg',
-                // privacy : {'value':'SELF'}
-            // }
-// 		    
-		    // FB.api('/me/photos', 'post', opts, function(response)
-            // {
-                // if (!response || response.error)
-                // {
-                    // console.log('Posting error occured');
-                // }
-                // else
-                // {
-                    // console.log('Success - Post ID: ' + response.id);
-                // }
-            // });
 
 	    },
 	    
-	    showFriendlist: function(){
+	    fetchFriendlist: function(){
 	    	FB.api('/me/friends', function(response){
 		      if (response && response.data){
 		        $(response.data).each(function(index,value){
 				
-				//console.log(value);
-				//get friend's profile picture
-		        	FB.api('/'+value.id+'/picture?type=large', function(res){
+				var friendObj = new Object();
+				
+				friendObj.id = value.id;
+				friendObj.name = value.name;
+				
+		        	FB.api('/'+value.id+'/picture', function(res){
 				      if (res && res.data){
 				        $(res.data).each(function(i,v){
-				        	friendProfileList.push(v.url);
+				        	friendObj.pic = v.url;
+				        	friendProfileList.push(friendObj);
 				        })
 				        if(index >= response.data.length-1) $('body').trigger(GOT_FRIEND_LIST);
 				      } else {

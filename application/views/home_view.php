@@ -9,9 +9,9 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
         <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-responsive.min.css"> -->
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_smartphone.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_tablet.css">
@@ -58,7 +58,6 @@
         <![endif]-->
 
         <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
-        
         
 
         <div class="navbar navbar-fixed-top">
@@ -155,10 +154,80 @@
                         </div>
                         
                     </div><!--/.nav-collapse -->
+                    
+                    <div id="create_circle_screen">
+		            	<div id="create_circle_header" class="all_cap light_font">Create your own circle of strength</div>
+		            	
+		            	<!--STEP 1-->
+		            	<div id="create_circle_step1" class="create_circle_step header_pop_content">
+			            	<div class="steps">Step 1: Choose an action for your Circle</div>
+			            	<h1 class="all_cap">how will you fight breast cancer this year?</h1>
+			            	<div id="select_action">
+			            		<div id="select_action_button" class="select_button">
+			            			<div id="select_action_field" class="select_field">Be proactive. Schedule a mammogram.</div>
+			            			<div class="select_icon"><img src="<?php echo base_url(); ?>img/assets/select-arrow.png"/></div>
+			            		</div>
+			            		<div id="select_goal_dropdown" class="select_dropdown">
+									<ul>
+										<li class="goal_dropdown_list">Be proactive. Schedule a mammogram.</li>
+										<li class="goal_dropdown_list">Volunteering at my local hospital.</li>
+										<li class="goal_dropdown_list">Walking everyday in October.</li>
+										<li class="goal_dropdown_list">Eating healthy.</li>
+										<li class="goal_dropdown_list">Raising 1,000 dollars for BCRF.</li>
+									</ul>
+								</div>
+							</div>
+							<div class="steps">Or <span class="pink_text">Create your own action!</span></div>
+							<input id="custom_action" autocomplete="off" type="text" placeholder="ex: Let's be more active."></input>
+							<table class="btn_control">
+								<tr>
+								    <td class="button_left_wrapper"><div class='pink_btn pull_right cancel_create_circle_btn'>cancel</div></td>
+									<td class="button_right_wrapper"><div id="next_step_btn" class='pink_btn pull-left'>next step</div></td>
+								</tr>
+							</table>
+						</div>
+						<!--STEP 1 END-->
+						<!--STEP 2-->
+						<div id="create_circle_step2" style="display:none" class="create_circle_step header_pop_content">
+							<div class="steps">Step 2: Add your friends. You may add up to 10 friends to your circle.</div>
+			            	<h1 class="all_cap"><span id="create_circle_user" class="pink_text"></span>,</h1>
+			            	<div style="margin-bottom:10px;"><span id="friend_list" class="all_cap">take action against breast cancer by creating a circle of strength with </span>
+			            		<span id="add_friend">
+			            			<!--DO NOT DELETE THIS!! THIS IS FOR DETECTING THE WIDTH OF THE NAME-->
+			            			<span id="temp_name_enter_container" class="all_cap"></span>
+			            			<!--END-->
+			            			<div style="font-size:2.8em; display:inline-block">HHHHHHHHHH<input id="friend_search_field" rel="tooltip" class="all_cap" type="text" autocomplete="off" placeholder="ENTER NAME"/></div>
+			            			<a id="name_plus_btn"><img src="<?php echo base_url(); ?>img/buttons/plus-name-btn.png"></a>
+			            		</span>
+			            	</div>
+							
+							<table class="btn_control">
+								<tr>
+								    <td class='tributton_left_wrapper'><div id="back_step_btn" class='pink_btn pull_right'>back</div></td>
+								    <td class="tributton_mid_wrapper"><div class='pink_btn cancel_create_circle_btn'>cancel</div></td>
+									<td class="tributton_right_wrapper"><div id="create_circle_btn" class='pink_btn pull-left'>create your circle</div></td>
+								</tr>
+							</table>
+							
+						</div>
+						<!--STEP 2 END-->
+					</div>
+					<!--CREATE CIRCLE SCREEN END-->
+					<div id="cancel_screen" style="display:none" >
+						<div class='h_divider_top'></div>
+						<div>You haven't completed your Circle of Strength and your information will not be saved. Are you sure you want to exit?</div>
+						<table class="btn_control">
+							<tr>
+							    <td class="button_left_wrapper"><div class='pink_btn pull_right no_btn'>no</div></td>
+								<td class="button_right_wrapper"><div class='pink_btn pull-left'>yes</div></td>
+							</tr>
+						</table>
+					</div>
                 </div>
             </div>
-        </div>
 
+            
+        </div>
         <div id="content_wrap" class="container">
         	
             <!-- Main hero unit for a primary marketing message or call to action -->
@@ -198,10 +267,12 @@
 								<div id='join_header'><img class='auto_resize' src='<?php echo base_url(); ?>img/headers/join-the-conversation.png'/></div>
 								<div>
 									<div id='join_text' class='light_font'>Show how you're fighting breast cancer by creating a circle, uploading a photo, or tagging posts on Instagram and Twitter with <b>#BCAstrength</b>.</div>
-									<div id='join_btns'>
-										<div style='width:50%; float:left; text-align: right'><div class='create_circle_btn pink_btn all_cap'>CREATE A CIRCLE</div></div>
-										<div style='width:50%; float:right; text-align: left'><div id='upload_photo_btn' class='pink_btn pull_left all_cap'>UPLOAD A PHOTO</div></div>
-									</div>
+									<table class="btn_control">
+										<tr>
+										    <td class="button_left_wrapper"><div class='pink_btn pull_right start_create_circle_btn'>CREATE A CIRCLE</div></td>
+											<td class="button_right_wrapper"><div id='upload_photo_btn' class='pink_btn pull-left'>UPLOAD A PHOTO</div></td>
+										</tr>
+									</table>
 								</div>
 							</div>
 							<div id='community' class='span5'>
@@ -238,7 +309,7 @@
 									<div id='bottom_user_name' class='user_name_display'></div>
 									<div class='user_location_display'></div>
 									<div id='user_circle_num'>Belongs to <span id='circle_num'>0 Circle</span></div>
-									<div id='create_another_circle' class='create_circle_btn pink_btn all_cap light_font'>Create Another Circle</div>
+									<div id='create_another_circle' class='start_create_circle_btn pink_btn'>Create Another Circle</div>
 								</div>
 								
 							</div>
@@ -318,6 +389,8 @@
 	            <!-- <button onclick="doWallPost();">Do wall post</button> -->
             </div>
             
+            <!-- <div class="overlay"></div> -->
+            
 
             <div id="footer">
                 <div style='width:48%; float:left; border-right:#f38dab 1px solid; padding-right:1.5%'><a class='pink_text' href='#' target='blank'><div id='privacy_policy_btn'>Privacy Policy</div></a></div>
@@ -328,9 +401,10 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-
+		<script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>js/vendor/jquery.easing.1.3.js"><\/script>')</script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <script src="<?php echo base_url(); ?>js/vendor/bootstrap.min.js"></script>
-
+        <script src="<?php echo base_url(); ?>js/vendor/bootstrap-tooltip.js"></script>
         <script src="<?php echo base_url(); ?>js/plugins.js"></script>
         <script src="<?php echo base_url(); ?>js/util/facebook.js"></script>
         <script src="<?php echo base_url(); ?>js/main.js"></script>
