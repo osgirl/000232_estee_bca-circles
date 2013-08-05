@@ -60,6 +60,7 @@ function enableEventBinds(){
 }
 
 function getLoginStatus(e){	
+	console.log("log in")
 	facebook.fetchUserInfo();
 	facebook.fetchLargeUserProfilePicture();
 	facebook.fetchFriendlist();
@@ -73,6 +74,7 @@ function getLoginStatus(e){
 }
 
 function getLogoutStatus(e){
+	console.log("log out")
 	$('.top_user_name').html("");
 	$('.sign_in_btn').html('sign in');
 	$('.sign_in_btn').unbind('click').click(facebook.logIn);
