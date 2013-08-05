@@ -15,6 +15,12 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_smartphone.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_tablet.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-js.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-bca-skin.css" type="text/css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+
+        <!-- This a css for popup window. You can merge this to main.css in final production -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/popup.css">
 
         <script src="<?php echo base_url(); ?>js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
@@ -69,42 +75,6 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <div class='top_sub_nav_item pull-right vertical_mode_show' style="margin-right:-8px;">
-                    	<div id='top_user_name' class='top_user_name user_name_display pull-left' class='all_cap'></div>
-						<div id='sign_in_btn' class='sign_in_btn all_cap pink_text pull-left'>SIGN IN</div>
-						<div class="pull-left"><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div>
-					</div>
-					<div id="collapse_share_module" class='top_sub_nav_item pull-left vertical_mode_show'>
-                    	<div class='facebook_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div>
-						<div class='twitter_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/twitter-large.png'/></div>
-					</div>
-					<div class="pull-left vertical_mode_show" style="margin:0px 6px 0 6px;"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
-					<div class='top_sub_nav_item pull-left vertical_mode_show'>
-                        <div class="dropdown pull-left">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">ENG</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;German</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Portuguese</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Traditional Chinese</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;French</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Greek</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Hungarian</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Italian</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Korean</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Spanish</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Arabic (read right to left)</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Hebrew (read right to left)</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Russian</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Spanish</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Turkish</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Non-US English</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Vietnamese</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Czech</a></li>
-                            </ul>
-                        </div>
-                        <div class='flag pull-left'><img src='<?php echo base_url(); ?>img/flags/english.png' /></div>
-                        <div class='language_arrow pull-left'><img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/></div>
-                    </div>
                     <div class="nav-collapse collapse">
                         <ul id='top_main_nav' class="nav">
                             <li><a href="#conversation" class='all_cap'>Conversation</a></li>
@@ -114,8 +84,8 @@
                         </ul>
                         <div id='top_sub_nav' class='pull-right'>
                             <div class='top_sub_nav_item'>
-                            	<div id='top_user_name' class='top_user_name user_name_display' class='all_cap'></div>
-								<div id='sign_in_btn' class='sign_in_btn all_cap pink_text'>SIGN IN</div>
+                            	<div id='top_user_name' class='user_name_display' class='all_cap'></div>
+								<div id='sign_in_btn' class='all_cap pink_text'>SIGN IN</div>
 								<div><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
 							</div>
 							<div><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
@@ -142,14 +112,14 @@
 	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Czech</a></li>
 	                                </ul>
 	                            </div>
-	                            <div class='flag'><img src='<?php echo base_url(); ?>img/flags/english.png' /></div>
-	                            <div class='language_arrow'><img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/></div>
+	                            <div id='flag'><img src='<?php echo base_url(); ?>img/flags/english.png' /></div>
+	                            <div id='language_arrow'><img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/></div>
                             </div>
                             <div><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
                             <div class='top_sub_nav_item'>
                             	<div class='all_cap'>share</div>
-                            	<div class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
-								<div class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
+                            	<div id='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
+								<div id='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
 							</div>
                         </div>
                         
@@ -252,12 +222,13 @@
 	                			<div id="featured_circle"><img src='<?php echo base_url(); ?>img/pics/circle.png'/></div>
 	                		</div>
 	                		<div class="top_content_sub_span2 span2">
-	                			<div id="featured_instagram" class="social_item"><img src='<?php echo base_url(); ?>img/pics/instagram.jpg'/></div>
+	                			<div id="featured_instagram" class="social_item "><img src='<?php echo base_url(); ?>img/pics/instagram.png'/></div>
 	                			<div id="featured_twitter" class="social_item "></div>
 	                		</div>
 	                	</div>
 	                	</div>
 	                </div>
+	              </div>
 	            </div>
 
 	            <div id='bottom_content'>
@@ -265,149 +236,203 @@
 	            		<div class="row">
 							<div id='join_conversation' class="span7">
 								<div id='join_header'><img class='auto_resize' src='<?php echo base_url(); ?>img/headers/join-the-conversation.png'/></div>
-								<div>
+								<div width=200>
 									<div id='join_text' class='light_font'>Show how you're fighting breast cancer by creating a circle, uploading a photo, or tagging posts on Instagram and Twitter with <b>#BCAstrength</b>.</div>
+<<<<<<< HEAD
 									<table class="btn_control">
 										<tr>
 										    <td class="button_left_wrapper"><div class='pink_btn pull_right start_create_circle_btn'>CREATE A CIRCLE</div></td>
 											<td class="button_right_wrapper"><div id='upload_photo_btn' class='pink_btn pull-left'>UPLOAD A PHOTO</div></td>
 										</tr>
 									</table>
+=======
+									<div id='join_btns'>
+										<div style='width:50%; float:left;'><div class='create_circle_btn pink_btn float_right all_cap'>CREATE A CIRCLE</div></div>
+										<div style='width:50%; float:right;'><div id='upload_photo_btn' class='pink_btn float_left all_cap'>UPLOAD A PHOTO</div></div>
+									</div>
+>>>>>>> bee2f8d3fed58779f3674ad4b9439e24dacce96c
 								</div>
 							</div>
-							<div id='community' class='span5'>
+							<div id='community' class='v_divider span5'>
 								<h2>Community</h2>
-								<table class='community_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'>219 People are</td>
-									</tr>
-									<tr><td class='community_line_2'>Jogging in the park Everyday In October</td></tr>
-								</table>
-								<table class='community_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'>219 People are</td>
-									</tr>
-									<tr><td class='community_line_2'>Walking Everyday In October</td></tr>
-								</table>
-								<table class='community_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'>219 People are</td>
-									</tr>
-									<tr><td class='community_line_2'>Walking Everyday In October</td></tr>
-								</table>
+								<div class='community_item'>
+									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
+									<div>
+										<div class='community_line_1 light_font'>219 People are</div>
+										<div class='community_line_2'>Walking Everyday In October</div>
+									</div>
+								</div>
+								<div class='community_item'>
+									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
+									<div>
+										<div class='community_line_1 light_font'>219 People are</div>
+										<div class='community_line_2'>Walking Everyday In October</div>
+									</div>
+								</div>
+								<div class='community_item'>
+									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
+									<div>
+										<div class='community_line_1 light_font'>219 People are</div>
+										<div class='community_line_2'>Walking Everyday In October</div>
+									</div>
+								</div>
+								<div class='community_item'>
+									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
+									<div>
+										<div class='community_line_1 light_font'>219 People are</div>
+										<div class='community_line_2'>Walking Everyday In October</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class='log_in_status'>
 						<div class="row">
-							<div class="user_info span4">
-								<div id='user_profile_pic'></div>
-								<div id='user_profile_info'>
+							<div id='user_profile' class="span4">
+								<!-- <div id='user_profile_pic' class='float_left'></div> -->
+								<div class='float_left'>
 									<div id='bottom_user_name' class='user_name_display'></div>
 									<div class='user_location_display'></div>
 									<div id='user_circle_num'>Belongs to <span id='circle_num'>0 Circle</span></div>
 									<div id='create_another_circle' class='start_create_circle_btn pink_btn'>Create Another Circle</div>
 								</div>
-								
 							</div>
-							<div id="my_circles" class='user_stats span4'>
+							<div id='my_circles' class='v_divider span4'>
 								<h2>My Circles</h2>
-								<table class='community_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'><a href="">Estee Walk for Breast Cancer</a></td>
-									</tr>
-									<tr><td class='community_line_2'>5 Friends Talking Action</td></tr>
-								</table>
-								<table class='community_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'><a href="">Volunteer at my Local Hospital</a></td>
-									</tr>
-									<tr><td class='community_line_2'>7 Friends Talking Action</td></tr>
-								</table>
-								<table class='community_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'><a href="">Raise 1,000 dollars for BCRF</a></td>
-									</tr>
-									<tr><td class='community_line_2'>4 Friends Talking Action</td></tr>
-								</table>
+								<div class='community_item'>
+									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
+									<div>
+										<div class='circle_line_1 light_font pink_text'>Estee Walk for Breast Cancer</div>
+										<div class='circle_line_2'>5 Friends Talking Action</div>
+									</div>
+								</div>
+								<div class='community_item'>
+									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
+									<div>
+										<div class='circle_line_1 light_font pink_text'>Volunteer at my Local Hospital</div>
+										<div class='circle_line_2'>7 Friends Talking Action</div>
+									</div>
+								</div>
+								<div class='community_item'>
+									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
+									<div>
+										<div class='circle_line_1 light_font pink_text'>Raise 1,000 dollars for BCRF</div>
+										<div class='circle_line_2'>4 Friends Talking Action</div>
+									</div>
+								</div>
 							</div>
-							
-							<div id="trending_actions" class='user_stats span4'>
+							<div id='trending_actions' class='v_divider span4'>
 								<h2>Trending Actions</h2>
-								<table class='community_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'>219 People are</td>
-									</tr>
-									<tr><td class='community_line_2'>Walking Everyday In October</td></tr>
-								</table>
-								<table class='community_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'>219 People are</td>
-									</tr>
-									<tr><td class='community_line_2'>Walking Everyday In October</td></tr>
-								</table>
-								<table class='community_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'>219 People are</td>
-									</tr>
-									<tr><td class='community_line_2'>Walking Everyday In October</td></tr>
-								</table>
+								<div class='community_item'>
+									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
+									<div>
+										<div class='community_line_1 light_font'>219 People are</div>
+										<div class='community_line_2'>Walking Everyday In October</div>
+									</div>
+								</div>
+								<div class='community_item'>
+									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
+									<div>
+										<div class='community_line_1 light_font'>219 People are</div>
+										<div class='community_line_2'>Walking Everyday In October</div>
+									</div>
+								</div>
+								<div class='community_item'>
+									<div class='action_icon'><img src='<?php echo base_url(); ?>img/icons/walking.png'/></div>
+									<div>
+										<div class='community_line_1 light_font'>219 People are</div>
+										<div class='community_line_2'>Walking Everyday In October</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>  
-	            </div>           
-	            
-	            <div id='gallery'>
-					<div class='h_divider_top'></div>
-					<div id='magnet_feed'></div>
-					<div class='h_divider_bottom'></div>
-				</div>
-				
-				<div id='donate_area' class="row">
-					<div id='join_fight' class='span2 all_cap light_font span'>
-						<div id='join_fight_text'>Join the fight<br /><span style='font-size:160%'>donate!</span></div>
-						<div id='donate_btn' class='pink_btn'>DONATE NOW</div>
-					</div>
-					<div id='join_fight_content' class="span5">
-						<p>Breast cancer affects 1 in 8 women in their lifetime. A donation of $50 raised by a Circle funds approximately one hour of lifesaving research through The Breast Cancer Research Foundation. Donate now and take us a step closer to eradicating this disease.</p>
-					</div>
-					<div id='watch_video' class="span5">
-						<div><img src="<?php echo base_url(); ?>img/assets/video-thumb.png"/></div>
-						<div id="watch_video_text" class='pink_text all_cap'>watch the<br/>bca video</div>
-					</div>
-				</div>
-
-	            <!-- <button onclick="doWallPost();">Do wall post</button> -->
+	            </div> 
             </div>
+
+            <hr>
             
+<<<<<<< HEAD
             <!-- <div class="overlay"></div> -->
             
+=======
+            <button onclick="doWallPost();">Do wall post</button>
+>>>>>>> bee2f8d3fed58779f3674ad4b9439e24dacce96c
 
-            <div id="footer">
-                <div style='width:48%; float:left; border-right:#f38dab 1px solid; padding-right:1.5%'><a class='pink_text' href='#' target='blank'><div id='privacy_policy_btn'>Privacy Policy</div></a></div>
-				<div style='width:49%; float:right; padding-left:1%'><a class='pink_text' href='#' target='blank'><div id='term_and_cons_btn'>Terms & Conditions</div></a></div>
-            </div>
+            <h4>Popup test links</h4>
+            <ul>
+            	<li>
+            		<a onclick="$popup.open({type:'about'});">about </a>
+            	</li>
+            	<li>
+            		<a onclick="$popup.open({type:'video'});">video </a>
+            	</li>
+				<li>
+		 			<a onclick="$popup.open({type:'photo', 
+			            data:{
+			            	source: 'local',
+			            	photo_url: '/img/popups/test_photo_001.jpg'
+			        	} 
+		        	});">photo w/o desc</a>
+            	</li>
+				<li>
+		            <a onclick="$popup.open({type:'photo', 
+			            data:{
+			            	source: 'local',
+			            	author: 'John Doe',
+			            	content: 'Sed ac convallis ante. Nam feugiat mattis ligula, ac adipiscing purus dictum vel. Duis auctor lacus ipsum #BCAstrength',
+			            	photo_url: '/img/popups/test_photo_001.jpg'
+			        	} 
+		        	});">photo/w desc</a>
+            	</li>
+				<li>
+		            <a onclick="$popup.open({type:'photo', 
+			            data:{
+			            	source: 'instagram',
+			            	author: 'MICHAEL BROWN',
+			            	content: 'Monday morning hair routine! @aveda #invati & #volumising tonic keeps the hair I have looking thicker.. What would I do without you! #aveda',
+			            	photo_url: 'http://distilleryimage4.s3.amazonaws.com/ffcaeb30f25b11e2919022000a1f8daa_7.jpg'
+			        	} 
+		        	});">photo (instagram)</a>
+            	</li>
+				<li>
+		            <a onclick="$popup.open({type:'twitter', 
+			            data:{
+			            	author: '@aitebha92',
+			            	content: '@aveda\'s #Invati line smells so good. Hoping it works just as well! #CrossingFingers',
+			            	datetime: 'July 4th, 2013, 3:24pm',
+			            	avatar: 'http://a0.twimg.com/profile_images/3654654271/be74feaf9db3c15aeaada42eb3a3d115_normal.jpeg'
+			        	} 
+		        	});">Twitter</a>
+            	</li>
+
+       
+
+            <footer>
+                <p>&copy; Company 2012</p>
+            </footer>
 
         </div> <!-- /container -->
+
+
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 		<script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>js/vendor/jquery.easing.1.3.js"><\/script>')</script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
         <script src="<?php echo base_url(); ?>js/vendor/bootstrap.min.js"></script>
+<<<<<<< HEAD
         <script src="<?php echo base_url(); ?>js/vendor/bootstrap-tooltip.js"></script>
+=======
+
+        
+
+>>>>>>> bee2f8d3fed58779f3674ad4b9439e24dacce96c
         <script src="<?php echo base_url(); ?>js/plugins.js"></script>
         <script src="<?php echo base_url(); ?>js/util/facebook.js"></script>
         <script src="<?php echo base_url(); ?>js/main.js"></script>
+
+        <script type="text/javascript" src="js/vendor/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
 
         <script>
             var _gaq=[['_setAccount','<?php echo GA_ACCOUNT; ?>'],['_trackPageview']];
@@ -415,5 +440,6 @@
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
+
     </body>
 </html>
