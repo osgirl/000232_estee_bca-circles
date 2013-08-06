@@ -234,51 +234,55 @@ function getFriendList(e){
 		if($(e.currentTarget).val() == "")  resetNameTextfield();
 	})
 	
-	$('#friend_search_field').typeahead({
-			source: function (query, process) {
-			    names = [];
-			    nameObj = {};
+	// $('#friend_search_field').typeahead({
+	// 		source: function (query, process) {
+	// 		    names = [];
+	// 		    nameObj = {};
 			 
-			    $.each(friendProfileList, function (i, value) {
-			        nameObj[value.name] = value;
-			        names.push(value.name);
-			    });
+	// 		    $.each(friendProfileList, function (i, value) {
+	// 		        nameObj[value.name] = value;
+	// 		        names.push(value.name);
+	// 		    });
 			 
-			    process(names);
-			},
-			sorter: function (items) {
-			    return items.sort();
-			},
-			updater: function (item) {
-				curSelectedFriendID = nameObj[item].id;
+	// 		    process(names);
+	// 		},
+	// 		sorter: function (items) {
+	// 		    return items.sort();
+	// 		},
+	// 		updater: function (item) {
+	// 			curSelectedFriendID = nameObj[item].id;
 				
-				FB.api('/'+curSelectedFriendID, function(response){
-			      if (response){
-			        console.log(response);
-			        curFriendSelectedName = response.first_name + " " + response.last_name.substr(0,1) + ".";
+	// 			FB.api('/'+curSelectedFriendID, function(response){
+	// 		      if (response){
+	// 		        console.log(response);
+	// 		        curFriendSelectedName = response.first_name + " " + response.last_name.substr(0,1) + ".";
 			        
-			        //resize the field
-			        $("#temp_name_enter_container").html(response.name);
-				    $('#friend_search_field').width($("#temp_name_enter_container").width() + 15);
-				    $('#name_plus_btn').show();
+	// 		        //resize the field
+	// 		        $("#temp_name_enter_container").html(response.name);
+	// 			    $('#friend_search_field').width($("#temp_name_enter_container").width() + 15);
+	// 			    $('#name_plus_btn').show();
 
-			      } else {
-			        console.log('friend names goes wrong', response);
-			      }
-			    });
+	// 		      } else {
+	// 		        console.log('friend names goes wrong', response);
+	// 		      }
+	// 		    });
 
-			    return item;
-			},
-            highlighter: function (item) {
+	// 		    return item;
+	// 		},
+ //            highlighter: function (item) {
             	
-              var friendItem = nameObj[item];
+ //              var friendItem = nameObj[item];
 
-	          var html = '<div class="friend_pic_wrapper pull-left"><img class="friend_pic" src='+friendItem.pic+' /></div>'
-	              html += '<div class="friend_name pull-left">'+friendItem.name
-	              html += '</div>';
-              return html;
-			}
-        });
+	//           var html = '<div class="friend_pic_wrapper pull-left"><img class="friend_pic" src='+friendItem.pic+' /></div>'
+	//               html += '<div class="friend_name pull-left">'+friendItem.name
+	//               html += '</div>';
+ //              return html;
+	// 		}
+ //        });
+
+	$('#friend_search_field').autocomplete({
+      source: ["test", "test", "test", "test", "test"]
+    });
 
 }
 

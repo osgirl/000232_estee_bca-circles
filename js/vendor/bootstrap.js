@@ -950,6 +950,7 @@
     }
 
   , applyPlacement: function(offset, placement){
+
       var $tip = this.tip()
         , width = $tip[0].offsetWidth
         , height = $tip[0].offsetHeight

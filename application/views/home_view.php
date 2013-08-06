@@ -203,7 +203,7 @@
 			            			<!--DO NOT DELETE THIS!! THIS IS FOR DETECTING THE WIDTH OF THE NAME-->
 			            			<span id="temp_name_enter_container" class="all_cap"></span>
 			            			<!--END-->
-			            			<div style="font-size:2.8em; display:inline-block">HHHHHHHHHH<input id="friend_search_field" rel="tooltip" class="all_cap" type="text" autocomplete="off" placeholder="ENTER NAME"/></div>
+			            			<input id="friend_search_field" rel="tooltip" class="all_cap" type="text" autocomplete="off" placeholder="ENTER NAME"/>
 			            			<a id="name_plus_btn"><img src="<?php echo base_url(); ?>img/buttons/plus-name-btn.png"></a>
 			            		</span>
 			            	</div>
@@ -232,7 +232,6 @@
 					</div>
                 </div>
             </div>
-
             
         </div>
         <div id="content_wrap" class="container">
