@@ -35,77 +35,33 @@
 	background: url('../img/popups/icons/ico_share-sns.png') no-repeat -16px 0;
 }
 
-.popup #popup_checkbox{
-	position: relative;
-	display: inline-block;
-	width: 19px;
-	height: 19px;
-	top: 5px;
-	margin: 0 7px 0;
-	background: url('../img/popups/icons/ico_checkbox.png') no-repeat 0 0;
-	cursor: pointer;
-}
-
-.popup_round_button {
-	display: inline-block;
-	width: 110px;
-	height: 32px;
-	margin: 0 3px;
-	text-align: center;
-	font: normal bold 14px/32px Helvetica, Arial, sans-serif !important;
-	cursor: pointer;
-	-webkit-border-radius:16px;
-	   -moz-border-radius:16px;
-		 -o-border-radius:16px;
-			border-radius:16px;
-	-webkit-transition: opacity 250ms;
-	   -moz-transition: opacity 250ms;
-		 -o-transition: opacity 250ms;
-			transition: opacity 250ms;
-}
-
-.popup_round_button#popup_btn_white {
-	color: #f38dab;
-	background: #FFF;
-}
-
-.popup_round_button#popup_btn_pink {
-	color: #FFF;
-	background: #f38dab;
-}
-
-.popup_round_button.dim {
-	opacity: .5;
-}
-
-
 /*About*/
 
 .popup#popup_about{
 	width: 260px;
 }
 
-.popup #about_content{
+.popup#popup_about #about_content{
 	font: 13px/24px Helvetica, Arial, sans-serif;
 }
 
-.popup #about_content p{
+.popup#popup_about #about_content p{
 	margin: 0 10px;
 }
 
-.popup #about_header{
+.popup#popup_about #about_header{
 	display: block;
 	margin: 10px auto 10px;
 	width: 80%;
 }
 
-.popup #about_logo{
+.popup#popup_about #about_logo{
 	display: block;	
 	margin: 0 auto 10px;
 	width: 80%;
 }
 
-.popup #about_footnote{
+.popup#popup_about #about_footnote{
 	display: block;
 	float: right;
 	margin: 0 10px 10px;
@@ -116,24 +72,21 @@
 
 /*Photo*/
 .popup#popup_photo {
+	width: 300px;
+	height: 300px;
 	font: 13px/18px Helvetica, Arial, sans-serif;
 }
 
-.popup #photo_img_holder {
-	width: 300px;
-	height: 300px;
-}
-
-.popup #photo_img_holder {
+.popup#popup_photo #photo_img_holder {
 	position: relative;
 	background: #222222;
 }
 
-.popup #photo_img_holder img{
+.popup#popup_photo #photo_img_holder img{
 	width: 100%;
 }
 
-.popup #photo_desc_holder {
+.popup#popup_photo #photo_desc_holder {
 	position: absolute;
 	bottom: 0;
 	width: 93%;
@@ -141,14 +94,14 @@
 	background: rgba(0,0,0, .6);
 }
 
-.popup #photo_desc_holder h3{	
+.popup#popup_photo #photo_desc_holder h3{	
 	padding-top: 15px;
 	font-size: 14px;
 	line-height: 0;
 	color: #1bd1ff;
 }
 
-.popup #photo_desc_holder p{
+.popup#popup_photo #photo_desc_holder p{
 	display: inline-block;
 	margin: 0;
 	padding: 0 0 15px;
@@ -159,17 +112,12 @@
 	width: 94%;
 }
 
-.popup #ico_instagram{
+.popup#popup_photo #ico_instagram{
 	display: inline-block;
 	width: 26px;
 	height: 26px;
 	margin: 0 0 2px 3px;	
 	background-image: url('../img/popups/icons/ico-instagram.png');
-}
-
-.popup #photo_footer {
-	height: 60px;
-	background: #FFFFFF;
 }
 
 /*Twitter*/
@@ -211,7 +159,7 @@
 	height: 144px;
 }
 
-.popup #popup_video_footer p{
+.popup#popup_video #popup_video_footer p{
 	display: inline-block;
 	width: 90%;
 	margin: 10px 0 0 15px; 
@@ -219,125 +167,10 @@
 	line-height: 14px;
 }
 
-.popup #popup_footer_share {
+.popup#popup_video #popup_footer_share {
 	border-left: 2px #999999 solid;
 }
 
-/*Photo upload*/
-.popup#popup_photo_upload {
-	width: 310px;
-	height: 420px;
-	font: 11px/14px Helvetica, Arial, sans-serif;
-}
-
-.popup #popup_photo_upload_agreement_window {
-	position: absolute;
-	width: 84%;
-	height: 100%;
-	padding: 0 8%;
-	background: #f38dab;
-	color:#FFF;
-	z-index: 2;
-}
-
-.popup #popup_photo_upload_agreement_window h2 {
-	margin: 10px 0 5px;
-	font-size: 14px;
-}
-
-.popup #popup_photo_upload_agreement_window a {
-	color: #FFFFFF;
-	text-decoration: underline;	
-}
-
-.popup #popup_photo_upload_agreement_window ul {
-	margin-left: 15px;
-}
-
-.popup #popup_photo_upload_agreement_window ul li{
-	line-height: 14px;
-}
-
-.popup #popup_photo_upload_agreement_window #button_wrapper{	
-	width:100%; 
-	margin-top: 30px;
-	text-align:center;
-} 
-
-.popup #popup_photo_upload_preview_window {
-	position: absolute;
-	width: 96%;
-	height: 100%;
-	padding: 0 2%;	
-}
-
-.popup #popup_photo_upload_preview_window h2 {
-	text-align: center;
-}
-
-.popup #popup_photo_img_holder {
-	position: relative;
-	width: 370px;
-	height: 370px;
-	margin: 0 auto;
-	border: 2px #aeaeae dashed;
-	text-align: center;
-	background: #f2f2f2;
-}
-
-.popup #popup_photo_img_holder #message {
-	position: absolute;
-	margin: 16% auto 0;
-}
-
-.popup #popup_photo_img_holder #message p{
-	display: block;		
-	margin: 20px 10%;
-}
-
-.popup #popup_photo_img_holder #holder{
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-}
-
-.popup #popup_photo_img_holder #holder img {
-	position: absolute;
-	display: block;
-}
-
-.popup #popup_photo_desc_holder {
-	width: 98%;
-	height: 90px;
-	margin: 12px 0;
-	padding: 1%;
-	text-align: center;
-	background: #f2f2f2;
-}
-
-.popup #popup_photo_desc_holder textarea {
-	width: 95%;
-	min-height: 80px;
-	max-height: 80px;
-	border-style: none; 
-    border-color: Transparent;
-	resize: none;
-	color: #222222;
-	background: #f2f2f2;
-    -webkit-box-shadow: none;
-       -moz-box-shadow: none;	
-    	 -o-box-shadow: none;	
- 			box-shadow: none;
-}
-
-.popup #popup_photo_desc_holder .greyfont {
-	color: #aeaeae;
-}
-
-.popup #popup_photo_upload_preview_window #button_wrapper{
-	text-align: right;
-}
 
 @media only screen and (min-width: 480px)  {
 
@@ -346,7 +179,7 @@
    =============== */
 
   	/*Photo*/
-	.popup #photo_img_holder {
+	.popup#popup_photo {
 		width: 400px;
 		height: 400px;
 	}
@@ -383,19 +216,19 @@
 
 
   	/*Photo*/
-	.popup #photo_img_holder {
+	.popup#popup_photo {
 		width: 550px;
 		height: 550px;
 	}
 
-	.popup #photo_desc_holder h3{	
+	.popup#popup_photo #photo_desc_holder h3{	
 		padding-top: 15px;
 		font-size: 14px;
 		line-height: 0;
 		color: #1bd1ff;
 	}
 
-	.popup #photo_desc_holder p{
+	.popup#popup_photo #photo_desc_holder p{
 		margin: 0;
 		padding: 0 0 15px;
 		color: #FFF;	 
@@ -414,29 +247,6 @@
 	.popup#popup_video #popup_video_holder {		
 		height: 288px;
 	}
-
-	/*Photo upload*/
-	.popup#popup_photo_upload {
-		width: 523px;
-		height: 617px;
-		font: 13px/22px Helvetica, Arial, sans-serif;
-	}	
-
-	.popup #popup_photo_upload_agreement_window h2 {
-		margin: 70px 0 20px;
-		font-size: 23px;
-	}
-
-	.popup #popup_photo_upload_agreement_window ul li{
-		line-height: 20px;
-	}	
-
-	.popup #popup_photo_upload_preview_window h2 {
-		margin: 20px 0 20px;
-		padding: 0;
-		font-size: 23px;
-	}
-
 
 }
 
@@ -457,7 +267,7 @@
 		height: 360px;
 	}   
 
-	.popup #popup_video_footer p{
+	.popup#popup_video #popup_video_footer p{
 		width: 70%;		
 		font-size: 13px;
 		line-height: 16px;
@@ -477,21 +287,21 @@
 		height: 368px;
 	}
 
-	.popup #about_mrs_lauder {
+	.popup#popup_about #about_mrs_lauder {
 		display: inline-block;
 		float: right;
 		width: 398px;
 		height: 368px;
 	}
 
-	.popup #about_header{
+	.popup#popup_about #about_header{
 		width:  260px;
 		height: 18px;
 		margin: 0 auto 3px;
 		padding-left: 2px;
 	}
 
-	.popup #about_logo{
+	.popup#popup_about #about_logo{
 		width:  265px;
 		height: 92px;		
 		display: inline-block;	
@@ -499,17 +309,17 @@
 		margin-right: 8px;
 	}	
 
-	.popup #about_indent_p{
+	.popup#popup_about #about_indent_p{
 		display: inline-block;
 		width: 40%;
 	}	
 
-	.popup #about_content {
+	.popup#popup_about #about_content {
 		width: 464px;
 		padding: 16px;
 	}
 
-	.popup #about_content p{
+	.popup#popup_about #about_content p{
 		margin: 0;
 	}
 
@@ -523,7 +333,7 @@
 		height: 432px;
 	}
 
-	.popup #popup_video_footer p{
+	.popup#popup_video #popup_video_footer p{
 		width: 75%;		
 		font-size: 14px;
 		line-height: 18px;

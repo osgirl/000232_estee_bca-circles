@@ -12,8 +12,7 @@ class Circles_Model extends BCA_Model
 			'users_name'					=> array("shown"=>true, 	"label"=>"User's name"),
 			'users_photo_url'				=> array("shown"=>true, 	"label"=>"User's Profile Photo"),
 			'goal'							=> array("shown"=>true, 	"label"=>"Goal"),
-			'date'							=> array("shown"=>true, 	"label"=>"Date & time"),
-			'language'						=> array("shown"=>true, 	"label"=>"Language")
+			'date'							=> array("shown"=>true, 	"label"=>"Date & time")
 		);
 	}
 }

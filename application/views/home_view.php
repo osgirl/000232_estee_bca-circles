@@ -279,13 +279,13 @@
             <h4>Popup test links</h4>
             <ul>
             	<li>
-            		<a onclick="$.popup({type:'about'});">about </a>
+            		<a onclick="$popup.open({type:'about'});">about </a>
             	</li>
             	<li>
-            		<a onclick="$.popup({type:'video'});">video </a>
+            		<a onclick="$popup.open({type:'video'});">video </a>
             	</li>
 				<li>
-		 			<a onclick="$.popup({type:'photo', 
+		 			<a onclick="$popup.open({type:'photo', 
 			            data:{
 			            	source: 'local',
 			            	photo_url: '/img/popups/test_photo_001.jpg'
@@ -293,7 +293,7 @@
 		        	});">photo w/o desc</a>
             	</li>
 				<li>
-		            <a onclick="$.popup({type:'photo', 
+		            <a onclick="$popup.open({type:'photo', 
 			            data:{
 			            	source: 'local',
 			            	author: 'John Doe',
@@ -303,7 +303,7 @@
 		        	});">photo/w desc</a>
             	</li>
 				<li>
-		            <a onclick="$.popup({type:'photo', 
+		            <a onclick="$popup.open({type:'photo', 
 			            data:{
 			            	source: 'instagram',
 			            	author: 'MICHAEL BROWN',
@@ -313,7 +313,7 @@
 		        	});">photo (instagram)</a>
             	</li>
 				<li>
-		            <a onclick="$.popup({type:'twitter', 
+		            <a onclick="$popup.open({type:'twitter', 
 			            data:{
 			            	author: '@aitebha92',
 			            	content: '@aveda\'s #Invati line smells so good. Hoping it works just as well! #CrossingFingers',
@@ -322,9 +322,7 @@
 			        	} 
 		        	});">Twitter</a>
             	</li>
-				<li>
-            		<a onclick="$.popup({type:'photo_upload'});">Photo upload</a>
-            	</li>
+
        
 
             <footer>
@@ -338,10 +336,9 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 
-        <script src="<?php echo base_url(); ?>js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
-
         <script src="<?php echo base_url(); ?>js/vendor/bootstrap.min.js"></script>
-        <script src="<?php echo base_url(); ?>js/vendor/ajaxfileupload.js"></script>
+
+        
 
         <script src="<?php echo base_url(); ?>js/plugins.js"></script>
         <script src="<?php echo base_url(); ?>js/util/facebook.js"></script>
