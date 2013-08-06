@@ -106,9 +106,10 @@
 	}
 	
 	#watch_video_text{
-		font-size:18px;
-		line-height:22px;
+		font-size:1.4em;
+		line-height:1.2em;
 	}
+	
 
 }
 
@@ -116,7 +117,7 @@
 @media only screen and (min-width:980px) {
 
 /* ===============
-    Tablet (979px)
+    Tablet (980px)
    =============== */
   
 	body {
@@ -210,11 +211,28 @@
 	}
 	
 	#watch_video_text{
-		font-size:22px;
-		line-height:26px;
+		font-size:1.4em;
+		line-height:1.2em;
 		text-align:left;
 		margin-top:15px;
 	}
+	
+	/*CREATE YOUR OWN CIRCLE SCREEN*/
+    #create_circle_header{
+	    font-size:3.6em;
+	    margin-top:55px;
+	    text-align:left;
+    }
+
+    #create_circle_screen h1{ 
+	    line-height:1.2em;
+	    font-size:4.2em;
+    }
+    
+    #friend_list{
+		font-size:2.8em;
+	}
+    
 }
 
 
@@ -278,8 +296,7 @@
 		max-height:480px;
 		overflow:hidden;
 	}
-	
-	
+
 	.social_item{
 		min-height:228px;
 	}

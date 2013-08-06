@@ -23,6 +23,7 @@
         case "dev.click3x.com": 	define('ENVIRONMENT','cfm_dev'); break;
 		case "localhost": 			define('ENVIRONMENT','development'); break;
 		case "bca.dev": 			define('ENVIRONMENT','sean_config'); break;
+		case "bcasite.dev": 		define('ENVIRONMENT','mili_config'); break;
 		//TODO enter more environments as needed
         default : define('ENVIRONMENT', 'production');
     }
@@ -40,6 +41,7 @@ if (defined('ENVIRONMENT'))
 	switch (ENVIRONMENT)
 	{
 		case 'sean_config':
+		case 'mili_config':
 		case 'development':
 			error_reporting(E_ALL);
 		break;

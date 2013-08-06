@@ -34,6 +34,10 @@
 	#watch_video{
 		padding-left:12%;
 	}
+	
+	.pink_btn{
+	    padding:12px 23px 12px 23px;
+	}
 
 }
 
@@ -97,7 +101,54 @@
 		padding-left:22%;
 	}
 	
+	/*CREATE YOUR OWN CIRCLE SCREEN*/
+	.header_pop_content{
+		padding:2% 3% 3% 5%;	
+	}
 	
+    #create_circle_header{
+	    font-size:1.8em;
+	    padding:20px 3% 16px 5%;
+    }
+
+    /*#create_circle_screen h1{ 
+	    line-height:1.4em;
+	    font-size:2em;
+    }*/
+    
+    .select_field{
+    	font-size:1.6em;
+    }
+
+   #custom_action{
+	    font-size:1.7em;	
+        min-width: 426px;
+    }
+    
+    .select_dropdown{
+		top:37px;
+		font-size:18px;
+	}
+	
+	.goal_dropdown_list{
+		padding:10px 0 7px 15px;
+	}
+    
+    .steps{
+		font-size:1.6em;
+	}
+	
+	.select_icon{
+		padding:12px 10px 10px 10px;
+	}
+	
+	.tributton_left_wrapper{
+		width:37.5%; 
+	}
+
+	.tributton_right_wrapper{
+		width:51.5%; 
+	}
 
 }
 
@@ -201,10 +252,34 @@
 	
 	
 	#watch_video_text{
-		font-size:14px;
-		line-height:18px;
+		font-size:1.1em;
+		line-height:1.2em;
 		text-align:center;
 		margin-top:5px;
 	}
+	
+	/*CREATE YOUR OWN CIRCLE SCREEN*/
+	.header_pop_content{
+		padding:2% 3%;	
+	}	
+	
+    #create_circle_header{
+	    font-size:24px;
+	    padding:20px 3% 16px 3%;
+    }
+
+    #create_circle_screen h1{ 
+	    line-height:42px;
+	    font-size:36px;
+    }
+
+   #custom_action{	
+        min-width: 485px;
+    }
+    
+    #friend_list{
+		font-size:2.2em;
+	}
+    
 	  
 }
