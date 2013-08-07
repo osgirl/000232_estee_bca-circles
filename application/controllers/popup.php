@@ -36,4 +36,9 @@ class Popup extends CI_Controller {
 		}
 	}
 
+	public function photo_upload()
+	{
+		$this->load->view('popup/photo_upload_view');
+	}
+
 }

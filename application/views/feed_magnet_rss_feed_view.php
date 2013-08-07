@@ -5,14 +5,23 @@
 	<title><? echo $page_title; ?></title>
 	<description><? echo $page_description; ?></description>
 	<link><? echo $url; ?></link>
+<? if($type == 'circles'):?>
 <?php foreach($items as $item): ?>
-<item>
-<title><?echo $item->id ?></title>
-<description><?echo $item->users_name ?> - <?echo $item->goal ?></description>
-<link><? echo $url; ?>circle/<?echo $item->id ?></link>
-<pubDate><?echo gmdate(DATE_RSS, strtotime($item->date));?></pubDate>
+	<item>
+		<title><?echo $item->id ?></title>
+		<description><?echo $item->users_name ?> - <?echo $item->goal ?></description>
+		<link><? echo $url; ?>circle/<?echo $item->id ?></link>
+		<pubDate><?echo gmdate(DATE_RSS, strtotime($item->date));?></pubDate>
 </item>
+<?php endforeach; ?><?else:?>
+<?php foreach($items as $item): ?>
+	<item>
+		<title><?echo $item->id ?></title>
+		<description><?echo $item->description ?></description>
+		<link><? echo $url; ?>uploads/<?echo $item->filename ?></link>
+		<pubDate><?echo gmdate(DATE_RSS, strtotime($item->date));?></pubDate>
+	</item>
 <?php endforeach; ?>
-
+<?endif;?>
 </channel>
 </rss>  

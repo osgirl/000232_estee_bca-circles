@@ -25,10 +25,11 @@ class Feed_Magnet_Rss_Feed extends CI_Controller {
 				break;
 		}
 
+		$data['type']		 		= $type;
 		$data['page_title'] 		= $title;
 		$data['encoding'] 			= 'ISO-8859-1';
         $data['page_description'] 	= 'Cicrle RSS feed for Feed Magnet';
-        $data['url'] 				= base_url(); // 'http://www.bcacampaign.com/'; 
+        $data['url'] 				= base_url();
         $data['items'] 				= $result;
         header("Content-Type: application/rss+xml");
 		$this->load->view('feed_magnet_rss_feed_view', $data);

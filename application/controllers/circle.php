@@ -16,15 +16,15 @@ class Circle extends CI_Controller {
 		$this->post = $this->input->post();
 		if ( isset ( $this->post['users_fb_id'] )) {	
 			
-			$phpDate = new DateTime();
-			$timeDate = $phpDate->format('Y-m-d H:i:s');
+			$php_date 	= new DateTime();
+			$time_date  = $php_date->format('Y-m-d H:i:s');
 
 			$post = array(
 				'users_fb_id'			=> $this->post['users_fb_id'],
 				'users_name'			=> $this->post['users_name'],
 				'users_photo_url'		=> $this->post['users_photo_url'],
 				'goal'					=> $this->post['goal'],
-				'date'					=> $timeDate,
+				'date'					=> $time_date,
 				'language'				=> $this->post['language'],
 				);
 			
