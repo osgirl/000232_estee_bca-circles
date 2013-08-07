@@ -33,6 +33,8 @@ var curSelectedGoal;
 
 var NAME_TEXTFIELD_WIDTH 	= 135;
 var MAX_FRIENDS_NUM		 	= 10;
+var TOOLTIP_TIMEOUT			= 1500;
+var PHOTO_COLUMN_NUM		= 4;
 
 $(document).ready(function(){	
 
@@ -40,6 +42,14 @@ $(document).ready(function(){
 	enableEventBinds();
 	
 	$('#friend_search_field').width(NAME_TEXTFIELD_WIDTH);
+	$('#friend_search_field').tooltip({
+		trigger:'manual'
+	});
+
+	$('#friend_search_wrapper').tooltip({
+		trigger:'manual'
+	});
+
 });
 
 function doWallPost(){
@@ -126,6 +136,8 @@ function enableButtons(){
 	$('#back_step_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#name_plus_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#create_circle_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+	$('#choose_photos_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+	$('#close_friend_photos_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 
 	//enable clicks
 	$('.sign_in_btn').unbind("click").click(facebook.logIn)
@@ -139,6 +151,8 @@ function enableButtons(){
 	$("#back_step_btn").unbind("click").click(function(e){goNextCreateCircleScreen(e)});
 	$('#name_plus_btn').unbind("click").click(addFriend);
 	$('#create_circle_btn').unbind("click").click(createCircle);
+	$('#choose_photos_btn').unbind("click").click(openFriendPhotosPanel);
+	$('#close_friend_photos_btn').unbind("click").click(closeFriendPhotosPanel);
 
 	//$('#show_friendlist_btn').unbind("click").click(facebook.showFriendlist);
 }
@@ -149,6 +163,7 @@ function openCreateCircleScreen(){
 	createCircleWindowOpen = true;
 	createCircleClicked = false;
 	curSelectedGoal = $($(".goal_dropdown_list").get(0)).html();
+	goal = curSelectedGoal;
 	
 	$("#custom_action").unbind("keyup").keyup(function(e){
 		goal = $(e.currentTarget).val();
@@ -176,6 +191,7 @@ function goNextCreateCircleScreen(e){
 
 function closeCreateCircleScreen(){
 	$("#create_circle_screen").hide();
+	closeFriendPhotosPanel();
 	createCircleWindowOpen = false;
 }
 
@@ -185,6 +201,10 @@ function cancelCreateCircleScreen(){
 }
 
 function resetCircle(){
+
+	$('#friend_search_wrapper').show();
+	$('#choose_photos_wrapper').show();
+
 	$("#select_action").css({ opacity: 1 });
 	goal = $($(".goal_dropdown_list").get(0)).html();
 	curSelectedGoal = goal;
@@ -196,9 +216,20 @@ function resetCircle(){
     $(".temp_name_input_container").remove();
     $(".comma").remove();
     resetNameTextfield();
+
+    resetFriendPhotoItem($('.friend_item'))
 	
 	stepID = 1;
 	goNextCreateCircleScreen(null);
+}
+
+function resetFriendPhotoItem(resetItem){
+
+    resetItem.find('.photo_check').hide();
+	resetItem.unbind('mouseout').mouseout(function(e){
+     	$(e.currentTarget).find('.photo_check').hide();
+     })
+	resetItem.attr('checked',false);
 }
 
 function openActionSelect(){
@@ -234,55 +265,53 @@ function getFriendList(e){
 		if($(e.currentTarget).val() == "")  resetNameTextfield();
 	})
 	
-	// $('#friend_search_field').typeahead({
-	// 		source: function (query, process) {
-	// 		    names = [];
-	// 		    nameObj = {};
+	$('#friend_search_field').typeahead({
+			source: function (query, process) {
+			    names = [];
+			    nameObj = {};
 			 
-	// 		    $.each(friendProfileList, function (i, value) {
-	// 		        nameObj[value.name] = value;
-	// 		        names.push(value.name);
-	// 		    });
+			    $.each(friendProfileList, function (i, value) {
+			        nameObj[value.name] = value;
+			        names.push(value.name);
+			    });
 			 
-	// 		    process(names);
-	// 		},
-	// 		sorter: function (items) {
-	// 		    return items.sort();
-	// 		},
-	// 		updater: function (item) {
-	// 			curSelectedFriendID = nameObj[item].id;
+			    process(names);
+			},
+			sorter: function (items) {
+			    return items.sort();
+			},
+			updater: function (item) {
+				curSelectedFriendID = nameObj[item].id;
 				
-	// 			FB.api('/'+curSelectedFriendID, function(response){
-	// 		      if (response){
-	// 		        console.log(response);
-	// 		        curFriendSelectedName = response.first_name + " " + response.last_name.substr(0,1) + ".";
+				FB.api('/'+curSelectedFriendID, function(response){
+			      if (response){
+			        console.log(response);
+			        curFriendSelectedName = response.first_name + " " + response.last_name.substr(0,1) + ".";
 			        
-	// 		        //resize the field
-	// 		        $("#temp_name_enter_container").html(response.name);
-	// 			    $('#friend_search_field').width($("#temp_name_enter_container").width() + 15);
-	// 			    $('#name_plus_btn').show();
+			        //resize the field
+			        $("#temp_name_enter_container").html(response.name);
+				    $('#friend_search_field').width($("#temp_name_enter_container").width() + 15);
+				    $('#name_plus_btn').show();
 
-	// 		      } else {
-	// 		        console.log('friend names goes wrong', response);
-	// 		      }
-	// 		    });
+			      } else {
+			        console.log('friend names goes wrong', response);
+			      }
+			    });
 
-	// 		    return item;
-	// 		},
- //            highlighter: function (item) {
+			    return item;
+			},
+            highlighter: function (item) {
             	
- //              var friendItem = nameObj[item];
+              var friendItem = nameObj[item];
 
-	//           var html = '<div class="friend_pic_wrapper pull-left"><img class="friend_pic" src='+friendItem.pic+' /></div>'
-	//               html += '<div class="friend_name pull-left">'+friendItem.name
-	//               html += '</div>';
- //              return html;
-	// 		}
- //        });
+	          var html = '<div class="friend_pic_wrapper pull-left"><img class="friend_pic" src='+friendItem.pic+' /></div>'
+	              html += '<div class="friend_name pull-left">'+friendItem.name
+	              html += '</div>';
+              return html;
+			}
+        });
 
-	$('#friend_search_field').autocomplete({
-      source: ["test", "test", "test", "test", "test"]
-    });
+	createFriendPhotosPanel();
 
 }
 
@@ -291,7 +320,6 @@ function resetNameTextfield(){
 	$('#friend_search_field').width(NAME_TEXTFIELD_WIDTH);
 	$('#friend_search_field').val("");
 }
-
 
 function addFriend(){
 	
@@ -324,30 +352,20 @@ function addFriend(){
 
 		friendList.unbind('mouseover').mouseover(function(e){
 			$(e.currentTarget).css('cursor','pointer');
+			$(e.currentTarget).css('margin-left','-50px');
+
 			$(e.currentTarget).addClass('friend_btn_over').removeClass('friend_btn');
 		    $(e.currentTarget).width($(e.currentTarget).next('.temp_name_input_container').width() + 30);
 		    $(e.currentTarget).find('.name_delete_btn').show();
 		    
 		    $('.name_delete_btn').unbind('click').click(function(e){
-
-		    	$(e.currentTarget).parent().next('.temp_name_input_container').next('.comma').remove();
-		    	$(e.currentTarget).parent().next('.temp_name_input_container').remove();
-		    	$(e.currentTarget).parent().remove();
+		    	deleteFriend($(e.currentTarget).parent());
 		    	
-		    	$.each(friendSelectedArray, function(index,value){
-		    		var item = Object(value);
-		    		if(String(item.id) == $(e.currentTarget).parent().attr('id')) {
-		    			friendSelectedArray.splice(index,1);
-		    			friendTagIDs.splice(index,1);
-		    		}
-		    	})
-		    	
-		    	console.log('remove', friendSelectedArray);
-		    	console.log('remove', friendTagIDs);
 		    })
 		})
 		
 	friendList.unbind('mouseout').mouseout(function(e){
+		$(e.currentTarget).css('margin-left','0');
 		$(e.currentTarget).addClass('friend_btn').removeClass('friend_btn_over');
 		$(e.currentTarget).width($(e.currentTarget).next('.temp_name_input_container').width() + 5);
 		$(e.currentTarget).find('.name_delete_btn').hide();
@@ -356,16 +374,52 @@ function addFriend(){
 		$("#friend_list").append(friendList);
 		$("#friend_list").append(tempFriendList);
 
-		(friendSelectedArray.length < MAX_FRIENDS_NUM) ? $("#friend_list").append("<span class='comma'>, </span>") : $('#friend_search_field').hide();
+		if(friendSelectedArray.length < MAX_FRIENDS_NUM) {
+			$("#friend_list").append("<span class='comma'>, </span>"); 
+		} else{
+			$('#friend_search_wrapper').hide();
+			$('#choose_photos_wrapper').hide();
+		}
 		
 		resetNameTextfield();
 		
 	}else{
-		$('#friend_search_field').tooltip({
-			title:"test",
-			container: "#friend_search_field"
-		})
+
+			$('#friend_search_field').tooltip('show');
+			setTimeout(function(){
+				$('#friend_search_field').tooltip('hide');
+				resetNameTextfield();
+			},TOOLTIP_TIMEOUT);
 	}
+
+}
+
+function deleteFriend(deleteTarget){
+
+	$('#friend_search_wrapper').show();
+	$('#choose_photos_wrapper').show();
+
+	if(friendSelectedArray.length == MAX_FRIENDS_NUM) $("#friend_list").append("<span class='comma'>, </span>");
+	deleteTarget.next('.temp_name_input_container').next('.comma').remove();
+	deleteTarget.next('.temp_name_input_container').remove();
+	
+	
+	$.each(friendSelectedArray, function(index,value){
+		var item = Object(value);
+		if(String(item.id) == deleteTarget.attr('id')) {
+			friendSelectedArray.splice(index,1);
+			friendTagIDs.splice(index,1);
+		}
+	})
+
+	deleteTarget.remove();
+
+	$('.friend_item').each(function(i,v){
+		if($(v).attr('id') == deleteTarget.attr('id')){
+			resetFriendPhotoItem($(v));
+		}
+	})
+
 
 }
 
@@ -379,14 +433,111 @@ function friendExist(id){
 	return hasFriend;
 }
 
-function removeFriend(id){
-	$each(friendSelectedArray, function(index, value){
-		if(value.id == id) friendSelectedArray.splice(index, 1);
+function createFriendPhotosPanel(){
+
+	var rowNum = Math.ceil(friendProfileList.length/PHOTO_COLUMN_NUM);
+
+	for(var r=0; r<rowNum; r++){
+		var row = $('<div>');
+		row.addClass('row');
+
+		for(var c=0; c<PHOTO_COLUMN_NUM; c++){
+			var col = $('<div>');
+			 col.addClass('span3 friend_item');
+
+			 row.append(col);
+		}
+
+		$('#friend_photos_container').append(row);
+	}
+
+	$('.friend_item').each(function(index, value){
+
+	    if(index <= friendProfileList.length-1){
+    		var html = '<div class="friend_pic_wrapper_large"><img class="friend_pic_large" src='+friendProfileList[index].pic+' /><img class="photo_check" src="../img/assets/photo-check.png"></div>'
+              html += '<div class="friend_name_large">'+friendProfileList[index].name
+              html += '</div>';
+
+             $(value).attr('id', friendProfileList[index].id);
+             $(value).attr('checked', false);
+             $(value).html(html);
+
+             //enable friend select
+
+             $(value).unbind('mouseover').mouseover(function(e){
+             	$(e.currentTarget).css('cursor','pointer');
+             	$(e.currentTarget).find('.photo_check').show();
+             })
+
+             $(value).unbind('mouseout').mouseout(function(e){
+             	$(e.currentTarget).find('.photo_check').hide();
+             })
+
+             $(value).unbind('click').click(function(e){
+
+             	if(!$(e.currentTarget).attr('checked')){
+
+             		curSelectedFriendID = $(e.currentTarget).attr('id');
+
+             		FB.api('/'+curSelectedFriendID, function(response){
+				      if (response){
+				        console.log(response);
+				        curFriendSelectedName = response.first_name + " " + response.last_name.substr(0,1) + ".";
+				        $("#temp_name_enter_container").html(response.name);
+
+				        addFriend();
+
+				      } 
+				    });
+             		$(e.currentTarget).unbind('mouseout')
+             		$(e.currentTarget).find('.photo_check').show();
+             		$(e.currentTarget).attr('checked', true);
+
+             	}else{
+
+             		var friendSelectItem;
+
+             		$('.friend_btn').each(function(i,v){
+             			if($(v).attr('id') == $(e.currentTarget).attr('id')) {
+             				friendSelectItem = $(v);
+             			}
+             		})
+
+             		deleteFriend(friendSeleteItem)
+             		resetFriendPhotoItem($(e.currentTarget));
+
+             	}
+
+             })
+	    }
+
 	})
-	
+
+	var setting = {
+		showArrows: false,
+        autoReinitialise: true
+	}
+	$('.scroll-pane').jScrollPane(Object(setting));
+
+}
+
+function openFriendPhotosPanel(){
+	$('#friend_photos').show();
+}
+
+function closeFriendPhotosPanel(){
+	$('#friend_photos').hide();
 }
 
 function createCircle(){	
+
+	if(friendSelectedArray.length == 0){
+		$('#friend_search_wrapper').tooltip('show');
+		setTimeout(function(){
+			$('#friend_search_wrapper').tooltip('hide');
+		}, TOOLTIP_TIMEOUT)
+		return;
+	}
 	
 		console.log("user info", userID, userName)
 		console.log("user photo", userProfilePhoto);
@@ -396,6 +547,30 @@ function createCircle(){
 		console.log("language", language);
 		
 		//facebook.createCircle();
+
+		var value = {
+				'users_fb_id' 	  : userID,
+				'users_name'  	  : userName,
+				'users_photo_url' : userProfilePhoto,
+				'goal'			  : goal,
+				'language'		  : 0 // optional, we still not sure about this field
+			};
+
+    	$.ajax({
+        		type: 'post',
+            	url: '../circle/create',
+            	dataType: 'json',
+            	data: value,
+            	success: function(data) {            
+                	console.log('success');
+                	
+             	},
+             	error: function(jqXHR, textStatus, errorThrown){
+					console.log(jqXHR.responseText);
+					console.log(jqXHR.status);
+				}
+      		});
+
 		
 		cancelCreateCircleScreen();
 		

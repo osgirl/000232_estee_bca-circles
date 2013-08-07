@@ -624,8 +624,12 @@ h2{
     display:none;
 }
 
+.friend_content{
+	margin-left:35px;
+}
+
 #friend_list{
-	font-size:1.4em;
+	font-size:2.8em;
 	position:relative;
 }
 
@@ -634,28 +638,46 @@ h2{
     display:none;
 }
 
-#friend_search_field{
-    -moz-border-radius: 50px;
+#friend_search_wrapper{
+	display:block; 
+	position:relative; 
+	-moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     -khtml-border-radius: 50px;
     border-radius: 50px;
     behavior: url(css/PIE.htc);
-    padding:6px 10px 6px 15px;
-    display:inline-block;
-    *display: inline;
-	zoom: 1;
+    padding:13px 10px 0px 15px;
+    background-color:#e8e8e8;
+    height: 26px;
+}
+
+#friend_search_field{
 	font-size:2em;
     background-color:#e8e8e8;
     border:none;
     text-align:left;
-    margin-top:-8px;
     font-weight:lighter;
     letter-spacing: 1px;
     box-shadow:none;
+    margin-top:-7px;
+
 }
 
 #friend_search_field:focus{
 	box-shadow:none;
+}
+
+#add_friend_tool{
+	position:relative; 
+	display:inline-block;
+	white-space: normal; 
+}
+
+#choose_photos_wrapper{
+	white-space:nowrap; 
+	position:relative; 
+	display:block; 
+	margin-top:20px;
 }
 
 .friend_pic_wrapper{
@@ -663,6 +685,7 @@ h2{
 	height:40px;
 	overflow:hidden;
 	margin:-20px 15px 0 5px;
+	background-color:#000;
 }
 
 .friend_pic{
@@ -680,8 +703,7 @@ h2{
 }
 
 .typeahead{
-
-	min-width:270px;
+	min-width:240px;
 }
 
 .typeahead li{
@@ -694,8 +716,8 @@ h2{
 
 #name_plus_btn{
 	position:absolute;
-	top:-16px;
-	right:7px;
+	top:5px;
+	right:6px;
 	display:none;
 }
 
@@ -711,13 +733,7 @@ h2{
     color:#00cffb;
     display:inline-block;
     position:relative;
-}
-
-.name_delete_btn{
-	position:absolute;
-	top:3px;
-	right:7px;
-	display:none;
+    box-shadow: none;
 }
 
 .friend_btn_over{
@@ -736,6 +752,16 @@ h2{
     color:#00cffb;
     display:inline-block;
     position:relative;
+    -webkit-box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
+-moz-box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
+box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
+}
+
+.name_delete_btn{
+	position:absolute;
+	top:3px;
+	right:7px;
+	display:none;
 }
 
 .btn_control{
@@ -771,6 +797,73 @@ h2{
 	text-align: left;
 	padding-left:.5%;
 }
+
+.friend_item{
+	float:left;
+}
+
+/*FRIEND PHOTO PANEL*/
+
+#friend_photos{
+	position: relative;
+	padding:2%;
+	display:none;
+}
+
+#friend_photos_container{
+	width:95%;
+	height:330px;
+}
+
+.friend_item{
+	width:24%;
+	margin-bottom:15px;
+}
+
+.friend_pic_wrapper_large{
+	width:100px;
+	height:100px;
+	overflow:hidden;
+	background-color:#000;
+	margin-right:15px;
+	position: relative;
+	float:left;
+	
+}
+
+.friend_name_large{
+	font-size:1.2em;
+	margin-top:40px;
+	max-width:100px;
+	float:left;
+}
+
+.friend_pic_wrapper_large img{
+	max-width:100%;
+	height:auto;
+}
+
+.photo_check{
+	position: absolute;
+	left:0;
+	top:0;
+	display:none;
+}
+
+.scroll-pane{		
+    width: 100%;
+	height: 100%;
+	overflow: auto;
+	outline:none;
+	margin-top:10px;
+}
+
+#close_friend_photos_btn{
+	position:absolute;
+	right:7px;
+	top:7px;
+}
+
 
 /*CANCEL SCREEN*/
 
@@ -874,7 +967,7 @@ h2{
 }
 
 .pink_btn{
-	font-size: 11px;
+	font-size: 10px;
 	background-color:#f38dab;
 	color:white;
 	-moz-border-radius: 50px;

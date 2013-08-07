@@ -164,7 +164,7 @@ function Facebook()
 				friendObj.id = value.id;
 				friendObj.name = value.name;
 				
-		        	FB.api('/'+value.id+'/picture', function(res){
+		        	FB.api('/'+value.id+'/picture?type=large', function(res){
 				      if (res && res.data){
 				        $(res.data).each(function(i,v){
 				        	friendObj.pic = v.url;
