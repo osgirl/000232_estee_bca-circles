@@ -644,7 +644,7 @@ h2{
     display:inline-block;
     *display: inline;
 	zoom: 1;
-	font-size:.4em;
+	font-size:2em;
     background-color:#e8e8e8;
     border:none;
     text-align:left;
@@ -680,9 +680,7 @@ h2{
 }
 
 .typeahead{
-	position:absolute;
-	top:0;
-	left:0;
+
 	min-width:270px;
 }
 
