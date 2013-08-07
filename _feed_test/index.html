@@ -4,21 +4,45 @@
 
 		<style type="text/css">
 
-			input, button, textarea{
-				display: block;
+			button{
+				display: inline-block;
 			}
-			textarea {
-				min-width: 300px;
-				min-height: 100px;
+			#panel {
+				display: none;
 			}
+
+
+			.container {
+				width: 600px;
+				min-height: 200px;
+				background: #FFFFCC;
+				padding: 20px;
+				margin: 20px 0;
+			}
+
+			.block {
+				display: inline-block;
+				width: 80px;
+				height: 80px;
+				padding: 20px;
+				margin: 5px;
+				vertical-align: top;
+				background: #00FF00;
+			}
+
 		</style>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>		
 		<script type="text/javascript">
 
-			 // load FeedMagnet SDK
-			var fm_server = 'estee.feedmagnet.com'
-			;(function() {
+
+			// Doc Ready
+			(function() {
+
+				/********************************
+				/* Init FeedMagnet SDK Code Start
+				*********************************/
+				var fm_server = 'estee.feedmagnet.com';
 			    window.fm_ready = function(fx) {
 			        if (typeof $FM !== 'undefined' && typeof $FM.ready === 'function') {
 			            $FM.ready(fx);
@@ -31,43 +55,167 @@
 			    fmjs.src = p + fm_server + '/embed.js';
 			    fmjs.setAttribute('async', 'true');
 			    document.documentElement.firstChild.appendChild(fmjs);
+				/*******************************
+				/* Init FeedMagnet SDK Code End
+				********************************/
+
 			})();
 			 
+
 			// do stuff once it is loaded
 			fm_ready(function($, _) {
-			    // alert('FeedMagnet Loaded!');
-			    console.log('FeedMagnet Loaded');
 
-			    // var feed = $FM.Feed('images').get(); //instagram
-			    // var feed = $FM.Feed('updates').get(); //twitter
-			    var feed = $FM.Feed('website-content').get();
+				$('#loading').hide();
+				$('#panel').show();
 
-			    feed.connect('new_update', function(self, data) {
-			    var udata = data.update.data;
+				$('#circles_feed').click(circlesFeedBtnHandler);
+				$('#circles_more_feed').click(circlesFeedMoreBtnHandler);
 
-			    console.log( udata );
-			    console.log( udata.text );
-			    console.log( udata.permalink );
-			   
-			    /*data.update.html =
-			        '<img class="avatar" ' +
-			            'src="' + udata.author.avatar + '" />' +
-			        '<div class="author">' + udata.author.alias + '</div>' +
-			        '<div class="timestamp">' +
-			            _(udata.timestamp).pretty_time() +
-			        '</div>' +
-			        '<div class="text">' + udata.text + '</div>'*/
+				$('#photos_feed').click(photosFeedBtnHandler);
+				$('#photos_more_feed').click(photosFeedMoreBtnHandler);
 
+				var feed_circles = $FM.Feed('bca-circles');		
+				var feed_photos  = $FM.Feed('bca-photos');		
+			
 
-				})
+				function circlesFeedBtnHandler() {
+				
+					/*
+					var feed = $FM.Feed('bca-circles').get({position:1});
+					feed.connect('new_update', function(self, data) {
+				    	var udata = data.update.data;
+				    	console.log( udata );
+				    	console.log( udata.text );
+				    	console.log( udata.permalink );
+					});
+					*/
+					
+					feed_circles.get({
+				    	limit:2,
+				    	success: function(self, data) {
+				    		if (data.response.updates.length > 0) {
+					            parseCircleData(data.response.updates);
+					        }
+					        else {
+					            window.alert('No updates found!')
+					        }
+				    	}
+				    });	
+				    			
+				}
 
+				function circlesFeedMoreBtnHandler() {					
+					feed_circles.more({
+				    	limit:2,
+				    	success: function(self, data) {
+				    		if (data.response.updates.length > 0) {
+					            parseCircleData(data.response.updates);
+					        }
+					        else {
+					            window.alert('No more updates found')
+					        }
+				    	}
+				    });	
+				}
 
-			})
+				function photosFeedBtnHandler() {
+
+					feed_photos.get({
+				    	limit:2,
+				    	success: function(self, data) {
+				    		if (data.response.updates.length > 0) {
+					            parsePhotoData(data.response.updates);
+					        }
+					        else {
+					            window.alert('No updates found!')
+					        }
+				    	}
+				    });	
+				    			
+				}
+
+				function photosFeedMoreBtnHandler() {					
+					feed_photos.more({
+				    	limit:2,
+				    	success: function(self, data) {
+				    		if (data.response.updates.length > 0) {
+					            parsePhotoData(data.response.updates);
+					        }
+					        else {
+					            window.alert('No more updates found')
+					        }
+				    	}
+				    });	
+				}			
+
+				function parseCircleData(data){
+					var feed;
+					$(data).each(function(i){
+						feed = data[i].data;
+						$('<div class="block"/>')
+							.text('ID: ' + feed.text)					   // <-- ID
+							.appendTo($('#circle_container'));
+
+					});
+				}
+
+				function parsePhotoData(data){
+					var feed;
+					$(data).each(function(i){
+						feed = data[i].data;
+						console.log(feed);
+
+						var div = $('<div class="block"/>');
+
+						switch(feed.channel){
+							case 'rss':
+								div.text('ID: ' + feed.text);			  // <-- ID
+								break;
+
+							case 'instagram':
+								div.css('background', '#bfad9c');
+								div.text('author: ' + feed.author.alias); // <-- author
+								console.log(feed.text); 				  // <-- content
+								console.log(feed.photos.url); 			  // <-- photo_url
+								break;
+
+							case 'twitter':
+								div.css('background', '#2caae1');
+								div.text('author: ' + feed.author.alias); // <-- author
+								console.log(feed.text);					  // <-- content
+								console.log(feed.timestamp); 			  // <-- datetime
+								console.log(feed.author.avatar); 		  // <-- avatar
+								break;
+						}
+
+							div.appendTo($('#photo_container'));
+					});
+				}
+
+			});
+
+			
 
 		</script>
 	</head>
 	<body>
-		<h1>Feed me now</h1>
+		<h2>Feed Test</h2>
+		<div id="loading">
+			<p>Initializing FeedMagnet SDK, please wait...</p>
+		</div>
+		<div id="panel">
+			<button id="circles_feed">Get circles feed</button>
+			<button id="circles_more_feed">Get more circles feed</button>
+			<div class="container" id="circle_container"></div>
+			<br>
+			<button id="photos_feed">Get photos feed</button>
+			<button id="photos_more_feed">Get more photos feed</button>
+			<div class="container" id="photo_container"></div>
+		</div>
+
+		
+		
+
 	
 	</body>
 </html>
