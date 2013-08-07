@@ -308,10 +308,18 @@
 }
 
 .popup #popup_photo_img_holder #holder.scroll_x{
-	cursor: w-resize;
+	cursor: ew-resize;
 }
 
 .popup #popup_photo_img_holder #holder.scroll_y{
+	cursor: ns-resize;
+}
+
+.lt-ie9 .popup #popup_photo_img_holder #holder.scroll_x{
+	cursor: e-resize;
+}
+
+.lt-ie9 .popup #popup_photo_img_holder #holder.scroll_y{
 	cursor: n-resize;
 }
 

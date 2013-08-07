@@ -88,9 +88,10 @@ Private function for popup upload window
 (function($){
     var $c, $agr, $desc_active, $preview_img_path;
     $.fn.init_upload = function() {
-        $c     = '.' + $(this).attr('class');
-        $parent   = $($c +' #popup_photo_img_holder #holder');
-        $agr = false;
+        $c           = '.' + $(this).attr('class');
+        $parent      = $($c +' #popup_photo_img_holder #holder');
+        $agr         = false;
+        $desc_active = false;
         //Start bind
         $($c +' .btn_next').click(loadNext);
         $($c +' .btn_cancel').click(closeWindow);
