@@ -106,27 +106,53 @@ function Facebook()
 	    		userFirstName 	= response.first_name;
 	    		userLastName 	= response.last_name;
 	    		userLocation 	= response.location.name;
+
+	    		FB.api('/'+userID+'/picture?type=large', function (response){
+
+					console.log("picture", response)
+
+					userProfilePhoto = response.data.url;
+			        $('body').trigger(GOT_USER_PROFILE_PIC);
+
+					// for (album in response.data)
+					// {
+					// 	// Find the Profile Picture album
+					// 	if (response.data[album].name == "Profile Pictures")
+					// 	{
+					// 	// Get a list of all photos in that album.
+					// 	FB.api(response.data[album].id + "/photos", function(response){
+					// 	//The image link
+					// 		userProfilePhoto = response.data[0].images[0].source;
+					// 		$('body').trigger(GOT_USER_PROFILE_PIC);
+					// });
+					// }
+				 //  }
+				});
+
 	    		$('body').trigger(GOT_USER_INFO);
 	    	});
 	    	
 		},
 		
 		fetchLargeUserProfilePicture: function(){
-			FB.api("/me/albums", function (response){
-				for (album in response.data)
-				{
-					// Find the Profile Picture album
-					if (response.data[album].name == "Profile Pictures")
-					{
-					// Get a list of all photos in that album.
-					FB.api(response.data[album].id + "/photos", function(response){
-					//The image link
-						userProfilePhoto = response.data[0].images[0].source;
-						$('body').trigger(GOT_USER_PROFILE_PIC);
-				});
-				}
-			  }
-			});
+			// FB.api('/'+value.id+'/picture?type=large', function (response){
+
+			// 	console.log("picture", response)
+
+			// 	// for (album in response.data)
+			// 	// {
+			// 	// 	// Find the Profile Picture album
+			// 	// 	if (response.data[album].name == "Profile Pictures")
+			// 	// 	{
+			// 	// 	// Get a list of all photos in that album.
+			// 	// 	FB.api(response.data[album].id + "/photos", function(response){
+			// 	// 	//The image link
+			// 	// 		userProfilePhoto = response.data[0].images[0].source;
+			// 	// 		$('body').trigger(GOT_USER_PROFILE_PIC);
+			// 	// });
+			// 	// }
+			//  //  }
+			// });
 		},
 
 	    createCircle: function(){
