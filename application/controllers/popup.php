@@ -41,4 +41,14 @@ class Popup extends CI_Controller {
 		$this->load->view('popup/photo_upload_view');
 	}
 
+	public function circle()
+	{	
+		if( count($_POST) > 1 ){
+			$this->load->view('popup/circle_view', $_POST);
+		}
+		else{
+			// Do nothing
+		}		
+	}	
+
 }
