@@ -42,7 +42,7 @@
 		    FB.init({
 		      appId      : fbAppId,        // App ID
 		      status     : true,           // check login status
-		      cookie     : true,           // enable cookies to allow the server to access the session
+		      cookie     : false,           // enable cookies to allow the server to access the session
 		      xfbml      : true            // parse page for xfbml or html5 social plugins like login button below
 		    });
 		    
