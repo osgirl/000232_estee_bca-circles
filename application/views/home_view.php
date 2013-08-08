@@ -32,7 +32,7 @@
        <div id="fb-root"></div>
 		<script type="text/javascript">
 		  // You probably don't want to use globals, but this is just example code
-		  var fbAppId = '307826036019777';
+		  var fbAppId = '<?php echo config_item("fb_app_id"); ?>';
 
 		  // This is boilerplate code that is used to initialize the Facebook
 		  // JS SDK.  You would normally set your App ID in this code.
