@@ -354,12 +354,6 @@ h2{
 	color:white;
 }
 
-#user_profile_pic{
-	margin-left:25%;
-	margin-bottom:10px;
-	float:none;
-}
-
 #user_profile_info{
 	float:none;
 }
@@ -381,6 +375,9 @@ h2{
 
 
 #user_profile_pic{
+	margin-left:25%;
+	margin-bottom:10px;
+	float:none;
 	-moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     -khtml-border-radius: 50%;
@@ -496,6 +493,7 @@ h2{
 	margin-bottom:4%;
 	position:relative;
 	padding:20px;
+	color:white;
 }
 
 .photo_container{
@@ -505,6 +503,8 @@ h2{
 	margin-bottom:4%;
 	height:265px;
 	position:relative;
+	background-size:110%;
+	overflow: hidden;
 }
 
 .photo_icon{
@@ -521,6 +521,102 @@ h2{
 	width:20px;
 	height:20px;
 	background-image: url('../img/assets/small-dot.png');
+	position: absolute;
+}
+
+.twitter_avatar, .twitter_title{
+	float:left;
+	margin-top:20px;
+}
+
+.twitter_title{
+	height:60px;
+}
+
+.twitter_avatar{
+	margin:20px 10px 0 10px;
+}
+
+.twitter_author{
+	color:#0e6578;
+	margin-top:3px;
+}
+
+.twitter_time{
+	font-size:.8em;
+	color:white;
+}
+
+.twitter_text{
+	font-size:.8em;
+	color:white;
+	clear:both;
+	width:95%;
+	margin-left:5%;
+}
+
+.circle_link:hover{
+	text-decoration: none;
+}
+
+.circle_area{
+	text-align: center;
+	background:url('../img/assets/dotted-circle-small.png') no-repeat;
+	background-position:center;
+	background-position-y: 60px;
+	width:360px;
+	height:360px;
+}
+
+.circle_goal{
+	width:200px;
+	font-size:1.4em;
+	font-weight: lighter
+}
+
+.circle_divider{
+	border-bottom:1px solid white;
+	height:2px; 
+}
+
+.circle_of_strenth{
+	font-weight: normal;
+	font-size:2em;
+}
+
+.profile_image_small{
+	float:left;
+	-moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -khtml-border-radius: 50%;
+    border-radius: 50%;	
+    behavior: url(css/PIE.htc);
+	width:70px;
+	height:70px;
+	background-size: 70px auto;
+	position:absolute;
+	margin-left:-20px;
+	margin-top:-25px;
+}
+
+.share_circle div{
+	float:left;
+	margin-right:5px;
+}
+
+.share_circle{
+	font-size:.8em;
+	position: absolute;
+	right:20px;
+	bottom:20px;
+}
+
+.full_photo{
+	position: absolute;
+	top:0;
+	left:0;
+	max-width:105%;
+	height:auto;
 }
 
 /*DONATE*/
@@ -569,6 +665,7 @@ h2{
 	font-size:.9em;
 	line-height:1.6em;
 }
+
 
 /*CREATE YOUR OWN CIRCLE SCREEN - CHOOSE ACTION*/
 
@@ -956,17 +1053,7 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	margin-top:40px;
 }
 
-.profile_image{
-	float:left;
-	-moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -khtml-border-radius: 50%;
-    border-radius: 50%;	
-    behavior: url(css/PIE.htc);
-	width:65px;
-	height:65px;
-	background-size: 65px auto;
-}
+
 
 @font-face {
     font-family: 'nimbussanconregular';

@@ -168,6 +168,8 @@ function enableButtons(){
 	$('#create_circle_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#choose_photos_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#close_friend_photos_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+	$('.circle_container').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+	$('.photo_container').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 
 	//enable clicks
 	$('.sign_in_btn').unbind("click").click(facebook.logIn)
