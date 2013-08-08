@@ -19,8 +19,7 @@
  *
  */
 	switch ($_SERVER["HTTP_HOST"]){
-        case "staging.click3x.com": define('ENVIRONMENT','cfm_staging'); break;
-        case "dev.click3x.com": 	define('ENVIRONMENT','cfm_dev'); break;
+        case "16w22ventures.info":  define('ENVIRONMENT','staging'); break;
 		case "localhost": 			define('ENVIRONMENT','development'); break;
 		case "bca.dev": 			define('ENVIRONMENT','sean_config'); break;
 		case "bcasite.dev": 		define('ENVIRONMENT','mili_config'); break;
@@ -46,9 +45,8 @@ if (defined('ENVIRONMENT'))
 			error_reporting(E_ALL);
 		break;
 	
-		case 'testing':
 		case 'production':
-		case 'cfm_staging':
+		case 'staging':
 			error_reporting(0);
 		break;
 
