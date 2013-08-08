@@ -151,6 +151,11 @@
        padding:12px 23px 12px 23px;
    }
 
+   .friend_pic_wrapper_large{
+		width:80px;
+		height:80px;
+	}
+
 }
 
 @media only screen and (min-width: 640px)  {
@@ -297,6 +302,25 @@
 		left:103%;
 		margin-top:0px;
 
+	}
+
+	#friend_photos_container{
+		width:88%;
+	}
+
+	.friend_pic_wrapper_large{
+		width:100px;
+		height:100px;
+	}
+
+	.friend_name_large{
+		font-size:1.2em;
+		line-height: 1em;
+	}
+
+	.jspVerticalBar
+	{
+		width: 25px;
 	}
     
 /*    #friend_list{

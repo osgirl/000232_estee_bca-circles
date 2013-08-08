@@ -18,37 +18,20 @@
 					</div>
 					<div class="pull-left vertical_mode_show" style="margin:0px 6px 0 6px;"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
 					<div class='top_sub_nav_item pull-left vertical_mode_show'>
+                        
                         <div class="dropdown pull-left">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">ENG</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;German</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Portuguese</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Traditional Chinese</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;French</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Greek</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Hungarian</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Italian</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Korean</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Spanish</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Arabic (read right to left)</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Hebrew (read right to left)</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Russian</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Spanish</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Turkish</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Non-US English</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Vietnamese</a></li>
-                                <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Czech</a></li>
-                            </ul>
+                            <?php include('top_popup/language_dropdown.php');?>
                         </div>
+
                         <div class='flag pull-left'><img src='<?php echo base_url(); ?>img/flags/english.png' /></div>
                         <div class='language_arrow pull-left'><img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/></div>
                     </div>
                     <div class="nav-collapse collapse">
                         <ul id='top_main_nav' class="nav">
                             <li><a href="#conversation" class='all_cap'>Conversation</a></li>
-                            <li><a href="#video" class='all_cap'>video</a></li>
+                            <li><a href="#video" onclick="$.popup({type:'video'});" class='all_cap'>video</a></li>
                             <li><a href="#donate" class='all_cap'>donate</a></li>
-                            <li><a href="#about" class='all_cap'>about</a></li>
+                            <li><a href="#about" onclick="$.popup({type:'about'});" class='all_cap'>about</a></li>
                         </ul>
                         <div id='top_sub_nav' class='pull-right'>
                             <div class='top_sub_nav_item'>
@@ -59,26 +42,7 @@
 							<div><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
 							<div class='top_sub_nav_item'>
 	                            <div class="dropdown">
-	                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">ENG</a>
-	                                <ul class="dropdown-menu">
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;German</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Portuguese</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Traditional Chinese</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;French</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Greek</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Hungarian</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Italian</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Korean</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Spanish</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Arabic (read right to left)</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Hebrew (read right to left)</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Russian</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Spanish</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Turkish</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Non-US English</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Vietnamese</a></li>
-	                                    <li><a href="#"><img src='<?php echo base_url(); ?>img/flags/english.png' />&nbsp;&nbsp;Czech</a></li>
-	                                </ul>
+	                                <?php include('top_popup/language_dropdown.php');?>
 	                            </div>
 	                            <div class='flag'><img src='<?php echo base_url(); ?>img/flags/english.png' /></div>
 	                            <div class='language_arrow'><img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/></div>

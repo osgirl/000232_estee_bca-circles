@@ -348,6 +348,11 @@ h2{
 	text-align:center;
 }
 
+.upload_photo_btn:hover{
+	text-decoration: none;
+	color:white;
+}
+
 #user_profile_pic{
 	margin-left:25%;
 	margin-bottom:10px;
@@ -469,8 +474,30 @@ h2{
 
 #gallery{
 	background-image: url('../img/assets/bg-pattern.png'); 
-	height:500px;
 	position:relative;
+	padding:2%;
+}
+
+#feed_magnet{
+	width:96%;
+	height:900px;
+	overflow: hidden;
+}
+
+.circle_container{
+	background-color:#f38dab;
+	width:48%;
+	margin-right:2%;
+	margin-bottom:2%;
+	height:700px;
+}
+
+.photo_container{
+	background-color:#333;
+	width:23%;
+	margin-right:2%;
+	margin-bottom:v;
+	height:200px;
 }
 
 /*DONATE*/
@@ -811,7 +838,7 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 #friend_photos_container{
-	width:95%;
+	width:85%;
 	height:330px;
 }
 
@@ -821,21 +848,22 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 .friend_pic_wrapper_large{
-	width:100px;
-	height:100px;
+	width:60px;
+	height:60px;
 	overflow:hidden;
 	background-color:#000;
 	margin-right:15px;
 	position: relative;
-	float:left;
+	float:none;
 	
 }
 
 .friend_name_large{
 	font-size:1.2em;
-	margin-top:40px;
-	max-width:100px;
-	float:left;
+	margin-top:3px;
+	max-width:60px;
+	float:none;
+	line-height: 1em;
 }
 
 .friend_pic_wrapper_large img{
@@ -863,6 +891,11 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	right:7px;
 	top:7px;
 }
+
+.jspVerticalBar
+	{
+		width: 15px;
+	}
 
 
 /*CANCEL SCREEN*/

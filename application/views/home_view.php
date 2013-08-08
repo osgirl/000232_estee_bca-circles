@@ -12,13 +12,14 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
         <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-responsive.min.css"> -->
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_smartphone.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_tablet.css">
+        
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/jquery.jscrollpane.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-js.css" type="text/css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-bca-skin.css" type="text/css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_smartphone.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_tablet.css">
 
         <!-- This a css for popup window. You can merge this to main.css in final production -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/popup.css">
@@ -58,6 +59,7 @@
 		     js.src = "//connect.facebook.net/en_US/all.js";
 		     fjs.parentNode.insertBefore(js, fjs);
 		   }(document, 'script', 'facebook-jssdk'));
+
 		</script>
     	
         <!--[if lt IE 7]>
@@ -111,7 +113,7 @@
 									<table class="btn_control">
 										<tr>
 										    <td class="button_left_wrapper"><div class='start_create_circle_btn pink_btn all_cap'>CREATE A CIRCLE</div></td>
-											<td class="button_right_wrapper"><div id='upload_photo_btn' class='pink_btn pull_left all_cap'>UPLOAD A PHOTO</div></td>
+											<td class="button_right_wrapper"><a onclick="$.popup({type:'photo_upload'});" class='upload_photo_btn pink_btn pull_left all_cap'>UPLOAD A PHOTO</a></td>
 										</tr>
 									</table>
 								</div>
@@ -209,7 +211,7 @@
 	            
 	            <div id='gallery'>
 					<div class='h_divider_top'></div>
-					<div id='magnet_feed'></div>
+					<?php include('gallery.php');?>
 					<div class='h_divider_bottom'></div>
 				</div>
 				
@@ -222,7 +224,7 @@
 						<p>Breast cancer affects 1 in 8 women in their lifetime. A donation of $50 raised by a Circle funds approximately one hour of lifesaving research through The Breast Cancer Research Foundation. Donate now and take us a step closer to eradicating this disease.</p>
 					</div>
 					<div id='watch_video' class="span5">
-						<div><img src="<?php echo base_url(); ?>img/assets/video-thumb.png"/></div>
+						<div><a  href="#video" onclick="$.popup({type:'video'});"><img src="<?php echo base_url(); ?>img/assets/video-thumb.png"/></a></div>
 						<div id="watch_video_text" class='pink_text all_cap'>watch the<br/>bca video</div>
 					</div>
 				</div>
@@ -244,11 +246,39 @@
         <script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 		<script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>js/vendor/jquery.easing.1.3.js"><\/script>')</script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+		<script>
+
+        	/********************************
+			/* Init FeedMagnet SDK Code Start
+			*********************************/
+			var fm_server = 'estee.feedmagnet.com';
+		     window.fm_ready = function(fx) {
+		         if (typeof $FM !== 'undefined' && typeof $FM.ready === 'function') {
+		             $FM.ready(fx);
+		         } else {
+		             window.setTimeout(function() { fm_ready.call(null, fx); }, 50);
+		         }
+		    };
+		    var fmjs = document.createElement('script');
+		    var p = ('https:' === document.location.protocol ? 'https://' : 'http://');
+		    fmjs.src = p + fm_server + '/embed.js';
+		    fmjs.setAttribute('async', 'true');
+		    $('head').append(fmjs);
+		    //document.documentElement.firstChild.appendChild(fmjs);
+
+			/*******************************
+			/* Init FeedMagnet SDK Code End
+			********************************/
+
+        </script>
+
 		<script type="text/javascript" src="js/vendor/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
         <script src="<?php echo base_url(); ?>js/vendor/bootstrap.min.js"></script>
         <script src="<?php echo base_url(); ?>js/vendor/jquery.jscrollpane.min.js"></script>
+        <script src="<?php echo base_url(); ?>js/vendor/masonry.pkgd.min.js"></script>
         <script src="<?php echo base_url(); ?>js/plugins.js"></script>
-        <script src="<?php echo base_url(); ?>js/util/combobox.js"></script>
+        <script src="<?php echo base_url(); ?>js/util/gallery.js"></script>
         <script src="<?php echo base_url(); ?>js/util/facebook.js"></script>
         <script src="<?php echo base_url(); ?>js/main.js"></script>
         

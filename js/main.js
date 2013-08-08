@@ -16,6 +16,8 @@ var userLocation;
 var userProfilePhoto;
 
 var facebook = new Facebook();
+var gallery = new Gallery();
+
 var friendProfileList = new Array();
 var curSelectedFriendID;
 var curSelectedFriendName;
@@ -40,6 +42,8 @@ $(document).ready(function(){
 
 	enableButtons();
 	enableEventBinds();
+	gallery.loadGallery();
+	
 	
 	$('#friend_search_field').width(NAME_TEXTFIELD_WIDTH);
 	$('#friend_search_field').tooltip({
@@ -52,9 +56,6 @@ $(document).ready(function(){
 
 });
 
-function doWallPost(){
-	facebook.createCircle();
-}
 
 function checkLoginStatus(){
 	facebook.checkLoginStatus();
@@ -94,7 +95,7 @@ function getLogoutStatus(e){
 		createCircleClicked = true;
 	})
 	
-	$('#upload_photo_btn').unbind('click').click(function(e){
+	$('.upload_photo_btn').unbind('click').click(function(e){
 		console.log('do upload photo');
 	});
 	
@@ -122,7 +123,7 @@ function enableButtons(){
 	$('.sign_in_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#language_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('.start_create_circle_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('#upload_photo_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+	$('.upload_photo_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#select_action_button').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$(".goal_dropdown_list").unbind('mouseover').mouseover(function(e){
 		$(e.currentTarget).css({
@@ -157,6 +158,7 @@ function enableButtons(){
 	//$('#show_friendlist_btn').unbind("click").click(facebook.showFriendlist);
 }
 
+
 function openCreateCircleScreen(){
 	$("#create_circle_screen").show();
 	$("html, body").animate({ scrollTop: 0 }, "slow");
@@ -172,8 +174,6 @@ function openCreateCircleScreen(){
 		}else{
 			$("#select_action").css({ opacity: .3 });
 		}
-		
-		//console.log("goal", goal);
 	})
 }
 
@@ -186,6 +186,8 @@ function goNextCreateCircleScreen(e){
 	$('.create_circle_step').each(function(index,value){
 		(index == stepID-1) ? $(value).show() : $(value).hide();
 	})
+
+	closeFriendPhotosPanel();
 }
 
 
@@ -439,16 +441,14 @@ function createFriendPhotosPanel(){
 
 	for(var r=0; r<rowNum; r++){
 		var row = $('<div>');
-		row.addClass('row');
+		row.addClass('row')
+			.appendTo('#friend_photos_container')
 
 		for(var c=0; c<PHOTO_COLUMN_NUM; c++){
 			var col = $('<div>');
-			 col.addClass('span3 friend_item');
-
-			 row.append(col);
+			 col.addClass('span3 friend_item')
+			 	.appendTo(row);
 		}
-
-		$('#friend_photos_container').append(row);
 	}
 
 	$('.friend_item').each(function(index, value){
@@ -481,7 +481,6 @@ function createFriendPhotosPanel(){
 
              		FB.api('/'+curSelectedFriendID, function(response){
 				      if (response){
-				        console.log(response);
 				        curFriendSelectedName = response.first_name + " " + response.last_name.substr(0,1) + ".";
 				        $("#temp_name_enter_container").html(response.name);
 

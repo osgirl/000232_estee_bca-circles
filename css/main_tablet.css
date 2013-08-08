@@ -110,6 +110,10 @@
 		line-height:1.2em;
 	}
 
+	#friend_photos_container{
+		width:90%;
+	}
+
 }
 
 
@@ -298,6 +302,23 @@
 
 	.social_item{
 		min-height:228px;
+	}
+
+	#friend_photos_container{
+		width:95%;
+	}
+
+	.friend_pic_wrapper_large{
+		margin-right:15px;
+		float:left;
+		
+	}
+
+	.friend_name_large{
+		font-size:1.2em;
+		margin-top:40px;
+		max-width:100px;
+		float:left;
 	}
 	
 }
