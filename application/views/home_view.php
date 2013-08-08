@@ -33,6 +33,7 @@
 		<script type="text/javascript">
 		  // You probably don't want to use globals, but this is just example code
 		  var fbAppId = '<?php echo config_item("fb_app_id"); ?>';
+		  var baseUrl = '<?php echo base_url(); ?>';
 
 		  // This is boilerplate code that is used to initialize the Facebook
 		  // JS SDK.  You would normally set your App ID in this code.
@@ -42,7 +43,7 @@
 		    FB.init({
 		      appId      : fbAppId,        // App ID
 		      status     : true,           // check login status
-		      cookie     : false,           // enable cookies to allow the server to access the session
+		      cookie     : true,           // enable cookies to allow the server to access the session
 		      xfbml      : true            // parse page for xfbml or html5 social plugins like login button below
 		    });
 		    

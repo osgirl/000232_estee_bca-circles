@@ -347,7 +347,7 @@ function addFriend(){
 		var deleteBtn = $('<a>');
 		deleteBtn.addClass('name_delete_btn');
 		var deleteImg = $('<img>');
-		deleteImg.attr('src', '../img/buttons/delete-name-btn.png');
+		deleteImg.attr('src', baseUrl + 'img/buttons/delete-name-btn.png');
 				 
 		deleteImg.appendTo(deleteBtn);
 		deleteBtn.appendTo(friendList);
