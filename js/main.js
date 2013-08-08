@@ -103,7 +103,6 @@ function enableEventBinds(){
 function getLoginStatus(e){	
 	console.log("log in")
 	facebook.fetchUserInfo();
-	facebook.fetchLargeUserProfilePicture();
 	facebook.fetchFriendlist();
 	
 	$('.start_create_circle_btn').unbind('click').click(function(e){openCreateCircleScreen();})
