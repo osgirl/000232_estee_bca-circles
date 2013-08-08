@@ -1,31 +1,43 @@
 <div id="magnet_feed"> 
-<!-- 	<div class="item w2">A</div>
-	<div class="item">B</div>
-	<div class="item">C</div>
-	<div class="item w2">D</div>
-	<div class="item">E</div>
-	<div class="item">F</div>
-	<div class="item">G</div>
-	<div class="item w2">H</div>
-	<div class="item">I</div>
-	<div class="item">J</div>
-	<div class="item">K</div>
-	<div class="item">L</div>
-	<div class="item">M</div> -->
-</div>
-<!-- <h2 id="message">Scroll down to load more</h2>
-
-
-<h2>Feed Test</h2>
-		<div id="loading">
-			<p>Initializing FeedMagnet SDK, please wait...</p>
+	<div class="row">
+		<div class="gallery_col gallery_col_1 span6">
+			<div class="row circle_container">
+				<div><span class="circle_creator"></span> created a</div>
+				<div>Circle of Strength</div>
+				<hr/>
+				<div class="circle_area">
+					<div class="circle_goal"></div>
+				</div>
+				<div class="circle_share_module"></div>
+			</div>
+			<div class="row">
+				<div class="span3 photo_container_1 photo_container">
+					<img class="photo_icon"/>
+				</div>
+				<div class="span3 photo_container_2 photo_container">
+					<img class="photo_icon"/>
+				</div>
+			</div>
 		</div>
-		<div id="panel">
-			<button id="circles_feed">Get circles feed</button>
-			<button id="circles_more_feed">Get more circles feed</button>
-			<div class="container" id="circle_container"></div>
-			<br>
-			<button id="photos_feed">Get photos feed</button>
-			<button id="photos_more_feed">Get more photos feed</button>
-			<div class="container" id="photo_container"></div>
-		</div> -->
+		<div class="gallery_col gallery_col_2 span6">
+			<div class="row">
+				<div class="span3 photo_container_1 photo_container">
+					<img class="photo_icon"/>
+				</div>
+				<div class="span3 photo_container_2 photo_container">
+					<img class="photo_icon"/>
+				</div>
+			</div>
+			<div class="row circle_container">
+				<div><span class="circle_creator"></span> created a</div>
+				<div>Circle of Strength</div>
+				<hr/>
+				<div class="circle_area">
+					<div class="circle_goal"></div>
+				</div>
+				<div class="circle_share_module"></div>
+			</div>	
+		</div>
+	</div>
+</div>
+

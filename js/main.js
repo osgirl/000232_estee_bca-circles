@@ -483,7 +483,7 @@ function createFriendPhotosPanel(){
 	$('.friend_item').each(function(index, value){
 
 	    if(index <= friendProfileList.length-1){
-    		var html = '<div class="friend_pic_wrapper_large"><img class="friend_pic_large" src='+friendProfileList[index].pic+' /><img class="photo_check" src="../img/assets/photo-check.png"></div>'
+    		var html = '<div class="friend_pic_wrapper_large"><img class="friend_pic_large" src='+friendProfileList[index].pic+' /><img class="photo_check" src="' + baseUrl + 'img/assets/photo-check.png"></div>'
               html += '<div class="friend_name_large">'+friendProfileList[index].name
               html += '</div>';
 
@@ -602,54 +602,7 @@ function createCircle(){
 		
 		cancelCreateCircleScreen();
 		
-
-		//dummy data
-		// var _arr_dump = [];
-	// for( var i = 0; i < $('#sel').val(); i++ ){
-		// _arr_dump.push( "img/circle/" + (i+1) + ".jpg" );
-	// }
-// 
-	// console.log( $('#sel').val() );
-// 
-		// var post_data = {
-			// thumbs_url: _arr_dump,
-			// user_name: $('#name').val(),
-			// content: $('#content').val(),
-		// };
-// 
-// 
-		// $.ajax({
-			// url		: 'php/create-circle.php',
-			// type	: "POST",
-			// data 	: post_data,
-			// success : function(data){ _success(data) }
-		// });
-		// function _success(data){
-			// console.log('success ');
-			// $('#image').attr('src','data:image/jpeg;base64,'+ data);
-		// }
-		// function _fail(){
-			// console.log('fail');
-		// }
 }
 
-
-function placeCircleInAngles(){
-	var radius 	= 200,
-		cx 		= 300,
-		cy 		= 300,
-		steps 	= 10,
-		angle, x, y;
-
-	for(var i = 0; i < steps; i++){
-		angle = (Math.PI * ( i / steps -.25) ) *2;
-		x = cx + radius * Math.cos(angle);
-		y = cy + radius * Math.sin(angle);
-		$('<div/>')
-			.addClass('point')
-			.css({'left': x, 'top': y})
-			.appendTo('html');
-	}
-}
 
 

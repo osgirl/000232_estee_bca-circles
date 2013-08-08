@@ -83,6 +83,24 @@ function Gallery()
 		// 	);
 		// };
 
+		function placeCircleInAngles(parent){
+			var radius 	= 200,
+				cx 		= 300,
+				cy 		= 300,
+				steps 	= 10,
+				angle, x, y;
+
+			for(var i = 0; i < steps; i++){
+				angle = (Math.PI * ( i / steps -.25) ) *2;
+				x = cx + radius * Math.cos(angle);
+				y = cy + radius * Math.sin(angle);
+				$('<div/>')
+					.addClass('point')
+					.css({'left': x, 'top': y})
+					.appendTo(parent);
+			}
+		}
+
 		function loadInitialCircles() {
 			
 			feed_circles.get({
@@ -90,6 +108,7 @@ function Gallery()
 		    	success: function(self, data) {
 		    		if (data.response.updates.length > 0) {
 			            parseCircleData(data.response.updates);
+			            loadInitialPhotos();
 			        }
 			        else {
 			            window.alert('No updates found!')
@@ -102,7 +121,7 @@ function Gallery()
 		function loadInitialPhotos() {
 
 			feed_photos.get({
-		    	limit:2,
+		    	limit:4,
 		    	success: function(self, data) {
 		    		if (data.response.updates.length > 0) {
 			            parsePhotoData(data.response.updates);
@@ -119,10 +138,27 @@ function Gallery()
 			var feed;
 			$(data).each(function(i){
 				feed = data[i].data;
-				$('<div class="block circle_container"/>')
-					.text('ID: ' + feed.text)					   // <-- ID
-					.appendTo($('#magnet_feed'));
 
+				$.ajax({
+	        		type: 'post',
+	            	url: '../circle/fetchCircleData',
+	            	dataType: 'json',
+	            	data: {
+	            		circle_id: feed.text
+	            	},
+	            	success: function(data) {            
+	                	console.log('success');
+	                	$($('.circle_creator').get(i)).html(data.user_name);
+	                	$($('.circle_goal').get(i)).html(data.goal);
+	                	placeCircleInAngles($($('.circle_area').get(i)))
+
+	             	},
+	             	error: function(response){
+						console.log("no?", response);
+					}
+	      		});
+
+				//$($('.circle_container').get(i)).html('ID: ' + feed.text);
 			});
 		}
 
@@ -130,32 +166,59 @@ function Gallery()
 			var feed;
 			$(data).each(function(i){
 				feed = data[i].data;
-				console.log(feed);
 
-				var div = $('<div class="block photo_container"/>');
+				var div = $($('.photo_container').get(i));
+				var photoIcon;
 
 				switch(feed.channel){
 					case 'rss':
-						div.text('ID: ' + feed.text);			  // <-- ID
+						//div.text('ID: ' + feed.text);			  // <-- ID
+						
+						photoIcon = baseUrl + "img/icons/bca.png";
+
+						$.ajax({
+			        		type: 'post',
+			            	url: '../photo/fetchUploadedPhotoData',
+			            	dataType: 'json',
+			            	data: {
+			            		photo_id: feed.text
+			            	},
+			            	success: function(data) {            
+			                	console.log('success', data);
+
+			                	div.css('background-image', "url(" + baseUrl + "uploads/" + data.filename + ")");
+
+			             	},
+			             	error: function(response){
+								console.log(response);
+							}
+			      		});
+
 						break;
 
 					case 'instagram':
-						div.css('background', '#bfad9c');
-						div.text('author: ' + feed.author.alias); // <-- author
+						div.css('background-color', '#bfad9c');
+						//div.text('author: ' + feed.author.alias); // <-- author
 						console.log(feed.text); 				  // <-- content
 						console.log(feed.photos.url); 			  // <-- photo_url
+
+						photoIcon = baseUrl + "img/icons/instagram.png";
+
 						break;
 
 					case 'twitter':
 						div.css('background', '#2caae1');
-						div.text('author: ' + feed.author.alias); // <-- author
+						//div.text('author: ' + feed.author.alias); // <-- author
 						console.log(feed.text);					  // <-- content
 						console.log(feed.timestamp); 			  // <-- datetime
 						console.log(feed.author.avatar); 		  // <-- avatar
+
+						photoIcon = baseUrl + "img/icons/twitter-large.png";
 						break;
 				}
 
-					div.appendTo($('#magnet_feed'));
+				$(div.find('.photo_icon')).attr('src', photoIcon);
+
 			});
 		}
 		
@@ -226,7 +289,6 @@ function Gallery()
 				feed_photos  = $FM.Feed('bca-photos');
 
 				loadInitialCircles();
-				loadInitialPhotos();
 
 			})
 

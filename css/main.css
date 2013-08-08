@@ -130,6 +130,7 @@ h2{
     font-weight: lighter;
     letter-spacing: 1px;
     padding: 2px 20px 7px 0;
+    border-bottom: 1px #ddd solid;
 }
 
 #collapse_share_module{
@@ -475,29 +476,51 @@ h2{
 #gallery{
 	background-image: url('../img/assets/bg-pattern.png'); 
 	position:relative;
-	padding:2%;
+	padding:3% 4% 3% 4%;
 }
 
 #feed_magnet{
-	width:96%;
-	height:900px;
+	width:92%;
 	overflow: hidden;
+}
+
+.gallery_col{
+	width:48%;
+	margin-right:2%;
+	
 }
 
 .circle_container{
 	background-color:#f38dab;
-	width:48%;
-	margin-right:1.5%;
-	margin-bottom:1.5%;
-	height:400px;
+	height:530px;
+	margin-bottom:4%;
+	position:relative;
+	padding:20px;
 }
 
 .photo_container{
 	background-color:#333;
-	width:23%;
-	margin-right:1.5%;
-	margin-bottom:1.5%;
-	height:200px;
+	width:48%;
+	margin-right:4%;
+	margin-bottom:4%;
+	height:265px;
+	position:relative;
+}
+
+.photo_icon{
+	position: absolute;
+	right:5px;
+	bottom:5px;
+}
+
+.gallery_col2, .photo_container_2{
+	margin-right:0;
+}
+
+.point{
+	width:20px;
+	height:20px;
+	background-image: url('../img/assets/small-dot.png');
 }
 
 /*DONATE*/

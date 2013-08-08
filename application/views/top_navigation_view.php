@@ -14,7 +14,7 @@
 					</div>
 					<div id="collapse_share_module" class='top_sub_nav_item pull-left vertical_mode_show'>
                     	<div class='facebook_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div>
-						<div class='twitter_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/twitter-large.png'/></div>
+						<div class='twitter_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/twitter-mid.png'/></div>
 					</div>
 					<div class="pull-left vertical_mode_show" style="margin:0px 6px 0 6px;"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
 					<div class='top_sub_nav_item pull-left vertical_mode_show'>

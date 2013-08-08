@@ -140,7 +140,6 @@ function Facebook()
 		         }
 		       }
 		    );
-
 	    },
 	    
 	    fetchFriendlist: function(){
