@@ -100,7 +100,7 @@ function Facebook()
 		
 		fetchUserInfo: function(){
 			FB.api("/me", function(response){
-				console.log(response)
+				//console.log(response)
 				userID 			= response.id;
 				userName 		= response.name;
 	    		userFirstName 	= response.first_name;
