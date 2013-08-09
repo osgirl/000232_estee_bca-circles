@@ -353,12 +353,6 @@ h2{
 	color:white;
 }
 
-#user_profile_pic{
-	margin-left:25%;
-	margin-bottom:10px;
-	float:none;
-}
-
 #user_profile_info{
 	float:none;
 }
@@ -380,6 +374,9 @@ h2{
 
 
 #user_profile_pic{
+	margin-left:25%;
+	margin-bottom:10px;
+	float:none;
 	-moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     -khtml-border-radius: 50%;
@@ -475,29 +472,153 @@ h2{
 #gallery{
 	background-image: url('../img/assets/bg-pattern.png'); 
 	position:relative;
-	padding:2%;
+	padding:3% 4% 3% 4%;
 }
 
 #feed_magnet{
-	width:96%;
-	height:900px;
+	width:92%;
 	overflow: hidden;
+}
+
+.gallery_col{
+	width:48%;
+	margin-right:2%;
+	
 }
 
 .circle_container{
 	background-color:#f38dab;
-	width:48%;
-	margin-right:1.5%;
-	margin-bottom:1.5%;
-	height:400px;
+	height:530px;
+	margin-bottom:4%;
+	position:relative;
+	padding:20px;
+	color:white;
 }
 
 .photo_container{
 	background-color:#333;
-	width:23%;
-	margin-right:1.5%;
-	margin-bottom:1.5%;
-	height:200px;
+	width:48%;
+	margin-right:4%;
+	margin-bottom:4%;
+	height:265px;
+	position:relative;
+	background-size:110%;
+	overflow: hidden;
+}
+
+.photo_icon{
+	position: absolute;
+	right:5px;
+	bottom:5px;
+}
+
+.gallery_col2, .photo_container_2{
+	margin-right:0;
+}
+
+.point{
+	width:20px;
+	height:20px;
+	background-image: url('../img/assets/small-dot.png');
+	position: absolute;
+}
+
+.twitter_avatar, .twitter_title{
+	float:left;
+	margin-top:20px;
+}
+
+.twitter_title{
+	height:60px;
+}
+
+.twitter_avatar{
+	margin:20px 10px 0 10px;
+}
+
+.twitter_author{
+	color:#0e6578;
+	margin-top:3px;
+}
+
+.twitter_time{
+	font-size:.8em;
+	color:white;
+}
+
+.twitter_text{
+	font-size:.8em;
+	color:white;
+	clear:both;
+	width:95%;
+	margin-left:5%;
+}
+
+.circle_link:hover{
+	text-decoration: none;
+}
+
+.circle_area{
+	text-align: center;
+	background:url('../img/assets/dotted-circle-small.png') no-repeat center;
+	width:100%;
+	padding-top:100px;
+	margin-top:50px;
+	height:260px;
+}
+
+
+.circle_goal{
+	width:200px;
+	font-size:1.4em;
+	font-weight: lighter;
+	text-align: center;
+	display: inline-block;
+}
+
+.circle_divider{
+	border-bottom:1px solid white;
+	height:2px; 
+}
+
+.circle_of_strenth{
+	font-weight: normal;
+	font-size:2em;
+}
+
+.profile_image_small{
+	float:left;
+	-moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -khtml-border-radius: 50%;
+    border-radius: 50%;	
+    behavior: url(css/PIE.htc);
+	width:70px;
+	height:70px;
+	background-size: 70px auto;
+	position:absolute;
+	margin-left:-20px;
+	margin-top:-25px;
+}
+
+.share_circle div{
+	float:left;
+	margin-right:5px;
+}
+
+.share_circle{
+	font-size:.8em;
+	position: absolute;
+	right:20px;
+	bottom:20px;
+}
+
+.full_photo{
+	position: absolute;
+	top:0;
+	left:0;
+	max-width:105%;
+	height:auto;
 }
 
 /*DONATE*/
@@ -546,6 +667,7 @@ h2{
 	font-size:.9em;
 	line-height:1.6em;
 }
+
 
 /*CREATE YOUR OWN CIRCLE SCREEN - CHOOSE ACTION*/
 
@@ -898,6 +1020,35 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 		width: 15px;
 	}
 
+/*CREATE CIRCLE CONFIRM*/
+#circle_confirm_screen{
+	position:relative;
+	height:330px;
+	display:none;
+}
+
+.confirm_content{
+	padding:5% 26% 2% 26%;
+}
+
+.confirm_content p{
+	font-weight: lighter;
+}
+
+#opt_in p a{
+	text-decoration: underline;
+	color:#f38dab;
+}
+
+#thank_you{
+	display:none;
+}
+
+#thank_you p{
+	font-size:1.7em;
+	text-align: center;
+}
+
 
 /*CANCEL SCREEN*/
 
@@ -905,7 +1056,6 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	background-image: url('../img/assets/pink-opacity.png'); 
 	height:500px;
 }
-	
 
 
 /* FOOTER*/
@@ -933,17 +1083,7 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	margin-top:40px;
 }
 
-.profile_image{
-	float:left;
-	-moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -khtml-border-radius: 50%;
-    border-radius: 50%;	
-    behavior: url(css/PIE.htc);
-	width:65px;
-	height:65px;
-	background-size: 65px auto;
-}
+
 
 @font-face {
     font-family: 'nimbussanconregular';
@@ -961,10 +1101,11 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 .overlay{
 	position:absolute;
 	width:100%;
-	height:170%;
+	height:300%;
 	top:0;
 	left:0;
 	background: url('../img/assets/black-opacity-70.png');
+	z-index: -99999;
 }
 
 

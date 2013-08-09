@@ -1,4 +1,7 @@
+
 <div id="create_circle_screen">
+
+	<div class="overlay"></div>
 	<div id="create_circle_header" class="all_cap light_font">Create your own circle of strength</div>
 	
 	<!--STEP 1-->

@@ -83,13 +83,38 @@ function Gallery()
 		// 	);
 		// };
 
+		function placeCircleInAngles(parent, profileImageUrl){
+			var radius 	= 178,
+				cx 		= 255,
+				cy 		= 312,
+				steps 	= 10,
+				angle, x, y;
+
+			for(var i = 0; i < steps; i++){
+				angle = (Math.PI * ( i / steps -.25) ) *2;
+				x = cx + radius * Math.cos(angle);
+				y = cy + radius * Math.sin(angle);
+
+				var dotClass = (i==0) ? 'profile_image_small' : 'point';
+				var dotItem = $('<div>')
+
+				dotItem
+					.addClass(dotClass)
+					.css({'left': x, 'top': y})
+					.appendTo(parent);
+
+				if(i == 0) dotItem.css('background-image', 'url(' + profileImageUrl + ')');
+			}
+		}
+
 		function loadInitialCircles() {
 			
 			feed_circles.get({
-		    	limit:2,
+		    	limit:4,
 		    	success: function(self, data) {
 		    		if (data.response.updates.length > 0) {
 			            parseCircleData(data.response.updates);
+			            loadInitialPhotos();
 			        }
 			        else {
 			            window.alert('No updates found!')
@@ -102,7 +127,7 @@ function Gallery()
 		function loadInitialPhotos() {
 
 			feed_photos.get({
-		    	limit:2,
+		    	limit:8,
 		    	success: function(self, data) {
 		    		if (data.response.updates.length > 0) {
 			            parsePhotoData(data.response.updates);
@@ -117,12 +142,40 @@ function Gallery()
 
 		function parseCircleData(data){
 			var feed;
+			var popupData;
+
+			$('.circle_link').each(function(i,v){
+				console.log(i)
+				if(i > data.length-1) $(v).hide();
+			})
+
 			$(data).each(function(i){
 				feed = data[i].data;
-				$('<div class="block circle_container"/>')
-					.text('ID: ' + feed.text)					   // <-- ID
-					.appendTo($('#magnet_feed'));
 
+				$.ajax({
+	        		type: 'post',
+	            	url: baseUrl + 'circle/fetchCircleData',
+	            	dataType: 'json',
+	            	data: {
+	            		circle_id: feed.text
+	            	},
+	            	success: function(data) {            
+	                	console.log('success');
+	                	$($('.circle_creator').get(i)).html(data.user_name);
+	                	$($('.circle_goal').get(i)).html("<b>We Will - </b><br />" + data.goal);
+	                	placeCircleInAngles($($('.circle_area').get(i)), data.user_photo_url);
+
+	                	popupData = "$.popup({type:'circle', data:{ content: '" + data.goal + "', avatar: '" + data.user_photo_url + "',num_friends: 10}});"
+
+	                	$($($('.circle_container').get(i)).parent()).attr('onclick', popupData);
+
+	             	},
+	             	error: function(response){
+						console.log("no?", response);
+					}
+	      		});
+
+				//$($('.circle_container').get(i)).html('ID: ' + feed.text);
 			});
 		}
 
@@ -130,32 +183,77 @@ function Gallery()
 			var feed;
 			$(data).each(function(i){
 				feed = data[i].data;
-				console.log(feed);
 
-				var div = $('<div class="block photo_container"/>');
+				var div = $($('.photo_container').get(i));
+				var popupData;
+				var photoIcon;
 
 				switch(feed.channel){
 					case 'rss':
-						div.text('ID: ' + feed.text);			  // <-- ID
+						//div.text('ID: ' + feed.text);			  // <-- ID
+						photoIcon = baseUrl + "img/icons/bca.png";
+
+						$.ajax({
+			        		type: 'post',
+			            	url: baseUrl + 'circle/fetchUploadedPhotoData',
+			            	dataType: 'json',
+			            	data: {
+			            		photo_id: feed.text
+			            	},
+			            	success: function(data) {            
+
+			                	popupData = "$.popup({type:'photo', data:{source: 'local', author: 'John Doe', content: '" + data.description +"', photo_url: '" + baseUrl + "uploads/" + data.filename + "'}})";
+			                	div.html("<img class='full_photo' src='" + baseUrl + "uploads/" + data.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>");
+
+			                	$(div.parent()).attr('onclick',popupData);
+
+			             	},
+			             	error: function(response){
+								console.log(response);
+							}
+			      		});
+
 						break;
 
 					case 'instagram':
-						div.css('background', '#bfad9c');
-						div.text('author: ' + feed.author.alias); // <-- author
+						div.css('background-color', '#000');
+						//div.text('author: ' + feed.author.alias); // <-- author
 						console.log(feed.text); 				  // <-- content
-						console.log(feed.photos.url); 			  // <-- photo_url
+						console.log("instagram", feed.photos.url); 	// <-- photo_url
+
+						popupData = "$.popup({type:'photo', data:{source: 'instagram', author: '"+ feed.author.alias + "', content: '" + feed.text + "', photo_url: '" + feed.photos.url + "'}});"
+						photoIcon = baseUrl + "img/icons/instagram.png";
+
+						div.html("<img class='full_photo' src='" + feed.photos.url + "'/><img class='photo_icon' src='" + photoIcon + "'/>");
+
+						$(div.parent()).attr('onclick',popupData);
+
 						break;
 
 					case 'twitter':
 						div.css('background', '#2caae1');
-						div.text('author: ' + feed.author.alias); // <-- author
+
+						photoIcon = baseUrl + "img/icons/twitter-large.png";
+						popupData = "$.popup({type:'twitter', data:{author: '" + feed.author.alias + "', content: '" +feed.text + "', datetime: '" + feed.timestamp + "',avatar: '" + feed.author.avatar + "'}});"
+						//div.text('author: ' + feed.author.alias); // <-- author
 						console.log(feed.text);					  // <-- content
 						console.log(feed.timestamp); 			  // <-- datetime
-						console.log(feed.author.avatar); 		  // <-- avatar
+						console.log("avatar", feed.author.avatar); 		  // <-- avatar
+
+						var content = "<div class='twitter_avatar'><img src='" + feed.author.avatar + "'/></div>"
+							content	+= "<div class='twitter_title'><div class='twitter_author'>"+ feed.author.alias + "</div>"
+							content	+= "<div class='twitter_time'>"+ feed.timestamp + "</div></div>"
+							content	+= "<div class='twitter_text'>"+ feed.text + "</div>"
+							content += "<img class='photo_icon' src='" + photoIcon + "'/>";
+						div.html(content);
+
+						$(div.parent()).attr('onclick',popupData);
+
 						break;
 				}
 
-					div.appendTo($('#magnet_feed'));
+				$(div.find('.photo_icon')).attr('src', photoIcon);
+
 			});
 		}
 		
@@ -226,7 +324,6 @@ function Gallery()
 				feed_photos  = $FM.Feed('bca-photos');
 
 				loadInitialCircles();
-				loadInitialPhotos();
 
 			})
 

@@ -14,13 +14,13 @@
 					</div>
 					<div id="collapse_share_module" class='top_sub_nav_item pull-left vertical_mode_show'>
                     	<div class='facebook_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div>
-						<div class='twitter_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/twitter-large.png'/></div>
+						<div class='twitter_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/twitter-mid.png'/></div>
 					</div>
 					<div class="pull-left vertical_mode_show" style="margin:0px 6px 0 6px;"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
 					<div class='top_sub_nav_item pull-left vertical_mode_show'>
                         
                         <div class="dropdown pull-left">
-                            <?php include('top_popup/language_dropdown.php');?>
+                            <?php include('top_popup/language_dropdown_view.php');?>
                         </div>
 
                         <div class='flag pull-left'><img src='<?php echo base_url(); ?>img/flags/english.png' /></div>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="nav-collapse collapse">
                         <ul id='top_main_nav' class="nav">
-                            <li><a href="#conversation" class='all_cap'>Conversation</a></li>
+                            <li><a id="conversation_btn" href="#conversation" class='all_cap'>Conversation</a></li>
                             <li><a href="#video" onclick="$.popup({type:'video'});" class='all_cap'>video</a></li>
                             <li><a href="#donate" class='all_cap'>donate</a></li>
                             <li><a href="#about" onclick="$.popup({type:'about'});" class='all_cap'>about</a></li>
@@ -42,7 +42,7 @@
 							<div><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
 							<div class='top_sub_nav_item'>
 	                            <div class="dropdown">
-	                                <?php include('top_popup/language_dropdown.php');?>
+	                                <?php include('top_popup/language_dropdown_view.php');?>
 	                            </div>
 	                            <div class='flag'><img src='<?php echo base_url(); ?>img/flags/english.png' /></div>
 	                            <div class='language_arrow'><img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/></div>
@@ -57,8 +57,12 @@
                         
                     </div><!--/.nav-collapse -->
 
-            <?php include('top_popup/create_circle_view.php');?>
+                    <?php include('top_popup/create_circle_view.php');?>
+
     </div>
+
+     
+    <?php include('top_popup/circle_confirm_view.php');?>
 </div>
 
 </div>

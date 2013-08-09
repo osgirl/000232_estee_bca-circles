@@ -1,31 +1,49 @@
 <div id="magnet_feed"> 
-<!-- 	<div class="item w2">A</div>
-	<div class="item">B</div>
-	<div class="item">C</div>
-	<div class="item w2">D</div>
-	<div class="item">E</div>
-	<div class="item">F</div>
-	<div class="item">G</div>
-	<div class="item w2">H</div>
-	<div class="item">I</div>
-	<div class="item">J</div>
-	<div class="item">K</div>
-	<div class="item">L</div>
-	<div class="item">M</div> -->
-</div>
-<!-- <h2 id="message">Scroll down to load more</h2>
-
-
-<h2>Feed Test</h2>
-		<div id="loading">
-			<p>Initializing FeedMagnet SDK, please wait...</p>
+	<!--LAYOUT 1 START-->
+	<div id="layout1" class="row">
+		<div class="gallery_col gallery_col_1 span6">
+			<a class="circle_link">
+			    <div class="row circle_container">
+					<div class="circle_creator_area"><span class="circle_creator"></span> created a</div>
+					<div class="circle_of_strenth">Circle of Strength</div>
+					<div class="circle_divider"></div>
+					<div class="circle_area">
+						<div class="circle_goal"></div>
+					</div>
+					<div class='share_circle'>
+	                	<div class='all_cap'>share</div>
+	                	<div class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
+						<div class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
+					</div>
+				</div>
+			</a>
+			<div class="row">
+				<a><div class="span3 photo_container_1 photo_container"></div></a>
+				<a><div class="span3 photo_container_2 photo_container"></div></a>
+			</div>
 		</div>
-		<div id="panel">
-			<button id="circles_feed">Get circles feed</button>
-			<button id="circles_more_feed">Get more circles feed</button>
-			<div class="container" id="circle_container"></div>
-			<br>
-			<button id="photos_feed">Get photos feed</button>
-			<button id="photos_more_feed">Get more photos feed</button>
-			<div class="container" id="photo_container"></div>
-		</div> -->
+		<div class="gallery_col gallery_col_2 span6">
+			<div class="row">
+				<a><div class="span3 photo_container_1 photo_container"></div></a>
+				<a><div class="span3 photo_container_2 photo_container"></div></a>
+			</div>
+			<a class="circle_link">
+				<div class="row circle_container">
+					<div class="circle_creator_area"><span class="circle_creator"></span> created a</div>
+					<div  class="circle_of_strenth">Circle of Strength</div>
+					<div class="circle_divider"></div>
+					<div class="circle_area">
+						<div class="circle_goal"></div>
+					</div>
+					<div class='share_circle'>
+	                	<div class='all_cap'>share</div>
+	                	<div class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
+						<div class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
+					</div>
+				</div>
+			</a>	
+		</div>
+	</div>
+	<!--LAYOUT 1 END-->
+</div>
+

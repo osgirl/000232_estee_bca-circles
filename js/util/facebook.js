@@ -120,27 +120,28 @@ function Facebook()
 
 	    createCircle: function(){
 	    	//open graph 
-	    	FB.api("me/bcacircles:join?", 
-					"post",
+	    	console.log(baseUrl + "img/pics/stronger-together.png")
+	    // 	FB.api("me/bcacircles:join?", 
+					// "post",
 					
-					{ circle: "http://samples.ogp.me/308553962613651?",
-			         privacy: {'value': 'SELF'},
-			         tags: friendTagIDs
-			         }, 
+					// { circle: "http://samples.ogp.me/308553962613651?",
+					//  image: baseUrl + "img/pics/stronger-together.png",
+			  //        privacy: {'value': 'SELF'},
+			  //        tags: friendTagIDs
+			  //        }, 
 					
-					function(response) {
+					// function(response) {
 	    	
-		         if (!response) {
-		           alert('Error occurred.');
-		         } else if (response.error) {
-		          $('#result').html('Error: ' + response.error.message);
-		         } else {
-		          $('#result').html('<a href=\"https://www.facebook.com/me/activity/' + response.id + '\">' +
-		             'Circle created.  ID is ' + response.id + '</a>')
-		         }
-		       }
-		    );
-
+		   //       if (!response) {
+		   //         alert('Error occurred.');
+		   //       } else if (response.error) {
+		   //        $('#result').html('Error: ' + response.error.message);
+		   //       } else {
+		   //       	console.log('<a href=\"https://www.facebook.com/me/activity/' + response.id + '\">' +
+		   //           'Circle created.  ID is ' + response.id + '</a>')
+		   //       }
+		   //     }
+		   //  );
 	    },
 	    
 	    fetchFriendlist: function(){
