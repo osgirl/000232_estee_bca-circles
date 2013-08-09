@@ -154,7 +154,7 @@ function Gallery()
 
 				$.ajax({
 	        		type: 'post',
-	            	url: '../circle/fetchCircleData',
+	            	url: baseUrl + 'circle/fetchCircleData',
 	            	dataType: 'json',
 	            	data: {
 	            		circle_id: feed.text
@@ -195,7 +195,7 @@ function Gallery()
 
 						$.ajax({
 			        		type: 'post',
-			            	url: '../circle/fetchUploadedPhotoData',
+			            	url: baseUrl + 'circle/fetchUploadedPhotoData',
 			            	dataType: 'json',
 			            	data: {
 			            		photo_id: feed.text
