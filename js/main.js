@@ -16,7 +16,9 @@ var userLocation;
 var userProfilePhoto;
 
 var facebook = new Facebook();
+var carousel = new Carousel();
 var gallery = new Gallery();
+
 
 var friendProfileList = new Array();
 var curSelectedFriendID;
@@ -44,6 +46,7 @@ $(document).ready(function(){
 
 	enableButtons();
 	enableEventBinds();
+	carousel.initCarousel();
 	gallery.loadGallery();
 	
 	
@@ -168,8 +171,10 @@ function enableButtons(){
 	$('#create_circle_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#choose_photos_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#close_friend_photos_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('.circle_container').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('.photo_container').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+	$('.feature_circle_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+	$('.feature_photo_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+	$('.circle_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+	$('.photo_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#final_create_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#close_create_circle_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 

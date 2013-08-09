@@ -84,9 +84,9 @@ function Gallery()
 		// };
 
 		function placeCircleInAngles(parent, profileImageUrl){
-			var radius 	= 33,
-				cx 		= 48,
-				cy 		= 56,
+			var radius 	= 44.7,
+				cx 		= 47,
+				cy 		= 47,
 				steps 	= 10,
 				angle, x, y;
 
@@ -162,12 +162,17 @@ function Gallery()
 	            	success: function(data) {            
 	                	console.log('success');
 	                	$($('.circle_creator').get(i)).html(data.user_name);
+	                	$($('.feature_circle_creator').get(i)).html(data.user_name);
 	                	$($('.circle_goal').get(i)).html("<b>We Will - </b><br />" + data.goal);
+	                	$($('.feature_circle_goal').get(i)).html("<b>We Will - </b><br />" + data.goal);
+
 	                	placeCircleInAngles($($('.circle_area').get(i)), data.user_photo_url);
+	                	placeCircleInAngles($($('.feature_circle_area').get(i)), data.user_photo_url);
 
 	                	popupData = "$.popup({type:'circle', data:{ content: '" + data.goal + "', avatar: '" + data.user_photo_url + "',num_friends: 10}});"
 
 	                	$($($('.circle_container').get(i)).parent()).attr('onclick', popupData);
+	                	$($($('.feature_circle').get(i)).parent()).attr('onclick', popupData);
 
 	             	},
 	             	error: function(response){
@@ -185,9 +190,12 @@ function Gallery()
 				feed = data[i].data;
 
 				var div = $($('.photo_container').get(i));
+				var feature_div = $($('.feature_photo').get(i));
 				var link = $($('.photo_link').get(i));
+				var featureLink = $($('.feature_photo_link').get(i));
 				var popupData;
 				var photoIcon;
+				var html;
 
 				switch(feed.channel){
 					case 'rss':
@@ -204,9 +212,12 @@ function Gallery()
 			            	success: function(data) {            
 
 			                	popupData = "$.popup({type:'photo', data:{source: 'local', author: 'John Doe', content: '" + data.description +"', photo_url: '" + baseUrl + "uploads/" + data.filename + "'}})";
-			                	div.html("<img class='full_photo' src='" + baseUrl + "uploads/" + data.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>");
+			                	html = "<img class='full_photo' src='" + baseUrl + "uploads/" + data.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>";
+			                	div.html(html);
+			                	feature_div.html(html);
 
 			                	link.attr('onclick',popupData);
+			                	featureLink.attr('onclick',popupData);
 
 			             	},
 			             	error: function(response){
@@ -217,7 +228,6 @@ function Gallery()
 						break;
 
 					case 'instagram':
-						div.css('background-color', '#000');
 						//div.text('author: ' + feed.author.alias); // <-- author
 						console.log(feed.text); 				  // <-- content
 						console.log("instagram", feed.photos[0].url); 	// <-- photo_url
@@ -225,14 +235,19 @@ function Gallery()
 						popupData = "$.popup({type:'photo', data:{source: 'instagram', author: '"+ feed.author.alias + "', content: '" + feed.text + "', photo_url: '" + feed.photos[0].url+ "'}});"
 						photoIcon = baseUrl + "img/icons/instagram.png";
 
-						div.html("<img class='full_photo' src='" + feed.photos[0].url + "'/><img class='photo_icon' src='" + photoIcon + "'/>");
+						html = "<img class='full_photo' src='" + feed.photos[0].url + "'/><img class='photo_icon' src='" + photoIcon + "'/>";
+
+						div.html(html);
+						feature_div.html(html);
 
 						link.attr('onclick',popupData);
+						featureLink.attr('onclick',popupData);
 
 						break;
 
 					case 'twitter':
 						div.css('background', '#2caae1');
+						feature_div.css('background', '#2caae1');
 
 						photoIcon = baseUrl + "img/icons/twitter-large.png";
 						popupData = "$.popup({type:'twitter', data:{author: '" + feed.author.alias + "', content: '" +feed.text + "', datetime: '" + feed.timestamp + "',avatar: '" + feed.author.avatar + "'}});"
@@ -248,7 +263,10 @@ function Gallery()
 							content += "<img class='photo_icon' src='" + photoIcon + "'/>";
 						div.html(content);
 
+						feature_div.html(content);
+
 						link.attr('onclick',popupData);
+						featureLink.attr('onclick',popupData);
 
 						break;
 				}

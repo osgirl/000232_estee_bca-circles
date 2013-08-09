@@ -43,7 +43,7 @@
 		width:38%;
 	}
 	
-	.social_item{
+	.feature_photo{
 		min-height:228px;
 	}
 	
@@ -155,7 +155,7 @@
 		width:50%;
 	}
 	
-	.social_item{
+	.feature_photo{
 		min-height:178px;
 	}
 	
@@ -333,7 +333,7 @@
 		overflow:hidden;
 	 }
 	
-	.social_item{
+	.feature_photo{
 		min-height:187px;
 	}
 	
@@ -364,11 +364,11 @@
 	}
   
     #top_content{
-		max-height:480px;
+		max-height:490px;
 		overflow:hidden;
 	}
 
-	.social_item{
+	.feature_photo{
 		min-height:228px;
 	}
 

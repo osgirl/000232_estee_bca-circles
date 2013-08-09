@@ -10,6 +10,7 @@
 					<div class="circle_area_wrapper">
 						<div class="circle_area">
 							<img src="<?php echo base_url(); ?>img/assets/dotted-circle-small.png"/>
+							<div class="circle_goal"></div>
 						</div>
 					</div>
 					<div class='share_circle'>
@@ -34,8 +35,8 @@
 					<div class="circle_creator_area"><span class="circle_creator"></span> created a</div>
 					<div  class="circle_of_strenth">Circle of Strength</div>
 					<div class="circle_divider"></div>
-					<div class="circle_area">
-						<div class="circle_area_wrapper">
+					<div class="circle_area_wrapper">
+						<div class="circle_area">
 							<img src="<?php echo base_url(); ?>img/assets/dotted-circle-small.png"/>
 							<div class="circle_goal"></div>
 						</div>
@@ -63,8 +64,8 @@
 					<div class="circle_creator_area"><span class="circle_creator"></span> created a</div>
 					<div class="circle_of_strenth">Circle of Strength</div>
 					<div class="circle_divider"></div>
-					<div class="circle_area">
-						<div class="circle_area_wrapper">
+					<div class="circle_area_wrapper">
+						<div class="circle_area">
 							<img src="<?php echo base_url(); ?>img/assets/dotted-circle-small.png"/>
 							<div class="circle_goal"></div>
 						</div>
