@@ -31,7 +31,7 @@
             }
 
             #gallery {
-                min-height: 2000px;
+                min-height: 1200px;
             }
 
         </style>
@@ -98,10 +98,21 @@
                                 data:{                                    
                                     content: 'Be proactive. Schedule a mammogram.',
                                     avatar: 'http://profile-a.xx.fbcdn.net/hprofile-prn1/41405_39607548_1844_n.jpg',
-                                    num_friends: 10
+                                    circle_id: 1234,
+                                    num_friends: 10,
                                 }
                             });">Circle detail</a>
                         </li>
+                        <li>
+                            <a onclick="$.popup({type:'circle',
+                                data:{                                    
+                                    content: 'Be proactive. Schedule a mammogram.',
+                                    avatar: 'http://profile-a.xx.fbcdn.net/hprofile-prn1/41405_39607548_1844_n.jpg',
+                                    circle_id: 2345,
+                                    num_friends: 6,
+                                }
+                            });">Circle detail #2</a>
+                        </li>                        
 
                     </ul>
                 </div>
@@ -120,9 +131,8 @@
 		<script type="text/javascript" src="js/vendor/ajaxfileupload.js"></script>
         
         <script src="js/plugins.js"></script>
-        
-        
 
 
+        
     </body>
 </html>
