@@ -306,6 +306,8 @@ h2{
 	position: relative;;
 	min-height:320px;
 	background-color:#444;
+	border-top:1px solid white;
+	border-left:1px solid white;
 }
 
 .featured_circle{
@@ -313,6 +315,7 @@ h2{
 	min-height:380px;
 	overflow:hidden;
 	text-align:center;
+	border-top:1px solid white;
 }
 
 .featured_circle img{

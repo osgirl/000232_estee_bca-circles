@@ -53,7 +53,7 @@ function Carousel()
 				left:-carouselItemWidth*carouselItemID
 				}, 
 				{
-				duration: 500, 
+				duration: 600, 
 				easing: 'easeInOutExpo'
 				});
 
@@ -86,6 +86,10 @@ function Carousel()
 		initCarousel: function(){
 
 			carouselItemWidth = $('#carousel_slider').width()/3;
+
+			$(window).resize(function(e){
+				carouselItemWidth = $('#carousel_slider').width()/3;
+			})	
 
 
 		    $('.featured_dot').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})

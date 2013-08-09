@@ -303,6 +303,17 @@
 	.twitter_text{
 		font-size:.8em;
 	}
+
+	/*CAROUSEL*/
+
+	#carousel{
+		height: 379px;
+	}
+
+	#carousel_slider{
+		height:379px;
+		width:1479px;
+	}
     
 }
 
@@ -387,6 +398,17 @@
 		margin-top:40px;
 		max-width:100px;
 		float:left;
+	}
+
+	/*CAROUSEL*/
+
+	#carousel{
+		height: 460px;
+	}
+
+	#carousel_slider{
+		height:460px;
+		width:1803px;
 	}
 	
 }
