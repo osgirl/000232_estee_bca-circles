@@ -24,7 +24,7 @@
 		</div>
 		<table class="btn_control">
 			<tr>
-			    <td style="text-align:center"><div id="close_create_circle_btn" class='pink_btn pull_right'>close</div></td>
+			    <td style="text-align:center"><a><div id="close_create_circle_btn" class='pink_btn pull_right'>close</div></a></td>
 			</tr>
 		</table>
 	</div>

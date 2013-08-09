@@ -334,7 +334,7 @@ function getFriendList(e){
 			        
 			        //resize the field
 			        $("#temp_name_enter_container").html(response.name);
-				    $('#friend_search_field').width($("#temp_name_enter_container").width() + 15);
+				    $('#friend_search_field').width($("#temp_name_enter_container").width() + 25);
 				    $('#name_plus_btn').show();
 
 			      } else {
@@ -579,7 +579,7 @@ function confirmCreateCircle(){
 		}, TOOLTIP_TIMEOUT)
 		return;
 	}
-	
+
 	console.log("show confirm")
 	closeCreateCircleScreen();
 	$('#circle_confirm_screen').show();
@@ -598,6 +598,12 @@ function createCircle(){
 		console.log("friend tags", friendTagIDs);
 		console.log("goal", goal);
 		console.log("language", language);
+
+		var friendNum = friendSelectedArray.length + 1;
+
+		var popupData = "$.popup({type:'circle', data:{  content: 'We Will - <br />"+ goal+ "',avatar: '"+ userProfilePhoto + "', num_friends: " + friendNum + "}});"
+
+		$($('#close_create_circle_btn').parent()).attr('onclick', popupData);
 		
 		facebook.createCircle();
 
@@ -628,6 +634,4 @@ function createCircle(){
 		cancelCreateCircleScreen();
 		
 }
-
-
 
