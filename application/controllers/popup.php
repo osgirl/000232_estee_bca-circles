@@ -48,7 +48,14 @@ class Popup extends CI_Controller {
 		}
 		else{
 			// Do nothing
-		}		
-	}	
+		}
+	}
+
+	//Note: This is not a popup call
+	public function facebook_comment_iframe($id)
+	{
+		$data['circle_id'] = $id;
+		$this->load->view('popup/facebook_comment_iframe_view', $data);
+	}
 
 }

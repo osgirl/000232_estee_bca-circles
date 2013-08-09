@@ -34,6 +34,7 @@
  *   photo_url
  *   share_url (actual url of original post)
  *   circle_id 
+ *   num_friend
  */
 $.extend(
 {
@@ -76,7 +77,7 @@ $.extend(
                 success: function(data)
                 {
                     $('#gallery').append(data);
-                    $('#popup_circle').init_circle(d.num_friends);
+                    $('#popup_circle').init_circle(d.circle_id, d.num_friends);
                 },
                 error: function(jqXHR, textStatus, errorThrown)
                 {
@@ -113,7 +114,7 @@ $.extend(
                     photo_url: null,
                     share_url: null,
                     circle_id: null,     
-                    num_friend: null,         
+                    num_friend: null   
                 };
 
                 for (var key in v)
@@ -447,24 +448,25 @@ $.extend(
  ******************************************/
 (function($)
 {
-    var $this, $bound = {};
-    $.fn.init_circle = function(n)
+    var $this, $c, $dy, $offy, $circle_id, $num_friends, $bound = {};
+    $.fn.init_circle = function(circle_id, num_friends)
     {
-
-        $this = $(this);
-        $num_friends = n;
+        $this        = $(this);
+        $circle_id   = circle_id;
+        $num_friends = num_friends;
         //initalize scroll detection
          $(window).bind('resize scroll', function()
         {
             $bound.y = $('#gallery').offset().top;
             $bound.w = $this.parent().outerWidth();
             $bound.l = $this.parent().offset().left;
-            $dy = $(this).scrollTop() - $bound.y;
+            $offy    = ($(window).height() < $this.height()) ? $(window).height() - $this.height() : 0;
+            $dy      = $(this).scrollTop() - $bound.y + $offy;
             if($dy < 0){
                 $this.css({'position': 'absolute','top': 0, 'left': 0, 'width': $bound.w });
             }
             else{
-                $this.css({'position': 'fixed','top':0, 'left': $bound.l, 'width': $bound.w});
+                $this.css({'position': 'fixed','top': $offy, 'left': $bound.l, 'width': $bound.w});
             }
         });
 
@@ -483,43 +485,49 @@ $.extend(
     }
 
     function createDots(){
-        console.log('dots');
-
-        $steps          = $num_friends;
-        $radius         = 100;
-        $cx             = 0;
-        $cy             = 0;
+        var $steps          = $num_friends,
+        $radius         = 100,
+        $cx             = 0,
+        $cy             = 0,
+        $count          = 1;
 
         $parent         = $($c + ' #dot_container');
 
         for ( $i =0; $i < $steps; $i++ ) {
             $angle = (  Math.PI * ( $i / $steps -.25 ) ) *2;
-            $x = $cx + $radius * Math.cos( $angle );
-            $y = $cy + $radius * Math.sin( $angle );
+            $x = ($cx + $radius * Math.cos( $angle ) +100)/2;
+            $y = ($cy + $radius * Math.sin( $angle ) +100)/2;
 
-            // console.log($x, $y);
-
-            $x = ($x + 100)/2;
-            $y = ($y + 100)/2;
-
-            // console.log($x, $y);
             if ($i != 0){
                 $('<div class="dot"><img src="img/popups/circle/dot.png"/></div>')
                 .css({'left' : $x + '%','top': $y + '%'})
                 .appendTo($parent)
-                .hide().delay($i*100).show(500);
+                .hide()
+                .delay($i*100)
+                .show(500, function(){
+                    $count ++;                    
+                    if($count == $steps)
+                        circleAnimComplete();
+                });
             }
-
         }
-
     }
 
+    function circleAnimComplete(){
+        //load comment box
+        console.log('start');
+        var $holder = $($c + ' #popup_circle_comment_holder');
+        console.log($holder );
+        $('<iframe src="popup/facebook_comment_iframe/' + $circle_id +'"></iframe>').appendTo($holder);
+    }
 
     function closeWindow()
     {
-        console.log('close');
         $('#magnet_feed').animate({opacity:1}, 250);
-        $this.animate({opacity:0}, 250, function(){ $this.remove() });
+        $this.animate({opacity:0}, 250, function(){ 
+            $(window).unbind('resize scroll');
+            $this.remove();
+        });
     }
 
 })(jQuery);
