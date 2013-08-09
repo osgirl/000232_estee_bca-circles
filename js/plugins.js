@@ -149,7 +149,7 @@ $.extend(
     function toggleCheckbox(e)
     {
         $agr = ($agr) ? false : true;
-        $(e.target).css('background-position-x', (($agr) ? $(e.target).width() * -1 : 0));
+        $(e.target).css('background-position', (($agr) ? $(e.target).width() * -1 : 0),0);
 
         if ($agr) $($c + ' .btn_next').removeClass('dim');
         else $($c + ' .btn_next').addClass('dim');
