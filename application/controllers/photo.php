@@ -180,4 +180,6 @@ class Photo extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	
+
 }

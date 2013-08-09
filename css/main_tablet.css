@@ -231,6 +231,78 @@
 	    line-height:1.2em;
 	    font-size:4.2em;
     }
+
+    /*LAYOUT 1*/
+
+    .gallery_layout{
+		margin-bottom:22px;
+	}
+
+	#layout1 .gallery_col{
+		width:48%;
+		margin-right:2%;
+	}
+
+	.circle_container{
+		margin-bottom:0;
+	}
+
+	.photo_container{
+		height:265px;
+		margin-bottom:0;
+	}
+
+	#layout1 .photo_container{
+		width:48%;
+		margin-right:4%;
+	}
+
+	#layout1 .gallery_col2, #layout1 .photo_container_2{
+		margin-right:0;
+	}
+
+
+	#layout1 .gallery_col{
+		width:48%;
+		margin-right:2%;
+	}
+
+	/*LAYOUT 2*/
+
+	#layout2 .photo_col{
+		width:23%;
+		margin-right:2%;
+	}
+
+	#layout2 .photo_col:last-child{
+			margin-right:0;
+		}
+
+	#layout2 .circle_col{
+		width:48%;
+		margin-right:2%;
+	}
+
+	#layout2 .photo_container{
+		width:100%;
+		margin-right:4%;
+	}
+
+	.flex_margin_bottom{
+		margin-bottom:22px;
+	}
+
+	.twitter_author{
+		font-size:1em;
+	}
+
+	.twitter_time{
+		font-size:.8em;
+	}
+
+	.twitter_text{
+		font-size:.8em;
+	}
     
 }
 

@@ -84,9 +84,9 @@ function Gallery()
 		// };
 
 		function placeCircleInAngles(parent, profileImageUrl){
-			var radius 	= 178,
-				cx 		= 255,
-				cy 		= 312,
+			var radius 	= 33,
+				cx 		= 48,
+				cy 		= 56,
 				steps 	= 10,
 				angle, x, y;
 
@@ -100,7 +100,7 @@ function Gallery()
 
 				dotItem
 					.addClass(dotClass)
-					.css({'left': x, 'top': y})
+					.css({'left': x + "%", 'top': y + "%"})
 					.appendTo(parent);
 
 				if(i == 0) dotItem.css('background-image', 'url(' + profileImageUrl + ')');
@@ -185,6 +185,7 @@ function Gallery()
 				feed = data[i].data;
 
 				var div = $($('.photo_container').get(i));
+				var link = $($('.photo_link').get(i));
 				var popupData;
 				var photoIcon;
 
@@ -205,7 +206,7 @@ function Gallery()
 			                	popupData = "$.popup({type:'photo', data:{source: 'local', author: 'John Doe', content: '" + data.description +"', photo_url: '" + baseUrl + "uploads/" + data.filename + "'}})";
 			                	div.html("<img class='full_photo' src='" + baseUrl + "uploads/" + data.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>");
 
-			                	$(div.parent()).attr('onclick',popupData);
+			                	link.attr('onclick',popupData);
 
 			             	},
 			             	error: function(response){
@@ -219,14 +220,14 @@ function Gallery()
 						div.css('background-color', '#000');
 						//div.text('author: ' + feed.author.alias); // <-- author
 						console.log(feed.text); 				  // <-- content
-						console.log("instagram", feed.photos.url); 	// <-- photo_url
+						console.log("instagram", feed.photos[0].url); 	// <-- photo_url
 
-						popupData = "$.popup({type:'photo', data:{source: 'instagram', author: '"+ feed.author.alias + "', content: '" + feed.text + "', photo_url: '" + feed.photos.url + "'}});"
+						popupData = "$.popup({type:'photo', data:{source: 'instagram', author: '"+ feed.author.alias + "', content: '" + feed.text + "', photo_url: '" + feed.photos[0].url+ "'}});"
 						photoIcon = baseUrl + "img/icons/instagram.png";
 
-						div.html("<img class='full_photo' src='" + feed.photos.url + "'/><img class='photo_icon' src='" + photoIcon + "'/>");
+						div.html("<img class='full_photo' src='" + feed.photos[0].url + "'/><img class='photo_icon' src='" + photoIcon + "'/>");
 
-						$(div.parent()).attr('onclick',popupData);
+						link.attr('onclick',popupData);
 
 						break;
 
@@ -236,9 +237,9 @@ function Gallery()
 						photoIcon = baseUrl + "img/icons/twitter-large.png";
 						popupData = "$.popup({type:'twitter', data:{author: '" + feed.author.alias + "', content: '" +feed.text + "', datetime: '" + feed.timestamp + "',avatar: '" + feed.author.avatar + "'}});"
 						//div.text('author: ' + feed.author.alias); // <-- author
-						console.log(feed.text);					  // <-- content
-						console.log(feed.timestamp); 			  // <-- datetime
-						console.log("avatar", feed.author.avatar); 		  // <-- avatar
+						console.log(feed.text);					    // <-- content
+						console.log(feed.timestamp); 			    // <-- datetime
+						console.log("avatar", feed.author.avatar); 	// <-- avatar
 
 						var content = "<div class='twitter_avatar'><img src='" + feed.author.avatar + "'/></div>"
 							content	+= "<div class='twitter_title'><div class='twitter_author'>"+ feed.author.alias + "</div>"
@@ -247,7 +248,7 @@ function Gallery()
 							content += "<img class='photo_icon' src='" + photoIcon + "'/>";
 						div.html(content);
 
-						$(div.parent()).attr('onclick',popupData);
+						link.attr('onclick',popupData);
 
 						break;
 				}

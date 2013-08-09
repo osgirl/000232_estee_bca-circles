@@ -70,8 +70,8 @@
 	                			<div id="featured_circle"><img src='<?php echo base_url(); ?>img/pics/circle.png'/></div>
 	                		</div>
 	                		<div class="top_content_sub_span2 span2">
-	                			<div id="featured_instagram" class="social_item "><img src='<?php echo base_url(); ?>img/pics/instagram.jpg'/></div>
-	                			<div id="featured_twitter" class="social_item "><img src='<?php echo base_url(); ?>img/pics/twitter.png'/></div>
+	                			<div id="featured_instagram" class="social_item "><img class='full_photo' src='<?php echo base_url(); ?>img/pics/instagram.jpg'/></div>
+	                			<div id="featured_twitter" class="social_item "><img class='full_photo' src='<?php echo base_url(); ?>img/pics/twitter.png'/></div>
 	                		</div>
 	                	</div>
 	                	</div>

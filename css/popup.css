@@ -138,7 +138,7 @@
 	bottom: 0;
 	width: 93%;
 	padding: 0 2% 0 5%;
-	/*background: rgba(0,0,0, .6);*/
+	background: rgba(0,0,0, .6);
 }
 
 .popup #photo_desc_holder h3{	

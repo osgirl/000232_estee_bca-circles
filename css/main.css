@@ -296,6 +296,7 @@ h2{
 }
 
 .social_item{
+	position: relative;;
 	min-height:320px;
 }
 
@@ -480,40 +481,87 @@ h2{
 	overflow: hidden;
 }
 
-.gallery_col{
-	width:48%;
-	margin-right:2%;
-	
+/*LAYOUT 1*/
+
+.flex_margin_bottom{
+	margin-bottom:0;
+}
+
+#layout1 .gallery_col{
+	width:100%;
+	margin-right:0;
 }
 
 .circle_container{
 	background-color:#f38dab;
-	height:530px;
-	margin-bottom:4%;
+	height:512px;
 	position:relative;
 	padding:20px;
 	color:white;
+	margin-bottom: 22px;
 }
 
 .photo_container{
 	background-color:#333;
-	width:48%;
-	margin-right:4%;
-	margin-bottom:4%;
-	height:265px;
+	height:320px;
 	position:relative;
 	background-size:110%;
 	overflow: hidden;
+	margin-bottom: 22px;
+}
+
+#layout1 .photo_container{
+	width:100%;
+	margin-right:0;
+}
+	
+
+#layout1 .gallery_col2, #layout1 .photo_container_2{
+	margin-right:0;
+}
+
+#layout1 .gallery_col{
+	width:100%;
+	margin-right:0;
+}
+
+/*LAYOUT 2*/
+
+#layout2 .photo_col{
+	width:100%;
+	margin-right:0;
+}
+
+#layout2 .photo_col:last-child{
+	margin-right:0;
+}
+
+#layout2 .circle_col{
+	width:100%;
+	margin-right:0;
+}
+
+#layout2 .photo_container{
+	width:100%;
+	margin-right:0;
+}
+
+
+
+/*GALLERY ASSETS*/
+
+.gallery_layout{
+	margin-bottom:0px;
+}
+
+.gallery_layout:last-child{
+	margin-bottom:0;
 }
 
 .photo_icon{
 	position: absolute;
 	right:5px;
 	bottom:5px;
-}
-
-.gallery_col2, .photo_container_2{
-	margin-right:0;
 }
 
 .point{
@@ -537,6 +585,7 @@ h2{
 }
 
 .twitter_author{
+	font-size:1.4em;
 	color:#0e6578;
 	margin-top:3px;
 }
@@ -547,26 +596,32 @@ h2{
 }
 
 .twitter_text{
-	font-size:.8em;
+	font-size:1.2em;
 	color:white;
 	clear:both;
-	width:95%;
+	width:92%;
 	margin-left:5%;
 }
 
-.circle_link:hover{
-	text-decoration: none;
-}
-
-.circle_area{
-	text-align: center;
-	background:url('../img/assets/dotted-circle-small.png') no-repeat center;
+.circle_area_wrapper{
+	margin-top: 50px;
 	width:100%;
-	padding-top:100px;
-	margin-top:50px;
-	height:260px;
+	text-align: center;
 }
 
+.circle_area {
+    position: relative;
+    margin-left: 14%;
+    width:76%;
+}
+
+.circle_area_wrapper img{
+	position:absolute;
+	top:0;
+	left:0;
+	max-width:100%;
+	height:auto;
+}
 
 .circle_goal{
 	width:200px;
@@ -574,6 +629,9 @@ h2{
 	font-weight: lighter;
 	text-align: center;
 	display: inline-block;
+	position:absolute;
+	top:30%;
+	left:40%;
 }
 
 .circle_divider{
@@ -597,7 +655,7 @@ h2{
 	height:70px;
 	background-size: 70px auto;
 	position:absolute;
-	margin-left:-20px;
+	margin-left:-22px;
 	margin-top:-25px;
 }
 
@@ -619,6 +677,10 @@ h2{
 	left:0;
 	max-width:105%;
 	height:auto;
+}
+
+.circle_link:hover, .photo_link:hover{
+	text-decoration: none;
 }
 
 /*DONATE*/
