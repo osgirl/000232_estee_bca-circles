@@ -94,7 +94,7 @@
 								</div>
 							</div>
 							<div id='community' class='span5'>
-								<h2>Community</h2>
+								<h2>Trending Actions</h2>
 								<table class='community_item'>
 									<tr>
 									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>

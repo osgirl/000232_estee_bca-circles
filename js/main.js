@@ -170,10 +170,16 @@ function enableButtons(){
 	$('#close_friend_photos_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('.circle_container').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('.photo_container').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+	$('#final_create_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+	$('#close_create_circle_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+
 
 	//enable clicks
-	$('.sign_in_btn').unbind("click").click(facebook.logIn)
-	$('#create').unbind("click").click(createCircle)
+	$('#conversation_btn').unbind("click").click(function(e){
+		$("html, body").animate({ scrollTop: 766 }, "slow");
+	});
+	$('.sign_in_btn').unbind("click").click(facebook.logIn);
+	$('#create').unbind("click").click(confirmCreateCircle);
 	$('#select_action_button').unbind('click').click(function(e){
 		(!selectOpen) ? openActionSelect() : closeActionSelect();
 	})
@@ -182,9 +188,11 @@ function enableButtons(){
 	$("#next_step_btn").unbind("click").click(function(e){goNextCreateCircleScreen(e)});
 	$("#back_step_btn").unbind("click").click(function(e){goNextCreateCircleScreen(e)});
 	$('#name_plus_btn').unbind("click").click(addFriend);
-	$('#create_circle_btn').unbind("click").click(createCircle);
+	$('#create_circle_btn').unbind("click").click(confirmCreateCircle);
 	$('#choose_photos_btn').unbind("click").click(openFriendPhotosPanel);
 	$('#close_friend_photos_btn').unbind("click").click(closeFriendPhotosPanel);
+	$('#final_create_btn').unbind("click").click(openThankYouScreen);
+	$('#close_create_circle_btn').unbind("click").click(createCircle);
 
 	//$('#show_friendlist_btn').unbind("click").click(facebook.showFriendlist);
 }
@@ -229,6 +237,9 @@ function closeCreateCircleScreen(){
 }
 
 function cancelCreateCircleScreen(){
+	$('#circle_confirm_screen').hide();
+	$('#opt_in').show();
+	$('#thank_you').hide();
 	closeCreateCircleScreen();
 	resetCircle();
 }
@@ -559,7 +570,7 @@ function closeFriendPhotosPanel(){
 	$('#friend_photos').hide();
 }
 
-function createCircle(){	
+function confirmCreateCircle(){
 
 	if(friendSelectedArray.length == 0){
 		$('#friend_search_wrapper').tooltip('show');
@@ -569,6 +580,18 @@ function createCircle(){
 		return;
 	}
 	
+	console.log("show confirm")
+	closeCreateCircleScreen();
+	$('#circle_confirm_screen').show();
+}
+
+function openThankYouScreen(){
+	$('#opt_in').hide();
+	$('#thank_you').show();
+}
+
+function createCircle(){	
+	
 		console.log("user info", userID, userName)
 		console.log("user photo", userProfilePhoto);
 		console.log("user friends info", friendSelectedArray);
@@ -576,7 +599,7 @@ function createCircle(){
 		console.log("goal", goal);
 		console.log("language", language);
 		
-		//facebook.createCircle();
+		facebook.createCircle();
 
 		var value = {
 				'users_fb_id' 	  : userID,

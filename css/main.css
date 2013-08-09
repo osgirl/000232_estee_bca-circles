@@ -561,17 +561,20 @@ h2{
 
 .circle_area{
 	text-align: center;
-	background:url('../img/assets/dotted-circle-small.png') no-repeat;
-	background-position:center;
-	background-position-y: 60px;
-	width:360px;
-	height:360px;
+	background:url('../img/assets/dotted-circle-small.png') no-repeat center;
+	width:100%;
+	padding-top:100px;
+	margin-top:50px;
+	height:260px;
 }
+
 
 .circle_goal{
 	width:200px;
 	font-size:1.4em;
-	font-weight: lighter
+	font-weight: lighter;
+	text-align: center;
+	display: inline-block;
 }
 
 .circle_divider{
@@ -1018,6 +1021,35 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 		width: 15px;
 	}
 
+/*CREATE CIRCLE CONFIRM*/
+#circle_confirm_screen{
+	position:relative;
+	height:330px;
+	display:none;
+}
+
+.confirm_content{
+	padding:5% 26% 2% 26%;
+}
+
+.confirm_content p{
+	font-weight: lighter;
+}
+
+#opt_in p a{
+	text-decoration: underline;
+	color:#f38dab;
+}
+
+#thank_you{
+	display:none;
+}
+
+#thank_you p{
+	font-size:1.7em;
+	text-align: center;
+}
+
 
 /*CANCEL SCREEN*/
 
@@ -1025,7 +1057,6 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	background-image: url('../img/assets/pink-opacity.png'); 
 	height:500px;
 }
-	
 
 
 /* FOOTER*/
@@ -1071,10 +1102,11 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 .overlay{
 	position:absolute;
 	width:100%;
-	height:170%;
+	height:300%;
 	top:0;
 	left:0;
 	background: url('../img/assets/black-opacity-70.png');
+	z-index: -99999;
 }
 
 

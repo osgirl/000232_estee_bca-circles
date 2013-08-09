@@ -86,7 +86,7 @@ function Gallery()
 		function placeCircleInAngles(parent, profileImageUrl){
 			var radius 	= 178,
 				cx 		= 255,
-				cy 		= 308,
+				cy 		= 312,
 				steps 	= 10,
 				angle, x, y;
 
@@ -216,13 +216,15 @@ function Gallery()
 						break;
 
 					case 'instagram':
-						div.css('background-color', '#bfad9c');
+						div.css('background-color', '#000');
 						//div.text('author: ' + feed.author.alias); // <-- author
 						console.log(feed.text); 				  // <-- content
-						console.log(feed.photos.url); 			  // <-- photo_url
+						console.log("instagram", feed.photos.url); 	// <-- photo_url
 
 						popupData = "$.popup({type:'photo', data:{source: 'instagram', author: '"+ feed.author.alias + "', content: '" + feed.text + "', photo_url: '" + feed.photos.url + "'}});"
 						photoIcon = baseUrl + "img/icons/instagram.png";
+
+						div.html("<img class='full_photo' src='" + feed.photos.url + "'/><img class='photo_icon' src='" + photoIcon + "'/>");
 
 						$(div.parent()).attr('onclick',popupData);
 
