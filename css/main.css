@@ -284,7 +284,6 @@ h2{
 
 .featured_dot{
 	margin:11px 0 0 5px;
-	background-color:white;
 	width:12px;
 	height:12px;
 	-moz-border-radius: 50%;
@@ -295,29 +294,56 @@ h2{
     float:left;
 }
 
-.social_item{
-	min-height:320px;
+.featured_selected{
+	background-color:#f38dab;
 }
 
-#featured_circle{
+.featured_deselected{
+	background-color:white;
+}
+
+.feature_photo{
+	position: relative;;
+	min-height:320px;
+	background-color:#444;
+	border-top:1px solid white;
+	border-left:1px solid white;
+}
+
+.featured_circle{
 	background-color:#f38dab;
 	min-height:380px;
 	overflow:hidden;
 	text-align:center;
+	border-top:1px solid white;
 }
 
-#featured_circle img{
+.featured_circle img{
 	max-width:90%;
 	height:auto;
 }
 
-#featured_instagram{
-    background-color:black;
-    text-align:center;
+
+/*CAROUSEL*/
+
+#carousel{
+	overflow: hidden;
+	position: relative;
+	height: 460px;
+    width: 100%;
 }
 
-#featured_twitter{
-	background-color:#00cffb;
+#carousel_slider{
+	height:460px;
+	width:1803px;
+	position: absolute;
+	top:0;
+	left:0;
+}
+
+.carousel_item{
+	width:33.33%;
+	float:left;
 }
 
 /*JOIN CONVERSATION AREA*/
@@ -480,40 +506,94 @@ h2{
 	overflow: hidden;
 }
 
-.gallery_col{
-	width:48%;
-	margin-right:2%;
-	
+/*LAYOUT 1*/
+
+.flex_margin_bottom{
+	margin-bottom:0;
+}
+
+#layout1 .gallery_col{
+	width:100%;
+	margin-right:0;
 }
 
 .circle_container{
 	background-color:#f38dab;
-	height:530px;
-	margin-bottom:4%;
+	height:440px;
+	position:relative;
+	padding:20px;
+	color:white;
+	margin-bottom: 22px;
+}
+
+.feature_circle{
+	background-color:#f38dab;
 	position:relative;
 	padding:20px;
 	color:white;
 }
 
 .photo_container{
-	background-color:#333;
-	width:48%;
-	margin-right:4%;
-	margin-bottom:4%;
-	height:265px;
+	background-color:#444;
+	height:312px;
 	position:relative;
 	background-size:110%;
 	overflow: hidden;
+	margin-bottom: 22px;
+}
+
+#layout1 .photo_container{
+	width:100%;
+	margin-right:0;
+}
+	
+
+#layout1 .gallery_col2, #layout1 .photo_container_2{
+	margin-right:0;
+}
+
+#layout1 .gallery_col{
+	width:100%;
+	margin-right:0;
+}
+
+/*LAYOUT 2*/
+
+#layout2 .photo_col{
+	width:100%;
+	margin-right:0;
+}
+
+#layout2 .photo_col:last-child{
+	margin-right:0;
+}
+
+#layout2 .circle_col{
+	width:100%;
+	margin-right:0;
+}
+
+#layout2 .photo_container{
+	width:100%;
+	margin-right:0;
+}
+
+
+
+/*GALLERY ASSETS*/
+
+.gallery_layout{
+	margin-bottom:0px;
+}
+
+.gallery_layout:last-child{
+	margin-bottom:0;
 }
 
 .photo_icon{
 	position: absolute;
 	right:5px;
 	bottom:5px;
-}
-
-.gallery_col2, .photo_container_2{
-	margin-right:0;
 }
 
 .point{
@@ -537,6 +617,7 @@ h2{
 }
 
 .twitter_author{
+	font-size:1.4em;
 	color:#0e6578;
 	margin-top:3px;
 }
@@ -547,33 +628,57 @@ h2{
 }
 
 .twitter_text{
-	font-size:.8em;
+	font-size:1.2em;
 	color:white;
 	clear:both;
-	width:95%;
+	width:92%;
 	margin-left:5%;
 }
 
-.circle_link:hover{
-	text-decoration: none;
-}
-
-.circle_area{
-	text-align: center;
-	background:url('../img/assets/dotted-circle-small.png') no-repeat center;
+.circle_area_wrapper{
+	margin-top: 40px;
 	width:100%;
-	padding-top:100px;
-	margin-top:50px;
-	height:260px;
+	text-align: center;
 }
 
 
-.circle_goal{
-	width:200px;
-	font-size:1.4em;
+.circle_area, .feature_circle_area {
+    position: relative;
+    width:300px;
+    height:300px;
+    display:inline-block;
+    margin-left:-25px;
+}
+
+.feature_circle_area{
+	margin-left:-5px;
+}
+
+.circle_area img, .feature_circle_area img{
+	position:absolute;
+	top:12px;
+	left:15px;
+	max-width:91%;
+	height:auto;
+}
+
+.feature_circle_area img{
+	top:17px;
+}
+
+.circle_goal, .feature_circle_goal{
+	width:180px;
+	font-size:1.2em;
 	font-weight: lighter;
 	text-align: center;
 	display: inline-block;
+	position:absolute;
+	top:30%;
+	left:22%;
+}
+
+.feature_circle_goal{
+	left:21%;
 }
 
 .circle_divider{
@@ -597,7 +702,7 @@ h2{
 	height:70px;
 	background-size: 70px auto;
 	position:absolute;
-	margin-left:-20px;
+	margin-left:-22px;
 	margin-top:-25px;
 }
 
@@ -619,6 +724,10 @@ h2{
 	left:0;
 	max-width:105%;
 	height:auto;
+}
+
+.circle_link:hover, .photo_link:hover, .feature_photo_link:hover, .feature_circle_link:hover{
+	text-decoration: none;
 }
 
 /*DONATE*/

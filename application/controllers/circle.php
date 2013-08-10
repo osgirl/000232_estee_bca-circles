@@ -65,8 +65,9 @@ class Circle extends CI_Controller {
 		}
 		else
 			echo 'Invalid access';
-	}
+	}	
 
+	
 	public function fetchUploadedPhotoData()
 	{
 		$this->post = $this->input->post();
@@ -89,6 +90,5 @@ class Circle extends CI_Controller {
 		else
 			echo 'Invalid access';
 	}
-	
 
 }
