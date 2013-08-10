@@ -448,26 +448,54 @@ $.extend(
  ******************************************/
 (function($)
 {
-    var $this, $c, $dy, $offy, $circle_id, $num_friends, $bound = {};
+    var $this, $c, $scroll_y, $margin_top, $gap, $circle_id, $num_friends, $new_modal, $bound = {};
     $.fn.init_circle = function(circle_id, num_friends)
     {
         $this        = $(this);
         $circle_id   = circle_id;
         $num_friends = num_friends;
+        $new_modal    = true;
+        $padding_top = 0;
+
+        var $win_abs_y = $(window).scrollTop();
+
+
         //initalize scroll detection
          $(window).bind('resize scroll', function()
         {
-            $bound.y = $('#gallery').offset().top;
+                
+            $scroll_y = $(this).scrollTop() - $win_abs_y;
+            $margin_top = $('.navbar').height();
+                        
             $bound.w = $this.parent().outerWidth();
             $bound.l = $this.parent().offset().left;
-            $offy    = ($(window).height() < $this.height()) ? $(window).height() - $this.height() : 0;
-            $dy      = $(this).scrollTop() - $bound.y + $offy;
-            if($dy < 0){
-                $this.css({'position': 'absolute','top': 0, 'left': 0, 'width': $bound.w });
+                                
+            //Add padding
+            if( ($win_abs_y +$margin_top) < $this.parent().offset().top ) {
+                console.log('Add padding');
+                $padding_top = $this.parent().offset().top - $win_abs_y;
+                $bound.y = $margin_top + $padding_top;
             }
-            else{
-                $this.css({'position': 'fixed','top': $offy, 'left': $bound.l, 'width': $bound.w});
+            
+            $bound.y =  $('.navbar').height()  - $(this).scrollTop() +$win_abs_y + $padding_top;
+                if ($bound.y > $margin_top  && $padding_top == 0) $bound.y = $margin_top;
+            
+            
+            $gap    = ($(window).height() < $this.height()) ? $this.height() - $(window).height() : 0;            
+            $bound.top = $margin_top + $gap;
+
+
+            if($scroll_y  < ($bound.top + $padding_top) ){
+                console.log( $bound.y  );
+                $this.css({'position': 'fixed','top': $bound.y , 'left': $bound.l, 'width': $bound.w });
             }
+
+            else {               
+                console.log('dead zone');
+                $this.css({'position': 'fixed','top': -$gap, 'left': $bound.l, 'width': $bound.w});
+
+            }
+             $new_modal = false;
         });
 
         $c = '.' + $(this).attr('class');
