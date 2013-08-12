@@ -145,7 +145,6 @@ function Gallery()
 			var popupData;
 
 			$('.circle_link').each(function(i,v){
-				console.log(i)
 				if(i > data.length-1) $(v).hide();
 			})
 
@@ -161,6 +160,7 @@ function Gallery()
 	            	},
 	            	success: function(data) {            
 	                	console.log('success');
+	                	$($('.circle_container').get(i)).attr('circle_id', data.circle_id);
 	                	$($('.circle_creator').get(i)).html(data.user_name);
 	                	$($('.feature_circle_creator').get(i)).html(data.user_name);
 	                	$($('.circle_goal').get(i)).html("<b>We Will - </b><br />" + data.goal);
@@ -169,7 +169,7 @@ function Gallery()
 	                	placeCircleInAngles($($('.circle_area').get(i)), data.user_photo_url);
 	                	placeCircleInAngles($($('.feature_circle_area').get(i)), data.user_photo_url);
 
-	                	popupData = "$.popup({type:'circle', data:{ content: '" + data.goal + "', avatar: '" + data.user_photo_url + "',num_friends: 10}});"
+	                	popupData = "$.popup({type:'circle', data:{ content: '" + data.goal + "', avatar: '" + data.user_photo_url + "', circle_id: '" + data.circle_id + "', users_fb_id: '" + data.user_id+ "', num_friends: 10}});"
 
 	                	$($($('.circle_container').get(i)).parent()).attr('onclick', popupData);
 	                	$($($('.feature_circle').get(i)).parent()).attr('onclick', popupData);

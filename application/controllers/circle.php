@@ -52,6 +52,7 @@ class Circle extends CI_Controller {
 
 			if ($query->num_rows() > 0) {
 			  foreach($query->result() as $row) {
+			  	$data['circle_id'] = $row->id;
 			    $data['user_id'] = $row->users_fb_id;
 			    $data['user_name'] = $row->users_name;
 			    $data['user_photo_url'] = $row->users_photo_url;

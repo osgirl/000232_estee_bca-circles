@@ -1,0 +1,324 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"div",
+				"feature_div"
+			],
+			[
+				"feature",
+				"featureLink"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"loadin",
+				"loadInitialPhotos"
+			],
+			[
+				"app",
+				"appendTo"
+			],
+			[
+				"get",
+				"getElementsByTagName"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"reset",
+				"resetFriendPhotoItem"
+			],
+			[
+				"search",
+				"friend_search_wrapper"
+			],
+			[
+				"photo",
+				"photo_check"
+			],
+			[
+				"add",
+				"addFriend"
+			],
+			[
+				"cur",
+				"curSelectedFriendID"
+			],
+			[
+				"friend",
+				"friend_item"
+			],
+			[
+				"ma",
+				"MAX_FRIENDS_NUM"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"v",
+				"vertical-align"
+			],
+			[
+				"type",
+				"typeahead"
+			],
+			[
+				"background",
+				"background-image"
+			],
+			[
+				"appen",
+				"appendTo"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/views/popup/circle_view.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/css/popup.css",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/test.html",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/controllers/photo.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/controllers/circle.php",
+		"/Users/ws317/Sites/time_tracking/php/projects.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/js/util/facebook.js",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/_feed_test/index.html",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/views/top_popup/create_circle_view.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/_masonry_test/index.html",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/config/mili_config/config.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/config/sean_config/config.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/config/staging/config.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/config/config.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/js/util/combobox.js",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/views/top_navigation_view.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/css/jquery.jscrollpane.css",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/popup_test.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/views/top_popup/language_dropdown.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/views/top_popup/cancel_view.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/views/create_circle_view.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/controllers/home.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/views/header.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/views/test.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/js/main.js",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/index.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/js/vendor/bootstrap.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"feature_photo",
+			"feature_dot",
+			"photo",
+			"social",
+			"feature_photo",
+			"top_content",
+			"featured_circle",
+			"featured_twitter",
+			"featured_instagram",
+			"featured_circle",
+			"dot_container",
+			"place",
+			"pink",
+			"dot_container",
+			"dotted_circle",
+			"table",
+			"fetchLargeUserProfilePicture",
+			"display",
+			"<img",
+			"donate",
+			"donate'",
+			"donate",
+			"pink",
+			"loadInitialPhotos",
+			"upload_photo_btn",
+			"upload",
+			"gonext",
+			"closeFriendPhotosPanel",
+			"$('#friend_photos').hide();",
+			"closeFriendPhotosPanel",
+			"find('.photo_check').hide();",
+			"cancel",
+			"deletefriend",
+			"removefriend",
+			"remove",
+			"photo_check",
+			"tool",
+			"addfriend",
+			"photo_check",
+			"addfriend",
+			"createfriendpho",
+			"addfriend",
+			"closeFriendPhotosPanel",
+			"name",
+			"pink",
+			"addFriendc",
+			"addFriend",
+			"friend_pic",
+			"addfriend",
+			"getfriendlist",
+			"createfriend",
+			"search",
+			"pink",
+			"pnk",
+			"pink",
+			"add_friend_tool",
+			">\n",
+			"</li>",
+			"German",
+			"nbsp",
+			"popup",
+			"choosefrien",
+			".('show')",
+			"$('show')",
+			"$(\"show\")",
+			"content",
+			"comma",
+			"create_circle_user",
+			"plus",
+			"friend_list",
+			"top"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"project": "bca.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 355.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
