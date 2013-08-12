@@ -199,10 +199,6 @@
 /* ===============
     Smartphone (640px)
    =============== */
-  
-	body {
-		padding: 0px 20px 40px 20px;
-	}
 	
 	#content_wrap{
 	  	max-width:600px;

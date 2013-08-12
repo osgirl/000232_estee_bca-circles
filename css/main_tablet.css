@@ -4,11 +4,6 @@
 /* ===============
     Tablet (768px)
    =============== */
-  
-	  body {
-		padding: 0px 80px 40px 80px;
-	  }
-	
 
 	  #top_nav{
 		max-width:608px;
@@ -129,9 +124,18 @@
 /* ===============
     Tablet (980px)
    =============== */
+
+   /*OVERLAYS*/
+	.overlay{
+		z-index: -99999;
+		width:100%;
+		height:100%;
+		display:none;
+	}
+
   
 	body {
-		padding: 75px 20px 40px 20px;
+		padding: 75px 0px 40px 0px;
 	}
 	  
 	  #top_nav{

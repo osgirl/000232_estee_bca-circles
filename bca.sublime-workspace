@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"slide",
+				"slideDown"
+			],
+			[
 				"div",
 				"feature_div"
 			],
@@ -83,6 +87,78 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "js/main.js",
+			"settings":
+			{
+				"buffer_size": 20082,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/top_popup/circle_confirm_view.php",
+			"settings":
+			{
+				"buffer_size": 1485,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/top_popup/create_circle_view.php",
+			"settings":
+			{
+				"buffer_size": 3772,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/top_navigation_view.php",
+			"settings":
+			{
+				"buffer_size": 4249,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/home_view.php",
+			"settings":
+			{
+				"buffer_size": 17337,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/main.css",
+			"settings":
+			{
+				"buffer_size": 23726,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/main_tablet.css",
+			"settings":
+			{
+				"buffer_size": 6471,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/main_smartphone.css",
+			"settings":
+			{
+				"buffer_size": 4968,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application/views/popup/circle_view.php",
+			"settings":
+			{
+				"buffer_size": 1240,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -111,11 +187,16 @@
 	},
 	"file_history":
 	[
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/js/util/carousel.js",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/views/home_view.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/js/util/gallery.js",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/controllers/photo.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/models/friends_model.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/controllers/circle.php",
+		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/controllers/friend.php",
 		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/views/popup/circle_view.php",
 		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/css/popup.css",
 		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/test.html",
-		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/controllers/photo.php",
-		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/application/controllers/circle.php",
 		"/Users/ws317/Sites/time_tracking/php/projects.php",
 		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/js/util/facebook.js",
 		"/Users/ws317/Sites/BCACircles/000232_estee_bca-circles/_feed_test/index.html",
@@ -155,6 +236,29 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"create_circle",
+			"body",
+			"circle_confirm_screen",
+			"show()",
+			"show",
+			".show",
+			".show();",
+			"feature_photo",
+			"feature",
+			"feature_photo",
+			"top_content",
+			"feature_photo",
+			"featured_twitter",
+			"feature_circle",
+			"feature_photo",
+			"placeCircleInAngles",
+			"circle",
+			"cancelCreateCircleScreen",
+			"openThankYouScreen",
+			"cancelCreateCircleScreen",
+			"friendselectedarray",
+			"fetch",
+			"createcircle",
 			"feature_photo",
 			"feature_dot",
 			"photo",
@@ -243,8 +347,260 @@
 	"groups":
 	[
 		{
+			"selected": 5,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "js/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20082,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18659,
+								18659
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 8823.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "application/views/top_popup/circle_confirm_view.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1485,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								913,
+								927
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/views/top_popup/create_circle_view.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3772,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								32,
+								32
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "application/views/top_navigation_view.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4249,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								65,
+								65
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "application/views/home_view.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17337,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2706,
+								2706
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "css/main.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 23726,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18414,
+								18414
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 17874.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "css/main_tablet.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6471,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1646,
+								1646
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1612.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "css/main_smartphone.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4968,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2496,
+								2496
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2469.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "application/views/popup/circle_view.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1240,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								194,
+								194
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

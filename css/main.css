@@ -108,6 +108,7 @@ overflow:hidden;
 #content_wrap{
   	min-width:320px;
   	max-width:1200px;
+
 }
 
 .vertical_mode_show{
@@ -1223,7 +1224,7 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 /*OVERLAYS*/
 .overlay{
 	position:fixed;
-	top:73px;
+	top:0;
 	left:0;
 	background: url('../img/assets/black-opacity-70.png');
 	z-index: -99999;
