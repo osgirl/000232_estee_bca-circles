@@ -204,7 +204,8 @@ function enableButtons(){
 
 
 function openCreateCircleScreen(){
-	$("#create_circle_screen").show();
+	$(".overlay").fadeIn(100);
+	$("#create_circle_screen").fadeIn(200);
 	$("html, body").animate({ scrollTop: 0 }, "slow");
 	createCircleWindowOpen = true;
 	createCircleClicked = false;
@@ -228,7 +229,7 @@ function goNextCreateCircleScreen(e){
 	}
 
 	$('.create_circle_step').each(function(index,value){
-		(index == stepID-1) ? $(value).show() : $(value).hide();
+		(index == stepID-1) ? $(value).fadeIn(200) : $(value).hide();
 	})
 
 	closeFriendPhotosPanel();
@@ -242,8 +243,9 @@ function closeCreateCircleScreen(){
 }
 
 function cancelCreateCircleScreen(){
-	$('#circle_confirm_screen').hide();
-	$('#opt_in').show();
+	$('#circle_confirm_screen').slideUp(200);
+	$('.overlay').fadeOut(200);
+	$('#opt_in').fadeIn(200);
 	$('#thank_you').hide();
 	closeCreateCircleScreen();
 	resetCircle();
@@ -285,14 +287,14 @@ function openActionSelect(){
 	$("#select_action").css({ opacity: 1 });
 	goal = curSelectedGoal;
 	$("#custom_action").val("");
-	$("#select_goal_dropdown").show();
+	$("#select_goal_dropdown").slideDown(200);
 	selectOpen = true;
 	
 	//console.log("goal", goal);
 }
 
 function closeActionSelect(){
-	$("#select_goal_dropdown").hide();
+	$("#select_goal_dropdown").slideUp(200);
 	selectOpen = false;
 }
 
@@ -568,11 +570,11 @@ function createFriendPhotosPanel(){
 }
 
 function openFriendPhotosPanel(){
-	$('#friend_photos').show();
+	$('#friend_photos').slideDown(300);
 }
 
 function closeFriendPhotosPanel(){
-	$('#friend_photos').hide();
+	$('#friend_photos').slideUp(300);
 }
 
 function confirmCreateCircle(){
@@ -587,12 +589,17 @@ function confirmCreateCircle(){
 
 	console.log("show confirm")
 	closeCreateCircleScreen();
-	$('#circle_confirm_screen').show();
+	$('#circle_confirm_screen').slideDown(300);
+}
+
+function openLoadingScreen(){
+	$('#opt_in').hide();
+	$('#create_loading').fadeIn(200);
 }
 
 function openThankYouScreen(){
-	$('#opt_in').hide();
-	$('#thank_you').show();
+	$('#create_loading').hide();
+	$('#thank_you').fadeIn(200);
 }
 
 function createCircle(){	
@@ -609,6 +616,8 @@ function createCircle(){
 		var popupData = "$.popup({type:'circle', data:{  content: 'We Will - <br />"+ goal+ "',avatar: '"+ userProfilePhoto + "', num_friends: " + friendNum + "}});"
 
 		$($('#close_create_circle_btn').parent()).attr('onclick', popupData);
+
+		openLoadingScreen();
 		
 		//facebook.createCircle();
 

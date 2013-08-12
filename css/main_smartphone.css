@@ -100,11 +100,6 @@
 	    font-size:1.8em;
 	    padding:20px 3% 16px 5%;
     }
-
-    /*#create_circle_screen h1{ 
-	    line-height:1.4em;
-	    font-size:2em;
-    }*/
     
     .select_field{
     	font-size:1.6em;
@@ -176,6 +171,20 @@
 	.circle_container{
 		height:512px;
 	}
+
+	#circle_confirm_screen{
+		height:330px;
+	}
+
+	.confirm_content p{
+		font-size:1em;
+	}
+
+	#thank_you p{
+		font-size:1.5em;
+	}
+
+	
 
 	/* FOOTER*/
 
@@ -350,7 +359,9 @@
 		width: 25px;
 	}
 
-	
+	#thank_you p{
+		font-size:1.7em;
+	}
 
 	/*CAROUSEL*/
 

@@ -1,4 +1,5 @@
 <div class="navbar navbar-fixed-top">
+<div class="overlay"></div>
         <div class="navbar-inner">
             <div id="top_nav" class="container">
                 	

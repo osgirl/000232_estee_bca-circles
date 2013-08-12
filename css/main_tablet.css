@@ -120,6 +120,7 @@
 	    margin-left:0;
 	}
 
+
 }
 
 
@@ -237,6 +238,11 @@
 	    line-height:1.2em;
 	    font-size:4.2em;
     }
+
+    .confirm_content{
+		padding:5% 26% 2% 26%;
+	}
+
 
     /*LAYOUT 1*/
 

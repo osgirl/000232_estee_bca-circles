@@ -1,5 +1,4 @@
 <div id="circle_confirm_screen">
-	<div class="overlay"></div>
 	<div class='h_divider_top'></div>
 	<div id="opt_in">
 		<div class="confirm_content">
@@ -15,6 +14,13 @@
 				<td class="button_right_wrapper"><div id="final_create_btn" class='pink_btn pull-left'>create</div></td>
 			</tr>
 		</table>
+	</div>
+	<div id="create_loading">
+		<div class="confirm_content">
+			<p>
+				Creating Circle...Please Wait.
+			</p>
+		</div>
 	</div>
 	<div id="thank_you">
 		<div class="confirm_content">
