@@ -44,10 +44,9 @@
         <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
         
         <?php include('top_navigation_view.php');?>
-			
 
         <div id="content_wrap" class="container">
-        	
+
             <!-- Main hero unit for a primary marketing message or call to action -->
               <div id='top_content'>
 	             <div class="row">

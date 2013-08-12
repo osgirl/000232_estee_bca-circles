@@ -45,11 +45,26 @@ function Carousel()
 		//+ PRIVATE & PROTECTED INSTANCE METHODS
 		//--------------------------------------
 
+		function onDotSelected(id){
+
+			carouselItemID = id;
+		    scrollCarousel();
+
+
+	    	$('.featured_dot').each(function(i,v){
+	    		if(i == carouselItemID) {
+	    			$(v).removeClass('featured_deselected').addClass('featured_selected');
+	    		}else{
+	    			$(v).removeClass('featured_selected').addClass('featured_deselected');
+	    		}
+	    	})
+		}
+
 		function scrollCarousel(){
 
 			console.log('scroll', carouselItemWidth*carouselItemID);
 
-			$('#carousel_slider').animate({
+			$('#carousel_slider').stop(true).animate({
 				left:-carouselItemWidth*carouselItemID
 				}, 
 				{
@@ -89,24 +104,15 @@ function Carousel()
 
 			$(window).resize(function(e){
 				carouselItemWidth = $('#carousel_slider').width()/3;
+				onDotSelected(0);
+
 			})	
 
 
 		    $('.featured_dot').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 
 		    $('.featured_dot').click(function(e){
-
-		    	carouselItemID = $(e.currentTarget).index();
-		    	scrollCarousel();
-
-
-		    	$('.featured_dot').each(function(i,v){
-		    		if(i == carouselItemID) {
-		    			$(v).removeClass('featured_deselected').addClass('featured_selected');
-		    		}else{
-		    			$(v).removeClass('featured_selected').addClass('featured_deselected');
-		    		}
-		    	})
+		    	onDotSelected($(e.currentTarget).index())
 		    })
 		},
 		

@@ -1,6 +1,7 @@
 <div class="popup" id="popup_circle">
 	<div id="popup_circle_detail_holder">
-		<div class="popup_round_button btn_edit" id="popup_btn_pink">
+		<!-- <div class="popup_round_button btn_edit" id="popup_btn_pink"> -->
+		<div class="pink_btn" id="edit_friends_btn">
 			EDIT FRIENDS
 		</div>
 		<div class="btn_close"></div>
