@@ -26,8 +26,14 @@
 			<span>CIRCLE OF STRENGTH PHOTOS</span>
 			<div class="popup_round_button btn_add_photo" id="popup_btn_pink">
 				ADD PHOTOS
-			</div>
+			</div>			
 		</div>
+		<div class="disable-select" id="popup_circle_photo_carousel_wrapper">
+			<span class="btn_nav_photo left"></span>
+			<div id="container"></div>
+			<span class="btn_nav_photo right"></span>
+		</div>
+
 	</div>
 	<div class="h_divider_top"></div>
 	<div id="popup_circle_comment_holder">

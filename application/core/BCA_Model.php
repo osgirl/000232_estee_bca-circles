@@ -27,7 +27,7 @@ class BCA_Model extends CI_Model
 				$this->db->where($key, $options[$key]);
 		}
 			
-		if(!empty($options['pages'])){
+		/*if(!empty($options['pages'])){
 			$pages = str_replace("-", " ", $options['pages'] );
 			$this->db->where("MATCH(pages) AGAINST('".$pages."' IN BOOLEAN MODE)");
 		}
@@ -39,7 +39,7 @@ class BCA_Model extends CI_Model
 
 		if(isset($options['exclude'])){
 			$this->db->where("id NOT IN ('".implode("','", $options['exclude']). "')");
-		}
+		}*/
 			
 		if(isset($options[$this->pk]))
 				$this->db->where($this->pk, $options[$this->pk]);

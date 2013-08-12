@@ -98,7 +98,8 @@
                                 data:{                                    
                                     content: 'Be proactive. Schedule a mammogram.',
                                     avatar: 'http://profile-a.xx.fbcdn.net/hprofile-prn1/41405_39607548_1844_n.jpg',
-                                    circle_id: 1234,
+                                    circle_id: 3,
+                                    users_fb_id: '39385905834',
                                     num_friends: 10,
                                 }
                             });">Circle detail</a>
@@ -108,8 +109,8 @@
                                 data:{                                    
                                     content: 'Be proactive. Schedule a mammogram.',
                                     avatar: 'http://profile-a.xx.fbcdn.net/hprofile-prn1/41405_39607548_1844_n.jpg',
-                                    circle_id: 2345,
-                                    users_fb_id: ABCD123,
+                                    circle_id: 2,
+                                    users_fb_id: '11199393',
                                     num_friends: 6,
                                 }
                             });">Circle detail #2</a>

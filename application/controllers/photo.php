@@ -118,11 +118,10 @@ class Photo extends CI_Controller {
 			$o_h = imagesy( $image );
 			imagecopyresampled($canvas, $image, $data['x'], $data['y'], 0,0, $o_w, $o_h, $o_w, $o_h);
 
-			$result = $this->saveOutput($canvas, $data['desc']);
+			$result = $this->saveOutput($canvas, $data);
 
 			//Delete temporary file
 			unlink($data['filePath']);
-
 			return $result;
 		}
 		else{
@@ -135,7 +134,7 @@ class Photo extends CI_Controller {
 		if(!empty($data)){
 			$base64data = explode('base64,', $data['base64data'] );
 			$canvas 	= imagecreatefromstring( base64_decode($base64data[1]) );
-			$result 	= $this->saveOutput($canvas, $data['desc']);
+			$result 	= $this->saveOutput($canvas, $data);
 			return $result;
 		}
 		else{
@@ -143,9 +142,7 @@ class Photo extends CI_Controller {
 		}
 	}
 
-	private function saveOutput($img, $desc){
-		//load photo model
-		$this->load->model('photos_model');
+	private function saveOutput($img, $data){
 
 		$name 			= 'photo_' . time() .".jpg";
 		$file_location 	= config_item('upload_url') . $name;
@@ -161,21 +158,34 @@ class Photo extends CI_Controller {
 		unset($img);
 
 	    //Save to Database
-		$post = array(
-			'date'			=> $time_date,
-			'description'	=> $desc,
-			'filename'		=> $name,
-			);
-		
-		$result = $this->photos_model->Add($post);
+		// save to Photo table of circleId and usersFbId is invalid. Save to Circle Photo table if valid.
+		if(empty($data['circleId']) && empty($data['usersFbId']) ){
+			$post = array(
+				'date'			=> $time_date,
+				'description'	=> $data['desc'],
+				'filename'		=> $name,
+				);
+			$this->load->model('photos_model');
+			$result = $this->photos_model->Add($post);
+		}
+		else{
+			$post = array(
+				'ref_circle_id'	=> $data['circleId'],
+				'description'	=> $data['desc'],
+				'filename'		=> $name,
+				'users_fb_id'	=> $data['usersFbId']
+				);
+			$this->load->model('circle_photos_Model');
+			$result = $this->circle_photos_Model->Add($post);
+		}
 
 		if ($result){
 			$data['id'] = $result;
 			$data['file_name'] = $name;
-	    	$data['file_location'] = $file_location;			
+	    	$data['file_location'] = $file_location;
 		}
 		else{
-			$data['error'] = 'Write failed';			
+			$data['error'] = 'Write failed';
 		}
 		echo json_encode($data);
 	}

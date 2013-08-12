@@ -21,8 +21,7 @@
 		  js = d.createElement(s); js.id = id;
 		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<? echo config_item('fb_app_id'); ?>"
 		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-		<p>Circle ID: <? echo $circle_id ?></p>
+		}(document, 'script', 'facebook-jssdk'));</script>		
 		<div class="fb-comments" data-href="<? echo base_url(); ?>?comment_id=<? echo $circle_id ?>" data-width="780"></div>	
 	</body>
 </html>

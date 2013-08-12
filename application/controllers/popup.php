@@ -37,8 +37,15 @@ class Popup extends CI_Controller {
 	}
 
 	public function photo_upload()
-	{
-		$this->load->view('popup/photo_upload_view');
+	{	
+		if( count($_POST) > 1 ){
+			$data = $_POST;
+		}
+		else{
+			$data['circle_id'] = "";
+			$data['users_fb_id'] = "";
+		}
+		$this->load->view('popup/photo_upload_view', $data);
 	}
 
 	public function circle()

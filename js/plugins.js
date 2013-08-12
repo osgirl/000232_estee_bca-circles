@@ -23,7 +23,7 @@
 //Plugins
 
 /*************************************
- * Popup jQuery extend for fancybox 2
+ * Popup jQuery extend for fancybox 2 (standalone)
  **************************************
  *   _data object may contain:
  *   source
@@ -36,6 +36,7 @@
  *   circle_id 
  *   num_friend
  *   users_fb_id
+ *   type
  */
 $.extend(
 {
@@ -69,7 +70,6 @@ $.extend(
             $isCircle = true;
             break;
         }
-
         if($isCircle){
             $.ajax({
                 type: 'POST',
@@ -78,7 +78,7 @@ $.extend(
                 success: function(data)
                 {
                     $('#gallery').append(data);
-                    $('#popup_circle').init_circle(d.circle_id, d.num_friends);
+                    $('#popup_circle').init_circle(d);
                 },
                 error: function(jqXHR, textStatus, errorThrown)
                 {
@@ -128,17 +128,20 @@ $.extend(
 });
 
 /******************************************
- * Private function for popup upload window
+ * Private function for popup upload window (jquery extend)
  ******************************************/
 (function($)
 {
-    var $c, $agr, $desc_active, $preview_img_path;
+    var $c, $agr, $desc_active, $preview_img_path, $circle_id, $users_fb_id;
     $.fn.init_upload = function()
     {
         $c = '.' + $(this).attr('class');
         $parent = $($c + ' #popup_photo_img_holder #holder');
         $agr = false;
         $desc_active = false;
+        $circle_id = $($c + ' #circle_id').val();
+        $users_fb_id = $($c + ' #users_fb_id').val();
+        
         //Start bind
         $($c + ' .btn_next').click(loadNext);
         $($c + ' .btn_cancel').click(closeWindow);
@@ -242,7 +245,6 @@ $.extend(
     function uploadFileSuccess(data)
     {
         $preview_img_path = data.file_location;
-        console.log($preview_img_path);
         //create image control            
         $img = $('<img src="' + data.file_location + '"/>');
         $ratio = 1;
@@ -372,7 +374,9 @@ $.extend(
                     dataType: 'text',
                     data: {
                         base64data: canvasData,
-                        desc: $desc
+                        desc: $desc,
+                        circleId: $circle_id,
+                        usersFbId: $users_fb_id
                     },
                     success: function(data)
                     {
@@ -395,7 +399,9 @@ $.extend(
                         filePath: $preview_img_path,
                         x: $l,
                         y: $t,
-                        desc: $desc
+                        desc: $desc,
+                        circleId: $circle_id,
+                        usersFbId: $users_fb_id                
                     },
                     success: function(data)
                     {
@@ -446,17 +452,16 @@ $.extend(
 })(jQuery);
 
 /******************************************
- * Private function for popup upload window
+ * Private function for Circle Detail Window (jquery extend)
  ******************************************/
 (function($)
 {
-    var $this, $c, $scroll_y, $margin_top, $gap, $circle_id, $num_friends, $new_modal, $bound = {};
-    $.fn.init_circle = function(circle_id, num_friends)
+    var $this, $d, $c, $scroll_y, $margin_top, $gap, $new_modal, $bound = {};
+    $.fn.init_circle = function(v)
     {
         $this        = $(this);
-        $circle_id   = circle_id;
-        $num_friends = num_friends;
-        $new_modal    = true;
+        $d           = v;
+        $new_modal   = true;
         $padding_top = 0;
 
         var $win_abs_y = $(window).scrollTop();
@@ -505,6 +510,7 @@ $.extend(
         //Start bind
         $($c + ' .btn_close').click(closeWindow);
         $($c + ' .btn_add_photo').click(addPhoto);
+        $($c + ' .btn_nav_photo').click(navPhoto);
 
 
         //Startup some function
@@ -517,7 +523,7 @@ $.extend(
     }
 
     function createDots(){
-        var $steps          = $num_friends,
+        var $steps          = $d.num_friends,
         $radius         = 100,
         $cx             = 0,
         $cy             = 0,
@@ -546,17 +552,101 @@ $.extend(
     }
 
     function circleAnimComplete(){
-        //load comment box
-        console.log('start');
-        var $holder = $($c + ' #popup_circle_comment_holder');
-        console.log($holder );
-        $('<iframe src="popup/facebook_comment_iframe/' + $circle_id +'"></iframe>').appendTo($holder);
+        loadCirclePhotos();
+        loadCommentBox();
     }
 
+    function loadCirclePhotos(){
+        $.ajax({
+            type: 'POST',
+            url: 'circle_photo/getlist',
+            dataType: 'json',
+            data: { circleId: $d.circle_id },
+            success: function(data)
+            {
+                if(data.length > 0)
+                    showCirclePHotos(data);
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+                console.log('Error ' + textStatus);
+            }                
+        });
+
+        function showCirclePHotos(v){
+
+            var $tmb, $img, tmbs_width = 0,
+            $tmbs = $('<ul/>').appendTo($($c + ' #popup_circle_photo_carousel_wrapper #container'));
+            $(v).each(function(i){
+                $img = $('<img src="uploads/'+ v[i].filename +'"/>');
+                $tmb = $('<li/>')
+                    .append($img)
+                    .appendTo($tmbs)
+                    .click(function(){
+
+                            $.popup({type:'photo', 
+                                data:{
+                                    source: 'local',
+                                    content: v[i].description,
+                                    photo_url: '/uploads/' + v[i].filename
+                                } 
+                            })
+                        });
+
+                tmbs_width += 220;
+            });
+
+            // console.log( $tmbs.children('li').length )
+            //Add
+            if ($tmbs.children('li').length % 2 != 0)
+            {
+                console.log('odd')
+                $tmbs.append( $('<li/>') );
+                tmbs_width += 220;
+            }
+
+            $tmbs.width(tmbs_width);
+        }
+    }
+
+    function loadCommentBox(){
+        var $holder = $($c + ' #popup_circle_comment_holder');
+        $('<iframe src="popup/facebook_comment_iframe/' + $d.circle_id +'"></iframe>').appendTo($holder);
+    }
 
     function addPhoto()
     {
-        $.popup({type:'photo_upload'});
+        $.popup({type:'photo_upload', data: $d});
+    }
+
+    function navPhoto()
+    {
+        var $tmb, multiplier, dx,
+        $container = $($c + ' #popup_circle_photo_carousel_wrapper #container ul');
+        $tmb = $container.children('li:nth-child(1)');
+        multiplier = (parseInt($tmb.css('margin-right').replace('px','')) + $tmb.width())*2;
+
+        
+        if($(this).hasClass('left')){
+            dx = $container.position().left - multiplier;            
+
+            console.log( dx);
+            console.log( $container.width() - $container.parent().width() );
+
+            if(Math.abs(dx) > ($container.width()- multiplier) ){
+                dx = 0;
+            }
+            
+        }
+        else{
+            dx = $container.position().left + multiplier;
+            if($container.position().left >= 0){
+                dx = 0 - $container.width() + multiplier;
+            }
+        }
+        
+        $container.stop().animate({left: dx}, 500);
+        
     }
 
     function closeWindow()
