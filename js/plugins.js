@@ -35,6 +35,7 @@
  *   share_url (actual url of original post)
  *   circle_id 
  *   num_friend
+ *   users_fb_id
  */
 $.extend(
 {
@@ -113,8 +114,9 @@ $.extend(
                     avatar: null,
                     photo_url: null,
                     share_url: null,
-                    circle_id: null,     
-                    num_friend: null   
+                    circle_id: null,
+                    num_friend: null,
+                    users_fb_id: null
                 };
 
                 for (var key in v)
@@ -486,7 +488,7 @@ $.extend(
 
 
             if($scroll_y  < ($bound.top + $padding_top) ){
-                console.log( $bound.y  );
+                // console.log( $bound.y  );
                 $this.css({'position': 'fixed','top': $bound.y , 'left': $bound.l, 'width': $bound.w });
             }
 
@@ -499,8 +501,10 @@ $.extend(
         });
 
         $c = '.' + $(this).attr('class');
+        
         //Start bind
         $($c + ' .btn_close').click(closeWindow);
+        $($c + ' .btn_add_photo').click(addPhoto);
 
 
         //Startup some function
@@ -547,6 +551,12 @@ $.extend(
         var $holder = $($c + ' #popup_circle_comment_holder');
         console.log($holder );
         $('<iframe src="popup/facebook_comment_iframe/' + $circle_id +'"></iframe>').appendTo($holder);
+    }
+
+
+    function addPhoto()
+    {
+        $.popup({type:'photo_upload'});
     }
 
     function closeWindow()

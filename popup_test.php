@@ -109,6 +109,7 @@
                                     content: 'Be proactive. Schedule a mammogram.',
                                     avatar: 'http://profile-a.xx.fbcdn.net/hprofile-prn1/41405_39607548_1844_n.jpg',
                                     circle_id: 2345,
+                                    users_fb_id: ABCD123,
                                     num_friends: 6,
                                 }
                             });">Circle detail #2</a>
