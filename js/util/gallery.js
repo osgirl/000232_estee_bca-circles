@@ -179,8 +179,6 @@ function Gallery()
 						console.log("no?", response);
 					}
 	      		});
-
-				//$($('.circle_container').get(i)).html('ID: ' + feed.text);
 			});
 		}
 
@@ -204,7 +202,7 @@ function Gallery()
 
 						$.ajax({
 			        		type: 'post',
-			            	url: baseUrl + 'circle/fetchUploadedPhotoData',
+			            	url: baseUrl + 'photo/fetchUploadedPhotoData',
 			            	dataType: 'json',
 			            	data: {
 			            		photo_id: feed.text

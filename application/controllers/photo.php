@@ -180,6 +180,28 @@ class Photo extends CI_Controller {
 		echo json_encode($data);
 	}
 
-	
+	public function fetchUploadedPhotoData()
+	{
+		$this->load->model('photos_model');
+		$this->post = $this->input->post();
+		if ( isset ( $this->post['photo_id'] )) {	
+
+			$photo_id = $this->post['photo_id'];
+			$data = array();
+			$query = $this->db->query("SELECT * FROM photos WHERE id='$photo_id'"); 
+
+			if ($query->num_rows() > 0) {
+			  foreach($query->result() as $row) {
+			    $data['filename'] = $row->filename;
+			    $data['description'] = $row->description;
+			  }
+
+			  echo json_encode($data);
+			}
+			
+		}
+		else
+			echo 'Invalid access';
+	}
 
 }
