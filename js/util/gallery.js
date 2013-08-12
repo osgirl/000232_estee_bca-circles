@@ -83,11 +83,11 @@ function Gallery()
 		// 	);
 		// };
 
-		function placeCircleInAngles(parent, profileImageUrl){
+		function placeCircleInAngles(parent, profileImageUrl, friendNum){
 			var radius 	= 44.7,
 				cx 		= 47,
 				cy 		= 47,
-				steps 	= 10,
+				steps 	= friendNum + 1,
 				angle, x, y;
 
 			for(var i = 0; i < steps; i++){
@@ -151,6 +151,8 @@ function Gallery()
 			$(data).each(function(i){
 				feed = data[i].data;
 
+				console.log('-----------------------', feed.text)
+
 				$.ajax({
 	        		type: 'post',
 	            	url: baseUrl + 'circle/fetchCircleData',
@@ -159,17 +161,17 @@ function Gallery()
 	            		circle_id: feed.text
 	            	},
 	            	success: function(data) {            
-	                	console.log('success');
+	                	console.log('success', data);
 	                	$($('.circle_container').get(i)).attr('circle_id', data.circle_id);
 	                	$($('.circle_creator').get(i)).html(data.user_name);
 	                	$($('.feature_circle_creator').get(i)).html(data.user_name);
 	                	$($('.circle_goal').get(i)).html("<b>We Will - </b><br />" + data.goal);
 	                	$($('.feature_circle_goal').get(i)).html("<b>We Will - </b><br />" + data.goal);
 
-	                	placeCircleInAngles($($('.circle_area').get(i)), data.user_photo_url);
-	                	placeCircleInAngles($($('.feature_circle_area').get(i)), data.user_photo_url);
+	                	placeCircleInAngles($($('.circle_area').get(i)), data.user_photo_url, data.friends_data.length);
+	                	placeCircleInAngles($($('.feature_circle_area').get(i)), data.user_photo_url, data.friends_data.length);
 
-	                	popupData = "$.popup({type:'circle', data:{ content: '" + data.goal + "', avatar: '" + data.user_photo_url + "', circle_id: '" + data.circle_id + "', users_fb_id: '" + data.user_id+ "', num_friends: 10}});"
+	                	popupData = "$.popup({type:'circle', data:{ content: '" + data.goal + "', avatar: '" + data.user_photo_url + "', circle_id: '" + data.circle_id + "', users_fb_id: '" + data.user_id+ "', num_friends: '" + data.friends_data.length + "'}});"
 
 	                	$($($('.circle_container').get(i)).parent()).attr('onclick', popupData);
 	                	$($($('.feature_circle').get(i)).parent()).attr('onclick', popupData);
@@ -259,9 +261,16 @@ function Gallery()
 							content	+= "<div class='twitter_time'>"+ feed.timestamp + "</div></div>"
 							content	+= "<div class='twitter_text'>"+ feed.text + "</div>"
 							content += "<img class='photo_icon' src='" + photoIcon + "'/>";
+
+						var fcontent = "<div class='featured_twitter_avatar'><img src='" + feed.author.avatar + "'/></div>"
+							fcontent	+= "<div class='featured_twitter_title'><div class='featured_twitter_author'>"+ feed.author.alias + "</div>"
+							fcontent	+= "<div class='featured_twitter_time'>"+ feed.timestamp + "</div></div>"
+							fcontent	+= "<div class='featured_twitter_text'>"+ feed.text + "</div>"
+							fcontent += "<img class='photo_icon' src='" + photoIcon + "'/>";
+
 						div.html(content);
 
-						feature_div.html(content);
+						feature_div.html(fcontent);
 
 						link.attr('onclick',popupData);
 						featureLink.attr('onclick',popupData);

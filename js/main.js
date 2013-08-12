@@ -196,8 +196,8 @@ function enableButtons(){
 	$('#create_circle_btn').unbind("click").click(confirmCreateCircle);
 	$('#choose_photos_btn').unbind("click").click(openFriendPhotosPanel);
 	$('#close_friend_photos_btn').unbind("click").click(closeFriendPhotosPanel);
-	$('#final_create_btn').unbind("click").click(openThankYouScreen);
-	$('#close_create_circle_btn').unbind("click").click(createCircle);
+	$('#final_create_btn').unbind("click").click(createCircle);
+	$('#close_create_circle_btn').unbind("click").click(cancelCreateCircleScreen);
 
 	//$('#show_friendlist_btn').unbind("click").click(facebook.showFriendlist);
 }
@@ -610,7 +610,7 @@ function createCircle(){
 
 		$($('#close_create_circle_btn').parent()).attr('onclick', popupData);
 		
-		facebook.createCircle();
+		//facebook.createCircle();
 
 		var value = {
 				'users_fb_id' 	  : userID,
@@ -622,12 +622,34 @@ function createCircle(){
 
     	$.ajax({
         		type: 'post',
-            	url: '../circle/create',
+            	url: baseUrl + 'circle/create',
             	dataType: 'json',
             	data: value,
-            	success: function(data) {            
-                	console.log('success');
-                	
+            	success: function(data) {           
+                	console.log('success', data.id);
+
+                	$.each(friendSelectedArray, function(i,v){
+                		console.log(data.id, v.id, v.name)
+                		$.ajax({
+			        		type: 'post',
+			            	url: baseUrl + 'friend/updateCircleFriends',
+			            	dataType: 'json',
+			            	data: {
+			            		ref_circle_id: data.id,
+			            		friends_fb_id: v.id,
+			            		friends_name:v.name
+			            	},
+			            	success: function(data) {      
+			                	openThankYouScreen();
+			                	resetCircle();
+			             	},
+			             	error: function(jqXHR, textStatus, errorThrown){
+								console.log(jqXHR.responseText);
+								console.log(jqXHR.status);
+							}
+			      		});
+                	});
+
              	},
              	error: function(jqXHR, textStatus, errorThrown){
 					console.log(jqXHR.responseText);
@@ -635,8 +657,5 @@ function createCircle(){
 				}
       		});
 
-		
-		cancelCreateCircleScreen();
-		
 }
 

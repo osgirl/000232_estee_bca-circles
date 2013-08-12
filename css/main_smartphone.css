@@ -21,12 +21,6 @@
 		overflow:none;
 	}
 	
-	.feature_photo{
-		width:100%;
-		min-height:360px;
-		height:auto;
-	}
-	
 	#user_profile_pic{
 		margin-left:30%;
 	}
@@ -63,10 +57,6 @@
 	
 	#collapse_share_module{
 		margin-left:5%;
-	}
-	
-	.feature_photo{
-		min-height:480px;
 	}
 	
 	.user_info{
@@ -185,6 +175,12 @@
 
 	.circle_container{
 		height:512px;
+	}
+
+	/* FOOTER*/
+
+	#footer{
+		padding: 0 0 10px 0;
 	}
 
 }
@@ -353,10 +349,46 @@
 	{
 		width: 25px;
 	}
-    
-/*    #friend_list{
-		font-size:2.2em;
-	}*/
-    
+
+	
+
+	/*CAROUSEL*/
+
+	#carousel{
+		height: 460px;
+	}
+
+	#carousel_slider{
+		width:1803px;
+	}
+	
+	.feature_photo{
+		min-height:226px;
+	}
+
+	
+	.feature_circle_area {
+	    width:300px;
+	    height:300px;
+	    margin-left:0; 
+	}
+
+	.feature_circle_goal{
+		left:20%;
+		font-size:1.2em;
+		width:180px;
+	}
+
+	.featured_twitter_author{
+		font-size:1em;
+	}
+
+	.featured_twitter_time{
+		font-size:.8em;
+	}
+
+	.featured_twitter_text{
+		font-size:.8em;
+	}
 	  
 }

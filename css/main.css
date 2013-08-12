@@ -304,7 +304,7 @@ h2{
 
 .feature_photo{
 	position: relative;;
-	min-height:320px;
+	min-height:312px;
 	background-color:#444;
 	border-top:1px solid white;
 	border-left:1px solid white;
@@ -329,13 +329,13 @@ h2{
 #carousel{
 	overflow: hidden;
 	position: relative;
-	height: 460px;
+	height: 1085px;
     width: 100%;
 }
 
 #carousel_slider{
-	height:460px;
-	width:1803px;
+	height:100%;
+	width:300%;
 	position: absolute;
 	top:0;
 	left:0;
@@ -603,31 +603,31 @@ h2{
 	position: absolute;
 }
 
-.twitter_avatar, .twitter_title{
+.twitter_avatar, .twitter_title, .featured_twitter_avatar, .featured_twitter_title{
 	float:left;
 	margin-top:20px;
 }
 
-.twitter_title{
+.twitter_title, .featured_twitter_title{
 	height:60px;
 }
 
-.twitter_avatar{
+.twitter_avatar, .featured_twitter_avatar{
 	margin:20px 10px 0 10px;
 }
 
-.twitter_author{
+.twitter_author, .featured_twitter_author{
 	font-size:1.4em;
 	color:#0e6578;
 	margin-top:3px;
 }
 
-.twitter_time{
+.twitter_time, .featured_twitter_time{
 	font-size:.8em;
 	color:white;
 }
 
-.twitter_text{
+.twitter_text, .featured_twitter_text{
 	font-size:1.2em;
 	color:white;
 	clear:both;
@@ -652,6 +652,7 @@ h2{
 
 .feature_circle_area{
 	margin-left:-5px;
+	margin-top:0px;
 }
 
 .circle_area img, .feature_circle_area img{
@@ -1170,9 +1171,10 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 /* FOOTER*/
 
 #footer{
-	padding: 0 0 10px 0;
+	padding: 25px 0 10px 0;
 	letter-spacing:1px;
 	font-size:.8em;
+	clear:both;
 }
 
 #footer a:hover{
