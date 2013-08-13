@@ -3,14 +3,6 @@
 /* ===============
     Smartphone (360px)
    =============== */
-  
-	  body {
-		padding: 0px 0px 40px 0px;
-	}
-	
-	#top_nav{
-	    padding: 2px 25px 7px 0;
-	}
 	
 	#collapse_share_module{
 		margin-left:6%;
@@ -23,10 +15,6 @@
 	
 	#user_profile_pic{
 		margin-left:30%;
-	}
-	
-	#watch_video{
-		padding-left:12%;
 	}
 
 	.circle_area {
@@ -52,7 +40,6 @@
 	
 	#top_nav{
 		max-width:480px;
-	    padding: 2px 20px 7px 0;
 	}
 	
 	#collapse_share_module{
@@ -85,10 +72,6 @@
 	#user_profile_info{
 		width:55%;
 		float:left;
-	}
-	
-	#watch_video{
-		padding-left:22%;
 	}
 	
 	/*CREATE YOUR OWN CIRCLE SCREEN*/
@@ -183,13 +166,17 @@
 	#thank_you p{
 		font-size:1.5em;
 	}
+	#join_fight{
+		width:35%;
+	}
 
-	
+	#watch_video{
+		padding-left:4%;
+		width:65%;
+	}
 
-	/* FOOTER*/
-
-	#footer{
-		padding: 0 0 10px 0;
+	#watch_video_text{
+		display:block;
 	}
 
 }
@@ -206,7 +193,6 @@
 	
 	#top_nav{
 		max-width:600px;
-	    padding: 2px 12px 7px 0;
 	}
 	
 	#collapse_share_module{
@@ -260,25 +246,18 @@
 	/*DONATE*/
 	
 	#donate_area{
-		padding:25px 0 0 2%;
-	}
-
-	#donate_area > div{
-		float:left;
-	}
-	
-	#join_fight{
-		width:20%;
+		padding:20px 0 0 2%;
 	}
 	
 	#join_fight_content{
 		width:52%;
 		padding:0 2% 0 3.5%;
 		text-align:left;
+		display:block;
+		line-height:1.2em;
 	}
 	
 	#watch_video{
-		background: url('../img/assets/v-divider-short.png') no-repeat left center; 
 		padding-left: 5%;
 		width:25%;
 	}
@@ -287,13 +266,18 @@
 		float:none;
 		margin-right:0;
 	}
+
+	#join_fight{
+		width:20%;
+	}
 	
 	
 	#watch_video_text{
-		font-size:1.1em;
-		line-height:1.2em;
 		text-align:center;
 		margin-top:5px;
+		font-size:1em;
+		line-height:1.1em;
+		display:none;
 	}
 	
 	/*CREATE YOUR OWN CIRCLE SCREEN*/
@@ -396,6 +380,11 @@
 
 	.featured_twitter_text{
 		font-size:.8em;
+	}
+
+	#footer{
+		font-size:.7em;
+		margin-top:0px;
 	}
 	  
 }

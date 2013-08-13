@@ -7,7 +7,7 @@
 
 	  #top_nav{
 		max-width:608px;
-	    padding: 2px 0 7px 0;
+		padding: 2px 20px 0 10px;
 	}
 	
 	#collapse_share_module{
@@ -99,11 +99,6 @@
 		float:left;
 		margin-right:5%;
 	}
-	
-	#watch_video_text{
-		font-size:1.4em;
-		line-height:1.2em;
-	}
 
 	#friend_photos_container{
 		width:90%;
@@ -135,12 +130,12 @@
 
   
 	body {
-		padding: 75px 0px 40px 0px;
+		padding: 75px 0 0 0;
 	}
 	  
 	  #top_nav{
 		max-width:939px;
-	    padding: 20px 0 13px 0;
+		padding: 20px 0 13px 0;
 	}
 	
 	#top_sub_nav{
@@ -174,6 +169,7 @@
 		width:46%;
 		padding:5% 7% 5% 7%;
 		text-align:center;
+		
 	}
 	
 	#community{
@@ -212,6 +208,9 @@
 	#join_fight_content{
 		width:42%;
 		padding:0 3% 0 1%;
+		font-size:.8em;
+		letter-spacing:1px;
+		line-height:1.6em;
 	}
 	
 	#watch_video{
@@ -229,6 +228,7 @@
 		line-height:1.2em;
 		text-align:left;
 		margin-top:15px;
+		display:block;
 	}
 	
 	/*CREATE YOUR OWN CIRCLE SCREEN*/
@@ -249,6 +249,10 @@
 
 
     /*LAYOUT 1*/
+
+    #gallery{
+		padding:3% 4% 3% 5.5%;
+	}
 
     .gallery_layout{
 		margin-bottom:22px;
@@ -277,12 +281,6 @@
 		margin-right:0;
 	}
 
-
-	#layout1 .gallery_col{
-		width:48%;
-		margin-right:2%;
-	}
-
 	/*LAYOUT 2*/
 
 	#layout2 .photo_col{
@@ -297,11 +295,6 @@
 	#layout2 .circle_col{
 		width:48%;
 		margin-right:2%;
-	}
-
-	#layout2 .photo_container{
-		width:100%;
-		margin-right:4%;
 	}
 
 	.flex_margin_bottom{
@@ -376,7 +369,7 @@
 	
 	#top_nav{
 		max-width:984px;
-	    padding: 20px 0 13px 0;
+	    
 	}
 	
 	#top_sub_nav{
@@ -442,9 +435,6 @@
     Tablet (1200px)
    =============== */
   
-    body {
-		padding: 75px 0px 40px 0px;
-	}
 	
 	#top_nav{
 		max-width:1200px;
