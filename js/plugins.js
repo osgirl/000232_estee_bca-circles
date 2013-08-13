@@ -33,7 +33,7 @@
  *   avatar
  *   photo_url
  *   share_url (actual url of original post)
- *   circle_id 
+ *   circle_id
  *   num_friend
  *   users_fb_id
  *   type
@@ -42,8 +42,8 @@ $.extend(
 {
     popup: function(v)
     {
-        var $closeBtn = true, 
-            $modal = false, 
+        var $closeBtn = true,
+            $modal = false,
             $isCircle = false,
             u, d = setData(v.data);
         switch (v.type)
@@ -70,8 +70,10 @@ $.extend(
             $isCircle = true;
             break;
         }
-        if($isCircle){
-            $.ajax({
+        if ($isCircle)
+        {
+            $.ajax(
+            {
                 type: 'POST',
                 url: u,
                 data: d,
@@ -83,10 +85,11 @@ $.extend(
                 error: function(jqXHR, textStatus, errorThrown)
                 {
                     console.log('Error ' + textStatus);
-                }                
+                }
             });
         }
-        else{
+        else
+        {
             $.fancybox(
             {
                 href: u,
@@ -141,7 +144,7 @@ $.extend(
         $desc_active = false;
         $circle_id = $($c + ' #circle_id').val();
         $users_fb_id = $($c + ' #users_fb_id').val();
-        
+
         //Start bind
         $($c + ' .btn_next').click(loadNext);
         $($c + ' .btn_cancel').click(closeWindow);
@@ -155,7 +158,7 @@ $.extend(
     function toggleCheckbox(e)
     {
         $agr = ($agr) ? false : true;
-        $(e.target).css('background-position', (($agr) ? $(e.target).width() * -1 : 0),0);
+        $(e.target).css('background-position', (($agr) ? $(e.target).width() * -1 : 0), 0);
 
         if ($agr) $($c + ' .btn_next').removeClass('dim');
         else $($c + ' .btn_next').addClass('dim');
@@ -401,7 +404,7 @@ $.extend(
                         y: $t,
                         desc: $desc,
                         circleId: $circle_id,
-                        usersFbId: $users_fb_id                
+                        usersFbId: $users_fb_id
                     },
                     success: function(data)
                     {
@@ -451,172 +454,206 @@ $.extend(
     }
 })(jQuery);
 
+
 /******************************************
  * Private function for Circle Detail Window (jquery extend)
  ******************************************/
 (function($)
 {
-    var $this, $d, $c, $scroll_y, $margin_top, $gap, $new_modal, $bound = {};
+    var $this, $d, $c, $win_abs_y, $scroll_y, $margin_top, $margin_bottom, $padding_top, $gap, $scrollable_height, $bound = {};
     $.fn.init_circle = function(v)
     {
-        $this        = $(this);
-        $d           = v;
-        $new_modal   = true;
-        $padding_top = 0;
+        $this = $(this);
+        $d = v;
+        $win_abs_y = $(window).scrollTop();
+        $margin_top = $('.navbar').height();
 
-        var $win_abs_y = $(window).scrollTop();
-
+        //Add padding when header page has net been scrolled to the top
+        if (($win_abs_y + $margin_top) < $this.parent().offset().top)
+        {
+            $padding_top = $this.parent().offset().top - $win_abs_y - $margin_top;
+            $('html body').animate(
+            {
+                scrollTop: $this.parent().offset().top - $margin_top
+            }, 650)
+        }
+        else
+        {
+            $padding_top = 0;
+        }
 
         //initalize scroll detection
-         $(window).bind('resize scroll', function()
+        $(window).bind('resize scroll', function()
         {
-                
             $scroll_y = $(this).scrollTop() - $win_abs_y;
-            $margin_top = $('.navbar').height();
-                        
             $bound.w = $this.parent().outerWidth();
             $bound.l = $this.parent().offset().left;
-                                
-            //Add padding
-            if( ($win_abs_y +$margin_top) < $this.parent().offset().top ) {
-                console.log('Add padding');
-                $padding_top = $this.parent().offset().top - $win_abs_y;
-                $bound.y = $margin_top + $padding_top;
-            }
-            
-            $bound.y =  $('.navbar').height()  - $(this).scrollTop() +$win_abs_y + $padding_top;
-                if ($bound.y > $margin_top  && $padding_top == 0) $bound.y = $margin_top;
-            
-            
-            $gap    = ($(window).height() < $this.height()) ? $this.height() - $(window).height() : 0;            
+            $bound.y = $('.navbar').height() - $(this).scrollTop() + $win_abs_y + $padding_top;
+
+            if ($bound.y > $margin_top && $padding_top == 0) $bound.y = $margin_top;
+            $gap = ($(window).height() < $this.height()) ? $this.height() - $(window).height() : 0;
             $bound.top = $margin_top + $gap;
 
-
-            if($scroll_y  < ($bound.top + $padding_top) ){
-                // console.log( $bound.y  );
-                $this.css({'position': 'fixed','top': $bound.y , 'left': $bound.l, 'width': $bound.w });
+            if ($scroll_y < ($bound.top + $padding_top))
+            {
+                $this.css(
+                {
+                    'position': 'fixed',
+                    'top': $bound.y,
+                    'left': $bound.l,
+                    'width': $bound.w
+                });
             }
-
-            else {               
-                console.log('dead zone');
-                $this.css({'position': 'fixed','top': -$gap, 'left': $bound.l, 'width': $bound.w});
-
+            else
+            {
+                $this.css(
+                {
+                    'position': 'fixed',
+                    'top': -$gap,
+                    'left': $bound.l,
+                    'width': $bound.w
+                });
             }
-             $new_modal = false;
         });
 
         $c = '.' + $(this).attr('class');
-        
+
         //Start bind
         $($c + ' .btn_close').click(closeWindow);
         $($c + ' .btn_add_photo').click(addPhoto);
         $($c + ' .btn_nav_photo').click(navPhoto);
 
-
         //Startup some function
         $(window).trigger('scroll');
-        
-        $('#magnet_feed').animate({opacity:0}, 250);
-        $this.animate({opacity:1}, 250);
+
+        $('#magnet_feed').animate(
+        {
+            opacity: 0
+        }, 250);
+        $this.animate(
+        {
+            opacity: 1
+        }, 250);
 
         createDots();
     }
 
-    function createDots(){
-        var $steps          = $d.num_friends,
-        $radius         = 100,
-        $cx             = 0,
-        $cy             = 0,
-        $count          = 1;
+    function createDots()
+    {
+        var $steps = parseInt($d.num_friends) + 1,
+            $radius = 100,
+            $cx = 0,
+            $cy = 0,
+            $count = 1;
+        $parent = $($c + ' #dot_container');
 
-        $parent         = $($c + ' #dot_container');
+        for ($i = 0; $i < $steps; $i++)
+        {
+            $angle = (Math.PI * ($i / $steps - .25)) * 2;
+            $x = ($cx + $radius * Math.cos($angle) + 100) / 2;
+            $y = ($cy + $radius * Math.sin($angle) + 100) / 2;
 
-        for ( $i =0; $i < $steps; $i++ ) {
-            $angle = (  Math.PI * ( $i / $steps -.25 ) ) *2;
-            $x = ($cx + $radius * Math.cos( $angle ) +100)/2;
-            $y = ($cy + $radius * Math.sin( $angle ) +100)/2;
-
-            if ($i != 0){
-                $('<div class="dot"><img src="img/popups/circle/dot.png"/></div>')
-                .css({'left' : $x + '%','top': $y + '%'})
-                .appendTo($parent)
-                .hide()
-                .delay($i*100)
-                .show(500, function(){
-                    $count ++;                    
-                    if($count == $steps)
-                        circleAnimComplete();
+            if ($i != 0)
+            {
+                $('<div class="dot"><img src="img/popups/circle/dot.png"/></div>').css(
+                {
+                    'left': $x + '%',
+                    'top': $y + '%'
+                }).appendTo($parent).hide().delay($i * 100).show(500, function()
+                {
+                    $count++;
+                    if ($count == $steps) loadCirclePhotos();
                 });
             }
         }
     }
 
-    function circleAnimComplete(){
-        loadCirclePhotos();
-        loadCommentBox();
-    }
-
-    function loadCirclePhotos(){
-        $.ajax({
+    function loadCirclePhotos()
+    {
+        $.ajax(
+        {
             type: 'POST',
             url: 'circle_photo/getlist',
             dataType: 'json',
-            data: { circleId: $d.circle_id },
+            data: {
+                circleId: $d.circle_id
+            },
             success: function(data)
             {
-                if(data.length > 0)
-                    showCirclePHotos(data);
+                showCirclePHotos(data);
             },
             error: function(jqXHR, textStatus, errorThrown)
             {
                 console.log('Error ' + textStatus);
-            }                
+            }
         });
 
-        function showCirclePHotos(v){
-
+        function showCirclePHotos(v)
+        {
             var $tmb, $img, tmbs_width = 0,
-            $tmbs = $('<ul/>').appendTo($($c + ' #popup_circle_photo_carousel_wrapper #container'));
-            $(v).each(function(i){
-                $img = $('<img src="uploads/'+ v[i].filename +'"/>');
-                $tmb = $('<li/>')
-                    .append($img)
-                    .appendTo($tmbs)
-                    .click(function(){
-
-                            $.popup({type:'photo', 
-                                data:{
-                                    source: 'local',
-                                    content: v[i].description,
-                                    photo_url: '/uploads/' + v[i].filename
-                                } 
-                            })
-                        });
-
-                tmbs_width += 220;
-            });
-
-            // console.log( $tmbs.children('li').length )
-            //Add
-            if ($tmbs.children('li').length % 2 != 0)
+                $nav = $($c + ' #popup_circle_photo_carousel_wrapper'),
+                $tmbs = $('<ul/>').appendTo($($c + ' #popup_circle_photo_carousel_wrapper #container'));
+            if (v.length > 0)
             {
-                console.log('odd')
-                $tmbs.append( $('<li/>') );
-                tmbs_width += 220;
+                $nav.show();
+                $(v).each(function(i)
+                {
+                    $img = $('<img src="uploads/' + v[i].filename + '"/>');
+                    $tmb = $('<li/>').append($img).appendTo($tmbs).click(function()
+                    {
+                        $.popup(
+                        {
+                            type: 'photo',
+                            data: {
+                                source: 'local',
+                                content: v[i].description,
+                                photo_url: '/uploads/' + v[i].filename
+                            }
+                        })
+                    });
+                    tmbs_width += 220;
+                });
+                //Add
+                if ($tmbs.children('li').length % 2 != 0)
+                {
+                    console.log('odd')
+                    $tmbs.append($('<li class="helper"/>'));
+                    tmbs_width += 220;
+                }
+                $tmbs.width(tmbs_width);
             }
-
-            $tmbs.width(tmbs_width);
+            else
+            {
+                $nav.hide();
+                console.debug('No photos');
+            }
+            loadCommentBox();
+            resizeGalleryHeight();
         }
     }
 
-    function loadCommentBox(){
+    function loadCommentBox()
+    {
         var $holder = $($c + ' #popup_circle_comment_holder');
-        $('<iframe src="popup/facebook_comment_iframe/' + $d.circle_id +'"></iframe>').appendTo($holder);
+        $('<iframe src="popup/facebook_comment_iframe/' + $d.circle_id + '"></iframe>').appendTo($holder);
     }
+
+    function resizeGalleryHeight()
+    {
+        //--Expand gallery height if scrollable area is too short
+        $margin_bottom = $this.outerHeight() - ($this.parent().outerHeight() + $this.parent().offset().top - $win_abs_y);
+        if ($margin_bottom > 0) $this.parent().outerHeight($this.parent().outerHeight() + $margin_bottom);
+        else $margin_bottom = 0;
+    }
+
 
     function addPhoto()
     {
-        $.popup({type:'photo_upload', data: $d});
+        $.popup(
+        {
+            type: 'photo_upload',
+            data: $d
+        });
     }
 
     function navPhoto()
@@ -624,35 +661,50 @@ $.extend(
         var $tmb, multiplier, dx,
         $container = $($c + ' #popup_circle_photo_carousel_wrapper #container ul');
         $tmb = $container.children('li:nth-child(1)');
-        multiplier = (parseInt($tmb.css('margin-right').replace('px','')) + $tmb.width())*2;
+        multiplier = (parseInt($tmb.css('margin-right').replace('px', '')) + $tmb.width()) * 2;
 
-        
-        if($(this).hasClass('left')){
-            dx = $container.position().left - multiplier;            
 
-            console.log( dx);
-            console.log( $container.width() - $container.parent().width() );
+        if ($(this).hasClass('left'))
+        {
+            dx = $container.position().left - multiplier;
 
-            if(Math.abs(dx) > ($container.width()- multiplier) ){
+            console.log(dx);
+            console.log($container.width() - $container.parent().width());
+
+            if (Math.abs(dx) > ($container.width() - multiplier))
+            {
                 dx = 0;
             }
-            
+
         }
-        else{
+        else
+        {
             dx = $container.position().left + multiplier;
-            if($container.position().left >= 0){
+            if ($container.position().left >= 0)
+            {
                 dx = 0 - $container.width() + multiplier;
             }
         }
-        
-        $container.stop().animate({left: dx}, 500);
-        
+
+        $container.stop().animate(
+        {
+            left: dx
+        }, 500);
+
     }
 
     function closeWindow()
     {
-        $('#magnet_feed').animate({opacity:1}, 250);
-        $this.animate({opacity:0}, 250, function(){ 
+        $('#magnet_feed').animate(
+        {
+            opacity: 1
+        }, 250);
+        $this.animate(
+        {
+            opacity: 0
+        }, 250, function()
+        {
+            $this.parent().outerHeight($this.parent().outerHeight() - $margin_bottom);
             $(window).unbind('resize scroll');
             $this.remove();
         });

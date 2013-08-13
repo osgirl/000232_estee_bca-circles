@@ -38,6 +38,5 @@
 	</div>
 	<div class="h_divider_top"></div>
 	<div id="popup_circle_comment_holder">
-		<!-- <iframe src="popup/facebook_comment_iframe/<?echo $circle_id ?>"></iframe> -->
 	</div>
 </div>
