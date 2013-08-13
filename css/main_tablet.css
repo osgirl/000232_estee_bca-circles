@@ -99,11 +99,6 @@
 		float:left;
 		margin-right:5%;
 	}
-	
-	#watch_video_text{
-		font-size:1.4em;
-		line-height:1.2em;
-	}
 
 	#friend_photos_container{
 		width:90%;
@@ -135,7 +130,7 @@
 
   
 	body {
-		padding: 75px 0px 40px 0px;
+		padding: 75px 0px 10px 0px;
 	}
 	  
 	  #top_nav{
@@ -174,6 +169,7 @@
 		width:46%;
 		padding:5% 7% 5% 7%;
 		text-align:center;
+		
 	}
 	
 	#community{
@@ -212,6 +208,9 @@
 	#join_fight_content{
 		width:42%;
 		padding:0 3% 0 1%;
+		font-size:.8em;
+		letter-spacing:1px;
+		line-height:1.6em;
 	}
 	
 	#watch_video{
@@ -229,6 +228,7 @@
 		line-height:1.2em;
 		text-align:left;
 		margin-top:15px;
+		display:block;
 	}
 	
 	/*CREATE YOUR OWN CIRCLE SCREEN*/
@@ -436,7 +436,7 @@
    =============== */
   
     body {
-		padding: 75px 0px 40px 0px;
+		padding: 75px 0px 10px 0px;
 	}
 	
 	#top_nav{

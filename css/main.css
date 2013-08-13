@@ -22,7 +22,7 @@ body {
     font-size: 100%;
     line-height: 1.4;
 	font-family: 'Helvetica', Arial, Verdana;
-	padding: 0 0 40px 0;
+	padding: 0 0 10px 0;
 	color:#333;
 }
 
@@ -734,30 +734,32 @@ h2{
 /*DONATE*/
 
 #donate_area{
-	padding:25px 0 0 0;
-	margin-bottom:-10px;
+	padding:15px 0 0 0;
 }
 
 #donate_area > div{
-	float:none;
-	margin-bottom:20px;
+	float:left;
+	margin-bottom:5px;
 }
 
 #join_fight{
 	text-align:center;
+	width:50%;
 }
 
 #join_fight_content{
-	font-size:.8em;
+	font-size:.7em;
 	letter-spacing:1px;
-	line-height:1.6em;
+	line-height:1.5em;
 	text-align:center;
 	padding:0 4% 0 4%;
+	display:none;
 }
 
 #watch_video{
-	background: none; 
+	background: url('../img/assets/v-divider-short.png') no-repeat left center; 
 	padding-left:9%;
+	width:50%;
 }
 
 #watch_video div{
@@ -771,6 +773,7 @@ h2{
 	margin-top:15px;
 	letter-spacing:1px;
 	text-align:left;
+	display:none;
 }
 
 #join_fight_text{
@@ -1183,10 +1186,11 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 /* FOOTER*/
 
 #footer{
-	padding: 25px 0 10px 0;
 	letter-spacing:1px;
-	font-size:.8em;
+	font-size:.6em;
 	clear:both;
+	width:100%;
+	margin-top:5px;
 }
 
 #footer a:hover{
