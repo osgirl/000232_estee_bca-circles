@@ -45,43 +45,43 @@ function Gallery()
 		//+ PRIVATE & PROTECTED INSTANCE METHODS
 		//--------------------------------------
 
-		// function lazyloader(){
-		// if($(window).scrollTop() + $(window).height() == getDocHeight() ) {
+		function lazyloader(){
+		if($(window).scrollTop() + $(window).height() == getDocHeight() ) {
 
-		// 	//unlbind scroll event until all new content loaded to screen
-		// 	$(window).unbind('scroll');
+			//unlbind scroll event until all new content loaded to screen
+			$(window).unbind('scroll');
 
-		// 	//load content
-		// 	var elems = [];
-  //  			for ( var i = 0; i < 6; i++ ) {
+			//load content
+			var elems = [];
+   			for ( var i = 0; i < 6; i++ ) {
 				
-		// 		var elem = document.createElement('div');
-		// 		elem.className = 'item';
-		// 		if (i == 0 || i == 3)
-		// 			elem.className += " w2";   						    						
-		// 			elems.push( elem );
-		// 		}
+				var elem = document.createElement('div');
+				elem.className = 'item';
+				if (i == 0 || i == 3)
+					elem.className += " w2";   						    						
+					elems.push( elem );
+				}
 
-		// 		_galleryContainer.append(elems);
-		// 		_galleryContainer.masonry( 'appended', elems );
+				_galleryContainer.append(elems);
+				_galleryContainer.masonry( 'appended', elems );
 
-		// 		//bind scroll event again after all of content loaded ()
-	 //  			$(window).bind('scroll', lazyloader);
-		// 	}
-		// };
+				//bind scroll event again after all of content loaded ()
+	  			$(window).bind('scroll', lazyloader);
+			}
+		};
 
-		// //This event will fire after when layout changed. Save this for later use.
-		// //$container.masonry( 'on', 'layoutComplete', function( msnryInstance, laidOutItems ) { });
+		//This event will fire after when layout changed. Save this for later use.
+		//$container.masonry( 'on', 'layoutComplete', function( msnryInstance, laidOutItems ) { });
 
-		// //Helper
-		// function getDocHeight() {
-		// 	var D = document;
-		// 	return Math.max(
-		// 		Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
-		// 		Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
-		// 		Math.max(D.body.clientHeight, D.documentElement.clientHeight)
-		// 	);
-		// };
+		//Helper
+		function getDocHeight() {
+			var D = $('#gallery');
+			return Math.max(
+				Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
+				Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
+				Math.max(D.body.clientHeight, D.documentElement.clientHeight)
+			);
+		};
 
 		function placeCircleInAngles(parent, profileImageUrl, friendNum){
 			var radius 	= 44.7,

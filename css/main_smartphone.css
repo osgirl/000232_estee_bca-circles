@@ -4,10 +4,6 @@
     Smartphone (360px)
    =============== */
 	
-	#top_nav{
-	    padding: 2px 25px 7px 0;
-	}
-	
 	#collapse_share_module{
 		margin-left:6%;
 	}
@@ -44,7 +40,6 @@
 	
 	#top_nav{
 		max-width:480px;
-	    padding: 2px 20px 7px 0;
 	}
 	
 	#collapse_share_module{
@@ -198,7 +193,6 @@
 	
 	#top_nav{
 		max-width:600px;
-	    padding: 2px 12px 7px 0;
 	}
 	
 	#collapse_share_module{

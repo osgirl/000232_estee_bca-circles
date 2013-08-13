@@ -7,7 +7,7 @@
 
 	  #top_nav{
 		max-width:608px;
-	    padding: 2px 0 7px 0;
+		padding: 2px 20px 0 10px;
 	}
 	
 	#collapse_share_module{
@@ -130,12 +130,12 @@
 
   
 	body {
-		padding: 75px 0px 10px 0px;
+		padding: 75px 0 0 0;
 	}
 	  
 	  #top_nav{
 		max-width:939px;
-	    padding: 20px 0 13px 0;
+		padding: 20px 0 13px 0;
 	}
 	
 	#top_sub_nav{
@@ -369,7 +369,7 @@
 	
 	#top_nav{
 		max-width:984px;
-	    padding: 20px 0 13px 0;
+	    
 	}
 	
 	#top_sub_nav{
@@ -435,9 +435,6 @@
     Tablet (1200px)
    =============== */
   
-    body {
-		padding: 75px 0px 10px 0px;
-	}
 	
 	#top_nav{
 		max-width:1200px;
