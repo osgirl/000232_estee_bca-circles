@@ -1,5 +1,4 @@
 <div class="navbar navbar-fixed-top">
-<div class="overlay"></div>
         <div class="navbar-inner">
             <div id="top_nav" class="container">
                 	
@@ -58,11 +57,12 @@
                         
                     </div><!--/.nav-collapse -->
 
+                    <div class="overlay"></div>
+
                     <?php include('top_popup/create_circle_view.php');?>
 
     </div>
 
-     
     <?php include('top_popup/circle_confirm_view.php');?>
 </div>
 
