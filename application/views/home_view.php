@@ -48,108 +48,108 @@
         <div id="content_wrap" class="container">
 
             <!-- Main hero unit for a primary marketing message or call to action -->
-              <div id='top_content'>
-	             <div class="row">
-	                <div class="top_content_span span6">
-	                    <div><img src='<?php echo base_url(); ?>img/pics/stronger-together.png'/></div>
-	                </div>
-	                <div class="top_content_span span6">
-	                	<div class="row">
-	                		<div id='featured_header' class="span6">
-	                			<img class='pull_left' src='<?php echo base_url(); ?>img/headers/featured-header.png'/>
-	                			<div class='pull_left'>
-									<div class='featured_dot featured_selected'></div>
-									<div class='featured_dot featured_deselected'></div>
-									<div class='featured_dot featured_deselected'></div>
-								</div>
-	                		</div> 
-	                    </div>
-	                    <div id="carousel">
-	                    <div id="carousel_slider">
-	                    	<div class="carousel_item">
-		                		<div class="top_content_sub_span4">
-		                			<a class="feature_circle_link">
-			                			<div class="feature_circle">
-											<div class="circle_creator_area"><span class="feature_circle_creator"></span> created a</div>
-											<div class="circle_of_strenth">Circle of Strength</div>
-											<div class="circle_divider"></div>
-											<div class="circle_area_wrapper">
-												<div class="feature_circle_area">
-													<img src="<?php echo base_url(); ?>img/assets/dotted-circle-small.png"/>
-													<div class="feature_circle_goal"></div>
+                <div id='top_content'>
+	             	<div class="row">
+		                <div class="top_content_span span6">
+		                    <div><img src='<?php echo base_url(); ?>img/pics/stronger-together.png'/></div>
+		                </div>
+		                <div class="top_content_span span6">
+		                	<div class="row">
+		                		<div id='featured_header' class="span6">
+		                			<img class='pull_left' src='<?php echo base_url(); ?>img/headers/featured-header.png'/>
+		                			<div class='pull_left'>
+										<div class='featured_dot featured_selected'></div>
+										<div class='featured_dot featured_deselected'></div>
+										<div class='featured_dot featured_deselected'></div>
+									</div>
+		                		</div> 
+		                    </div>
+		                    <div id="carousel">
+			                    <div id="carousel_slider">
+			                    	<div class="carousel_item">
+				                		<div class="top_content_sub_span4">
+				                			<a class="feature_circle_link">
+					                			<div class="feature_circle">
+													<div class="circle_creator_area"><span class="feature_circle_creator"></span> created a</div>
+													<div class="circle_of_strenth">Circle of Strength</div>
+													<div class="circle_divider"></div>
+													<div class="circle_area_wrapper">
+														<div class="feature_circle_area">
+															<img src="<?php echo base_url(); ?>img/assets/dotted-circle-small.png"/>
+															<div class="feature_circle_goal"></div>
+														</div>
+													</div>
+													<div class='share_circle'>
+									                	<div class='all_cap'>share</div>
+									                	<div class='circle_fb_share_btn facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
+														<div class='circle_tw_share_btn twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
+													</div>
 												</div>
-											</div>
-											<div class='share_circle'>
-							                	<div class='all_cap'>share</div>
-							                	<div class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
-												<div class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
-											</div>
-										</div>
-		                			</a>
+				                			</a>
 
-		                		</div>
-		                		<div class="top_content_sub_span2">
-		                			<a class="feature_photo_link"><div class="featured_instagram feature_photo"></div></a>
-		                			<a class="feature_photo_link"><div class="featured_twitter feature_photo"></div></a>
-		                		</div>
-		                	</div>
-		                	<div class="carousel_item">
-		                		<div class="top_content_sub_span4 ">
-		                			<a class="feature_circle_link">
-			                			<div class="feature_circle">
-											<div class="circle_creator_area"><span class="feature_circle_creator"></span> created a</div>
-											<div class="circle_of_strenth">Circle of Strength</div>
-											<div class="circle_divider"></div>
-											<div class="circle_area_wrapper">
-												<div class="feature_circle_area">
-													<img src="<?php echo base_url(); ?>img/assets/dotted-circle-small.png"/>
-													<div class="feature_circle_goal"></div>
+				                		</div>
+				                		<div class="top_content_sub_span2">
+				                			<a class="feature_photo_link"><div class="featured_instagram feature_photo"></div></a>
+				                			<a class="feature_photo_link"><div class="featured_twitter feature_photo"></div></a>
+				                		</div>
+				                	</div>
+				                	<div class="carousel_item">
+				                		<div class="top_content_sub_span4 ">
+				                			<a class="feature_circle_link">
+					                			<div class="feature_circle">
+													<div class="circle_creator_area"><span class="feature_circle_creator"></span> created a</div>
+													<div class="circle_of_strenth">Circle of Strength</div>
+													<div class="circle_divider"></div>
+													<div class="circle_area_wrapper">
+														<div class="feature_circle_area">
+															<img src="<?php echo base_url(); ?>img/assets/dotted-circle-small.png"/>
+															<div class="feature_circle_goal"></div>
+														</div>
+													</div>
+													<div class='share_circle'>
+									                	<div class='all_cap'>share</div>
+									                	<div class='circle_fb_share_btn facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
+														<div class='circle_tw_share_btn twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
+													</div>
 												</div>
-											</div>
-											<div class='share_circle'>
-							                	<div class='all_cap'>share</div>
-							                	<div class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
-												<div class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
-											</div>
-										</div>
-		                			</a>
-		                		</div>
-		                		<div class="top_content_sub_span2">
-		                			<a class="feature_photo_link"><div class="featured_instagram feature_photo"></div></a>
-		                			<a class="feature_photo_link"><div class="featured_twitter feature_photo"></div></a>
-		                		</div>
-		                	</div>
-		                	<div class="carousel_item">
-		                		<div class="top_content_sub_span4">
-		                			<a class="feature_circle_link">
-			                			<div class="feature_circle">
-											<div class="circle_creator_area"><span class="feature_circle_creator"></span> created a</div>
-											<div class="circle_of_strenth">Circle of Strength</div>
-											<div class="circle_divider"></div>
-											<div class="circle_area_wrapper">
-												<div class="feature_circle_area">
-													<img src="<?php echo base_url(); ?>img/assets/dotted-circle-small.png"/>
-													<div class="feature_circle_goal"></div>
+				                			</a>
+				                		</div>
+				                		<div class="top_content_sub_span2">
+				                			<a class="feature_photo_link"><div class="featured_instagram feature_photo"></div></a>
+				                			<a class="feature_photo_link"><div class="featured_twitter feature_photo"></div></a>
+				                		</div>
+				                	</div>
+				                	<div class="carousel_item">
+				                		<div class="top_content_sub_span4">
+				                			<a class="feature_circle_link">
+					                			<div class="feature_circle">
+													<div class="circle_creator_area"><span class="feature_circle_creator"></span> created a</div>
+													<div class="circle_of_strenth">Circle of Strength</div>
+													<div class="circle_divider"></div>
+													<div class="circle_area_wrapper">
+														<div class="feature_circle_area">
+															<img src="<?php echo base_url(); ?>img/assets/dotted-circle-small.png"/>
+															<div class="feature_circle_goal"></div>
+														</div>
+													</div>
+													<div class='share_circle'>
+									                	<div class='all_cap'>share</div>
+									                	<div class='circle_fb_share_btn facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
+														<div class='circle_tw_share_btn twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
+													</div>
 												</div>
-											</div>
-											<div class='share_circle'>
-							                	<div class='all_cap'>share</div>
-							                	<div class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
-												<div class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
-											</div>
-										</div>
-		                			</a>
-		                		</div>
-		                		<div class="top_content_sub_span2">
-		                			<a class="feature_photo_link"><div class="featured_instagram feature_photo"></div></a>
-		                			<a class="feature_photo_link"><div class="featured_twitter feature_photo"></div></a>
-		                		</div>
-		                	</div>
-	                	</div>
-	                	</div>
-	                	</div>
-	                </div>
-	            </div>
+				                			</a>
+				                		</div>
+				                		<div class="top_content_sub_span2">
+				                			<a class="feature_photo_link"><div class="featured_instagram feature_photo"></div></a>
+				                			<a class="feature_photo_link"><div class="featured_twitter feature_photo"></div></a>
+				                		</div>
+				                	</div>
+			                	</div><!-- CAROUSEL SLIDER END-->
+		                	</div><!-- CAROUSEL END-->
+		                </div><!-- TOP CONTENT SPAN END-->
+	                </div><!-- ROW END-->
+	            </div><!-- TOP CONTENT END-->
 
 	            <div id='bottom_content'>
 	            	<div class='log_out_status'>
@@ -262,8 +262,7 @@
 					<?php include('gallery.php');?>
 					<div class='h_divider_bottom'></div>
 				</div>
-				
-				<div id='donate_area' class="row">
+				<div id='donate_area'>
 					<div id='join_fight' class='span2 all_cap light_font span'>
 						<div id='join_fight_text'>Join the fight<br /><span style='font-size:160%'>donate!</span></div>
 						<div id='donate_btn' class='pink_btn'>DONATE NOW</div>
@@ -280,15 +279,9 @@
 						<div style='width:49%; float:right; padding-left:1%'><a class='pink_text' href='#' target='blank'><div id='term_and_cons_btn'>Terms & Conditions</div></a></div>
 		            </div>
 				</div>
-
-				
-
-	            <!-- <button onclick="doWallPost();">Do wall post</button> -->
-            </div>
-            
-          </div>
-
         </div> <!-- /container -->
+
+        
 
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

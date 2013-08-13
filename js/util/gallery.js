@@ -40,34 +40,47 @@ function Gallery()
 
 		var feed_circles;		
 		var feed_photos;	
+		var gallery_container;
+		var current_add_layout = 1;
 
 		//--------------------------------------
 		//+ PRIVATE & PROTECTED INSTANCE METHODS
 		//--------------------------------------
 
 		function lazyloader(){
-		if($(window).scrollTop() + $(window).height() == getDocHeight() ) {
 
-			//unlbind scroll event until all new content loaded to screen
-			$(window).unbind('scroll');
+			console.log('scroll', $(window).scrollTop() + $(window).height())
 
-			//load content
-			var elems = [];
-   			for ( var i = 0; i < 6; i++ ) {
-				
-				var elem = document.createElement('div');
-				elem.className = 'item';
-				if (i == 0 || i == 3)
-					elem.className += " w2";   						    						
-					elems.push( elem );
-				}
+			if($(window).scrollTop() + $(window).height() == getDocHeight() ) {
 
-				_galleryContainer.append(elems);
-				_galleryContainer.masonry( 'appended', elems );
+
+				//unlbind scroll event until all new content loaded to screen
+				$(window).unbind('scroll');
+
+				$('#donate_area').addClass('footer_fixed');
+
+				//load content
+
+				var current_layout = $('#gallery_layout_' + current_add_layout);
+
+				var new_layout = $('<div>');
+				new_layout.addClass('layout' + current_add_layout)
+						  .addClass('gallery_layout')
+						  .addClass('row')
+				 		  .html(current_layout.html());
+
+				current_add_layout = (current_add_layout == 1) ?  2 : 1;
+
+				gallery_container.append(new_layout);
+				gallery_container.masonry( 'appended', new_layout );
 
 				//bind scroll event again after all of content loaded ()
 	  			$(window).bind('scroll', lazyloader);
-			}
+	  		}else if($(window).scrollTop() + $(window).height() == 2550){
+
+	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+
+	  		}
 		};
 
 		//This event will fire after when layout changed. Save this for later use.
@@ -75,7 +88,7 @@ function Gallery()
 
 		//Helper
 		function getDocHeight() {
-			var D = $('#gallery');
+			var D = document;
 			return Math.max(
 				Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
 				Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
@@ -144,9 +157,9 @@ function Gallery()
 			var feed;
 			var popupData;
 
-			$('.circle_link').each(function(i,v){
-				if(i > data.length-1) $(v).hide();
-			})
+			// $('.circle_link').each(function(i,v){
+			// 	if(i > data.length-1) $(v).hide();
+			// })
 
 			$(data).each(function(i){
 				feed = data[i].data;
@@ -340,7 +353,12 @@ function Gallery()
 		
 		loadGallery: function(){
 
-			console.log("init feed magnet")
+			$(window).scrollTop(0);
+
+			gallery_container = $('#magnet_feed');
+
+			$(window).bind('scroll', lazyloader);
+			gallery_container.masonry();
 			
 
 			fm_ready(function($, _) {
@@ -350,6 +368,7 @@ function Gallery()
 				feed_photos  = $FM.Feed('bca-photos');
 
 				loadInitialCircles();
+				lazyloader();
 
 			})
 
