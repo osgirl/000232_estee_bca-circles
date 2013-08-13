@@ -503,7 +503,6 @@ h2{
 }
 
 #feed_magnet{
-	width:92%;
 	overflow: hidden;
 }
 
@@ -724,7 +723,7 @@ h2{
 	position: absolute;
 	top:0;
 	left:0;
-	max-width:105%;
+	max-width:106%;
 	height:auto;
 }
 

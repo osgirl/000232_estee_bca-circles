@@ -250,6 +250,10 @@
 
     /*LAYOUT 1*/
 
+    #gallery{
+		padding:3% 4% 3% 5.5%;
+	}
+
     .gallery_layout{
 		margin-bottom:22px;
 	}
@@ -277,12 +281,6 @@
 		margin-right:0;
 	}
 
-
-	#layout1 .gallery_col{
-		width:48%;
-		margin-right:2%;
-	}
-
 	/*LAYOUT 2*/
 
 	#layout2 .photo_col{
@@ -297,11 +295,6 @@
 	#layout2 .circle_col{
 		width:48%;
 		margin-right:2%;
-	}
-
-	#layout2 .photo_container{
-		width:100%;
-		margin-right:4%;
 	}
 
 	.flex_margin_bottom{
