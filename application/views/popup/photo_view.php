@@ -14,8 +14,8 @@
 	<div id="photo_footer">
 		<ul id="popup_footer_share">
 			<li>SHARE</li>
-			<li class="share-ico" id="popup_footer_share_facebook" onclick="$.popup.share({type:'facebook', url:''})"></li>
-			<li class="share-ico" id="popup_footer_share_twitter" onclick="$.popup.share({type:'twitter', url:''})"></li>
+			<li class="share-ico" id="popup_footer_share_facebook" onclick="$.popup_share({type:'facebook', url:''})"></li>
+			<li class="share-ico" id="popup_footer_share_twitter" onclick="$.popup_share({type:'twitter', url:''})"></li>
 		</ul>
 	</div>
 </div>

@@ -72,21 +72,25 @@ $.extend(
         }
         if ($isCircle)
         {
-            $.ajax(
-            {
-                type: 'POST',
-                url: u,
-                data: d,
-                success: function(data)
+            if($('#popup_circle').length == 0){
+                $.ajax(
                 {
-                    $('#gallery').append(data);
-                    $('#popup_circle').init_circle(d);
-                },
-                error: function(jqXHR, textStatus, errorThrown)
-                {
-                    console.log('Error ' + textStatus);
-                }
-            });
+                    type: 'POST',
+                    url: u,
+                    data: d,
+                    success: function(data)
+                    {
+                        $('#gallery').append(data);
+                        $('#popup_circle').init_circle(d);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown)
+                    {
+                        console.log('Error ' + textStatus);
+                    }
+                });
+            }
+            else
+                console.debug('Circle detail is already running');
         }
         else
         {
@@ -127,6 +131,10 @@ $.extend(
             }
             return d;
         }
+    },
+    popup_share: function(v)
+    {
+        alert(v.type + ' | url :' + v.url);
     }
 });
 
@@ -460,7 +468,7 @@ $.extend(
  ******************************************/
 (function($)
 {
-    var $this, $d, $c, $win_abs_y, $scroll_y, $margin_top, $margin_bottom, $padding_top, $gap, $scrollable_height, $bound = {};
+    var $this, $d, $c, $win_abs_y, $scroll_y, $margin_top, $margin_bottom, $padding_top, $gap, $bound = {}, $hasPhoto;
     $.fn.init_circle = function(v)
     {
         $this = $(this);
@@ -483,7 +491,7 @@ $.extend(
         }
 
         //initalize scroll detection
-        $(window).bind('resize scroll', function()
+        $(window).bind('resize scroll', function(e)
         {
             $scroll_y = $(this).scrollTop() - $win_abs_y;
             $bound.w = $this.parent().outerWidth();
@@ -513,6 +521,10 @@ $.extend(
                     'left': $bound.l,
                     'width': $bound.w
                 });
+            }
+
+            if(e.type == 'resize' && $hasPhoto){
+                resizeCirclePHotosNav();
             }
         });
 
@@ -591,14 +603,14 @@ $.extend(
         function showCirclePHotos(v)
         {
             var $tmb, $img, tmbs_width = 0,
-                $nav = $($c + ' #popup_circle_photo_carousel_wrapper'),
-                $tmbs = $('<ul/>').appendTo($($c + ' #popup_circle_photo_carousel_wrapper #container'));
+                $container = $($c + ' #popup_circle_photo_carousel_wrapper #container'),
+                $tmbs = $('<ul/>').appendTo($container);
+            
             if (v.length > 0)
             {
-                $nav.show();
                 $(v).each(function(i)
                 {
-                    $img = $('<img src="uploads/' + v[i].filename + '"/>');
+                    $img = $('<img src="uploads/' + v[i].filename + '"/>').load(imgLoadComplete);
                     $tmb = $('<li/>').append($img).appendTo($tmbs).click(function()
                     {
                         $.popup(
@@ -613,22 +625,29 @@ $.extend(
                     });
                     tmbs_width += 220;
                 });
-                //Add
-                if ($tmbs.children('li').length % 2 != 0)
-                {
-                    console.log('odd')
-                    $tmbs.append($('<li class="helper"/>'));
-                    tmbs_width += 220;
-                }
+
+                $hasPhoto = true;
                 $tmbs.width(tmbs_width);
+                $container.parent().animate({height: 200}, 500, function(){
+                    loadCommentBox();
+                    resizeGalleryHeight();
+                });
+
             }
             else
             {
-                $nav.hide();
-                console.debug('No photos');
+                $hasPhoto = false;
+                loadCommentBox();
+                resizeGalleryHeight();
             }
-            loadCommentBox();
-            resizeGalleryHeight();
+
+            resizeCirclePHotosNav();
+
+            function imgLoadComplete(){
+                $(this).animate({opacity:1}, 250, function(){
+                    $(this).parent().css('background','none');
+                });
+            }
         }
     }
 
@@ -638,6 +657,21 @@ $.extend(
         $('<iframe src="popup/facebook_comment_iframe/' + $d.circle_id + '"></iframe>').appendTo($holder);
     }
 
+    function resizeCirclePHotosNav()
+    {
+        var $container = $($c + ' #popup_circle_photo_carousel_wrapper #container'),
+        $tmbs = $container.children(),
+        $navs = $($c + ' .btn_nav_photo')
+        
+        if( $container.width() < $tmbs.width() ){            
+            $navs.show();
+        }
+        else{
+            $navs.hide();
+            $tmbs.css('left',0);
+        }
+    }
+
     function resizeGalleryHeight()
     {
         //--Expand gallery height if scrollable area is too short
@@ -645,7 +679,6 @@ $.extend(
         if ($margin_bottom > 0) $this.parent().outerHeight($this.parent().outerHeight() + $margin_bottom);
         else $margin_bottom = 0;
     }
-
 
     function addPhoto()
     {
@@ -663,26 +696,22 @@ $.extend(
         $tmb = $container.children('li:nth-child(1)');
         multiplier = (parseInt($tmb.css('margin-right').replace('px', '')) + $tmb.width()) * 2;
 
-
-        if ($(this).hasClass('left'))
+        if ($(this).hasClass('right'))
         {
             dx = $container.position().left - multiplier;
-
-            console.log(dx);
-            console.log($container.width() - $container.parent().width());
-
-            if (Math.abs(dx) > ($container.width() - multiplier))
+            console.debug(dx);
+            console.debug(dx + $container.width());
+            if ( (dx + $container.width()) < 0 )
             {
                 dx = 0;
             }
-
         }
         else
         {
             dx = $container.position().left + multiplier;
             if ($container.position().left >= 0)
             {
-                dx = 0 - $container.width() + multiplier;
+                dx = 0 - $container.width() + multiplier - ( ($container.children().length % 2 == 0 ) ? 0 : multiplier/2 );
             }
         }
 
