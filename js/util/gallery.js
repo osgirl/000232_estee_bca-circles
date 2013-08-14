@@ -166,8 +166,6 @@ function Gallery()
 			$(data).each(function(i){
 				feed = data[i].data;
 
-				console.log('-----------------------', feed.text)
-
 				$.ajax({
 	        		type: 'post',
 	            	url: baseUrl + 'circle/fetchCircleData',
@@ -196,8 +194,7 @@ function Gallery()
 									num_friends: data.friends_data.length
 								}}
 
-	                	$($($('.circle_container').get(i)).find('.gallery_item_btn')).click(function(e){openPopUp(popupData);});
-	                	$($($('.feature_circle').get(i)).find('.gallery_item_btn')).click(function(e){openPopUp(popupData);})
+	                	enableItemButtons($($($('.circle_container').get(i)).find('.gallery_item_btn')), $($($('.feature_circle').get(i)).find('.gallery_item_btn')), popupData);
 
 	             	},
 	             	error: function(response){
@@ -221,14 +218,11 @@ function Gallery()
 
 				var div = $($('.photo_container').get(i));
 				var feature_div = $($('.feature_photo').get(i));
-				var link = div.find('.gallery_item_btn');;
-				var featureLink = feature_div.find('.gallery_item_btn');
 				var popupData;
 				var photoIcon;
 				var html;
 				var photoButtonHtml = '<div class="photo_rollover item_rollover"><div class="rollover_photo_content"><div class="pink_btn all_cap view_circle_btn">view</div></div></div><div class="gallery_item_btn"></div>'
 
-				console.log("what the fuck", div.find('.gallery_item_btn'))
 				switch(feed.channel){
 					case 'rss':
 						//div.text('ID: ' + feed.text);			  // <-- ID
@@ -244,19 +238,19 @@ function Gallery()
 			            	success: function(data) {            
 
 			                	popupData = {
-								type:'photo', 
-								data:{
-									source:'local', 
-									author:'John Doe',
-									content:data.description,
-									photo_url:baseUrl + "uploads/" + data.filename
-								}}
+									type:'photo', 
+									data:{
+										source:'local', 
+										author:'John Doe',
+										content:data.description,
+										photo_url:baseUrl + "uploads/" + data.filename
+									}}
 			                	html = "<img class='full_photo' src='" + baseUrl + "uploads/" + data.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 			                	div.html(html);
 			                	feature_div.html(html);
 
-			                	if(link)link.click(function(e){openPopUp(popupData)})
-			                	featureLink.click(function(e){openPopUp(popupData)})
+								enableItemButtons(div, feature_div, popupData);
+
 
 			             	},
 			             	error: function(response){
@@ -271,7 +265,15 @@ function Gallery()
 						console.log(feed.text); 				  // <-- content
 						console.log("instagram", feed.photos[0].url); 	// <-- photo_url
 
-						popupData = "$.popup({type:'photo', data:{source: 'instagram', author: '"+ feed.author.alias + "', content: '" + feed.text + "', photo_url: '" + feed.photos[0].url+ "'}});"
+						popupData = {
+									type:'photo', 
+									data:{
+										source:'instagram', 
+										author: feed.author.alias,
+										content:feed.text,
+										photo_url:feed.photos[0].url
+									}}
+
 						photoIcon = baseUrl + "img/icons/instagram.png";
 
 						html = "<img class='full_photo' src='" + feed.photos[0].url + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
@@ -279,8 +281,7 @@ function Gallery()
 						div.html(html);
 						feature_div.html(html);
 
-						link.attr('onclick',popupData);
-						featureLink.attr('onclick',popupData);
+						enableItemButtons(div, feature_div, popupData);
 
 						break;
 
@@ -289,7 +290,15 @@ function Gallery()
 						feature_div.css('background', '#2caae1');
 
 						photoIcon = baseUrl + "img/icons/twitter-large.png";
-						popupData = "$.popup({type:'twitter', data:{author: '" + feed.author.alias + "', content: '" +feed.text + "', datetime: '" + feed.timestamp + "',avatar: '" + feed.author.avatar + "'}});"
+
+						popupData = {
+									type:'twitter', 
+									data:{
+										author:feed.author.alias, 
+										content:feed.text,
+										datetime:feed.timestamp,
+										avatar:feed.author.avatar
+									}}
 						//div.text('author: ' + feed.author.alias); // <-- author
 						console.log(feed.text);					    // <-- content
 						console.log(feed.timestamp); 			    // <-- datetime
@@ -311,8 +320,8 @@ function Gallery()
 
 						feature_div.html(fcontent);
 
-						link.attr('onclick',popupData);
-						featureLink.attr('onclick',popupData);
+						enableItemButtons(div, feature_div, popupData);
+
 
 						break;
 				}
@@ -320,6 +329,21 @@ function Gallery()
 				$(div.find('.photo_icon')).attr('src', photoIcon);
 
 			});
+		}
+
+		function enableItemButtons(div, feature_div, popupData){
+			$('.gallery_item_btn').unbind('mouseover').mouseover(function(e){
+				$(e.currentTarget).css('cursor','pointer');
+				$(e.currentTarget).prev('.item_rollover').fadeIn(200);
+			})
+
+			$('.gallery_item_btn').unbind('mouseout').mouseout(function(e){
+				$(e.currentTarget).prev('.item_rollover').fadeOut(200);
+			})
+
+
+        	$(div).find('.gallery_item_btn').click(function(e){openPopUp(popupData)})
+        	$(feature_div).find('.gallery_item_btn').click(function(e){openPopUp(popupData)})
 		}
 		
 
@@ -389,12 +413,10 @@ function Gallery()
 
 			fm_ready(function($, _) {
 
-
 				feed_circles = $FM.Feed('bca-circles');		
 				feed_photos  = $FM.Feed('bca-photos');
 
 				loadInitialCircles();
-				lazyloader();
 
 			})
 
