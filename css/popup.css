@@ -503,9 +503,9 @@
 
 .popup #popup_circle_photo_button_wrapper span{
 	padding: 0 15px 0 30px;
-	font-family: 'Helvetica',Arial, sans-serif;
+	font-family: Arial, 'Arial', sans-serif;
 	font-weight: 300;
-	font-size: 1.2em;
+	font-size: .8em;
 	line-height: 0em;	
 }
 
@@ -521,6 +521,7 @@
 	height: 0;
 	padding-bottom: 20px;
 	text-align: center;
+	background: rgba(255,255,0,.2)
 }
 
 .popup #popup_circle_photo_carousel_wrapper .btn_nav_photo{
@@ -556,6 +557,7 @@
 	min-width: 100px;
 	margin: 0;
 	list-style-type: none;
+	background: rgba(255,0,255,.2)
 }
 
 .popup #popup_circle_photo_carousel_wrapper #container li{
@@ -579,6 +581,17 @@
 	opacity: 0;
 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);	
+}
+
+.popup #popup_circle_photo_carousel_pagn {
+	list-style: none;
+}
+
+.popup #popup_circle_photo_carousel_pagn li{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background: #0000FF;
 }
 
 .popup #popup_circle_comment_holder{
@@ -629,16 +642,9 @@
 		font-size: 1.5em;
 	}
 
-	.popup #popup_circle_photo_carousel_wrapper #container{
-		width: 440px;
-	}
-
-	.popup #popup_circle_photo_carousel_wrapper #container li{
-		width: 200px;
-		height: 200px;		
-		margin-right: 20px;
-	}	
-
+.popup #popup_circle_photo_button_wrapper span{
+	font-size: 1.2em;
+}
 }
 
 
@@ -725,6 +731,16 @@
 		display: inline-block;
 		width: 30px;
 	}
+
+	.popup #popup_circle_photo_carousel_wrapper #container{
+		width: 440px;
+	}
+
+	.popup #popup_circle_photo_carousel_wrapper #container li{
+		width: 200px;
+		height: 200px;		
+		margin-right: 20px;
+	}	
 
 	.popup #popup_circle_comment_holder{
 		padding: 0 15%;

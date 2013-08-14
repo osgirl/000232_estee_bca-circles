@@ -34,7 +34,12 @@
 			<div id="container"></div>
 			<span class="btn_nav_photo right"></span>
 		</div>
-
+		<ul id="popup_circle_photo_carousel_pagn">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
 	</div>
 	<div class="h_divider_top"></div>
 	<div id="popup_circle_comment_holder">
