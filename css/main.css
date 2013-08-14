@@ -527,6 +527,11 @@ h2{
 	margin-bottom: 22px;
 }
 
+.circle_container a{
+	color:white;
+}
+
+
 .feature_circle{
 	background-color:#f38dab;
 	position:relative;
@@ -730,6 +735,54 @@ h2{
 
 .circle_link:hover, .photo_link:hover, .feature_photo_link:hover, .feature_circle_link:hover{
 	text-decoration: none;
+}
+
+.view_circle_btn{
+	margin-bottom:20px;
+	
+}
+
+.circle_rollover{
+	background-image: url('../img/assets/white-opacity.png'); 
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	text-align:center;
+	color:black;
+	display:none;
+}
+
+.photo_rollover{
+	background-image: url('../img/assets/white-opacity.png'); 
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	text-align:center;
+	display:none;
+}
+
+.gallery_item_btn{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+.rollover_circle_content{
+	position:absolute;
+	top:40%;
+	left:20%;
+}
+
+.rollover_photo_content{
+	position:absolute;
+	top:42%;
+	left:30%;
 }
 
 /*DONATE*/
@@ -1189,6 +1242,8 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 
+
+
 /*CANCEL SCREEN*/
 
 #cancel_screen{
@@ -1305,6 +1360,10 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	text-align:center;
 	text-transform: uppercase;
 }
+
+.view_circle_btn{
+		padding:10px 35px 10px 35px;
+	}
 
 .pink_text{
 	color:#f38dab;

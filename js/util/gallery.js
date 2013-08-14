@@ -43,21 +43,20 @@ function Gallery()
 		var gallery_container;
 		var current_add_layout = 1;
 
+		var SCROLL_TO_SHOW_FOOTER = 2400;
+
 		//--------------------------------------
 		//+ PRIVATE & PROTECTED INSTANCE METHODS
 		//--------------------------------------
 
 		function lazyloader(){
 
-			console.log('scroll', $(window).scrollTop() + $(window).height())
 
 			if($(window).scrollTop() + $(window).height() == getDocHeight() ) {
 
 
 				//unlbind scroll event until all new content loaded to screen
 				$(window).unbind('scroll');
-
-				$('#donate_area').addClass('footer_fixed');
 
 				//load content
 
@@ -76,10 +75,13 @@ function Gallery()
 
 				//bind scroll event again after all of content loaded ()
 	  			$(window).bind('scroll', lazyloader);
-	  		}else if($(window).scrollTop() + $(window).height() == 2550){
+	  		}else if($(window).scrollTop() + $(window).height() > SCROLL_TO_SHOW_FOOTER){
+	  			$('#donate_area').fadeIn();
+	  			$('#donate_area').removeClass('footer_relative').addClass('footer_fixed');
 
+	  		}else if($(window).scrollTop() + $(window).height() <= SCROLL_TO_SHOW_FOOTER){
+	  			$('#donate_area').fadeOut();
 	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
-
 	  		}
 		};
 
@@ -184,10 +186,18 @@ function Gallery()
 	                	placeCircleInAngles($($('.circle_area').get(i)), data.user_photo_url, data.friends_data.length);
 	                	placeCircleInAngles($($('.feature_circle_area').get(i)), data.user_photo_url, data.friends_data.length);
 
-	                	popupData = "$.popup({type:'circle', data:{ content: '" + data.goal + "', avatar: '" + data.user_photo_url + "', circle_id: '" + data.circle_id + "', users_fb_id: '" + data.user_id+ "', num_friends: '" + data.friends_data.length + "'}});"
+	                	var popupData = {
+								type:'circle', 
+								data:{
+									content:data.goal, 
+									avatar:data.user_photo_url,
+									circle_id:data.circle_id,
+									users_fb_id:data.user_id,
+									num_friends: data.friends_data.length
+								}}
 
-	                	$($($('.circle_container').get(i)).parent()).attr('onclick', popupData);
-	                	$($($('.feature_circle').get(i)).parent()).attr('onclick', popupData);
+	                	$($($('.circle_container').get(i)).find('.gallery_item_btn')).click(function(e){openPopUp(popupData);});
+	                	$($($('.feature_circle').get(i)).find('.gallery_item_btn')).click(function(e){openPopUp(popupData);})
 
 	             	},
 	             	error: function(response){
@@ -197,6 +207,13 @@ function Gallery()
 			});
 		}
 
+		function openPopUp(popupData){
+			$.popup(popupData);
+
+			gallery_container.masonry('destroy');
+			$(window).unbind('scroll');
+		}
+
 		function parsePhotoData(data){
 			var feed;
 			$(data).each(function(i){
@@ -204,12 +221,14 @@ function Gallery()
 
 				var div = $($('.photo_container').get(i));
 				var feature_div = $($('.feature_photo').get(i));
-				var link = $($('.photo_link').get(i));
-				var featureLink = $($('.feature_photo_link').get(i));
+				var link = div.find('.gallery_item_btn');;
+				var featureLink = feature_div.find('.gallery_item_btn');
 				var popupData;
 				var photoIcon;
 				var html;
+				var photoButtonHtml = '<div class="photo_rollover item_rollover"><div class="rollover_photo_content"><div class="pink_btn all_cap view_circle_btn">view</div></div></div><div class="gallery_item_btn"></div>'
 
+				console.log("what the fuck", div.find('.gallery_item_btn'))
 				switch(feed.channel){
 					case 'rss':
 						//div.text('ID: ' + feed.text);			  // <-- ID
@@ -224,13 +243,20 @@ function Gallery()
 			            	},
 			            	success: function(data) {            
 
-			                	popupData = "$.popup({type:'photo', data:{source: 'local', author: 'John Doe', content: '" + data.description +"', photo_url: '" + baseUrl + "uploads/" + data.filename + "'}})";
-			                	html = "<img class='full_photo' src='" + baseUrl + "uploads/" + data.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>";
+			                	popupData = {
+								type:'photo', 
+								data:{
+									source:'local', 
+									author:'John Doe',
+									content:data.description,
+									photo_url:baseUrl + "uploads/" + data.filename
+								}}
+			                	html = "<img class='full_photo' src='" + baseUrl + "uploads/" + data.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 			                	div.html(html);
 			                	feature_div.html(html);
 
-			                	link.attr('onclick',popupData);
-			                	featureLink.attr('onclick',popupData);
+			                	if(link)link.click(function(e){openPopUp(popupData)})
+			                	featureLink.click(function(e){openPopUp(popupData)})
 
 			             	},
 			             	error: function(response){
@@ -248,7 +274,7 @@ function Gallery()
 						popupData = "$.popup({type:'photo', data:{source: 'instagram', author: '"+ feed.author.alias + "', content: '" + feed.text + "', photo_url: '" + feed.photos[0].url+ "'}});"
 						photoIcon = baseUrl + "img/icons/instagram.png";
 
-						html = "<img class='full_photo' src='" + feed.photos[0].url + "'/><img class='photo_icon' src='" + photoIcon + "'/>";
+						html = "<img class='full_photo' src='" + feed.photos[0].url + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 
 						div.html(html);
 						feature_div.html(html);
@@ -273,13 +299,13 @@ function Gallery()
 							content	+= "<div class='twitter_title'><div class='twitter_author'>"+ feed.author.alias + "</div>"
 							content	+= "<div class='twitter_time'>"+ feed.timestamp + "</div></div>"
 							content	+= "<div class='twitter_text'>"+ feed.text + "</div>"
-							content += "<img class='photo_icon' src='" + photoIcon + "'/>";
+							content += "<img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 
 						var fcontent = "<div class='featured_twitter_avatar'><img src='" + feed.author.avatar + "'/></div>"
 							fcontent	+= "<div class='featured_twitter_title'><div class='featured_twitter_author'>"+ feed.author.alias + "</div>"
 							fcontent	+= "<div class='featured_twitter_time'>"+ feed.timestamp + "</div></div>"
 							fcontent	+= "<div class='featured_twitter_text'>"+ feed.text + "</div>"
-							fcontent += "<img class='photo_icon' src='" + photoIcon + "'/>";
+							fcontent += "<img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 
 						div.html(content);
 

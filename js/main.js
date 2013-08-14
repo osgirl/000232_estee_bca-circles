@@ -173,8 +173,15 @@ function enableButtons(){
 	$('#close_friend_photos_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('.feature_circle_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('.feature_photo_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('.circle_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('.photo_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+	$('.gallery_item_btn').unbind('mouseover').mouseover(function(e){
+		$(e.currentTarget).css('cursor','pointer');
+		$(e.currentTarget).prev('.item_rollover').fadeIn(200);
+	})
+
+	$('.gallery_item_btn').unbind('mouseout').mouseout(function(e){
+		$(e.currentTarget).prev('.item_rollover').fadeOut(200);
+	})
+
 	$('#final_create_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#close_create_circle_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 
@@ -470,8 +477,6 @@ function deleteFriend(deleteTarget){
 			resetFriendPhotoItem($(v));
 		}
 	})
-
-
 }
 
 function friendExist(id){
