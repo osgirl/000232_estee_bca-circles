@@ -19,9 +19,9 @@
 					<div class='circle_tw_share_btn twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
 				</div>
 				<div class="circle_rollover item_rollover">
-					<div class="rollover_circle_content">
+					<div class="rollover_content">
 						<div class="view_circle_btn pink_btn all_cap">view</div>
-						<div>Create your own Circle of Strength.<br/>Choose the <a>same goal</a> or <a>create a new one.</a></div>
+						<div>Create your own Circle of Strength.<br/>Choose the <a >same goal</a> or <a>create a new one.</a></div>
 					</div>
 				</div>
 				<div class="gallery_item_btn"></div>
@@ -54,7 +54,7 @@
 						<div class='circle_tw_share_btn twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
 					</div>
 					<div class="circle_rollover item_rollover">
-						<div class="rollover_circle_content">
+						<div class="rollover_content">
 							<div class="view_circle_btn pink_btn all_cap">view</div>
 							<div>Create your own Circle of Strength.<br/>Choose the <a>same goal</a> or <a>create a new one.</a></div>
 						</div>
@@ -90,7 +90,7 @@
 						<div class='circle_tw_share_btn twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
 					</div>
 					<div class="circle_rollover item_rollover">
-						<div class="rollover_circle_content">
+						<div class="rollover_content">
 							<div class="view_circle_btn pink_btn all_cap">view</div>
 							<div>Create your own Circle of Strength.<br/>Choose the <a>same goal</a> or <a>create a new one.</a></div>
 						</div>

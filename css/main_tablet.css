@@ -197,16 +197,14 @@
 	
 	/*DONATE*/
 	
-	#donate_area{
-		/*padding:25px 0 0 6%;*/
-	}
 	
 	#join_fight{
-		width:16%;
+		width:13%;
+		padding-left:10%;
 	}
 	
 	#join_fight_content{
-		width:42%;
+		width:34%;
 		padding:0 3% 0 1%;
 		font-size:.8em;
 		letter-spacing:1px;
@@ -360,6 +358,7 @@
 	.twitter_avatar, .twitter_title, .featured_twitter_avatar, .featured_twitter_title{
 		margin-top:10px;
 	}
+
     
 }
 
@@ -506,4 +505,5 @@
 	.twitter_avatar, .twitter_title, .featured_twitter_avatar, .featured_twitter_title{
 		margin-top:20px;
 	}
+
 }

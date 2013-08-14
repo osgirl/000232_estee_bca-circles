@@ -194,7 +194,7 @@ function Gallery()
 									num_friends: data.friends_data.length
 								}}
 
-	                	enableItemButtons($($($('.circle_container').get(i)).find('.gallery_item_btn')), $($($('.feature_circle').get(i)).find('.gallery_item_btn')), popupData);
+	                	enableItemButtons($($($('.circle_container').get(i))), $($($('.feature_circle').get(i))), popupData);
 
 	             	},
 	             	error: function(response){
@@ -221,7 +221,7 @@ function Gallery()
 				var popupData;
 				var photoIcon;
 				var html;
-				var photoButtonHtml = '<div class="photo_rollover item_rollover"><div class="rollover_photo_content"><div class="pink_btn all_cap view_circle_btn">view</div></div></div><div class="gallery_item_btn"></div>'
+				var photoButtonHtml = '<div class="photo_rollover item_rollover"><div class="rollover_content"><div class="pink_btn all_cap view_circle_btn">view</div></div></div><div class="gallery_item_btn"></div>'
 
 				switch(feed.channel){
 					case 'rss':
@@ -250,6 +250,9 @@ function Gallery()
 			                	feature_div.html(html);
 
 								enableItemButtons(div, feature_div, popupData);
+
+								centerRollOverContent();
+
 
 
 			             	},
@@ -282,6 +285,8 @@ function Gallery()
 						feature_div.html(html);
 
 						enableItemButtons(div, feature_div, popupData);
+
+						centerRollOverContent();
 
 						break;
 
@@ -321,6 +326,8 @@ function Gallery()
 						feature_div.html(fcontent);
 
 						enableItemButtons(div, feature_div, popupData);
+
+						centerRollOverContent();
 
 
 						break;
@@ -373,9 +380,16 @@ function Gallery()
 			        }
 		    	}
 		    });	
-		}			
+		}		
 
-		
+
+		function centerRollOverContent(){
+			$('.rollover_content').each(function(i, v){
+
+				var rolloverMargin = ($($(v).parent()).height() - $(v).height())*.4;
+				$(v).css('margin-top', rolloverMargin);
+			})
+		}	
 
 		
 		return {
@@ -409,6 +423,8 @@ function Gallery()
 
 			$(window).bind('scroll', lazyloader);
 			gallery_container.masonry();
+
+			centerRollOverContent();
 			
 
 			fm_ready(function($, _) {
@@ -417,6 +433,10 @@ function Gallery()
 				feed_photos  = $FM.Feed('bca-photos');
 
 				loadInitialCircles();
+
+				$(window).resize(function(e){
+					centerRollOverContent();
+				})	
 
 			})
 

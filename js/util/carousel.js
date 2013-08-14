@@ -105,7 +105,6 @@ function Carousel()
 			$(window).resize(function(e){
 				carouselItemWidth = $('#carousel_slider').width()/3;
 				onDotSelected(0);
-
 			})	
 
 
