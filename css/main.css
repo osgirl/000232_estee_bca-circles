@@ -108,6 +108,7 @@ overflow:hidden;
 #content_wrap{
   	min-width:320px;
   	max-width:1200px;
+  	position:relative;
 
 }
 
@@ -499,7 +500,7 @@ h2{
 #gallery{
 	background-image: url('../img/assets/bg-pattern.png'); 
 	position:relative;
-	padding:3% 4% 3% 4%;
+	padding:3% 0 3% 0;
 }
 
 #feed_magnet{
@@ -512,7 +513,7 @@ h2{
 	margin-bottom:0;
 }
 
-#layout1 .gallery_col{
+.layout1 .gallery_col{
 	width:100%;
 	margin-right:0;
 }
@@ -542,38 +543,38 @@ h2{
 	margin-bottom: 22px;
 }
 
-#layout1 .photo_container{
+.layout1 .photo_container{
 	width:100%;
 	margin-right:0;
 }
 	
 
-#layout1 .gallery_col2, #layout1 .photo_container_2{
+.layout1 .gallery_col2, .layout1 .photo_container_2{
 	margin-right:0;
 }
 
-#layout1 .gallery_col{
+.layout1 .gallery_col{
 	width:100%;
 	margin-right:0;
 }
 
 /*LAYOUT 2*/
 
-#layout2 .photo_col{
+.layout2 .photo_col{
 	width:100%;
 	margin-right:0;
 }
 
-#layout2 .photo_col:last-child{
+.layout2 .photo_col:last-child{
 	margin-right:0;
 }
 
-#layout2 .circle_col{
+.layout2 .circle_col{
 	width:100%;
 	margin-right:0;
 }
 
-#layout2 .photo_container{
+.layout2 .photo_container{
 	width:100%;
 	margin-right:0;
 }
@@ -587,7 +588,7 @@ h2{
 }
 
 .gallery_layout:last-child{
-	margin-bottom:0;
+	margin-bottom:22px;
 }
 
 .photo_icon{
@@ -647,11 +648,11 @@ h2{
     width:300px;
     height:300px;
     display:inline-block;
-    margin-left:-25px;
+    margin-left:-12px;
 }
 
 .feature_circle_area{
-	margin-left:-5px;
+	margin-left:-13px;
 	margin-top:0px;
 }
 
@@ -723,7 +724,7 @@ h2{
 	position: absolute;
 	top:0;
 	left:0;
-	max-width:106%;
+	max-width:110%;
 	height:auto;
 }
 
@@ -734,8 +735,20 @@ h2{
 /*DONATE*/
 
 #donate_area{
+	border-top:#e8e8e8 1px solid;
 	padding:15px 0 0 0;
 	background-color: #fff;
+	width:100%;
+}
+
+.footer_relative{
+	position:relative;
+}
+
+.footer_fixed{
+	position:fixed;
+	left:0;
+	bottom:0;
 }
 
 #donate_area > div{
@@ -1239,6 +1252,10 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 
 
 /*UTILITIES*/
+
+.circle_fb_share_btn, .circle_tw_share_btn{
+	margin-top:-1px;
+}
 
 .light_font{
 	font-weight:lighter;

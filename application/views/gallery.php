@@ -1,6 +1,6 @@
 <div id="magnet_feed"> 
 	<!--LAYOUT 1 START-->
-	<div id="layout1" class="gallery_layout row">
+	<div id="gallery_layout_1" class="layout1 gallery_layout row">
 		<div class="gallery_col gallery_col_1 span6">
 			<a class="circle_link">
 			    <div class="row circle_container flex_margin_bottom">
@@ -15,8 +15,8 @@
 					</div>
 					<div class='share_circle'>
 	                	<div class='all_cap'>share</div>
-	                	<div class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
-						<div class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
+	                	<div class='circle_fb_share_btn facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
+						<div class='circle_tw_share_btn twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
 					</div>
 				</div>
 			</a>
@@ -43,8 +43,8 @@
 					</div>
 					<div class='share_circle'>
 	                	<div class='all_cap'>share</div>
-	                	<div class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
-						<div class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
+	                	<div class='circle_fb_share_btn facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
+						<div class='circle_tw_share_btn twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
 					</div>
 				</div>
 			</a>	
@@ -53,7 +53,7 @@
 	<!--LAYOUT 1 END-->
 
 	<!--LAYOUT 2 START-->
-	<div id="layout2" class="gallery_layout row">
+	<div id="gallery_layout_2" class="layout2 gallery_layout row">
 		<div class="photo_col span3">
 				<a class="photo_link"><div class="span3 photo_container_1 photo_container flex_margin_bottom"></div></a>
 				<a class="photo_link"><div class="span3 photo_container_2 photo_container"></div></a>
@@ -72,8 +72,8 @@
 					</div>
 					<div class='share_circle'>
 	                	<div class='all_cap'>share</div>
-	                	<div class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
-						<div class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
+	                	<div class='circle_fb_share_btn facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
+						<div class='circle_tw_share_btn twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
 					</div>
 				</div>
 			</a>	

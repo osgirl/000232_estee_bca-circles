@@ -78,7 +78,7 @@
 	/*DONATE*/
 	
 	#donate_area{
-		padding:25px 0 0 1%;
+		/*padding:25px 0 0 1%;*/
 	}
 	
 	#join_fight{
@@ -198,7 +198,7 @@
 	/*DONATE*/
 	
 	#donate_area{
-		padding:25px 0 0 6%;
+		/*padding:25px 0 0 6%;*/
 	}
 	
 	#join_fight{
@@ -258,7 +258,7 @@
 		margin-bottom:22px;
 	}
 
-	#layout1 .gallery_col{
+	.layout1 .gallery_col{
 		width:48%;
 		margin-right:2%;
 	}
@@ -272,27 +272,27 @@
 		margin-bottom:0;
 	}
 
-	#layout1 .photo_container{
+	.layout1 .photo_container{
 		width:48%;
 		margin-right:4%;
 	}
 
-	#layout1 .gallery_col2, #layout1 .photo_container_2{
+	.layout1 .gallery_col2, .layout1 .photo_container_2{
 		margin-right:0;
 	}
 
 	/*LAYOUT 2*/
 
-	#layout2 .photo_col{
+	.layout2 .photo_col{
 		width:23%;
 		margin-right:2%;
 	}
 
-	#layout2 .photo_col:last-child{
+	.layout2 .photo_col:last-child{
 			margin-right:0;
 		}
 
-	#layout2 .circle_col{
+	.layout2 .circle_col{
 		width:48%;
 		margin-right:2%;
 	}
@@ -323,6 +323,10 @@
 
 	.featured_twitter_text{
 		font-size:.7em;
+	}
+
+	.circle_area{
+	    margin-left:-15px;
 	}
 
 	/*CAROUSEL*/
@@ -395,6 +399,10 @@
 	#carousel_slider{
 		width:1479px;
 	}
+
+	.circle_area{
+	    margin-left:-5px;
+	}
 	
 	.feature_photo{
 		min-height:192px;
@@ -404,7 +412,6 @@
 	.feature_circle_area {
 	    width:250px;
 	    height:250px;
-	    margin-left:-10px;
 	    margin-top:-10px;
 
 	}
@@ -488,7 +495,6 @@
 	.feature_circle_area {
 	    width:300px;
 	    height:300px;
-	    margin-left:-25px;
 	    margin-top:0px;
 	}
 
