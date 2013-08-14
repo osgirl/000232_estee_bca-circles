@@ -754,6 +754,11 @@ h2{
 	display:none;
 }
 
+.circle_rollover a{
+	text-decoration: underline;;
+	color:#f38dab;
+}
+
 .photo_rollover{
 	background-image: url('../img/assets/white-opacity.png'); 
 	width:100%;
