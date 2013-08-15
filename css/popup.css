@@ -524,7 +524,8 @@
 .popup #popup_circle_photo_carousel_wrapper .btn_nav_photo{
 	display: none;
 	width: 0;
-	height: 200px;
+	height: 32px;
+	margin-top: 84px;
 	background-image: url('../img/popups/buttons/btn_nav_arrow.png');
 	cursor: pointer;
 }
@@ -533,9 +534,17 @@
 	float: left;
 }
 
+.popup #popup_circle_photo_carousel_wrapper .btn_nav_photo.left:hover{
+	background-position: 0 -32px;
+}
+
 .popup #popup_circle_photo_carousel_wrapper .btn_nav_photo.right{
 	float: right;
 	background-position: -30px 0;
+}
+
+.popup #popup_circle_photo_carousel_wrapper .btn_nav_photo.right:hover{
+	background-position: -30px -32px;
 }
 
 .popup #popup_circle_photo_carousel_wrapper #container{
@@ -588,7 +597,7 @@
 
 .popup #popup_circle_photo_carousel_wrapper #container .photo_rollover div {
 	position: relative;
-	top: 45%;
+	top: 42%;
 }
 
 .popup #popup_circle_photo_carousel_wrapper #container .helper {

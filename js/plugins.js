@@ -72,7 +72,7 @@ $.extend(
         }
         if ($isCircle)
         {
-            if ($('#popup_circle').length == 0)
+            if($('#popup_circle').length == 0)
             {
                 $.ajax(
                 {
@@ -436,6 +436,9 @@ $.extend(
     {
         loadEnd();
         alert('Image saved successfully.');
+        if($('#popup_circle').length != 0){
+            $('#popup_circle').trigger('photo_upload_complete');
+        }
         closeWindow();
     }
 
@@ -468,7 +471,7 @@ $.extend(
  ******************************************/
 (function($)
 {
-    var $this, $d, $c, $win_abs_y, $scroll_y, $margin_top, $margin_bottom, $padding_top, $gap, $bound = {}, $hasPhoto, $pagn, $nav_count = 0;
+    var $this, $d, $c, $win_abs_y, $scroll_y, $margin_top, $margin_bottom, $padding_top, $gap, $bound = {}, $hasPhoto, $pagn, $nav_count;
     $.fn.init_circle = function(v)
     {
         $this = $(this);
@@ -537,6 +540,9 @@ $.extend(
         $($c + ' .btn_add_photo').click(addPhoto);
         $($c + ' .btn_nav_photo').click(navPhoto);
 
+        $this.bind('photo_upload_complete', loadCirclePhotos)
+
+
         //Startup some function
         $(window).trigger('scroll');
 
@@ -548,7 +554,6 @@ $.extend(
         {
             opacity: 1
         }, 250);
-
         createDots();
     }
 
@@ -583,7 +588,8 @@ $.extend(
     }
 
     function loadCirclePhotos()
-    {
+    {        
+        console.debug('loadCirclePhotos');
         $.ajax(
         {
             type: 'POST',
@@ -604,17 +610,20 @@ $.extend(
 
         function showCirclePHotos(v)
         {
-            var $tmb, $img, $dot, $roll_over, tmbs_width = 0,
-                $container = $($c + ' #popup_circle_photo_carousel_wrapper #container'),
-                $tmbs      = $('<ul/>').appendTo($container);
+            $nav_count = 0;            
+            var $tmbs, $tmb, $img, $dot, $roll_over, tmbs_width = 0,
+                $container = $($c + ' #popup_circle_photo_carousel_wrapper #container');
                 
+                
+            $container.empty();
+            $tmbs = $('<ul/>').appendTo($container);
 
             if (v.length > 0)
             {
                 $(v).each(function(i)
                 {
                     //Thumbnail
-                    $img = $('<img src="uploads/' + v[i].filename + '"/>').mousedown(function()
+                    $img = $('<img style="display:none" src="uploads/' + v[i].filename + '"/>').mousedown(function()
                     {
                         return false;
                     }).load(imgLoadComplete);
@@ -650,7 +659,6 @@ $.extend(
 
                     tmbs_width += 220;
                 });
-
                 $hasPhoto = true;
                 $tmbs.width(tmbs_width);
                 $container.parent().animate(
@@ -740,11 +748,14 @@ $.extend(
             $tmb = $container.children('li:nth-child(1)'),
             child_width = parseInt($tmb.css('margin-right').replace('px', '')) + +$tmb.width(),
             container_width = $container.children('li').length * child_width,
-            multiplier = child_width * 2;
+            multiplier = child_width * 2,
+            even = ($container.children().length % 2 == 0);
 
         if ($(this).hasClass('right') || type == 'swipeleft')
         {
-            dx = $container.position().left - multiplier;
+
+            dx = $container.position().left - (even ? multiplier*2 : multiplier);
+
             if ((dx + container_width) < 0) dx = $nav_count = 0;
             else
             {
@@ -757,7 +768,7 @@ $.extend(
             dx = $container.position().left + multiplier;
             if ($container.position().left >= 0)
             {
-                dx = 0 - container_width + multiplier - (($container.children().length % 2 == 0) ? 0 : multiplier / 2);
+                dx = 0 - container_width + multiplier - (even ? 0 : multiplier / 2);
                 $nav_count = $pagn.children('li').length - 1;
             }
             else $nav_count--;
