@@ -6,10 +6,10 @@
 
 .popup .disable-select{
 	-webkit-user-select: none;
-	-khtml-user-select: none;
 	-moz-user-select: moz-none;
-	-ms-user-select: none;
-	user-select: none;
+	  -khtml-user-select: none;
+	     -ms-user-select: none;
+		 	 user-select: none;
 }
 
 .popup #popup_footer_share {
@@ -385,9 +385,7 @@
 	width: 100%;
 	left: 0;
 	min-height: 100px;
-	/*background: rgba(255,0,255,.2);*/
 	background-image: url('../img/assets/bg-pattern.png');
-	/*background: transparent;*/
 	opacity: 0;
 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
@@ -516,18 +514,18 @@
 
 .popup #popup_circle_photo_carousel_wrapper {
 	position: relative;
-	/*display: none;*/
 	min-width: 100%;
+	max-height: 150px;
 	height: 0;
-	padding-bottom: 20px;
+	padding-bottom: 0;
 	text-align: center;
-	background: rgba(255,255,0,.2)
 }
 
 .popup #popup_circle_photo_carousel_wrapper .btn_nav_photo{
 	display: none;
 	width: 0;
-	height: 200px;
+	height: 32px;
+	margin-top: 84px;
 	background-image: url('../img/popups/buttons/btn_nav_arrow.png');
 	cursor: pointer;
 }
@@ -536,17 +534,25 @@
 	float: left;
 }
 
+.popup #popup_circle_photo_carousel_wrapper .btn_nav_photo.left:hover{
+	background-position: 0 -32px;
+}
+
 .popup #popup_circle_photo_carousel_wrapper .btn_nav_photo.right{
 	float: right;
 	background-position: -30px 0;
 }
 
+.popup #popup_circle_photo_carousel_wrapper .btn_nav_photo.right:hover{
+	background-position: -30px -32px;
+}
+
 .popup #popup_circle_photo_carousel_wrapper #container{
 	position: relative;
 	display: inline-block;
-	width: 310px;
-	min-height: 200px;
-	margin-left: 20px;
+	width: 320px;
+	min-height: 150px;
+	margin-left: 10px;
 	overflow: hidden;
 }
 
@@ -557,17 +563,41 @@
 	min-width: 100px;
 	margin: 0;
 	list-style-type: none;
-	background: rgba(255,0,255,.2)
 }
 
 .popup #popup_circle_photo_carousel_wrapper #container li{
+	position: relative;
 	display: inline-block;
 	float: left;
 	width: 150px;
 	height: 150px;
 	margin-right: 10px;
-	background: url('../img/popups/icons/anim-loader.gif') no-repeat center center;
+	background: url('../img/popups/icons/anim-loader.gif') no-repeat center center;	
 	cursor: pointer;
+}
+
+.popup #popup_circle_photo_carousel_wrapper #container span {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.popup #popup_circle_photo_carousel_wrapper #container .photo_rollover {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	text-align: center;
+	background-image: url('../img/assets/white-opacity.png');
+	opacity: 0;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+}
+
+.popup #popup_circle_photo_carousel_wrapper #container .photo_rollover div {
+	position: relative;
+	top: 42%;
 }
 
 .popup #popup_circle_photo_carousel_wrapper #container .helper {
@@ -575,23 +605,28 @@
 	cursor: default;
 }
 
-.popup #popup_circle_photo_carousel_wrapper #container img{
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);	
-}
-
 .popup #popup_circle_photo_carousel_pagn {
 	list-style: none;
+	text-align: center;
+	margin: 0;
+	padding: 5px 0;
+	background: #FFFFFF;
 }
 
 .popup #popup_circle_photo_carousel_pagn li{
 	display: inline-block;
 	width: 10px;
 	height: 10px;
-	background: #0000FF;
+	margin: 0 3px;
+	background: #cccccc;
+	-webkit-border-radius:5px;
+	   -moz-border-radius:5px;
+		 -o-border-radius:5px;
+			border-radius:5px;
+}
+
+.popup #popup_circle_photo_carousel_pagn li.selected{
+	background: #f38dab;
 }
 
 .popup #popup_circle_comment_holder{
@@ -608,7 +643,6 @@
 	height: 400px;
 	border: none;
 }
-
 
 @media only screen and (min-width: 480px)  {
 
@@ -642,9 +676,10 @@
 		font-size: 1.5em;
 	}
 
-.popup #popup_circle_photo_button_wrapper span{
+	.popup #popup_circle_photo_button_wrapper span{
 	font-size: 1.2em;
-}
+	}
+
 }
 
 
@@ -727,6 +762,11 @@
 		top: 75%;
 	}
 
+	.popup #popup_circle_photo_carousel_wrapper {
+		max-height: 200px;
+		padding-bottom: 20px;
+	}
+
 	.popup #popup_circle_photo_carousel_wrapper .btn_nav_photo{
 		display: inline-block;
 		width: 30px;
@@ -734,13 +774,20 @@
 
 	.popup #popup_circle_photo_carousel_wrapper #container{
 		width: 440px;
+		min-height: 200px;
+		margin-left: 20px;
 	}
 
 	.popup #popup_circle_photo_carousel_wrapper #container li{
 		width: 200px;
 		height: 200px;		
 		margin-right: 20px;
+
 	}	
+
+	.popup #popup_circle_photo_carousel_pagn {
+		display: none;
+	}
 
 	.popup #popup_circle_comment_holder{
 		padding: 0 15%;

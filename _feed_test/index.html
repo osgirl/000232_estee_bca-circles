@@ -74,8 +74,10 @@
 				$('#photos_feed').click(photosFeedBtnHandler);
 				$('#photos_more_feed').click(photosFeedMoreBtnHandler);
 
-				var feed_circles = $FM.Feed('bca-circles');		
-				var feed_photos  = $FM.Feed('bca-photos');		
+				$('#feature_feed').click(featureFeedBtnHandler);
+
+				var feed_circles = $FM.Feed('bca-circles');
+				var feed_photos  = $FM.Feed('bca-photos');
 			
 
 				function circlesFeedBtnHandler() {
@@ -146,7 +148,24 @@
 					        }
 				    	}
 				    });	
-				}			
+				}
+
+				/*** FEATURE HANDLER ****/
+				function featureFeedBtnHandler() {
+
+					feed_photos.featured({
+				    	// limit:2,
+				    	success: function(self, data) {
+				    		if (data.response.updates.length > 0) {
+					            parseFeaturedData(data.response.updates);
+					        }
+					        else {
+					            window.alert('No updates found!')
+					        }
+				    	}
+				    });	
+				}
+
 
 				function parseCircleData(data){
 					var feed;
@@ -192,6 +211,40 @@
 					});
 				}
 
+
+				function parseFeaturedData(data){
+					var feed;
+					$(data).each(function(i){
+						feed = data[i].data;
+						console.log(feed);
+
+						var div = $('<div class="block"/>');
+
+						switch(feed.channel){
+							case 'rss':
+								div.text('ID: ' + feed.text);			  // <-- ID
+								break;
+
+							case 'instagram':
+								div.css('background', '#bfad9c');
+								div.text('author: ' + feed.author.alias); // <-- author
+								console.log(feed.text); 				  // <-- content
+								console.log(feed.photos[0].url); 			  // <-- photo_url
+								break;
+
+							case 'twitter':
+								div.css('background', '#2caae1');
+								div.text('author: ' + feed.author.alias); // <-- author
+								console.log(feed.text);					  // <-- content
+								console.log(feed.timestamp); 			  // <-- datetime
+								console.log(feed.author.avatar); 		  // <-- avatar
+								break;
+						}
+
+							div.appendTo($('#feature_container'));
+					});
+				}				
+
 			});
 
 			
@@ -211,6 +264,10 @@
 			<button id="photos_feed">Get photos feed</button>
 			<button id="photos_more_feed">Get more photos feed</button>
 			<div class="container" id="photo_container"></div>
+			<br>
+			<button id="feature_feed">Get Feature feed</button>
+			<div class="container" id="feature_container"></div>
+
 		</div>
 
 		

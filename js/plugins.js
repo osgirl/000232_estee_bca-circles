@@ -72,7 +72,8 @@ $.extend(
         }
         if ($isCircle)
         {
-            if($('#popup_circle').length == 0){
+            if($('#popup_circle').length == 0)
+            {
                 $.ajax(
                 {
                     type: 'POST',
@@ -89,8 +90,7 @@ $.extend(
                     }
                 });
             }
-            else
-                console.debug('Circle detail is already running');
+            else console.debug('Circle detail is already running');
         }
         else
         {
@@ -436,6 +436,9 @@ $.extend(
     {
         loadEnd();
         alert('Image saved successfully.');
+        if($('#popup_circle').length != 0){
+            $('#popup_circle').trigger('photo_upload_complete');
+        }
         closeWindow();
     }
 
@@ -468,19 +471,22 @@ $.extend(
  ******************************************/
 (function($)
 {
-    var $this, $d, $c, $win_abs_y, $scroll_y, $margin_top, $margin_bottom, $padding_top, $gap, $bound = {}, $hasPhoto;
+    var $this, $d, $c, $win_abs_y, $scroll_y, $margin_top, $margin_bottom, $padding_top, $gap, $bound = {}, $hasPhoto, $pagn, $nav_count;
     $.fn.init_circle = function(v)
     {
         $this = $(this);
+        $c = '.' + $(this).attr('class');
         $d = v;
         $win_abs_y = $(window).scrollTop();
         $margin_top = $('.navbar').height();
+
+        $pagn = $($c + ' #popup_circle_photo_carousel_pagn')
 
         //Add padding when header page has net been scrolled to the top
         if (($win_abs_y + $margin_top) < $this.parent().offset().top)
         {
             $padding_top = $this.parent().offset().top - $win_abs_y - $margin_top;
-            $('html body').animate(
+            $('html,body').animate(
             {
                 scrollTop: $this.parent().offset().top - $margin_top
             }, 650)
@@ -523,17 +529,19 @@ $.extend(
                 });
             }
 
-            if(e.type == 'resize' && $hasPhoto){
+            if (e.type == 'resize' && $hasPhoto)
+            {
                 resizeCirclePHotosNav();
             }
         });
-
-        $c = '.' + $(this).attr('class');
 
         //Start bind
         $($c + ' .btn_close').click(closeWindow);
         $($c + ' .btn_add_photo').click(addPhoto);
         $($c + ' .btn_nav_photo').click(navPhoto);
+
+        $this.bind('photo_upload_complete', loadCirclePhotos)
+
 
         //Startup some function
         $(window).trigger('scroll');
@@ -546,7 +554,6 @@ $.extend(
         {
             opacity: 1
         }, 250);
-
         createDots();
     }
 
@@ -581,7 +588,8 @@ $.extend(
     }
 
     function loadCirclePhotos()
-    {
+    {        
+        console.debug('loadCirclePhotos');
         $.ajax(
         {
             type: 'POST',
@@ -602,15 +610,24 @@ $.extend(
 
         function showCirclePHotos(v)
         {
-            var $tmb, $img, tmbs_width = 0,
-                $container = $($c + ' #popup_circle_photo_carousel_wrapper #container'),
-                $tmbs = $('<ul/>').appendTo($container);
-            
+            $nav_count = 0;            
+            var $tmbs, $tmb, $img, $dot, $roll_over, tmbs_width = 0,
+                $container = $($c + ' #popup_circle_photo_carousel_wrapper #container');
+                
+                
+            $container.empty();
+            $tmbs = $('<ul/>').appendTo($container);
+
             if (v.length > 0)
             {
                 $(v).each(function(i)
                 {
-                    $img = $('<img src="uploads/' + v[i].filename + '"/>').load(imgLoadComplete);
+                    //Thumbnail
+                    $img = $('<img style="display:none" src="uploads/' + v[i].filename + '"/>').mousedown(function()
+                    {
+                        return false;
+                    }).load(imgLoadComplete);
+
                     $tmb = $('<li/>').append($img).appendTo($tmbs).click(function()
                     {
                         $.popup(
@@ -623,16 +640,38 @@ $.extend(
                             }
                         })
                     });
+                    // $tmb.text('TEST');
+                    $rollover = $('<span class="photo_rollover"/>')
+                        .append('<div class="popup_round_button" id="popup_btn_pink">VIEW</div>')
+                        .appendTo($tmb)
+                        .mouseenter(function(){ $(this).animate({opacity:1},180)})
+                        .mouseleave(function(){$(this).animate({opacity:0},180)})
+
+                    //Paginaiton (two photo per pagination, add only if two or more photo available)
+                    if ((i % 2) == 0 && v.length > 2)
+                    {
+                        $dot = $('<li/>').appendTo($pagn);
+                        if (i == 0)
+                        {
+                            $dot.addClass('selected');
+                        }
+                    }
+
                     tmbs_width += 220;
                 });
-
                 $hasPhoto = true;
                 $tmbs.width(tmbs_width);
-                $container.parent().animate({height: 200}, 500, function(){
+                $container.parent().animate(
+                {
+                    height: 200
+                }, 500, function()
+                {
                     loadCommentBox();
                     resizeGalleryHeight();
                 });
 
+                //Add swipe event if photo is more than two
+                if (v.length > 2) $container.on('swipeleft swiperight', carouselSwipeHandler);
             }
             else
             {
@@ -640,13 +679,24 @@ $.extend(
                 loadCommentBox();
                 resizeGalleryHeight();
             }
-
             resizeCirclePHotosNav();
 
-            function imgLoadComplete(){
-                $(this).animate({opacity:1}, 250, function(){
-                    $(this).parent().css('background','none');
-                });
+            function imgLoadComplete()
+            {
+                var $c, $p = $(this).parent();
+                $p.css('background', 'none');
+                $c = $('<span/>')
+                    .appendTo($p)
+                    .css(
+                    {   'opacity':0,
+                        'background-image': 'url(' + $(this).attr('src') + ')',
+                        'background-size': 'contain'
+                    })
+                    .animate(
+                    {
+                        opacity: 1
+                    }, 500);
+                $(this).remove();
             }
         }
     }
@@ -660,21 +710,23 @@ $.extend(
     function resizeCirclePHotosNav()
     {
         var $container = $($c + ' #popup_circle_photo_carousel_wrapper #container'),
-        $tmbs = $container.children(),
-        $navs = $($c + ' .btn_nav_photo')
-        
-        if( $container.width() < $tmbs.width() ){            
-            $navs.show();
-        }
-        else{
-            $navs.hide();
-            $tmbs.css('left',0);
-        }
+            $tmbs = $container.children(),
+            $navs = $($c + ' .btn_nav_photo')
+
+            if ($container.width() < $tmbs.width())
+            {
+                $navs.show();
+            }
+            else
+            {
+                $navs.hide();
+                $tmbs.css('left', 0);
+            }
     }
 
     function resizeGalleryHeight()
     {
-        //--Expand gallery height if scrollable area is too short
+        //--Expand gallery height (Main page) if scrollable area is too short
         $margin_bottom = $this.outerHeight() - ($this.parent().outerHeight() + $this.parent().offset().top - $win_abs_y);
         if ($margin_bottom > 0) $this.parent().outerHeight($this.parent().outerHeight() + $margin_bottom);
         else $margin_bottom = 0;
@@ -689,21 +741,26 @@ $.extend(
         });
     }
 
-    function navPhoto()
+    function navPhoto(type)
     {
-        var $tmb, multiplier, dx,
-        $container = $($c + ' #popup_circle_photo_carousel_wrapper #container ul');
-        $tmb = $container.children('li:nth-child(1)');
-        multiplier = (parseInt($tmb.css('margin-right').replace('px', '')) + $tmb.width()) * 2;
+        var dx,
+        $container = $($c + ' #popup_circle_photo_carousel_wrapper #container ul'),
+            $tmb = $container.children('li:nth-child(1)'),
+            child_width = parseInt($tmb.css('margin-right').replace('px', '')) + +$tmb.width(),
+            container_width = $container.children('li').length * child_width,
+            multiplier = child_width * 2,
+            even = ($container.children().length % 2 == 0);
 
-        if ($(this).hasClass('right'))
+        if ($(this).hasClass('right') || type == 'swipeleft')
         {
-            dx = $container.position().left - multiplier;
-            console.debug(dx);
-            console.debug(dx + $container.width());
-            if ( (dx + $container.width()) < 0 )
+
+            dx = $container.position().left - (even ? multiplier*2 : multiplier);
+
+            if ((dx + container_width) < 0) dx = $nav_count = 0;
+            else
             {
-                dx = 0;
+                console.log('Adding up');
+                $nav_count++;
             }
         }
         else
@@ -711,15 +768,23 @@ $.extend(
             dx = $container.position().left + multiplier;
             if ($container.position().left >= 0)
             {
-                dx = 0 - $container.width() + multiplier - ( ($container.children().length % 2 == 0 ) ? 0 : multiplier/2 );
+                dx = 0 - container_width + multiplier - (even ? 0 : multiplier / 2);
+                $nav_count = $pagn.children('li').length - 1;
             }
+            else $nav_count--;
         }
 
         $container.stop().animate(
         {
             left: dx
         }, 500);
+        $pagn.children('li').removeClass('selected');
+        $pagn.children('li:nth-child(' + ($nav_count + 1) + ')').addClass('selected');
+    }
 
+    function carouselSwipeHandler(e)
+    {
+        if ($pagn.css('display') == 'block') navPhoto(e.type);
     }
 
     function closeWindow()
