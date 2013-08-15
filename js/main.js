@@ -19,7 +19,6 @@ var facebook = new Facebook();
 var carousel = new Carousel();
 var gallery = new Gallery();
 
-
 var friendProfileList = new Array();
 var curSelectedFriendID;
 var curSelectedFriendName;
@@ -152,10 +151,17 @@ function displayUserProfilePic(e){
 
 function enableButtons(){
 	//enable finger cursor
+	$('.pink_btn').unbind('mouseover').mouseover(function(e){
+		$(e.currentTarget).css('cursor','pointer');
+		$(e.currentTarget).removeClass("pink_btn").addClass("pink_btn_rollover");
+	})
+	$('.pink_btn').unbind('mouseout').mouseout(function(e){
+		$(e.currentTarget).removeClass("pink_btn_rollover").addClass("pink_btn");
+	})
+	$('.pink_btn_rollover').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+
 	$('.sign_in_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#language_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('.start_create_circle_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('.upload_photo_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#select_action_button').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$(".goal_dropdown_list").unbind('mouseover').mouseover(function(e){
 		$(e.currentTarget).css({
@@ -164,17 +170,10 @@ function enableButtons(){
 		});
 	})
 	$(".goal_dropdown_list").unbind('mouseout').mouseout(function(e){$(e.currentTarget).css("background", "none");})
-	$('.cancel_create_circle_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('#next_step_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('#back_step_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#name_plus_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('#create_circle_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('#choose_photos_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#close_friend_photos_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('.feature_circle_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('.feature_photo_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('#final_create_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('#close_create_circle_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 
 
 	//enable clicks
@@ -187,7 +186,7 @@ function enableButtons(){
 		(!selectOpen) ? openActionSelect() : closeActionSelect();
 	})
 	$(".goal_dropdown_list").unbind('click').click(function(e){actionSelected(e);})
-	$(".cancel_create_circle_btn").unbind("click").click(cancelCreateCircleScreen);
+	$(".cancel_create_circle_btn").unbind("click").click(openCancelScreen);
 	$("#next_step_btn").unbind("click").click(function(e){goNextCreateCircleScreen(e)});
 	$("#back_step_btn").unbind("click").click(function(e){goNextCreateCircleScreen(e)});
 	$('#name_plus_btn').unbind("click").click(addFriend);
@@ -196,6 +195,8 @@ function enableButtons(){
 	$('#close_friend_photos_btn').unbind("click").click(closeFriendPhotosPanel);
 	$('#final_create_btn').unbind("click").click(createCircle);
 	$('#close_create_circle_btn').unbind("click").click(cancelCreateCircleScreen);
+	$('.yes_btn').unbind("click").click(cancelCreateCircleScreen);
+	$('.no_btn').unbind("click").click(backToCreateCircleScreen);
 
 	//$('#show_friendlist_btn').unbind("click").click(facebook.showFriendlist);
 }
@@ -220,6 +221,12 @@ function openCreateCircleScreen(){
 	})
 }
 
+function backToCreateCircleScreen(){
+	$("#create_circle_screen").fadeIn(200);
+	$("#cancel_screen").hide();
+	createCircleWindowOpen = true;
+}
+
 function goNextCreateCircleScreen(e){
 	
 	if(e){
@@ -240,11 +247,18 @@ function closeCreateCircleScreen(){
 	createCircleWindowOpen = false;
 }
 
+function openCancelScreen(){
+	$('#cancel_screen').fadeIn(200);
+	$('#create_circle_screen').hide();
+}
+
+
 function cancelCreateCircleScreen(){
 	$('#circle_confirm_screen').slideUp(200);
 	$('.overlay').fadeOut(200);
 	$('#opt_in').fadeIn(200);
 	$('#thank_you').hide();
+	$('#cancel_screen').hide();
 	closeCreateCircleScreen();
 	resetCircle();
 }

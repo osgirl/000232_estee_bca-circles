@@ -62,7 +62,7 @@
                     <?php include('top_popup/create_circle_view.php');?>
 
     </div>
-
+    <?php include('top_popup/cancel_view.php');?>
     <?php include('top_popup/circle_confirm_view.php');?>
 </div>
 

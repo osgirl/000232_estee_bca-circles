@@ -124,6 +124,15 @@
        padding:12px 23px 12px 23px;
    }
 
+   .pink_btn_rollover{
+   	font-size: 11px;
+       padding:12px 23px 12px 23px;
+   }
+
+   .pink_filter_btn{
+	    padding:5px 13px 3px 13px;
+	}
+
    .view_circle_btn{
 		padding:10px 35px 10px 35px;
 	}
@@ -186,6 +195,12 @@
 
 	#gallery{
 		padding:3% 4% 3% 4%;
+	}
+
+	/*CANCEL SCREEN*/
+
+	#cancel_screen{
+		font-size:1.5em;
 	}
 
 }
@@ -390,6 +405,13 @@
 	.featured_twitter_text{
 		font-size:.8em;
 	}
+
+	/*CANCEL SCREEN*/
+
+	#cancel_screen{
+		font-size:1.7em;
+	}
+
 
 	#footer{
 		font-size:.7em;

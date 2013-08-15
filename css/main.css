@@ -497,15 +497,17 @@ h2{
 
 /*GALLERY*/
 
+#filter_nav{
+	margin-bottom:15px;
+}
+
+
 #gallery{
 	background-image: url('../img/assets/bg-pattern.png'); 
 	position:relative;
 	padding:3% 0 3% 0;
 }
 
-#feed_magnet{
-	overflow: hidden;
-}
 
 /*LAYOUT 1*/
 
@@ -591,6 +593,8 @@ h2{
 .gallery_layout{
 	margin-bottom:0px;
 }
+
+
 
 .gallery_layout:last-child{
 	margin-bottom:22px;
@@ -1104,29 +1108,34 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	width:49.5%; 
 	text-align: right;
 	padding-right:.5%;
+	vertical-align: middle;
 }
 
 .button_right_wrapper{
 	width:49.5%; 
 	text-align: left;
 	padding-left:.5%;
+	vertical-align: middle;
 }
 
 .tributton_left_wrapper{
 	width:23.5%; 
 	text-align: right;
 	padding-right:.5%;
+	vertical-align: middle;
 }
 
 .tributton_mid_wrapper{
 	width:10%; 
 	text-align: center;
+	vertical-align: middle;
 }
 
 .tributton_right_wrapper{
 	width:65.5%; 
 	text-align: left;
 	padding-left:.5%;
+	vertical-align: middle;
 }
 
 .friend_item{
@@ -1243,13 +1252,18 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 
-
-
 /*CANCEL SCREEN*/
 
 #cancel_screen{
+	display:none;
 	background-image: url('../img/assets/pink-opacity.png'); 
-	height:500px;
+	padding-top:30px;
+	height:320px;
+	position:relative;
+	color:white;
+	font-size:1.3em;
+	font-weight: lighter;
+	text-align: center;
 }
 
 
@@ -1362,6 +1376,33 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	text-transform: uppercase;
 }
 
+.pink_btn_rollover{
+	font-size: 10px;
+	background-color:#f33c72;
+	color:white;
+	-moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -khtml-border-radius: 50px;
+    border-radius: 50px;
+    behavior: url(css/PIE.htc);
+    padding:6px 13px 6px 13px;
+    display:inline-block;
+    *display: inline;
+	zoom: 1;
+	font-weight:lighter;
+	letter-spacing:1px;
+	text-align:center;
+	text-transform: uppercase;
+}
+
+.pink_filter_btn{
+    padding:5px 13px 3px 13px;
+}
+
+.pink_filter_btn_rollover{
+    padding:5px 13px 3px 13px;
+}
+
 .view_circle_btn{
 		padding:10px 35px 10px 35px;
 	}
@@ -1369,6 +1410,16 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 .pink_text{
 	color:#f38dab;
 }
+
+.blue_btn{
+	background-color:#3f7098;
+}
+
+.light_blue_btn{
+	background-color:#00cffb;
+}
+
+
 
 .auto_resize{
 	max-width:100%;

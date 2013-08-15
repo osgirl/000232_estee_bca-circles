@@ -45,6 +45,7 @@
         
         <?php include('top_navigation_view.php');?>
 
+
         <div id="content_wrap" class="container">
 
             <!-- Main hero unit for a primary marketing message or call to action -->
@@ -274,8 +275,16 @@
 	            
 	            <div id='gallery'>
 					<div class='h_divider_top'></div>
-					<?php include('gallery.php');?>
-					<div class='h_divider_bottom'></div>
+					<div id="filter_nav">
+						<div style="display:inline-block"><img src='<?php echo base_url(); ?>img/icons/filter.png'/></div>
+						<div id="filter_all_btn" type="all" class="pink_btn pink_filter_btn all_cap">all</div>
+						<div id="filter_circles_btn" type="circle" class="pink_btn pink_filter_btn all_cap">circles</div>
+						<div id="filter_photos_btn" type="photo" class="pink_btn pink_filter_btn all_cap">photos</div>
+						<div id="filter_instagram_btn" type="instagram" class="pink_btn pink_filter_btn blue_btn"><img src='<?php echo base_url(); ?>img/buttons/instagram.png'></div>
+						<div id="filter_twitter_btn" type="twitter" class="pink_btn pink_filter_btn light_blue_btn"><img src='<?php echo base_url(); ?>img/buttons/twitter.png'></div>
+						<div id="filter_friends_btn" type="friend" class="pink_btn pink_filter_btn all_cap">my friend's circles</div>
+					</div>
+					<div id="feed_magnet"> </div>
 				</div>
 				<div id='donate_area'>
 					<div id='join_fight' class='span2 all_cap light_font span'>

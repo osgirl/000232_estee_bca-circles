@@ -295,6 +295,28 @@
 		margin-right:2%;
 	}
 
+
+	/*LAYOUT CIRCLE*/
+	.layout_circle {
+		width:100%;
+	}
+	.layout_circle .circle_col{
+		width:48%;
+		margin-right:2%;
+	}
+
+	.layout_photo {
+		width:100%;
+	}
+	.layout_photo .photo_container{
+		width:23.5%;
+		margin-right:2%;
+	}
+
+	.layout_photo .photo_container:last-child{
+		margin-right:0;
+	}
+
 	.flex_margin_bottom{
 		margin-bottom:22px;
 	}
