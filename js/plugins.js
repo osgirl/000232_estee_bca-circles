@@ -72,7 +72,8 @@ $.extend(
         }
         if ($isCircle)
         {
-            if($('#popup_circle').length == 0){
+            if ($('#popup_circle').length == 0)
+            {
                 $.ajax(
                 {
                     type: 'POST',
@@ -89,8 +90,7 @@ $.extend(
                     }
                 });
             }
-            else
-                console.debug('Circle detail is already running');
+            else console.debug('Circle detail is already running');
         }
         else
         {
@@ -471,13 +471,13 @@ $.extend(
     var $this, $d, $c, $win_abs_y, $scroll_y, $margin_top, $margin_bottom, $padding_top, $gap, $bound = {}, $hasPhoto, $pagn, $nav_count = 0;
     $.fn.init_circle = function(v)
     {
-        $this       = $(this);
-        $c          = '.' + $(this).attr('class');
-        $d          = v;
-        $win_abs_y  = $(window).scrollTop();
+        $this = $(this);
+        $c = '.' + $(this).attr('class');
+        $d = v;
+        $win_abs_y = $(window).scrollTop();
         $margin_top = $('.navbar').height();
 
-        $pagn       = $($c + ' #popup_circle_photo_carousel_pagn')
+        $pagn = $($c + ' #popup_circle_photo_carousel_pagn')
 
         //Add padding when header page has net been scrolled to the top
         if (($win_abs_y + $margin_top) < $this.parent().offset().top)
@@ -526,7 +526,8 @@ $.extend(
                 });
             }
 
-            if(e.type == 'resize' && $hasPhoto){
+            if (e.type == 'resize' && $hasPhoto)
+            {
                 resizeCirclePHotosNav();
             }
         });
@@ -603,37 +604,46 @@ $.extend(
 
         function showCirclePHotos(v)
         {
-            var $tmb, $img, $dot, tmbs_width = 0,
+            var $tmb, $img, $dot, $roll_over, tmbs_width = 0,
                 $container = $($c + ' #popup_circle_photo_carousel_wrapper #container'),
                 $tmbs      = $('<ul/>').appendTo($container);
-            
+                
+
             if (v.length > 0)
             {
                 $(v).each(function(i)
                 {
                     //Thumbnail
-                    $img = $('<img src="uploads/' + v[i].filename + '"/>')
-                        .mousedown(function(){return false;})                        
-                        .load(imgLoadComplete);
+                    $img = $('<img src="uploads/' + v[i].filename + '"/>').mousedown(function()
+                    {
+                        return false;
+                    }).load(imgLoadComplete);
 
-                    $tmb = $('<li/>').append($img).appendTo($tmbs)                        
-                        .click(function()
+                    $tmb = $('<li/>').append($img).appendTo($tmbs).click(function()
+                    {
+                        $.popup(
                         {
-                            $.popup(
-                            {
-                                type: 'photo',
-                                data: {
-                                    source: 'local',
-                                    content: v[i].description,
-                                    photo_url: '/uploads/' + v[i].filename
-                                }
-                            })
-                        });
+                            type: 'photo',
+                            data: {
+                                source: 'local',
+                                content: v[i].description,
+                                photo_url: '/uploads/' + v[i].filename
+                            }
+                        })
+                    });
+                    // $tmb.text('TEST');
+                    $rollover = $('<span class="photo_rollover"/>')
+                        .append('<div class="popup_round_button" id="popup_btn_pink">VIEW</div>')
+                        .appendTo($tmb)
+                        .mouseenter(function(){ $(this).animate({opacity:1},180)})
+                        .mouseleave(function(){$(this).animate({opacity:0},180)})
 
                     //Paginaiton (two photo per pagination, add only if two or more photo available)
-                    if( (i%2) == 0 && v.length > 2){
+                    if ((i % 2) == 0 && v.length > 2)
+                    {
                         $dot = $('<li/>').appendTo($pagn);
-                        if( i == 0){
+                        if (i == 0)
+                        {
                             $dot.addClass('selected');
                         }
                     }
@@ -643,14 +653,17 @@ $.extend(
 
                 $hasPhoto = true;
                 $tmbs.width(tmbs_width);
-                $container.parent().animate({height: 200}, 500, function(){
+                $container.parent().animate(
+                {
+                    height: 200
+                }, 500, function()
+                {
                     loadCommentBox();
-                    resizeGalleryHeight();                    
+                    resizeGalleryHeight();
                 });
 
                 //Add swipe event if photo is more than two
-                if(v.length > 2)
-                    $container.on('swipeleft swiperight', carouselSwipeHandler);
+                if (v.length > 2) $container.on('swipeleft swiperight', carouselSwipeHandler);
             }
             else
             {
@@ -660,15 +673,22 @@ $.extend(
             }
             resizeCirclePHotosNav();
 
-            function imgLoadComplete(){
-                var $p = $(this).parent();
-                
-                $p.css({'background-image':'url(' +$(this).attr('src') + ')', 'background-size':'contain'});
+            function imgLoadComplete()
+            {
+                var $c, $p = $(this).parent();
+                $p.css('background', 'none');
+                $c = $('<span/>')
+                    .appendTo($p)
+                    .css(
+                    {   'opacity':0,
+                        'background-image': 'url(' + $(this).attr('src') + ')',
+                        'background-size': 'contain'
+                    })
+                    .animate(
+                    {
+                        opacity: 1
+                    }, 500);
                 $(this).remove();
-
-                $p.css('opacity',0)
-                
-                $p.animate({opacity:1},500);            
             }
         }
     }
@@ -682,16 +702,18 @@ $.extend(
     function resizeCirclePHotosNav()
     {
         var $container = $($c + ' #popup_circle_photo_carousel_wrapper #container'),
-        $tmbs = $container.children(),
-        $navs = $($c + ' .btn_nav_photo')
-        
-        if( $container.width() < $tmbs.width() ){            
-            $navs.show();
-        }
-        else{
-            $navs.hide();
-            $tmbs.css('left',0);
-        }
+            $tmbs = $container.children(),
+            $navs = $($c + ' .btn_nav_photo')
+
+            if ($container.width() < $tmbs.width())
+            {
+                $navs.show();
+            }
+            else
+            {
+                $navs.hide();
+                $tmbs.css('left', 0);
+            }
     }
 
     function resizeGalleryHeight()
@@ -714,18 +736,18 @@ $.extend(
     function navPhoto(type)
     {
         var dx,
-        $container      = $($c + ' #popup_circle_photo_carousel_wrapper #container ul'),
-        $tmb            = $container.children('li:nth-child(1)'),
-        child_width     = parseInt($tmb.css('margin-right').replace('px', '')) + + $tmb.width(),
-        container_width = $container.children('li').length * child_width,
-        multiplier      = child_width * 2;
+        $container = $($c + ' #popup_circle_photo_carousel_wrapper #container ul'),
+            $tmb = $container.children('li:nth-child(1)'),
+            child_width = parseInt($tmb.css('margin-right').replace('px', '')) + +$tmb.width(),
+            container_width = $container.children('li').length * child_width,
+            multiplier = child_width * 2;
 
         if ($(this).hasClass('right') || type == 'swipeleft')
         {
             dx = $container.position().left - multiplier;
-            if ( (dx + container_width) < 0 )
-                dx = $nav_count = 0;
-            else{
+            if ((dx + container_width) < 0) dx = $nav_count = 0;
+            else
+            {
                 console.log('Adding up');
                 $nav_count++;
             }
@@ -735,11 +757,10 @@ $.extend(
             dx = $container.position().left + multiplier;
             if ($container.position().left >= 0)
             {
-                dx = 0 - container_width + multiplier - ( ($container.children().length % 2 == 0 ) ? 0 : multiplier/2 );
-                $nav_count = $pagn.children('li').length -1;
+                dx = 0 - container_width + multiplier - (($container.children().length % 2 == 0) ? 0 : multiplier / 2);
+                $nav_count = $pagn.children('li').length - 1;
             }
-            else
-                $nav_count--;
+            else $nav_count--;
         }
 
         $container.stop().animate(
@@ -747,12 +768,12 @@ $.extend(
             left: dx
         }, 500);
         $pagn.children('li').removeClass('selected');
-        $pagn.children('li:nth-child(' + ($nav_count+1) + ')').addClass('selected');
+        $pagn.children('li:nth-child(' + ($nav_count + 1) + ')').addClass('selected');
     }
 
-    function carouselSwipeHandler(e){
-        if($pagn.css('display') =='block')
-            navPhoto(e.type);
+    function carouselSwipeHandler(e)
+    {
+        if ($pagn.css('display') == 'block') navPhoto(e.type);
     }
 
     function closeWindow()
