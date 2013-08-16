@@ -54,10 +54,14 @@
 			    var p = ('https:' === document.location.protocol ? 'https://' : 'http://');
 			    fmjs.src = p + fm_server + '/embed.js';
 			    fmjs.setAttribute('async', 'true');
+
+			    console.log(document.documentElement.firstChild);
 			    document.documentElement.firstChild.appendChild(fmjs);
 				/*******************************
 				/* Init FeedMagnet SDK Code End
 				********************************/
+
+
 
 			})();
 			 

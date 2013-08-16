@@ -72,7 +72,7 @@ $.extend(
         }
         if ($isCircle)
         {
-            if($('#popup_circle').length == 0)
+            if ($('#popup_circle').length == 0)
             {
                 $.ajax(
                 {
@@ -436,7 +436,8 @@ $.extend(
     {
         loadEnd();
         alert('Image saved successfully.');
-        if($('#popup_circle').length != 0){
+        if ($('#popup_circle').length != 0)
+        {
             $('#popup_circle').trigger('photo_upload_complete');
         }
         closeWindow();
@@ -588,7 +589,7 @@ $.extend(
     }
 
     function loadCirclePhotos()
-    {        
+    {
         console.debug('loadCirclePhotos');
         $.ajax(
         {
@@ -610,11 +611,11 @@ $.extend(
 
         function showCirclePHotos(v)
         {
-            $nav_count = 0;            
+            $nav_count = 0;
             var $tmbs, $tmb, $img, $dot, $roll_over, tmbs_width = 0,
                 $container = $($c + ' #popup_circle_photo_carousel_wrapper #container');
-                
-                
+
+
             $container.empty();
             $tmbs = $('<ul/>').appendTo($container);
 
@@ -641,11 +642,19 @@ $.extend(
                         })
                     });
                     // $tmb.text('TEST');
-                    $rollover = $('<span class="photo_rollover"/>')
-                        .append('<div class="popup_round_button" id="popup_btn_pink">VIEW</div>')
-                        .appendTo($tmb)
-                        .mouseenter(function(){ $(this).animate({opacity:1},180)})
-                        .mouseleave(function(){$(this).animate({opacity:0},180)})
+                    $rollover = $('<span class="photo_rollover"/>').append('<div class="popup_round_button" id="popup_btn_pink">VIEW</div>').appendTo($tmb).mouseenter(function()
+                    {
+                        $(this).animate(
+                        {
+                            opacity: 1
+                        }, 180)
+                    }).mouseleave(function()
+                    {
+                        $(this).animate(
+                        {
+                            opacity: 0
+                        }, 180)
+                    })
 
                     //Paginaiton (two photo per pagination, add only if two or more photo available)
                     if ((i % 2) == 0 && v.length > 2)
@@ -685,17 +694,15 @@ $.extend(
             {
                 var $c, $p = $(this).parent();
                 $p.css('background', 'none');
-                $c = $('<span/>')
-                    .appendTo($p)
-                    .css(
-                    {   'opacity':0,
-                        'background-image': 'url(' + $(this).attr('src') + ')',
-                        'background-size': 'contain'
-                    })
-                    .animate(
-                    {
-                        opacity: 1
-                    }, 500);
+                $c = $('<span/>').appendTo($p).css(
+                {
+                    'opacity': 0,
+                    'background-image': 'url(' + $(this).attr('src') + ')',
+                    'background-size': 'contain'
+                }).animate(
+                {
+                    opacity: 1
+                }, 500);
                 $(this).remove();
             }
         }
@@ -754,7 +761,7 @@ $.extend(
         if ($(this).hasClass('right') || type == 'swipeleft')
         {
 
-            dx = $container.position().left - (even ? multiplier*2 : multiplier);
+            dx = $container.position().left - (even ? multiplier * 2 : multiplier);
 
             if ((dx + container_width) < 0) dx = $nav_count = 0;
             else
@@ -803,5 +810,94 @@ $.extend(
             $this.remove();
         });
     }
+
+})(jQuery);
+
+
+/******************************************
+ * Private function for FeedMagnet (jquery extend)
+ ******************************************/
+(function(f)
+{
+    var fo={}, sfo;
+
+    var b = f.feed = function()
+    {
+
+        console.log('Feed start');
+        // Init FeedMagnet SDK Code
+        var fm_server = 'estee.feedmagnet.com';
+        window.fm_ready = function(fx)
+        {
+            if (typeof $FM !== 'undefined' && typeof $FM.ready === 'function')
+            {
+                $FM.ready(fx);
+            }
+            else
+            {
+                window.setTimeout(function()
+                {
+                    fm_ready.call(null, fx);
+                }, 50);
+            }
+        };
+        var fmjs = document.createElement('script');
+        var p = ('https:' === document.location.protocol ? 'https://' : 'http://');
+        fmjs.src = p + fm_server + '/embed.js';
+        fmjs.setAttribute('async', 'true');
+        document.getElementsByTagName('head').item(0).appendChild(fmjs);
+    };
+    f.extend(b,
+    {
+        get: function(v, f, n)
+        {
+            sfo = fetch_fo(v);
+            sfo.get(
+            {
+                limit: n,
+                success: function(self, data)
+                {
+                    f(data.response.updates);
+                }
+            });
+        }
+    },
+    {
+        more: function(v, f, n)
+        {
+            sfo = fetch_fo(v);
+            sfo.more(
+            {
+                limit: n,
+                success: function(self, data)
+                {
+                    f(data.response.updates);
+                }
+            });
+        }
+    },
+    {
+        featured: function(v, f, n)
+        {
+            sfo = fetch_fo(v);
+            sfo.featured(
+            {
+                limit: n,
+                success: function(self, data)
+                {
+                    f(data.response.updates);
+                }
+            });
+        }
+    });
+
+    function fetch_fo(v){
+        if(!fo[v]){
+            fo[v] = $FM.Feed(v);
+        }
+        else{
+        }
+        return fo[v];
+    };
 
 })(jQuery);
