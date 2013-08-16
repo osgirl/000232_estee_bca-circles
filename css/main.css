@@ -506,6 +506,7 @@ h2{
 	background-image: url('../img/assets/bg-pattern.png'); 
 	position:relative;
 	padding:3% 0 3% 0;
+	height:600px;
 }
 
 
@@ -584,6 +585,12 @@ h2{
 .layout2 .photo_container{
 	width:100%;
 	margin-right:0;
+}
+
+/*LAYOUT PHOTO*/
+
+.layout_photo{
+	margin-bottom:22px;
 }
 
 

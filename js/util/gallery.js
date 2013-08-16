@@ -45,11 +45,12 @@ function Gallery()
 		var currentFilterType = "all";
 		var currentLayoutPath;
 
-		var SCROLL_TO_SHOW_FOOTER = 2400;
+		var SCROLL_TO_SHOW_FOOTER 		= 2400;
+		var PHOTO_LAYOUT_COLUMN_NUM		= 4;
+		var CIRCLE_LAYOUT_COLUMN_NUM	= 2;
 
-		var photoFeed = new Array();
-		var instagramFeed = new Array();
-		var twitterFeed = new Array();
+		var allPhotoData;
+
 
 		//--------------------------------------
 		//+ PRIVATE & PROTECTED INSTANCE METHODS
@@ -65,25 +66,27 @@ function Gallery()
 
 				//load content
 
-				$.ajax({
-	        		type: 'get',
-	            	url: currentLayoutPath,
-	            	dataType: 'html',
+				// $.ajax({
+	   //      		type: 'get',
+	   //          	url: currentLayoutPath,
+	   //          	dataType: 'html',
 	            	
-	            	success: function(data) {            
-						gallery_container.append(data);
+	   //          	success: function(data) {            
+				// 		gallery_container.append(data);
 						
-						if(currentFilterType == 'all') current_add_layout = (current_add_layout == 1) ?  2 : 1;
+				// 		if(currentFilterType == 'all') current_add_layout = (current_add_layout == 1) ?  2 : 1;
 
-						defineLayout();
-						centerRollOverContent();
+				// 		defineLayout();
+				// 		centerRollOverContent();
+
+				// 		getGalleryHeight();
 						
-						// gallery_container.masonry( 'appended', data );
+				// 		// gallery_container.masonry( 'appended', data );
 
-						// //bind scroll event again after all of content loaded ()
-	  			 		$(window).bind('scroll', lazyloader);
-	             	}
-	      		});
+				// 		// //bind scroll event again after all of content loaded ()
+	  	// 		 		$(window).bind('scroll', lazyloader);
+	   //           	}
+	   //    		});
 				
 	  		}else if($(window).scrollTop() + $(window).height() > SCROLL_TO_SHOW_FOOTER){
 	  			$('#donate_area').fadeIn();
@@ -134,18 +137,18 @@ function Gallery()
 
 		function loadInitialCircles(isCircle) {
 			
-			feed_circles.get({
-		    	limit:4,
-		    	success: function(self, data) {
-		    		if (data.response.updates.length > 0) {
-			            parseCircleData(data.response.updates);
-			            if(!isCircle)loadInitialPhotos();
-			        }
-			        else {
-			            window.alert('No updates found!')
-			        }
-		    	}
-		    });	
+			// feed_circles.get({
+		 //    	limit:4,
+		 //    	success: function(self, data) {
+		 //    		if (data.response.updates.length > 0) {
+			//             parseCircleData(data.response.updates);
+			//             if(!isCircle)loadInitialPhotos();
+			//         }
+			//         else {
+			//             window.alert('No updates found!')
+			//         }
+		 //    	}
+		 //    });	
 		    			
 		}
 
@@ -156,20 +159,20 @@ function Gallery()
 		    	success: function(self, data) {
 		    		if (data.response.updates.length > 0) {
 
-		    			switch(currentFilterType){
-		    				case "photo":
-		    					parsePhotoData(photoFeed);
-		    				break;
-		    				case "instagram":
-		    					parsePhotoData(instagramFeed);
-		    				break;
-		    				case "twitter":
-		    					parsePhotoData(twitterFeed);
-		    				break;
-		    				default:
+		    			//switch(currentFilterType){
+		    				// case "photo":
+		    				// 	parsePhotoData(photoFeed);
+		    				// break;
+		    				// case "instagram":
+		    				// 	parsePhotoData(instagramFeed);
+		    				// break;
+		    				// case "twitter":
+		    				// 	parsePhotoData(twitterFeed);
+		    				// break;
+		    				// default:
 		    					parsePhotoData(data.response.updates);
-		    				break;
-		    			}
+		    				//break;
+		    			//}
 			            
 			        }
 			        else {
@@ -184,10 +187,6 @@ function Gallery()
 		function parseCircleData(data){
 			var feed;
 			var popupData;
-
-			// $('.circle_link').each(function(i,v){
-			// 	if(i > data.length-1) $(v).hide();
-			// })
 
 			$(data).each(function(i){
 				feed = data[i].data;
@@ -239,8 +238,9 @@ function Gallery()
 		}
 
 		function parsePhotoData(data){
-			console.log(data)
+			console.log("parse", data)
 			var feed;
+
 			$(data).each(function(i){
 				feed = data[i].data;
 
@@ -256,7 +256,6 @@ function Gallery()
 						//div.text('ID: ' + feed.text);			  // <-- ID
 						photoIcon = baseUrl + "img/icons/bca.png";
 
-						photoFeed.push(data[i]);
 
 						$.ajax({
 			        		type: 'post',
@@ -277,19 +276,18 @@ function Gallery()
 									}}
 			                	html = "<img class='full_photo' src='" + baseUrl + "uploads/" + data.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 			                	div.html(html);
-			                	feature_div.html(html);
 			                	div.attr('type', 'photo');
+			                	feature_div.html(html);
 
 			                	div.fadeIn(200);
 			                	gallery_container.show();
+								
 								enableItemButtons(div, feature_div, popupData);
 
 								centerRollOverContent();
 
 			             	}
 			      		});
-
-
 
 						break;
 
@@ -298,7 +296,6 @@ function Gallery()
 						//console.log(feed.text); 				  // <-- content
 						//console.log("instagram", feed.photos[0].url); 	// <-- photo_url
 
-						instagramFeed.push(data[i]);
 
 						popupData = {
 									type:'photo', 
@@ -321,13 +318,10 @@ function Gallery()
 						enableItemButtons(div, feature_div, popupData);
 
 						centerRollOverContent();
-						checkFilterItem()
 
 						break;
 
 					case 'twitter':
-
-						twitterFeed.push(data[i]);
 
 						div.css('background', '#2caae1');
 						feature_div.css('background', '#2caae1');
@@ -367,13 +361,10 @@ function Gallery()
 						enableItemButtons(div, feature_div, popupData);
 
 						centerRollOverContent();
-						checkFilterItem()
 
 
 						break;
 				}
-
-				$(div.find('.photo_icon')).attr('src', photoIcon);
 
 			});
 		}
@@ -443,110 +434,176 @@ function Gallery()
 		}
 
 		function defineLayout(){
-			switch(currentFilterType){
-				case 'all':
-					currentLayoutPath = baseUrl + 'layout/loadLayout' + current_add_layout;
-				break;
+			// switch(currentFilterType){
+			// 	case 'all':
+			// 		currentLayoutPath = baseUrl + 'layout/loadLayout' + current_add_layout;
+			// 	break;
 
-				case 'circle':
-				case 'friend':
-					currentLayoutPath = baseUrl + 'layout/loadLayoutCircle';
-				break;
-
-				case 'photo':
-				case 'instagram':
-				case 'twitter':
-					currentLayoutPath = baseUrl + 'layout/loadLayoutPhoto';
-				break;
-
-			}
+			// }
 		}
 
 		function loadLayout(){
 
 			$('.gallery_layout').remove();
-			
-
-			defineLayout();
-
-			if(currentFilterType == "all"){
-
-				$.ajax({
-	        		type: 'get',
-	            	url: baseUrl + 'layout/loadLayout1',
-	            	dataType: 'html',
-	            	
-	            	success: function(data) {            
-						gallery_container.append(data);
-
-						$.ajax({
-			        		type: 'get',
-			            	url: baseUrl + 'layout/loadLayout2',
-			            	dataType: 'html',
-			            	
-			            	success: function(data) {            
-								gallery_container.append(data);
-								parseDataToLayout();
-								centerRollOverContent();
-								
-			             	}
-			      		});
-						
-	             	}
-	      		});
-
-			}else{
-				$.ajax({
-	        		type: 'get',
-	            	url: currentLayoutPath,
-	            	dataType: 'html',
-	            	
-	            	success: function(data) {          
-						gallery_container.append(data);
-						parseDataToLayout();
-						centerRollOverContent();
-	             	}
-	      		});
-			}
-			
-		}
-
-		function parseDataToLayout(){
-
-			console.log("type", currentFilterType)
 
 			switch(currentFilterType){
 				case 'all':
-					loadInitialCircles(false);
+
+					$.ajax({
+		        		type: 'get',
+		            	url: baseUrl + 'layout/loadLayout1',
+		            	dataType: 'html',
+		            	
+		            	success: function(data) {            
+							gallery_container.append(data);
+
+							$.ajax({
+				        		type: 'get',
+				            	url: baseUrl + 'layout/loadLayout2',
+				            	dataType: 'html',
+				            	
+				            	success: function(data) {            
+									gallery_container.append(data);
+									//parseDataToLayout();
+									centerRollOverContent();
+									
+				             	}
+				      		});
+							
+		             	}
+		      		});
 				break;
 
 				case 'circle':
 				case 'friend':
-					loadInitialCircles(true);
+					createCircleLayout();
 				break;
 
 				case 'photo':
 				case 'instagram':
 				case 'twitter':
-					loadInitialPhotos();
+					createPhotoLayout();
 				break;
 			}
 
+		}
+
+		// function parseDataToLayout(){
+
+		// 	switch(currentFilterType){
+		// 		case 'all':
+		// 			loadInitialCircles(false);
+		// 		break;
+
+		// 		case 'circle':
+		// 		case 'friend':
+		// 			loadInitialCircles(true);
+		// 		break;
+
+		// 		case 'photo':
+		// 		case 'instagram':
+		// 		case 'twitter':
+		// 			loadInitialPhotos();
+		// 		break;
+		// 	}
+
+		// 	getGalleryHeight();
+		// }
+
+
+		
+
+		function createCircleLayout(){
+			var circleLayout = $('<div>');
+			circleLayout.addClass('layout_circle gallery_layout')
+						.appendTo(gallery_container);
+
+			if(currentFilterType!='all') $.feed.get('bca-circle', loadFilterCircleDivs, 4);
+		}
+
+
+		function loadFilterCircleDivs(data){
+
+			$(data).each(function(i,v){
+
+				if(i%CIRCLE_LAYOUT_COLUMN_NUM == 0){
+				var row = $('<div>')
+				row.addClass('row')
+					.appendTo('.layout_circle');
+				}
+
+				$.ajax({
+		        		type: 'get',
+		            	url: baseUrl + 'layout/loadLayoutCircle',
+		            	dataType: 'html',
+		            	
+		            	success: function(data) {            
+							row.append(data);
+							loadInitialCircles(true);
+		             	}
+		      		});
+
+			})
+
+			
+		}
+
+		function createPhotoLayout(){
+			var photoLayout = $('<div>');
+			photoLayout.addClass('layout_photo gallery_layout')
+						.appendTo(gallery_container);
+		}
+
+		function createPhotoDivs(content, type, photoIcon, popupData){
+
+			// console.log(count%PHOTO_LAYOUT_COLUMN_NUM)
+
+			// if(count%PHOTO_LAYOUT_COLUMN_NUM == 1){
+			// 	var row = $('<div>')
+			// 	row.addClass('row')
+			// 		.appendTo('.layout_photo');
+			// }
+
+			// var col = $('<div>');
+			//  col.addClass('span3 photo_container gallery_item')
+			//  	.attr('type', type)
+			//  	.html(content)
+			//  	.appendTo(row);
+
+			//  if(type == "twitter") col.css('background', '#2caae1');
+			//  $(col.find('.photo_icon')).attr('src', photoIcon);
+
+			//  enableItemButtons(col, popupData);
+		}
+
+		function handlePhotoData(data){
+
+			$(data).each(function (i, v){
+				allPhotoData.push(v);
+			})
+
+			allPhotoData.sort(function sortNumber(a, b){
+			  var aNum = Number(a.data.timestamp);
+			  var bNum = Number(b.data.timestamp); 
+			  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+			});
+
+			parsePhotoData(allPhotoData);
 
 		}
 
-		function checkFilterItem(){
+		function getGalleryHeight(){
+			var galleryHeight = 0;
 
-			// $('.gallery_item').each(function(index, value){
+			$('.gallery_layout').each(function(i, v){
 
-			// 	if($(value).attr('type') == currentFilterType){
-			// 		console.log('is this the right type', $(value).attr('type'))
-			// 		$(value).show();
-			// 	}else{
-			// 		$(value).hide();
-			// 	}
-			// })
+				galleryHeight += ($(v).height() + (22*i));
+				
+			})
 
+			$('#gallery').height(galleryHeight);
+
+			console.log('feed magnet height', galleryHeight)
 		}
 
 
@@ -586,15 +643,19 @@ function Gallery()
 			centerRollOverContent();
 			
 
-			//$('.gallery_item').hide();
-			//$('#feed_magnet').hide();
+			$('.gallery_item').hide();
+			gallery_container.hide();
 
+
+			$.feed();
 			fm_ready(function($, _) {
 
-				console.log('ready')
+				allPhotoData = new Array();
 
-				feed_circles = $FM.Feed('bca-circles');		
-				feed_photos  = $FM.Feed('bca-photos');
+				$.feed.get('bca-circle', parseCircleData, 3);
+				$.feed.get('bca-photo', handlePhotoData, 3);
+				$.feed.get('bca-twitter', handlePhotoData, 3);
+				$.feed.get('bca-instagram', handlePhotoData, 3);
 
 				initFilterButtons();
 				loadLayout();
@@ -604,8 +665,7 @@ function Gallery()
 					centerRollOverContent();
 				})	
 
-			})
-
+			});
 		},
 
 		
