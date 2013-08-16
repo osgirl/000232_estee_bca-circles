@@ -186,7 +186,6 @@ function Gallery()
 
 		function parseCircleData(data){
 			var feed;
-			var popupData;
 
 			$(data).each(function(i){
 				feed = data[i].data;
@@ -198,36 +197,57 @@ function Gallery()
 	            	data: {
 	            		circle_id: feed.text
 	            	},
-	            	success: function(data) {            
-	                	console.log('success', data);
-	                	$($('.circle_container').get(i)).fadeIn(200);
-	                	$($('.circle_container').get(i)).attr('circle_id', data.circle_id);
-	                	$($('.circle_creator').get(i)).html(data.user_name);
-	                	$($('.feature_circle_creator').get(i)).html(data.user_name);
-	                	$($('.circle_goal').get(i)).html("<b>We Will - </b><br />" + data.goal);
-	                	$($('.feature_circle_goal').get(i)).html("<b>We Will - </b><br />" + data.goal);
+	            	success: function(data) {      
+	                	populateCircleContent($($('.circle_container').get(i)), data);
 
-	                	placeCircleInAngles($($('.circle_area').get(i)), data.user_photo_url, data.friends_data.length);
-	                	placeCircleInAngles($($('.feature_circle_area').get(i)), data.user_photo_url, data.friends_data.length);
+	                	if(currentFilterType != "all"){
 
-	                	var popupData = {
-								type:'circle', 
-								data:{
-									content:data.goal, 
-									avatar:data.user_photo_url,
-									circle_id:data.circle_id,
-									users_fb_id:data.user_id,
-									num_friends: data.friends_data.length
-								}}
+	                		$.ajax({
+				        		type: 'get',
+				            	url: baseUrl + 'layout/loadLayoutCircle',
+				            	dataType: 'html',
+				            	
+				            	success: function(layoutData) {  
 
-	                	enableItemButtons($($($('.circle_container').get(i))), $($($('.feature_circle').get(i))), popupData);
+									$('.layout_circle').append(layoutData);   
+									populateCircleContent($($('.circle_container').get(i)), data)
+									if(i%CIRCLE_LAYOUT_COLUMN_NUM == 1) $($('.circle_container').get(i)).css('margin-right', '0');
 
-	             	},
-	             	error: function(response){
-						console.log("no?", response);
-					}
+									centerRollOverContent();
+									getGalleryHeight();
+
+				             	}
+				      		});
+
+	                	}
+
+	             	}
 	      		});
 			});
+		}
+
+		function populateCircleContent(circle, data){
+
+			circle.fadeIn(200);
+			circle.attr('circle_id', data.circle_id);
+			circle.find('.circle_creator').html(data.user_name);
+			circle.find('.circle_goal').html("<b>We Will - </b><br />" + data.goal);
+			circle.find('.feature_circle_goal').html("<b>We Will - </b><br />" + data.goal);
+
+        	placeCircleInAngles(circle.find('.circle_area'), data.user_photo_url, data.friends_data.length);
+        	placeCircleInAngles(circle.find('.feature_circle_area'), data.user_photo_url, data.friends_data.length);
+
+        	var popupData = {
+					type:'circle', 
+					data:{
+						content:data.goal, 
+						avatar:data.user_photo_url,
+						circle_id:data.circle_id,
+						users_fb_id:data.user_id,
+						num_friends: data.friends_data.length
+					}}
+
+        	enableItemButtons(circle, popupData);
 		}
 
 		function openPopUp(popupData){
@@ -282,7 +302,7 @@ function Gallery()
 			                	div.fadeIn(200);
 			                	gallery_container.show();
 								
-								enableItemButtons(div, feature_div, popupData);
+								enableItemButtons(div, popupData);
 
 								centerRollOverContent();
 
@@ -358,7 +378,7 @@ function Gallery()
 						div.attr('type', 'twitter');
 						div.fadeIn(200);
 
-						enableItemButtons(div, feature_div, popupData);
+						enableItemButtons(div, popupData);
 
 						centerRollOverContent();
 
@@ -369,7 +389,7 @@ function Gallery()
 			});
 		}
 
-		function enableItemButtons(div, feature_div, popupData){
+		function enableItemButtons(div, popupData){
 			$('.gallery_item_btn').unbind('mouseover').mouseover(function(e){
 				$(e.currentTarget).css('cursor','pointer');
 				$(e.currentTarget).prev('.item_rollover').fadeIn(200);
@@ -381,7 +401,6 @@ function Gallery()
 
 
         	$(div).find('.gallery_item_btn').click(function(e){openPopUp(popupData)})
-        	$(feature_div).find('.gallery_item_btn').click(function(e){openPopUp(popupData)})
 		}
 		
 
@@ -518,35 +537,11 @@ function Gallery()
 			circleLayout.addClass('layout_circle gallery_layout')
 						.appendTo(gallery_container);
 
-			if(currentFilterType!='all') $.feed.get('bca-circle', loadFilterCircleDivs, 4);
+			if(currentFilterType!='all') $.feed.get('bca-circle', parseCircleData, 4);
 		}
 
 
-		function loadFilterCircleDivs(data){
 
-			$(data).each(function(i,v){
-
-				if(i%CIRCLE_LAYOUT_COLUMN_NUM == 0){
-				var row = $('<div>')
-				row.addClass('row')
-					.appendTo('.layout_circle');
-				}
-
-				$.ajax({
-		        		type: 'get',
-		            	url: baseUrl + 'layout/loadLayoutCircle',
-		            	dataType: 'html',
-		            	
-		            	success: function(data) {            
-							row.append(data);
-							loadInitialCircles(true);
-		             	}
-		      		});
-
-			})
-
-			
-		}
 
 		function createPhotoLayout(){
 			var photoLayout = $('<div>');

@@ -300,8 +300,8 @@
 	.layout_circle {
 		width:100%;
 	}
-	.layout_circle .circle_col{
-		width:48%;
+	.layout_circle .circle_container{
+		width:44.3%;
 		margin-right:2%;
 	}
 
