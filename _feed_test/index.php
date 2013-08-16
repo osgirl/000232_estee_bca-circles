@@ -55,18 +55,19 @@
 				$('#circles_more_feed').click(moreClick);
 
 				function getClick() {				
-					$.feed.get('bca-twitter', getHandler, 2);				    			
+					$.feed.get('bca-instagram', getHandler, 2);				    			
 				}
 
 				function moreClick() {					
-					$.feed.more('bca-twitter', moreHandler, 5);
+					$.feed.more('bca-instagram', moreHandler, 5);
 				}
 
 				function getHandler(data){
+					console.log(data);
 					$(data).each(function(i){
 						feed = data[i].data;
 						$('<div class="block"/>')
-							.text('ID: ' + feed.id)
+							.text('Time: ' + feed.timestamp)
 							.appendTo($('#circle_container'));
 					});
 				}
@@ -75,7 +76,7 @@
 					$(data).each(function(i){
 						feed = data[i].data;
 						$('<div class="block"/>')
-							.text('ID: ' + feed.id)
+							.text('Time: ' + feed.timestamp)
 							.appendTo($('#circle_container'));
 					});
 				}

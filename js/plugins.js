@@ -20,6 +20,31 @@
     }
 }());
 
+function tsToDate(ts) {
+    var t = new Date(),
+    d =new Date(ts * 1000),
+    m,df,ampm,result;
+    
+    if(t.getFullYear()+t.getDate() == d.getFullYear()+d.getDate()){
+        if(t.getHours() == d.getHours() ){
+            result = (t.getMinutes() - d.getMinutes()) + 'min ago';
+        }
+        else{
+            df = t.getHours() - d.getHours();
+            result = df + ' hour' + ( (df == 1) ? '':'s' ) + ' ago';
+        }
+    }
+    else{
+        ampm = (d.getHours() < 12) ? 'AM' : 'PM';
+        result = d.getHours() + ':' + d.getMinutes() + ' ' + ampm + ' - ' + d.getDate() + ' ' + month(d.getMonth()) + ' ' + d.getFullYear();
+    }
+    return result;
+    function month(n){
+        m =['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        return m[n];
+    }
+};
+
 //Plugins
 
 /*************************************
