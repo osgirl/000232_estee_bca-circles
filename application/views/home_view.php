@@ -310,35 +310,8 @@
         <script>window.jQuery || document.write('
         	<script src="<?php echo base_url(); ?>js/vendor/jquery-1.9.1.min.js"><\/script>;
         	<script src="<?php echo base_url(); ?>js/vendor/jquery.easing.1.3.js"><\/script>;
-        	<script src="<?php echo base_url(); ?>js/vendor/jquery.mobile-1.3.2.min.js"><\/script>
-        ')</script>
+        	<script src="<?php echo base_url(); ?>js/vendor/jquery.mobile-1.3.2.min.js"><\/script>')</script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
-		<script>
-
-        	/********************************
-			/* Init FeedMagnet SDK Code Start
-			*********************************/
-			var fm_server = 'estee.feedmagnet.com';
-		     window.fm_ready = function(fx) {
-		         if (typeof $FM !== 'undefined' && typeof $FM.ready === 'function') {
-		             $FM.ready(fx);
-		         } else {
-		             window.setTimeout(function() { fm_ready.call(null, fx); }, 50);
-		         }
-		    };
-		    var fmjs = document.createElement('script');
-		    var p = ('https:' === document.location.protocol ? 'https://' : 'http://');
-		    fmjs.src = p + fm_server + '/embed.js';
-		    fmjs.setAttribute('async', 'true');
-		    $('head').append(fmjs);
-		    //document.documentElement.firstChild.appendChild(fmjs);
-
-			/*******************************
-			/* Init FeedMagnet SDK Code End
-			********************************/
-
-        </script>
 
 		<script type="text/javascript" src="js/vendor/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
         <script src="<?php echo base_url(); ?>js/vendor/bootstrap.min.js"></script>
