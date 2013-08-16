@@ -51,6 +51,7 @@ function tsToDate(ts) {
  * Popup jQuery extend for fancybox 2 (standalone)
  **************************************
  *   _data object may contain:
+ *   id
  *   source
  *   author
  *   content
@@ -139,6 +140,7 @@ $.extend(
             if (v != undefined)
             {
                 d = {
+                    id: null,
                     source: null,
                     author: null,
                     content: null,
@@ -156,6 +158,11 @@ $.extend(
             }
             return d;
         }
+
+        //Upadte deeplink
+        // console.log("SOURCE " + d.source)
+        // $.address.path(v.type);
+
     },
     popup_share: function(v)
     {
@@ -926,3 +933,12 @@ $.extend(
     };
 
 })(jQuery);
+
+
+//jsAddress temp
+
+/*$.address.change(function(e){
+    var v = e.value.replace(/^\//, '').split('/');
+    console.log('change ' + v);
+
+});*/
