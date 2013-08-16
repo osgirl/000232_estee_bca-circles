@@ -305,15 +305,14 @@
 				</div>
         </div> <!-- /container -->
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-        <script>window.jQuery || document.write('
-        	<script src="<?php echo base_url(); ?>js/vendor/jquery-1.9.1.min.js"><\/script>;
-        	<script src="<?php echo base_url(); ?>js/vendor/jquery.easing.1.3.js"><\/script>;
-        	<script src="<?php echo base_url(); ?>js/vendor/jquery.mobile-1.3.2.min.js"><\/script>')</script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>        
+        <script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
-		<script type="text/javascript" src="js/vendor/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/jquery.mobile.custom.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/jquery.address-1.6.min.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
         <script src="<?php echo base_url(); ?>js/vendor/bootstrap.min.js"></script>
         <script src="<?php echo base_url(); ?>js/vendor/jquery.jscrollpane.min.js"></script>
         <script src="<?php echo base_url(); ?>js/vendor/masonry.pkgd.min.js"></script>
