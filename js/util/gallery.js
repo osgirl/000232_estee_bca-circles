@@ -186,6 +186,8 @@ function Gallery()
 
 		function parseCircleData(data){
 			var feed;
+			var containerCount = 0;
+			var circleFeedDataArray = new Array();
 
 			$(data).each(function(i){
 				feed = data[i].data;
@@ -197,10 +199,20 @@ function Gallery()
 	            	data: {
 	            		circle_id: feed.text
 	            	},
-	            	success: function(data) {      
-	                	populateCircleContent($($('.circle_container').get(i)), data);
+	            	success: function(feedData) { 
 
 	                	if(currentFilterType != "all"){
+
+	                		//this extra step is to fix the circle id that sometimes is not in order
+
+	                		circleFeedDataArray.push(feedData);
+
+		            		circleFeedDataArray.sort(function sortNumber(a, b){
+
+							  var aNum = Number(a.circle_id);
+							  var bNum = Number(b.circle_id); 
+							  return ((aNum > bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+							});
 
 	                		$.ajax({
 				        		type: 'get',
@@ -209,21 +221,35 @@ function Gallery()
 				            	
 				            	success: function(layoutData) {  
 
-									$('.layout_circle').append(layoutData);   
-									populateCircleContent($($('.circle_container').get(i)), data)
-									if(i%CIRCLE_LAYOUT_COLUMN_NUM == 1) $($('.circle_container').get(i)).css('margin-right', '0');
+				            		var circleDiv = $('<div>');
+				            			circleDiv.append(layoutData)
+				            			         .addClass('span6 circle_container gallery_item flex_margin_bottom');
+				            		$('.layout_circle').append(circleDiv);
 
-									centerRollOverContent();
-									getGalleryHeight();
+									populateCircleContent($(circleDiv), circleFeedDataArray[containerCount]);
 
+									if(containerCount == data.length-1){
+
+										if(i%CIRCLE_LAYOUT_COLUMN_NUM == 1) $(circleDiv).css('margin-right', '0');
+										
+										var rowNum = Math.ceil(containerCount/CIRCLE_LAYOUT_COLUMN_NUM);
+										var getHeight = ($(circleDiv).height() + 70)*i;
+										$('#gallery').height(getHeight);
+									}
+
+									containerCount++;
+		
 				             	}
 				      		});
 
+	                	}else{
+	                		populateCircleContent($($('.circle_container').get(i)), feedData);
 	                	}
 
 	             	}
 	      		});
 			});
+
 		}
 
 		function populateCircleContent(circle, data){
@@ -238,16 +264,20 @@ function Gallery()
         	placeCircleInAngles(circle.find('.feature_circle_area'), data.user_photo_url, data.friends_data.length);
 
         	var popupData = {
-					type:'circle', 
-					data:{
-						content:data.goal, 
-						avatar:data.user_photo_url,
-						circle_id:data.circle_id,
-						users_fb_id:data.user_id,
-						num_friends: data.friends_data.length
-					}}
+				type:'circle', 
+				data:{
+					content:data.goal, 
+					avatar:data.user_photo_url,
+					circle_id:data.circle_id,
+					users_fb_id:data.user_id,
+					num_friends: data.friends_data.length
+				}}
 
         	enableItemButtons(circle, popupData);
+
+        	centerRollOverContent();
+			
+
 		}
 
 		function openPopUp(popupData){
@@ -258,7 +288,7 @@ function Gallery()
 		}
 
 		function parsePhotoData(data){
-			console.log("parse", data)
+
 			var feed;
 
 			$(data).each(function(i){
@@ -357,9 +387,9 @@ function Gallery()
 										avatar:feed.author.avatar
 									}}
 						//div.text('author: ' + feed.author.alias); // <-- author
-						console.log(feed.text);					    // <-- content
-						console.log(feed.timestamp); 			    // <-- datetime
-						console.log("avatar", feed.author.avatar); 	// <-- avatar
+						//console.log(feed.text);					    // <-- content
+						//console.log(feed.timestamp); 			    // <-- datetime
+						//console.log("avatar", feed.author.avatar); 	// <-- avatar
 
 						var content = "<div class='twitter_avatar'><img src='" + feed.author.avatar + "'/></div>"
 							content	+= "<div class='twitter_title'><div class='twitter_author'>"+ feed.author.alias + "</div>"
@@ -580,7 +610,7 @@ function Gallery()
 			allPhotoData.sort(function sortNumber(a, b){
 			  var aNum = Number(a.data.timestamp);
 			  var bNum = Number(b.data.timestamp); 
-			  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+			  return ((aNum > bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
 			});
 
 			parsePhotoData(allPhotoData);
@@ -591,14 +621,15 @@ function Gallery()
 			var galleryHeight = 0;
 
 			$('.gallery_layout').each(function(i, v){
-
 				galleryHeight += ($(v).height() + (22*i));
 				
 			})
 
 			$('#gallery').height(galleryHeight);
+		}
 
-			console.log('feed magnet height', galleryHeight)
+		function sortData(data){
+
 		}
 
 
