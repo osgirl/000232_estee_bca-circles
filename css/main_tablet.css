@@ -104,7 +104,7 @@
 		width:90%;
 	}
 
-	.feature_circle_area {
+	.feature_circle .circle_area {
 	    width:300px;
 	    height:300px;
 	    margin-left:0;
@@ -333,15 +333,15 @@
 		font-size:.8em;
 	}
 
-	.featured_twitter_author{
+	.feature_photo .twitter_author{
 		font-size:.9em;
 	}
 
-	.featured_twitter_time{
+	.feature_photo .twitter_time{
 		font-size:.7em;
 	}
 
-	.featured_twitter_text{
+	.feature_photo .twitter_text{
 		font-size:.7em;
 	}
 
@@ -364,20 +364,20 @@
 	}
 
 	
-	.feature_circle_area {
+	.feature_circle .circle_area {
 	    width:220px;
 	    height:220px;
 	    margin-left:-10px;
 	    margin-top:-10px;
 	}
 
-	.feature_circle_goal{
+	.feature_circle .circle_goal{
 		left:20%;
 		font-size:.9em;
 		width:140px;
 	}
 
-	.twitter_avatar, .twitter_title, .featured_twitter_avatar, .featured_twitter_title{
+	.twitter_avatar, .twitter_title{
 		margin-top:10px;
 	}
 
@@ -430,28 +430,28 @@
 	}
 
 	
-	.feature_circle_area {
+	.feature_circle .circle_area {
 	    width:250px;
 	    height:250px;
 	    margin-top:-10px;
 
 	}
 
-	.feature_circle_goal{
+	.feature_circle .circle_goal{
 		left:17%;
 		width:180px;
 		font-size:1.1em;
 	}
 
-	.featured_twitter_author{
+	.feature_photo .twitter_author{
 		font-size:1em;
 	}
 
-	.featured_twitter_time{
+	.feature_photo .twitter_time{
 		font-size:.8em;
 	}
 
-	.featured_twitter_text{
+	.feature_photo .twitter_text{
 		font-size:.8em;
 	}
 }
@@ -513,18 +513,18 @@
 		width:1803px;
 	}
 
-	.feature_circle_area {
+	.feature_circle .circle_area {
 	    width:300px;
 	    height:300px;
 	    margin-top:0px;
 	}
 
-	.feature_circle_goal{
+	.feature_circle .circle_goal{
 		left:20%;
 		font-size:1.2em;
 	}
 
-	.twitter_avatar, .twitter_title, .featured_twitter_avatar, .featured_twitter_title{
+	.twitter_avatar, .twitter_title{
 		margin-top:20px;
 	}
 

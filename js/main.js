@@ -39,14 +39,22 @@ var MAX_FRIENDS_NUM		 	= 10;
 var TOOLTIP_TIMEOUT			= 1500;
 var PHOTO_COLUMN_NUM		= 4;
 
+var photoButtonHtml = '<div class="photo_rollover item_rollover"><div class="rollover_content"><div class="pink_btn all_cap view_circle_btn">view</div></div></div><div class="gallery_item_btn"></div>'
+
 $(document).ready(function(){	
 
 	initFacebook();
 
 	enableButtons();
 	enableEventBinds();
-	carousel.initCarousel();
-	gallery.loadGallery();
+
+
+	$.feed();
+	fm_ready(function($, _) {
+		carousel.initCarousel();
+		gallery.loadGallery();	
+
+	});
 	
 	
 	$('#friend_search_field').width(NAME_TEXTFIELD_WIDTH);

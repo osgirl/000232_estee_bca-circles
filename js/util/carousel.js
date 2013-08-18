@@ -41,10 +41,15 @@ function Carousel()
 		var carouselItemID;
 		var carouselItemWidth;
 
+		var featurePhotoData;
+
+		var galleryItem;
+
 		//--------------------------------------
 		//+ PRIVATE & PROTECTED INSTANCE METHODS
 		//--------------------------------------
 
+		
 		function onDotSelected(id){
 
 			carouselItemID = id;
@@ -70,9 +75,62 @@ function Carousel()
 				{
 				duration: 600, 
 				easing: 'easeInOutExpo'
-				});
+			});
 
 		}
+
+		function getFeatureData(){
+			featurePhotoData = new Array();
+
+			$.feed.featured('bca-circle', parseFeatureCircleData, 3);
+			$.feed.featured('bca-photo', handleFeaturePhotoData, 2);
+			$.feed.featured('bca-twitter', handleFeaturePhotoData, 2);
+			$.feed.featured('bca-instagram', handleFeaturePhotoData, 2);
+		}
+
+		function handleFeaturePhotoData(data){
+
+			$(data).each(function (i, v){
+				featurePhotoData.push(v);
+			})
+
+
+			featurePhotoData.sort(function sortNumber(a, b){
+			  var aNum = Number(a.data.timestamp);
+			  var bNum = Number(b.data.timestamp); 
+			  return ((aNum > bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+			});
+
+
+			galleryItem.parseAllPhotoData(featurePhotoData, true);
+
+		}
+
+		function parseFeatureCircleData(data){
+			var feed;
+
+			$(data).each(function(i){
+				feed = data[i].data;
+
+				var circleDiv = $($('.carousel_item').get(i)).find('.feature_circle');
+
+				$.ajax({
+	        		type: 'post',
+	            	url: baseUrl + 'circle/fetchCircleData',
+	            	dataType: 'json',
+	            	data: {
+	            		circle_id: feed.text
+	            	},
+	            	success: function(feedData) { 
+
+						galleryItem.populateCircleContent($(circleDiv), feedData);
+
+	             	}
+	      		})
+	      	});
+
+		}
+
 
 		
 		return {
@@ -100,6 +158,8 @@ function Carousel()
 		
 		initCarousel: function(){
 
+			galleryItem = new GalleryItem();
+
 			carouselItemWidth = $('#carousel_slider').width()/3;
 
 			$(window).resize(function(e){
@@ -112,7 +172,9 @@ function Carousel()
 
 		    $('.featured_dot').click(function(e){
 		    	onDotSelected($(e.currentTarget).index())
-		    })
+		    });
+
+		    getFeatureData();
 		},
 		
 		

@@ -621,31 +621,31 @@ h2{
 	position: absolute;
 }
 
-.twitter_avatar, .twitter_title, .featured_twitter_avatar, .featured_twitter_title{
+.twitter_avatar, .twitter_title{
 	float:left;
 	margin-top:20px;
 }
 
-.twitter_title, .featured_twitter_title{
+.twitter_title{
 	height:60px;
 }
 
-.twitter_avatar, .featured_twitter_avatar{
+.twitter_avatar{
 	margin:20px 10px 0 10px;
 }
 
-.twitter_author, .featured_twitter_author{
+.twitter_author{
 	font-size:1.4em;
 	color:#0e6578;
 	margin-top:3px;
 }
 
-.twitter_time, .featured_twitter_time{
+.twitter_time{
 	font-size:.8em;
 	color:white;
 }
 
-.twitter_text, .featured_twitter_text{
+.twitter_text{
 	font-size:1.2em;
 	color:white;
 	clear:both;
@@ -660,7 +660,7 @@ h2{
 }
 
 
-.circle_area, .feature_circle_area {
+.circle_area {
     position: relative;
     width:300px;
     height:300px;
@@ -668,12 +668,12 @@ h2{
     margin-left:-12px;
 }
 
-.feature_circle_area{
+.feature_circle .circle_area{
 	margin-left:-13px;
 	margin-top:0px;
 }
 
-.circle_area img, .feature_circle_area img{
+.circle_area img{
 	position:absolute;
 	top:12px;
 	left:15px;
@@ -681,11 +681,13 @@ h2{
 	height:auto;
 }
 
-.feature_circle_area img{
+.feature_circle .circle_area img{
 	top:17px;
+	left:15px;
+	max-width:91%;
 }
 
-.circle_goal, .feature_circle_goal{
+.circle_goal{
 	width:180px;
 	font-size:1.2em;
 	font-weight: lighter;
@@ -696,7 +698,7 @@ h2{
 	left:22%;
 }
 
-.feature_circle_goal{
+.feature_circle .circle_goal{
 	left:21%;
 }
 
@@ -743,10 +745,6 @@ h2{
 	left:0;
 	max-width:110%;
 	height:auto;
-}
-
-.circle_link:hover, .photo_link:hover, .feature_photo_link:hover, .feature_circle_link:hover{
-	text-decoration: none;
 }
 
 .view_circle_btn{

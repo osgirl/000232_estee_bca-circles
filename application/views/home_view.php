@@ -70,13 +70,13 @@
 			                    	<div class="carousel_item">
 				                		<div class="top_content_sub_span4">
 					                			<div class="feature_circle">
-													<div class="circle_creator_area"><span class="feature_circle_creator"></span> created a</div>
+													<div class="circle_creator_area"><span class="circle_creator"></span> created a</div>
 													<div class="circle_of_strenth">Circle of Strength</div>
 													<div class="circle_divider"></div>
 													<div class="circle_area_wrapper">
-														<div class="feature_circle_area">
+														<div class="circle_area">
 															<img src="<?php echo base_url(); ?>img/assets/dotted-circle-small.png"/>
-															<div class="feature_circle_goal"></div>
+															<div class="circle_goal"></div>
 														</div>
 													</div>
 													<div class='share_circle'>
@@ -95,20 +95,20 @@
 
 				                		</div>
 				                		<div class="top_content_sub_span2">
-				                			<a class="feature_photo_link"><div class="featured_instagram feature_photo"></div></a>
-				                			<a class="feature_photo_link"><div class="featured_twitter feature_photo"></div></a>
+				                			<div class="featured_instagram feature_photo"></div>
+				                			<div class="featured_twitter feature_photo"></div>
 				                		</div>
 				                	</div>
 				                	<div class="carousel_item">
 				                		<div class="top_content_sub_span4 ">
 				                			<div class="feature_circle">
-													<div class="circle_creator_area"><span class="feature_circle_creator"></span> created a</div>
+													<div class="circle_creator_area"><span class="circle_creator"></span> created a</div>
 													<div class="circle_of_strenth">Circle of Strength</div>
 													<div class="circle_divider"></div>
 													<div class="circle_area_wrapper">
-														<div class="feature_circle_area">
+														<div class="circle_area">
 															<img src="<?php echo base_url(); ?>img/assets/dotted-circle-small.png"/>
-															<div class="feature_circle_goal"></div>
+															<div class="circle_goal"></div>
 														</div>
 													</div>
 													<div class='share_circle'>
@@ -126,20 +126,20 @@
 												</div>
 				                		</div>
 				                		<div class="top_content_sub_span2">
-				                			<a class="feature_photo_link"><div class="featured_instagram feature_photo"></div></a>
-				                			<a class="feature_photo_link"><div class="featured_twitter feature_photo"></div></a>
+				                			<div class="featured_instagram feature_photo"></div>
+				                			<div class="featured_twitter feature_photo"></div>
 				                		</div>
 				                	</div>
 				                	<div class="carousel_item">
 				                		<div class="top_content_sub_span4">
 				                			<div class="feature_circle">
-													<div class="circle_creator_area"><span class="feature_circle_creator"></span> created a</div>
+													<div class="circle_creator_area"><span class="circle_creator"></span> created a</div>
 													<div class="circle_of_strenth">Circle of Strength</div>
 													<div class="circle_divider"></div>
 													<div class="circle_area_wrapper">
-														<div class="feature_circle_area">
+														<div class="circle_area">
 															<img src="<?php echo base_url(); ?>img/assets/dotted-circle-small.png"/>
-															<div class="feature_circle_goal"></div>
+															<div class="circle_goal"></div>
 														</div>
 													</div>
 													<div class='share_circle'>
@@ -157,8 +157,8 @@
 												</div>
 				                		</div>
 				                		<div class="top_content_sub_span2">
-				                			<a class="feature_photo_link"><div class="featured_instagram feature_photo"></div></a>
-				                			<a class="feature_photo_link"><div class="featured_twitter feature_photo"></div></a>
+				                			<div class="featured_instagram feature_photo"></div>
+				                			<div class="featured_twitter feature_photo"></div>
 				                		</div>
 				                	</div>
 			                	</div><!-- CAROUSEL SLIDER END-->
@@ -317,6 +317,7 @@
         <script src="<?php echo base_url(); ?>js/vendor/jquery.jscrollpane.min.js"></script>
         <script src="<?php echo base_url(); ?>js/vendor/masonry.pkgd.min.js"></script>
         <script src="<?php echo base_url(); ?>js/plugins.js"></script>
+        <script src="<?php echo base_url(); ?>js/util/galleryItem.js"></script>
         <script src="<?php echo base_url(); ?>js/util/carousel.js"></script>
         <script src="<?php echo base_url(); ?>js/util/gallery.js"></script>
         <script src="<?php echo base_url(); ?>js/util/facebook.js"></script>

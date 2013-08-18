@@ -382,27 +382,27 @@
 	}
 
 	
-	.feature_circle_area {
+	.feature_circle .circle_area {
 	    width:300px;
 	    height:300px;
 	    margin-left:0; 
 	}
 
-	.feature_circle_goal{
+	.feature_circle .circle_goal{
 		left:20%;
 		font-size:1.2em;
 		width:180px;
 	}
 
-	.featured_twitter_author{
+	.feature_photo .twitter_author{
 		font-size:1em;
 	}
 
-	.featured_twitter_time{
+	.feature_photo .twitter_time{
 		font-size:.8em;
 	}
 
-	.featured_twitter_text{
+	.feature_photo .twitter_text{
 		font-size:.8em;
 	}
 
