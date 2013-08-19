@@ -133,6 +133,7 @@ function GalleryItem()
 				type:'circle', 
 				data:{
 					id:data.circle_id,
+					circle_id:data.circle_id,
 					content:data.goal, 
 					avatar:data.user_photo_url,
 					users_fb_id:data.user_id,

@@ -74,6 +74,9 @@ $.extend(
             $isUpload,
             $isOutlink = v.data.outlink, 
             adr, u, dl, d = setData(v.data);
+
+            console.log(d);
+
         switch (v.type)
         {
         case 'about':
@@ -1030,6 +1033,6 @@ $.address.change(function(e){
     var v = e.value.replace(/^\//, '').split('/');
     console.log('change ' + v);
     // $.address.hash('_');
-    // return false;   
-    // e.preventdefault;  
+    return false;   
+    e.preventdefault;  
 });

@@ -42,7 +42,7 @@ class Popup extends CI_Controller {
 			$data = $_POST;
 		}
 		else{
-			$data['circle_id'] = "";
+			$data['id'] = "";
 			$data['users_fb_id'] = "";
 		}
 		$this->load->view('popup/photo_upload_view', $data);

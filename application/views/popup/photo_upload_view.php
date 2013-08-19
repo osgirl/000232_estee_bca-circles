@@ -43,7 +43,6 @@
 		</div>
 	</div>
 </div>
-
 <script type="text/javascript">
 	$('#popup_photo_upload').init_upload();
 </script>
