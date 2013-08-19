@@ -161,13 +161,6 @@
 							</div>
 							<div id="my_circles" class='user_stats span4'>
 								<h2>My Circles</h2>
-								<table class='community_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'><a href="">Estee Walk for Breast Cancer</a></td>
-									</tr>
-									<tr><td class='community_line_2'>5 Friends Talking Action</td></tr>
-								</table>
 							</div>
 							
 							<div id="trending_actions" class='user_stats span4'>

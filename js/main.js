@@ -670,6 +670,31 @@ function getUserCircleData(){
     	},
     	success: function(data) {           
         	console.log('success', data);
+
+        	$('#circle_num').html(data.length + " Circle");
+
+        // 	$(data).each(function(i,v){
+
+        // 		var myCircleItem = $('<table>');
+        // 		myCircleItem.addClass('community_item');
+
+        // 		var tr = $('tr');
+
+        // 		tr.appendTo(myCircleItem);
+
+        // 		for(var i=0; i<2; i++){
+        // 			var td = $('td')
+        // 		}
+
+
+        // 		<table class='community_item'>
+								// 	<tr>
+								// 	    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
+								// 	    <td class='community_line_1 light_font'><a href="">Estee Walk for Breast Cancer</a></td>
+								// 	</tr>
+								// 	<tr><td class='community_line_2'>5 Friends Talking Action</td></tr>
+								// </table>
+        // 	})
      	}
 	});
 }
