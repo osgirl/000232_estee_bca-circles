@@ -41,7 +41,8 @@ var PHOTO_COLUMN_NUM		= 4;
 
 var $agr = false;
 
-var photoButtonHtml = '<div class="photo_rollover item_rollover"><div class="rollover_content"><div class="pink_btn all_cap view_circle_btn">view</div></div></div><div class="gallery_item_btn"></div>'
+var photoButtonHtml = '<div class="photo_rollover item_rollover"><div class="rollover_content"><div class="pink_btn all_cap view_circle_btn">view</div></div></div><div class="gallery_item_btn"></div>';
+var myCircleItemHtml = "<tr><td class='action_icon' rowspan='2'><img/></td><td class='community_line_1 light_font'><a>Estee Walk for Breast Cancer</a></td></tr><tr><td class='community_line_2'>5 Friends Talking Action</td></tr>";
 
 $(document).ready(function(){	
 
@@ -155,7 +156,7 @@ function displayUserInfo(e){
 	$('.sign_in_btn').html('logout');
 	$('.sign_in_btn').unbind('click').click(facebook.logOut);
 
-	//getUserCircleData();
+	getUserCircleData();
 }
 
 function displayUserProfilePic(e){
@@ -673,28 +674,18 @@ function getUserCircleData(){
 
         	$('#circle_num').html(data.length + " Circle");
 
-        // 	$(data).each(function(i,v){
+        	$(data).each(function(i,v){
 
-        // 		var myCircleItem = $('<table>');
-        // 		myCircleItem.addClass('community_item');
+        		var myCircleItem = $('<table>');
+        		myCircleItem.addClass('community_item');
 
-        // 		var tr = $('tr');
+        		myCircleItem.html(myCircleItemHtml)
+        					.appendTo($('#my_circles'));
 
-        // 		tr.appendTo(myCircleItem);
-
-        // 		for(var i=0; i<2; i++){
-        // 			var td = $('td')
-        // 		}
-
-
-        // 		<table class='community_item'>
-								// 	<tr>
-								// 	    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-								// 	    <td class='community_line_1 light_font'><a href="">Estee Walk for Breast Cancer</a></td>
-								// 	</tr>
-								// 	<tr><td class='community_line_2'>5 Friends Talking Action</td></tr>
-								// </table>
-        // 	})
+        		myCircleItem.find('img').attr('src', baseUrl + "img/icons/walking.png");
+        		myCircleItem.find('.community_line_1').html(v.goal);
+        		myCircleItem.find('.community_line_2').html(v.friends_data.length + " Friends Taking Action");
+         	})
      	}
 	});
 }
