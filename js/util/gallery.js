@@ -64,9 +64,6 @@ function Gallery()
 		var getCircleNum = 4;
 		var getPhotoNum = 12;
 
-		var isEnd = true;
-
-
 
 		//--------------------------------------
 		//+ PRIVATE & PROTECTED INSTANCE METHODS
@@ -86,18 +83,14 @@ function Gallery()
 				
 
 				//load content
+				console.log('reach here?');
 
-				console.log('end', isEnd)
-
-				if(!isEnd){
-					$(window).unbind('scroll');
-					isMoreFeed = true;
-					pageNum++;
-					$('#donate_area').fadeIn();
-		  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
-					loadLayout();
-				}
-				
+				$(window).unbind('scroll');
+				isMoreFeed = true;
+				pageNum++;
+				$('#donate_area').fadeIn();
+	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+				loadLayout();
 
 	  		}else if($(window).scrollTop() > SCROLL_TO_SHOW_FOOTER){
 	  			$('#donate_area').show();
@@ -124,11 +117,16 @@ function Gallery()
 		};
 
 		function parseCircleData(data){
+
+			if(isMoreFeed){
+				if(checkIfLoadMore(data)) return;
+			}
+
+			createCircleLayout();
+
 			var feed;
 			var containerCount = 0;
 			var circleFeedDataArray = new Array();
-
-			checkIfLoadMore(data, getCircleNum);
 
 			$(data).each(function(i){
 				feed = data[i].data;
@@ -182,6 +180,8 @@ function Gallery()
 										updateGalleryLayout(contentData);
 
 									containerCount++;
+
+									$(window).unbind('scroll').bind('scroll', lazyloader);
 
 				             	}
 				      		});
@@ -261,10 +261,14 @@ function Gallery()
 
 
 		function parsePhotoData(data){
+
+			if(isMoreFeed){
+				if(checkIfLoadMore(data)) return;
+			}
+
+			createPhotoLayout();
+
 			var feed;
-
-			checkIfLoadMore(data, getPhotoNum);
-
 
 			$(data).each(function(i){
 				feed = data[i].data;
@@ -302,19 +306,26 @@ function Gallery()
 
 							populatePhotoContent(contentData);
 
-							if(isMoreFeed) $(window).unbind('scroll').bind('scroll', lazyloader);
+							$(window).unbind('scroll').bind('scroll', lazyloader);
 
 		             	}
 		      		});
 				});
-
 		}
 
 		function parseInstagramData(data){
 
-			checkIfLoadMore(data, getPhotoNum);
+			console.log("is more feed??", isMoreFeed)
 
-			console.log('check', isEnd, data)
+			console.log("is there more", checkIfLoadMore(data))
+
+			// if(isMoreFeed){
+			// 	if(checkIfLoadMore(data)) return;
+			// }
+
+			console.log('should be more right?', data)
+
+			createPhotoLayout();
 
 			var feed;
 
@@ -346,14 +357,18 @@ function Gallery()
 
 				populatePhotoContent(contentData);
 
-				if(isMoreFeed) $(window).unbind('scroll').bind('scroll', lazyloader);
+				$(window).unbind('scroll').bind('scroll', lazyloader);
 
 			})
 		}
 
 		function parseTwitterData(data){
 
-			checkIfLoadMore(data, getPhotoNum);
+			if(isMoreFeed){
+				if(checkIfLoadMore(data)) return;
+			}
+
+			createPhotoLayout();
 
 			var feed;
 
@@ -389,7 +404,7 @@ function Gallery()
 
 				populatePhotoContent(contentData);
 
-				if(isMoreFeed) $(window).unbind('scroll').bind('scroll', lazyloader);
+				$(window).unbind('scroll').bind('scroll', lazyloader);
 
 			})
 
@@ -434,7 +449,7 @@ function Gallery()
 				$(value).unbind("click").click(function(e){
 					isMoreFeed = false;
 					pageNum = 1;
-					isEnd = false;
+					$(window).unbind('scroll').bind('scroll', lazyloader);
 					$('#donate_area').show();
 					$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 					currentFilterType = $(value).attr('type');
@@ -456,7 +471,7 @@ function Gallery()
 
 				case 'circle':
 				case 'friend':
-					createCircleLayout();
+					
 					if(!isMoreFeed)
 						$.feed.get('bca-circle', parseCircleData, getCircleNum);
 					else
@@ -464,7 +479,6 @@ function Gallery()
 				break;
 
 				case 'photo':
-					createPhotoLayout();
 					if(!isMoreFeed)
 						$.feed.get('bca-photo', parsePhotoData, getPhotoNum);
 					else
@@ -473,7 +487,6 @@ function Gallery()
 				break;
 
 				case 'instagram':
-					createPhotoLayout();
 					if(!isMoreFeed){
 
 						$.feed.get('bca-instagram', parseInstagramData, getPhotoNum);
@@ -486,7 +499,6 @@ function Gallery()
 				break;
 
 				case 'twitter':
-					createPhotoLayout();
 					if(!isMoreFeed)
 						$.feed.get('bca-twitter', parseTwitterData, getPhotoNum);
 					else
@@ -496,13 +508,18 @@ function Gallery()
 
 		}
 
-		function checkIfLoadMore(feed, getNum){
-			console.log('whay', feed.length, getNum)
-			if(feed.length < getNum){
+		function checkIfLoadMore(feed){
+			console.log('check if load more feed', feed.length)
+
+			var isEnd;
+
+			if(feed.length == 0){
 				isEnd = true;
 			}else{
 				isEnd = false;
 			}
+
+			return isEnd;
 		}
 
 		function createAllLayout(){
@@ -573,16 +590,11 @@ function Gallery()
 			var photoLayout = $('<div>');
 			photoLayout.addClass('layout_photo gallery_layout page' + pageNum)
 						.appendTo(gallery_container);
-
-			
-
 		}
 
 		function handleAllPhotoData(data){
 
 			$(data).each(function (i, v){
-
-				console.log("data id", v.data.id);
 				allPhotoData.push(v);
 
 			})
