@@ -80,4 +80,40 @@ class Circle extends CI_Controller {
 			echo 'Invalid access';
 	}
 
+	public function fetchUserCircleData()
+	{
+		$this->post = $this->input->post();
+		if ( isset ( $this->post['user_id'] )) {	
+
+			$user_id = $this->post['user_id'];
+			$circles_data = array();
+			$query = $this->db->query("SELECT * FROM circles WHERE users_fb_id = '$user_id'"); 
+
+			if ($query->num_rows() > 0) {
+			  foreach($query->result() as $row) {
+			  	$circle_id = $row->id;
+
+			  	$circles_data[] = array('goal'=>$row->goal);
+
+			    $friend_query = $this->db->query("SELECT * FROM friends WHERE ref_circle_id = '$circle_id'"); 
+
+			    if ($friend_query->num_rows() > 0) {
+				  foreach($friend_query->result() as $row) {
+				  	$friends_data[] = array (	'friend_id'=>$row->friends_fb_id,
+				  								'friend_name'=>$row->friends_name);
+				  }
+				 
+				}//endif
+				array_push($circles_data,$friends_data);
+
+			  }//endif
+			}
+
+			echo json_encode($circles_data);
+			
+		}
+		else
+			echo 'Invalid access';
+	}
+
 }

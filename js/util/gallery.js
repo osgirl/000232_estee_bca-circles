@@ -510,8 +510,6 @@ function Gallery()
 
 
 		function populatePhotoContent(contentData){
-			console.log('photo content', contentData)
-
 			if(contentData.type == "twitter")
 				contentData.item.css('background', '#2caae1');
 
@@ -527,8 +525,6 @@ function Gallery()
 		}
 
 		function updateGalleryLayout(contentData){
-
-			console.log(contentData.index, contentData.index%contentData.colNum, contentData.colNum-1)
 
 			if(contentData.index%contentData.colNum == contentData.colNum-1) 
 				$(contentData.item).css('margin-right', '0');

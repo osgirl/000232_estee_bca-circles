@@ -12,7 +12,7 @@
 <div class="circle_rollover item_rollover">
 	<div class="rollover_content">
 		<div class="view_circle_btn pink_btn all_cap">view</div>
-		<!-- <div>Create your own Circle of Strength.<br/>Choose the <a>same goal</a> or <a>create a new one.</a></div> -->
+		<div>Create your own Circle of Strength.<br/>Choose the <a>same goal</a> or <a>create a new one.</a></div>
 	</div>
 </div>
 <div class="gallery_item_btn"></div>

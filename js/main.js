@@ -123,10 +123,11 @@ function getLoginStatus(e){
 	$('.log_in_status').show();
 	
 	if(createCircleClicked) openCreateCircleScreen();
+
+	
 }
 
 function getLogoutStatus(e){
-	console.log("log out")
 	$('.top_user_name').html("");
 	$('.sign_in_btn').html('sign in');
 	$('.sign_in_btn').unbind('click').click(facebook.logIn);
@@ -153,6 +154,8 @@ function displayUserInfo(e){
 	$('#create_circle_user').html(fullName);
 	$('.sign_in_btn').html('logout');
 	$('.sign_in_btn').unbind('click').click(facebook.logOut);
+
+	getUserCircleData();
 }
 
 function displayUserProfilePic(e){
@@ -321,6 +324,8 @@ function resetCircle(){
     $(".temp_name_input_container").remove();
     $(".comma").remove();
     resetNameTextfield();
+
+    $agr = false;
 
     resetFriendPhotoItem($('.friend_item'))
 	
@@ -652,6 +657,21 @@ function openLoadingScreen(){
 function openThankYouScreen(){
 	$('#create_loading').hide();
 	$('#thank_you').fadeIn(200);
+}
+
+function getUserCircleData(){
+
+	$.ajax({
+		type: 'post',
+    	url: baseUrl + 'circle/fetchUserCircleData',
+    	dataType: 'json',
+    	data: {
+    		user_id:userID
+    	},
+    	success: function(data) {           
+        	console.log('success', data);
+     	}
+	});
 }
 
 function createCircle(){	

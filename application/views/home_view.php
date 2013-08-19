@@ -168,20 +168,6 @@
 									</tr>
 									<tr><td class='community_line_2'>5 Friends Talking Action</td></tr>
 								</table>
-								<table class='community_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'><a href="">Volunteer at my Local Hospital</a></td>
-									</tr>
-									<tr><td class='community_line_2'>7 Friends Talking Action</td></tr>
-								</table>
-								<table class='community_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'><a href="">Raise 1,000 dollars for BCRF</a></td>
-									</tr>
-									<tr><td class='community_line_2'>4 Friends Talking Action</td></tr>
-								</table>
 							</div>
 							
 							<div id="trending_actions" class='user_stats span4'>
