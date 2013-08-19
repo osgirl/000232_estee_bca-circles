@@ -159,6 +159,12 @@ function displayUserProfilePic(e){
 
 function enableButtons(){
 	//enable finger cursor
+	$('.language').unbind('mouseover').mouseover(function(e){
+		$(e.currentTarget).css('color','#f38dab');
+	})
+	$('.language').unbind('mouseout').mouseout(function(e){
+		$(e.currentTarget).css('color','#777');
+	})
 	$('.pink_btn').unbind('mouseover').mouseover(function(e){
 		$(e.currentTarget).css('cursor','pointer');
 		$(e.currentTarget).removeClass("pink_btn").addClass("pink_btn_rollover");
@@ -185,6 +191,13 @@ function enableButtons(){
 
 
 	//enable clicks
+	$('.language').unbind('click').click(function(e){
+		var flagSrc = $($($(e.currentTarget).parent()).find('img')).attr('src');
+		var country = $($($(e.currentTarget).parent()).find('.ab_country')).html();
+		console.log(country)
+		$('.flag img').attr('src', flagSrc);
+		$('.country_name').html(country);
+	})
 	$('#conversation_btn').unbind("click").click(function(e){
 		$("html, body").animate({ scrollTop: 766 }, "slow");
 	});

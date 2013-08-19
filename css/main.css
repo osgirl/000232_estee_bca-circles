@@ -1443,6 +1443,18 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 
+.dropdown-menu img{
+	margin-top:1px;
+}
+
+.dropdown-menu li a{
+	height:20px;
+}
+
+.dropdown-menu .language, .dropdown-menu .language_divider{
+	color:#777;
+}
+
 
 /* ==========================================================================
    Helper classes

@@ -1,5 +1,4 @@
 <!--LAYOUT 1 START-->
-	<div class="layout1 gallery_layout row">
 		<div class="gallery_col gallery_col_1 span6">
 		    <div class="row circle_container flex_margin_bottom gallery_item" type="circle">
 			    
@@ -62,5 +61,4 @@
 			</div>
 				
 		</div>
-	</div>
 	<!--LAYOUT 1 END-->

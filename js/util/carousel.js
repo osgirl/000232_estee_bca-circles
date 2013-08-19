@@ -102,7 +102,7 @@ function Carousel()
 			});
 
 
-			galleryItem.parseAllPhotoData(featurePhotoData, true);
+			galleryItem.parseAllPhotoData(featurePhotoData, true, false, 1);
 
 		}
 

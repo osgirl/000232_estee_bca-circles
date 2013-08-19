@@ -143,14 +143,20 @@ function GalleryItem()
 
 		},
 
-		parseAllPhotoData:function(data, isFeatured){
+		parseAllPhotoData:function(data, isFeatured, isMoreFeed, pageNum){
 
 			var feed;
 
 			$(data).each(function(i){
 				feed = data[i].data;
 
-				var div = (isFeatured) ? $($('.feature_photo').get(i)) : $($('.photo_container').get(i));
+				var div;
+
+				if(isMoreFeed){
+				   div = $($('.page' + pageNum + ' .photo_container').get(i));
+				}else{
+				   div	= (isFeatured) ? $($('.feature_photo').get(i)) : $($('.photo_container').get(i));
+				}
 				var popupData;
 				var photoIcon;
 				var html;
@@ -265,6 +271,10 @@ function GalleryItem()
 
 		centerRollOverContent:function(){
 			centerRollOverContent();
+		},
+
+		enableItemButton:function(item, popupData){
+			enableItemButton(item, popupData)
 		},
 
 		
