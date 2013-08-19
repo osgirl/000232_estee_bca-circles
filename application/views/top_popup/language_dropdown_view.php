@@ -1,5 +1,5 @@
 <a href="#" class="dropdown-toggle all_cap" data-toggle="dropdown"><span class="country_name" >US</span></a>
-<ul class="dropdown-menu">
+<ul id="language_menu" class="dropdown-menu">
     <li>
         <a href="#">
             <span><img src='<?php echo base_url(); ?>img/flags/Australia.png' /></span>

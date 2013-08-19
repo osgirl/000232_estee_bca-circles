@@ -49,6 +49,7 @@ function Gallery()
 		var SCROLL_TO_SHOW_FOOTER = 2000;
 		var PHOTO_LAYOUT_COLUMN_NUM		= 4;
 		var CIRCLE_LAYOUT_COLUMN_NUM	= 2;
+		var DEFAULT_GALLERY_HEIGHT		=  1500;
 
 		var allPhotoData;
 		var morePhotoData;
@@ -65,6 +66,8 @@ function Gallery()
 		var getPhotoNum = 12;
 
 		var circleEnd = false;
+		var morePhotoCount = 0;
+
 
 
 		//--------------------------------------
@@ -89,6 +92,7 @@ function Gallery()
 
 				$(window).unbind('scroll');
 				isMoreFeed = true;
+
 				pageNum++;
 				$('#donate_area').fadeIn();
 	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
@@ -124,7 +128,6 @@ function Gallery()
 
 			if(data.length == 0) return;
 
-			if(isMoreFeed && !checkIfLoadMore(data, getCircleNum)) return;
 			createCircleLayout();
 
 			var feed;
@@ -199,13 +202,56 @@ function Gallery()
 
 		}
 
+		function parseAllCircleData(data){
+
+			circleFeed = data;
+
+			if(!checkIfLoadMore(data, getCircleNum)) {
+				circleEnd = true;
+			}
+			createAllLayout();
+
+			$('body').bind('ALL_LAYOUT_CREATED', function(){
+
+				var feed;
+
+				$(data).each(function(i){
+					feed = data[i].data;
+					$.ajax({
+		        		type: 'post',
+		            	url: baseUrl + 'circle/fetchCircleData',
+		            	dataType: 'json',
+		            	data: {
+		            		circle_id: feed.text
+		            	},
+		            	success: function(feedData) { 
+
+		                		galleryItem.populateCircleContent($($('.circle_container').get(i)), feedData);
+
+		             	}
+		      		});
+				});
+
+			});
+
+		}
+
 
 		function photoDiv(index){
 
 			var div;
 
 			if(currentFilterType == "all") {
-				div = $($('.photo_container').get(index));
+				if(!circleEnd){
+					div = $($('.photo_container').get(index));
+				}else{
+					div = $('<div>');
+					div.addClass('span3 photo_container gallery_item flex_margin_bottom');
+					div.appendTo('.page' + pageNum);
+
+					div.hide();
+					div.fadeIn(200);
+				}
 			}else{
 				div = $('<div>');
 				div.addClass('span3 photo_container gallery_item flex_margin_bottom');
@@ -221,24 +267,22 @@ function Gallery()
 
 		function getAllFeed(){
 
-			createAllLayout();
+			allPhotoData = new Array();
 
-			if(!isMoreFeed){
-				allPhotoData = new Array();
+			$.feed.get('bca-circle', parseAllCircleData, 3);
+			$.feed.get('bca-photo', handleAllPhotoData, 3);
+			$.feed.get('bca-twitter', handleAllPhotoData, 3);
+			$.feed.get('bca-instagram', handleAllPhotoData, 3);
+		}
 
-				$.feed.get('bca-circle', parseCircleData, 3);
-				$.feed.get('bca-photo', handleAllPhotoData, 3);
-				$.feed.get('bca-twitter', handleAllPhotoData, 3);
-				$.feed.get('bca-instagram', handleAllPhotoData, 3);
+		function getMoreAllFeed(){
 
-			}else{
-
-				var circleNum;
+			var circleNum;
 				var photoNum;
 				var twitterNum;
 				var instagramNum;
 
-				//morePhotoData = new Array();
+				morePhotoData = new Array();
 
 				switch(current_add_layout){
 					case 1:
@@ -256,12 +300,18 @@ function Gallery()
 					break;
 				}
 
-					$.feed.more('bca-circle', parseCircleData, circleNum);
+					if(!circleEnd) {
+						$.feed.more('bca-circle', parseAllCircleData, circleNum);
+					}else{
+						photoNum 		= 0;
+						twitterNum 		= 6;
+						instagramNum 	= 6;
+
+					}
 					$.feed.more('bca-photo', handleMorePhotoData, photoNum);
 					$.feed.more('bca-twitter', handleMorePhotoData, twitterNum);
 					$.feed.more('bca-instagram', handleMorePhotoData, instagramNum);
-				
-			}
+
 		}
 
 
@@ -278,44 +328,48 @@ function Gallery()
 			$(data).each(function(i){
 				feed = data[i].data;
 
-				$.ajax({
-		        		type: 'post',
-		            	url: baseUrl + 'photo/fetchUploadedPhotoData',
-		            	dataType: 'json',
-		            	data: {
-		            		photo_id: feed.text
-		            	},
-		            	success: function(dbData) {  
+				getPhotoData(i, data, feed);
+			});
+		}
 
-		            		var photoIcon = baseUrl + "img/icons/bca.png";          
+		function getPhotoData(i, data, feed){
+			$.ajax({
+	        		type: 'post',
+	            	url: baseUrl + 'photo/fetchUploadedPhotoData',
+	            	dataType: 'json',
+	            	data: {
+	            		photo_id: feed.text
+	            	},
+	            	success: function(dbData) {  
 
-		                	var popupData = {
-									type:'photo', 
-									data:{
-										source:'local', 
-										author:'John Doe',
-										content:dbData.description,
-										photo_url:baseUrl + "uploads/" + dbData.filename
-									}}
-		                	var html = "<img class='full_photo' src='" + baseUrl + "uploads/" + dbData.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
+	            		var photoIcon = baseUrl + "img/icons/bca.png";          
 
-							var contentData = {
-								index:i,
-								item:photoDiv(i),
-								totalNum:data.length*pageNum,
-								type:'photo',
-								content:html,
-								popupData:popupData,
-								colNum:PHOTO_LAYOUT_COLUMN_NUM
-							}
+	                	var popupData = {
+								type:'photo', 
+								data:{
+									source:'local', 
+									author:'John Doe',
+									content:dbData.description,
+									photo_url:baseUrl + "uploads/" + dbData.filename
+								}}
+	                	var html = "<img class='full_photo' src='" + baseUrl + "uploads/" + dbData.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 
-							populatePhotoContent(contentData);
+						var contentData = {
+							index:i,
+							item:photoDiv(i),
+							totalNum:data.length*pageNum,
+							type:'photo',
+							content:html,
+							popupData:popupData,
+							colNum:PHOTO_LAYOUT_COLUMN_NUM
+						}
 
-							$(window).unbind('scroll').bind('scroll', lazyloader);
+						populatePhotoContent(contentData);
 
-		             	}
-		      		});
-				});
+						$(window).unbind('scroll').bind('scroll', lazyloader);
+
+	             	}
+			});
 		}
 
 		function parseInstagramData(data){
@@ -331,7 +385,14 @@ function Gallery()
 			$(data).each(function(i){
 				feed = data[i].data;
 
-				var popupData = {
+				getInstagramData(i, data, feed);
+
+			})
+		}
+
+		function getInstagramData(i, data, feed){
+
+			var popupData = {
 						type:'photo', 
 						data:{
 							source:'instagram', 
@@ -357,8 +418,6 @@ function Gallery()
 				populatePhotoContent(contentData);
 
 				$(window).unbind('scroll').bind('scroll', lazyloader);
-
-			})
 		}
 
 		function parseTwitterData(data){
@@ -374,7 +433,14 @@ function Gallery()
 			$(data).each(function(i){
 				feed = data[i].data;
 
-				var popupData = {
+				getTwitterData(i, data, feed);
+
+			})
+
+		}
+
+		function getTwitterData(i, data, feed){
+			var popupData = {
 							type:'twitter', 
 							data:{
 								author:feed.author.alias, 
@@ -404,13 +470,47 @@ function Gallery()
 				populatePhotoContent(contentData);
 
 				$(window).unbind('scroll').bind('scroll', lazyloader);
+		}
 
-			})
+		
 
+		function parseMorePhotoData(data){
+
+			var feed;
+
+			createPhotoLayout();
+
+			console.log(data.length)
+
+			$(data).each(function(i){
+				feed = data[i].data;
+
+				var popupData;
+				var photoIcon;
+				var html;
+
+				switch(feed.channel){
+					case 'rss':
+						getPhotoData(i, data, feed);
+						break;
+
+					case 'instagram':
+						getInstagramData(i, data, feed);
+						break;
+
+					case 'twitter':
+						getTwitterData(i, data, feed);
+						break;
+				}
+
+			});
+
+			$(window).unbind('scroll').bind('scroll', lazyloader);
 		}
 
 
 		function populatePhotoContent(contentData){
+			console.log('photo content', contentData)
 
 			if(contentData.type == "twitter")
 				contentData.item.css('background', '#2caae1');
@@ -428,16 +528,19 @@ function Gallery()
 
 		function updateGalleryLayout(contentData){
 
+			console.log(contentData.index, contentData.index%contentData.colNum, contentData.colNum-1)
+
 			if(contentData.index%contentData.colNum == contentData.colNum-1) 
 				$(contentData.item).css('margin-right', '0');
 										
-			var rowNum = Math.ceil(contentData.totalNum/contentData.colNum);
-			var getHeight = ($(contentData.item).height() + 130)*rowNum;
+			//var rowNum = Math.ceil(contentData.totalNum/contentData.colNum);
+			//var getHeight = ($(contentData.item).height() + 130)*rowNum;
+			var getHeight = 800*pageNum;
 
-			if(getHeight > 600) {
+			if(getHeight > 800) {
 				$('#gallery').height(getHeight);
 			}else{
-				$('#gallery').height(600);
+				$('#gallery').height(800);
 			}
 
 		}
@@ -448,6 +551,11 @@ function Gallery()
 				$(value).unbind("click").click(function(e){
 					isMoreFeed = false;
 					pageNum = 1;
+					$.feed.reset();
+					if(currentFilterType == "all") {
+						pageNum = 2;
+						$('#gallery').height(DEFAULT_GALLERY_HEIGHT);
+					}
 					$(window).unbind('scroll').bind('scroll', lazyloader);
 					$('#donate_area').show();
 					$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
@@ -463,7 +571,12 @@ function Gallery()
 
 			switch(currentFilterType){
 				case 'all':
-					getAllFeed();
+					if(!isMoreFeed){
+						getAllFeed();
+					}else{
+						morePhotoCount = 0;
+						getMoreAllFeed();
+					}
 					
 				break;
 
@@ -525,7 +638,8 @@ function Gallery()
 
 		function createAllLayout(){
 
-			if(!circleEnd){
+
+			if(circleFeed && circleFeed.length > 0){
 				$.ajax({
 	        		type: 'get',
 	            	url: baseUrl + 'layout/loadLayout' + current_add_layout,
@@ -571,11 +685,14 @@ function Gallery()
 									//gallery_container.masonry( 'appended', layout2data );
 			  			 			$(window).bind('scroll', lazyloader);
 								}
+
+								$('body').trigger('ALL_LAYOUT_CREATED');
 			             	}
 			      		});
 						
 	             	}
 	      		});
+
 			}else{
 
 				createPhotoLayout();
@@ -607,37 +724,41 @@ function Gallery()
 			})
 
 			allPhotoData.sort(function sortNumber(a, b){
-			  var aNum = Number(a.data.timestamp);
-			  var bNum = Number(b.data.timestamp); 
-			  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+				  var aNum = Number(a.data.timestamp);
+				  var bNum = Number(b.data.timestamp); 
+				  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
 			});
 
-			galleryItem.parseAllPhotoData(allPhotoData, false, false, 1);
+
+			$('body').bind('ALL_LAYOUT_CREATED', function(e){
+				galleryItem.parseAllPhotoData(allPhotoData, false);
+			})
+
 
 		}
 
 		function handleMorePhotoData(data){
 
-			console.log('i shouldn be hrer')
-
 			$(data).each(function (i, v){
-
-				$.each(allPhotoData, function(e, ev){
-
-					if(ev.data.id == v.data.id) return;
-				})
 
 				morePhotoData.push(v);
 				
 			})
 
-			// morePhotoData.sort(function sortNumber(a, b){
-			//   var aNum = Number(a.data.timestamp);
-			//   var bNum = Number(b.data.timestamp); 
-			//   return ((aNum > bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
-			// });
+			morePhotoCount++;
 
-			galleryItem.parseAllPhotoData(data, false, true, pageNum);
+			morePhotoData.sort(function sortNumber(a, b){
+			  var aNum = Number(a.data.timestamp);
+			  var bNum = Number(b.data.timestamp); 
+			  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+			});
+
+			if(morePhotoCount == 3)
+				parseMorePhotoData(morePhotoData);
+
+			//createPhotoLayout();
+
+			//galleryItem.parseAllPhotoData(data, false, true, pageNum);
 
 		}
 
@@ -681,6 +802,11 @@ function Gallery()
 
 			initFilterButtons();
 			loadLayout();
+
+			if(currentFilterType == "all") {
+				pageNum = 2;
+				$('#gallery').height(DEFAULT_GALLERY_HEIGHT);
+			}
 			
 
 			$(window).resize(function(e){
