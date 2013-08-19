@@ -55,7 +55,7 @@
 				$('#circles_reset').click(resetClick);
 
 				function getClick() {				
-					$.feed.get('bca-instagram', getHandler, 2);				    			
+					$.feed.get('bca-instagram', getHandler, 3);				    			
 				}
 
 				function moreClick() {					
@@ -87,6 +87,11 @@
 					});
 				}
 
+				function reset(){
+					$('.block').remove();
+					$.feed();
+				}
+
 			});
 
 			
@@ -101,7 +106,7 @@
 		<div id="panel">
 			<button id="circles_feed">Get feed</button>
 			<button id="circles_more_feed">more feed</button>
-			<button id="circles_reset">Reset</button>
+			<button id="circles_reset">reset</button>
 			<div class="container" id="circle_container"></div>
 		</div>
 	

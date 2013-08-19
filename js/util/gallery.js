@@ -64,8 +64,7 @@ function Gallery()
 		var getCircleNum = 4;
 		var getPhotoNum = 12;
 
-		var isEnd = true;
-
+		var circleEnd = false;
 
 
 		//--------------------------------------
@@ -86,18 +85,14 @@ function Gallery()
 				
 
 				//load content
+				console.log('reach here?');
 
-				console.log('end', isEnd)
-
-				if(!isEnd){
-					$(window).unbind('scroll');
-					isMoreFeed = true;
-					pageNum++;
-					$('#donate_area').fadeIn();
-		  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
-					loadLayout();
-				}
-				
+				$(window).unbind('scroll');
+				isMoreFeed = true;
+				pageNum++;
+				$('#donate_area').fadeIn();
+	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+				loadLayout();
 
 	  		}else if($(window).scrollTop() > SCROLL_TO_SHOW_FOOTER){
 	  			$('#donate_area').show();
@@ -124,11 +119,17 @@ function Gallery()
 		};
 
 		function parseCircleData(data){
+
+			circleFeed = data;
+
+			if(data.length == 0) return;
+
+			if(isMoreFeed && !checkIfLoadMore(data, getCircleNum)) return;
+			createCircleLayout();
+
 			var feed;
 			var containerCount = 0;
 			var circleFeedDataArray = new Array();
-
-			checkIfLoadMore(data, getCircleNum);
 
 			$(data).each(function(i){
 				feed = data[i].data;
@@ -183,6 +184,8 @@ function Gallery()
 
 									containerCount++;
 
+									$(window).unbind('scroll').bind('scroll', lazyloader);
+
 				             	}
 				      		});
 
@@ -217,6 +220,8 @@ function Gallery()
 		}
 
 		function getAllFeed(){
+
+			createAllLayout();
 
 			if(!isMoreFeed){
 				allPhotoData = new Array();
@@ -261,10 +266,14 @@ function Gallery()
 
 
 		function parsePhotoData(data){
+
+			photoFeed = data;
+
+			if(data.length == 0) return;
+
+			createPhotoLayout();
+
 			var feed;
-
-			checkIfLoadMore(data, getPhotoNum);
-
 
 			$(data).each(function(i){
 				feed = data[i].data;
@@ -302,19 +311,20 @@ function Gallery()
 
 							populatePhotoContent(contentData);
 
-							if(isMoreFeed) $(window).unbind('scroll').bind('scroll', lazyloader);
+							$(window).unbind('scroll').bind('scroll', lazyloader);
 
 		             	}
 		      		});
 				});
-
 		}
 
 		function parseInstagramData(data){
 
-			checkIfLoadMore(data, getPhotoNum);
+			instagramFeed = data;
 
-			console.log('check', isEnd, data)
+			if(data.length == 0) return;
+
+			createPhotoLayout();
 
 			var feed;
 
@@ -346,14 +356,18 @@ function Gallery()
 
 				populatePhotoContent(contentData);
 
-				if(isMoreFeed) $(window).unbind('scroll').bind('scroll', lazyloader);
+				$(window).unbind('scroll').bind('scroll', lazyloader);
 
 			})
 		}
 
 		function parseTwitterData(data){
 
-			checkIfLoadMore(data, getPhotoNum);
+			twitterFeed = data;
+
+			if(data.length == 0) return;
+
+			createPhotoLayout();
 
 			var feed;
 
@@ -389,7 +403,7 @@ function Gallery()
 
 				populatePhotoContent(contentData);
 
-				if(isMoreFeed) $(window).unbind('scroll').bind('scroll', lazyloader);
+				$(window).unbind('scroll').bind('scroll', lazyloader);
 
 			})
 
@@ -434,7 +448,7 @@ function Gallery()
 				$(value).unbind("click").click(function(e){
 					isMoreFeed = false;
 					pageNum = 1;
-					isEnd = false;
+					$(window).unbind('scroll').bind('scroll', lazyloader);
 					$('#donate_area').show();
 					$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 					currentFilterType = $(value).attr('type');
@@ -449,65 +463,70 @@ function Gallery()
 
 			switch(currentFilterType){
 				case 'all':
-					createAllLayout();
 					getAllFeed();
 					
 				break;
 
 				case 'circle':
 				case 'friend':
-					createCircleLayout();
-					if(!isMoreFeed)
+					
+					if(!isMoreFeed){
 						$.feed.get('bca-circle', parseCircleData, getCircleNum);
-					else
-						$.feed.more('bca-circle', parseCircleData, getCircleNum);
+					}else{
+						if(checkIfLoadMore(circleFeed, getCircleNum)) $.feed.more('bca-circle', parseCircleData, getCircleNum);
+					}
 				break;
 
 				case 'photo':
-					createPhotoLayout();
-					if(!isMoreFeed)
+					if(!isMoreFeed){
 						$.feed.get('bca-photo', parsePhotoData, getPhotoNum);
-					else
-						$.feed.more('bca-photo', parsePhotoData, getPhotoNum);
+					}
+					else{
+						if(checkIfLoadMore(photoFeed, getPhotoNum)) $.feed.more('bca-photo', parsePhotoData, getPhotoNum);
+					}
 					
 				break;
 
 				case 'instagram':
-					createPhotoLayout();
 					if(!isMoreFeed){
 
 						$.feed.get('bca-instagram', parseInstagramData, getPhotoNum);
-						console.log('get')
 					}
 					else{
-						$.feed.more('bca-instagram', parseInstagramData, getPhotoNum);
-						console.log('more')
+						if(checkIfLoadMore(instagramFeed, getPhotoNum)) $.feed.more('bca-instagram', parseInstagramData, getPhotoNum);
+						
 					}
 				break;
 
 				case 'twitter':
-					createPhotoLayout();
-					if(!isMoreFeed)
+					if(!isMoreFeed){
 						$.feed.get('bca-twitter', parseTwitterData, getPhotoNum);
-					else
-						$.feed.more('bca-twitter', parseTwitterData, getPhotoNum);
+					}
+					else{
+						if(checkIfLoadMore(twitterFeed, getPhotoNum)) $.feed.more('bca-twitter', parseTwitterData, getPhotoNum);
+						
+					}
 				break;
 			}
 
 		}
 
 		function checkIfLoadMore(feed, getNum){
-			console.log('whay', feed.length, getNum)
+			var isMore;
+
 			if(feed.length < getNum){
-				isEnd = true;
+				isMore = false;
 			}else{
-				isEnd = false;
+				isMore = true;
 			}
+
+			return isMore;
 		}
 
 		function createAllLayout(){
 
-			$.ajax({
+			if(!circleEnd){
+				$.ajax({
 	        		type: 'get',
 	            	url: baseUrl + 'layout/loadLayout' + current_add_layout,
 	            	dataType: 'html',
@@ -557,6 +576,11 @@ function Gallery()
 						
 	             	}
 	      		});
+			}else{
+
+				createPhotoLayout();
+
+			}
 
 		}
 		
@@ -573,16 +597,11 @@ function Gallery()
 			var photoLayout = $('<div>');
 			photoLayout.addClass('layout_photo gallery_layout page' + pageNum)
 						.appendTo(gallery_container);
-
-			
-
 		}
 
 		function handleAllPhotoData(data){
 
 			$(data).each(function (i, v){
-
-				console.log("data id", v.data.id);
 				allPhotoData.push(v);
 
 			})
