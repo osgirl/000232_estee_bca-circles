@@ -155,7 +155,7 @@ function displayUserInfo(e){
 	$('.sign_in_btn').html('logout');
 	$('.sign_in_btn').unbind('click').click(facebook.logOut);
 
-	getUserCircleData();
+	//getUserCircleData();
 }
 
 function displayUserProfilePic(e){
