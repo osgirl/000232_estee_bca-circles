@@ -69,9 +69,11 @@ $.extend(
     popup: function(v)
     {
         var $closeBtn = true,
-            $modal = false,
-            $isCircle = false,
-            u, dl, d = setData(v.data);
+            $child = v.data.child, //true if it's a popup inside of circle
+            $isCircle,
+            $isUpload,
+            $isOutlink = v.data.outlink, 
+            adr, u, dl, d = setData(v.data);
         switch (v.type)
         {
         case 'about':
@@ -89,7 +91,7 @@ $.extend(
         case 'photo_upload':
             u = "popup/photo_upload/";
             $closeBtn = false;
-            $modal = true;
+            $isUpload= true;
             break;
         case 'circle':
             u = "popup/circle/";
@@ -112,7 +114,7 @@ $.extend(
                     },
                     error: function(jqXHR, textStatus, errorThrown)
                     {
-                        console.log('Error ' + textStatus);
+                        console.debug('Error ' + textStatus);
                     }
                 });
             }
@@ -126,10 +128,18 @@ $.extend(
                 type: 'ajax',
                 padding: 0,
                 closeBtn: $closeBtn,
-                modal: $modal,
+                modal: $isUpload,
                 ajax: {
                     type: 'POST',
                     data: d
+                },
+                afterClose: function(){
+                    //Reset url
+                    adr = $.address.value().split('/');
+                    if(!$isUpload){
+                        dl = ($child) ? '/circle/' + adr[2] + '/' : '/#';
+                        $.address.path(dl);
+                    }
                 }
             });
         }
@@ -159,16 +169,17 @@ $.extend(
             return d;
         }
 
-        //Upadte deeplink
-        if(!$modal){
-            dl = v.type + '/' + ((d.source == null) ? '' : d.source + '/') + ((d.id == null) ? '' : d.id + '/')
+        //Update deeplink
+        if(!$isUpload && !$isOutlink){
+            console.log('CALL?--');
+            dl = $.address.path() + v.type + '/' + ((d.source == null) ? '' : d.source + '/') + ((d.id == null) ? '' : d.id + '/')
             $.address.path(dl);
         }
 
     },
     popup_share: function(v)
     {
-        alert(v.type + ' | url :' + v.url);
+        alert(v.type + ' | url :' + $.address.baseURL() + $.address.path());
     }
 });
 
@@ -649,8 +660,8 @@ $.extend(
             var $tmbs, $tmb, $img, $dot, $roll_over, tmbs_width = 0,
                 $container = $($c + ' #popup_circle_photo_carousel_wrapper #container');
 
-
             $container.empty();
+            $pagn.empty();
             $tmbs = $('<ul/>').appendTo($container);
 
             if (v.length > 0)
@@ -669,14 +680,17 @@ $.extend(
                         {
                             type: 'photo',
                             data: {
+                                id: v[i].id,
                                 source: 'bca',
                                 content: v[i].description,
-                                photo_url: '/uploads/' + v[i].filename
+                                photo_url: '/uploads/' + v[i].filename,
+                                child: true
                             }
                         })
                     });
-                    // $tmb.text('TEST');
-                    $rollover = $('<span class="photo_rollover"/>').append('<div class="popup_round_button" id="popup_btn_pink">VIEW</div>').appendTo($tmb).mouseenter(function()
+                    $rollover = $('<span class="photo_rollover"/>')
+                    .append('<div class="popup_round_button" id="popup_btn_pink">VIEW</div>')
+                    .appendTo($tmb).mouseenter(function()
                     {
                         $(this).animate(
                         {
@@ -794,13 +808,11 @@ $.extend(
 
         if ($(this).hasClass('right') || type == 'swipeleft')
         {
-
             dx = $container.position().left - (even ? multiplier * 2 : multiplier);
 
             if ((dx + container_width) < 0) dx = $nav_count = 0;
             else
             {
-                console.log('Adding up');
                 $nav_count++;
             }
         }
@@ -842,6 +854,7 @@ $.extend(
             $this.parent().outerHeight($this.parent().outerHeight() - $margin_bottom);
             $(window).unbind('resize scroll');
             $this.remove();
+            $.address.path('/#');
         });
     }
 
@@ -863,6 +876,7 @@ $.extend(
             {
                 console.log('Connected---');
                 $FM.ready(fx);
+                checkAndLoadExternalUrl();
             }
             else
             {
@@ -883,7 +897,6 @@ $.extend(
     f.extend(b,
     {
         reset: function(){
-            console.log('RESET FM');
             fo={};
         },
 
@@ -931,21 +944,92 @@ $.extend(
 
     function fetch_fo(v){
         if(!fo[v]){
-            console.log('no fo, create a new')
             fo[v] = $FM.Feed(v);
         }
         else{
-            console.log('fo exist')
         }
         return fo[v];
     };
 })(jQuery);
 
 
+//Func.
+function checkAndLoadExternalUrl()
+{
+    console.log('--CHECK IF PAGE LOADED FROM EXTERNAL URL--');
+    var adr = $.address.value().split('/');
+
+    if(adr.length != 0){
+
+        switch (adr[1]){
+            case 'circle':
+                $.ajax({
+                    type: 'post',
+                    url: baseUrl + 'circle/fetchCircleData',
+                    dataType: 'json',
+                    data: {
+                        circle_id: adr[2]
+                    },
+                    success: function(data) {
+                        $.popup({type:'circle', data:{
+                                                        id:data.circle_id,
+                                                        content:data.goal, 
+                                                        avatar:data.user_photo_url,
+                                                        users_fb_id:data.user_id,
+                                                        num_friends: data.friends_data.length,
+                                                        outlink: true
+                                                    }
+                        });
+
+                    }
+                });
+                break;
+
+
+            case 'photo':
+
+                console.log("ID " + adr[3]);
+
+                $.ajax({
+                    type: 'post',
+                    url: baseUrl + 'photo/fetchUploadedPhotoData',
+                    dataType: 'json',
+                    data: {
+                        photo_id: adr[3]
+                    },
+                    success: function(data) {
+                        console.log("SUCCESSED")
+                        console.log(data);
+                        $.popup({type:'photo', data:{
+                                                        id: data.photo_id,
+                                                        source:'bca',
+                                                        content:data.description,
+                                                        photo_url:baseUrl + "uploads/" + data.filename,
+                                                        outlink: true
+                                                    }
+                        });
+
+                    },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+                console.log(jqXHR);
+            }
+                });
+                break;
+
+        }
+
+    }
+
+}
+
+
 //jsAddress temp
 
-// $.address.change(function(e){
-//     var v = e.value.replace(/^\//, '').split('/');
-//     console.log('change ' + v);
-
-// });
+$.address.change(function(e){
+    var v = e.value.replace(/^\//, '').split('/');
+    console.log('change ' + v);
+    // $.address.hash('_');
+    // return false;   
+    // e.preventdefault;  
+});
