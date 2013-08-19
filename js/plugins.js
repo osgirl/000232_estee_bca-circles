@@ -63,19 +63,23 @@ function tsToDate(ts) {
  *   num_friend
  *   users_fb_id
  *   type
+ *   child
+ *   outlink
  */
 $.extend(
 {
     popup: function(v)
     {
-        var $closeBtn = true,
-            $child = v.data.child, //true if it's a popup inside of circle
+        var d = setData(v.data),
+            $closeBtn = true,
+            $child, //true if it's a popup inside of circle
             $isCircle,
             $isUpload,
-            $isOutlink = v.data.outlink, 
-            adr, u, dl, d = setData(v.data);
+            $isOutlink,
+            adr, u, dl;
 
-            console.log(d);
+            // $child = d.child;
+            $isOutlink = d.outlink;
 
         switch (v.type)
         {
@@ -149,10 +153,7 @@ $.extend(
 
         function setData(v)
         {
-            var d;
-            if (v != undefined)
-            {
-                d = {
+            var d = {
                     id: null,
                     source: null,
                     author: null,
@@ -163,9 +164,12 @@ $.extend(
                     share_url: null,
                     circle_id: null,
                     num_friend: null,
-                    users_fb_id: null
+                    users_fb_id: null,
+                    child: null,
+                    outlink: null
                 };
-
+            if (v != undefined)
+            {
                 for (var key in v)
                 d[key] = v[key];
             }
