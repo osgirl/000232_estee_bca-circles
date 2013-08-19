@@ -139,7 +139,7 @@ function Gallery()
 
 				$.ajax({
 	        		type: 'post',
-	            	url: baseUrl + 'circle/fetchCircleData',
+	            	url: baseUrl + 'index.php/circle/fetchCircleData',
 	            	dataType: 'json',
 	            	data: {
 	            		circle_id: feed.text
