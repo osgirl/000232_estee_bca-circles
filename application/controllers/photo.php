@@ -202,6 +202,7 @@ class Photo extends CI_Controller {
 
 			if ($query->num_rows() > 0) {
 			  foreach($query->result() as $row) {
+			    $data['photo_id'] = $row->id;
 			    $data['filename'] = $row->filename;
 			    $data['description'] = $row->description;
 			  }

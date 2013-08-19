@@ -130,9 +130,9 @@ function GalleryItem()
         	var popupData = {
 				type:'circle', 
 				data:{
+					id:data.circle_id,
 					content:data.goal, 
 					avatar:data.user_photo_url,
-					circle_id:data.circle_id,
 					users_fb_id:data.user_id,
 					num_friends: data.friends_data.length
 				}}
@@ -179,8 +179,8 @@ function GalleryItem()
 			                	popupData = {
 									type:'photo', 
 									data:{
-										source:'local', 
-										author:'John Doe',
+										id: data.photo_id,
+										source:'bca',
 										content:data.description,
 										photo_url:baseUrl + "uploads/" + data.filename
 									}}
@@ -208,6 +208,7 @@ function GalleryItem()
 						popupData = {
 									type:'photo', 
 									data:{
+										id: feed.token,
 										source:'instagram', 
 										author: feed.author.alias,
 										content:feed.text,

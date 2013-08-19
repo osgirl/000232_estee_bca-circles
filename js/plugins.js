@@ -71,7 +71,7 @@ $.extend(
         var $closeBtn = true,
             $modal = false,
             $isCircle = false,
-            u, d = setData(v.data);
+            u, dl, d = setData(v.data);
         switch (v.type)
         {
         case 'about':
@@ -160,8 +160,10 @@ $.extend(
         }
 
         //Upadte deeplink
-        // console.log("SOURCE " + d.source)
-        // $.address.path(v.type);
+        if(!$modal){
+            dl = v.type + '/' + ((d.source == null) ? '' : d.source + '/') + ((d.id == null) ? '' : d.id + '/')
+            $.address.path(dl);
+        }
 
     },
     popup_share: function(v)
@@ -629,7 +631,7 @@ $.extend(
             url: 'circle_photo/getlist',
             dataType: 'json',
             data: {
-                circleId: $d.circle_id
+                circleId: $d.id
             },
             success: function(data)
             {
@@ -667,7 +669,7 @@ $.extend(
                         {
                             type: 'photo',
                             data: {
-                                source: 'local',
+                                source: 'bca',
                                 content: v[i].description,
                                 photo_url: '/uploads/' + v[i].filename
                             }
@@ -743,7 +745,7 @@ $.extend(
     function loadCommentBox()
     {
         var $holder = $($c + ' #popup_circle_comment_holder');
-        $('<iframe src="popup/facebook_comment_iframe/' + $d.circle_id + '"></iframe>').appendTo($holder);
+        $('<iframe src="popup/facebook_comment_iframe/' + $d.id + '"></iframe>').appendTo($holder);
     }
 
     function resizeCirclePHotosNav()
@@ -852,35 +854,39 @@ $.extend(
 (function(f)
 {
     var fo={}, sfo;
-
     var b = f.feed = function()
-    {
-
-        console.log('Feed start');
-        // Init FeedMagnet SDK Code
+    {    
         var fm_server = 'estee.feedmagnet.com';
         window.fm_ready = function(fx)
         {
             if (typeof $FM !== 'undefined' && typeof $FM.ready === 'function')
             {
+                console.log('Connected---');
                 $FM.ready(fx);
             }
             else
             {
+                console.log('Connecting...');
                 window.setTimeout(function()
                 {
                     fm_ready.call(null, fx);
                 }, 50);
             }
         };
+
         var fmjs = document.createElement('script');
         var p = ('https:' === document.location.protocol ? 'https://' : 'http://');
         fmjs.src = p + fm_server + '/embed.js';
         fmjs.setAttribute('async', 'true');
-        document.getElementsByTagName('head').item(0).appendChild(fmjs);
+        document.getElementsByTagName('head').item(0).appendChild(fmjs);        
     };
     f.extend(b,
     {
+        reset: function(){
+            console.log('RESET FM');
+            fo={};
+        },
+
         get: function(v, f, n)
         {
             sfo = fetch_fo(v);
@@ -925,20 +931,21 @@ $.extend(
 
     function fetch_fo(v){
         if(!fo[v]){
+            console.log('no fo, create a new')
             fo[v] = $FM.Feed(v);
         }
         else{
+            console.log('fo exist')
         }
         return fo[v];
     };
-
 })(jQuery);
 
 
 //jsAddress temp
 
-/*$.address.change(function(e){
-    var v = e.value.replace(/^\//, '').split('/');
-    console.log('change ' + v);
+// $.address.change(function(e){
+//     var v = e.value.replace(/^\//, '').split('/');
+//     console.log('change ' + v);
 
-});*/
+// });

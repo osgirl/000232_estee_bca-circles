@@ -45,7 +45,6 @@
 
 			*/
 
-
 			$.feed();
 			fm_ready(function($, _) {
 
@@ -53,13 +52,19 @@
 				$('#panel').show();
 				$('#circles_feed').click(getClick);
 				$('#circles_more_feed').click(moreClick);
+				$('#circles_reset').click(resetClick);
 
 				function getClick() {				
 					$.feed.get('bca-instagram', getHandler, 2);				    			
 				}
 
 				function moreClick() {					
-					$.feed.more('bca-instagram', moreHandler, 5);
+					$.feed.more('bca-instagram', moreHandler, 50);
+				}
+
+				function resetClick() {
+					$.feed.reset();
+					$('.container').empty();
 				}
 
 				function getHandler(data){
@@ -67,16 +72,17 @@
 					$(data).each(function(i){
 						feed = data[i].data;
 						$('<div class="block"/>')
-							.text('Time: ' + feed.timestamp)
+							.text('ID: ' + feed.id)
 							.appendTo($('#circle_container'));
 					});
 				}
 			 	
 				function moreHandler(data){
+					console.log(data);
 					$(data).each(function(i){
 						feed = data[i].data;
 						$('<div class="block"/>')
-							.text('Time: ' + feed.timestamp)
+							.text('ID: ' + feed.id)
 							.appendTo($('#circle_container'));
 					});
 				}
@@ -95,6 +101,7 @@
 		<div id="panel">
 			<button id="circles_feed">Get feed</button>
 			<button id="circles_more_feed">more feed</button>
+			<button id="circles_reset">Reset</button>
 			<div class="container" id="circle_container"></div>
 		</div>
 	
