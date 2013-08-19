@@ -64,6 +64,8 @@ function Gallery()
 		var getCircleNum = 4;
 		var getPhotoNum = 12;
 
+		var circleEnd = false;
+
 
 		//--------------------------------------
 		//+ PRIVATE & PROTECTED INSTANCE METHODS
@@ -118,10 +120,11 @@ function Gallery()
 
 		function parseCircleData(data){
 
-			if(isMoreFeed){
-				if(checkIfLoadMore(data)) return;
-			}
+			circleFeed = data;
 
+			if(data.length == 0) return;
+
+			if(isMoreFeed && !checkIfLoadMore(data, getCircleNum)) return;
 			createCircleLayout();
 
 			var feed;
@@ -218,6 +221,8 @@ function Gallery()
 
 		function getAllFeed(){
 
+			createAllLayout();
+
 			if(!isMoreFeed){
 				allPhotoData = new Array();
 
@@ -262,9 +267,9 @@ function Gallery()
 
 		function parsePhotoData(data){
 
-			if(isMoreFeed){
-				if(checkIfLoadMore(data)) return;
-			}
+			photoFeed = data;
+
+			if(data.length == 0) return;
 
 			createPhotoLayout();
 
@@ -315,15 +320,9 @@ function Gallery()
 
 		function parseInstagramData(data){
 
-			console.log("is more feed??", isMoreFeed)
+			instagramFeed = data;
 
-			console.log("is there more", checkIfLoadMore(data))
-
-			// if(isMoreFeed){
-			// 	if(checkIfLoadMore(data)) return;
-			// }
-
-			console.log('should be more right?', data)
+			if(data.length == 0) return;
 
 			createPhotoLayout();
 
@@ -364,9 +363,9 @@ function Gallery()
 
 		function parseTwitterData(data){
 
-			if(isMoreFeed){
-				if(checkIfLoadMore(data)) return;
-			}
+			twitterFeed = data;
+
+			if(data.length == 0) return;
 
 			createPhotoLayout();
 
@@ -464,7 +463,6 @@ function Gallery()
 
 			switch(currentFilterType){
 				case 'all':
-					createAllLayout();
 					getAllFeed();
 					
 				break;
@@ -472,17 +470,20 @@ function Gallery()
 				case 'circle':
 				case 'friend':
 					
-					if(!isMoreFeed)
+					if(!isMoreFeed){
 						$.feed.get('bca-circle', parseCircleData, getCircleNum);
-					else
-						$.feed.more('bca-circle', parseCircleData, getCircleNum);
+					}else{
+						if(checkIfLoadMore(circleFeed, getCircleNum)) $.feed.more('bca-circle', parseCircleData, getCircleNum);
+					}
 				break;
 
 				case 'photo':
-					if(!isMoreFeed)
+					if(!isMoreFeed){
 						$.feed.get('bca-photo', parsePhotoData, getPhotoNum);
-					else
-						$.feed.more('bca-photo', parsePhotoData, getPhotoNum);
+					}
+					else{
+						if(checkIfLoadMore(photoFeed, getPhotoNum)) $.feed.more('bca-photo', parsePhotoData, getPhotoNum);
+					}
 					
 				break;
 
@@ -490,41 +491,42 @@ function Gallery()
 					if(!isMoreFeed){
 
 						$.feed.get('bca-instagram', parseInstagramData, getPhotoNum);
-						console.log('get')
 					}
 					else{
-						$.feed.more('bca-instagram', parseInstagramData, getPhotoNum);
-						console.log('more')
+						if(checkIfLoadMore(instagramFeed, getPhotoNum)) $.feed.more('bca-instagram', parseInstagramData, getPhotoNum);
+						
 					}
 				break;
 
 				case 'twitter':
-					if(!isMoreFeed)
+					if(!isMoreFeed){
 						$.feed.get('bca-twitter', parseTwitterData, getPhotoNum);
-					else
-						$.feed.more('bca-twitter', parseTwitterData, getPhotoNum);
+					}
+					else{
+						if(checkIfLoadMore(twitterFeed, getPhotoNum)) $.feed.more('bca-twitter', parseTwitterData, getPhotoNum);
+						
+					}
 				break;
 			}
 
 		}
 
-		function checkIfLoadMore(feed){
-			console.log('check if load more feed', feed.length)
+		function checkIfLoadMore(feed, getNum){
+			var isMore;
 
-			var isEnd;
-
-			if(feed.length == 0){
-				isEnd = true;
+			if(feed.length < getNum){
+				isMore = false;
 			}else{
-				isEnd = false;
+				isMore = true;
 			}
 
-			return isEnd;
+			return isMore;
 		}
 
 		function createAllLayout(){
 
-			$.ajax({
+			if(!circleEnd){
+				$.ajax({
 	        		type: 'get',
 	            	url: baseUrl + 'layout/loadLayout' + current_add_layout,
 	            	dataType: 'html',
@@ -574,6 +576,11 @@ function Gallery()
 						
 	             	}
 	      		});
+			}else{
+
+				createPhotoLayout();
+
+			}
 
 		}
 		

@@ -56,11 +56,11 @@
 				$('#circles_reset').click(reset);
 
 				function getClick() {				
-					$.feed.get('bca-instagram', getHandler, 2);				    			
+					$.feed.get('bca-photo', getHandler, 3);				    			
 				}
 
 				function moreClick() {					
-					$.feed.more('bca-instagram', moreHandler, 5);
+					$.feed.more('bca-photo', moreHandler, 5);
 				}
 
 				function getHandler(data){
