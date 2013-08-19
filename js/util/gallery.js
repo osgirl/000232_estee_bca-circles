@@ -418,7 +418,7 @@ function Gallery()
 				$(contentData.item).css('margin-right', '0');
 										
 			var rowNum = Math.ceil(contentData.totalNum/contentData.colNum);
-			var getHeight = ($(contentData.item).height() + 70)*rowNum;
+			var getHeight = ($(contentData.item).height() + 130)*rowNum;
 
 			if(getHeight > 600) {
 				$('#gallery').height(getHeight);
