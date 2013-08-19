@@ -39,6 +39,8 @@ var MAX_FRIENDS_NUM		 	= 10;
 var TOOLTIP_TIMEOUT			= 1500;
 var PHOTO_COLUMN_NUM		= 4;
 
+var $agr = false;
+
 var photoButtonHtml = '<div class="photo_rollover item_rollover"><div class="rollover_content"><div class="pink_btn all_cap view_circle_btn">view</div></div></div><div class="gallery_item_btn"></div>'
 
 $(document).ready(function(){	
@@ -214,12 +216,30 @@ function enableButtons(){
 	$('#create_circle_btn').unbind("click").click(confirmCreateCircle);
 	$('#choose_photos_btn').unbind("click").click(openFriendPhotosPanel);
 	$('#close_friend_photos_btn').unbind("click").click(closeFriendPhotosPanel);
-	$('#final_create_btn').unbind("click").click(createCircle);
+	//$('#final_create_btn').unbind("click").click(createCircle);
 	$('#close_create_circle_btn').unbind("click").click(cancelCreateCircleScreen);
 	$('.yes_btn').unbind("click").click(cancelCreateCircleScreen);
 	$('.no_btn').unbind("click").click(backToCreateCircleScreen);
 
+	$('.popup_checkbox').click(toggleCheckbox);
+
 	//$('#show_friendlist_btn').unbind("click").click(facebook.showFriendlist);
+}
+
+function toggleCheckbox(e)
+{
+    $agr = ($agr) ? false : true;
+    $(e.target).css('background-position', (($agr) ? $(e.target).width() * -1 : 0), 0);
+
+    if ($agr) {
+    	$('#final_create_btn').removeClass('dim');
+    	$('#final_create_btn').unbind("click").click(createCircle);
+    	console.log("cllick")
+    }else {
+    	$('#final_create_btn').addClass('dim');
+    	$('#final_create_btn').unbind("click");
+    	console.log("no click")
+    }
 }
 
 
@@ -271,6 +291,7 @@ function closeCreateCircleScreen(){
 function openCancelScreen(){
 	$('#cancel_screen').fadeIn(200);
 	$('#create_circle_screen').hide();
+	$('#circle_confirm_screen').hide();
 }
 
 

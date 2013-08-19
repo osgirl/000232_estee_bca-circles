@@ -591,6 +591,7 @@ h2{
 /*LAYOUT PHOTO*/
 
 .layout_photo{
+	width:98%;
 	margin-bottom:22px;
 }
 
@@ -861,6 +862,21 @@ h2{
 
 
 /*CREATE YOUR OWN CIRCLE SCREEN - CHOOSE ACTION*/
+
+.popup_checkbox{
+	position: relative;
+	display: inline-block;
+	width: 19px;
+	height: 19px;
+	top: 5px;
+	margin: 0 7px 0;
+	background: url('../img/icons/ico_checkbox.png') no-repeat 0 0;
+	cursor: pointer;
+}
+
+.dim {
+	opacity: .5;
+}
 
 #create_circle_screen{
 	display:none;
@@ -1443,15 +1459,15 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 
-.dropdown-menu img{
+#language_menu .dropdown-menu img{
 	margin-top:1px;
 }
 
-.dropdown-menu li a{
+#language_menu .dropdown-menu li a{
 	height:20px;
 }
 
-.dropdown-menu .language, .dropdown-menu .language_divider{
+#language_menu .dropdown-menu .language, .dropdown-menu .language_divider{
 	color:#777;
 }
 

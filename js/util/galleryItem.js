@@ -51,10 +51,12 @@ function GalleryItem()
 			$(item.find('.gallery_item_btn')).unbind('mouseover').mouseover(function(e){
 				$(e.currentTarget).css('cursor','pointer');
 				$(e.currentTarget).prev('.item_rollover').fadeIn(200);
+				$($(e.currentTarget).next()).find('.share_text').css('color', "#f38dab");
 			})
 
 			$(item.find('.gallery_item_btn')).unbind('mouseout').mouseout(function(e){
 				$(e.currentTarget).prev('.item_rollover').fadeOut(200);
+				$($(e.currentTarget).next()).find('.share_text').css('color', "#ffffff");
 			})
 
         	$(item.find('.gallery_item_btn')).click(function(e){openPopUp(popupData)})
@@ -143,20 +145,14 @@ function GalleryItem()
 
 		},
 
-		parseAllPhotoData:function(data, isFeatured, isMoreFeed, pageNum){
+		parseAllPhotoData:function(data, isFeatured){
 
 			var feed;
 
 			$(data).each(function(i){
 				feed = data[i].data;
 
-				var div;
-
-				if(isMoreFeed){
-				   div = $($('.page' + pageNum + ' .photo_container').get(i));
-				}else{
-				   div	= (isFeatured) ? $($('.feature_photo').get(i)) : $($('.photo_container').get(i));
-				}
+				var div = (isFeatured) ? $($('.feature_photo').get(i)) : $($('.photo_container').get(i));
 				var popupData;
 				var photoIcon;
 				var html;
