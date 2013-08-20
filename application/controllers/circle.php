@@ -25,7 +25,7 @@ class Circle extends CI_Controller {
 				'users_photo_url'		=> $this->post['users_photo_url'],
 				'goal'					=> $this->post['goal'],
 				'date'					=> $time_date,
-				'language'				=> $this->post['language'],
+				'language'				=> $this->post['language']
 				);
 			
 			$result = $this->circles_model->Add($post);
