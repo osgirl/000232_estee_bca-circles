@@ -14,10 +14,10 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '';
-$config['upload_url']	= 'uploads/';
+$config['base_url']			= '';
+$config['upload_url']		= 'uploads/';
 $config['file_max_size']	= 5000000;
-$config['fb_app_id'] = '307826036019777';
+$config['fb_app_id'] 		= '307826036019777';
 
 /*
 |--------------------------------------------------------------------------

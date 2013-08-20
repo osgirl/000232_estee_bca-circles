@@ -120,14 +120,14 @@ function Facebook()
 
 	    createCircle: function(){
 	    	//open graph 
-	    	console.log(baseUrl + "img/pics/stronger-together.png")
-	    	FB.api("me/bcacircles:join?", 
+	    	FB.api("me/bcacircles:create",
 					"post",
 					
 					{ circle: "http://samples.ogp.me/308553962613651?",
-					 image: "http://16w22ventures.info/staging/estee_lauder/bca/img/pics/stronger-together.png",
-			         privacy: {'value': 'SELF'},
-			         tags: friendTagIDs
+					  image: "http://16w22ventures.info/staging/estee_lauder/bca/img/pics/stronger-together.png",
+					  description:"We Will - " + goal,
+			          privacy: {'value': 'SELF'},
+			          tags: friendTagIDs
 			         }, 
 					
 					function(response) {
@@ -135,7 +135,7 @@ function Facebook()
 		         if (!response) {
 		           alert('Error occurred.');
 		         } else if (response.error) {
-		          $('#result').html('Error: ' + response.error.message);
+		          console.log('Error: ' + response.error.message);
 		         } else {
 		         	console.log('<a href=\"https://www.facebook.com/me/activity/' + response.id + '\">' +
 		             'Circle created.  ID is ' + response.id + '</a>')

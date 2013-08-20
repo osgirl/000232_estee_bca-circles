@@ -359,10 +359,15 @@ h2{
 	text-align:center;
 }
 
-#community{
+#trending_actions_1{
 	padding:1% 5% 0 5%;
 	background:none;
 	margin-bottom:40px;
+}
+
+#trending_actions_2{
+	background:none;
+	padding:1% 0 7% 6%;
 }
 
 .log_in_status{
@@ -394,12 +399,6 @@ h2{
 	background:none;
 	padding:2% 0 3% 6%;
 }
-
-#trending_actions{
-	background:none;
-	padding:1% 0 7% 6%;
-}
-
 
 #user_profile_pic{
 	margin-left:25%;
@@ -460,22 +459,22 @@ h2{
 }
 
 
-.community_item{
+.action_item{
 	margin-bottom:5px;
 }
 
-.community_item a, .community_item a:hover{
+.action_item a, .action_item a:hover{
 	color:#f38dab;
 	text-decoration: none;
 }
 
-.community_line_1{
-	font-size:1.2em;
+.action_line_1{
+	font-size:1.1em;
 	color:#333333;
 	line-height:1.2em;
 }
 
-.community_line_2{
+.action_line_2{
 	font-size:.9em;
 	color:#333333;
 }

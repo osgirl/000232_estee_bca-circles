@@ -16,19 +16,19 @@ class Circle extends CI_Controller {
 		$this->post = $this->input->post();
 		if ( isset ( $this->post['users_fb_id'] )) {	
 			
-			$php_date 	= new DateTime();
-			$time_date  = $php_date->format('Y-m-d H:i:s');
+		// 	$php_date 	= new DateTime();
+		// 	$time_date  = $php_date->format('Y-m-d H:i:s');
 
 			$post = array(
 				'users_fb_id'			=> $this->post['users_fb_id'],
 				'users_name'			=> $this->post['users_name'],
 				'users_photo_url'		=> $this->post['users_photo_url'],
 				'goal'					=> $this->post['goal'],
-				'date'					=> $time_date,
-				'language'				=> $this->post['language'],
+				'date'					=> '2013-07-31 11:50:53',
+				'language'				=> $this->post['language']
 				);
 			
-			$result = $this->circles_model->Add($post);
+		 	$result = $this->circles_model->Add($post);
 
 			if ($result){
 				$data['id'] = $result;
@@ -36,9 +36,11 @@ class Circle extends CI_Controller {
 			}
 			else
 				echo 'Write failed';
-		}
-		else
-			echo 'Invalid access';
+		 }
+		 else
+		 	echo 'Invalid access';
+
+
 	}
 
 	public function fetchCircleData()
@@ -115,6 +117,25 @@ class Circle extends CI_Controller {
 		}
 		else
 			echo 'Invalid access';
+	}
+
+	public function fetchAllCircleData()
+	{
+
+		$query = $this->db->query("SELECT * FROM circles"); 
+
+		$data = array();
+
+		if ($query->num_rows() > 0) {
+		  foreach($query->result() as $row) {
+
+				$data[] = $row->goal;
+			
+		  }//endif
+		}
+
+		echo json_encode($data);
+
 	}
 
 }

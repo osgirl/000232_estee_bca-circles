@@ -23,6 +23,7 @@
 		case "localhost": 					define('ENVIRONMENT','development'); break;
 		case "bca.dev": 					define('ENVIRONMENT','sean_config'); break;
 		case "bcasite.dev": 				define('ENVIRONMENT','mili_config'); break;
+		case "bcastronger.dev": 			define('ENVIRONMENT','jason'); break;
 		//TODO enter more environments as needed
         default : define('ENVIRONMENT', 'production');
     }
@@ -42,6 +43,7 @@ if (defined('ENVIRONMENT'))
 		case 'sean_config':
 		case 'mili_config':
 		case 'development':
+		case 'jason':
 			error_reporting(E_ALL);
 		break;
 	
