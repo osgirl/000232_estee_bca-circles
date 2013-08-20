@@ -20,27 +20,34 @@
     }
 }());
 
-function tsToDate(ts) {
+function tsToDate(ts)
+{
     var t = new Date(),
-    d =new Date(ts * 1000),
-    m,df,ampm,result;
-    
-    if(t.getFullYear()+t.getDate() == d.getFullYear()+d.getDate()){
-        if(t.getHours() == d.getHours() ){
+        d = new Date(ts * 1000),
+        m, df, ampm, result;
+
+    if (t.getFullYear() + t.getDate() == d.getFullYear() + d.getDate())
+    {
+        if (t.getHours() == d.getHours())
+        {
             result = (t.getMinutes() - d.getMinutes()) + 'min ago';
         }
-        else{
+        else
+        {
             df = t.getHours() - d.getHours();
-            result = df + ' hour' + ( (df == 1) ? '':'s' ) + ' ago';
+            result = df + ' hour' + ((df == 1) ? '' : 's') + ' ago';
         }
     }
-    else{
+    else
+    {
         ampm = (d.getHours() < 12) ? 'AM' : 'PM';
         result = d.getHours() + ':' + d.getMinutes() + ' ' + ampm + ' - ' + d.getDate() + ' ' + month(d.getMonth()) + ' ' + d.getFullYear();
     }
     return result;
-    function month(n){
-        m =['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+    function month(n)
+    {
+        m = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         return m[n];
     }
 };
@@ -78,8 +85,8 @@ $.extend(
             $isOutlink,
             adr, u, dl;
 
-            // $child = d.child;
-            $isOutlink = d.outlink;
+        // $child = d.child;
+        $isOutlink = d.outlink;
 
         switch (v.type)
         {
@@ -98,7 +105,7 @@ $.extend(
         case 'photo_upload':
             u = "popup/photo_upload/";
             $closeBtn = false;
-            $isUpload= true;
+            $isUpload = true;
             break;
         case 'circle':
             u = "popup/circle/";
@@ -140,10 +147,12 @@ $.extend(
                     type: 'POST',
                     data: d
                 },
-                afterClose: function(){
+                afterClose: function()
+                {
                     //Reset url
                     adr = $.address.value().split('/');
-                    if(!$isUpload){
+                    if (!$isUpload)
+                    {
                         dl = ($child) ? '/circle/' + adr[2] + '/' : '/#';
                         $.address.path(dl);
                     }
@@ -154,20 +163,20 @@ $.extend(
         function setData(v)
         {
             var d = {
-                    id: null,
-                    source: null,
-                    author: null,
-                    content: null,
-                    datetime: null,
-                    avatar: null,
-                    photo_url: null,
-                    share_url: null,
-                    circle_id: null,
-                    num_friend: null,
-                    users_fb_id: null,
-                    child: null,
-                    outlink: null
-                };
+                id: null,
+                source: null,
+                author: null,
+                content: null,
+                datetime: null,
+                avatar: null,
+                photo_url: null,
+                share_url: null,
+                circle_id: null,
+                num_friend: null,
+                users_fb_id: null,
+                child: null,
+                outlink: null
+            };
             if (v != undefined)
             {
                 for (var key in v)
@@ -177,7 +186,8 @@ $.extend(
         }
 
         //Update deeplink
-        if(!$isUpload && !$isOutlink){
+        if (!$isUpload && !$isOutlink)
+        {
             dl = $.address.path() + v.type + '/' + ((d.source == null) ? '' : d.source + '/') + ((d.id == null) ? '' : d.id + '/')
             $.address.path(dl);
         }
@@ -281,7 +291,7 @@ $.extend(
         loadStart();
         $.ajaxFileUpload(
         {
-            url: '/photo/uploadPreviewImage',
+            url: 'photo/uploadPreviewImage',
             secureuri: false,
             fileElementId: 'uploadFile',
             dataType: 'json',
@@ -697,9 +707,7 @@ $.extend(
                             }
                         })
                     });
-                    $rollover = $('<span class="photo_rollover"/>')
-                    .append('<div class="popup_round_button" id="popup_btn_pink">VIEW</div>')
-                    .appendTo($tmb).mouseenter(function()
+                    $rollover = $('<span class="photo_rollover"/>').append('<div class="popup_round_button" id="popup_btn_pink">VIEW</div>').appendTo($tmb).mouseenter(function()
                     {
                         $(this).animate(
                         {
@@ -883,9 +891,9 @@ $.extend(
  ******************************************/
 (function(f)
 {
-    var fo={}, sfo;
+    var fo = {}, sfo;
     var b = f.feed = function()
-    {    
+    {
         var fm_server = 'estee.feedmagnet.com';
         window.fm_ready = function(fx)
         {
@@ -909,12 +917,13 @@ $.extend(
         var p = ('https:' === document.location.protocol ? 'https://' : 'http://');
         fmjs.src = p + fm_server + '/embed.js';
         fmjs.setAttribute('async', 'true');
-        document.getElementsByTagName('head').item(0).appendChild(fmjs);        
+        document.getElementsByTagName('head').item(0).appendChild(fmjs);
     };
     f.extend(b,
     {
-        reset: function(){
-            fo={};
+        reset: function()
+        {
+            fo = {};
         },
 
         get: function(v, f, n)
@@ -959,75 +968,112 @@ $.extend(
         }
     });
 
-    function fetch_fo(v){
-        if(!fo[v]){
+    function fetch_fo(v)
+    {
+        if (!fo[v])
+        {
             fo[v] = $FM.Feed(v);
         }
-        else{
-        }
+        else
+        {}
         return fo[v];
     };
 })(jQuery);
 
 
-//Func.
+/******************************************
+ * Public function for Load data from deeplink share
+ ******************************************/
+
 function checkAndLoadExternalUrl()
 {
-    console.log('--CHECK IF PAGE LOADED FROM EXTERNAL URL--');
-    var adr = $.address.value().split('/');
+    console.debug('checkAndLoadExternalUrl Start');
+    var u, $data,
+    adr = $.address.value().split('/');
 
-    if(adr.length != 0){
-
-        switch (adr[1]){
+    if (adr.length != 0)
+    {
+        switch (adr[1])
+        {
             case 'circle':
-                $.ajax({
-                    type: 'post',
-                    url: baseUrl + 'circle/fetchCircleData',
-                    dataType: 'json',
-                    data: {
-                        circle_id: adr[2]
-                    },
-                    success: function(data) {
-                        $.popup({type:'circle', data:{
-                                                        id:data.circle_id,
-                                                        content:data.goal, 
-                                                        avatar:data.user_photo_url,
-                                                        users_fb_id:data.user_id,
-                                                        num_friends: data.friends_data.length,
-                                                        outlink: true
-                                                    }
-                        });
-
-                    }
-                });
+                u = "circle/fetchCircleData/";
+                $data = {
+                    circle_id: adr[2]
+                };
+                loadLocalData();
                 break;
-
-
             case 'photo':
 
-                console.log("ID " + adr[3]);
-
-                $.ajax({
-                    type: 'post',
-                    url: baseUrl + 'photo/fetchUploadedPhotoData',
-                    dataType: 'json',
-                    data: {
+                if(adr[2] == 'bca'){
+                    u = "photo/fetchUploadedPhotoData";
+                    $data = {
                         photo_id: adr[3]
-                    },
-                    success: function(data) {
-                        $.popup({type:'photo', data:{
-                                                        id: data.photo_id,
-                                                        source:'bca',
-                                                        content:data.description,
-                                                        photo_url:baseUrl + "uploads/" + data.filename,
-                                                        outlink: true
-                                                    }
-                        });
+                    };
+                    loadLocalData();
+                }
+                else{
+                    loadInstagramData();
+                }
+                break;
+        }
 
+        function loadLocalData()
+        {
+            $.ajax(
+            {
+                url: u,
+                type: 'post',
+                dataType: 'json',
+                data: $data,
+                success: function(data)
+                {
+                    switch (adr[1])
+                    {
+                    case 'circle':
+                        circle_success(data);
+                        break;
+                    case 'photo':
+                        photo_success(data)
+                        break;
+                    }
+                }
+            });
+
+            function circle_success(data)
+            {
+                $.popup(
+                {
+                    type: 'circle',
+                    data: {
+                        id: data.circle_id,
+                        content: data.goal,
+                        avatar: data.user_photo_url,
+                        users_fb_id: data.user_id,
+                        num_friends: data.friends_data.length,
+                        outlink: true
                     }
                 });
-                break;
+            }
 
+            function photo_success(data)
+            {
+                $.popup(
+                {
+                    type: 'photo',
+                    data: {
+                        id: data.photo_id,
+                        source: 'bca',
+                        content: data.description,
+                        photo_url: baseUrl + "uploads/" + data.filename,
+                        outlink: true
+                    }
+                });
+            }
+        }
+
+        function loadInstagramData()
+        {
+            console.log('from instagram - token: ' + adr[3]);
         }
 
     }
@@ -1037,10 +1083,11 @@ function checkAndLoadExternalUrl()
 
 //jsAddress temp
 
-$.address.change(function(e){
-    var v = e.value.replace(/^\//, '').split('/');
+$.address.change(function(e)
+{
+    // var v = e.value.replace(/^\//, '').split('/');
     // console.log('change ' + v);
     // $.address.hash('_');
-    return false;   
-    e.preventdefault;  
+    // return false;
+    // e.preventdefault;
 });

@@ -347,8 +347,8 @@ function Gallery()
 	                	var popupData = {
 								type:'photo', 
 								data:{
-									source:'local', 
-									author:'John Doe',
+									id: data.photo_id,
+									source:'bca',
 									content:dbData.description,
 									photo_url:baseUrl + "uploads/" + dbData.filename
 								}}
@@ -395,6 +395,7 @@ function Gallery()
 			var popupData = {
 						type:'photo', 
 						data:{
+							id: feed.token,
 							source:'instagram', 
 							author: feed.author.alias,
 							content:feed.text,
