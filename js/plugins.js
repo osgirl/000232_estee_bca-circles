@@ -84,24 +84,24 @@ $.extend(
         switch (v.type)
         {
         case 'about':
-            u = "popup/about/";
+            u = baseUrl + "popup/about/";
             break;
         case 'video':
-            u = "popup/video/";
+            u = baseUrl + "popup/video/";
             break;
         case 'photo':
-            u = "popup/photo/";
+            u = baseUrl + "popup/photo/";
             break;
         case 'twitter':
-            u = "popup/twitter/";
+            u = baseUrl + "popup/twitter/";
             break;
         case 'photo_upload':
-            u = "popup/photo_upload/";
+            u = baseUrl + "popup/photo_upload/";
             $closeBtn = false;
             $isUpload= true;
             break;
         case 'circle':
-            u = "popup/circle/";
+            u = baseUrl + "popup/circle/";
             $isCircle = true;
             break;
         }
@@ -281,7 +281,7 @@ $.extend(
         loadStart();
         $.ajaxFileUpload(
         {
-            url: '/photo/uploadPreviewImage',
+            url: baseUrl + '/photo/uploadPreviewImage',
             secureuri: false,
             fileElementId: 'uploadFile',
             dataType: 'json',
@@ -432,7 +432,7 @@ $.extend(
                 $.ajax(
                 {
                     type: 'post',
-                    url: '/photo/saveRawFile',
+                    url: baseUrl + '/photo/saveRawFile',
                     dataType: 'text',
                     data: {
                         base64data: canvasData,
@@ -456,7 +456,7 @@ $.extend(
                 $.ajax(
                 {
                     type: 'post',
-                    url: '/photo/saveFile',
+                    url: baseUrl + '/photo/saveFile',
                     data: {
                         filePath: $preview_img_path,
                         x: $l,
@@ -648,7 +648,7 @@ $.extend(
         $.ajax(
         {
             type: 'POST',
-            url: 'circle_photo/getlist',
+            url: baseUrl + 'circle_photo/getlist',
             dataType: 'json',
             data: {
                 circleId: $d.id
