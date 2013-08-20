@@ -117,4 +117,23 @@ class Circle extends CI_Controller {
 			echo 'Invalid access';
 	}
 
+	public function fetchAllCircleData()
+	{
+
+		$query = $this->db->query("SELECT * FROM circles"); 
+
+		$data = array();
+
+		if ($query->num_rows() > 0) {
+		  foreach($query->result() as $row) {
+
+				$data[] = $row->goal;
+			
+		  }//endif
+		}
+
+		echo json_encode($data);
+
+	}
+
 }
