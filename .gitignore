@@ -2,3 +2,10 @@
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 uploads/*
 .gitignore
+bca.sublime-project
+bca.sublime-workspace
+_circle_test/*
+_test_photos/*
+_masonry_test/*
+_get_test/*
+_feed_test/*
