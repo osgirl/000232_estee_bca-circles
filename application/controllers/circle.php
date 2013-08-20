@@ -13,11 +13,11 @@ class Circle extends CI_Controller {
 
 	public function create()
 	{
-		// $this->post = $this->input->post();
-		// if ( isset ( $this->post['users_fb_id'] )) {	
+		$this->post = $this->input->post();
+		if ( isset ( $this->post['users_fb_id'] )) {	
 			
-		// 	$php_date 	= new DateTime();
-		// 	$time_date  = $php_date->format('Y-m-d H:i:s');
+		 	$php_date 	= new DateTime();
+		 	$time_date  = $php_date->format('Y-m-d H:i:s');
 
 		// 	$post = array(
 		// 		'users_fb_id'			=> $this->post['users_fb_id'],
@@ -36,10 +36,10 @@ class Circle extends CI_Controller {
 		// 	}
 		// 	else
 		// 		echo 'Write failed';
-		// }
-		// else
-		// 	echo 'Invalid access';
-		
+		 }
+		 else
+		 	echo 'Invalid access';
+
 	}
 
 	public function fetchCircleData()
