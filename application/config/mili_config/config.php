@@ -16,7 +16,7 @@
 */
 $config['base_url']			= '';
 $config['file_max_size']	= 5000000;
-$config['fb_app_id'] 		= '307826036019777';
+$config['fb_app_id'] 		= '508656222544043';
 $config['upload_url']		= 'uploads/';
 
 /*
