@@ -24,7 +24,7 @@ class Circle extends CI_Controller {
 				'users_name'			=> $this->post['users_name'],
 				'users_photo_url'		=> $this->post['users_photo_url'],
 				'goal'					=> $this->post['goal'],
-				'date'					=> '2013-07-31 11:50:53',
+				//'date'					=> '2013-07-31 11:50:53',
 				'language'				=> $this->post['language']
 				);
 			
@@ -117,25 +117,6 @@ class Circle extends CI_Controller {
 		}
 		else
 			echo 'Invalid access';
-	}
-
-	public function fetchAllCircleData()
-	{
-
-		$query = $this->db->query("SELECT * FROM circles"); 
-
-		$data = array();
-
-		if ($query->num_rows() > 0) {
-		  foreach($query->result() as $row) {
-
-				$data[] = $row->goal;
-			
-		  }//endif
-		}
-
-		echo json_encode($data);
-
 	}
 
 }
