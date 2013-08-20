@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'click3x.com';
-$db['default']['username'] = 'jtordsen';
-$db['default']['password'] = 'jasont1234';
-$db['default']['database'] = 'BCA';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'bca_stronger';
+$db['default']['password'] = 'aRpA!CuBi';
+$db['default']['database'] = 'bca_stronger';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
