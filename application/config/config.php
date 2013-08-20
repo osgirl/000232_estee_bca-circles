@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']			= 'http://bcacampaign.com/_efb/bca_strongertogether/';
+$config['base_url']			= '//www.bcacampaign.com/_efb/bca_strongertogether/';
 $config['file_max_size']	= 5000000;
 $config['fb_app_id'] 		= '307826036019777';
 $config['upload_url']		= 'uploads/';
