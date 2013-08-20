@@ -811,7 +811,14 @@ function Gallery()
 
 		},
 
-		
+		enableLazyloader: function(){
+			$(window).bind('scroll', lazyloader);
+		},
+
+		disableLazyloader: function(){
+			$(window).unbind('scroll');
+		},		
+
 		/**
 		*	@private
 		*/

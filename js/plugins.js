@@ -178,7 +178,6 @@ $.extend(
 
         //Update deeplink
         if(!$isUpload && !$isOutlink){
-            console.log('CALL?--');
             dl = $.address.path() + v.type + '/' + ((d.source == null) ? '' : d.source + '/') + ((d.id == null) ? '' : d.id + '/')
             $.address.path(dl);
         }
@@ -532,7 +531,6 @@ $.extend(
         $d = v;
         $win_abs_y = $(window).scrollTop();
         $margin_top = $('.navbar').height();
-
         $pagn = $($c + ' #popup_circle_photo_carousel_pagn')
 
         //Add padding when header page has net been scrolled to the top
@@ -548,6 +546,10 @@ $.extend(
         {
             $padding_top = 0;
         }
+
+
+        //Disable lazyLoader first
+        gallery.disableLazyloader();
 
         //initalize scroll detection
         $(window).bind('resize scroll', function(e)
@@ -589,12 +591,12 @@ $.extend(
         });
 
         //Start bind
+        $($c + ' .btn_edit').click(editFriends);
         $($c + ' .btn_close').click(closeWindow);
         $($c + ' .btn_add_photo').click(addPhoto);
         $($c + ' .btn_nav_photo').click(navPhoto);
 
         $this.bind('photo_upload_complete', loadCirclePhotos)
-
 
         //Startup some function
         $(window).trigger('scroll');
@@ -860,10 +862,18 @@ $.extend(
         {
             $this.parent().outerHeight($this.parent().outerHeight() - $margin_bottom);
             $(window).unbind('resize scroll');
+            gallery.enableLazyloader();
+
             $this.remove();
             $.address.path('/#');
         });
     }
+
+    function editFriends()
+    {
+        alert('find a function name "editFriends" in plugin.js ')
+    }
+
 
 })(jQuery);
 
@@ -1005,8 +1015,6 @@ function checkAndLoadExternalUrl()
                         photo_id: adr[3]
                     },
                     success: function(data) {
-                        console.log("SUCCESSED")
-                        console.log(data);
                         $.popup({type:'photo', data:{
                                                         id: data.photo_id,
                                                         source:'bca',
@@ -1016,11 +1024,7 @@ function checkAndLoadExternalUrl()
                                                     }
                         });
 
-                    },
-            error: function(jqXHR, textStatus, errorThrown)
-            {
-                console.log(jqXHR);
-            }
+                    }
                 });
                 break;
 
@@ -1035,7 +1039,7 @@ function checkAndLoadExternalUrl()
 
 $.address.change(function(e){
     var v = e.value.replace(/^\//, '').split('/');
-    console.log('change ' + v);
+    // console.log('change ' + v);
     // $.address.hash('_');
     return false;   
     e.preventdefault;  
