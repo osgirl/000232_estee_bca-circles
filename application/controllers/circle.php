@@ -37,8 +37,10 @@ class Circle extends CI_Controller {
 		// 	else
 		// 		echo 'Write failed';
 		 }
-		 else
+		 else{
 		 	echo 'Invalid access';
+		 }
+		 	
 
 	}
 
