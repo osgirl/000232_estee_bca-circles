@@ -13,33 +13,34 @@ class Circle extends CI_Controller {
 
 	public function create()
 	{
-		// $this->post = $this->input->post();
-		// if ( isset ( $this->post['users_fb_id'] )) {	
+		$this->post = $this->input->post();
+		if ( isset ( $this->post['users_fb_id'] )) {	
 			
-		// 	$php_date 	= new DateTime();
-		// 	$time_date  = $php_date->format('Y-m-d H:i:s');
+		 	$php_date 	= new DateTime();
+		 	$time_date  = $php_date->format('Y-m-d H:i:s');
 
-		// 	$post = array(
-		// 		'users_fb_id'			=> $this->post['users_fb_id'],
-		// 		'users_name'			=> $this->post['users_name'],
-		// 		'users_photo_url'		=> $this->post['users_photo_url'],
-		// 		'goal'					=> $this->post['goal'],
-		// 		'date'					=> $time_date,
-		// 		'language'				=> $this->post['language']
-		// 		);
+			$post = array(
+				'users_fb_id'			=> $this->post['users_fb_id'],
+				'users_name'			=> $this->post['users_name'],
+				'users_photo_url'		=> $this->post['users_photo_url'],
+				'goal'					=> $this->post['goal'],
+				'date'					=> $time_date,
+				'language'				=> $this->post['language']
+				);
 			
-		// 	$result = $this->circles_model->Add($post);
+		 	$result = $this->circles_model->Add($post);
 
-		// 	if ($result){
-		// 		$data['id'] = $result;
-		// 		echo json_encode($data);
-		// 	}
-		// 	else
-		// 		echo 'Write failed';
-		// }
-		// else
-		// 	echo 'Invalid access';
-		
+			if ($result){
+				$data['id'] = $result;
+				echo json_encode($data);
+			}
+			else
+				echo 'Write failed';
+		 }
+		 else
+		 	echo 'Invalid access';
+
+
 	}
 
 	public function fetchCircleData()
