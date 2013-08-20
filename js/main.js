@@ -29,6 +29,7 @@ var selectOpen = false;
 var createCircleClicked = false;
 var createCircleWindowOpen = false;
 var stepID = 1;
+var agree = false;
 
 //variables send to database
 var goal;
@@ -39,14 +40,16 @@ var MAX_FRIENDS_NUM		 	= 10;
 var TOOLTIP_TIMEOUT			= 1500;
 var PHOTO_COLUMN_NUM		= 4;
 
-var $agr = false;
+
 
 var photoButtonHtml = '<div class="photo_rollover item_rollover"><div class="rollover_content"><div class="pink_btn all_cap view_circle_btn">view</div></div></div><div class="gallery_item_btn"></div>';
-var myCircleItemHtml = "<tr><td class='action_icon' rowspan='2'><img/></td><td class='community_line_1 light_font'><a>Estee Walk for Breast Cancer</a></td></tr><tr><td class='community_line_2'>5 Friends Talking Action</td></tr>";
+var statsItemHtml = "<tr><td class='action_icon' rowspan='2'><img/></td><td class='action_line_1 light_font'></td></tr><tr><td class='action_line_2'></td></tr>";
 
 $(document).ready(function(){	
 
 	initFacebook();
+
+	getTrendingAction();
 
 	enableButtons();
 	enableEventBinds();
@@ -68,6 +71,8 @@ $(document).ready(function(){
 	$('#friend_search_wrapper').tooltip({
 		trigger:'manual'
 	});
+
+	createGoalDropdown();
 
 });
 
@@ -114,7 +119,6 @@ function enableEventBinds(){
 }
 
 function getLoginStatus(e){	
-	console.log("log in")
 	facebook.fetchUserInfo();
 	facebook.fetchFriendlist();
 	
@@ -232,18 +236,27 @@ function enableButtons(){
 
 function toggleCheckbox(e)
 {
-    $agr = ($agr) ? false : true;
-    $(e.target).css('background-position', (($agr) ? $(e.target).width() * -1 : 0), 0);
+    agree = (agree) ? false : true;
+    $(e.target).css('background-position', ((agree) ? $(e.target).width() * -1 : 0), 0);
 
-    if ($agr) {
+    if (agree) {
     	$('#final_create_btn').removeClass('dim');
-    	$('#final_create_btn').unbind("click").click(createCircle);
-    	console.log("cllick")
+    	$('#final_create_btn').unbind("click").click(createCircle)
     }else {
     	$('#final_create_btn').addClass('dim');
     	$('#final_create_btn').unbind("click");
-    	console.log("no click")
     }
+}
+
+function createGoalDropdown(){
+	$.ajax({
+    	url: baseUrl + 'goal/fetchGoalData',
+    	dataType: 'json',
+    	success: function(data) {           
+        	console.log('success', data)
+
+     	}
+		});
 }
 
 
@@ -326,7 +339,7 @@ function resetCircle(){
     $(".comma").remove();
     resetNameTextfield();
 
-    $agr = false;
+    agree = false;
 
     resetFriendPhotoItem($('.friend_item'))
 	
@@ -677,17 +690,47 @@ function getUserCircleData(){
         	$(data).each(function(i,v){
 
         		var myCircleItem = $('<table>');
-        		myCircleItem.addClass('community_item');
+        		myCircleItem.addClass('action_item');
 
-        		myCircleItem.html(myCircleItemHtml)
+        		myCircleItem.html(statsItemHtml)
         					.appendTo($('#my_circles'));
 
         		myCircleItem.find('img').attr('src', baseUrl + "img/icons/walking.png");
-        		myCircleItem.find('.community_line_1').html(v.goal);
-        		myCircleItem.find('.community_line_2').html(v.friends_data.length + " Friends Taking Action");
+        		myCircleItem.find('.action_line_1').html('<a>' + v.goal + '</a>');
+        		myCircleItem.find('.action_line_2').html(v.friends_data.length + " Friends Taking Action");
          	})
      	}
 	});
+}
+
+function getTrendingAction(){
+
+	$.ajax({
+		type: 'post',
+    	url: baseUrl + 'circle/fetchAllCircleData',
+    	dataType: 'json',
+    	data: {
+    		user_id:userID
+    	},
+    	success: function(data) {           
+        	console.log('success', data);
+
+        	$(data).each(function(i,v){
+
+
+        		// var trendingActionItem = $('<table>');
+        		// trendingActionItem.addClass('community_item');
+
+        		// trendingActionItem.html(statsItemHtml)
+        		// 			.appendTo($('#my_circles'));
+
+        		// trendingActionItem.find('img').attr('src', baseUrl + "img/icons/walking.png");
+        		// trendingActionItem.find('.community_line_1').html(data.length + " People are");
+        		// trendingActionItem.find('.community_line_2').html(v.goal);
+         	})
+     	}
+	});
+
 }
 
 function createCircle(){	
@@ -707,7 +750,7 @@ function createCircle(){
 
 		openLoadingScreen();
 		
-		//facebook.createCircle();
+		facebook.createCircle();
 
 		var value = {
 				'users_fb_id' 	  : userID,

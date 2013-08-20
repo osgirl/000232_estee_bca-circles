@@ -48,9 +48,15 @@
 		text-align:center;
 	}
 	
-	#community{
+	#trending_actions_1{
 		width:30%;
 		padding:3% 5% 3% 5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+
+	#trending_actions_2{
+		width:44.5%;
+		padding:5% 0 3% 2.5%;
 		background:url('../img/assets/v-divider.png') no-repeat left center;
 	}
 	
@@ -69,11 +75,7 @@
 		padding:5% 0 3% 0;
 	}
 	
-	#trending_actions{
-		width:44.5%;
-		padding:5% 0 3% 2.5%;
-		background:url('../img/assets/v-divider.png') no-repeat left center;
-	}
+	
 	
 	/*DONATE*/
 	
@@ -172,9 +174,15 @@
 		
 	}
 	
-	#community{
+	#trending_actions_1{
 		width:30%;
 		padding:3% 5% 3% 5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+
+	#trending_actions_2{
+		padding:3% 0 3% 2.5%;
+		width:22.5%;
 		background:url('../img/assets/v-divider.png') no-repeat left center;
 	}
 	
@@ -189,11 +197,7 @@
 		background:url('../img/assets/v-divider.png') no-repeat left center;
 	}
 	
-	#trending_actions{
-		padding:3% 0 3% 2.5%;
-		width:22.5%;
-		background:url('../img/assets/v-divider.png') no-repeat left center;
-	}
+	
 	
 	/*DONATE*/
 	

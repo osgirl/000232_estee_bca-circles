@@ -9,6 +9,12 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
+        <meta property="fb:app_id" content="704339276259855">
+        <meta property="og:title" content="BCA Circle">
+        <meta property="og:image" content="http://16w22ventures.info/staging/estee_lauder/bca/img/pics/stronger-together.png">
+        <meta property="og:url" content="http://bcasite.dev?">
+        <meta property="og:type" content="bcacircles:circle">
+
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
         <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-responsive.min.css"> -->
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
@@ -121,28 +127,28 @@
 									</table>
 								</div>
 							</div>
-							<div id='community' class='span5'>
+							<div id='trending_actions_1' class='span5'>
 								<h2>Trending Actions</h2>
-								<table class='community_item'>
+								<table class='action_item'>
 									<tr>
 									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'>219 People are</td>
+									    <td class='action_line_1 light_font'>219 People are</td>
 									</tr>
-									<tr><td class='community_line_2'>Jogging in the park Everyday In October</td></tr>
+									<tr><td class='action_line_2'>Jogging in the park Everyday In October</td></tr>
 								</table>
-								<table class='community_item'>
+								<table class='action_item'>
 									<tr>
 									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'>219 People are</td>
+									    <td class='action_line_1 light_font'>219 People are</td>
 									</tr>
-									<tr><td class='community_line_2'>Walking Everyday In October</td></tr>
+									<tr><td class='action_line_2'>Walking Everyday In October</td></tr>
 								</table>
-								<table class='community_item'>
+								<table class='action_item'>
 									<tr>
 									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'>219 People are</td>
+									    <td class='action_line_1 light_font'>219 People are</td>
 									</tr>
-									<tr><td class='community_line_2'>Walking Everyday In October</td></tr>
+									<tr><td class='action_line_2'>Walking Everyday In October</td></tr>
 								</table>
 							</div>
 						</div>
@@ -163,28 +169,21 @@
 								<h2>My Circles</h2>
 							</div>
 							
-							<div id="trending_actions" class='user_stats span4'>
+							<div id="trending_actions_2" class='user_stats span4'>
 								<h2>Trending Actions</h2>
-								<table class='community_item'>
+								<table class='action_item'>
 									<tr>
 									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'>219 People are</td>
+									    <td class='action_line_1 light_font'>219 People are</td>
 									</tr>
-									<tr><td class='community_line_2'>Walking Everyday In October</td></tr>
+									<tr><td class='action_line_2'>Jogging in the park Everyday In October</td></tr>
 								</table>
-								<table class='community_item'>
+								<table class='action_item'>
 									<tr>
 									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'>219 People are</td>
+									    <td class='action_line_1 light_font'>219 People are</td>
 									</tr>
-									<tr><td class='community_line_2'>Walking Everyday In October</td></tr>
-								</table>
-								<table class='community_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='community_line_1 light_font'>219 People are</td>
-									</tr>
-									<tr><td class='community_line_2'>Walking Everyday In October</td></tr>
+									<tr><td class='action_line_2'>Walking Everyday In October</td></tr>
 								</table>
 							</div>
 						</div>
