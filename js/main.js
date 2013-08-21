@@ -44,6 +44,7 @@ var PHOTO_COLUMN_NUM		= 4;
 var TRENDING_ACTION_SHOW	= 3;
 
 var goalData;
+var trendingData;
 
 var photoButtonHtml = '<div class="photo_rollover item_rollover"><div class="rollover_content"><div class="pink_btn all_cap view_circle_btn">view</div></div></div><div class="gallery_item_btn"></div>';
 var statsItemHtml = "<tr><td class='action_icon' rowspan='2'><img/></td><td class='action_line_1 light_font'></td></tr><tr><td class='action_line_2'></td></tr>";
@@ -248,14 +249,11 @@ function createGoalDropdown(){
     	dataType: 'json',
     	success: function(data) {  
 
-		    data.sort(function sortNumber(a, b){
-				  var aNum = Number(a.id);
-				  var bNum = Number(b.id); 
-				  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 1 : 0));
-			});   
+    		goalData = data;
+    		
 
-    		$('#goal_selected').html(data[0].goal);      
-        	$(data).each(function(i, v){
+    		$('#goal_selected').html(goalData[0].goal);      
+        	$(goalData).each(function(i, v){
 
         		if(v.goal_type == "default"){
         			var list = $('<li>');
@@ -270,13 +268,13 @@ function createGoalDropdown(){
 						});
 					})
 					list.unbind('mouseout').mouseout(function(e){$(e.currentTarget).css("background", "none");})
-
         			list.unbind('click').click(function(e){actionSelected(e);})
         		}
 
         	})
 
-        	goalData = data;
+        	trendingData = data;
+        	
         	getTrendingAction();
      	}
 		});
@@ -284,15 +282,19 @@ function createGoalDropdown(){
 
 function getTrendingAction(){
 
-	goalData.sort(function sortNumber(a, b){
+	
+
+	trendingData.sort(function sortNumber(a, b){
 		  var aNum = Number(a.taken_number);
 		  var bNum = Number(b.taken_number); 
-		  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+		  return ((aNum > bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
 	});
+
+	console.log("trending", trendingData)
 
 	var actionCount = 0;
 
-	$(goalData).each(function(i, v){
+	$(trendingData).each(function(i, v){
 
 		if(v.taken_number !=0){
 
@@ -733,6 +735,8 @@ function openThankYouScreen(){
 
 function getUserCircleData(){
 
+	$('#my_circles .action_item').remove();
+
 	$.ajax({
 		type: 'post',
     	url: baseUrl + 'circle/fetchUserCircleData',
@@ -816,10 +820,12 @@ function createCircle(){
             	url: baseUrl + 'circle/create',
             	dataType: 'json',
             	data: value,
-            	success: function(data) {           
+            	success: function(data) {   
+
+            		getUserCircleData();        
 
                 	$.each(friendSelectedArray, function(i,v){
-                		//console.log(data.id, v.id, v.name)
+                		//console.log(data.id, v.id, v.name);
                 		$.ajax({
 			        		type: 'post',
 			            	url: baseUrl + 'friend/updateCircleFriends',
