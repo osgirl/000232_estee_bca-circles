@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.5.25)
 # Database: BCA
-# Generation Time: 2013-08-20 19:46:55 +0000
+# Generation Time: 2013-08-21 02:19:35 +0000
 # ************************************************************
 
 
@@ -62,20 +62,24 @@ CREATE TABLE `circles` (
   `users_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `users_photo_url` text NOT NULL,
   `goal` text CHARACTER SET utf8 NOT NULL,
-  `date` datetime NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `language` int(2) DEFAULT NULL,
+  `ref_goal_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `circles` WRITE;
 /*!40000 ALTER TABLE `circles` DISABLE KEYS */;
 
-INSERT INTO `circles` (`id`, `users_fb_id`, `users_name`, `users_photo_url`, `goal`, `date`, `language`)
+INSERT INTO `circles` (`id`, `users_fb_id`, `users_name`, `users_photo_url`, `goal`, `date`, `language`, `ref_goal_id`)
 VALUES
-	(1,2147483647,'Sean Oh','http://profile.ak.fbcdn.net/hprofile-ak-ash4/275760_100003988000326_1919791226_n.jpg','Love healthily. Eat antioxidant-rich food and maintain a healthy weight.','2013-07-31 11:50:53',0),
-	(2,534664939,'Jason Tordsen','http://profile-b.xx.fbcdn.net/hprofile-prn1/623695_534664939_1207367401_n.jpg','Aliquam at velit pharetra, pretium nisl sed, semper mauris.','2013-07-31 11:55:48',0),
-	(3,39607548,'Mili Kuo','https://profile-a.xx.fbcdn.net/hprofile-prn1/41405_39607548_1844_n.jpg','Be proactive. Schedule a mammogram.','2013-08-12 13:27:50',0),
-	(4,39607548,'Mili Kuo','https://profile-a.xx.fbcdn.net/hprofile-prn1/41405_39607548_1844_n.jpg','Be proactive. Schedule a mammogram.','2013-08-12 13:27:51',0);
+	(1,2147483647,'Sean Oh','http://profile.ak.fbcdn.net/hprofile-ak-ash4/275760_100003988000326_1919791226_n.jpg','Live healthily. Eat antioxidant-rich food and maintain a healthy weight.','2013-07-31 11:50:53',0,2),
+	(2,534664939,'Jason Tordsen','http://profile-b.xx.fbcdn.net/hprofile-prn1/623695_534664939_1207367401_n.jpg','Be proactive. Schedule a mammogram.','2013-07-31 11:55:48',0,1),
+	(3,39607548,'Mili Kuo','https://profile-a.xx.fbcdn.net/hprofile-prn1/41405_39607548_1844_n.jpg','Be proactive. Schedule a mammogram.','2013-08-12 13:27:50',0,1),
+	(2014,39607548,'Mili Kuo','https://profile-a.xx.fbcdn.net/hprofile-prn1/41405_39607548_1844_n.jpg','Support someone in your life.','2013-08-20 21:41:58',0,3),
+	(2015,39607548,'Mili Kuo','https://profile-a.xx.fbcdn.net/hprofile-prn1/41405_39607548_1844_n.jpg','Be proactive. Schedule a mammogram.','2013-08-20 21:49:24',0,1),
+	(2016,39607548,'Mili Kuo','https://profile-a.xx.fbcdn.net/hprofile-prn1/41405_39607548_1844_n.jpg','Drink less. Limit your alcohol intake and toast to a healthier life.','2013-08-20 21:58:54',0,4),
+	(2017,39607548,'Mili Kuo','https://profile-a.xx.fbcdn.net/hprofile-prn1/41405_39607548_1844_n.jpg','Live healthily. Eat antioxidant-rich food and maintain a healthy weight.','2013-08-20 22:05:52',0,2);
 
 /*!40000 ALTER TABLE `circles` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -133,9 +137,47 @@ VALUES
 	(39,'11','10000425064','Jason C.'),
 	(40,'12','10000425064','Jason C.'),
 	(41,'13','10000425064','Jason C.'),
-	(42,'14','10000425064','Jason C.');
+	(42,'14','10000425064','Jason C.'),
+	(43,'15','10000425064','Jason C.'),
+	(44,'16','10000425064','Jason C.'),
+	(45,'17','10000425064','Jason C.'),
+	(46,'18','10000425064','Jason C.'),
+	(47,'2014','585049521','Jason M.'),
+	(48,'2015','1548248238','Adam F.'),
+	(49,'2016','1366440094','Adam C.'),
+	(50,'2017','682572430','Alice C.'),
+	(51,'2018','1366440094','Adam C.');
 
 /*!40000 ALTER TABLE `friends` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table goals
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `goals`;
+
+CREATE TABLE `goals` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `goal` text CHARACTER SET utf8 NOT NULL,
+  `icon` text CHARACTER SET utf8 NOT NULL,
+  `taken_number` int(11) NOT NULL,
+  `goal_type` varchar(10) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `goals` WRITE;
+/*!40000 ALTER TABLE `goals` DISABLE KEYS */;
+
+INSERT INTO `goals` (`id`, `goal`, `icon`, `taken_number`, `goal_type`)
+VALUES
+	(1,'Be proactive. Schedule a mammogram.','proactive',2,'default'),
+	(2,'Live healthily. Eat antioxidant-rich food and maintain a healthy weight.','living',2,'default'),
+	(3,'Drink less. Limit your alcohol intake and toast to a healthier life.','drinkless',0,'default'),
+	(4,'Walk together, cook healthy together, and support each other.','walking',1,'default'),
+	(5,'Support someone in your life.','supporting',1,'default');
+
+/*!40000 ALTER TABLE `goals` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
