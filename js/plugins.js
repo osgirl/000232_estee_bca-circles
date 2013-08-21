@@ -41,7 +41,7 @@ function tsToDate(ts)
     else
     {
         ampm = (d.getHours() < 12) ? 'AM' : 'PM';
-        result = d.getHours() + ':' + d.getMinutes() + ' ' + ampm + ' - ' + d.getDate() + ' ' + month(d.getMonth()) + ' ' + d.getFullYear();
+        result = d.getHours() + ':' + d.getMinutes() + '' + ampm + ' - ' + d.getDate() + ' ' + month(d.getMonth()) + ' ' + d.getFullYear();
     }
     return result;
 
@@ -101,6 +101,8 @@ $.extend(
             break;
         case 'twitter':
             u = "popup/twitter/";
+            // d.datetime = tsToDate(d.datetime);
+            // console.log( d.datetime );
             break;
         case 'photo_upload':
             u = "popup/photo_upload/";
@@ -195,33 +197,29 @@ $.extend(
     },
     popup_share: function(v)
     {
-        console.log("-- Posting to Facebook --");
+        if(v.type == "facebook"){
+            console.log("-- Posting to Facebook --");
 
-        var name = "test name";
-        var title = "test title";
-        var description = "test description";
+            FB.ui(
+              {
+                method: 'feed',
+                name: "We're Stronger Together.",
+                link: baseUrl+"#"+$.address.path(),
+                picture: baseUrl + 'img/assets/fb_share.jpg' ,
+                caption: 'Take action against breast cancer.' + (v.action != undefined ? " " + v.action : ""),
+                description: 'Create a Circle of Strength with those who support you most now.'
+              },
+              function(response) {
+                if (response && response.post_id) {
+                  //alert('Post was published.');
+                } else {
+                 // alert('Post was not published.');
+                }
+              }
+            );
+        } else if(v.type == "twitter"){
 
-        FB.ui(
-        {
-            method: 'feed',
-            name: '',
-            link: baseUrl + "#" + $.address.path(),
-            picture: baseUrl + 'img/assets/fb_share.jpg',
-            caption: 'Take action against breast cancer by [insert action]',
-            description: 'test'
-        },
-
-        function(response)
-        {
-            if (response && response.post_id)
-            {
-                //alert('Post was published.');
-            }
-            else
-            {
-                // alert('Post was not published.');
-            }
-        });
+        }
     }
 });
 
@@ -728,7 +726,7 @@ $.extend(
                                 id: v[i].id,
                                 source: 'bca',
                                 content: v[i].description,
-                                photo_url: '/uploads/' + v[i].filename,
+                                photo_url: 'uploads/' + v[i].filename,
                                 child: true
                             }
                         })
@@ -1019,8 +1017,14 @@ function checkAndLoadExternalUrl()
 
     if (adr.length != 0)
     {
+
         switch (adr[1])
         {
+
+        case 'video':
+            $.popup({type:'video', data:{outlink: true}});
+            break;
+
         case 'circle':
             u = "circle/fetchCircleData/";
             $data = {

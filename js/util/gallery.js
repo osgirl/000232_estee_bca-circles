@@ -501,7 +501,7 @@ function Gallery()
 							data:{
 								author:feed.author.alias, 
 								content:feed.text,
-								datetime:feed.timestamp,
+								datetime:tsToDate(feed.timestamp),
 								avatar:feed.author.avatar
 							}}
 
@@ -509,7 +509,7 @@ function Gallery()
 
 				var html = "<div class='twitter_avatar'><img src='" + feed.author.avatar + "'/></div>"
 					html	+= "<div class='twitter_title'><div class='twitter_author'>"+ feed.author.alias + "</div>"
-					html	+= "<div class='twitter_time'>"+ feed.timestamp + "</div></div>"
+					html	+= "<div class='twitter_time'>"+ tsToDate(feed.timestamp) + "</div></div>"
 					html	+= "<div class='twitter_text'>"+ feed.text + "</div>"
 					html 	+= "<img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 
