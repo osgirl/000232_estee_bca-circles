@@ -1017,26 +1017,28 @@ function checkAndLoadExternalUrl()
     {
         switch (adr[1])
         {
-            case 'circle':
-                u = "circle/fetchCircleData/";
+        case 'circle':
+            u = "circle/fetchCircleData/";
+            $data = {
+                circle_id: adr[2]
+            };
+            loadLocalData();
+            break;
+        case 'photo':
+
+            if (adr[2] == 'bca')
+            {
+                u = "photo/fetchUploadedPhotoData";
                 $data = {
-                    circle_id: adr[2]
+                    photo_id: adr[3]
                 };
                 loadLocalData();
-                break;
-            case 'photo':
-
-                if(adr[2] == 'bca'){
-                    u = "photo/fetchUploadedPhotoData";
-                    $data = {
-                        photo_id: adr[3]
-                    };
-                    loadLocalData();
-                }
-                else{
-                    loadInstagramData();
-                }
-                break;
+            }
+            else
+            {
+                loadInstagramData();
+            }
+            break;
         }
 
         function loadLocalData()
@@ -1095,7 +1097,43 @@ function checkAndLoadExternalUrl()
 
         function loadInstagramData()
         {
-            console.log('from instagram - token: ' + adr[3]);
+            // console.log('from instagram - token: ' + adr[3]);
+
+            //TEMP TEMP TEMP
+
+            $.ajax(
+            {
+                type: 'GET',
+                dataType: 'jsonp',
+                url: 'https://api.instagram.com/v1/media/' + adr[3] + '?client_id=3cff2efc3c714b4ab94a289918992d9c',
+                success: function(result)
+                {
+                    // console.debug('success');
+                    // console.debug(result);
+                    var data = result.data;
+
+                    $.popup(
+                    {
+                        type: 'photo',
+                        data: {
+                            id: data.id,
+                            source: 'instagram',
+                            author: data.caption.from.full_name,
+                            content: data.caption.text,
+                            photo_url: data.images.standard_resolution.url,
+                            outlink: true
+                        }
+                    });
+
+
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    console.debug('Error ' + textStatus);
+                }
+            })
+
+
         }
 
     }

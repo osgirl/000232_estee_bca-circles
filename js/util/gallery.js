@@ -146,11 +146,15 @@ function Gallery()
 	            	},
 	            	success: function(feedData) { 
 
+
+
 	                	if(currentFilterType != "all"){
 
 	                		//this extra step is to fix the circle id that sometimes is not in order
 
 	                		circleFeedDataArray.push(feedData);
+
+	                		console.log("CIRCLE DATA~~~~~", feedData)
 
 		            		circleFeedDataArray.sort(function sortNumber(a, b){
 
@@ -270,7 +274,7 @@ function Gallery()
 			allPhotoData = new Array();
 
 			$.feed.get('bca-circle', parseAllCircleData, 3);
-			$.feed.get('bca-photo', handleAllPhotoData, 3);
+			$.feed.get('bca-photo', handleAllPhotoData, 1);
 			$.feed.get('bca-twitter', handleAllPhotoData, 3);
 			$.feed.get('bca-instagram', handleAllPhotoData, 3);
 		}
@@ -634,7 +638,6 @@ function Gallery()
 		}
 
 		function createAllLayout(){
-
 
 			if(circleFeed && circleFeed.length > 0){
 				$.ajax({
