@@ -282,8 +282,6 @@ function createGoalDropdown(){
 
 function getTrendingAction(){
 
-	
-
 	trendingData.sort(function sortNumber(a, b){
 		  var aNum = Number(a.taken_number);
 		  var bNum = Number(b.taken_number); 
@@ -313,8 +311,6 @@ function getTrendingAction(){
 	})
 
 }
-
-
 
 
 function openCreateCircleScreen(){
