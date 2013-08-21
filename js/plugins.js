@@ -205,7 +205,7 @@ $.extend(
           {
             method: 'feed',
             name: '',
-            link: baseUrl+$.address.path(),
+            link: baseUrl+"#"+$.address.path(),
             picture: baseUrl + 'img/assets/fb_share.jpg' ,
             caption: 'Take action against breast cancer by [insert action]',
             description: 'test'
