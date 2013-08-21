@@ -748,6 +748,9 @@ function getUserCircleData(){
     	success: function(data) {           
         	console.log('success', data);
 
+
+        	if(data.length > 0) $('#create_another_circle').html('create another circle');
+
         	$('#circle_num').html(data.length + " Circle");
 
         	$(data).each(function(i,v){

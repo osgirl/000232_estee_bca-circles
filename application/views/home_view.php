@@ -140,7 +140,7 @@
 									<div id='bottom_user_name' class='user_name_display'></div>
 									<div class='user_location_display'></div>
 									<div id='user_circle_num'>Belongs to <span id='circle_num'>0 Circle</span></div>
-									<div id='create_another_circle' class='start_create_circle_btn pink_btn all_cap light_font'>Create Another Circle</div>
+									<div id='create_another_circle' class='start_create_circle_btn pink_btn all_cap light_font'>Create a Circle</div>
 									<div><a onclick="$.popup({type:'photo_upload'});" id="log_in_upload_photo_btn" class='upload_photo_btn pink_btn pull_left all_cap'>UPLOAD A PHOTO</a></div>
 								</div>
 								
