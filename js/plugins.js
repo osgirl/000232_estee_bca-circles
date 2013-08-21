@@ -726,7 +726,7 @@ $.extend(
                                 id: v[i].id,
                                 source: 'bca',
                                 content: v[i].description,
-                                photo_url: '/uploads/' + v[i].filename,
+                                photo_url: 'uploads/' + v[i].filename,
                                 child: true
                             }
                         })
