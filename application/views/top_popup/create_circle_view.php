@@ -8,11 +8,11 @@
     	<h1 class="all_cap">how will you fight breast cancer this year?</h1>
     	<div id="select_action">
     		<div id="select_action_button" class="select_button">
-    			<div id="select_action_field" class="select_field"><!-- Be proactive. Schedule a mammogram. --></div>
+    			<div id="select_action_field" class="select_field"><span id="goal_selected"><!-- Be proactive. Schedule a mammogram. --></span></div>
     			<div class="select_icon"><img src="<?php echo base_url(); ?>img/assets/select-arrow.png"/></div>
     		</div>
-    		<div class="select_dropdown">
-				<ul id="select_goal_dropdown">
+    		<div id="select_goal_dropdown" class="select_dropdown">
+				<ul id="goal_dropdown_lists">
 <!-- 					<li class="goal_dropdown_list">Be proactive. Schedule a mammogram.</li>
 					<li class="goal_dropdown_list">Volunteering at my local hospital.</li>
 					<li class="goal_dropdown_list">Walking everyday in October.</li>

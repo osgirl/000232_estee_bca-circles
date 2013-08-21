@@ -31,14 +31,19 @@ var createCircleWindowOpen = false;
 var stepID = 1;
 var agree = false;
 
-//variables send to database
 var goal;
+var goalID;
+
 var curSelectedGoal;
+var curSelectedGoalID;
 
 var NAME_TEXTFIELD_WIDTH 	= 135;
 var MAX_FRIENDS_NUM		 	= 10;
 var TOOLTIP_TIMEOUT			= 1500;
 var PHOTO_COLUMN_NUM		= 4;
+var TRENDING_ACTION_SHOW	= 3;
+
+var goalData;
 
 
 
@@ -48,8 +53,6 @@ var statsItemHtml = "<tr><td class='action_icon' rowspan='2'><img/></td><td clas
 $(document).ready(function(){	
 
 	initFacebook();
-
-	getTrendingAction();
 
 	enableButtons();
 	enableEventBinds();
@@ -187,13 +190,6 @@ function enableButtons(){
 	$('.sign_in_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#language_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#select_action_button').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$(".goal_dropdown_list").unbind('mouseover').mouseover(function(e){
-		$(e.currentTarget).css({
-			cursor: "pointer",
-			backgroundColor: "#e8e8e8"
-		});
-	})
-	$(".goal_dropdown_list").unbind('mouseout').mouseout(function(e){$(e.currentTarget).css("background", "none");})
 	$('#name_plus_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#close_friend_photos_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('.feature_circle_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
@@ -216,7 +212,7 @@ function enableButtons(){
 	$('#select_action_button').unbind('click').click(function(e){
 		(!selectOpen) ? openActionSelect() : closeActionSelect();
 	})
-	$(".goal_dropdown_list").unbind('click').click(function(e){actionSelected(e);})
+	
 	$(".cancel_create_circle_btn").unbind("click").click(openCancelScreen);
 	$("#next_step_btn").unbind("click").click(function(e){goNextCreateCircleScreen(e)});
 	$("#back_step_btn").unbind("click").click(function(e){goNextCreateCircleScreen(e)});
@@ -252,12 +248,75 @@ function createGoalDropdown(){
 	$.ajax({
     	url: baseUrl + 'goal/fetchGoalData',
     	dataType: 'json',
-    	success: function(data) {           
-        	console.log('success', data)
+    	success: function(data) {  
 
+    		
+
+		    data.sort(function sortNumber(a, b){
+				  var aNum = Number(a.id);
+				  var bNum = Number(b.id); 
+				  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 1 : 0));
+			});   
+
+    		$('#goal_selected').html(data[0].goal);      
+        	$(data).each(function(i, v){
+
+        		if(v.goal_type == "default"){
+        			var list = $('<li>');
+        			list.addClass('goal_dropdown_list')
+        			.html(v.goal)
+        			.appendTo($('#goal_dropdown_lists'));
+
+        			list.unbind('mouseover').mouseover(function(e){
+						$(e.currentTarget).css({
+							cursor: "pointer",
+							backgroundColor: "#e8e8e8"
+						});
+					})
+					list.unbind('mouseout').mouseout(function(e){$(e.currentTarget).css("background", "none");})
+
+        			list.unbind('click').click(function(e){actionSelected(e);})
+        		}
+
+        	})
+
+        	goalData = data;
+        	getTrendingAction();
      	}
 		});
 }
+
+function getTrendingAction(){
+
+	goalData.sort(function sortNumber(a, b){
+		  var aNum = Number(a.taken_number);
+		  var bNum = Number(b.taken_number); 
+		  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+	});
+
+	var actionCount = 0;
+
+	$(goalData).each(function(i, v){
+
+		if(v.taken_number !=0){
+
+			actionCount++;
+
+			if(actionCount <= TRENDING_ACTION_SHOW){
+				var line1 = v.taken_number + " People will";
+				var line2 = v.goal;
+
+				createStatItem(v, $('#trending_actions_1'), line1, line2);
+				createStatItem(v, $('#trending_actions_2'), line1, line2);
+			}
+
+		}
+
+	})
+
+}
+
+
 
 
 function openCreateCircleScreen(){
@@ -268,6 +327,7 @@ function openCreateCircleScreen(){
 	createCircleClicked = false;
 	curSelectedGoal = $($(".goal_dropdown_list").get(0)).html();
 	goal = curSelectedGoal;
+	goalID = curSelectedGoalID = 1;
 	
 	$("#custom_action").unbind("keyup").keyup(function(e){
 		goal = $(e.currentTarget).val();
@@ -329,6 +389,7 @@ function resetCircle(){
 
 	$("#select_action").css({ opacity: 1 });
 	goal = $($(".goal_dropdown_list").get(0)).html();
+	goalID = curSelectedGoalID = 1;
 	curSelectedGoal = goal;
 	$("#select_action_field").html(goal);
 	$("#custom_action").val("");
@@ -375,7 +436,9 @@ function actionSelected(e){
 	closeActionSelect();
 	
 	goal = $(e.currentTarget).html();
+	goalID = $(e.currentTarget).index()+1;
 	curSelectedGoal = goal;
+	curSelectedGoalID = goalID;
 	$("#select_action_field").html(goal);
 	$("#custom_action").val("");
 	
@@ -689,48 +752,29 @@ function getUserCircleData(){
 
         	$(data).each(function(i,v){
 
-        		var myCircleItem = $('<table>');
-        		myCircleItem.addClass('action_item');
+        		var line1 = '<a>' + v.goal + '</a>';
+        		var line2 = v.friends_data.length + " Friends Taking Action";
 
-        		myCircleItem.html(statsItemHtml)
-        					.appendTo($('#my_circles'));
+        		createStatItem(v, $('#my_circles'), line1, line2);
 
-        		myCircleItem.find('img').attr('src', baseUrl + "img/icons/walking.png");
-        		myCircleItem.find('.action_line_1').html('<a>' + v.goal + '</a>');
-        		myCircleItem.find('.action_line_2').html(v.friends_data.length + " Friends Taking Action");
-         	})
+        	})
      	}
 	});
 }
 
-function getTrendingAction(){
+function createStatItem(item, parent, line1, line2){
+	
 
-	$.ajax({
-		type: 'post',
-    	url: baseUrl + 'circle/fetchAllCircleData',
-    	dataType: 'json',
-    	data: {
-    		user_id:userID
-    	},
-    	success: function(data) {           
-        	console.log('success', data);
+		var statItem = $('<table>');
+		statItem.addClass('action_item');
 
-        	$(data).each(function(i,v){
+		statItem.html(statsItemHtml)
+					.appendTo(parent);
 
-
-        		// var trendingActionItem = $('<table>');
-        		// trendingActionItem.addClass('community_item');
-
-        		// trendingActionItem.html(statsItemHtml)
-        		// 			.appendTo($('#my_circles'));
-
-        		// trendingActionItem.find('img').attr('src', baseUrl + "img/icons/walking.png");
-        		// trendingActionItem.find('.community_line_1').html(data.length + " People are");
-        		// trendingActionItem.find('.community_line_2').html(v.goal);
-         	})
-     	}
-	});
-
+		statItem.find('img').attr('src', baseUrl + "img/icons/walking.png");
+		statItem.find('.action_line_1').html(line1);
+		statItem.find('.action_line_2').html(line2);
+ 	
 }
 
 function createCircle(){	
@@ -740,6 +784,7 @@ function createCircle(){
 		console.log("user friends info", friendSelectedArray);
 		console.log("friend tags", friendTagIDs);
 		console.log("goal", goal);
+		console.log("goalID", goalID);
 		console.log("language", language);
 
 		var friendNum = friendSelectedArray.length + 1;
@@ -757,6 +802,7 @@ function createCircle(){
 				'users_name'  	  : userName,
 				'users_photo_url' : userProfilePhoto,
 				'goal'			  : goal,
+				'ref_goal_id'	  : goalID,	
 				'language'		  : 0 // optional, we still not sure about this field
 			};
 
@@ -766,7 +812,7 @@ function createCircle(){
             	dataType: 'json',
             	data: value,
             	success: function(data) {           
-                	console.log('success', data.id);
+                	console.log('success goal id', data.ref_goal_id);
 
                 	$.each(friendSelectedArray, function(i,v){
                 		console.log(data.id, v.id, v.name)

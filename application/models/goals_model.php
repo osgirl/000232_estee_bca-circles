@@ -9,7 +9,8 @@ class Goals_Model extends BCA_Model
     	$this->goal = array(
 			'id' 							=> array("shown"=>true, 	"label"=>"Id"),
 			'goal' 							=> array("shown"=>true, 	"label"=>"Circle Goal"),
-			'ranking'						=> array("shown"=>true, 	"label"=>"Circle Ranking")
+			'taken_number'					=> array("shown"=>true, 	"label"=>"Goal Taken Number"),
+			'goal_type'						=> array("shown"=>true, 	"label"=>"Goal Type")
 		);
 	}
 }

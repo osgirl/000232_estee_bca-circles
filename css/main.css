@@ -423,7 +423,13 @@ h2{
 
 #create_another_circle{
 	font-size:.7em;
-	margin: 10px 0 0 -2%;
+	margin: 10px 0 10px -2%;
+	padding:15px 6% 13px 6%;
+}
+
+#log_in_upload_photo_btn{
+	font-size:.7em;
+	margin: 0 0 0 -2%;
 	padding:15px 6% 13px 6%;
 }
 
@@ -447,10 +453,6 @@ h2{
 
 #join_btns{
 	margin:10px 0 30px 0;
-}
-
-#upload_photo_btn{
-	margin-left:3%;
 }
 
 #donate_btn{
@@ -910,10 +912,15 @@ h2{
 
 #select_action{
 	min-width: 280px;
-	max-width: 500px;
+	max-width: 700px;
 	font-size:1.1em;
 	position:relative;
 	margin-bottom:20px;
+}
+
+#goal_selected{
+	min-width: 180px;
+	max-width: 650px;
 }
 
 .select_field{
@@ -956,6 +963,7 @@ h2{
 .goal_dropdown_list{
 	list-style-type:none;
 	padding:7px 0 6px 13px;
+	/*font-size:.7em;*/
 }
 
 #custom_action{

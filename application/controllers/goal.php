@@ -13,14 +13,18 @@ class Goal extends CI_Controller {
 
 		$query = $this->db->query("SELECT * FROM goals"); 
 
-		$data = array();
-
 		if ($query->num_rows() > 0) {
-		  foreach($query->result() as $row) {
 
-				$data[] = $row->goal;
-			
-		  }//endif
+			$data = array();
+			  foreach($query->result() as $row) {
+
+			  	$data[] = array (   'id'=>$row->id,
+			  						'goal'=>$row->goal,
+					  				'icon'=>$row->icon,
+			  						'taken_number' => $row->taken_number,
+									'goal_type' => $row->goal_type
+								);
+			  }//endif
 		}
 
 		echo json_encode($data);

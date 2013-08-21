@@ -19,14 +19,19 @@ class Circle extends CI_Controller {
 		// 	$php_date 	= new DateTime();
 		// 	$time_date  = $php_date->format('Y-m-d H:i:s');
 
+			$ref_goal_id = $this->post['ref_goal_id'];
+
 			$post = array(
 				'users_fb_id'			=> $this->post['users_fb_id'],
 				'users_name'			=> $this->post['users_name'],
 				'users_photo_url'		=> $this->post['users_photo_url'],
 				'goal'					=> $this->post['goal'],
 				//'date'					=> '2013-07-31 11:50:53',
-				'language'				=> $this->post['language']
+				'language'				=> $this->post['language'],
+				'ref_goal_id'			=> $ref_goal_id
 				);
+
+			$query = $this->db->query("UPDATE goals SET taken_number=taken_number + 1 WHERE id = '$ref_goal_id'"); 
 			
 		 	$result = $this->circles_model->Add($post);
 

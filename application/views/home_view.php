@@ -129,27 +129,6 @@
 							</div>
 							<div id='trending_actions_1' class='span5'>
 								<h2>Trending Actions</h2>
-								<table class='action_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='action_line_1 light_font'>219 People are</td>
-									</tr>
-									<tr><td class='action_line_2'>Jogging in the park Everyday In October</td></tr>
-								</table>
-								<table class='action_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='action_line_1 light_font'>219 People are</td>
-									</tr>
-									<tr><td class='action_line_2'>Walking Everyday In October</td></tr>
-								</table>
-								<table class='action_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='action_line_1 light_font'>219 People are</td>
-									</tr>
-									<tr><td class='action_line_2'>Walking Everyday In October</td></tr>
-								</table>
 							</div>
 						</div>
 					</div>
@@ -162,6 +141,7 @@
 									<div class='user_location_display'></div>
 									<div id='user_circle_num'>Belongs to <span id='circle_num'>0 Circle</span></div>
 									<div id='create_another_circle' class='start_create_circle_btn pink_btn all_cap light_font'>Create Another Circle</div>
+									<div><a onclick="$.popup({type:'photo_upload'});" id="log_in_upload_photo_btn" class='upload_photo_btn pink_btn pull_left all_cap'>UPLOAD A PHOTO</a></div>
 								</div>
 								
 							</div>
@@ -171,20 +151,6 @@
 							
 							<div id="trending_actions_2" class='user_stats span4'>
 								<h2>Trending Actions</h2>
-								<table class='action_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='action_line_1 light_font'>219 People are</td>
-									</tr>
-									<tr><td class='action_line_2'>Jogging in the park Everyday In October</td></tr>
-								</table>
-								<table class='action_item'>
-									<tr>
-									    <td class='action_icon' rowspan="2"><img src='<?php echo base_url(); ?>img/icons/walking.png'/></td>
-									    <td class='action_line_1 light_font'>219 People are</td>
-									</tr>
-									<tr><td class='action_line_2'>Walking Everyday In October</td></tr>
-								</table>
 							</div>
 						</div>
 					</div>  
@@ -209,7 +175,7 @@
         <div id='donate_area'>
 			<div id='join_fight' class='span2 all_cap light_font span'>
 				<div id='join_fight_text'>Join the fight<br /><span style='font-size:160%'>donate!</span></div>
-				<div id='donate_btn' class='pink_btn'>DONATE NOW</div>
+				<a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" target="_blank" ><div id='donate_btn' class='pink_btn'>DONATE NOW</div></a>
 			</div>
 			<div id='join_fight_content' class="span5">
 				<p>Breast cancer affects 1 in 8 women in their lifetime. A donation of $50 raised by a Circle funds approximately one hour of lifesaving research through The Breast Cancer Research Foundation. Donate now and take us a step closer to eradicating this disease.</p>
