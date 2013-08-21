@@ -748,10 +748,17 @@ function getUserCircleData(){
     	success: function(data) {           
         	console.log('success', data);
 
+        	var circlePlural;
 
-        	if(data.length > 0) $('#create_another_circle').html('create another circle');
 
-        	$('#circle_num').html(data.length + " Circle");
+        	if(data.length > 0) {
+        		$('#create_another_circle').html('create another circle');
+        		circleText = " Circles";
+        	}else{
+        		circleText = " Circle";
+        	}
+
+        	$('#circle_num').html(data.length + circleText);
 
         	$(data).each(function(i,v){
 
