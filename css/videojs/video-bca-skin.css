@@ -331,8 +331,8 @@
   display: block;
   z-index: 2;
   position: absolute;
-  bottom: 2em;
-  left: 2em;
+  top: 40%;
+  left: 40%;
   width: 12.0em;
   height: 8.0em;
   margin: 0;
