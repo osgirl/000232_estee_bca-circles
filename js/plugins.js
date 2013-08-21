@@ -41,7 +41,7 @@ function tsToDate(ts)
     else
     {
         ampm = (d.getHours() < 12) ? 'AM' : 'PM';
-        result = d.getHours() + ':' + d.getMinutes() + ' ' + ampm + ' - ' + d.getDate() + ' ' + month(d.getMonth()) + ' ' + d.getFullYear();
+        result = d.getHours() + ':' + d.getMinutes() + '' + ampm + ' - ' + d.getDate() + ' ' + month(d.getMonth()) + ' ' + d.getFullYear();
     }
     return result;
 
@@ -101,6 +101,8 @@ $.extend(
             break;
         case 'twitter':
             u = "popup/twitter/";
+            // d.datetime = tsToDate(d.datetime);
+            // console.log( d.datetime );
             break;
         case 'photo_upload':
             u = "popup/photo_upload/";
@@ -1015,8 +1017,14 @@ function checkAndLoadExternalUrl()
 
     if (adr.length != 0)
     {
+
         switch (adr[1])
         {
+
+        case 'video':
+            $.popup({type:'video', data:{outlink: true}});
+            break;
+
         case 'circle':
             u = "circle/fetchCircleData/";
             $data = {
