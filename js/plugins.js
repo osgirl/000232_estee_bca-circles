@@ -442,7 +442,7 @@ $.extend(
                 $.ajax(
                 {
                     type: 'post',
-                    url: '/photo/saveRawFile',
+                    url: 'photo/saveRawFile',
                     dataType: 'text',
                     data: {
                         base64data: canvasData,
@@ -466,7 +466,7 @@ $.extend(
                 $.ajax(
                 {
                     type: 'post',
-                    url: '/photo/saveFile',
+                    url: 'photo/saveFile',
                     data: {
                         filePath: $preview_img_path,
                         x: $l,
