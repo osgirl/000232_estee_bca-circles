@@ -38,14 +38,12 @@ var curSelectedGoal;
 var curSelectedGoalID;
 
 var NAME_TEXTFIELD_WIDTH 	= 135;
-var MAX_FRIENDS_NUM		 	= 10;
+var MAX_FRIENDS_NUM		 	= 9;
 var TOOLTIP_TIMEOUT			= 1500;
 var PHOTO_COLUMN_NUM		= 4;
 var TRENDING_ACTION_SHOW	= 3;
 
 var goalData;
-
-
 
 var photoButtonHtml = '<div class="photo_rollover item_rollover"><div class="rollover_content"><div class="pink_btn all_cap view_circle_btn">view</div></div></div><div class="gallery_item_btn"></div>';
 var statsItemHtml = "<tr><td class='action_icon' rowspan='2'><img/></td><td class='action_line_1 light_font'></td></tr><tr><td class='action_line_2'></td></tr>";
@@ -249,8 +247,6 @@ function createGoalDropdown(){
     	url: baseUrl + 'goal/fetchGoalData',
     	dataType: 'json',
     	success: function(data) {  
-
-    		
 
 		    data.sort(function sortNumber(a, b){
 				  var aNum = Number(a.id);
@@ -721,7 +717,6 @@ function confirmCreateCircle(){
 		return;
 	}
 
-	console.log("show confirm")
 	closeCreateCircleScreen();
 	$('#circle_confirm_screen').slideDown(300);
 }
@@ -797,7 +792,7 @@ function createCircle(){
 		console.log("goalID", goalID);
 		console.log("language", language);
 
-		var friendNum = friendSelectedArray.length + 1;
+		var friendNum = friendSelectedArray.length;
 
 		var popupData = "$.popup({type:'circle', data:{  content: 'We Will - <br />"+ goal+ "',avatar: '"+ userProfilePhoto + "', num_friends: " + friendNum + "}});"
 
@@ -822,10 +817,9 @@ function createCircle(){
             	dataType: 'json',
             	data: value,
             	success: function(data) {           
-                	console.log('success goal id', data.ref_goal_id);
 
                 	$.each(friendSelectedArray, function(i,v){
-                		console.log(data.id, v.id, v.name)
+                		//console.log(data.id, v.id, v.name)
                 		$.ajax({
 			        		type: 'post',
 			            	url: baseUrl + 'friend/updateCircleFriends',
