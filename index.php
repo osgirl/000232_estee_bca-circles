@@ -20,6 +20,7 @@
  */
 	switch ($_SERVER["HTTP_HOST"]){
         case "16w22ventures.info": 		 	define('ENVIRONMENT','staging'); break;
+        case "staging.click3x.com": 		define('ENVIRONMENT','staging'); break;
 		case "localhost": 					define('ENVIRONMENT','development'); break;
 		case "bca.dev": 					define('ENVIRONMENT','sean_config'); break;
 		case "bcasite.dev": 				define('ENVIRONMENT','mili_config'); break;

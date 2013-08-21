@@ -195,7 +195,29 @@ $.extend(
     },
     popup_share: function(v)
     {
-        alert(v.type + ' | url :' + $.address.baseURL() + $.address.path());
+        console.log("-- Posting to Facebook --");
+
+        var name = "test name";
+        var title = "test title";
+        var description = "test description";
+
+        FB.ui(
+          {
+            method: 'feed',
+            name: '',
+            link: baseUrl+$.address.path(),
+            picture: baseUrl + 'img/assets/fb_share.jpg' ,
+            caption: 'Take action against breast cancer by [insert action]',
+            description: 'test'
+          },
+          function(response) {
+            if (response && response.post_id) {
+              //alert('Post was published.');
+            } else {
+             // alert('Post was not published.');
+            }
+          }
+        );
     }
 });
 
