@@ -18,8 +18,8 @@
 <div class="gallery_item_btn"></div>
 <div class='share_circle'>
 	<div class='share_text all_cap'>share</div>
-	<div class='circle_fb_share_btn facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
-	<div class='circle_tw_share_btn twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
+	<div onclick="$.popup_share({type:'facebook', url:''})" class='circle_fb_share_btn facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
+	<div onclick="$.popup_share({type:'twitter', url:''})" class='circle_tw_share_btn twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
 </div>
 
 

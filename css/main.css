@@ -157,6 +157,7 @@ h2{
 
 .top_sub_nav_item > div{
 	margin-left:5px;
+	cursor: pointer;
 }
 
 .top_sub_nav_item > div:first-child{
@@ -737,6 +738,7 @@ h2{
 .share_circle div{
 	float:left;
 	margin-right:5px;
+	cursor: pointer;
 }
 
 .share_circle{
