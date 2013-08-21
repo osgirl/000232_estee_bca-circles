@@ -154,8 +154,6 @@ function Gallery()
 
 	                		circleFeedDataArray.push(feedData);
 
-	                		console.log("CIRCLE DATA~~~~~", feedData)
-
 		            		circleFeedDataArray.sort(function sortNumber(a, b){
 
 							  var aNum = Number(a.circle_id);
@@ -199,11 +197,9 @@ function Gallery()
 	                	}else{
 	                		galleryItem.populateCircleContent($($('.circle_container').get(i)), feedData);
 	                	}
-
 	             	}
 	      		});
 			});
-
 		}
 
 		function parseAllCircleData(data){
@@ -274,9 +270,63 @@ function Gallery()
 			allPhotoData = new Array();
 
 			$.feed.get('bca-circle', parseAllCircleData, 3);
-			$.feed.get('bca-photo', handleAllPhotoData, 1);
-			$.feed.get('bca-twitter', handleAllPhotoData, 3);
+			$.feed.get('bca-photo', handleAllPhotoData, 3);
 			$.feed.get('bca-instagram', handleAllPhotoData, 3);
+			$.feed.get('bca-twitter', handleAllPhotoData, 3);
+
+			//handleAllPhotoData
+			
+		}
+
+		// function pushAllData(data){
+		// 	if(data.length != 0) {
+		// 		$(data).each(function (i, v){
+		// 			allPhotoData.push(v);
+
+		// 		})
+		// 	}
+		// }
+
+		// function handlePhotoData(data){
+		// 	console.log("photo", data.length)
+		// 	pushAllData(data);
+		// 	$.feed.get('bca-instagram', handleInstagramData, 3);
+			
+		// }
+
+		// function handleInstagramData(data){
+		// 	console.log("instagram", data.length)
+		// 	pushAllData(data);
+		// 	$.feed.get('bca-twitter', handleTwitterData, 3);
+
+		// }
+
+		// function handleTwitterData(data){
+		// 	console.log("twitter", data.length)
+		// 	pushAllData(data);
+		// 	handleAllPhotoData();
+		// }
+
+		function handleAllPhotoData(data){
+
+			if(data.length != 0) {
+				$(data).each(function (i, v){
+					allPhotoData.push(v);
+
+				})
+			}
+
+			allPhotoData.sort(function sortNumber(a, b){
+				  var aNum = Number(a.data.timestamp);
+				  var bNum = Number(b.data.timestamp); 
+				  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+			});
+
+
+			$('body').bind('ALL_LAYOUT_CREATED', function(e){
+				galleryItem.parseAllPhotoData(allPhotoData, false);
+			})
+
 		}
 
 		function getMoreAllFeed(){
@@ -312,6 +362,7 @@ function Gallery()
 						instagramNum 	= 6;
 
 					}
+					
 					$.feed.more('bca-photo', handleMorePhotoData, photoNum);
 					$.feed.more('bca-twitter', handleMorePhotoData, twitterNum);
 					$.feed.more('bca-instagram', handleMorePhotoData, instagramNum);
@@ -639,6 +690,8 @@ function Gallery()
 
 		function createAllLayout(){
 
+			console.log('create all layout');
+
 			if(circleFeed && circleFeed.length > 0){
 				$.ajax({
 	        		type: 'get',
@@ -655,7 +708,6 @@ function Gallery()
 
 	            		$(layout1).appendTo(gallery_container);
 	            		
-
 						if(isMoreFeed){
 							$(layout1).addClass('layout' + current_add_layout)
 							current_add_layout = (current_add_layout == 1) ? 2 : 1;
@@ -663,7 +715,7 @@ function Gallery()
 							$(window).bind('scroll', lazyloader);
 							return;
 						}else{
-							$(layout1).addClass('layout1 page1')
+							$(layout1).addClass('layout1 page1');
 						}
 
 						$.ajax({
@@ -711,31 +763,34 @@ function Gallery()
 		}
 
 		function createPhotoLayout(){
+			console.log('create photo layout')
 			var photoLayout = $('<div>');
 			photoLayout.addClass('layout_photo gallery_layout page' + pageNum)
 						.appendTo(gallery_container);
 		}
 
-		function handleAllPhotoData(data){
+		
 
-			$(data).each(function (i, v){
-				allPhotoData.push(v);
+		// function handleMoreTwitterData(data){
+		// 	if(data.length > 0){
+		// 		$(data).each(function (i, v){
 
-			})
+		// 			morePhotoData.push(v);
+					
+		// 		})
+		// 	}
+		// }
 
-			allPhotoData.sort(function sortNumber(a, b){
-				  var aNum = Number(a.data.timestamp);
-				  var bNum = Number(b.data.timestamp); 
-				  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
-			});
+		// function handleMoreInstagramData(data){
+
+		// 	if(data.length > 0){
+		// 		$(data).each(function (i, v){
+		// 			morePhotoData.push(v);	
+		// 		})
+		// 	}
 
 
-			$('body').bind('ALL_LAYOUT_CREATED', function(e){
-				galleryItem.parseAllPhotoData(allPhotoData, false);
-			})
-
-
-		}
+		// }
 
 		function handleMorePhotoData(data){
 
@@ -758,7 +813,11 @@ function Gallery()
 
 			//createPhotoLayout();
 
-			//galleryItem.parseAllPhotoData(data, false, true, pageNum);
+			galleryItem.parseAllPhotoData(data, false, true, pageNum);
+
+		}
+
+		function handleMoreAllPhoto(){
 
 		}
 
@@ -807,7 +866,6 @@ function Gallery()
 				pageNum = 2;
 				$('#gallery').height(DEFAULT_GALLERY_HEIGHT);
 			}
-			
 
 			$(window).resize(function(e){
 				galleryItem.centerRollOverContent();

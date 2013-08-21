@@ -120,7 +120,7 @@ function Facebook()
 
 	    createCircle: function(){
 	    	//open graph 
-	    	FB.api("me/bcacircles:create",
+	    	FB.api("me/bca-circle:create",
 					"post",
 					
 					{ circle: "http://samples.ogp.me/308553962613651?",
