@@ -9,3 +9,5 @@ _test_photos/*
 _masonry_test/*
 _get_test/*
 _feed_test/*
+.gitattributes
+.project

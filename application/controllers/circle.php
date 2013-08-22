@@ -8,7 +8,21 @@ class Circle extends CI_Controller {
 	}	
 
 	public function index()
-	{		
+	{
+	}
+
+	public function share($id = null)
+	{
+		if( isset($id)){
+			$result = $this->circles_model->get(array('id' => $id));
+			$data['id'] = $id;
+			$data['user_goal'] = $result->goal;
+			$this->load->view('home_view', $data);
+		}
+		else{
+			echo 'Invalid access';
+		}
+
 	}
 
 	public function create()

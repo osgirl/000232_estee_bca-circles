@@ -121,12 +121,12 @@ $.extend(
                 $.ajax(
                 {
                     type: 'POST',
-                    url: u,
+                    url: baseUrl + u,
                     data: d,
                     success: function(data)
                     {
                         $('#gallery').append(data);
-                        $('#popup_circle').init_circle(d);
+                        $('.popup#popup_circle').init_circle(d);
                     },
                     error: function(jqXHR, textStatus, errorThrown)
                     {
@@ -140,7 +140,7 @@ $.extend(
         {
             $.fancybox(
             {
-                href: u,
+                href: baseUrl + u,
                 type: 'ajax',
                 padding: 0,
                 closeBtn: $closeBtn,
@@ -197,8 +197,14 @@ $.extend(
     },
     popup_share: function(v)
     {
+        cid = $('.popup#popup_circle').attr('cid');
+        u = baseUrl + 'circle/share/' + cid;
+
+        console.log(u);
+
         if(v.type == "facebook"){
             console.log("-- Posting to Facebook --");
+
 
             FB.ui(
               {
@@ -566,6 +572,7 @@ $.extend(
         $win_abs_y = $(window).scrollTop();
         $margin_top = $('.navbar').height();
         $pagn = $($c + ' #popup_circle_photo_carousel_pagn')
+        $this.attr('cid', $d.id);
 
         //Add padding when header page has net been scrolled to the top
         if (($win_abs_y + $margin_top) < $this.parent().offset().top)
@@ -663,7 +670,7 @@ $.extend(
 
             if ($i != 0)
             {
-                $('<div class="dot"><img src="img/popups/circle/dot.png"/></div>').css(
+                $('<div class="dot"><img src="' + baseUrl+ 'img/popups/circle/dot.png"/></div>').css(
                 {
                     'left': $x + '%',
                     'top': $y + '%'
@@ -1017,7 +1024,7 @@ function checkAndLoadExternalUrl()
 
     if (adr.length != 0)
     {
-
+        console.log(adr);
         switch (adr[1])
         {
 
@@ -1026,7 +1033,7 @@ function checkAndLoadExternalUrl()
             break;
 
         case 'circle':
-            u = "circle/fetchCircleData/";
+            u = baseUrl + "circle/fetchCircleData/";
             $data = {
                 circle_id: adr[2]
             };
@@ -1036,7 +1043,7 @@ function checkAndLoadExternalUrl()
 
             if (adr[2] == 'bca')
             {
-                u = "photo/fetchUploadedPhotoData";
+                u = baseUrl + "photo/fetchUploadedPhotoData";
                 $data = {
                     photo_id: adr[3]
                 };
