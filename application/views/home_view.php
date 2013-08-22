@@ -19,21 +19,21 @@
         <meta property="og:type" content="bcacircles:circle">
 
         <link rel="stylesheet" href="<?= base_url(); ?>css/bootstrap.min.css?cachebuster=<?= $cacheBuster; ?>">
-        <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-responsive.min.css?cachebuster=<?= $cacheBuster; ?>"> -->
+        <!-- <link rel="stylesheet" href="<?= base_url(); ?>css/bootstrap-responsive.min.css?cachebuster=<?= $cacheBuster; ?>"> -->
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css?cachebuster=<?= $cacheBuster; ?>" />
         
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/jquery.jscrollpane.css?cachebuster=<?= $cacheBuster; ?>">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-js.css?cachebuster=<?= $cacheBuster; ?>" type="text/css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-bca-skin.css?cachebuster=<?= $cacheBuster; ?>" type="text/css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/fancybox2/jquery.fancybox.css?cachebuster=<?= $cacheBuster; ?>?v=2.1.5" type="text/css" media="screen" />
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css?cachebuster=<?= $cacheBuster; ?>">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_smartphone.css?cachebuster=<?= $cacheBuster; ?>">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_tablet.css?cachebuster=<?= $cacheBuster; ?>">
+        <link rel="stylesheet" href="<?= base_url(); ?>css/jquery.jscrollpane.css?cachebuster=<?= $cacheBuster; ?>">
+        <link rel="stylesheet" href="<?= base_url(); ?>css/videojs/video-js.css?cachebuster=<?= $cacheBuster; ?>" type="text/css">
+        <link rel="stylesheet" href="<?= base_url(); ?>css/videojs/video-bca-skin.css?cachebuster=<?= $cacheBuster; ?>" type="text/css">
+        <link rel="stylesheet" href="<?= base_url(); ?>css/fancybox2/jquery.fancybox.css?cachebuster=<?= $cacheBuster; ?>?v=2.1.5" type="text/css" media="screen" />
+        <link rel="stylesheet" href="<?= base_url(); ?>css/main.css?cachebuster=<?= $cacheBuster; ?>">
+        <link rel="stylesheet" href="<?= base_url(); ?>css/main_smartphone.css?cachebuster=<?= $cacheBuster; ?>">
+        <link rel="stylesheet" href="<?= base_url(); ?>css/main_tablet.css?cachebuster=<?= $cacheBuster; ?>">
 
         <!-- This a css for popup window. You can merge this to main.css?cachebuster=<?= $cacheBuster; ?> in final production -->
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/popup.css?cachebuster=<?= $cacheBuster; ?>">
+        <link rel="stylesheet" href="<?= base_url(); ?>css/popup.css?cachebuster=<?= $cacheBuster; ?>">
 
-        <script src="<?php echo base_url(); ?>js/vendor/modernizr-2.6.2-respond-1.1.0.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?= base_url(); ?>js/vendor/modernizr-2.6.2-respond-1.1.0.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
     </head>
     <body>
     	
@@ -41,8 +41,8 @@
        <div id="fb-root"></div>
 		<script type="text/javascript">
 		  // You probably don't want to use globals, but this is just example code
-		  var fbAppId = '<?php echo config_item("fb_app_id"); ?>';
-		  var baseUrl = '<?php echo base_url(); ?>';
+		  var fbAppId = '<?= config_item("fb_app_id"); ?>';
+		  var baseUrl = '<?= base_url(); ?>';
 
 		</script>
     	
@@ -61,12 +61,12 @@
                 <div id='top_content'>
 	             	<div class="row">
 		                <div class="top_content_span span6">
-		                    <div><img src='<?php echo base_url(); ?>img/pics/stronger-together.png'/></div>
+		                    <div><img src='<?= base_url(); ?>img/pics/stronger-together.png'/></div>
 		                </div>
 		                <div class="top_content_span span6">
 		                	<div class="row">
 		                		<div id='featured_header' class="span6">
-		                			<img class='pull_left' src='<?php echo base_url(); ?>img/headers/featured-header.png'/>
+		                			<img class='pull_left' src='<?= base_url(); ?>img/headers/featured-header.png'/>
 		                			<div class='pull_left'>
 										<div class='featured_dot featured_selected'></div>
 										<div class='featured_dot featured_deselected'></div>
@@ -119,7 +119,7 @@
 	            	<div class='log_out_status'>
 	            		<div class="row">
 							<div id='join_conversation' class="span7">
-								<div id='join_header'><img class='auto_resize' src='<?php echo base_url(); ?>img/headers/join-the-conversation.png'/></div>
+								<div id='join_header'><img class='auto_resize' src='<?= base_url(); ?>img/headers/join-the-conversation.png'/></div>
 								<div>
 									<div id='join_text' class='light_font'>Show how you're fighting breast cancer by creating a circle, uploading a photo, or tagging posts on Instagram and Twitter with <b>#BCAstrength</b>.</div>
 									<table class="btn_control">
@@ -162,12 +162,12 @@
 	            <div id='gallery'>
 					<div class='h_divider_top'></div>
 					<div id="filter_nav">
-						<div style="display:inline-block"><img src='<?php echo base_url(); ?>img/icons/filter.png'/></div>
+						<div style="display:inline-block"><img src='<?= base_url(); ?>img/icons/filter.png'/></div>
 						<div id="filter_all_btn" type="all" class="pink_btn pink_filter_btn all_cap">all</div>
 						<div id="filter_circles_btn" type="circle" class="pink_btn pink_filter_btn all_cap">circles</div>
 						<div id="filter_photos_btn" type="photo" class="pink_btn pink_filter_btn all_cap">photos</div>
-						<div id="filter_instagram_btn" type="instagram" class="pink_btn pink_filter_btn blue_btn"><img src='<?php echo base_url(); ?>img/buttons/instagram.png'></div>
-						<div id="filter_twitter_btn" type="twitter" class="pink_btn pink_filter_btn light_blue_btn"><img src='<?php echo base_url(); ?>img/buttons/twitter.png'></div>
+						<div id="filter_instagram_btn" type="instagram" class="pink_btn pink_filter_btn blue_btn"><img src='<?= base_url(); ?>img/buttons/instagram.png'></div>
+						<div id="filter_twitter_btn" type="twitter" class="pink_btn pink_filter_btn light_blue_btn"><img src='<?= base_url(); ?>img/buttons/twitter.png'></div>
 						<div id="filter_friends_btn" type="friend" class="pink_btn pink_filter_btn all_cap">my friend's circles</div>
 					</div>
 					<div id="feed_magnet"> </div>
@@ -184,7 +184,7 @@
 				<p>Breast cancer affects 1 in 8 women in their lifetime. A donation of $50 raised by a Circle funds approximately one hour of lifesaving research through The Breast Cancer Research Foundation. Donate now and take us a step closer to eradicating this disease.</p>
 			</div>
 			<div id='watch_video' class="span5">
-				<div><a  href="#video" onclick="$.popup({type:'video'});"><img src="<?php echo base_url(); ?>img/assets/video-thumb.png"/></a></div>
+				<div><a  href="#video" onclick="$.popup({type:'video'});"><img src="<?= base_url(); ?>img/assets/video-thumb.png"/></a></div>
 				<div id="watch_video_text" class='pink_text all_cap'>watch the<br/>bca video</div>
 			</div>
 			<div id="footer">
@@ -194,26 +194,26 @@
 		</div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?cachebuster=<?= $cacheBuster; ?>"></script>        
-        <script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>js/vendor/jquery-1.9.1.min.js?cachebuster=<?= $cacheBuster; ?>"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="<?= base_url(); ?>js/vendor/jquery-1.9.1.min.js?cachebuster=<?= $cacheBuster; ?>"><\/script>')</script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js?cachebuster=<?= $cacheBuster; ?>"></script>
 
-		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/jquery.mobile.custom.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/jquery.easing.1.3.js?cachebuster=<?= $cacheBuster; ?>"></script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/jquery.address-1.6.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/fancybox2/jquery.fancybox.pack.js?cachebuster=<?= $cacheBuster; ?>&v=2.1.5"></script>
-        <script src="<?php echo base_url(); ?>js/vendor/bootstrap.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
-        <script src="<?php echo base_url(); ?>js/vendor/jquery.js?cachebuster=<?= $cacheBuster; ?>crollpane.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
-        <script src="<?php echo base_url(); ?>js/vendor/masonry.pkgd.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
-        <script src="<?php echo base_url(); ?>js/plugins.js?cachebuster=<?= $cacheBuster; ?>"></script>
-        <script src="<?php echo base_url(); ?>js/util/galleryItem.js?cachebuster=<?= $cacheBuster; ?>"></script>
-        <script src="<?php echo base_url(); ?>js/util/carousel.js?cachebuster=<?= $cacheBuster; ?>"></script>
-        <script src="<?php echo base_url(); ?>js/util/gallery.js?cachebuster=<?= $cacheBuster; ?>"></script>
-        <script src="<?php echo base_url(); ?>js/util/facebook.js?cachebuster=<?= $cacheBuster; ?>"></script>
-        <script src="<?php echo base_url(); ?>js/main.js?cachebuster=<?= $cacheBuster; ?>"></script>
+		<script type="text/javascript" src="<?= base_url(); ?>js/vendor/jquery.mobile.custom.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+		<script type="text/javascript" src="<?= base_url(); ?>js/vendor/jquery.easing.1.3.js?cachebuster=<?= $cacheBuster; ?>"></script>
+		<script type="text/javascript" src="<?= base_url(); ?>js/vendor/jquery.address-1.6.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+		<script type="text/javascript" src="<?= base_url(); ?>js/vendor/fancybox2/jquery.fancybox.pack.js?cachebuster=<?= $cacheBuster; ?>&v=2.1.5"></script>
+        <script src="<?= base_url(); ?>js/vendor/bootstrap.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?= base_url(); ?>js/vendor/jquery.js?cachebuster=<?= $cacheBuster; ?>crollpane.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?= base_url(); ?>js/vendor/masonry.pkgd.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?= base_url(); ?>js/plugins.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?= base_url(); ?>js/util/galleryItem.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?= base_url(); ?>js/util/carousel.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?= base_url(); ?>js/util/gallery.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?= base_url(); ?>js/util/facebook.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?= base_url(); ?>js/main.js?cachebuster=<?= $cacheBuster; ?>"></script>
         
 
         <script>
-            var _gaq=[['_setAccount','<?php echo GA_ACCOUNT; ?>'],['_trackPageview']];
+            var _gaq=[['_setAccount','<?= GA_ACCOUNT; ?>'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
