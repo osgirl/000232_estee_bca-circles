@@ -11,6 +11,23 @@ class Circle extends CI_Controller {
 	{		
 	}
 
+	public function share($id = null)
+	{
+		if( isset($id)){
+
+			echo $id;
+
+			$data['id'] = $id;
+
+
+			$this->load->view('home_view', $data);
+		}
+		else{
+			echo 'Invalid access';
+		}
+
+	}
+
 	public function create()
 	{
 		$this->post = $this->input->post();
