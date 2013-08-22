@@ -177,7 +177,8 @@ $.extend(
                 num_friend: null,
                 users_fb_id: null,
                 child: null,
-                outlink: null
+                outlink: null,
+                is_user:null
             };
             if (v != undefined)
             {
@@ -625,6 +626,8 @@ $.extend(
                 resizeCirclePHotosNav();
             }
         });
+
+        if(!v.is_user) $($c + ' .btn_edit').hide();
 
         //Start bind
         $($c + ' .btn_edit').click(editFriends);
