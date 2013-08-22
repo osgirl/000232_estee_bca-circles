@@ -520,7 +520,7 @@ $.extend(
     function saveFileSuccess(data)
     {
         loadEnd();
-        alert('Image saved successfully.');
+       //alert('Image saved successfully.');
         if ($('#popup_circle').length != 0)
         {
             $('#popup_circle').trigger('photo_upload_complete');
