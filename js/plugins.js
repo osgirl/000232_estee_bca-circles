@@ -801,8 +801,9 @@ $.extend(
 
     function loadCommentBox()
     {
-        var $holder = $($c + ' #popup_circle_comment_holder');
-        $('<iframe src="popup/facebook_comment_iframe/' + $d.id + '"></iframe>').appendTo($holder);
+        var $holder     = $($c + ' #popup_circle_comment_holder');
+        var iframeSrc   = baseUrl + 'popup/facebook_comment_iframe/' + $d.id;
+        $('<iframe src="' + iframeSrc + '"></iframe>').appendTo($holder);
     }
 
     function resizeCirclePHotosNav()
