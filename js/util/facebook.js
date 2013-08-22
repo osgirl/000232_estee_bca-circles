@@ -124,8 +124,7 @@ function Facebook()
 					"post",
 					
 					{ circle: "http://samples.ogp.me/308553962613651?",
-					  image: "http://16w22ventures.info/staging/estee_lauder/bca/img/pics/stronger-together.png",
-					  description:"We Will - " + goal,
+					  image: "http://16w22ventures.info/staging/estee_lauder/bca/img/icons/facebook-post.png",
 			          privacy: {'value': 'SELF'},
 			          tags: friendTagIDs
 			         }, 
