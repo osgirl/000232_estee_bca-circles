@@ -12,7 +12,7 @@
         <meta property="fb:app_id" content="704339276259855">
         <meta property="og:title" content="BCA Circle">
         <meta property="og:image" content="http://16w22ventures.info/staging/estee_lauder/bca/img/pics/stronger-together.png">
-        <meta property="og:description" content="This is a test">
+        <meta property="og:description" content="<? if(isset($user_goal)) echo $user_goal; else echo 'general description' ?>">
         <meta property="og:url" content="http://bcasite.dev?">
         <meta property="og:type" content="bcacircles:circle">
 
