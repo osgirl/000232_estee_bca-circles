@@ -311,6 +311,10 @@ function GalleryItem()
 			enableItemButton(item, popupData)
 		},
 
+		openPopUp: function(popupData){
+			openPopUp(popupData);
+		},
+
 		
 		
 		
