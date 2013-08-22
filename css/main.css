@@ -543,8 +543,8 @@ h2{
 .circle_flag{
 	border: 1px solid #f4e4e4;
 	position: absolute;
-	top:10px;
-	right:10px;
+	top:20px;
+	right:20px;
 	-moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     -khtml-border-radius: 50%;
