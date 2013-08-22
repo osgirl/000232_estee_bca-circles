@@ -19,21 +19,21 @@
         <meta property="og:type" content="bcacircles:circle">
 
         <link rel="stylesheet" href="<?= base_url(); ?>css/bootstrap.min.css?cachebuster=<?= $cacheBuster; ?>">
-        <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-responsive.min.css"> -->
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+        <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-responsive.min.css?cachebuster=<?= $cacheBuster; ?>"> -->
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css?cachebuster=<?= $cacheBuster; ?>" />
         
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/jquery.jscrollpane.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-js.css" type="text/css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-bca-skin.css" type="text/css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css?v=1">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_smartphone.css">
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_tablet.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/jquery.jscrollpane.css?cachebuster=<?= $cacheBuster; ?>">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-js.css?cachebuster=<?= $cacheBuster; ?>" type="text/css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-bca-skin.css?cachebuster=<?= $cacheBuster; ?>" type="text/css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/fancybox2/jquery.fancybox.css?cachebuster=<?= $cacheBuster; ?>?v=2.1.5" type="text/css" media="screen" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css?cachebuster=<?= $cacheBuster; ?>?v=1">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_smartphone.css?cachebuster=<?= $cacheBuster; ?>">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_tablet.css?cachebuster=<?= $cacheBuster; ?>">
 
-        <!-- This a css for popup window. You can merge this to main.css in final production -->
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/popup.css">
+        <!-- This a css for popup window. You can merge this to main.css?cachebuster=<?= $cacheBuster; ?> in final production -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/popup.css?cachebuster=<?= $cacheBuster; ?>">
 
-        <script src="<?php echo base_url(); ?>js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="<?php echo base_url(); ?>js/vendor/modernizr-2.6.2-respond-1.1.0.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
     </head>
     <body>
     	
@@ -193,23 +193,23 @@
             </div>
 		</div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>        
-        <script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?cachebuster=<?= $cacheBuster; ?>"></script>        
+        <script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>js/vendor/jquery-1.9.1.min.js?cachebuster=<?= $cacheBuster; ?>"><\/script>')</script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js?cachebuster=<?= $cacheBuster; ?>"></script>
 
-		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/jquery.mobile.custom.min.js"></script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/jquery.easing.1.3.js"></script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/jquery.address-1.6.min.js"></script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
-        <script src="<?php echo base_url(); ?>js/vendor/bootstrap.min.js"></script>
-        <script src="<?php echo base_url(); ?>js/vendor/jquery.jscrollpane.min.js"></script>
-        <script src="<?php echo base_url(); ?>js/vendor/masonry.pkgd.min.js"></script>
-        <script src="<?php echo base_url(); ?>js/plugins.js"></script>
-        <script src="<?php echo base_url(); ?>js/util/galleryItem.js"></script>
-        <script src="<?php echo base_url(); ?>js/util/carousel.js"></script>
-        <script src="<?php echo base_url(); ?>js/util/gallery.js"></script>
-        <script src="<?php echo base_url(); ?>js/util/facebook.js"></script>
-        <script src="<?php echo base_url(); ?>js/main.js"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/jquery.mobile.custom.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/jquery.easing.1.3.js?cachebuster=<?= $cacheBuster; ?>"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/jquery.address-1.6.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+		<script type="text/javascript" src="<?php echo base_url(); ?>js/vendor/fancybox2/jquery.fancybox.pack.js?cachebuster=<?= $cacheBuster; ?>&v=2.1.5"></script>
+        <script src="<?php echo base_url(); ?>js/vendor/bootstrap.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?php echo base_url(); ?>js/vendor/jquery.js?cachebuster=<?= $cacheBuster; ?>crollpane.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?php echo base_url(); ?>js/vendor/masonry.pkgd.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?php echo base_url(); ?>js/plugins.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?php echo base_url(); ?>js/util/galleryItem.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?php echo base_url(); ?>js/util/carousel.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?php echo base_url(); ?>js/util/gallery.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?php echo base_url(); ?>js/util/facebook.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?php echo base_url(); ?>js/main.js?cachebuster=<?= $cacheBuster; ?>"></script>
         
 
         <script>
