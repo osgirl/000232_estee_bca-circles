@@ -993,10 +993,9 @@ function getCookie(c_name){
 
 function checkCookie(){
 
-	var circle = $.cookie("circle");
 	//oc: is cookie present?
-	if (circle==! undefined) 	return circle;
-	else 	  					return false;
+	return $.cookie("circle");
+
 	
 };
 
