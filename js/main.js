@@ -915,7 +915,7 @@ function createCircle(){
 
 		openLoadingScreen();
 		
-		facebook.createCircle();
+		//facebook.createCircle();
 
 }
 
