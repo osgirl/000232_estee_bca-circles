@@ -1,3 +1,5 @@
+<?php $cacheBuster = rand(); ?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -16,7 +18,7 @@
         <meta property="og:url" content="http://bcasite.dev?">
         <meta property="og:type" content="bcacircles:circle">
 
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?= base_url(); ?>css/bootstrap.min.css?cachebuster=<?= $cacheBuster; ?>">
         <!-- <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-responsive.min.css"> -->
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         
