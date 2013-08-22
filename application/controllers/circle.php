@@ -32,6 +32,7 @@ class Circle extends CI_Controller {
 				);
 
 			$query = $this->db->query("UPDATE goals SET taken_number=taken_number + 1 WHERE id = '$ref_goal_id'"); 
+
 			
 		 	$result = $this->circles_model->Add($post);
 
@@ -59,11 +60,15 @@ class Circle extends CI_Controller {
 
 			if ($query->num_rows() > 0) {
 			  foreach($query->result() as $row) {
+
+			  	$goal_id = $row->ref_goal_id;
+
 			  	$data['circle_id'] = $circle_id;
 			    $data['user_id'] = $row->users_fb_id;
 			    $data['user_name'] = $row->users_name;
 			    $data['user_photo_url'] = $row->users_photo_url;
 			    $data['goal'] = $row->goal;
+			    $data['goal_id'] = $goal_id;
 			    $data['language'] = $row->language;
 
 			    $friend_query = $this->db->query("SELECT * FROM friends WHERE ref_circle_id = '$circle_id'"); 
@@ -75,6 +80,16 @@ class Circle extends CI_Controller {
 
 				  }
 				    $data['friends_data'] = $friends_data;
+
+				    $goal_query = $this->db->query("SELECT goal_type FROM goals WHERE id = '$goal_id'");
+
+				    if($goal_query->num_rows() > 0){
+
+				    	foreach($goal_query->result() as $goal_row){
+				    		$data['goal_type'] = $goal_row->goal_type;
+				    	}
+
+				    }
 				}//endif
 
 			  }//endif

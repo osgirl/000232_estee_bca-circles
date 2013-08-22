@@ -11,7 +11,7 @@
 					<img src="<?echo $avatar ?>">
 				</div>
 				<p id="goal">
-					<?echo $content ?>
+					<b>We Will - </b><br /><?echo $content ?>
 					</p>
 				<ul id="popup_footer_share">
 					<li>SHARE

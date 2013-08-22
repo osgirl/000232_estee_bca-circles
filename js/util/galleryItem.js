@@ -48,24 +48,43 @@ function GalleryItem()
 		}
 
 		function enableItemButton(item, popupData){
-			$(item.find('.gallery_item_btn')).unbind('mouseover').mouseover(function(e){
+			$(item.find('.gallery_item_btn')).unbind('mouseenter').mouseenter(function(e){
 				$(e.currentTarget).css('cursor','pointer');
-				$(e.currentTarget).prev('.item_rollover').fadeIn(200);
+				$(e.currentTarget).stop(true, true).fadeTo("fast", 1);
 				$($(e.currentTarget).next()).find('.share_text').css('color', "#f38dab");
+
+				$(item.find('.gallery_item_btn')).unbind('click').click(function(e){openPopUp(popupData)})
 			})
 
-			$(item.find('.gallery_item_btn')).unbind('mouseout').mouseout(function(e){
-				$(e.currentTarget).prev('.item_rollover').fadeOut(200);
-				$($(e.currentTarget).next()).find('.share_text').css('color', "#ffffff");
+			$(item.find('.gallery_item_btn')).unbind('mouseleave').mouseleave(function(e){
+
+				$(e.currentTarget).stop(true, true).fadeTo("fast", 0);
+				$($(e.currentTarget).next()).find('.share_text').css('color', "#ffffff")
+
 			})
 
-        	$(item.find('.gallery_item_btn')).click(function(e){openPopUp(popupData)})
+			$(item.find('.view_circle_btn')).unbind('click').click(function(e){openPopUp(popupData)});
+
+
+        	$(item.find('.same_goal_btn')).click(function(e){
+        		var circleContainer = $($(e.currentTarget).parents('.circle_container'));
+        		$(item.find('.gallery_item_btn')).unbind('click');
+        		currentSameGoal = $(circleContainer.find('.goal_text')).html();
+        		currentSameGoalID = circleContainer.attr('goal_id');
+        		currentSameGoalType = circleContainer.attr('goal_type');
+
+        		$('body').trigger('SAME_GOAL_BUTTON_CLICKED');
+        	})
+        	$(item.find('.create_a_new_one_btn')).click(function(e){
+        		$(item.find('.gallery_item_btn')).unbind('click');
+        		$('body').trigger('CREATE_NEW_CIRCLE_BUTTON_CLICKED');
+        	})
 		}
 
-		function centerRollOverContent(){
+		function centerRollOverContent(portion){
 			$('.rollover_content').each(function(i, v){
 
-				var rolloverMargin = ($($(v).parent()).height() - $(v).height())*.4;
+				var rolloverMargin = ($($(v).parent()).height() - $(v).height())*portion;
 				$(v).css('margin-top', rolloverMargin);
 			})
 		}
@@ -123,8 +142,11 @@ function GalleryItem()
 		populateCircleContent:function(circle, data){
 
 			circle.attr('circle_id', data.circle_id);
+			circle.attr('user_id', data.user_id);
+			circle.attr('goal_id', data.goal_id);
+			circle.attr('goal_type', data.goal_type);
 			circle.find('.circle_creator').html(data.user_name);
-			circle.find('.circle_goal').html("<b>We Will - </b><br />" + data.goal);
+			circle.find('.goal_text').html(data.goal);
 			circle.fadeIn(200);
 
         	placeCircleInAngles(circle.find('.circle_area'), data.user_photo_url, data.friends_data.length);
@@ -142,7 +164,9 @@ function GalleryItem()
 
         	enableItemButton(circle, popupData);
 
-        	setTimeout(centerRollOverContent,200);
+        	setTimeout(function(){
+        		centerRollOverContent(.4);
+        	},200);
 
 		},
 
@@ -153,7 +177,16 @@ function GalleryItem()
 			$(data).each(function(i){
 				feed = data[i].data;
 
-				var div = (isFeatured) ? $($('.feature_photo').get(i)) : $($('.photo_container').get(i));
+				var div;
+
+				if(isFeatured) {
+					div = $($('.feature_photo').get(i));
+				}else{	
+					div = (isMoreFeed) ? $($($(".page"+pageNum).find('.photo_container')).get(i)) : $($('.photo_container').get(i));
+				}
+
+
+
 				var popupData;
 				var photoIcon;
 				var html;
@@ -162,7 +195,6 @@ function GalleryItem()
 					case 'rss':
 						//div.text('ID: ' + feed.text);			  // <-- ID
 						photoIcon = baseUrl + "img/icons/bca.png";
-
 
 						$.ajax({
 			        		type: 'post',
@@ -190,7 +222,7 @@ function GalleryItem()
 								
 								enableItemButton(div, popupData);
 
-								centerRollOverContent();
+								centerRollOverContent(.55);
 
 			             	}
 			      		});
@@ -223,7 +255,7 @@ function GalleryItem()
 
 						enableItemButton(div, popupData);
 
-						centerRollOverContent();
+						centerRollOverContent(.55);
 
 						break;
 
@@ -258,7 +290,7 @@ function GalleryItem()
 
 						enableItemButton(div, popupData);
 
-						centerRollOverContent();
+						centerRollOverContent(.55);
 
 
 						break;
@@ -268,7 +300,7 @@ function GalleryItem()
 		},
 
 		centerRollOverContent:function(){
-			centerRollOverContent();
+			centerRollOverContent(.55);
 		},
 
 		enableItemButton:function(item, popupData){

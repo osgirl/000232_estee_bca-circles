@@ -44,7 +44,7 @@ function Gallery()
 		var current_add_layout = 1;
 		var currentFilterType = "all";
 		var currentLayoutPath;
-		var isMoreFeed = false;
+		
 
 		var SCROLL_TO_SHOW_FOOTER = 2000;
 		var PHOTO_LAYOUT_COLUMN_NUM		= 4;
@@ -55,7 +55,7 @@ function Gallery()
 		var morePhotoData;
 
 		var galleryItem;
-		var pageNum = 1;
+		
 
 		var circleFeed;
 		var photoFeed;
@@ -67,6 +67,11 @@ function Gallery()
 
 		var circleEnd = false;
 		var morePhotoCount = 0;
+
+		var circleNum;
+			var photoNum;
+			var twitterNum;
+			var instagramNum;
 
 
 
@@ -85,7 +90,6 @@ function Gallery()
 			if($(window).scrollTop() + $(window).height() == getDocHeight() ) {
 
 				//unlbind scroll event until all new content loaded to screen
-				
 
 				//load content
 				console.log('reach here?');
@@ -146,8 +150,6 @@ function Gallery()
 	            	},
 	            	success: function(feedData) { 
 
-
-
 	                	if(currentFilterType != "all"){
 
 	                		//this extra step is to fix the circle id that sometimes is not in order
@@ -202,16 +204,50 @@ function Gallery()
 			});
 		}
 
+		function getMoreAllFeed(){
+
+			
+
+			morePhotoData = new Array();
+
+			switch(current_add_layout){
+				case 1:
+					circleNum 		= 2;
+					photoNum 		= 1;
+					twitterNum 		= 2;
+					instagramNum 	= 2;
+				break;
+
+				case 2:
+					circleNum 		= 1;
+					photoNum 		= 1;
+					twitterNum 		= 2;
+					instagramNum 	= 2;
+				break;
+			}
+
+			if(circleEnd) {
+				circleNum       = 0;
+				photoNum 		= 4;
+				twitterNum 		= 4;
+				instagramNum 	= 4;
+
+			}else{
+				$.feed.more('bca-circle', parseAllCircleData, circleNum);
+			}
+
+
+		}
+
 		function parseAllCircleData(data){
 
-			circleFeed = data;
-
-			if(!checkIfLoadMore(data, getCircleNum)) {
+			if(data.length == 0) {
 				circleEnd = true;
 			}
-			createAllLayout();
 
-			$('body').bind('ALL_LAYOUT_CREATED', function(){
+			createAllLayout(data);
+
+			$('body').unbind("ALL_LAYOUT_SINGLE_CREATED").bind('ALL_LAYOUT_SINGLE_CREATED', function(){
 
 				var feed;
 
@@ -226,14 +262,37 @@ function Gallery()
 		            	},
 		            	success: function(feedData) { 
 
-		                		galleryItem.populateCircleContent($($('.circle_container').get(i)), feedData);
+			            	var circleContainer = (isMoreFeed) ? $($($(".page"+pageNum).find('.gallery_circle')).get(i)) : $($('.gallery_circle').get(i));
+			                galleryItem.populateCircleContent(circleContainer, feedData);
 
 		             	}
 		      		});
 				});
 
+				if(!isMoreFeed){
+					$.feed.get('bca-photo', handleAllPhotoData, 3);
+			        $.feed.get('bca-instagram', handleAllPhotoData, 3);
+			        $.feed.get('bca-twitter', handleAllPhotoData, 3);
+				}else{
+					$.feed.more('bca-photo', handleAllPhotoData, photoNum);
+					$.feed.more('bca-twitter', handleAllPhotoData, twitterNum);
+					$.feed.more('bca-instagram', handleAllPhotoData, instagramNum);
+				}
+
 			});
 
+		}
+
+		function checkIfLoadMore(feed, getNum){
+			var isMore;
+
+			if(feed.length < getNum){
+				isMore = false;
+			}else{
+				isMore = true;
+			}
+
+			return isMore;
 		}
 
 
@@ -270,103 +329,8 @@ function Gallery()
 			allPhotoData = new Array();
 
 			$.feed.get('bca-circle', parseAllCircleData, 3);
-			$.feed.get('bca-photo', handleAllPhotoData, 3);
-			$.feed.get('bca-instagram', handleAllPhotoData, 3);
-			$.feed.get('bca-twitter', handleAllPhotoData, 3);
-
-			//handleAllPhotoData
 			
-		}
-
-		// function pushAllData(data){
-		// 	if(data.length != 0) {
-		// 		$(data).each(function (i, v){
-		// 			allPhotoData.push(v);
-
-		// 		})
-		// 	}
-		// }
-
-		// function handlePhotoData(data){
-		// 	console.log("photo", data.length)
-		// 	pushAllData(data);
-		// 	$.feed.get('bca-instagram', handleInstagramData, 3);
 			
-		// }
-
-		// function handleInstagramData(data){
-		// 	console.log("instagram", data.length)
-		// 	pushAllData(data);
-		// 	$.feed.get('bca-twitter', handleTwitterData, 3);
-
-		// }
-
-		// function handleTwitterData(data){
-		// 	console.log("twitter", data.length)
-		// 	pushAllData(data);
-		// 	handleAllPhotoData();
-		// }
-
-		function handleAllPhotoData(data){
-
-			if(data.length != 0) {
-				$(data).each(function (i, v){
-					allPhotoData.push(v);
-
-				})
-			}
-
-			allPhotoData.sort(function sortNumber(a, b){
-				  var aNum = Number(a.data.timestamp);
-				  var bNum = Number(b.data.timestamp); 
-				  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
-			});
-
-
-			$('body').bind('ALL_LAYOUT_CREATED', function(e){
-				galleryItem.parseAllPhotoData(allPhotoData, false);
-			})
-
-		}
-
-		function getMoreAllFeed(){
-
-			var circleNum;
-				var photoNum;
-				var twitterNum;
-				var instagramNum;
-
-				morePhotoData = new Array();
-
-				switch(current_add_layout){
-					case 1:
-						circleNum 		= 2;
-						photoNum 		= 1;
-						twitterNum 		= 2;
-						instagramNum 	= 2;
-					break;
-
-					case 2:
-						circleNum 		= 1;
-						photoNum 		= 1;
-						twitterNum 		= 2;
-						instagramNum 	= 2;
-					break;
-				}
-
-					if(!circleEnd) {
-						$.feed.more('bca-circle', parseAllCircleData, circleNum);
-					}else{
-						photoNum 		= 0;
-						twitterNum 		= 6;
-						instagramNum 	= 6;
-
-					}
-					
-					$.feed.more('bca-photo', handleMorePhotoData, photoNum);
-					$.feed.more('bca-twitter', handleMorePhotoData, twitterNum);
-					$.feed.more('bca-instagram', handleMorePhotoData, instagramNum);
-
 		}
 
 
@@ -577,7 +541,9 @@ function Gallery()
 			updateGalleryLayout(contentData);
 			
 			galleryItem.enableItemButton(contentData.item, contentData.popupData);
-			setTimeout(galleryItem.centerRollOverContent, 200);
+			setTimeout(function(){
+				galleryItem.centerRollOverContent(.55);
+			}, 200);
 		}
 
 		function updateGalleryLayout(contentData){
@@ -604,6 +570,7 @@ function Gallery()
 					isMoreFeed = false;
 					pageNum = 1;
 					$.feed.reset();
+					currentFilterType = $(value).attr('type');
 					if(currentFilterType == "all") {
 						pageNum = 2;
 						$('#gallery').height(DEFAULT_GALLERY_HEIGHT);
@@ -611,7 +578,7 @@ function Gallery()
 					$(window).unbind('scroll').bind('scroll', lazyloader);
 					$('#donate_area').show();
 					$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
-					currentFilterType = $(value).attr('type');
+					
 					loadLayout();
 				});
 			})
@@ -623,12 +590,9 @@ function Gallery()
 
 			switch(currentFilterType){
 				case 'all':
-					if(!isMoreFeed){
-						getAllFeed();
-					}else{
-						morePhotoCount = 0;
-						getMoreAllFeed();
-					}
+					morePhotoCount = 0;
+					allPhotoData = [];
+					(!isMoreFeed) ? getAllFeed() : getMoreAllFeed();
 					
 				break;
 
@@ -676,23 +640,13 @@ function Gallery()
 
 		}
 
-		function checkIfLoadMore(feed, getNum){
-			var isMore;
+		
 
-			if(feed.length < getNum){
-				isMore = false;
-			}else{
-				isMore = true;
-			}
+		function createAllLayout(data){
 
-			return isMore;
-		}
+			console.log("CREATE_ALL_LAYOUT_START");
 
-		function createAllLayout(){
-
-			console.log('create all layout');
-
-			if(circleFeed && circleFeed.length > 0){
+			if(data && data.length > 0){
 				$.ajax({
 	        		type: 'get',
 	            	url: baseUrl + 'layout/loadLayout' + current_add_layout,
@@ -713,6 +667,8 @@ function Gallery()
 							current_add_layout = (current_add_layout == 1) ? 2 : 1;
 							$(layout1).addClass('page'+pageNum);
 							$(window).bind('scroll', lazyloader);
+							$('body').trigger('ALL_LAYOUT_SINGLE_CREATED');
+							
 							return;
 						}else{
 							$(layout1).addClass('layout1 page1');
@@ -731,14 +687,19 @@ function Gallery()
 		            			$(layout2).appendTo(gallery_container);
 
 								$(layout2).addClass('page2');
-								galleryItem.centerRollOverContent();
+								galleryItem.centerRollOverContent(.55);
 
-	  			 				if(isMoreFeed){
-									//gallery_container.masonry( 'appended', layout2data );
-			  			 			$(window).bind('scroll', lazyloader);
-								}
+	  			 				if(isMoreFeed)  {
+	  			 					$(window).bind('scroll', lazyloader);
+	  			 					
+	  			 				}
 
-								$('body').trigger('ALL_LAYOUT_CREATED');
+	  			 				console.log('layout is created')
+
+	  			 				$('body').trigger('ALL_LAYOUT_SINGLE_CREATED');
+
+								//$('body').trigger('ALL_LAYOUT_CREATED');
+								
 			             	}
 			      		});
 						
@@ -769,57 +730,47 @@ function Gallery()
 						.appendTo(gallery_container);
 		}
 
-		
+		function handleAllPhotoData(data){
 
-		// function handleMoreTwitterData(data){
-		// 	if(data.length > 0){
-		// 		$(data).each(function (i, v){
+			if(data.length != 0) {
+				$(data).each(function (i, v){
+					allPhotoData.push(v);
+				})
+			}
 
-		// 			morePhotoData.push(v);
-					
-		// 		})
-		// 	}
-		// }
-
-		// function handleMoreInstagramData(data){
-
-		// 	if(data.length > 0){
-		// 		$(data).each(function (i, v){
-		// 			morePhotoData.push(v);	
-		// 		})
-		// 	}
-
-
-		// }
-
-		function handleMorePhotoData(data){
-
-			$(data).each(function (i, v){
-
-				morePhotoData.push(v);
-				
-			})
+			allPhotoData.sort(function sortNumber(a, b){
+				  var aNum = Number(a.data.timestamp);
+				  var bNum = Number(b.data.timestamp); 
+				  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+			});
 
 			morePhotoCount++;
 
-			morePhotoData.sort(function sortNumber(a, b){
-			  var aNum = Number(a.data.timestamp);
-			  var bNum = Number(b.data.timestamp); 
-			  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
-			});
-
-			if(morePhotoCount == 3)
-				parseMorePhotoData(morePhotoData);
-
-			//createPhotoLayout();
-
-			galleryItem.parseAllPhotoData(data, false, true, pageNum);
+			 if(morePhotoCount == 3)	galleryItem.parseAllPhotoData(allPhotoData, false);
 
 		}
 
-		function handleMoreAllPhoto(){
+		
 
-		}
+		// function handleMorePhotoData(data){
+
+		// 	if(data.length != 0) {
+		// 		$(data).each(function (i, v){
+		// 			morePhotoData.push(v);
+		// 		})
+		// 	}
+
+		// 	morePhotoCount++;
+
+		// 	morePhotoData.sort(function sortNumber(a, b){
+		// 	  var aNum = Number(a.data.timestamp);
+		// 	  var bNum = Number(b.data.timestamp); 
+		// 	  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+		// 	});
+
+		// 	if(morePhotoCount == 3) galleryItem.parseAllPhotoData(allPhotoData, false);
+
+		// }
 
 		
 		return {

@@ -8,6 +8,33 @@ class Goal extends CI_Controller {
 		$this->load->model('goals_model');
 	}	
 
+	public function create(){
+
+		$this->post = $this->input->post();
+
+		if ( isset ( $this->post['goal'] )) {	
+
+				$post = array(
+					'goal'				=> $this->post['goal'],
+					'icon'				=> 'generic',
+					'taken_number'		=> 0,
+					'goal_type'			=> 'customize'
+				);
+
+				$result = $this->goals_model->Add($post);
+
+				if ($result){
+				$data['id'] = $result;
+				echo json_encode($data);
+				}
+				else
+					echo 'Write failed';
+
+		 }
+		 else
+		 	echo 'Invalid access';
+	}
+
 	public function fetchGoalData()
 	{
 

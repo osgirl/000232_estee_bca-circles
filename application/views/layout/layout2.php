@@ -4,7 +4,7 @@
 				<div class="span3 photo_container_2 photo_container gallery_item"></div>
 		</div>
 		<div class="circle_col span6">
-			<div class="row circle_container gallery_item" type="circle">
+			<div class="row circle_container gallery_circle gallery_item" type="circle">
 				
 			<?php include('layout_circle.php');?>
 					

@@ -12,6 +12,7 @@
         <meta property="fb:app_id" content="704339276259855">
         <meta property="og:title" content="BCA Circle">
         <meta property="og:image" content="http://16w22ventures.info/staging/estee_lauder/bca/img/pics/stronger-together.png">
+        <meta property="og:description" content="This is a test">
         <meta property="og:url" content="http://bcasite.dev?">
         <meta property="og:type" content="bcacircles:circle">
 
@@ -75,7 +76,7 @@
 			                    <div id="carousel_slider">
 			                    	<div class="carousel_item">
 				                		<div class="top_content_sub_span4">
-				                			<div class="feature_circle">
+				                			<div class="feature_circle circle_container">
 												<?php include('layout/layout_circle.php');?>
 											</div>
 				                		</div>
@@ -86,7 +87,7 @@
 				                	</div>
 				                	<div class="carousel_item">
 				                		<div class="top_content_sub_span4 ">
-				                			<div class="feature_circle">
+				                			<div class="feature_circle circle_container">
 												<?php include('layout/layout_circle.php');?>
 											</div>
 				                		</div>
@@ -97,7 +98,7 @@
 				                	</div>
 				                	<div class="carousel_item">
 				                		<div class="top_content_sub_span4">
-				                			<div class="feature_circle">
+				                			<div class="feature_circle circle_container">
 												<?php include('layout/layout_circle.php');?>
 											</div>
 				                		</div>
