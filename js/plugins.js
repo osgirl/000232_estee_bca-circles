@@ -91,26 +91,26 @@ $.extend(
         switch (v.type)
         {
         case 'about':
-            u = baseUrl + "popup/about/";
+            u = "popup/about/";
             break;
         case 'video':
-            u = baseUrl + "popup/video/";
+            u = "popup/video/";
             break;
         case 'photo':
-            u = baseUrl + "popup/photo/";
+            u = "popup/photo/";
             break;
         case 'twitter':
-            u = baseUrl + "popup/twitter/";
+            u = "popup/twitter/";
             // d.datetime = tsToDate(d.datetime);
             // console.log( d.datetime );
             break;
         case 'photo_upload':
-            u = baseUrl + "popup/photo_upload/";
+            u = "popup/photo_upload/";
             $closeBtn = false;
             $isUpload = true;
             break;
         case 'circle':
-            u = baseUrl + "popup/circle/";
+            u = "popup/circle/";
             $isCircle = true;
             break;
         }
