@@ -85,6 +85,7 @@ class Circle extends CI_Controller {
 			    $data['goal'] = $row->goal;
 			    $data['goal_id'] = $goal_id;
 			    $data['language'] = $row->language;
+			    $data['country'] = $row->country;
 
 			    $friend_query = $this->db->query("SELECT * FROM friends WHERE ref_circle_id = '$circle_id'"); 
 

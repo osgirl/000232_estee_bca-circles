@@ -965,8 +965,7 @@ function postCircleData(goal_id){
 	             	}
 	      		});
         	});
-
      	}
-		});
+	});
 }
 

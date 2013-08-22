@@ -145,6 +145,7 @@ function GalleryItem()
 			circle.attr('user_id', data.user_id);
 			circle.attr('goal_id', data.goal_id);
 			circle.attr('goal_type', data.goal_type);
+			circle.find('circle_flag').css("background-image", 'url("' + baseUrl + 'img/flags/large/' + data.country + '.png")');
 			circle.find('.circle_creator').html(data.user_name);
 			circle.find('.goal_text').html(data.goal);
 			circle.fadeIn(200);
@@ -167,9 +168,6 @@ function GalleryItem()
         	setTimeout(function(){
         		centerRollOverContent(.4);
         	},200);
-
-        	
-
 		},
 
 		parseAllPhotoData:function(data, isFeatured){

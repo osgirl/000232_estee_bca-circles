@@ -540,6 +540,22 @@ h2{
 	color:white;
 }
 
+.circle_flag{
+	border: 1px solid #f4e4e4;
+	position: absolute;
+	top:10px;
+	right:10px;
+	-moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -khtml-border-radius: 50%;
+    border-radius: 50%;	
+    behavior: url(css/PIE.htc);
+	width:40px;
+	height:40px;
+	background-size: 40px auto;
+	background-image: url('../img/flags/large/united-states.png');
+}
+
 .circle_container a{
 	color:white;
 }
