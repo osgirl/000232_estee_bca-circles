@@ -1,3 +1,8 @@
+// ==============================================================================
+// ================ A Clickfire Media Production
+// ================ Author - Jason Torden, Mili Kuo, Siwon Oh, Owen Corso
+// ==============================================================================
+
 //events
 var LOGIN_SUCCESS			= "LOGIN_SUCCESS";
 var NOT_LOGIN 				= "NOT_LOGIN"
@@ -46,8 +51,15 @@ var TRENDING_ACTION_SHOW	= 3;
 var goalData;
 var trendingData;
 
-var photoButtonHtml = '<div class="photo_rollover item_rollover"><div class="rollover_content"><div class="pink_btn all_cap view_circle_btn">view</div></div></div><div class="gallery_item_btn"></div>';
+var photoButtonHtml = '<div class="gallery_item_btn"><div class="rollover_content"><div class="pink_btn all_cap view_circle_btn">view</div></div></div>';
 var statsItemHtml = "<tr><td class='action_icon' rowspan='2'><img/></td><td class='action_line_1 light_font'></td></tr><tr><td class='action_line_2'></td></tr>";
+
+var pageNum = 1;
+var isMoreFeed = false;
+var currentSameGoal; 
+var currentSameGoalID; 
+var currentSameGoalType;
+var isCustomizeGoal;
 
 $(document).ready(function(){	
 
@@ -118,18 +130,26 @@ function enableEventBinds(){
 	$('body').bind(GOT_USER_INFO, displayUserInfo);
 	$('body').bind(GOT_USER_PROFILE_PIC, displayUserProfilePic);
 	$('body').bind(GOT_FRIEND_LIST, getFriendList);
+	$('body').bind("SAME_GOAL_BUTTON_CLICKED", function(e){
+		openCreateCircleScreen(true);
+	});
+
+	$('body').bind("CREATE_NEW_CIRCLE_BUTTON_CLICKED", function(e){
+		openCreateCircleScreen(false);
+	});
+
 }
 
 function getLoginStatus(e){	
 	facebook.fetchUserInfo();
 	facebook.fetchFriendlist();
 	
-	$('.start_create_circle_btn').unbind('click').click(function(e){openCreateCircleScreen();})
+	$('.start_create_circle_btn').unbind('click').click(function(e){openCreateCircleScreen(false);})
 	
 	$('.log_out_status').hide();
 	$('.log_in_status').show();
 	
-	if(createCircleClicked) openCreateCircleScreen();
+	if(createCircleClicked) openCreateCircleScreen(false);
 
 	
 }
@@ -313,23 +333,40 @@ function getTrendingAction(){
 }
 
 
-function openCreateCircleScreen(){
+function openCreateCircleScreen(hasGoal){
 	$(".overlay").fadeIn(100);
 	$("#create_circle_screen").fadeIn(200);
 	$("html, body").animate({ scrollTop: 0 }, "slow");
 	createCircleWindowOpen = true;
 	createCircleClicked = false;
-	curSelectedGoal = $($(".goal_dropdown_list").get(0)).html();
-	goal = curSelectedGoal;
-	goalID = curSelectedGoalID = 1;
+
+
+	if(hasGoal){
+		curSelectedGoal = goal = currentSameGoal;
+		goalID = curSelectedGoalID = currentSameGoalID;
+
+		console.log('has goal', currentSameGoal, currentSameGoalType, currentSameGoalID);
+		if(currentSameGoalType == "default"){
+			actionSelected(null);
+			isCustomizeGoal = false;
+		}else{
+			$("#custom_action").val(currentSameGoal);
+			isCustomizeGoal = true;
+		}
+	}else{
+		curSelectedGoal = $($(".goal_dropdown_list").get(0)).html();
+		goal = curSelectedGoal;
+		goalID = curSelectedGoalID = 1;
+	}
 	
 	$("#custom_action").unbind("keyup").keyup(function(e){
 		goal = $(e.currentTarget).val();
-		if($(e.currentTarget).val() == ""){
+		if($(e.currentTarget).val() == "")
 			$("#select_action").css({ opacity: 1 });
-		}else{
+		else
 			$("#select_action").css({ opacity: .3 });
-		}
+
+		
 	})
 }
 
@@ -395,6 +432,7 @@ function resetCircle(){
     resetNameTextfield();
 
     agree = false;
+    $('.popup_checkbox').css('background-position', ((agree) ? $(e.target).width() * -1 : 0), 0);
 
     resetFriendPhotoItem($('.friend_item'))
 	
@@ -427,10 +465,18 @@ function closeActionSelect(){
 }
 
 function actionSelected(e){
+
 	closeActionSelect();
+
+	if(e){
+		goal = $(e.currentTarget).html();
+		goalID = $(e.currentTarget).index()+1;
+	}else{
+		goal = currentSameGoal;
+		goalID = currentSameGoalID;
+	}
 	
-	goal = $(e.currentTarget).html();
-	goalID = $(e.currentTarget).index()+1;
+	
 	curSelectedGoal = goal;
 	curSelectedGoalID = goalID;
 	$("#select_action_field").html(goal);
@@ -628,6 +674,10 @@ function createFriendPhotosPanel(){
 		}
 	}
 
+	friendProfileList.sort(function(a, b) { 
+		  return a.name.localeCompare(b.name);
+		});
+
 	$('.friend_item').each(function(index, value){
 
 	    if(index <= friendProfileList.length-1){
@@ -684,9 +734,8 @@ function createFriendPhotosPanel(){
 
              	}
 
-             })
+            })
 	    }
-
 	})
 
 	var setting = {
@@ -731,6 +780,8 @@ function openThankYouScreen(){
 
 function getUserCircleData(){
 
+	console.log('user circle data get')
+
 	$('#my_circles .action_item').remove();
 
 	$.ajax({
@@ -769,7 +820,6 @@ function getUserCircleData(){
 
 function createStatItem(item, parent, line1, line2){
 	
-
 		var statItem = $('<table>');
 		statItem.addClass('action_item');
 
@@ -792,55 +842,35 @@ function createCircle(){
 		console.log("goalID", goalID);
 		console.log("language", language);
 
+		isCustomizeGoal = ($("#custom_action").val() == "") ? false : true;
+
+		//TO DO IF THEY TYPE THE SAME GOAL
+
+		$(goalData).each(function(i, v){
+			if(v.id == goalID || v.goal == goal) isCustomizeGoal = false;
+			if(v.goal == goal) goalID = v.id;
+		})
+
 		var friendNum = friendSelectedArray.length;
 
-		var popupData = "$.popup({type:'circle', data:{  content: 'We Will - <br />"+ goal+ "',avatar: '"+ userProfilePhoto + "', num_friends: " + friendNum + "}});"
-
+		var popupData = "$.popup({type:'circle', data:{  content: '"+ goal+ "',avatar: '"+ userProfilePhoto + "', num_friends: " + friendNum + "}});"
 		$($('#close_create_circle_btn').parent()).attr('onclick', popupData);
 
 		openLoadingScreen();
 		
 		facebook.createCircle();
 
-		var value = {
-				'users_fb_id' 	  : userID,
-				'users_name'  	  : userName,
-				'users_photo_url' : userProfilePhoto,
-				'goal'			  : goal,
-				'ref_goal_id'	  : goalID,	
-				'language'		  : 0 // optional, we still not sure about this field
-			};
-
-    	$.ajax({
+		if(isCustomizeGoal){
+			$.ajax({
         		type: 'post',
-            	url: baseUrl + 'circle/create',
+            	url: baseUrl + 'goal/create',
             	dataType: 'json',
-            	data: value,
+            	data: {
+            		goal:goal
+            	},
             	success: function(data) {   
 
-            		getUserCircleData();        
-
-                	$.each(friendSelectedArray, function(i,v){
-                		//console.log(data.id, v.id, v.name);
-                		$.ajax({
-			        		type: 'post',
-			            	url: baseUrl + 'friend/updateCircleFriends',
-			            	dataType: 'json',
-			            	data: {
-			            		ref_circle_id: data.id,
-			            		friends_fb_id: v.id,
-			            		friends_name:v.name
-			            	},
-			            	success: function(data) {      
-			                	openThankYouScreen();
-			                	resetCircle();
-			             	},
-			             	error: function(jqXHR, textStatus, errorThrown){
-								console.log(jqXHR.responseText);
-								console.log(jqXHR.status);
-							}
-			      		});
-                	});
+            		postCircleData(data.id);
 
              	},
              	error: function(jqXHR, textStatus, errorThrown){
@@ -848,6 +878,58 @@ function createCircle(){
 					console.log(jqXHR.status);
 				}
       		});
+		}else{
+			postCircleData(goalID);
+		}
 
+}
+
+function postCircleData(goal_id){
+
+	var value = {
+		'users_fb_id' 	  : userID,
+		'users_name'  	  : userName,
+		'users_photo_url' : userProfilePhoto,
+		'goal'			  : goal,
+		'ref_goal_id'	  : goal_id,	
+		'language'		  : 0 // optional, we still not sure about this field
+	};
+
+	$.ajax({
+		type: 'post',
+    	url: baseUrl + 'circle/create',
+    	dataType: 'json',
+    	data: value,
+    	success: function(data) {   
+
+	        var friendCount = 0;
+
+        	$.each(friendSelectedArray, function(i,v){
+        		//console.log(data.id, v.id, v.name);
+        		$.ajax({
+	        		type: 'post',
+	            	url: baseUrl + 'friend/create',
+	            	dataType: 'json',
+	            	data: {
+	            		ref_circle_id: data.id,
+	            		friends_fb_id: v.id,
+	            		friends_name:v.name
+	            	},
+	            	success: function(data) {  
+	            		friendCount++;
+
+	            		if(friendCount == friendSelectedArray.length){
+	            			openThankYouScreen();
+					        resetCircle();
+					        gallery.refreshAsFakeData(data);    
+
+					        getUserCircleData(); 
+	            		}
+	             	}
+	      		});
+        	});
+
+     	}
+		});
 }
 
