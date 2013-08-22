@@ -847,6 +847,10 @@ function Gallery()
 			$(window).unbind('scroll');
 		},		
 
+		openPopUp:function(data){
+			galleryItem.openPopUp(data);
+		},
+
 		/**
 		*	@private
 		*/

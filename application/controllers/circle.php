@@ -129,6 +129,7 @@ class Circle extends CI_Controller {
 			if ($query->num_rows() > 0) {
 			  foreach($query->result() as $circleRow) {
 			  	$circle_id = $circleRow->id;
+			  	$ref_goal_id = $circleRow->ref_goal_id;
 
 			    $friend_query = $this->db->query("SELECT * FROM friends WHERE ref_circle_id = '$circle_id'"); 
 
@@ -138,9 +139,18 @@ class Circle extends CI_Controller {
 				  	$friends_data[] = array (	'friend_id'=>$row->friends_fb_id,
 				  								'friend_name'=>$row->friends_name);
 
+				  	$goal_query = $this->db->query("SELECT * FROM goals WHERE id = '$ref_goal_id'");
+
+				  	if ($goal_query->num_rows() > 0) {
+				  		 foreach($goal_query->result() as $goal_row) {
+
+				  		 	$goal_icon = $goal_row->icon;
+				  		 }
+				  	}
+
 				  }
 
-				  $circles_data[] = array('goal'=>$circleRow->goal, 'friends_data'=>$friends_data);
+				  $circles_data[] = array('goal'=>$circleRow->goal, 'friends_data'=>$friends_data, 'circle_id'=>$circle_id, 'avatar'=>$circleRow->users_photo_url, 'goal_icon'=>$goal_icon);
 				 
 				}//endif
 				

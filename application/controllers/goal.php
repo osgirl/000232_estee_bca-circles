@@ -47,7 +47,7 @@ class Goal extends CI_Controller {
 
 			  	$data[] = array (   'id'=>$row->id,
 			  						'goal'=>$row->goal,
-					  				'icon'=>$row->icon,
+					  				'goal_icon'=>$row->icon,
 			  						'taken_number' => $row->taken_number,
 									'goal_type' => $row->goal_type
 								);
