@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-js.css" type="text/css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-bca-skin.css" type="text/css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css?v=1">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_smartphone.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_tablet.css">
 

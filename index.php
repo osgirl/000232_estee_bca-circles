@@ -50,7 +50,8 @@ if (defined('ENVIRONMENT'))
 	
 		case 'production':
 		case 'staging':
-			error_reporting(0);
+		//oc: to see errors briefly
+			error_reporting(E_ALL);
 		break;
 
 		default:
