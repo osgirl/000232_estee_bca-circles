@@ -64,6 +64,11 @@ var isCustomizeGoal;
 var country = "united-states";
 
 $(document).ready(function(){	
+if(checkCookie()){
+	var c = getCookie("circle");
+	console.log("cookie");
+	console.log(c);
+} 
 
 	initFacebook();
 
@@ -959,6 +964,8 @@ function createCircle(){
 }
 function saveCircleToCookie($data){
 	//oc: save cookie.
+	console.log("save cookie");
+	console.log($data);
 	var circle = JSON.stringify($data);
 	setCookie("circle",circle,1);
 }
