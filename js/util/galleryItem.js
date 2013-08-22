@@ -152,6 +152,8 @@ function GalleryItem()
 
         	placeCircleInAngles(circle.find('.circle_area'), data.user_photo_url, data.friends_data.length);
 
+        	var isUser = (data.user_id == userID) ? true : false;
+
         	var popupData = {
 				type:'circle', 
 				data:{
@@ -160,7 +162,9 @@ function GalleryItem()
 					content:data.goal, 
 					avatar:data.user_photo_url,
 					users_fb_id:data.user_id,
-					num_friends: data.friends_data.length
+					num_friends: data.friends_data.length,
+					is_user:isUser
+
 				}}
 
         	enableItemButton(circle, popupData);
