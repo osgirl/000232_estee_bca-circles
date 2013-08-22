@@ -824,6 +824,12 @@ function Gallery()
 
 		},
 
+		refreshAsFakeData: function(data){
+			console.log('fake', data)
+
+			
+		},
+
 		enableLazyloader: function(){
 			$(window).bind('scroll', lazyloader);
 		},

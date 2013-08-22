@@ -6,7 +6,7 @@ class Friend extends CI_Controller {
 	{
 	}
 
-	public function updateCircleFriends()
+	public function create()
 	{
 
 		$this->load->model('friends_model');

@@ -775,6 +775,8 @@ function openThankYouScreen(){
 
 function getUserCircleData(){
 
+	console.log('user circle data get')
+
 	$('#my_circles .action_item').remove();
 
 	$.ajax({
@@ -885,7 +887,6 @@ function postCircleData(goal_id){
 		'users_photo_url' : userProfilePhoto,
 		'goal'			  : goal,
 		'ref_goal_id'	  : goal_id,	
-		'customize_goal'  :isCustomizeGoal,
 		'language'		  : 0 // optional, we still not sure about this field
 	};
 
@@ -896,35 +897,34 @@ function postCircleData(goal_id){
     	data: value,
     	success: function(data) {   
 
-    		getUserCircleData();        
+	        var friendCount = 0;
 
         	$.each(friendSelectedArray, function(i,v){
         		//console.log(data.id, v.id, v.name);
         		$.ajax({
 	        		type: 'post',
-	            	url: baseUrl + 'friend/updateCircleFriends',
+	            	url: baseUrl + 'friend/create',
 	            	dataType: 'json',
 	            	data: {
 	            		ref_circle_id: data.id,
 	            		friends_fb_id: v.id,
 	            		friends_name:v.name
 	            	},
-	            	success: function(data) {      
-	                	openThankYouScreen();
-	                	resetCircle();
-	             	},
-	             	error: function(jqXHR, textStatus, errorThrown){
-						console.log(jqXHR.responseText);
-						console.log(jqXHR.status);
-					}
+	            	success: function(data) {  
+	            		friendCount++;
+
+	            		if(friendCount == friendSelectedArray.length){
+	            			openThankYouScreen();
+					        resetCircle();
+					        gallery.refreshAsFakeData(data);    
+
+					        getUserCircleData(); 
+	            		}
+	             	}
 	      		});
         	});
 
-     	},
-     	error: function(jqXHR, textStatus, errorThrown){
-			console.log(jqXHR.responseText);
-			console.log(jqXHR.status);
-		}
+     	}
 		});
 }
 
