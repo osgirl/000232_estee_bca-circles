@@ -197,13 +197,14 @@
         <script>window.jQuery || document.write('<script src="<?= base_url(); ?>js/vendor/jquery-1.9.1.min.js?cachebuster=<?= $cacheBuster; ?>"><\/script>')</script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js?cachebuster=<?= $cacheBuster; ?>"></script>
 
-		<script type="text/javascript" src="<?= base_url(); ?>js/vendor/jquery.mobile.custom.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
-		<script type="text/javascript" src="<?= base_url(); ?>js/vendor/jquery.easing.1.3.js?cachebuster=<?= $cacheBuster; ?>"></script>
-		<script type="text/javascript" src="<?= base_url(); ?>js/vendor/jquery.address-1.6.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
-		<script type="text/javascript" src="<?= base_url(); ?>js/vendor/fancybox2/jquery.fancybox.pack.js?cachebuster=<?= $cacheBuster; ?>&v=2.1.5"></script>
+		<script src="<?= base_url(); ?>js/vendor/jquery.mobile.custom.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+		<script src="<?= base_url(); ?>js/vendor/jquery.easing.1.3.js?cachebuster=<?= $cacheBuster; ?>"></script>
+		<script src="<?= base_url(); ?>js/vendor/jquery.address-1.6.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+		<script src="<?= base_url(); ?>js/vendor/fancybox2/jquery.fancybox.pack.js?cachebuster=<?= $cacheBuster; ?>&v=2.1.5"></script>
         <script src="<?= base_url(); ?>js/vendor/bootstrap.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/vendor/jquery.jscrollpane.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/vendor/masonry.pkgd.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?= base_url(); ?>js/vendor/jquery.cookie.js"></script>
         <script src="<?= base_url(); ?>js/plugins.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/util/galleryItem.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/util/carousel.js?cachebuster=<?= $cacheBuster; ?>"></script>

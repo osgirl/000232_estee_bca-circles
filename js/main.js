@@ -967,33 +967,36 @@ function saveCircleToCookie($data){
 	console.log("save cookie");
 	console.log($data);
 	var circle = JSON.stringify($data);
-	setCookie("circle",circle,1);
+
+	//oc: set cookie valid for 7 days, across whole site
+	$.cookie("circle",circle,{ expires: 7, path: '/' });
 }
 
 function getCookie(c_name){
 
-	var c_value = document.cookie;
-	var c_start = c_value.indexOf(" " + c_name + "=");
+	// var c_value = document.cookie;
+	// var c_start = c_value.indexOf(" " + c_name + "=");
 	
-	if (c_start == -1)	  c_start = c_value.indexOf(c_name + "=");
+	// if (c_start == -1)	  c_start = c_value.indexOf(c_name + "=");
 	  
-	if (c_start == -1)	  c_value = null;
-	else{
-	  c_start 	= c_value.indexOf("=", c_start) + 1;
-	  var c_end = c_value.indexOf(";", c_start);
-	  if (c_end == -1)	c_end = c_value.length;
-	  c_value 	= unescape(c_value.substring(c_start,c_end));
-	}
+	// if (c_start == -1)	  c_value = null;
+	// else{
+	//   c_start 	= c_value.indexOf("=", c_start) + 1;
+	//   var c_end = c_value.indexOf(";", c_start);
+	//   if (c_end == -1)	c_end = c_value.length;
+	//   c_value 	= unescape(c_value.substring(c_start,c_end));
+	// }
+	var c_value = $.cookie("circle");
 	console.log(c_value);
 	return JSON.parse(c_value);
 };
 
 function checkCookie(){
 
-	var circle = getCookie("circle");
+	var circle = $.cookie("circle");
 	//oc: is cookie present?
-	if (circle!=null && circle!="") return circle;
-	else 	  						return false;
+	if (circle==! undefined) 	return circle;
+	else 	  					return false;
 	
 };
 
