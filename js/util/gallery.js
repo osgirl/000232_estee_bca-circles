@@ -126,9 +126,15 @@ function Gallery()
 			);
 		};
 
+		function checkFriendCircle(data){
+
+			console.log("checking friend cirlc", data);
+
+		}
+
 		function parseCircleData(data){
 
-			circleFeed = data;
+			circleFeed = (currentFilterType == 'circle') ? data : checkFriendCircle(data);
 
 			if(data.length == 0) return;
 

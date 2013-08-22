@@ -86,13 +86,16 @@ function Facebook()
 			FB.getLoginStatus(function(response) {
 			  if (response.status === 'connected') {
 					$('body').trigger(LOGIN_SUCCESS);
+					isLogin = true;
 			  } else if (response.status === 'not_authorized') {
 			    // the user is logged in to Facebook, 
 			    // but has not authenticated your app
 			    	$('body').trigger(NOT_LOGIN);
+			    	isLogin = false;
 			  } else {
 			    // the user isn't logged in to Facebook.
 			  	    $('body').trigger(NOT_LOGIN);
+			  	    isLogin = false;
 			  }
 			 });
 		},

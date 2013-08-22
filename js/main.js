@@ -3,6 +3,8 @@
 // ================ Author - Jason Torden, Mili Kuo, Siwon Oh, Owen Corso
 // ==============================================================================
 
+var isLogin;
+
 //events
 var LOGIN_SUCCESS			= "LOGIN_SUCCESS";
 var NOT_LOGIN 				= "NOT_LOGIN"
@@ -133,11 +135,12 @@ function enableEventBinds(){
 	$('body').bind(GOT_USER_PROFILE_PIC, displayUserProfilePic);
 	$('body').bind(GOT_FRIEND_LIST, getFriendList);
 	$('body').bind("SAME_GOAL_BUTTON_CLICKED", function(e){
-		openCreateCircleScreen(true);
+
+		(isLogin) ? openCreateCircleScreen(true) : facebook.logIn();
 	});
 
 	$('body').bind("CREATE_NEW_CIRCLE_BUTTON_CLICKED", function(e){
-		openCreateCircleScreen(false);
+		(isLogin) ? openCreateCircleScreen(false) : facebook.logIn();
 	});
 
 }
@@ -314,8 +317,6 @@ function getTrendingAction(){
 
 	var actionCount = 0;
 
-	console.log("trending", trendingData)
-
 	$('#trending_actions_1 .action_item').remove();
 	$('#trending_actions_2 .action_item').remove();
 
@@ -336,7 +337,6 @@ function getTrendingAction(){
 		}
 
 	})
-
 }
 
 
