@@ -66,6 +66,11 @@ var isCustomizeGoal;
 var country = "united-states";
 
 $(document).ready(function(){	
+if(checkCookie()){
+	var c = getCookie("circle");
+	console.log("cookie");
+	console.log(c);
+} 
 
 	initFacebook();
 
@@ -941,10 +946,58 @@ function createCircle(){
 
 		openLoadingScreen();
 		
+		var cookieData 					= {};
+		cookieData.userID 				= userID;
+		cookieData.userName				= userName;
+		cookieData.userProfilePhoto 	= userProfilePhoto;
+		cookieData.friendSelectedArray 	= friendSelectedArray;
+		cookieData.friendTagIDs			= friendTagIDs;
+		cookieData.goal 				= goal;
+		cookieData.goalID  				= goalID;
+		cookieData.language 			= language;
+
+		saveCircleToCookie(cookieData);
+
+
 		//facebook.createCircle();
 
 }
+function saveCircleToCookie($data){
+	//oc: save cookie.
+	console.log("save cookie");
+	console.log($data);
+	var circle = JSON.stringify($data);
 
+	//oc: set cookie valid for 7 days, across whole site
+	$.cookie("circle",circle,{ expires: 7, path: '/' });
+}
+
+function getCookie(c_name){
+
+	// var c_value = document.cookie;
+	// var c_start = c_value.indexOf(" " + c_name + "=");
+	
+	// if (c_start == -1)	  c_start = c_value.indexOf(c_name + "=");
+	  
+	// if (c_start == -1)	  c_value = null;
+	// else{
+	//   c_start 	= c_value.indexOf("=", c_start) + 1;
+	//   var c_end = c_value.indexOf(";", c_start);
+	//   if (c_end == -1)	c_end = c_value.length;
+	//   c_value 	= unescape(c_value.substring(c_start,c_end));
+	// }
+	var c_value = $.cookie("circle");
+	console.log(c_value);
+	return JSON.parse(c_value);
+};
+
+function checkCookie(){
+
+	//oc: is cookie present?
+	return $.cookie("circle");
+
+	
+};
 
 function postCircleData(goal_id){
 
