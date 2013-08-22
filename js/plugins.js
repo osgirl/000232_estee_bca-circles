@@ -200,12 +200,7 @@ $.extend(
         cid = $('.popup#popup_circle').attr('cid');
         u = baseUrl + 'circle/share/' + cid;
 
-        console.log(u);
-
         if(v.type == "facebook"){
-            console.log("-- Posting to Facebook --");
-
-
             FB.ui(
               {
                 method: 'feed',
@@ -224,7 +219,7 @@ $.extend(
               }
             );
         } else if(v.type == "twitter"){
-
+            openShareWindow(575, 380, 'http://twitter.com/home?status=Twitter msg here', 'Twitter');
         }
     }
 });
@@ -1157,12 +1152,22 @@ function checkAndLoadExternalUrl()
 
 
 //jsAddress temp
-
-$.address.change(function(e)
-{
+// $.address.change(function(e)
+// {
     // var v = e.value.replace(/^\//, '').split('/');
     // console.log('change ' + v);
     // $.address.hash('_');
     // return false;
     // e.preventdefault;
-});
+// });
+
+//Helpers
+function openShareWindow(_w, _h, _url, _title)
+{
+    var width = _w,
+        height = _h,
+        left = window.screenX + ((window.outerWidth - width) / 2),
+        top = window.screenY + ((window.outerHeight - height) / 2),
+        opts = 'location=0' + ',toolbar=0' + ',titlebar=0' + ',status=0' + ',width=' + width + ',height=' + height + ',top=' + top + ',left=' + left;
+    window.open(_url, _title, opts);
+}
