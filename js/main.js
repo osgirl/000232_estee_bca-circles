@@ -61,6 +61,8 @@ var currentSameGoalID;
 var currentSameGoalType;
 var isCustomizeGoal;
 
+var country = "united-states";
+
 $(document).ready(function(){	
 
 	initFacebook();
@@ -217,11 +219,13 @@ function enableButtons(){
 
 	//enable clicks
 	$('.language').unbind('click').click(function(e){
-		var flagSrc = $($($(e.currentTarget).parent()).find('img')).attr('src');
-		var country = $($($(e.currentTarget).parent()).find('.ab_country')).html();
-		console.log(country)
-		$('.flag img').attr('src', flagSrc);
-		$('.country_name').html(country);
+
+		country = $($(e.currentTarget).parent()).attr('id');
+		var smallflagSrc = baseUrl + "img/flags/small/" + country + ".png";
+		var shorten_country = $($($(e.currentTarget).parent()).find('.ab_country')).html();
+		
+		$('.flag img').attr('src', smallflagSrc);
+		$('.country_name').html(shorten_country);
 	})
 	$('#conversation_btn').unbind("click").click(function(e){
 		$("html, body").animate({ scrollTop: 766 }, "slow");
@@ -308,9 +312,10 @@ function getTrendingAction(){
 		  return ((aNum > bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
 	});
 
-	console.log("trending", trendingData)
-
 	var actionCount = 0;
+
+	$('#trending_actions_1 .action_item').remove();
+	$('#trending_actions_2 .action_item').remove();
 
 	$(trendingData).each(function(i, v){
 
@@ -792,7 +797,6 @@ function getUserCircleData(){
     		user_id:userID
     	},
     	success: function(data) {           
-        	console.log('success', data);
 
         	var circlePlural;
 
@@ -844,12 +848,65 @@ function createCircle(){
 
 		isCustomizeGoal = ($("#custom_action").val() == "") ? false : true;
 
+		var goalExist = false;
+
 		//TO DO IF THEY TYPE THE SAME GOAL
 
-		$(goalData).each(function(i, v){
-			if(v.id == goalID || v.goal == goal) isCustomizeGoal = false;
-			if(v.goal == goal) goalID = v.id;
-		})
+		var goalCount = 0;
+
+		$.ajax({
+	    	url: baseUrl + 'goal/fetchGoalData',
+	    	dataType: 'json',
+	    	success: function(data) { 
+
+	    		goalData = data;
+	    		 
+	        	$(goalData).each(function(i, v){
+					console.log(v.goal, goal)
+
+					if(goal == String(v.goal)) {
+						isCustomizeGoal = false;
+						goalID = v.id;
+					}
+
+					goalCount++; 
+
+					if(goalCount == goalData.length) {
+
+							if(isCustomizeGoal){
+
+								$.ajax({
+					        		type: 'post',
+					            	url: baseUrl + 'goal/create',
+					            	dataType: 'json',
+					            	data: {
+					            		goal:goal
+					            	},
+					            	success: function(data) {   
+
+					            		console.log("what's the goal id from here??", data.id);
+
+					            		postCircleData(data.id);
+
+					             	},
+					             	error: function(jqXHR, textStatus, errorThrown){
+										console.log(jqXHR.responseText);
+										console.log(jqXHR.status);
+									}
+					      		});
+							}else{
+								postCircleData(goalID);
+							}
+						}
+
+				})
+
+	        	trendingData = data;
+	        	
+	        	getTrendingAction();
+	     	}
+		});
+
 
 		var friendNum = friendSelectedArray.length;
 
@@ -860,29 +917,8 @@ function createCircle(){
 		
 		facebook.createCircle();
 
-		if(isCustomizeGoal){
-			$.ajax({
-        		type: 'post',
-            	url: baseUrl + 'goal/create',
-            	dataType: 'json',
-            	data: {
-            		goal:goal
-            	},
-            	success: function(data) {   
-
-            		postCircleData(data.id);
-
-             	},
-             	error: function(jqXHR, textStatus, errorThrown){
-					console.log(jqXHR.responseText);
-					console.log(jqXHR.status);
-				}
-      		});
-		}else{
-			postCircleData(goalID);
-		}
-
 }
+
 
 function postCircleData(goal_id){
 
@@ -892,6 +928,7 @@ function postCircleData(goal_id){
 		'users_photo_url' : userProfilePhoto,
 		'goal'			  : goal,
 		'ref_goal_id'	  : goal_id,	
+		'country'		  : country,
 		'language'		  : 0 // optional, we still not sure about this field
 	};
 
@@ -915,7 +952,7 @@ function postCircleData(goal_id){
 	            		friends_fb_id: v.id,
 	            		friends_name:v.name
 	            	},
-	            	success: function(data) {  
+	            	success: function(friendData) {  
 	            		friendCount++;
 
 	            		if(friendCount == friendSelectedArray.length){

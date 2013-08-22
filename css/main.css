@@ -1507,8 +1507,18 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	height:20px;
 }
 
-#language_menu .dropdown-menu .language, .dropdown-menu .language_divider{
-	color:#777;
+#language_menu .country{
+	color:#9c9c9c;
+}
+
+#language_menu .language{
+	text-decoration: underline;
+	color:#333;
+}
+
+#language_menu .language_divider{
+	color:#333;	
+	
 }
 
 

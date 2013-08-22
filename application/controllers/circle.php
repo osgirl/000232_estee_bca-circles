@@ -42,7 +42,8 @@ class Circle extends CI_Controller {
 				'goal'					=> $this->post['goal'],
 				//'date'					=> '2013-07-31 11:50:53',
 				'language'				=> $this->post['language'],
-				'ref_goal_id'			=> $ref_goal_id
+				'ref_goal_id'			=> $ref_goal_id,
+				'country'				=> $this->post['country']
 				);
 
 			$query = $this->db->query("UPDATE goals SET taken_number=taken_number + 1 WHERE id = '$ref_goal_id'"); 
