@@ -321,7 +321,7 @@ $.extend(
         loadStart();
         $.ajaxFileUpload(
         {
-            url: 'photo/uploadPreviewImage',
+            url: baseUrl + 'photo/uploadPreviewImage',
             secureuri: false,
             fileElementId: 'uploadFile',
             dataType: 'json',
@@ -472,7 +472,7 @@ $.extend(
                 $.ajax(
                 {
                     type: 'post',
-                    url: 'photo/saveRawFile',
+                    url: baseUrl + 'photo/saveRawFile',
                     dataType: 'text',
                     data: {
                         base64data: canvasData,
@@ -496,7 +496,7 @@ $.extend(
                 $.ajax(
                 {
                     type: 'post',
-                    url: 'photo/saveFile',
+                    url: baseUrl + 'photo/saveFile',
                     data: {
                         filePath: $preview_img_path,
                         x: $l,
