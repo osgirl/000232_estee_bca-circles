@@ -915,10 +915,53 @@ function createCircle(){
 
 		openLoadingScreen();
 		
+		var cookieData 					= {};
+		cookieData.userID 				= userID;
+		cookieData.userName				= userName;
+		cookieData.userProfilePhoto 	= userProfilePhoto;
+		cookieData.friendSelectedArray 	= friendSelectedArray;
+		cookieData.friendTagIDs			= friendTagIDs;
+		cookieData.goal 				= goal;
+		cookieData.goalID  				= goalID;
+		cookieData.language 			= language;
+
+		saveCircleToCookie(cookieData);
+
+
 		//facebook.createCircle();
 
 }
+function saveCircleToCookie($data){
+	//oc: save cookie.
+	var circle = JSON.stringify($data);
+	setCookie("circle",circle,1);
+}
 
+function getCookie(c_name){
+
+	var c_value = document.cookie;
+	var c_start = c_value.indexOf(" " + c_name + "=");
+	
+	if (c_start == -1)	  c_start = c_value.indexOf(c_name + "=");
+	  
+	if (c_start == -1)	  c_value = null;
+	else{
+	  c_start 	= c_value.indexOf("=", c_start) + 1;
+	  var c_end = c_value.indexOf(";", c_start);
+	  if (c_end == -1)	c_end = c_value.length;
+	  c_value = unescape(c_value.substring(c_start,c_end));
+	}
+	return JSON.parse(c_value);
+};
+
+function checkCookie(){
+
+	var circle = getCookie("circle");
+	//oc: is cookie present?
+	if (circle!=null && circle!="") return circle;
+	else 	  						return false;
+	
+};
 
 function postCircleData(goal_id){
 
