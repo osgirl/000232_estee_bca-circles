@@ -684,7 +684,7 @@ $.extend(
         $.ajax(
         {
             type: 'POST',
-            url: 'circle_photo/getlist',
+            url: baseUrl + 'circle_photo/getlist',
             dataType: 'json',
             data: {
                 circleId: $d.id

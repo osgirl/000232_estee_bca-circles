@@ -21,7 +21,7 @@
 		<h2>WE'RE STRONGER TOGETHER</h2>
 		<div id="popup_photo_img_holder">
 			<div id="message">
-				<img src="img/popups/icons/ico_photo_upload-preview.png"/>
+				<img src="<?= base_url(); ?>img/popups/icons/ico_photo_upload-preview.png"/>
 				<p>Who makes you stronger? Upload a photo to show us your Circle of Strength.</p>
 			</div>				
 			<div id ="holder">
