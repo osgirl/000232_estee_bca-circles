@@ -787,7 +787,6 @@ function getUserCircleData(){
     		user_id:userID
     	},
     	success: function(data) {           
-        	console.log('success', data);
 
         	var circlePlural;
 
@@ -910,7 +909,7 @@ function postCircleData(goal_id){
 	            		friends_fb_id: v.id,
 	            		friends_name:v.name
 	            	},
-	            	success: function(data) {  
+	            	success: function(friendData) {  
 	            		friendCount++;
 
 	            		if(friendCount == friendSelectedArray.length){

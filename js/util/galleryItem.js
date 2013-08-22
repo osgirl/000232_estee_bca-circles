@@ -168,6 +168,8 @@ function GalleryItem()
         		centerRollOverContent(.4);
         	},200);
 
+        	
+
 		},
 
 		parseAllPhotoData:function(data, isFeatured){

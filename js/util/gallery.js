@@ -824,10 +824,19 @@ function Gallery()
 
 		},
 
-		refreshAsFakeData: function(data){
-			console.log('fake', data)
-
-			
+		refreshAsFakeData: function(data, type){
+			$.ajax({
+				type: 'post',
+		    	url: baseUrl + 'circle/fetchCircleData',
+		    	dataType: 'json',
+		    	data: {
+		    		circle_id:data.id
+		    	},
+		    	success: function(data) {           
+		        	console.log('success', data);
+		        	//loadLayout();
+		     	}
+			});
 		},
 
 		enableLazyloader: function(){
