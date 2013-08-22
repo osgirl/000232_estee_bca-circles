@@ -26,7 +26,7 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-js.css?cachebuster=<?= $cacheBuster; ?>" type="text/css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/videojs/video-bca-skin.css?cachebuster=<?= $cacheBuster; ?>" type="text/css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/fancybox2/jquery.fancybox.css?cachebuster=<?= $cacheBuster; ?>?v=2.1.5" type="text/css" media="screen" />
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css?cachebuster=<?= $cacheBuster; ?>?v=1">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css?cachebuster=<?= $cacheBuster; ?>">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_smartphone.css?cachebuster=<?= $cacheBuster; ?>">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main_tablet.css?cachebuster=<?= $cacheBuster; ?>">
 
