@@ -1,151 +1,133 @@
-<a href="#" class="dropdown-toggle all_cap" data-toggle="dropdown"><span class="country_name" >US</span></a>
+<div class="dropdown-toggle all_cap" data-toggle="dropdown"><span class="country_name" >US</span></div>
 <ul id="language_menu" class="dropdown-menu">
     <li>
-        <a href="#" id="australia">
-            <span><img src='<?php echo base_url(); ?>img/flags/small/australia.png' /></span>
+        <div id="au">
+            <img src='<?php echo base_url(); ?>img/flags/small/australia.png' />
             <span class="country">&nbsp;&nbsp;Australia</span>&nbsp;&nbsp;
-            <span class="language">English</span>
-            <span style="display:none" class="ab_country">AU</span>
-        </a>
+            <a href="/au/en/">English</a>
+        </div>
     </li>
     <li>
-        <a href="#" id="canada">
-            <span><img src='<?php echo base_url(); ?>img/flags/small/canada.png' /></span>
+        <div id="ca">
+            <img src='<?php echo base_url(); ?>img/flags/small/canada.png' />
             <span class="country">&nbsp;&nbsp;Canada</span>&nbsp;&nbsp;
-            <span class="language">English</span>
+            <a href="/ca/en/">English</a>
             <span class="language_divider">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-            <span class="language">Français</span>
-            <span style="display:none" class="ab_country">CA</span>
-        </a>
+            <a href="/ca/fr/">Français</a>
+        </div>
     </li>
     <li>
-        <a href="#" id="chile">
+        <div id="cl">
             <img src='<?php echo base_url(); ?>img/flags/small/chile.png' />
             <span class="country">&nbsp;&nbsp;Chile</span>&nbsp;&nbsp;
-            <span class="language">Español</span>
-            <span style="display:none" class="ab_country">CL</span>
-        </a>
+            <span >Español</span>
+        </div>
     </li>
     <li>
-        <a href="#" id="china">
+        <div id="cn">
             <img src='<?php echo base_url(); ?>img/flags/small/china.png' />
             <span class="country">&nbsp;&nbsp;China</span>&nbsp;&nbsp;
-            <span class="language">中文</span>
-            <span style="display:none" class="ab_country">CN</span>
-        </a>
+            <span >中文</span>
+        </div>
     </li>
     <li>
-        <a href="#" id="germany">
+        <div id="de">
             <img src='<?php echo base_url(); ?>img/flags/small/germany.png' />
             <span class="country">&nbsp;&nbsp;Germany</span>&nbsp;&nbsp;
-            <span class="language">Deutsch</span>
-            <span style="display:none" class="ab_country">DE</span>
-        </a>
+            <span >Deutsch</span>
+        </div>
     </li>
     <li>
-        <a href="#" id="greece">
+        <div id="gr">
             <img src='<?php echo base_url(); ?>img/flags/small/greece.png' />
             <span class="country">&nbsp;&nbsp;Greece</span>&nbsp;&nbsp;
-            <span class="language">Ελληνικά</span>
-            <span style="display:none" class="ab_country">GR</span>
-        </a>
+            <span >Ελληνικά</span>
+        </div>
     </li>
     <li>
-        <a href="#" id="hong-kong">
-            <span><img src='<?php echo base_url(); ?>img/flags/small/hong-kong.png' /></span>
+        <div id="hk">
+            <img src='<?php echo base_url(); ?>img/flags/small/hong-kong.png' />
             <span class="country">&nbsp;&nbsp;Hong Kong</span>&nbsp;&nbsp;
-            <span class="language">English</span>
+            <span >English</span>
             <span class="language_divider">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-            <span class="language">中文</span>
-            <span style="display:none" class="ab_country">HK</span>
-        </a>
+            <span >中文</span>
+        </div>
     </li>
     <li>
-        <a href="#" id="south-korea">
+        <div id="kr">
             <img src='<?php echo base_url(); ?>img/flags/small/south-korea.png' />
             <span class="country">&nbsp;&nbsp;Korea</span>&nbsp;&nbsp;
-            <span class="language">한국어</span>
-            <span style="display:none" class="ab_country">KR</span>
-        </a>
+            <span >한국어</span>
+        </div>
     </li>
     <li>
-        <a href="#" id="malaysia">
+        <div id="my">
             <img src='<?php echo base_url(); ?>img/flags/small/malaysia.png' />
             <span class="country">&nbsp;&nbsp;Malaysia</span>&nbsp;&nbsp;
-            <span class="language">English</span>
-            <span style="display:none" class="ab_country">MY</span>
-        </a>
+            <span >English</span>
+        </div>
     </li>
     <li>
-        <a href="#" id="mexico">
+        <div id="mx">
             <img src='<?php echo base_url(); ?>img/flags/small/mexico.png' />
             <span class="country">&nbsp;&nbsp;Mexico</span>&nbsp;&nbsp;
-            <span class="language">Español</span>
-            <span style="display:none" class="ab_country">MX</span>
-        </a>
+            <span >Español</span>
+        </div>
     </li>
     <li>
-        <a href="#" id="philippines">
+        <div id="ph">
             <img src='<?php echo base_url(); ?>img/flags/small/philippines.png' />
             <span class="country">&nbsp;&nbsp;Philippines</span>&nbsp;&nbsp;
-            <span class="language">English</span>
-            <span style="display:none" class="ab_country">PH</span>
-        </a>
+            <span >English</span>
+        </div>
     </li>
     <li>
-        <a href="#" id="russia">
+        <div id="ru">
             <img src='<?php echo base_url(); ?>img/flags/small/russia.png' />
             <span class="country">&nbsp;&nbsp;Russia</span>&nbsp;&nbsp;
-            <span class="language">Русский</span>
-            <span style="display:none" class="ab_country">RU</span>
-        </a>
+            <span >Русский</span>
+        </div>
     </li>
     <li>
-        <a href="#" id="singapore">
+        <div id="sc">
             <img src='<?php echo base_url(); ?>img/flags/small/singapore.png' />
             <span class="country">&nbsp;&nbsp;Singapore</span>&nbsp;&nbsp;
-            <span class="language">English</span>
-            <span style="display:none" class="ab_country">SC</span>
-        </a>
+            <span >English</span>
+        </div>
     </li>
     <li>
-        <a href="#" id="spain">
+        <div id="es">
             <img src='<?php echo base_url(); ?>img/flags/small/spain.png' />
             <span class="country">&nbsp;&nbsp;Spain</span>&nbsp;&nbsp;
-            <span class="language">Español</span>
-            <span style="display:none" class="ab_country">ES</span>
-        </a>
+            <span >Español</span>
+        </div>
     </li>
     <li>
-        <a href="#" id="taiwan">
+        <div id="tw">
             <img src='<?php echo base_url(); ?>img/flags/small/taiwan.png' />
             <span class="country">&nbsp;&nbsp;Taiwan</span>&nbsp;&nbsp;
-            <span class="language">中文</span>
-            <span style="display:none" class="ab_country">TW</span>
-        </a>
+            <span >中文</span>
+        </div>
     </li>
     <li>
-        <a href="#" id="turkey">
+        <div id="tr">
             <img src='<?php echo base_url(); ?>img/flags/small/turkey.png' />
             <span class="country">&nbsp;&nbsp;Turkey</span>&nbsp;&nbsp;
-            <span class="language">Turkish</span>
-            <span style="display:none" class="ab_country">TR</span>
-        </a>
+            <span >Turkish</span>
+        </div>
     </li>
     <li>
-        <a href="#" id="united-kingdom">
+        <div id="uk">
             <img src='<?php echo base_url(); ?>img/flags/small/united-kingdom.png' />
             <span class="country">&nbsp;&nbsp;United Kingdom</span>&nbsp;&nbsp;
-            <span class="language">English</span>
-            <span style="display:none"class="ab_country">UK</span>
-        </a>
+            <span >English</span>
+        </div>
     </li>
     <li>
-        <a href="#" id="united-states">
+        <div id="us">
             <img src='<?php echo base_url(); ?>img/flags/small/united-states.png' />
             <span class="country">&nbsp;&nbsp;United States</span>&nbsp;&nbsp;
-            <span class="language">English</span>
-            <span style="display:none"class="ab_country">US</span>
-        </a>
+            <a href="/us/en/">English</a>
+        </div>
     </li>
 </ul>

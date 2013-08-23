@@ -64,15 +64,56 @@ $config['url_suffix'] = '';
 
 /*
 |--------------------------------------------------------------------------
-| Default Language
+| Default Country and Language
 |--------------------------------------------------------------------------
 |
-| This determines which set of language files should be used. Make sure
-| there is an available translation if you intend to use something other
-| than english.
-|
+| This determines which set of Country and language files should be used.
 */
+
+$config['country']	= 'United States';
 $config['language']	= 'english';
+
+// default Country & language abbreviation 
+$config['country_abbr'] = "us";
+$config['language_abbr'] = "en";
+
+// set available language abbreviations 
+$config['country_uri_abbr'] = 
+	array(
+		"au" => "Australia", 
+		"ca" => "Canada", 
+		"cl" => "Chile", 
+		"cn" => "China", 
+		"de" => "Germany", 
+		"gr" => "Greece", 
+		"hk" => "Hong Kong", 
+		"kr" => "Korea", 
+		"my" => "Malaysia", 
+		"mx" => "Mexico", 
+		"ph" => "Philippines", 
+		"ru" => "Russia", 
+		"sc" => "Singapore", 
+		"es" => "Spain", 
+		"tw" => "Taiwan", 
+		"tr" => "Turkey", 
+		"uk" => "United Kingdom", 
+		"us" => "United States"
+	);
+
+$config['lang_uri_abbr'] = 
+	array(
+		"en" => "English", 
+		"fr" => "French", 
+		"es" => "Spanish", 
+		"cn" => "Chinese", 
+		"nl" => "Dutch", 
+		"el" => "Greek", 
+		"kr" => "Korean", 
+		"ru" => "Russian", 
+		"zh" => "Singapore", 
+		"tr" => "Turkish"
+	);
+
 
 /*
 |--------------------------------------------------------------------------

@@ -158,7 +158,7 @@ $.extend(
                     adr = $.address.value().split('/');
                     if (!$isUpload)
                     {
-                        dl = ($child) ? '/circle/' + adr[2] + '/' : '/#';
+                        dl = ($child) ? '/circle/' + adr[2] + '/' : '/ ';
                         $.address.path(dl);
                     }
                 }

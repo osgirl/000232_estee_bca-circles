@@ -1561,12 +1561,32 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 
-#language_menu .dropdown-menu img{
+#language_menu.dropdown-menu {
+	font-family: Arial, 'Arial', arial, sans-serif;
+	font-size: 1em;
+}
+
+#language_menu.dropdown-menu a{
+	text-decoration: underline;
+	color:#333;	
+}
+
+#language_menu.dropdown-menu a:hover{
+	color:#f38dab;
+}
+
+#language_menu.dropdown-menu img{
 	margin-top:1px;
 }
 
-#language_menu .dropdown-menu li a{
+#language_menu.dropdown-menu li div{
+	min-width: 220px;
 	height:20px;
+	margin: 2px 20px;
+}
+
+#language_menu.dropdown-menu li span{
+	display: inline-block;
 }
 
 #language_menu .country{
