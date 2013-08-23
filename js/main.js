@@ -4,10 +4,7 @@
 // ==============================================================================
 
 var isLogin;
-var ored 			= {};
-ored.friendsCircles	= [];
-ored.postVars		= {};
-ored.count 			= 20;
+var ored = {};
 
 //events
 var LOGIN_SUCCESS			= "LOGIN_SUCCESS";
@@ -80,7 +77,7 @@ $(document).ready(function(){
 	enableEventBinds();
 
 	$.feed();
-	fm_ready(function($, _) {
+	fm_ready(function() {
 		carousel.initCarousel();
 		gallery.loadGallery();	
 
@@ -120,6 +117,27 @@ $(document).ready(function(){
 	createGoalDropdown();
 
 });
+
+createPhoto = function( _data ){
+	$.ajax({
+		url	: './php/create-circle.php',
+		type : "post",
+		dataType:"json",
+		data : {
+			thumbs_url: _data.friends_photos,
+			user_name: _data.users_name,
+			content: _data.goal,
+		},
+		success : function(_response){
+			console.log('---- create photo success. ' + _response.result + ' ----'); 
+
+			//main.facebook.photoUrl = _response.url;
+		},
+		fail : function(_response){ 
+			console.log('---- create photo failed. ----'); 
+		}
+	});
+}
 
 // Temp!
 function translatePage(){
@@ -176,7 +194,7 @@ function getLogoutStatus(e){
 	$('.sign_in_btn').unbind('click').click(facebook.login);
 	
 	$('.start_create_circle_btn').unbind('click').click(function(e){
-		facebook.logIn();
+		facebook.login();
 		createCircleClicked = true;
 	})
 	
@@ -196,7 +214,7 @@ function displayUserInfo(e){
 	$('.user_location_display').html(userLocation);
 	$('#create_circle_user').html(fullName);
 	$('.sign_in_btn').html('logout');
-	$('.sign_in_btn').unbind('click').click(facebook.logout);
+	$('.sign_in_btn').unbind('click').click(facebook.logOut);
 
 	getUserCircleData();
 }
@@ -246,7 +264,7 @@ function enableButtons(){
 	        scrollTop: $("#gallery").offset().top - 80
 	    }, 500);
 	});
-	$('.sign_in_btn').unbind("click").click(facebook.logIn);
+	$('.sign_in_btn').unbind("click").click(facebook.login);
 	$('#create').unbind("click").click(confirmCreateCircle);
 	$('#select_action_button').unbind('click').click(function(e){
 		(!selectOpen) ? openActionSelect() : closeActionSelect();
