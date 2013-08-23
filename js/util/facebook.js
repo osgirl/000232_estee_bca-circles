@@ -159,7 +159,7 @@ facebook.logOut = function( _callback ){
 facebook.createCircle = function(_friendids){
 	//facebook.createPhoto( function(_photo_url){		
 		facebook.createAlbum( {name: facebook.albumName, message:facebook.albumMessage}, function( _album_response ){
-			facebook.postPhotoToAlbum( {album_id:_album_response.id, url:"http://staging.click3x.com/estee_lauder/bca/img/output.jpg", message:facebook.photoMessage}, function( _photo_response ){
+			facebook.postPhotoToAlbum( {album_id:_album_response.id, url:"http://staging.click3x.com/estee_lauder/bca/php/output.jpg", message:facebook.photoMessage}, function( _photo_response ){
 				facebook.tagPhoto({photo_id:_photo_response.id, users:_friendids}, function(){
 					console.log("create circle complete");
 				});
@@ -170,7 +170,7 @@ facebook.createCircle = function(_friendids){
 
 facebook.createPhoto = function( _data, _callback ){
 	$.ajax({
-		url	: baseUrl + 'photo/save_circle_photo',
+		url	: 'http://staging.click3x.com/estee_lauder/bca/php/create-circle.php',
 		type : "post",
 		dataType:"json",
 		data : {
@@ -182,7 +182,7 @@ facebook.createPhoto = function( _data, _callback ){
 		success : function(_response){
 			console.log('---- create photo success. ' + _response.result + ' ----'); 
 
-			if(_callback) _callback( baseUrl + "php/" + _response.filename);
+			if(_callback) _callback( "http://staging.click3x.com/estee_lauder/bca/php/" + _response.filename);
 		},
 		fail : function(_response){ 
 			console.log('---- create photo failed. ----'); 
