@@ -31,6 +31,20 @@
 */
 class BCA_Lang extends CI_Lang
 {
+
+  function __construct() {
+            global $URI, $CFG, $IN;
+        
+        $config =& $CFG->config;
+        $URI->uri_string        = preg_replace("|^\/?|", '/', $URI->uri_string);
+        $country_abbr           = $URI->segment(1); //Country
+        $lang_abbr              = $URI->segment(2); //Language
+
+        var_dump($country_abbr);
+        var_dump($lang_abbr);
+
+  }
+
     /*function __construct() {
         
         global $URI, $CFG, $IN;
