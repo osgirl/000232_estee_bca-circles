@@ -24,7 +24,7 @@ class Home extends CI_Controller {
 
 	public function twitter_share($category = "", $id = "", $goal = "")
 	{
-		$long_url 	= base_url().urlencode("#").$category."/".$id;
+		$long_url 	= base_url();
 		$short_url 	= $this->getbitly($long_url);
 
 		$title 	 	= SHARE_TITLE." ".SHARE_CAPTION;
@@ -36,7 +36,7 @@ class Home extends CI_Controller {
 	public function getbitly($long_url){
 		$ch = curl_init();
 	 
-	    curl_setopt($ch, CURLOPT_URL, "https://api-ssl.bitly.com/v3/shorten?access_token=".BITLY_ACCESS_TOKEN."&longUrl=".$long_url );
+	    curl_setopt($ch, CURLOPT_URL, "https://api-ssl.bitly.com/v3/shorten?access_token=".BITLY_ACCESS_TOKEN."&longUrl=".urlencode($long_url) );
 	    curl_setopt($ch, CURLOPT_REFERER, base_url());
 	    curl_setopt($ch, CURLOPT_HEADER, 0);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
