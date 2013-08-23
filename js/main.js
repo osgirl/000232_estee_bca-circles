@@ -1066,18 +1066,6 @@ function savePhotoToCookie($data){
 
 function getCircleCookie(c_name){
 
-	// var c_value = document.cookie;
-	// var c_start = c_value.indexOf(" " + c_name + "=");
-	
-	// if (c_start == -1)	  c_start = c_value.indexOf(c_name + "=");
-	  
-	// if (c_start == -1)	  c_value = null;
-	// else{
-	//   c_start 	= c_value.indexOf("=", c_start) + 1;
-	//   var c_end = c_value.indexOf(";", c_start);
-	//   if (c_end == -1)	c_end = c_value.length;
-	//   c_value 	= unescape(c_value.substring(c_start,c_end));
-	// }
 	var c_value = $.cookie("circle");
 	console.log(c_value);
 	return JSON.parse(c_value);
@@ -1085,18 +1073,6 @@ function getCircleCookie(c_name){
 
 function getPhotoCookie(c_name){
 
-	// var c_value = document.cookie;
-	// var c_start = c_value.indexOf(" " + c_name + "=");
-	
-	// if (c_start == -1)	  c_start = c_value.indexOf(c_name + "=");
-	  
-	// if (c_start == -1)	  c_value = null;
-	// else{
-	//   c_start 	= c_value.indexOf("=", c_start) + 1;
-	//   var c_end = c_value.indexOf(";", c_start);
-	//   if (c_end == -1)	c_end = c_value.length;
-	//   c_value 	= unescape(c_value.substring(c_start,c_end));
-	// }
 	var p_value = $.cookie("photo");
 	console.log(p_value);
 	return JSON.parse(p_value);
@@ -1142,7 +1118,9 @@ function postCircleData(goal_id){
 
 	        var friendNum = friendSelectedArray.length;
 
-			var popupData = "$.popup({type:'circle', data:{  id:'" + data.id + "',content: '"+ goal+ "',avatar: '"+ userProfilePhoto + "', num_friends: " + friendNum + ", is_user:true}});"
+	        console.log("circle created:", data.id)
+
+			var popupData = "$.popup({type:'circle', data:{  id:'" + data.id + "', content: '"+ goal+ "',avatar: '"+ userProfilePhoto + "', num_friends: " + friendNum + ", is_user:true}});"
 			$($('#close_create_circle_btn').parent()).attr('onclick', popupData);
 
         	$.each(friendSelectedArray, function(i,v){
