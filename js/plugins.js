@@ -119,7 +119,7 @@ $.extend(
                 $.ajax(
                 {
                     type: 'POST',
-                    url: baseUrl + u,
+                    url: baseUrl + indexPage + u,
                     data: d,
                     success: function(data)
                     {
@@ -143,7 +143,7 @@ $.extend(
 
             $.fancybox(
             {
-                href: baseUrl + u,
+                href: baseUrl + indexPage + u,
                 type: 'ajax',
                 padding: 0,
                 closeBtn: $closeBtn,
@@ -205,7 +205,7 @@ $.extend(
         console.log(v);
 
         cid = $('.popup#popup_circle').attr('cid');
-        u = baseUrl + 'circle/share/' + cid;
+        u = baseUrl + indexPage + 'circle/share/' + cid;
 
         var caption = 'Take action against breast cancer.' + (v.action != undefined ? " " + v.action : "")
 
@@ -214,7 +214,7 @@ $.extend(
               {
                 method: 'feed',
                 name: "We're Stronger Together.",
-                link: baseUrl+"#"+ (v.id != undefined ? v.post_type + "/" + v.id : $.address.path() ),
+                link: baseUrl + indexPage +"#"+ (v.id != undefined ? v.post_type + "/" + v.id : $.address.path() ),
                 picture: baseUrl + 'img/assets/fb_share.jpg' ,
                 caption: 'Take action against breast cancer.' + (v.action != undefined ? " " + v.action : ""),
                 description: 'Create a Circle of Strength with those who support you most now.'
@@ -232,7 +232,7 @@ $.extend(
             var id = v.id != undefined ? v.id : "";
             var action = v.action != undefined ? v.action : "";
 
-            openShareWindow(575, 380, baseUrl + "home/twitter_share/" + type + "/" + id + "/" + action , 'Twitter');
+            openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + type + "/" + id + "/" + action , 'Twitter');
         }
     }
 });
@@ -329,7 +329,7 @@ $.extend(
         loadStart();
         $.ajaxFileUpload(
         {
-            url: baseUrl + 'photo/uploadPreviewImage',
+            url: baseUrl + indexPage + 'photo/uploadPreviewImage',
             secureuri: false,
             fileElementId: 'uploadFile',
             dataType: 'json',
@@ -480,7 +480,7 @@ $.extend(
                 $.ajax(
                 {
                     type: 'post',
-                    url: baseUrl + 'photo/saveRawFile',
+                    url: baseUrl + indexPage + 'photo/saveRawFile',
                     dataType: 'json',
                     data: {
                         base64data: canvasData,
@@ -504,7 +504,7 @@ $.extend(
                 $.ajax(
                 {
                     type: 'post',
-                    url: baseUrl + 'photo/saveFile',
+                    url: baseUrl + indexPage + 'photo/saveFile',
                     dataType: 'json',
                     data: {
                         filePath: $preview_img_path,
@@ -711,7 +711,7 @@ $.extend(
         $.ajax(
         {
             type: 'POST',
-            url: baseUrl + 'circle_photo/getlist',
+            url: baseUrl + indexPage + 'circle_photo/getlist',
             dataType: 'json',
             data: {
                 circleId: $d.id
@@ -741,7 +741,7 @@ $.extend(
                 $(v).each(function(i)
                 {
                     //Thumbnail
-                    $img = $('<img style="display:none" src="uploads/' + v[i].filename + '"/>').mousedown(function()
+                    $img = $('<img style="display:none" src="' + baseUrl + 'uploads/' + v[i].filename + '"/>').mousedown(function()
                     {
                         return false;
                     }).load(imgLoadComplete);
@@ -755,7 +755,7 @@ $.extend(
                                 id: v[i].id,
                                 source: 'bca',
                                 content: v[i].description,
-                                photo_url: 'uploads/' + v[i].filename,
+                                photo_url: baseUrl + 'uploads/' + v[i].filename,
                                 child: true
                             }
                         })
@@ -829,7 +829,7 @@ $.extend(
     function loadCommentBox()
     {
         var $holder     = $($c + ' #popup_circle_comment_holder');
-        var iframeSrc   = baseUrl + 'popup/facebook_comment_iframe/' + $d.id;
+        var iframeSrc   = baseUrl + indexPage + 'popup/facebook_comment_iframe/' + $d.id;
         $('<iframe src="' + iframeSrc + '"></iframe>').appendTo($holder);
     }
 
@@ -1056,7 +1056,7 @@ function checkAndLoadExternalUrl()
             break;
 
         case 'circle':
-            u = baseUrl + "circle/fetchCircleData/";
+            u = baseUrl + indexPage + "circle/fetchCircleData/";
             $data = {
                 circle_id: adr[2]
             };
@@ -1066,7 +1066,7 @@ function checkAndLoadExternalUrl()
 
             if (adr[2] == 'bca')
             {
-                u = baseUrl + "photo/fetchUploadedPhotoData";
+                u = baseUrl + indexPage + "photo/fetchUploadedPhotoData";
                 $data = {
                     photo_id: adr[3]
                 };

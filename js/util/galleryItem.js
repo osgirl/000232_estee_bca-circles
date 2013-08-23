@@ -244,7 +244,7 @@ function GalleryItem()
 
 						$.ajax({
 			        		type: 'post',
-			            	url: baseUrl + 'photo/fetchUploadedPhotoData',
+			            	url: baseUrl + indexPage + 'photo/fetchUploadedPhotoData',
 			            	dataType: 'json',
 			            	data: {
 			            		photo_id: feed.text

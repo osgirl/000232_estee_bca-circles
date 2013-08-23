@@ -43,6 +43,7 @@
 		  // You probably don't want to use globals, but this is just example code
 		  var fbAppId = '<?= config_item("fb_app_id"); ?>';
 		  var baseUrl = '<?= base_url(); ?>';
+		  var indexPage = '<?= index_page(); ?>';
 
 		</script>
     	
