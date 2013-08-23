@@ -157,12 +157,36 @@ facebook.logOut = function( _callback ){
 }
 
 facebook.createCircle = function(_friendids){
-	facebook.createAlbum( {name: facebook.albumName, message:facebook.albumMessage}, function( _album_response ){
-		facebook.postPhotoToAlbum( {album_id:_album_response.id, url:facebook.photoUrl, message:facebook.photoMessage}, function( _photo_response ){
-			facebook.tagPhoto({photo_id:_photo_response.id, users:_friendids}, function(){
-				console.log("create circle complete");
+	//facebook.createPhoto( function(_photo_url){		
+		facebook.createAlbum( {name: facebook.albumName, message:facebook.albumMessage}, function( _album_response ){
+			facebook.postPhotoToAlbum( {album_id:_album_response.id, url:"http://staging.click3x.com/estee_lauder/bca/img/output.jpg", message:facebook.photoMessage}, function( _photo_response ){
+				facebook.tagPhoto({photo_id:_photo_response.id, users:_friendids}, function(){
+					console.log("create circle complete");
+				});
 			});
 		});
+	//});
+}
+
+facebook.createPhoto = function( _data, _callback ){
+	$.ajax({
+		url	: baseUrl + 'photo/save_circle_photo',
+		type : "post",
+		dataType:"json",
+		data : {
+			thumbs_url: _data.friends_photos,
+			user_name: _data.users_name,
+			content: _data.goal,
+			circle_id: _data.circle_id
+		},
+		success : function(_response){
+			console.log('---- create photo success. ' + _response.result + ' ----'); 
+
+			if(_callback) _callback( baseUrl + "php/" + _response.filename);
+		},
+		fail : function(_response){ 
+			console.log('---- create photo failed. ----'); 
+		}
 	});
 }
 
