@@ -269,21 +269,26 @@ h2{
 
 #tagline{
 	position:absolute;
-	top:120px;
+	top:110px;
 	left:0;
 	text-align: center;
 	width:100%;
 }
 
 .stronger_together{
-	font-size:1.8em;
-	line-height: 1.2em;
+	font-size:1.9em;
+	line-height: 1.05em;
 	font-family: "Times New Roman",Georgia,Serif;
 	font-weight: lighter;
+	margin-bottom: 5px;
 }
 
 .copy_text{
+	max-width:320px;
+	letter-spacing: 1px;
+	display:inline-block;
 	font-size:.7em;
+	line-height: 1.4em;
 	padding:0 8% 0 8%;
 }
 

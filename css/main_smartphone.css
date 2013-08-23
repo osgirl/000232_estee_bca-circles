@@ -22,7 +22,7 @@
 	}
 
 	#big_image{
-		min-height:315px;
+		min-height:330px;
 	}
 
 	#tagline{
@@ -32,6 +32,7 @@
 	.stronger_together{
 		font-size:2.4em;
 	}
+
 
 	.circle_flag{
 		top:20px;
@@ -237,11 +238,12 @@
 	}
 
 	.stronger_together{
-		font-size:2.8em;
+		font-size:2.9em;
 	}
 
 	.copy_text{
-		font-size:.8em;
+		font-size:.7em;
+		line-height: 1.6em;
 	}
 
 	#carousel {
@@ -473,11 +475,12 @@
 	}
 
 	.stronger_together{
-		font-size:3.8em;
+		font-size:3.6em;
 	}
 
 	.copy_text{
-		font-size:1em;
+		font-size:.8em;
+		max-width:420px;
 	}
 	  
 }
