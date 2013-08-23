@@ -118,6 +118,59 @@ class Circle extends CI_Controller {
 			echo 'Invalid access';
 	}
 
+	public function fetchFriendCircleData()
+	{
+		$this->post = $this->input->post();
+		if ( isset ( $this->post['circle_id'] )) {	
+
+			$circle_id = $this->post['circle_id'];
+			$data = array();
+			$query = $this->db->query("SELECT * FROM circles WHERE id = '$circle_id'"); 
+
+			if ($query->num_rows() > 0) {
+			  foreach($query->result() as $row) {
+
+			  	$goal_id = $row->ref_goal_id;
+
+			  	$data['circle_id'] = $circle_id;
+			    $data['user_id'] = $row->users_fb_id;
+			    $data['user_name'] = $row->users_name;
+			    $data['user_photo_url'] = $row->users_photo_url;
+			    $data['goal'] = $row->goal;
+			    $data['goal_id'] = $goal_id;
+			    $data['language'] = $row->language;
+			    $data['country'] = $row->country;
+
+			    $friend_query = $this->db->query("SELECT * FROM friends WHERE ref_circle_id = '$circle_id'"); 
+
+			    if ($friend_query->num_rows() > 0) {
+				  foreach($friend_query->result() as $row) {
+				  	$friends_data[] = array (	'friend_id'=>$row->friends_fb_id,
+				  								'friend_name'=>$row->friends_name);
+
+				  }
+				    $data['friends_data'] = $friends_data;
+
+				    $goal_query = $this->db->query("SELECT goal_type FROM goals WHERE id = '$goal_id'");
+
+				    if($goal_query->num_rows() > 0){
+
+				    	foreach($goal_query->result() as $goal_row){
+				    		$data['goal_type'] = $goal_row->goal_type;
+				    	}
+
+				    }
+				}//endif
+
+			  }//endif
+			}
+
+			echo json_encode($data);
+			
+		}
+		else
+			echo 'Invalid access';
+	}
 	public function fetchUserCircleData()
 	{
 		$this->post = $this->input->post();
