@@ -266,7 +266,7 @@ function enableButtons(){
 		$('.flag img').attr('src', smallflagSrc);
 		$('.country_name').html(shorten_country);
 	})
-	
+
 	$('#conversation_btn').unbind("click").click(function(e){
 		$("html, body").animate({ scrollTop: 766 }, "slow");
 	});
@@ -442,6 +442,7 @@ function openCreateCircleScreen(hasGoal){
 		}else{
 			$("#custom_action").val(currentSameGoal);
 			isCustomizeGoal = true;
+			$("#select_action").css({ opacity: .3 });
 		}
 	}else{
 		curSelectedGoal = $($(".goal_dropdown_list").get(0)).html();
