@@ -1065,6 +1065,12 @@ function createCircle(){
 	     	}
 		});
 
+
+		var friendNum = friendSelectedArray.length;
+
+		var popupData = "$.popup({type:'circle', data:{  content: '"+ goal+ "',avatar: '"+ userProfilePhoto + "', num_friends: " + friendNum + ", is_user:true}});"
+		$($('#close_create_circle_btn').parent()).attr('onclick', popupData);
+
 		openLoadingScreen();
 		
 		//facebook.createCircle();
@@ -1166,12 +1172,6 @@ function postCircleData(goal_id){
     	success: function(data) {   
 
 	        var friendCount = 0;
-
-
-	        var friendNum = friendSelectedArray.length;
-
-			var popupData = "$.popup({type:'circle', data:{  id:'" + data.id + "',content: '"+ goal+ "',avatar: '"+ userProfilePhoto + "', num_friends: " + friendNum + ", is_user:true}});"
-			$($('#close_create_circle_btn').parent()).attr('onclick', popupData);
 
         	$.each(friendSelectedArray, function(i,v){
         		//console.log(data.id, v.id, v.name);
