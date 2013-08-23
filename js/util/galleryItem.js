@@ -83,6 +83,10 @@ function GalleryItem()
         	$(item.find('.circle_fb_share_btn')).unbind('click').click(function(e){
 				shareFacebook($(item));
 			});
+
+			$(item.find('.circle_tw_share_btn')).unbind('click').click(function(e){
+				shareTwitter($(item));
+			});
         }
 
 		function shareFacebook(circle){
@@ -94,6 +98,22 @@ function GalleryItem()
 
 			var shareData = {
 				type:'facebook',
+				action: circle_goal,
+				id:circle_id,
+				post_type:'circle'
+			}
+			$.popup_share(shareData);
+		}
+
+		function shareTwitter(circle){
+
+			var circle_goal = $(circle.find(".goal_text")).html();
+			var circle_id = circle.attr('circle_id');
+
+			console.log(circle_goal, circle_id)
+
+			var shareData = {
+				type:'twitter',
 				action: circle_goal,
 				id:circle_id,
 				post_type:'circle'

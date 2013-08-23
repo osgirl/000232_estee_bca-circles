@@ -256,6 +256,7 @@ h2{
 #big_image{
 	position:relative;
 	color:white;
+	height:390px;
 }
 
 #big_image img{
@@ -274,7 +275,7 @@ h2{
 }
 
 .stronger_together{
-	font-size:4em;
+	font-size:2em;
 	line-height: 1em;
 	/*font-family: "Times New Roman",Georgia,Serif;*/
 	font-weight: lighter;
@@ -285,7 +286,6 @@ h2{
 }
 
 
-	
 
 /*FEATURE AREA*/
 

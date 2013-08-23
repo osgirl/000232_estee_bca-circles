@@ -112,6 +112,16 @@
 	    margin-left:0;
 	}
 
+	#tagline{
+		top:200px;
+	}
+
+	.stronger_together{
+		font-size:4em;
+		line-height: 1em;
+		/*font-family: "Times New Roman",Georgia,Serif;*/
+	}
+
 
 }
 
@@ -385,6 +395,16 @@
 		margin-top:10px;
 	}
 
+	#tagline{
+		top:200px;
+	}
+
+	.stronger_together{
+		font-size:3em;
+		line-height: 1em;
+		/*font-family: "Times New Roman",Georgia,Serif;*/
+	}
+
     
 }
 
@@ -458,6 +478,8 @@
 	.feature_photo .twitter_text{
 		font-size:.8em;
 	}
+
+	
 }
 
 
@@ -531,5 +553,16 @@
 	.twitter_avatar, .twitter_title{
 		margin-top:20px;
 	}
+
+	#tagline{
+		top:270px;
+	}
+
+	.stronger_together{
+		font-size:4em;
+		line-height: 1em;
+		/*font-family: "Times New Roman",Georgia,Serif;*/
+	}
+
 
 }

@@ -417,5 +417,11 @@
 		font-size:.7em;
 		margin-top:0px;
 	}
+
+	#big_image{
+		position:relative;
+		color:white;
+		height:330px;
+	}
 	  
 }

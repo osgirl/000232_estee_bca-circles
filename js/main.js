@@ -290,6 +290,11 @@ function enableButtons(){
 		var currentClickedCircle = $(e.currentTarget).parents('.circle_container');
 		shareFacebook($(currentClickedCircle));
 	});
+
+	$('.circle_tw_share_btn').unbind('click').click(function(e){
+		var currentClickedCircle = $(e.currentTarget).parents('.circle_container');
+		shareTwitter($(currentClickedCircle));
+	});
 	
 
 	//$('#show_friendlist_btn').unbind("click").click(facebook.showFriendlist);
@@ -312,6 +317,22 @@ function shareFacebook(circle){
 	}
 	$.popup_share(shareData);
 }
+
+function shareTwitter(circle){
+
+		var circle_goal = $(circle.find(".goal_text")).html();
+		var circle_id = circle.attr('circle_id');
+
+		console.log(circle_goal, circle_id)
+
+		var shareData = {
+			type:'twitter',
+			action: circle_goal,
+			id:circle_id,
+			post_type:'circle'
+		}
+		$.popup_share(shareData);
+	}
 
 function toggleCheckbox(e)
 {

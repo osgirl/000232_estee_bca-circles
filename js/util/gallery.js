@@ -931,6 +931,7 @@ function Gallery()
 			console.log("get fake data")
 
 			var fakeDiv = $('.photo_container').get(0);
+			$(fakeDiv).css('background-color', '#333')
 
 			var photoIcon = baseUrl + "img/icons/bca.png";          
 
