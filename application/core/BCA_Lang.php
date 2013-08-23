@@ -87,7 +87,7 @@ class BCA_Lang extends CI_Lang
               $URI->uri_string = preg_replace("|^\/?$country_abbr/?$lang_abbr|", '', $URI->uri_string);
           }
 
-          var_dump($index_page);
+          var_dump($config['base_url'].$index_page.$URI->uri_string);
 
           //Redirect
           // header('Location: '.$config['base_url'].$index_page.$URI->uri_string);
