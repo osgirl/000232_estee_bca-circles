@@ -24,7 +24,7 @@ class Home extends CI_Controller {
 
 	public function twitter_share($category = "", $id = "", $goal = "")
 	{
-		$long_url 	= base_url().( $id != "" ? urlencode("#").$category.urlencode("/").$id : "" );
+		$long_url 	= base_url().( $id != "" ? "#".$category."/".$id : "" );
 		
 		$short_url 	= $this->getbitly($long_url);
 
