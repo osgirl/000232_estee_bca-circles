@@ -691,6 +691,9 @@ h2{
 	width:92%;
 	margin-left:5%;
 }
+.twitter_text a{
+	color: #333388;
+}
 
 .circle_area_wrapper{
 	margin-top: 40px;
