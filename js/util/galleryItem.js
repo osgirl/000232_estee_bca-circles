@@ -194,29 +194,31 @@ function GalleryItem()
 			circle.find('.goal_text').html(data.goal);
 			circle.fadeIn(200);
 
-        	placeCircleInAngles(circle.find('.circle_area'), data.user_photo_url, data.friends_data.length);
+			if(data.friends_data != undefined){
+	        	placeCircleInAngles(circle.find('.circle_area'), data.user_photo_url, data.friends_data.length);
 
-        	var isUser = (data.user_id == userID) ? true : false;
+	        	var isUser = (data.user_id == userID) ? true : false;
 
-        	var popupData = {
-				type:'circle', 
-				data:{
-					id:data.circle_id,
-					circle_id:data.circle_id,
-					content:data.goal, 
-					avatar:data.user_photo_url,
-					users_fb_id:data.user_id,
-					num_friends: data.friends_data.length,
-					friends_data: data.friends_data,
-					is_user:isUser
+	        	var popupData = {
+					type:'circle', 
+					data:{
+						id:data.circle_id,
+						circle_id:data.circle_id,
+						content:data.goal, 
+						avatar:data.user_photo_url,
+						users_fb_id:data.user_id,
+						num_friends: data.friends_data.length,
+						friends_data: data.friends_data,
+						is_user:isUser
 
-				}}
+					}}
 
-        	enableItemButton(circle, popupData);
+	        	enableItemButton(circle, popupData);
 
-        	setTimeout(function(){
-        		centerRollOverContent(.4);
-        	},200);
+	        	setTimeout(function(){
+	        		centerRollOverContent(.4);
+	        	},200);
+	        }
 		},
 
 		parseAllPhotoData:function(data, isFeatured){

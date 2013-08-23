@@ -54,9 +54,9 @@ function tsToDate(ts)
 
 //Plugins
 
-/*************************************
+/***************************************************
  * Popup jQuery extend for fancybox 2 (standalone)
- **************************************
+ ***************************************************
  *   _data object may contain:
  *   id
  *   source
@@ -1045,12 +1045,10 @@ function checkAndLoadExternalUrl()
 {
     var u, $data,
     adr = $.address.value().split('/');
-
     if (adr.length != 0)
     {
         switch (adr[1])
         {
-
         case 'video':
             $.popup({type:'video', data:{outlink: true}});
             break;
@@ -1135,10 +1133,7 @@ function checkAndLoadExternalUrl()
 
         function loadInstagramData()
         {
-            // console.log('from instagram - token: ' + adr[3]);
-
             //TEMP TEMP TEMP
-
             $.ajax(
             {
                 type: 'GET',
@@ -1146,10 +1141,7 @@ function checkAndLoadExternalUrl()
                 url: 'https://api.instagram.com/v1/media/' + adr[3] + '?client_id=3cff2efc3c714b4ab94a289918992d9c',
                 success: function(result)
                 {
-                    // console.debug('success');
-                    // console.debug(result);
                     var data = result.data;
-
                     $.popup(
                     {
                         type: 'photo',
@@ -1163,19 +1155,14 @@ function checkAndLoadExternalUrl()
                         }
                     });
 
-
                 },
                 error: function(jqXHR, textStatus, errorThrown)
                 {
                     console.debug('Error ' + textStatus);
                 }
             })
-
-
         }
-
     }
-
 }
 
 
@@ -1183,11 +1170,28 @@ function checkAndLoadExternalUrl()
 // $.address.change(function(e)
 // {
     // var v = e.value.replace(/^\//, '').split('/');
-    // console.log('change ' + v);
+    // console.log(v);
     // $.address.hash('_');
     // return false;
     // e.preventdefault;
 // });
+
+/***************************************************
+ * Popup jQuery extend for Google analytics event
+ ***************************************************/
+
+$.extend(
+{
+    gaEvent: function(_category, _action, _label)
+    {
+        if(_label == undefined) _label = '';
+        console.log(_category, _action, _label);
+        _gaq.push(['_trackEvent', _category, _action, _label]);
+    }
+
+});
+
+// $.gaEvent('Circle', 'Created');
 
 //Helpers
 function openShareWindow(_w, _h, _url, _title)

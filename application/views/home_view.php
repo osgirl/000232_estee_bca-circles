@@ -35,6 +35,7 @@
 
         <script src="<?= base_url(); ?>js/vendor/modernizr-2.6.2-respond-1.1.0.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
     </head>
+
     <body>    	
        <div id="fb-root"></div>
 		<script type="text/javascript">		
@@ -192,7 +193,10 @@
                 <div style='width:48%; float:left; border-right:#f38dab 1px solid; padding-right:1.5%'><a class='pink_text' href='#' target='blank'><div id='privacy_policy_btn'>Privacy Policy</div></a></div>
 				<div style='width:49%; float:right; padding-left:1%'><a class='pink_text' href='#' target='blank'><div id='term_and_cons_btn'>Terms & Conditions</div></a></div>
             </div>
-		</div>
+		</div>	
+
+		<!-- Facebook --> 
+        <script src='http://connect.facebook.net/en_US/all.js'></script>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?cachebuster=<?= $cacheBuster; ?>"></script>        
         <script>window.jQuery || document.write('<script src="<?= base_url(); ?>js/vendor/jquery-1.9.1.min.js?cachebuster=<?= $cacheBuster; ?>"><\/script>')</script>
@@ -212,7 +216,6 @@
         <script src="<?= base_url(); ?>js/util/gallery.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/util/facebook.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/main.js?cachebuster=<?= $cacheBuster; ?>"></script>
-        
 
         <script>
             var _gaq=[['_setAccount','<?= GA_ACCOUNT; ?>'],['_trackPageview']];

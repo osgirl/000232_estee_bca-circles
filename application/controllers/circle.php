@@ -135,11 +135,13 @@ class Circle extends CI_Controller {
 			$data 		= array();
 			$circles 	= array();
 			
-			$query = $this->db->select()	
+			$query = $this->db->select("circles.*, g.goal_type")	
 				->from("circles")
 				->where_in("circles.id",$feedArr)
 				->where_in("users_fb_id",$friendsArr)
-				->join("goals", 'goals.id AS gid = circles.ref_goal_id')
+				->join("goals AS g", 'g.id = circles.ref_goal_id', "LEFT")
+				->order_by("circles.id DESC")
+				//->limit(4)
 				->get();
 			
 
@@ -158,6 +160,7 @@ class Circle extends CI_Controller {
 			    $data['country'] 		= $row->country;
 			    $data['goal_type'] 		= $row->goal_type;
 
+//print_r($row);
 //select all circles where circle's userid is in 
 			    $friend_query = $this->db->query("SELECT * FROM friends WHERE ref_circle_id = '$circle_id'"); 
 
