@@ -603,9 +603,17 @@ function Gallery()
 				});
 			})
 		};
-function createCirclesFromORedCircles(){
-	$data = oredCircles;
-	createCircleLayout();
+		function createCirclesFromORedCircles(){
+			$data = ored.friendsCircles;
+			
+};
+
+function onFetchFriendCircleData($data){
+	console.log("onFetchFriendCircleData");
+
+
+			createCircleLayout();
+			circleFriendFeed 		= $data;
 
 		 	$($data).each(function(i){
 
@@ -613,11 +621,6 @@ function createCirclesFromORedCircles(){
 			 	var circleFeedDataArray = new Array();
 		  	 	var feed 				= $data[i];
          		circleFeedDataArray.push(feed);
-
-		  	 	
-		  	 	console.log(feed);
-
-
 
         		$.ajax({
 	        		type: 'get',
@@ -652,52 +655,12 @@ function createCirclesFromORedCircles(){
 	             	}
         	});
 		 });
-};
-
-function onFetchFriendCircleData($data){
-	console.log("onFetchFriendCircleData");
-
-//oc: make sure we have enough to write to the page.
-console.log($data.length);			
-			if(isMoreFeed || oredCircles > 0 ){
-				console.log("she wants MORE MORE MORE");
-				ored.friendCircles.concat($data);
-			}else {
-				console.log("first time.");
-				circleFriendFeed 	= $data;
-				ored.friendCircles			= $data;
-			}	
-			
-			if(oredCircles.length < 4){
-				console.log("need sum mo");
-				$.feed.more('bca-circle', moreFriendCircleData, 4);
-				return;
-			}
-
-
-			createCirclesFromORedCircles();
 	             	
 };
 		//oc: give feedmagnet response to php to fetch only friend circles
 		function getFriendCircleData(data){
 
 		 	console.log("getFriendCircleData");
-
-		 	ored.postVars.friendIdsJSON	= JSON.stringify(getIdsFromFriends(friendProfileList));
-		 	ored.postVars.feedIdsJSON	= JSON.stringify(getIdsFromFeed(data));
-
-			 	$.ajax({
-	        		type: 'post',
-	             	url: baseUrl + indexPage + 'circle/fetchFriendCircleData',
-	             	dataType: 'json',
-	             	data: ored.postVars,
-	             	success: onFetchFriendCircleData
-			});
-
-		};//end getFriendCircleData
-		function moreFriendCircleData(data){
-
-		 	console.log("moreFriendCircleData");
 
 		 	ored.postVars.friendIdsJSON	= JSON.stringify(getIdsFromFriends(friendProfileList));
 		 	ored.postVars.feedIdsJSON	= JSON.stringify(getIdsFromFeed(data));
@@ -754,12 +717,11 @@ console.log($data.length);
 
 				case 'friend':
 					console.log("friends click.");
-					//oc: destroy old circles...
-					ored.circles = [];
+
 					if(!isMoreFeed){
 						$.feed.get('bca-circle', getFriendCircleData, ored.count);
 					}else{
-						if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', moreFriendCircleData, ored.count);
+						if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', getFriendCircleData, ored.count);
 					}
 				break;
 

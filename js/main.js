@@ -5,9 +5,9 @@
 
 var isLogin;
 var ored 			= {};
-ored.friendCircles	= [];
+ored.friendsCircles	= [];
 ored.postVars		= {};
-ored.count 			= 8;
+ored.count 			= 20;
 
 //events
 var LOGIN_SUCCESS			= "LOGIN_SUCCESS";
