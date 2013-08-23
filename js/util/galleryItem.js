@@ -54,6 +54,7 @@ function GalleryItem()
 				$($(e.currentTarget).next()).find('.share_text').css('color', "#f38dab");
 
 				$(item.find('.gallery_item_btn')).unbind('click').click(function(e){openPopUp(popupData)})
+				centerRollOverContent(.55);
 			})
 
 			$(item.find('.gallery_item_btn')).unbind('mouseleave').mouseleave(function(e){
@@ -246,7 +247,7 @@ function GalleryItem()
 
 						$.ajax({
 			        		type: 'post',
-			            	url: baseUrl + 'photo/fetchUploadedPhotoData',
+			            	url: baseUrl + indexPage + 'photo/fetchUploadedPhotoData',
 			            	dataType: 'json',
 			            	data: {
 			            		photo_id: feed.text

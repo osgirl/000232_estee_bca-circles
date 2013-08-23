@@ -5,7 +5,7 @@
 
 var isLogin;
 var ored = {};
-ored.varName = "something";
+
 //events
 var LOGIN_SUCCESS			= "LOGIN_SUCCESS";
 var NOT_LOGIN 				= "NOT_LOGIN"
@@ -71,11 +71,9 @@ var currentCircleViewData;
 
 $(document).ready(function(){	
 	facebook.init(fbAppId);
-
+	translatePage();
 	enableButtons();
 	enableEventBinds();
-
-	
 
 	$.feed();
 	fm_ready(function($, _) {
@@ -118,6 +116,13 @@ $(document).ready(function(){
 	createGoalDropdown();
 
 });
+
+// Temp!
+function translatePage(){
+	var country = $('#language_menu.dropdown-menu #' + selectedCountry);
+	$('.country_name').html(selectedCountry);
+	$('.flag img').attr('src', $(country).children('img').attr('src') );
+}
 
 function enableEventBinds(){
 	$('body').bind(LOGIN_SUCCESS, getLoginStatus);
@@ -221,9 +226,8 @@ function enableButtons(){
 	$('.feature_circle_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('.feature_photo_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 
-
 	//enable clicks
-	$('.language').unbind('click').click(function(e){
+	/*$('.language').unbind('click').click(function(e){
 
 		country = $($(e.currentTarget).parent()).attr('id');
 		var smallflagSrc = baseUrl + "img/flags/small/" + country + ".png";
@@ -231,10 +235,12 @@ function enableButtons(){
 		
 		$('.flag img').attr('src', smallflagSrc);
 		$('.country_name').html(shorten_country);
-	})
+	})*/
 
 	$('#conversation_btn').unbind("click").click(function(e){
-		$("html, body").animate({ scrollTop: 766 }, "slow");
+		$('html, body').animate({
+	        scrollTop: $("#gallery").offset().top - 80
+	    }, 500);
 	});
 	$('.sign_in_btn').unbind("click").click(facebook.logIn);
 	$('#create').unbind("click").click(confirmCreateCircle);
@@ -267,7 +273,6 @@ function enableButtons(){
 		var currentClickedCircle = $(e.currentTarget).parents('.circle_container');
 		shareTwitter($(currentClickedCircle));
 	});
-	
 
 	//$('#show_friendlist_btn').unbind("click").click(facebook.showFriendlist);
 }
@@ -322,7 +327,7 @@ function toggleCheckbox(e)
 
 function createGoalDropdown(){
 	$.ajax({
-    	url: baseUrl + 'goal/fetchGoalData',
+    	url: baseUrl + indexPage + 'goal/fetchGoalData',
     	dataType: 'json',
     	success: function(data) {  
 
@@ -869,7 +874,7 @@ function getUserCircleData(){
 
 	$.ajax({
 		type: 'post',
-    	url: baseUrl + 'circle/fetchUserCircleData',
+    	url: baseUrl + indexPage + 'circle/fetchUserCircleData',
     	dataType: 'json',
     	data: {
     		user_id:userID
@@ -903,31 +908,38 @@ function getUserCircleData(){
 }
 
 function createStatItem(item, parent, line1, line2, data, isCircle){
-	var statItem = $('<table>');
-	statItem.addClass('action_item');
+		var statItem = $('<table>');
+		statItem.addClass('action_item');
 
-	statItem.html(statsItemHtml)
-				.appendTo(parent);
+		statItem.html(statsItemHtml)
+					.appendTo(parent);
 
-	statItem.find('.action_line_1').html(line1);
-	statItem.find('.action_line_2').html(line2);
-	statItem.find('img').attr('src', baseUrl + "img/icons/actions/" + data.goal_icon + ".png");
+		statItem.find('.action_line_1').html(line1);
+		statItem.find('.action_line_2').html(line2);
+		statItem.find('img').attr('src', baseUrl + "img/icons/actions/" + data.goal_icon + ".png");
 
-	if(isCircle){
-		statItem.find('.circle_view_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-    	statItem.find('.circle_view_link').unbind('click').click(function(e){
-			var popupData = {
-				type:'circle', 
-				data:{
-					id:data.circle_id,
-					circle_id:data.circle_id,
-					content:data.goal, 
-					avatar:data.avatar,
-					users_fb_id:userID,
-					num_friends: data.friends_data.length,
-					friends_data: data.friends_data,
-					is_user:true
+		if(isCircle){
 
+			statItem.find('.circle_view_link').unbind('mouseover').mouseover(function(e){
+				$(e.currentTarget).css('cursor','pointer');
+				$(e.currentTarget).css('color','#f33c72');
+			})
+
+			statItem.find('.circle_view_link').unbind('mouseout').mouseout(function(e){
+				$(e.currentTarget).css('color','#f38dab');
+			})
+        	statItem.find('.circle_view_link').unbind('click').click(function(e){
+        			var popupData = {
+						type:'circle', 
+						data:{
+							id:data.circle_id,
+							circle_id:data.circle_id,
+							content:data.goal, 
+							avatar:data.avatar,
+							users_fb_id:userID,
+							num_friends: data.friends_data.length,
+							friends_data: data.friends_data,
+							is_user:true
 				}
 			}
 			gallery.openPopUp(popupData);
@@ -970,7 +982,6 @@ function createCircle(){
 				if(goalCount == goalData.length) {
 
 						if(isCustomizeGoal){
-
 							$.ajax({
 				        		type: 'post',
 				            	url: baseUrl + 'goal/create',
@@ -1103,7 +1114,7 @@ function postCircleData(goal_id){
 
 	$.ajax({
 		type: 'post',
-    	url: baseUrl + 'circle/create',
+    	url: baseUrl + indexPage + 'circle/create',
     	dataType: 'json',
     	data: value,
     	success: function(data) {   
@@ -1114,7 +1125,7 @@ function postCircleData(goal_id){
         		//console.log(data.id, v.id, v.name);
         		$.ajax({
 	        		type: 'post',
-	            	url: baseUrl + 'friend/create',
+	            	url: baseUrl + indexPage + 'friend/create',
 	            	dataType: 'json',
 	            	data: {
 	            		ref_circle_id: data.id,

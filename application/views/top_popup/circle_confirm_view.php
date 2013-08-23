@@ -25,7 +25,7 @@
 	<div id="thank_you">
 		<div class="confirm_content">
 			<p>
-				Thank you for creating a Circle of Strength! Let us help you reach your goal: <span class="pink_text">LIKE US on Facebook</span> so we can keep in touch. We're Stronger Together.
+				Thank you for creating a Circle of Strength! Let us help you reach your goal: <a href="https://www.facebook.com/BCACampaign" target="blank" id="like_us" class="pink_text">LIKE US on Facebook</a> so we can keep in touch. We're Stronger Together.
 			</p>
 		</div>
 		<table class="btn_control">

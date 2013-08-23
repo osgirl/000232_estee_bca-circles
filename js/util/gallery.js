@@ -148,7 +148,7 @@ function Gallery()
 
 				$.ajax({
 	        		type: 'post',
-	            	url: baseUrl + 'index.php/circle/fetchCircleData',
+	            	url: baseUrl + indexPage + 'circle/fetchCircleData',
 	            	dataType: 'json',
 	            	data: {
 	            		circle_id: feed.text
@@ -170,7 +170,7 @@ function Gallery()
 
 	                		$.ajax({
 				        		type: 'get',
-				            	url: baseUrl + 'layout/loadLayoutCircle',
+				            	url: baseUrl + indexPage + 'layout/loadLayoutCircle',
 				            	dataType: 'html',
 				            	
 				            	success: function(layoutData) {  
@@ -263,7 +263,7 @@ function Gallery()
 					feed = data[i].data;
 					$.ajax({
 		        		type: 'post',
-		            	url: baseUrl + 'circle/fetchCircleData',
+		            	url: baseUrl + indexPage + 'circle/fetchCircleData',
 		            	dataType: 'json',
 		            	data: {
 		            		circle_id: feed.text
@@ -372,7 +372,7 @@ function Gallery()
 			uploadedPhotoCount++;
 			$.ajax({
 	        		type: 'post',
-	            	url: baseUrl + 'photo/fetchUploadedPhotoData',
+	            	url: baseUrl + indexPage + 'photo/fetchUploadedPhotoData',
 	            	dataType: 'json',
 	            	data: {
 	            		photo_id: feed.text
@@ -662,21 +662,42 @@ console.log("onFetchFriendCircleData", feedData);
 		//oc: give feedmagnet response to php to fetch only friend circles
 		function parseFriendCircleData(data){
 
-		 	var feed;
-		 	var containerCount = 0;
+		 	var containerCount 		= 0;
 		 	var circleFeedDataArray = new Array();
+
+		 	console.log("parseFriendCircleData");
+		 	console.log(data);
+		 	ored.friendIdsJSON	= JSON.stringify(getIdsFromFriends(friendProfileList));
+		 	ored.feedIdsJSON	= JSON.stringify(getIdsFromFeed(data));
 
 			 	$.ajax({
 	        		type: 'post',
-	             	url: baseUrl + 'index.php/circle/fetchFriendCircleData',
+	             	url: baseUrl + indexPage + 'circle/fetchFriendCircleData',
 	             	dataType: 'json',
-	             	data: {
-	             		circle_id: feed.text
-	             	},
+	             	data: ored,
 	             	success: onFetchFriendCircleData
 			});
 
-		}//end parseFriendCircleData
+		};//end parseFriendCircleData
+
+		function getIdsFromFeed($feed){
+			var ids = [];
+			$($feed).each(function(i){
+				var o = $feed[i];
+
+				ids[i] = o.data.text;
+			});
+			return ids;
+		};
+
+		function getIdsFromFriends($list){
+			var ids 	= [];
+			$($list).each(function(i){
+				var o 	= $list[i];
+				ids[i] 	= o.id;
+			});
+			return ids;
+		};
 
 		function loadLayout(){
 
@@ -702,9 +723,9 @@ console.log("onFetchFriendCircleData", feedData);
 				case 'friend':
 					console.log("friends Click");
 					if(!isMoreFeed){
-						$.feed.get('bca-circle', parseFriendCircleData, getCircleNum);
+						$.feed.get('bca-circle', parseFriendCircleData, 20);
 					}else{
-						if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', parseFriendCircleData, getCircleNum);
+						if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', parseFriendCircleData, 20);
 					}
 				break;
 
@@ -749,7 +770,7 @@ console.log("onFetchFriendCircleData", feedData);
 			if(data && data.length > 0){
 				$.ajax({
 	        		type: 'get',
-	            	url: baseUrl + 'layout/loadLayout' + current_add_layout,
+	            	url: baseUrl + indexPage + 'layout/loadLayout' + current_add_layout,
 	            	dataType: 'html',
 	            	
 	            	success: function(layout1data) {   

@@ -14,7 +14,7 @@
 |
 */
 
-define('GA_ACCOUNT', "UA-XXXXX-X");
+define('GA_ACCOUNT', "UA-43445367-1");
 
 define('FILE_READ_MODE', 0644);
 define('FILE_WRITE_MODE', 0666);

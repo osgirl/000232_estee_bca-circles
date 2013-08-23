@@ -21,6 +21,32 @@
 	    margin-left:-5px;
 	}
 
+	#big_image{
+		min-height:310px;
+	}
+
+	#tagline{
+		top:130px;
+	}
+
+	.stronger_together{
+		font-size:2.4em;
+	}
+
+
+	.circle_flag{
+		top:20px;
+		right:20px;
+	}
+
+	#carousel {
+	    height: 1100px;
+	}
+
+	#around_the_world{
+		font-size:1em;
+		margin: 6px 5px 0 10px;
+	}
 	
 }
 
@@ -120,17 +146,22 @@
 	}
 
 	.pink_btn{
-	   font-size: 11px;
+	   font-size: 12px;
        padding:12px 23px 12px 23px;
    }
 
    .pink_btn_rollover{
-   	font-size: 11px;
+   	font-size: 12px;
        padding:12px 23px 12px 23px;
    }
 
    .pink_filter_btn{
-	    padding:5px 13px 3px 13px;
+	     padding:6px 13px 4px 13px;
+	}
+
+	#filter_instagram_btn{
+		margin-top:1px;
+		padding:6px 13px 4px 13px;
 	}
 
    .view_circle_btn{
@@ -202,6 +233,28 @@
 	#cancel_screen{
 		font-size:1.5em;
 	}
+
+	#big_image{
+		min-height:405px;
+	}
+
+	#tagline{
+		top:180px;
+	}
+
+	.stronger_together{
+		font-size:2.9em;
+	}
+
+	.copy_text{
+		font-size:.7em;
+		line-height: 1.6em;
+	}
+
+	#carousel {
+	    height: 1200px;
+	}
+
 
 }
 
@@ -320,7 +373,7 @@
     }
 
    #custom_action{	
-        min-width: 485px;
+        min-width: 650px;
     }
 
     .friend_content{
@@ -419,9 +472,20 @@
 	}
 
 	#big_image{
-		position:relative;
-		color:white;
-		height:330px;
+		min-height:505px;
+	}
+
+	#tagline{
+		top:220px;
+	}
+
+	.stronger_together{
+		font-size:3.6em;
+	}
+
+	.copy_text{
+		font-size:.8em;
+		max-width:420px;
 	}
 	  
 }

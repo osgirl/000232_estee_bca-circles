@@ -22,7 +22,7 @@
 			</div>
 		</div>
 		<div class="steps">Or <span class="pink_text">Create your own action!</span></div>
-		<input id="custom_action" autocomplete="off" type="text" placeholder="ex: Let's be more active."></input>
+		<input id="custom_action" autocomplete="off" type="text" maxlength="80" placeholder="ex: Let's be more active."></input>
 		<table class="btn_control">
 			<tr>
 			    <td class="button_left_wrapper"><div class='pink_btn pull_right cancel_create_circle_btn'>cancel</div></td>
