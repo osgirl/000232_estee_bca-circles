@@ -72,7 +72,7 @@ var currentCircleViewData;
 $(document).ready(function(){	
 
 	initFacebook();
-
+	translatePage();
 	enableButtons();
 	enableEventBinds();
 
@@ -149,6 +149,15 @@ function initFacebook(){
 
 function checkLoginStatus(){
 	facebook.checkLoginStatus();
+}
+
+// Temp!
+function translatePage(){
+	var country = $('#language_menu.dropdown-menu #' + selectedCountry);
+	$('.country_name').html(selectedCountry);
+	$('.flag img').attr('src', $(country).children('img').attr('src') );
+
+
 }
 
 function enableEventBinds(){
@@ -264,7 +273,7 @@ function enableButtons(){
 	$('#like_us').unbind('mouseout').mouseout(function(e){$(e.currentTarget).css('color','#f38dab');})
 
 	//enable clicks
-	$('.language').unbind('click').click(function(e){
+	/*$('.language').unbind('click').click(function(e){
 
 		country = $($(e.currentTarget).parent()).attr('id');
 		var smallflagSrc = baseUrl + "img/flags/small/" + country + ".png";
@@ -272,7 +281,7 @@ function enableButtons(){
 		
 		$('.flag img').attr('src', smallflagSrc);
 		$('.country_name').html(shorten_country);
-	})
+	})*/
 
 	$('#conversation_btn').unbind("click").click(function(e){
 		$('html, body').animate({
