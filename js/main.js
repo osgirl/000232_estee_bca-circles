@@ -269,7 +269,9 @@ function enableButtons(){
 	})
 
 	$('#conversation_btn').unbind("click").click(function(e){
-		$("html, body").animate({ scrollTop: 766 }, "slow");
+		$('html, body').animate({
+	        scrollTop: $("#gallery").offset().top - 80
+	    }, 1000);
 	});
 	$('.sign_in_btn').unbind("click").click(facebook.logIn);
 	$('#create').unbind("click").click(confirmCreateCircle);

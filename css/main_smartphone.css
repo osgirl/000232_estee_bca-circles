@@ -21,6 +21,22 @@
 	    margin-left:-5px;
 	}
 
+	#big_image{
+		min-height:305px;
+	}
+
+	#tagline{
+		top:160px;
+	}
+
+	.stronger_together{
+		font-size:2.4em;
+	}
+
+	.circle_flag{
+		top:20px;
+		right:20px;
+	}
 	
 }
 
@@ -202,6 +218,23 @@
 	#cancel_screen{
 		font-size:1.5em;
 	}
+
+	#big_image{
+		min-height:405px;
+	}
+
+	#tagline{
+		top:240px;
+	}
+
+	.stronger_together{
+		font-size:2.8em;
+	}
+
+	.copy_text{
+		font-size:.8em;
+	}
+
 
 }
 
@@ -419,9 +452,19 @@
 	}
 
 	#big_image{
-		position:relative;
-		color:white;
-		height:330px;
+		min-height:505px;
+	}
+
+	#tagline{
+		top:300px;
+	}
+
+	.stronger_together{
+		font-size:3.2em;
+	}
+
+	.copy_text{
+		font-size:1em;
 	}
 	  
 }

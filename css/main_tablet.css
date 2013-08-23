@@ -112,17 +112,6 @@
 	    margin-left:0;
 	}
 
-	#tagline{
-		top:200px;
-	}
-
-	.stronger_together{
-		font-size:4em;
-		line-height: 1em;
-		/*font-family: "Times New Roman",Georgia,Serif;*/
-	}
-
-
 }
 
 
@@ -347,6 +336,10 @@
 		font-size:.8em;
 	}
 
+	.twitter_avatar{
+		width:20px;
+	}
+
 	.feature_photo .twitter_author{
 		font-size:.9em;
 	}
@@ -395,14 +388,17 @@
 		margin-top:10px;
 	}
 
+
 	#tagline{
 		top:200px;
 	}
 
 	.stronger_together{
 		font-size:3em;
-		line-height: 1em;
-		/*font-family: "Times New Roman",Georgia,Serif;*/
+	}
+
+	.copy_text{
+		font-size:.9em;
 	}
 
     
@@ -479,6 +475,14 @@
 		font-size:.8em;
 	}
 
+	#tagline{
+		top:210px;
+	}
+
+	.stronger_together{
+		font-size:3em;
+	}
+
 	
 }
 
@@ -529,6 +533,10 @@
 		float:left;
 	}
 
+	.twitter_avatar{
+		width:40px;
+	}
+
 	/*CAROUSEL*/
 
 	#carousel{
@@ -560,9 +568,6 @@
 
 	.stronger_together{
 		font-size:4em;
-		line-height: 1em;
-		/*font-family: "Times New Roman",Georgia,Serif;*/
 	}
-
 
 }
