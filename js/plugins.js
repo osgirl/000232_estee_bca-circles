@@ -597,6 +597,8 @@ $.extend(
         $pagn = $($c + ' #popup_circle_photo_carousel_pagn')
         $this.attr('cid', $d.id);
         $d.child = true;
+        if($d.circle_id == null)
+            $d.circle_id = $d.id;
 
         //Add padding when header page has net been scrolled to the top
         if (($win_abs_y + $margin_top) < $this.parent().offset().top)
@@ -711,7 +713,6 @@ $.extend(
 
     function loadCirclePhotos()
     {
-        console.debug('loadCirclePhotos');
         $.ajax(
         {
             type: 'POST',
@@ -1110,8 +1111,7 @@ function checkAndLoadExternalUrl()
                 {
                     type: 'circle',
                     data: {
-                        id: data.circle_id,
-                        circle_id: data.circle_id,
+                        id: data.circle_id,                        
                         content: data.goal,
                         avatar: data.user_photo_url,
                         users_fb_id: data.user_id,
