@@ -178,6 +178,7 @@ $.extend(
                 share_url: null,
                 circle_id: null,
                 num_friend: null,
+                friends_data: null,
                 users_fb_id: null,
                 child: null,
                 outlink: null,
@@ -653,7 +654,7 @@ $.extend(
         if(!v.is_user) $($c + ' .btn_edit').hide();
 
         //Start bind
-        $($c + ' .btn_edit').click(editFriends);
+        $($c + ' .btn_edit').click(function(){editFriends(v)});
         $($c + ' .btn_close').click(closeWindow);
         $($c + ' .btn_add_photo').click(addPhoto);
         $($c + ' .btn_nav_photo').click(navPhoto);
@@ -930,9 +931,11 @@ $.extend(
         });
     }
 
-    function editFriends()
+    function editFriends(v)
     {
-        alert('find a function name "editFriends" in plugin.js ')
+        console.log('edit friend open', v)
+        currentCircleViewData = v.friends_data;
+       $('body').trigger('EDIT_FRIEND');
     }
 
 

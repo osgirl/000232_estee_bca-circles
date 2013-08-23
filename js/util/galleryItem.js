@@ -206,6 +206,7 @@ function GalleryItem()
 					avatar:data.user_photo_url,
 					users_fb_id:data.user_id,
 					num_friends: data.friends_data.length,
+					friends_data: data.friends_data,
 					is_user:isUser
 
 				}}

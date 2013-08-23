@@ -66,6 +66,8 @@ var isCustomizeGoal;
 var country = "united-states";
 var fakePhotoData;
 
+var currentCircleViewData;
+
 $(document).ready(function(){	
 
 	initFacebook();
@@ -175,6 +177,8 @@ function enableEventBinds(){
 			 gallery.refreshAsFakePhotoData(cookieData);
 	});
 
+	$('body').bind("EDIT_FRIEND", openEditFriend);
+
 }
 
 function getLoginStatus(e){	
@@ -282,6 +286,7 @@ function enableButtons(){
 	$('#close_create_circle_btn').unbind("click").click(cancelCreateCircleScreen);
 	$('.yes_btn').unbind("click").click(cancelCreateCircleScreen);
 	$('.no_btn').unbind("click").click(backToCreateCircleScreen);
+	$('.cancel_edit_friend_btn').click(cancelCreateCircleScreen);
 
 	$('.popup_checkbox').click(toggleCheckbox);
 
@@ -430,7 +435,6 @@ function openCreateCircleScreen(hasGoal){
 		curSelectedGoal = goal = currentSameGoal;
 		goalID = curSelectedGoalID = currentSameGoalID;
 
-		console.log('has goal', currentSameGoal, currentSameGoalType, currentSameGoalID);
 		if(currentSameGoalType == "default"){
 			actionSelected(null);
 			isCustomizeGoal = false;
@@ -450,9 +454,31 @@ function openCreateCircleScreen(hasGoal){
 			$("#select_action").css({ opacity: 1 });
 		else
 			$("#select_action").css({ opacity: .3 });
-
 		
 	})
+}
+
+function openEditFriend(){
+	$(".overlay").fadeIn(100);
+	$("#create_circle_screen").fadeIn(200);
+	$("html, body").animate({ scrollTop: 0 }, "slow");
+	createCircleWindowOpen = true;
+	createCircleClicked = false;
+	stepID = 2;
+	goNextCreateCircleScreen(null);
+
+	$("#edit_friend_control").show();
+	$("#create_circle_control").hide();
+	$(".steps").hide();
+
+	friendSelectedArray = new Array();
+
+	$(currentCircleViewData).each(function(i, v){
+		curFriendSelectedName = v.name;
+		curSelectedFriendID = v.id;
+		addFriend();
+	})
+	
 }
 
 function backToCreateCircleScreen(){
@@ -516,13 +542,20 @@ function resetCircle(){
     $(".comma").remove();
     resetNameTextfield();
 
-    agree = false;
-    $('.popup_checkbox').css('background-position', ((agree) ? $(e.target).width() * -1 : 0), 0);
+    
+    $('.popup_checkbox').css('background-position', ((agree) ? $('.popup_checkbox').width() * -1 : 0), 0);
 
     resetFriendPhotoItem($('.friend_item'))
 	
 	stepID = 1;
 	goNextCreateCircleScreen(null);
+	agree = false;
+	createCircleWindowOpen = false;
+
+
+	$("#edit_friend_control").hide();
+	$("#create_circle_control").show();
+	$(".steps").show();
 }
 
 function resetFriendPhotoItem(resetItem){
@@ -642,8 +675,6 @@ function addFriend(){
 		friendSelectedArray.push(friendObj);
 		friendTagIDs.push(curSelectedFriendID);
 		
-		console.log('add', friendSelectedArray);
-		console.log('add', friendTagIDs);
 		
 		var tempFriendList = $('<span>');
 		tempFriendList.html(curFriendSelectedName)
@@ -930,6 +961,7 @@ function createStatItem(item, parent, line1, line2, data, isCircle){
 							avatar:data.avatar,
 							users_fb_id:userID,
 							num_friends: data.friends_data.length,
+							friends_data: data.friends_data,
 							is_user:true
 
 						}
@@ -1014,7 +1046,7 @@ function createCircle(){
 
 		var friendNum = friendSelectedArray.length;
 
-		var popupData = "$.popup({type:'circle', data:{  content: '"+ goal+ "',avatar: '"+ userProfilePhoto + "', num_friends: " + friendNum + "}});"
+		var popupData = "$.popup({type:'circle', data:{  content: '"+ goal+ "',avatar: '"+ userProfilePhoto + "', num_friends: " + friendNum + ", is_user:true}});"
 		$($('#close_create_circle_btn').parent()).attr('onclick', popupData);
 
 		openLoadingScreen();

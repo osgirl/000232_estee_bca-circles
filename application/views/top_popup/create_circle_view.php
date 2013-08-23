@@ -53,8 +53,14 @@
     			
     		</span>
     	</div>
+    	<table id="edit_friend_control" style="display:none" class="btn_control">
+			<tr>
+			    <td class="button_left_wrapper"><div class='pink_btn pull_right cancel_edit_friend_btn'>cancel</div></td>
+				<td class="button_right_wrapper"><div id="edit_friend_done_btn" class='pink_btn pull-left'>done</div></td>
+			</tr>
+		</table>
 		
-		<table class="btn_control">
+		<table id="create_circle_control" class="btn_control">
 			<tr>
 			    <td class='tributton_left_wrapper'><div id="back_step_btn" class='pink_btn pull_right'>back</div></td>
 			    <td class="tributton_mid_wrapper"><div class='pink_btn cancel_create_circle_btn'>cancel</div></td>
