@@ -607,6 +607,8 @@ function Gallery()
 function onFetchFriendCircleData($data){
 console.log("onFetchFriendCircleData", $data);
 
+			createCircleLayout();
+
 		 	$($data).each(function(i){
 
 			 	var containerCount 		= 0;
@@ -614,6 +616,7 @@ console.log("onFetchFriendCircleData", $data);
 		  	 	var feed 				= $data[i];
          		circleFeedDataArray.push(feed);
 
+		  	 	
 		  	 	console.log(feed);
 
 
