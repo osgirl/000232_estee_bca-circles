@@ -92,9 +92,11 @@ $.extend(
         {
         case 'about':
             u = "popup/about/";
+            $.gaEvent('About', 'Viewed');
             break;
         case 'video':
             u = "popup/video/";
+            $.gaEvent('Video', 'Viewed');
             break;
         case 'photo':
             u = "popup/photo/";
@@ -137,7 +139,6 @@ $.extend(
         else
         {
             //Close Circle detail unless it's a child
-            console.debug( $child);
             if(!$child && $('#popup_circle').length != 0 )
                 $('.popup#popup_circle .btn_close').trigger('click');
 
@@ -222,6 +223,7 @@ $.extend(
               function(response) {
                 if (response && response.post_id) {
                   //alert('Post was published.');
+                  $.gaEvent('Circle', 'Shared','by Facebook');
                 } else {
                  // alert('Post was not published.');
                 }
@@ -231,8 +233,8 @@ $.extend(
             var type = v.post_type != undefined ? v.post_type : "";
             var id = v.id != undefined ? v.id : "";
             var action = v.action != undefined ? v.action : "";
-
             openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + type + "/" + id + "/" + action , 'Twitter');
+            $.gaEvent('Circle', 'Shared','by Twitter');
         }
     }
 });
