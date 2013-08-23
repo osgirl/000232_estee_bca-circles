@@ -720,9 +720,9 @@ console.log("onFetchFriendCircleData", $data);
 				case 'friend':
 					console.log("friends Click");
 					if(!isMoreFeed){
-						$.feed.get('bca-circle', parseFriendCircleData, 20);
+						$.feed.get('bca-circle', parseFriendCircleData, 4);
 					}else{
-						if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', parseFriendCircleData, 20);
+						if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', parseFriendCircleData, 4);
 					}
 				break;
 

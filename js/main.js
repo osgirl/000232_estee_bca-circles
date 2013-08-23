@@ -5,6 +5,7 @@
 
 var isLogin;
 var ored = {};
+var oredCircles = {};
 
 //events
 var LOGIN_SUCCESS			= "LOGIN_SUCCESS";
