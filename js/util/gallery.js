@@ -662,15 +662,13 @@ console.log("onFetchFriendCircleData", feedData);
 		//oc: give feedmagnet response to php to fetch only friend circles
 		function parseFriendCircleData(data){
 
-		 	var feed;
-		 	var containerCount = 0;
+		 	var containerCount 		= 0;
 		 	var circleFeedDataArray = new Array();
 
 		 	console.log("parseFriendCircleData");
 		 	console.log(data);
-		 	ored.feedJSON 	= JSON.stringify(data);
-		 	ored.feedObj	= data;
-		 	ored.feedIds	= getIdsFromFeed(data);
+		 	ored.friendIdsJSON	= JSON.stringify(getIdsFromFriends(friendProfileList));
+		 	ored.feedIdsJSON	= JSON.stringify(getIdsFromFeed(data));
 
 			 	$.ajax({
 	        		type: 'post',
@@ -680,7 +678,8 @@ console.log("onFetchFriendCircleData", feedData);
 	             	success: onFetchFriendCircleData
 			});
 
-		}//end parseFriendCircleData
+		};//end parseFriendCircleData
+
 		function getIdsFromFeed($feed){
 			var ids = [];
 			$($feed).each(function(i){
@@ -689,7 +688,17 @@ console.log("onFetchFriendCircleData", feedData);
 				ids[i] = o.data.text;
 			});
 			return ids;
-		}
+		};
+
+		function getIdsFromFriends($list){
+			var ids 	= [];
+			$($list).each(function(i){
+				var o 	= $list[i];
+				ids[i] 	= o.id;
+			});
+			return ids;
+		};
+
 		function loadLayout(){
 
 			if(!isMoreFeed) $('.gallery_layout').remove();
