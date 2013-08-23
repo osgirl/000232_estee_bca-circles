@@ -129,79 +129,7 @@ function Gallery()
 			);
 		};
 
-		function parseFriendCircleData(data){
-
-		 	var feed;
-		 	var containerCount = 0;
-		 	var circleFeedDataArray = new Array();
-
-		 	$(data).each(function(i){
-
-
-		  	 	feed = data[i].data;
-
-		  	 	console.log(feed)
-			 	$.ajax({
-	        		type: 'post',
-	             	url: baseUrl + 'index.php/circle/fetchCircleData',
-	             	dataType: 'json',
-	             	data: {
-	             		circle_id: feed.text
-	             	},
-	             	success: function(feedData) { 
-
-	            			console.log("checking friend cirlc", feedData);
-
-
-
-	       //           		circleFeedDataArray.push(feedData);
-
-		      //        		circleFeedDataArray.sort(function sortNumber(a, b){
-
-		 					//   var aNum = Number(a.circle_id);
-		 					//   var bNum = Number(b.circle_id); 
-		 					//   return ((aNum > bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
-		 					// });
-
-	       //          		$.ajax({
-				    //     		type: 'get',
-				    //         	url: baseUrl + 'layout/loadLayoutCircle',
-				    //         	dataType: 'html',
-				            	
-				    //         	success: function(layoutData) {  
-
-				    //         		var circleDiv = $('<div>');
-				    //         			circleDiv.append(layoutData)
-				    //         			         .addClass('span6 circle_container gallery_item flex_margin_bottom');
-				    //         		$('.layout_circle').append(circleDiv);
-				    //         		$(circleDiv).hide();
-				    //         		$(circleDiv).fadeIn(200);
-
-				    //         		var contentData = {
-								// 		index:i,
-								// 		item:$(circleDiv),
-								// 		totalNum:data.length*pageNum,
-								// 		colNum:CIRCLE_LAYOUT_COLUMN_NUM
-								// 	}
-
-								// 	galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount]);
-
-								// 	if(containerCount == data.length-1) 
-								// 		updateGalleryLayout(contentData);
-
-								// 	containerCount++;
-
-								// 	$(window).unbind('scroll').bind('scroll', lazyloader);
-
-				    //          	}
-
-	                //	})
-	             	
-	       		}
-			});
-		 });
-
-	}
+		
 
 		function parseCircleData(data){
 
@@ -674,7 +602,81 @@ function Gallery()
 					loadLayout();
 				});
 			})
-		}
+		};
+
+function onFetchFriendCircleData($data){
+console.log("onFetchFriendCircleData", feedData);
+
+		 	$(data).each(function(i){
+
+		  	 	feed = data[i].data;
+
+		  	 	console.log(feed);
+
+
+	       //           		circleFeedDataArray.push(feedData);
+
+		      //        		circleFeedDataArray.sort(function sortNumber(a, b){
+
+		 					//   var aNum = Number(a.circle_id);
+		 					//   var bNum = Number(b.circle_id); 
+		 					//   return ((aNum > bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+		 					// });
+
+	       //          		$.ajax({
+				    //     		type: 'get',
+				    //         	url: baseUrl + 'layout/loadLayoutCircle',
+				    //         	dataType: 'html',
+				            	
+				    //         	success: function(layoutData) {  
+
+				    //         		var circleDiv = $('<div>');
+				    //         			circleDiv.append(layoutData)
+				    //         			         .addClass('span6 circle_container gallery_item flex_margin_bottom');
+				    //         		$('.layout_circle').append(circleDiv);
+				    //         		$(circleDiv).hide();
+				    //         		$(circleDiv).fadeIn(200);
+
+				    //         		var contentData = {
+								// 		index:i,
+								// 		item:$(circleDiv),
+								// 		totalNum:data.length*pageNum,
+								// 		colNum:CIRCLE_LAYOUT_COLUMN_NUM
+								// 	}
+
+								// 	galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount]);
+
+								// 	if(containerCount == data.length-1) 
+								// 		updateGalleryLayout(contentData);
+
+								// 	containerCount++;
+
+								// 	$(window).unbind('scroll').bind('scroll', lazyloader);
+
+				    //          	}
+
+	                //	})
+		 });
+	             	
+};
+		//oc: give feedmagnet response to php to fetch only friend circles
+		function parseFriendCircleData(data){
+
+		 	var feed;
+		 	var containerCount = 0;
+		 	var circleFeedDataArray = new Array();
+
+			 	$.ajax({
+	        		type: 'post',
+	             	url: baseUrl + 'index.php/circle/fetchFriendCircleData',
+	             	dataType: 'json',
+	             	data: {
+	             		circle_id: feed.text
+	             	},
+	             	success: onFetchFriendCircleData
+			});
+
+		}//end parseFriendCircleData
 
 		function loadLayout(){
 
@@ -698,7 +700,7 @@ function Gallery()
 				break;
 
 				case 'friend':
-					
+					console.log("friends Click");
 					if(!isMoreFeed){
 						$.feed.get('bca-circle', parseFriendCircleData, getCircleNum);
 					}else{
