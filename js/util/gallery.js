@@ -605,65 +605,59 @@ function Gallery()
 		};
 
 function onFetchFriendCircleData($data){
-console.log("onFetchFriendCircleData", feedData);
+console.log("onFetchFriendCircleData", $data);
 
-		 	$(data).each(function(i){
+		 	$($data).each(function(i){
 
-		  	 	feed = data[i].data;
+			 	var containerCount 		= 0;
+			 	var circleFeedDataArray = new Array();
+		  	 	var feed 				= $data[i];
+         		circleFeedDataArray.push(feed);
 
 		  	 	console.log(feed);
 
 
-	       //           		circleFeedDataArray.push(feedData);
 
-		      //        		circleFeedDataArray.sort(function sortNumber(a, b){
+        		$.ajax({
+	        		type: 'get',
+	            	url: baseUrl + 'layout/loadLayoutCircle',
+	            	dataType: 'html',
+	            	
+	            	success: function(layoutData) {  
+	            		console.log("layout success");
+	            		var circleDiv = $('<div>');
+	            			circleDiv.append(layoutData)
+	            			         .addClass('span6 circle_container gallery_item flex_margin_bottom');
+	            		$('.layout_circle').append(circleDiv);
+	            		$(circleDiv).hide();
+	            		$(circleDiv).fadeIn(200);
 
-		 					//   var aNum = Number(a.circle_id);
-		 					//   var bNum = Number(b.circle_id); 
-		 					//   return ((aNum > bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
-		 					// });
+	            		var contentData = {
+							index:i,
+							item:$(circleDiv),
+							totalNum: $data.length*pageNum,
+							colNum:CIRCLE_LAYOUT_COLUMN_NUM
+						}
 
-	       //          		$.ajax({
-				    //     		type: 'get',
-				    //         	url: baseUrl + 'layout/loadLayoutCircle',
-				    //         	dataType: 'html',
-				            	
-				    //         	success: function(layoutData) {  
+						galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount]);
 
-				    //         		var circleDiv = $('<div>');
-				    //         			circleDiv.append(layoutData)
-				    //         			         .addClass('span6 circle_container gallery_item flex_margin_bottom');
-				    //         		$('.layout_circle').append(circleDiv);
-				    //         		$(circleDiv).hide();
-				    //         		$(circleDiv).fadeIn(200);
+						if(containerCount == $data.length-1) 
+							updateGalleryLayout(contentData);
 
-				    //         		var contentData = {
-								// 		index:i,
-								// 		item:$(circleDiv),
-								// 		totalNum:data.length*pageNum,
-								// 		colNum:CIRCLE_LAYOUT_COLUMN_NUM
-								// 	}
+						containerCount++;
 
-								// 	galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount]);
+						$(window).unbind('scroll').bind('scroll', lazyloader);
 
-								// 	if(containerCount == data.length-1) 
-								// 		updateGalleryLayout(contentData);
+	             	}
 
-								// 	containerCount++;
-
-								// 	$(window).unbind('scroll').bind('scroll', lazyloader);
-
-				    //          	}
-
-	                //	})
+        	});
 		 });
 	             	
 };
 		//oc: give feedmagnet response to php to fetch only friend circles
 		function parseFriendCircleData(data){
 
-		 	var containerCount 		= 0;
-		 	var circleFeedDataArray = new Array();
+
 
 		 	console.log("parseFriendCircleData");
 		 	console.log(data);
