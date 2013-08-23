@@ -31,7 +31,7 @@
 */
 class BCA_Lang extends CI_Lang
 {
-    function __construct() {
+    /*function __construct() {
         
         global $URI, $CFG, $IN;
         
@@ -97,10 +97,10 @@ class BCA_Lang extends CI_Lang
     }
 }
 
-/* translate helper */
+// translate helper 
 function t($line) {
     global $LANG;
-    return ($t = $LANG->line($line)) ? $t : $line;
+    return ($t = $LANG->line($line)) ? $t : $line;*/
 }
 
 ?>
