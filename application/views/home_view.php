@@ -38,12 +38,12 @@
     <body>
     	
     	<!-- Add your site or application content here -->
-       <div id="fb-root"></div>
+       	<div id="fb-root"></div>
+
 		<script type="text/javascript">
 		  // You probably don't want to use globals, but this is just example code
 		  var fbAppId = '<?= config_item("fb_app_id"); ?>';
 		  var baseUrl = '<?= base_url(); ?>';
-
 		</script>
     	
         <!--[if lt IE 7]>
@@ -196,7 +196,10 @@
                 <div style='width:48%; float:left; border-right:#f38dab 1px solid; padding-right:1.5%'><a class='pink_text' href='#' target='blank'><div id='privacy_policy_btn'>Privacy Policy</div></a></div>
 				<div style='width:49%; float:right; padding-left:1%'><a class='pink_text' href='#' target='blank'><div id='term_and_cons_btn'>Terms & Conditions</div></a></div>
             </div>
-		</div>
+		</div>	
+
+		<!-- Facebook --> 
+        <script src='http://connect.facebook.net/en_US/all.js'></script>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?cachebuster=<?= $cacheBuster; ?>"></script>        
         <script>window.jQuery || document.write('<script src="<?= base_url(); ?>js/vendor/jquery-1.9.1.min.js?cachebuster=<?= $cacheBuster; ?>"><\/script>')</script>
@@ -216,7 +219,6 @@
         <script src="<?= base_url(); ?>js/util/gallery.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/util/facebook.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/main.js?cachebuster=<?= $cacheBuster; ?>"></script>
-        
 
         <script>
             var _gaq=[['_setAccount','<?= GA_ACCOUNT; ?>'],['_trackPageview']];
