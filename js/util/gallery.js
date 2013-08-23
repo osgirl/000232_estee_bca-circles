@@ -603,11 +603,17 @@ function Gallery()
 				});
 			})
 		};
+		function createCirclesFromORedCircles(){
+			$data = ored.friendsCircles;
+			
+};
 
 function onFetchFriendCircleData($data){
-console.log("onFetchFriendCircleData", $data);
+	console.log("onFetchFriendCircleData");
+
 
 			createCircleLayout();
+			circleFriendFeed 		= $data;
 
 		 	$($data).each(function(i){
 
@@ -615,11 +621,6 @@ console.log("onFetchFriendCircleData", $data);
 			 	var circleFeedDataArray = new Array();
 		  	 	var feed 				= $data[i];
          		circleFeedDataArray.push(feed);
-
-		  	 	
-		  	 	console.log(feed);
-
-
 
         		$.ajax({
 	        		type: 'get',
@@ -652,30 +653,27 @@ console.log("onFetchFriendCircleData", $data);
 						$(window).unbind('scroll').bind('scroll', lazyloader);
 
 	             	}
-
         	});
 		 });
 	             	
 };
 		//oc: give feedmagnet response to php to fetch only friend circles
-		function parseFriendCircleData(data){
+		function getFriendCircleData(data){
 
+		 	console.log("getFriendCircleData");
 
-
-		 	console.log("parseFriendCircleData");
-		 	console.log(data);
-		 	ored.friendIdsJSON	= JSON.stringify(getIdsFromFriends(friendProfileList));
-		 	ored.feedIdsJSON	= JSON.stringify(getIdsFromFeed(data));
+		 	ored.postVars.friendIdsJSON	= JSON.stringify(getIdsFromFriends(friendProfileList));
+		 	ored.postVars.feedIdsJSON	= JSON.stringify(getIdsFromFeed(data));
 
 			 	$.ajax({
 	        		type: 'post',
 	             	url: baseUrl + indexPage + 'circle/fetchFriendCircleData',
 	             	dataType: 'json',
-	             	data: ored,
+	             	data: ored.postVars,
 	             	success: onFetchFriendCircleData
 			});
 
-		};//end parseFriendCircleData
+		};//end getFriendCircleData
 
 		function getIdsFromFeed($feed){
 			var ids = [];
@@ -718,11 +716,12 @@ console.log("onFetchFriendCircleData", $data);
 				break;
 
 				case 'friend':
-					console.log("friends Click");
+					console.log("friends click.");
+
 					if(!isMoreFeed){
-						$.feed.get('bca-circle', parseFriendCircleData, 20);
+						$.feed.get('bca-circle', getFriendCircleData, ored.count);
 					}else{
-						if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', parseFriendCircleData, 20);
+						if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', getFriendCircleData, ored.count);
 					}
 				break;
 
