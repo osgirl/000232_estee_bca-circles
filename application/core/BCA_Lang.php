@@ -31,21 +31,7 @@
 */
 class BCA_Lang extends CI_Lang
 {
-
-  function __construct() {
-            global $URI, $CFG, $IN;
-        
-        $config =& $CFG->config;
-        $URI->uri_string        = preg_replace("|^\/?|", '/', $URI->uri_string);
-        $country_abbr           = $URI->segment(1); //Country
-        $lang_abbr              = $URI->segment(2); //Language
-
-        var_dump($country_abbr);
-        var_dump($lang_abbr);
-
-  }
-
-    /*function __construct() {
+    function __construct() {
         
         global $URI, $CFG, $IN;
         
@@ -101,9 +87,11 @@ class BCA_Lang extends CI_Lang
               $URI->uri_string = preg_replace("|^\/?$country_abbr/?$lang_abbr|", '', $URI->uri_string);
           }
 
+          var_dump($index_page);
+
           //Redirect
-          header('Location: '.$config['base_url'].$index_page.$URI->uri_string);
-          exit;
+          // header('Location: '.$config['base_url'].$index_page.$URI->uri_string);
+          // exit;
 
           // set the language_abbreviation cookie                 
           // $IN->set_cookie('user_lang', $default_country_abbr, $config['sess_expiration']);
@@ -111,10 +99,10 @@ class BCA_Lang extends CI_Lang
     }
 }
 
-// translate helper 
+/* translate helper */
 function t($line) {
     global $LANG;
-    return ($t = $LANG->line($line)) ? $t : $line;*/
+    return ($t = $LANG->line($line)) ? $t : $line;
 }
 
 ?>
