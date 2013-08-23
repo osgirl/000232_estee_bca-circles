@@ -357,7 +357,7 @@ function toggleCheckbox(e)
 
 function createGoalDropdown(){
 	$.ajax({
-    	url: baseUrl + 'goal/fetchGoalData',
+    	url: baseUrl + indexPage + 'goal/fetchGoalData',
     	dataType: 'json',
     	success: function(data) {  
 
@@ -904,7 +904,7 @@ function getUserCircleData(){
 
 	$.ajax({
 		type: 'post',
-    	url: baseUrl + 'circle/fetchUserCircleData',
+    	url: baseUrl + indexPage + 'circle/fetchUserCircleData',
     	dataType: 'json',
     	data: {
     		user_id:userID
@@ -994,7 +994,7 @@ function createCircle(){
 		var goalCount = 0;
 
 		$.ajax({
-	    	url: baseUrl + 'goal/fetchGoalData',
+	    	url: baseUrl + indexPage + 'goal/fetchGoalData',
 	    	dataType: 'json',
 	    	success: function(data) { 
 
@@ -1016,7 +1016,7 @@ function createCircle(){
 
 								$.ajax({
 					        		type: 'post',
-					            	url: baseUrl + 'goal/create',
+					            	url: baseUrl + indexPage + 'goal/create',
 					            	dataType: 'json',
 					            	data: {
 					            		goal:goal
@@ -1147,7 +1147,7 @@ function postCircleData(goal_id){
 
 	$.ajax({
 		type: 'post',
-    	url: baseUrl + 'circle/create',
+    	url: baseUrl + indexPage + 'circle/create',
     	dataType: 'json',
     	data: value,
     	success: function(data) {   
@@ -1158,7 +1158,7 @@ function postCircleData(goal_id){
         		//console.log(data.id, v.id, v.name);
         		$.ajax({
 	        		type: 'post',
-	            	url: baseUrl + 'friend/create',
+	            	url: baseUrl + indexPage + 'friend/create',
 	            	dataType: 'json',
 	            	data: {
 	            		ref_circle_id: data.id,

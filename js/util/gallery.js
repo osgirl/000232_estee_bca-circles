@@ -148,7 +148,7 @@ function Gallery()
 
 				$.ajax({
 	        		type: 'post',
-	            	url: baseUrl + 'index.php/circle/fetchCircleData',
+	            	url: baseUrl + indexPage + 'circle/fetchCircleData',
 	            	dataType: 'json',
 	            	data: {
 	            		circle_id: feed.text
@@ -170,7 +170,7 @@ function Gallery()
 
 	                		$.ajax({
 				        		type: 'get',
-				            	url: baseUrl + 'layout/loadLayoutCircle',
+				            	url: baseUrl + indexPage + 'layout/loadLayoutCircle',
 				            	dataType: 'html',
 				            	
 				            	success: function(layoutData) {  
@@ -263,7 +263,7 @@ function Gallery()
 					feed = data[i].data;
 					$.ajax({
 		        		type: 'post',
-		            	url: baseUrl + 'circle/fetchCircleData',
+		            	url: baseUrl + indexPage + 'circle/fetchCircleData',
 		            	dataType: 'json',
 		            	data: {
 		            		circle_id: feed.text
@@ -372,7 +372,7 @@ function Gallery()
 			uploadedPhotoCount++;
 			$.ajax({
 	        		type: 'post',
-	            	url: baseUrl + 'photo/fetchUploadedPhotoData',
+	            	url: baseUrl + indexPage + 'photo/fetchUploadedPhotoData',
 	            	dataType: 'json',
 	            	data: {
 	            		photo_id: feed.text
@@ -674,7 +674,7 @@ console.log("onFetchFriendCircleData", feedData);
 
 			 	$.ajax({
 	        		type: 'post',
-	             	url: baseUrl + 'index.php/circle/fetchFriendCircleData',
+	             	url: baseUrl + indexPage + 'circle/fetchFriendCircleData',
 	             	dataType: 'json',
 	             	data: ored,
 	             	success: onFetchFriendCircleData
@@ -761,7 +761,7 @@ console.log("onFetchFriendCircleData", feedData);
 			if(data && data.length > 0){
 				$.ajax({
 	        		type: 'get',
-	            	url: baseUrl + 'layout/loadLayout' + current_add_layout,
+	            	url: baseUrl + indexPage + 'layout/loadLayout' + current_add_layout,
 	            	dataType: 'html',
 	            	
 	            	success: function(layout1data) {   
