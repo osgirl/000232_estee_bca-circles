@@ -266,6 +266,7 @@ function enableButtons(){
 		$('.flag img').attr('src', smallflagSrc);
 		$('.country_name').html(shorten_country);
 	})
+	
 	$('#conversation_btn').unbind("click").click(function(e){
 		$("html, body").animate({ scrollTop: 766 }, "slow");
 	});

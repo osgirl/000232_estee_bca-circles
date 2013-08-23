@@ -70,6 +70,7 @@ function Facebook()
 		    FB.login(function(response) {
 			    if (response.authResponse) {
 			    	$('body').trigger(LOGIN_SUCCESS);
+			    	isLogin = true;
 			    } 
 			},
 			{scope: "publish_actions, user_photos"}
@@ -79,6 +80,7 @@ function Facebook()
 		logOut: function(){
 		    FB.logout(function(response) {
 			   $('body').trigger(LOGOUT_SUCCESS);
+			   isLogin = false;
 			})		
 		},
 		

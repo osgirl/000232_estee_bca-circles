@@ -928,9 +928,7 @@ function Gallery()
 
 		refreshAsFakePhotoData: function(data){	
 
-			console.log("get fake data")
-
-			var fakeDiv = $('.photo_container').get(0);
+			var fakeDiv = $('.photo_container').get(2);
 			$(fakeDiv).css('background-color', '#333')
 
 			var photoIcon = baseUrl + "img/icons/bca.png";          
