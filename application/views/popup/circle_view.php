@@ -17,7 +17,7 @@
 					<li>SHARE
 					</li>
 					<li class="share-ico" id="popup_footer_share_facebook" onclick="$.popup_share({type:'facebook', action:'<?echo $content ?>'})"></li>
-					<li class="share-ico" id="popup_footer_share_twitter" onclick="$.popup_share({type:'twitter', action:'<?echo $content ?>'})"></li>
+					<li class="share-ico" id="popup_footer_share_twitter" onclick="$.popup_share({post_type:'circle', type:'twitter', action:'<?echo $content ?>', id:'<?echo $circle_id ?>'})"></li>
 				</ul><img id="dotted_circle" src="<?echo base_url()?>img/popups/circle/dotted_circle.png">
 			</div>
 		</div>
