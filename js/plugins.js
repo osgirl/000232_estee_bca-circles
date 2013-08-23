@@ -92,9 +92,11 @@ $.extend(
         {
         case 'about':
             u = "popup/about/";
+            $.gaEvent('About', 'Viewed');
             break;
         case 'video':
             u = "popup/video/";
+            $.gaEvent('Video', 'Viewed');
             break;
         case 'photo':
             u = "popup/photo/";
@@ -137,7 +139,6 @@ $.extend(
         else
         {
             //Close Circle detail unless it's a child
-            console.debug( $child);
             if(!$child && $('#popup_circle').length != 0 )
                 $('.popup#popup_circle .btn_close').trigger('click');
 
@@ -222,6 +223,7 @@ $.extend(
               function(response) {
                 if (response && response.post_id) {
                   //alert('Post was published.');
+                  $.gaEvent('Circle', 'Shared','by Facebook');
                 } else {
                  // alert('Post was not published.');
                 }
@@ -231,8 +233,8 @@ $.extend(
             var type = v.post_type != undefined ? v.post_type : "";
             var id = v.id != undefined ? v.id : "";
             var action = v.action != undefined ? v.action : "";
-
             openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + type + "/" + id + "/" + action , 'Twitter');
+            $.gaEvent('Circle', 'Shared','by Twitter');
         }
     }
 });
@@ -251,6 +253,8 @@ $.extend(
         $desc_active = false;
         $circle_id = $($c + ' #circle_id').val();
         $users_fb_id = $($c + ' #users_fb_id').val();
+
+        console.log("$circle_id : " + $circle_id);
 
         //Start bind
         $($c + ' .btn_next').click(loadNext);
@@ -544,12 +548,14 @@ $.extend(
 
         closeWindow();
 
-        fakePhotoData = {
-                file_name: data.file_name,
-                description:des
-            }
-
+        //Add fake photo only circle id is null
+        if($circle_id == '' || $circle_id == null){
+            fakePhotoData = {
+                    file_name: data.file_name,
+                    description:des
+                }
             $('body').trigger('PHOTO_UPLOADED');
+        }
        
     }
 
@@ -593,6 +599,8 @@ $.extend(
         $pagn = $($c + ' #popup_circle_photo_carousel_pagn')
         $this.attr('cid', $d.id);
         $d.child = true;
+        if($d.circle_id == null)
+            $d.circle_id = $d.id;
 
         //Add padding when header page has net been scrolled to the top
         if (($win_abs_y + $margin_top) < $this.parent().offset().top)
@@ -707,7 +715,6 @@ $.extend(
 
     function loadCirclePhotos()
     {
-        console.debug('loadCirclePhotos');
         $.ajax(
         {
             type: 'POST',
@@ -927,7 +934,7 @@ $.extend(
             gallery.enableLazyloader();
 
             $this.remove();
-            $.address.path('/#');
+            $.address.path('/ ');
         });
     }
 
@@ -1101,11 +1108,12 @@ function checkAndLoadExternalUrl()
 
             function circle_success(data)
             {
+
                 $.popup(
                 {
                     type: 'circle',
                     data: {
-                        id: data.circle_id,
+                        id: data.circle_id,                        
                         content: data.goal,
                         avatar: data.user_photo_url,
                         users_fb_id: data.user_id,

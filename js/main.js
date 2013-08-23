@@ -77,7 +77,7 @@ $(document).ready(function(){
 	enableEventBinds();
 
 	$.feed();
-	fm_ready(function($, _) {
+	fm_ready(function() {
 		carousel.initCarousel();
 		gallery.loadGallery();	
 
@@ -194,7 +194,7 @@ function getLogoutStatus(e){
 	$('.sign_in_btn').unbind('click').click(facebook.login);
 	
 	$('.start_create_circle_btn').unbind('click').click(function(e){
-		facebook.logIn();
+		facebook.login();
 		createCircleClicked = true;
 	})
 	
@@ -264,7 +264,7 @@ function enableButtons(){
 	        scrollTop: $("#gallery").offset().top - 80
 	    }, 500);
 	});
-	$('.sign_in_btn').unbind("click").click(facebook.logIn);
+	$('.sign_in_btn').unbind("click").click(facebook.login);
 	$('#create').unbind("click").click(confirmCreateCircle);
 	$('#select_action_button').unbind('click').click(function(e){
 		(!selectOpen) ? openActionSelect() : closeActionSelect();
