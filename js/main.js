@@ -1149,7 +1149,7 @@ function postCircleData(goal_id){
 
 							saveCircleToCookie(cookieData);
 
-							gallery.refreshAsFakeCircleData(getCookie("circle")); 
+							gallery.refreshAsFakeCircleData(cookieData); 
 
 
 
