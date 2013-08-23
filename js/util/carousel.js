@@ -116,7 +116,7 @@ function Carousel()
 
 				$.ajax({
 	        		type: 'post',
-	            	url: baseUrl + 'circle/fetchCircleData',
+	            	url: baseUrl + indexPage + 'circle/fetchCircleData',
 	            	dataType: 'json',
 	            	data: {
 	            		circle_id: feed.text

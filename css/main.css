@@ -256,7 +256,8 @@ h2{
 #big_image{
 	position:relative;
 	color:white;
-	height:390px;
+	min-height:275px;
+	overflow: hidden;
 }
 
 #big_image img{
@@ -268,20 +269,26 @@ h2{
 
 #tagline{
 	position:absolute;
-	top:270px;
+	top:110px;
 	left:0;
 	text-align: center;
 	width:100%;
 }
 
 .stronger_together{
-	font-size:2em;
-	line-height: 1em;
-	/*font-family: "Times New Roman",Georgia,Serif;*/
+	font-size:1.9em;
+	line-height: 1.05em;
+	font-family: "Times New Roman",Georgia,Serif;
 	font-weight: lighter;
+	margin-bottom: 5px;
 }
 
 .copy_text{
+	max-width:320px;
+	letter-spacing: 1px;
+	display:inline-block;
+	font-size:.7em;
+	line-height: 1.4em;
 	padding:0 8% 0 8%;
 }
 
@@ -343,6 +350,7 @@ h2{
 }
 
 .feature_photo{
+	overflow: hidden;
 	position: relative;;
 	min-height:313px;
 	background-color:#444;
@@ -583,8 +591,8 @@ h2{
 .circle_flag{
 	border: 1px solid #f4e4e4;
 	position: absolute;
-	top:20px;
-	right:20px;
+	top:10px;
+	right:10px;
 	-moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     -khtml-border-radius: 50%;
@@ -1518,11 +1526,18 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 .pink_filter_btn{
-    padding:5px 13px 3px 13px;
+    padding:6px 13px 4px 13px;
+    margin-bottom:10px;
 }
 
 .pink_filter_btn_rollover{
-    padding:5px 13px 3px 13px;
+    padding:6px 13px 4px 13px;
+    margin-bottom:10px;
+}
+
+#filter_instagram_btn{
+	margin-top:0;
+	padding:5px 13px 4px 13px;
 }
 
 .view_circle_btn{
@@ -1541,8 +1556,6 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	background-color:#00cffb;
 }
 
-
-
 .auto_resize{
 	max-width:100%;
 	height:auto;
@@ -1559,12 +1572,32 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 
-#language_menu .dropdown-menu img{
+#language_menu.dropdown-menu {
+	font-family: Arial, 'Arial', arial, sans-serif;
+	font-size: 1em;
+}
+
+#language_menu.dropdown-menu a{
+	text-decoration: underline;
+	color:#333;	
+}
+
+#language_menu.dropdown-menu a:hover{
+	color:#f38dab;
+}
+
+#language_menu.dropdown-menu img{
 	margin-top:1px;
 }
 
-#language_menu .dropdown-menu li a{
+#language_menu.dropdown-menu li div{
+	min-width: 220px;
 	height:20px;
+	margin: 2px 20px;
+}
+
+#language_menu.dropdown-menu li span{
+	display: inline-block;
 }
 
 #language_menu .country{

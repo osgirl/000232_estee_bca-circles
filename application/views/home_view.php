@@ -35,35 +35,31 @@
 
         <script src="<?= base_url(); ?>js/vendor/modernizr-2.6.2-respond-1.1.0.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
     </head>
-    <body>
-    	
-    	<!-- Add your site or application content here -->
+    <body>    	
        <div id="fb-root"></div>
-		<script type="text/javascript">
-		  // You probably don't want to use globals, but this is just example code
-		  var fbAppId = '<?= config_item("fb_app_id"); ?>';
-		  var baseUrl = '<?= base_url(); ?>';
-
+		<script type="text/javascript">		
+		  var fbAppId = '<?= config_item("fb_app_id"); ?>',
+		  baseUrl = '<?= base_url(); ?>',
+		  indexPage = '<?= index_page(); ?>',
+		  selectedCountry = '<?= $this->config->item('country_abbr')?>',
+		  selectedLanguage = '<?= $this->config->item('language_abbr')?>';
+		  if (indexPage !='') indexPage += '/';
 		</script>
     	
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
-        
         <?php include('top_navigation_view.php');?>
 
 
         <div id="content_wrap" class="container">
-
-            <!-- Main hero unit for a primary marketing message or call to action -->
                 <div id='top_content'>
 	             	<div class="row">
 		                <div class="top_content_span span6">
 		                    <div id="big_image"><img src='<?= base_url(); ?>img/pics/stronger-together.png'/>
 			                    <div id="tagline">
-			                    	<div class="stronger_together all_cap">we’re stronger together</div>
+			                    	<div class="stronger_together all_cap">we’re stronger<br /><span style="font-size:165%">together</div>
 			                    	<div class="copy_text">Together, take action in defeating breast cancer by inviting your friends to join your circle of strength. Show how you're fighting breast cancer by adding a photo, creating a circle, or tagging #BCAstrength.</div>
 			                    </div>
 		                    </div>
