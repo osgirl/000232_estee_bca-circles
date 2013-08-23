@@ -22,11 +22,11 @@
 	}
 
 	#big_image{
-		min-height:305px;
+		min-height:315px;
 	}
 
 	#tagline{
-		top:160px;
+		top:140px;
 	}
 
 	.stronger_together{
@@ -36,6 +36,10 @@
 	.circle_flag{
 		top:20px;
 		right:20px;
+	}
+
+	#carousel {
+	    height: 1100px;
 	}
 	
 }
@@ -146,7 +150,12 @@
    }
 
    .pink_filter_btn{
-	    padding:5px 13px 3px 13px;
+	     padding:6px 13px 4px 13px;
+	}
+
+	#filter_instagram_btn{
+		margin-top:1px;
+		padding:5px 13px 4px 13px;
 	}
 
    .view_circle_btn{
@@ -224,7 +233,7 @@
 	}
 
 	#tagline{
-		top:240px;
+		top:180px;
 	}
 
 	.stronger_together{
@@ -233,6 +242,10 @@
 
 	.copy_text{
 		font-size:.8em;
+	}
+
+	#carousel {
+	    height: 1200px;
 	}
 
 
@@ -456,11 +469,11 @@
 	}
 
 	#tagline{
-		top:300px;
+		top:220px;
 	}
 
 	.stronger_together{
-		font-size:3.2em;
+		font-size:3.8em;
 	}
 
 	.copy_text{

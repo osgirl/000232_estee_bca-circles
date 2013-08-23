@@ -63,7 +63,7 @@
 		                <div class="top_content_span span6">
 		                    <div id="big_image"><img src='<?= base_url(); ?>img/pics/stronger-together.png'/>
 			                    <div id="tagline">
-			                    	<div class="stronger_together all_cap">we’re stronger<br />together</div>
+			                    	<div class="stronger_together all_cap">we’re stronger<br /><span style="font-size:150%">together</div>
 			                    	<div class="copy_text">Together, take action in defeating breast cancer by inviting your friends to join your circle of strength. Show how you're fighting breast cancer by adding a photo, creating a circle, or tagging #BCAstrength.</div>
 			                    </div>
 		                    </div>
