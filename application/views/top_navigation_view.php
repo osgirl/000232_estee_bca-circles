@@ -23,7 +23,7 @@
                             <?php include('top_popup/language_dropdown_view.php');?>
                         </div>
 
-                        <div class='flag pull-left'><img src='<?php echo base_url(); ?>img/flags/small/United-States.png' /></div>
+                        <div class='flag pull-left'><img src='<?php echo base_url(); ?>img/flags/small/united-states.png' /></div>
                         <div class='language_arrow pull-left'><img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/></div>
                     </div>
                     <div class="nav-collapse collapse">
@@ -44,7 +44,7 @@
 	                            <div class="dropdown">
 	                                <?php include('top_popup/language_dropdown_view.php');?>
 	                            </div>
-	                            <div class='flag'><img src='<?php echo base_url(); ?>img/flags/small/United-States.png' /></div>
+	                            <div class='flag'><img src='<?php echo base_url(); ?>img/flags/small/united-states.png' /></div>
 	                            <div class='language_arrow'><img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/></div>
                             </div>
                             <div><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
