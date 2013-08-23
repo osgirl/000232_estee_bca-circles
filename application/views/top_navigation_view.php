@@ -9,8 +9,8 @@
                     </a>
                     <div class='top_sub_nav_item pull-right vertical_mode_show' style="margin-right:-8px;">
                     	<div id='top_user_name' class='top_user_name user_name_display pull-left' class='all_cap'></div>
-						<div id='sign_in_btn' class='sign_in_btn all_cap pink_text pull-left'>SIGN IN</div>
-						<div class="pull-left"><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div>
+						<a class='sign_in_btn'><div class='sign_in all_cap pink_text pull-left'>SIGN IN</div>
+						<div class="pull-left" style="margin-left:5px"><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div></a>
 					</div>
 					<div id="collapse_share_module" class='top_sub_nav_item pull-left vertical_mode_show'>
                     	<div class='facebook_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div>
@@ -23,8 +23,6 @@
                             <?php include('top_popup/language_dropdown_view.php');?>
                         </div>
 
-                        <div class='flag pull-left'><img src='<?php echo base_url(); ?>img/flags/small/united-states.png' /></div>
-                        <div class='language_arrow pull-left'><img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/></div>
                     </div>
                     <div class="nav-collapse collapse">
                         <ul id='top_main_nav' class="nav">
@@ -36,16 +34,14 @@
                         <div id='top_sub_nav' class='pull-right'>
                             <div class='top_sub_nav_item'>
                             	<div id='top_user_name' class='top_user_name user_name_display' class='all_cap'></div>
-								<div id='sign_in_btn' class='sign_in_btn all_cap pink_text'>SIGN IN</div>
-								<div><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
+								<a class='sign_in_btn'><div class='sign_in all_cap pink_text'>SIGN IN</div>
+								<div  style="margin-left:5px"><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div></a>
 							</div>
 							<div><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
 							<div class='top_sub_nav_item'>
 	                            <div class="dropdown">
 	                                <?php include('top_popup/language_dropdown_view.php');?>
 	                            </div>
-	                            <div class='flag'><img src='<?php echo base_url(); ?>img/flags/small/united-states.png' /></div>
-	                            <div class='language_arrow'><img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/></div>
                             </div>
                             <div><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
                             <div class='top_sub_nav_item'>

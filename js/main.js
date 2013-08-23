@@ -190,7 +190,7 @@ function getLogoutStatus(e){
 	console.log("get logout status");
 
 	$('.top_user_name').html("");
-	$('.sign_in_btn').html('sign in');
+	$('.sign_in_btn .sign_in').html('sign in');
 	$('.sign_in_btn').unbind('click').click(facebook.login);
 	
 	$('.start_create_circle_btn').unbind('click').click(function(e){
@@ -213,7 +213,7 @@ function displayUserInfo(e){
 	$('.user_name_display').html(shortenName);
 	$('.user_location_display').html(userLocation);
 	$('#create_circle_user').html(fullName);
-	$('.sign_in_btn').html('logout');
+	$('.sign_in_btn  .sign_in').html('logout');
 	$('.sign_in_btn').unbind('click').click(facebook.logOut);
 
 	getUserCircleData();
@@ -1005,7 +1005,11 @@ function createCircle(){
 
 				if(goalCount == goalData.length) {
 
+					console.log('am i counting the goal')
+
 						if(isCustomizeGoal){
+
+							console.log("this is customize", goal)
 							$.ajax({
 				        		type: 'post',
 				            	url: baseUrl + 'goal/create',
@@ -1039,7 +1043,7 @@ function createCircle(){
 	});
 
 	openLoadingScreen();
-	facebook.createCircle(friendSelectedArray);
+	//facebook.createCircle(friendSelectedArray);
 }
 
 function saveCircleToCookie($data){
@@ -1154,9 +1158,6 @@ function postCircleData(goal_id){
 							saveCircleToCookie(cookieData);
 
 							gallery.refreshAsFakeCircleData(cookieData); 
-
-
-
 	            			openThankYouScreen();
 					        resetCircle();
 					        getUserCircleData(); 
