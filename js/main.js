@@ -23,7 +23,7 @@ var userLastName;
 var userLocation;
 var userProfilePhoto;
 
-var facebook = new Facebook();
+
 var carousel = new Carousel();
 var gallery = new Gallery();
 
@@ -70,8 +70,7 @@ var fakePhotoData;
 var currentCircleViewData;
 
 $(document).ready(function(){	
-
-	initFacebook();
+	facebook.init(fbAppId);
 	translatePage();
 	enableButtons();
 	enableEventBinds();
@@ -118,46 +117,11 @@ $(document).ready(function(){
 
 });
 
-function initFacebook(){
-// This is boilerplate code that is used to initialize the Facebook
-	  // JS SDK.  You would normally set your App ID in this code.
-	
-	  // Additional JS functions here
-	  window.fbAsyncInit = function() {
-	    FB.init({
-	      appId      : fbAppId,        // App ID
-	      status     : true,           // check login status
-	      cookie     : true,           // enable cookies to allow the server to access the session
-	      xfbml      : true            // parse page for xfbml or html5 social plugins like login button below
-	    });
-	    
-	    checkLoginStatus();
-	
-	    // Put additional init code here
-	  };
-	
-	  // Load the SDK Asynchronously
-	  (function(d, s, id){
-	     var js, fjs = d.getElementsByTagName(s)[0];
-	     if (d.getElementById(id)) {return;}
-	     js = d.createElement(s); js.id = id;
-	     js.src = "//connect.facebook.net/en_US/all.js";
-	     fjs.parentNode.insertBefore(js, fjs);
-	   }(document, 'script', 'facebook-jssdk'));
-}
-
-
-function checkLoginStatus(){
-	facebook.checkLoginStatus();
-}
-
 // Temp!
 function translatePage(){
 	var country = $('#language_menu.dropdown-menu #' + selectedCountry);
 	$('.country_name').html(selectedCountry);
 	$('.flag img').attr('src', $(country).children('img').attr('src') );
-
-
 }
 
 function enableEventBinds(){
@@ -191,24 +155,21 @@ function enableEventBinds(){
 
 }
 
-function getLoginStatus(e){	
-	facebook.fetchUserInfo();
-	facebook.fetchFriendlist();
-	
+function getLoginStatus(e){
 	$('.start_create_circle_btn').unbind('click').click(function(e){openCreateCircleScreen(false);})
 	
 	$('.log_out_status').hide();
 	$('.log_in_status').show();
 	
 	if(createCircleClicked) openCreateCircleScreen(false);
-
-	
 }
 
 function getLogoutStatus(e){
+	console.log("get logout status");
+
 	$('.top_user_name').html("");
 	$('.sign_in_btn').html('sign in');
-	$('.sign_in_btn').unbind('click').click(facebook.logIn);
+	$('.sign_in_btn').unbind('click').click(facebook.login);
 	
 	$('.start_create_circle_btn').unbind('click').click(function(e){
 		facebook.logIn();
@@ -922,8 +883,6 @@ function getUserCircleData(){
 
         	var circlePlural;
 
-        	console.log('circle link data', data)
-
         	if(data.length > 0) {
         		$('#create_another_circle').html('create another circle');
         		circleText = " Circles";
@@ -949,7 +908,6 @@ function getUserCircleData(){
 }
 
 function createStatItem(item, parent, line1, line2, data, isCircle){
-	
 		var statItem = $('<table>');
 		statItem.addClass('action_item');
 
@@ -982,96 +940,89 @@ function createStatItem(item, parent, line1, line2, data, isCircle){
 							num_friends: data.friends_data.length,
 							friends_data: data.friends_data,
 							is_user:true
-
-						}
-					}
-        			gallery.openPopUp(popupData);
-        		})
-        	}
- 	
+				}
+			}
+			gallery.openPopUp(popupData);
+		})
+	}
 }
 
 function createCircle(){	
-	
-		console.log("user info", userID, userName)
-		console.log("user photo", userProfilePhoto);
-		console.log("user friends info", friendSelectedArray);
-		console.log("friend tags", friendTagIDs);
-		console.log("goal", goal);
-		console.log("goalID", goalID);
-		console.log("language", language);
+	console.log("user info", userID, userName)
+	console.log("user photo", userProfilePhoto);
+	console.log("user friends info", friendSelectedArray);
+	console.log("friend tags", friendTagIDs);
+	console.log("goal", goal);
+	console.log("goalID", goalID);
+	console.log("language", language);
 
-		isCustomizeGoal = ($("#custom_action").val() == "") ? false : true;
+	isCustomizeGoal = ($("#custom_action").val() == "") ? false : true;
 
-		var goalExist = false;
+	var goalExist = false;
 
-		//TO DO IF THEY TYPE THE SAME GOAL
+	var goalCount = 0;
 
-		var goalCount = 0;
+	$.ajax({
+		url: baseUrl + 'goal/fetchGoalData',
+		dataType: 'json',
+		success: function(data) { 
 
-		$.ajax({
-	    	url: baseUrl + indexPage + 'goal/fetchGoalData',
-	    	dataType: 'json',
-	    	success: function(data) { 
+			goalData = data;
+			 
+	    	$(goalData).each(function(i, v){
+				console.log(v.goal, goal)
 
-	    		goalData = data;
-	    		 
-	        	$(goalData).each(function(i, v){
-					console.log(v.goal, goal)
+				if(goal == String(v.goal)) {
+					isCustomizeGoal = false;
+					goalID = v.id;
+				}
 
-					if(goal == String(v.goal)) {
-						isCustomizeGoal = false;
-						goalID = v.id;
+				goalCount++; 
+
+				if(goalCount == goalData.length) {
+
+						if(isCustomizeGoal){
+							$.ajax({
+				        		type: 'post',
+				            	url: baseUrl + 'goal/create',
+				            	dataType: 'json',
+				            	data: {
+				            		goal:goal
+				            	},
+				            	success: function(data) {   
+
+				            		console.log("what's the goal id from here??", data.id);
+
+				            		postCircleData(data.id);
+
+				             	},
+				             	error: function(jqXHR, textStatus, errorThrown){
+									console.log(jqXHR.responseText);
+									console.log(jqXHR.status);
+								}
+				      		});
+						}else{
+							postCircleData(goalID);
+						}
 					}
 
-					goalCount++; 
+			})
 
-					if(goalCount == goalData.length) {
-
-							if(isCustomizeGoal){
-
-								$.ajax({
-					        		type: 'post',
-					            	url: baseUrl + indexPage + 'goal/create',
-					            	dataType: 'json',
-					            	data: {
-					            		goal:goal
-					            	},
-					            	success: function(data) {   
-
-					            		console.log("what's the goal id from here??", data.id);
-
-					            		postCircleData(data.id);
-
-					             	},
-					             	error: function(jqXHR, textStatus, errorThrown){
-										console.log(jqXHR.responseText);
-										console.log(jqXHR.status);
-									}
-					      		});
-							}else{
-								postCircleData(goalID);
-							}
-						}
-
-				})
-
-	        	trendingData = data;
-	        	
-	        	getTrendingAction();
-	     	}
-		});
+	    	trendingData = data;
+	    	
+	    	getTrendingAction();
+	 	}
+	});
 
 
-		var friendNum = friendSelectedArray.length;
+	var friendNum = friendSelectedArray.length;
 
-		var popupData = "$.popup({type:'circle', data:{  content: '"+ goal+ "',avatar: '"+ userProfilePhoto + "', num_friends: " + friendNum + ", is_user:true}});"
-		$($('#close_create_circle_btn').parent()).attr('onclick', popupData);
+	var popupData = "$.popup({type:'circle', data:{  content: '"+ goal+ "',avatar: '"+ userProfilePhoto + "', num_friends: " + friendNum + ", is_user:true}});"
+	$($('#close_create_circle_btn').parent()).attr('onclick', popupData);
 
-		openLoadingScreen();
-		
-		//facebook.createCircle();
+	openLoadingScreen();
 
+	facebook.createCircle(friendSelectedArray);
 }
 function saveCircleToCookie($data){
 	//oc: save cookie.
