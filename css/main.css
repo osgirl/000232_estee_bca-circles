@@ -269,21 +269,26 @@ h2{
 
 #tagline{
 	position:absolute;
-	top:140px;
+	top:110px;
 	left:0;
 	text-align: center;
 	width:100%;
 }
 
 .stronger_together{
-	font-size:1.8em;
-	line-height: 1em;
-	/*font-family: "Times New Roman",Georgia,Serif;*/
+	font-size:1.9em;
+	line-height: 1.05em;
+	font-family: "Times New Roman",Georgia,Serif;
 	font-weight: lighter;
+	margin-bottom: 5px;
 }
 
 .copy_text{
+	max-width:320px;
+	letter-spacing: 1px;
+	display:inline-block;
 	font-size:.7em;
+	line-height: 1.4em;
 	padding:0 8% 0 8%;
 }
 
@@ -345,6 +350,7 @@ h2{
 }
 
 .feature_photo{
+	overflow: hidden;
 	position: relative;;
 	min-height:313px;
 	background-color:#444;
@@ -1520,11 +1526,18 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 .pink_filter_btn{
-    padding:5px 13px 3px 13px;
+    padding:6px 13px 4px 13px;
+    margin-bottom:10px;
 }
 
 .pink_filter_btn_rollover{
-    padding:5px 13px 3px 13px;
+    padding:6px 13px 4px 13px;
+    margin-bottom:10px;
+}
+
+#filter_instagram_btn{
+	margin-top:0;
+	padding:5px 13px 4px 13px;
 }
 
 .view_circle_btn{
@@ -1542,8 +1555,6 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 .light_blue_btn{
 	background-color:#00cffb;
 }
-
-
 
 .auto_resize{
 	max-width:100%;
