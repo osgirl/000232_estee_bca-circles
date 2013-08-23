@@ -85,7 +85,7 @@ $.extend(
             $isOutlink,
             adr, u, dl;
 
-        // $child = d.child;
+        $child = d.child;
         $isOutlink = d.outlink;
 
         switch (v.type)
@@ -101,8 +101,6 @@ $.extend(
             break;
         case 'twitter':
             u = "popup/twitter/";
-            // d.datetime = tsToDate(d.datetime);
-            // console.log( d.datetime );
             break;
         case 'photo_upload':
             u = "popup/photo_upload/";
@@ -138,6 +136,11 @@ $.extend(
         }
         else
         {
+            //Close Circle detail unless it's a child
+            console.debug( $child);
+            if(!$child && $('#popup_circle').length != 0 )
+                $('.popup#popup_circle .btn_close').trigger('click');
+
             $.fancybox(
             {
                 href: baseUrl + u,
@@ -198,15 +201,19 @@ $.extend(
     },
     popup_share: function(v)
     {
+        console.log(v);
+
         cid = $('.popup#popup_circle').attr('cid');
         u = baseUrl + 'circle/share/' + cid;
+
+        var caption = 'Take action against breast cancer.' + (v.action != undefined ? " " + v.action : "")
 
         if(v.type == "facebook"){
             FB.ui(
               {
                 method: 'feed',
                 name: "We're Stronger Together.",
-                link: baseUrl+"#"+$.address.path(),
+                link: baseUrl+"#"+ (v.id != undefined ? v.post_type + "/" + v.id : $.address.path() ),
                 picture: baseUrl + 'img/assets/fb_share.jpg' ,
                 caption: 'Take action against breast cancer.' + (v.action != undefined ? " " + v.action : ""),
                 description: 'Create a Circle of Strength with those who support you most now.'
@@ -220,7 +227,11 @@ $.extend(
               }
             );
         } else if(v.type == "twitter"){
-            openShareWindow(575, 380, 'http://twitter.com/home?status=Twitter msg here', 'Twitter');
+            var type = v.post_type != undefined ? v.post_type : "";
+            var id = v.id != undefined ? v.id : "";
+            var action = v.action != undefined ? v.action : "";
+
+            openShareWindow(575, 380, baseUrl + "home/twitter_share/" + type + "/" + id + "/" + action , 'Twitter');
         }
     }
 });
@@ -580,6 +591,7 @@ $.extend(
         $margin_top = $('.navbar').height();
         $pagn = $($c + ' #popup_circle_photo_carousel_pagn')
         $this.attr('cid', $d.id);
+        $d.child = true;
 
         //Add padding when header page has net been scrolled to the top
         if (($win_abs_y + $margin_top) < $this.parent().offset().top)
@@ -705,7 +717,7 @@ $.extend(
             },
             success: function(data)
             {
-                showCirclePHotos(data);
+                showCirclePhotos(data);
             },
             error: function(jqXHR, textStatus, errorThrown)
             {
@@ -713,7 +725,7 @@ $.extend(
             }
         });
 
-        function showCirclePHotos(v)
+        function showCirclePhotos(v)
         {
             $nav_count = 0;
             var $tmbs, $tmb, $img, $dot, $roll_over, tmbs_width = 0,
@@ -1028,13 +1040,11 @@ $.extend(
 
 function checkAndLoadExternalUrl()
 {
-    console.debug('checkAndLoadExternalUrl Start');
     var u, $data,
     adr = $.address.value().split('/');
 
     if (adr.length != 0)
     {
-        console.log(adr);
         switch (adr[1])
         {
 
