@@ -64,24 +64,40 @@ var currentSameGoalType;
 var isCustomizeGoal;
 
 var country = "united-states";
+var fakePhotoData;
 
 $(document).ready(function(){	
-if(checkCookie()){
-	var c = getCookie("circle");
-	console.log("cookie");
-	console.log(c);
-} 
 
 	initFacebook();
 
 	enableButtons();
 	enableEventBinds();
 
-
 	$.feed();
 	fm_ready(function($, _) {
 		carousel.initCarousel();
 		gallery.loadGallery();	
+
+
+			$('body').unbind("ALL_LAYOUT_CREATED").bind('ALL_LAYOUT_CREATED', function(){
+
+				console.log("ALL_LAYOUT_CREATED");
+
+				if(checkCircleCookie()){
+					var c = getCircleCookie("circle");
+					
+					console.log("circle cookie");
+
+					gallery.refreshAsFakeCircleData(c); 
+				}
+
+			    if(checkPhotoCookie()){
+					var p = getPhotoCookie("photo");	
+
+					console.log("photo cookie");
+				    gallery.refreshAsFakePhotoData(p); 
+			}
+		})
 
 	});
 	
@@ -146,6 +162,17 @@ function enableEventBinds(){
 
 	$('body').bind("CREATE_NEW_CIRCLE_BUTTON_CLICKED", function(e){
 		(isLogin) ? openCreateCircleScreen(false) : facebook.logIn();
+	});
+
+	$('body').bind('PHOTO_UPLOADED', function(e){
+
+		console.log("photo name", fakePhotoData)
+
+		 var cookieData 					= {};
+			cookieData.file_name 			= fakePhotoData.file_name;
+			cookieData.description 			= fakePhotoData.description;
+			 savePhotoToCookie(cookieData);
+			 gallery.refreshAsFakePhotoData(cookieData);
 	});
 
 }
@@ -258,7 +285,32 @@ function enableButtons(){
 
 	$('.popup_checkbox').click(toggleCheckbox);
 
+	$('.circle_fb_share_btn').click(function(e){
+
+		var currentClickedCircle = $(e.currentTarget).parents('.circle_container');
+		shareFacebook($(currentClickedCircle));
+	});
+	
+
 	//$('#show_friendlist_btn').unbind("click").click(facebook.showFriendlist);
+}
+
+
+
+function shareFacebook(circle){
+
+	console.log('pop up', circle)
+
+	var circle_goal = $(circle.find(".goal_text")).html();
+	var circle_id = circle.attr('circle_id');
+
+	var shareData = {
+		type:'facebook',
+		action: circle_goal,
+		id:circle_id,
+		post_type:'circle'
+	}
+	$.popup_share(shareData);
 }
 
 function toggleCheckbox(e)
@@ -946,19 +998,6 @@ function createCircle(){
 
 		openLoadingScreen();
 		
-		var cookieData 					= {};
-		cookieData.userID 				= userID;
-		cookieData.userName				= userName;
-		cookieData.userProfilePhoto 	= userProfilePhoto;
-		cookieData.friendSelectedArray 	= friendSelectedArray;
-		cookieData.friendTagIDs			= friendTagIDs;
-		cookieData.goal 				= goal;
-		cookieData.goalID  				= goalID;
-		cookieData.language 			= language;
-
-		saveCircleToCookie(cookieData);
-
-
 		//facebook.createCircle();
 
 }
@@ -970,9 +1009,21 @@ function saveCircleToCookie($data){
 
 	//oc: set cookie valid for 7 days, across whole site
 	$.cookie("circle",circle,{ expires: 7, path: '/' });
+
+	
 }
 
-function getCookie(c_name){
+function savePhotoToCookie($data){
+	//oc: save cookie.
+	console.log("save cookie");
+	console.log($data);
+	var photo = JSON.stringify($data);
+
+	//oc: set cookie valid for 7 days, across whole site
+	$.cookie("photo",photo,{ expires: 7, path: '/' });
+}
+
+function getCircleCookie(c_name){
 
 	// var c_value = document.cookie;
 	// var c_start = c_value.indexOf(" " + c_name + "=");
@@ -991,10 +1042,37 @@ function getCookie(c_name){
 	return JSON.parse(c_value);
 };
 
-function checkCookie(){
+function getPhotoCookie(c_name){
+
+	// var c_value = document.cookie;
+	// var c_start = c_value.indexOf(" " + c_name + "=");
+	
+	// if (c_start == -1)	  c_start = c_value.indexOf(c_name + "=");
+	  
+	// if (c_start == -1)	  c_value = null;
+	// else{
+	//   c_start 	= c_value.indexOf("=", c_start) + 1;
+	//   var c_end = c_value.indexOf(";", c_start);
+	//   if (c_end == -1)	c_end = c_value.length;
+	//   c_value 	= unescape(c_value.substring(c_start,c_end));
+	// }
+	var p_value = $.cookie("photo");
+	console.log(p_value);
+	return JSON.parse(p_value);
+};
+
+function checkCircleCookie(){
 
 	//oc: is cookie present?
 	return $.cookie("circle");
+
+	
+};
+
+function checkPhotoCookie(){
+
+	//oc: is cookie present?
+	return $.cookie("photo");
 
 	
 };
@@ -1035,11 +1113,30 @@ function postCircleData(goal_id){
 	            		friendCount++;
 
 	            		if(friendCount == friendSelectedArray.length){
+
+	            			 var cookieData 					= {};
+							cookieData.circle_id 			= data.id;
+							cookieData.user_id				= userID;
+							cookieData.user_name			= userName;
+							cookieData.goal 				= goal;
+							cookieData.goal_type 			= currentSameGoalType;
+							cookieData.country				= country;
+							cookieData.goal_id  			= goalID;
+							cookieData.language 			= language;
+							cookieData.user_photo_url		= userProfilePhoto;
+							cookieData.friends_data			= friendSelectedArray;
+
+							saveCircleToCookie(cookieData);
+
+							gallery.refreshAsFakeCircleData(getCookie("circle")); 
+
+
+
 	            			openThankYouScreen();
 					        resetCircle();
-					        gallery.refreshAsFakeData(data);    
-
 					        getUserCircleData(); 
+
+					       
 	            		}
 	             	}
 	      		});

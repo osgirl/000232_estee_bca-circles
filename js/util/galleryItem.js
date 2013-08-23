@@ -79,7 +79,28 @@ function GalleryItem()
         		$(item.find('.gallery_item_btn')).unbind('click');
         		$('body').trigger('CREATE_NEW_CIRCLE_BUTTON_CLICKED');
         	})
+
+        	$(item.find('.circle_fb_share_btn')).unbind('click').click(function(e){
+				shareFacebook($(item));
+			});
+        }
+
+		function shareFacebook(circle){
+
+			var circle_goal = $(circle.find(".goal_text")).html();
+			var circle_id = circle.attr('circle_id');
+
+			console.log(circle_goal, circle_id)
+
+			var shareData = {
+				type:'facebook',
+				action: circle_goal,
+				id:circle_id,
+				post_type:'circle'
+			}
+			$.popup_share(shareData);
 		}
+
 
 		function centerRollOverContent(portion){
 			$('.rollover_content').each(function(i, v){
@@ -141,11 +162,13 @@ function GalleryItem()
 
 		populateCircleContent:function(circle, data){
 
+			console.log('data country', data.country)
+
 			circle.attr('circle_id', data.circle_id);
 			circle.attr('user_id', data.user_id);
 			circle.attr('goal_id', data.goal_id);
 			circle.attr('goal_type', data.goal_type);
-			circle.find('circle_flag').css("background-image", 'url("' + baseUrl + 'img/flags/large/' + data.country + '.png")');
+			circle.find('.circle_flag').css("background-image", 'url("' + baseUrl + 'img/flags/large/' + data.country + '.png")');
 			circle.find('.circle_creator').html(data.user_name);
 			circle.find('.goal_text').html(data.goal);
 			circle.fadeIn(200);
@@ -189,8 +212,6 @@ function GalleryItem()
 					div = (isMoreFeed) ? $($($(".page"+pageNum).find('.photo_container')).get(i)) : $($('.photo_container').get(i));
 				}
 
-
-
 				var popupData;
 				var photoIcon;
 				var html;
@@ -227,6 +248,8 @@ function GalleryItem()
 								enableItemButton(div, popupData);
 
 								centerRollOverContent(.55);
+
+								$('body').trigger("ALL_LAYOUT_CREATED");
 
 			             	}
 			      		});

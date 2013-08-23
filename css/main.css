@@ -252,6 +252,39 @@ h2{
 .navbar .btn-navbar:active,.navbar .btn-navbar.active{
 	background-color:#ffffff \9;
 	}
+
+#big_image{
+	position:relative;
+	color:white;
+}
+
+#big_image img{
+	position:absolute;
+	top:0;
+	left:0;
+	max-width:100%;
+}
+
+#tagline{
+	position:absolute;
+	top:270px;
+	left:0;
+	text-align: center;
+	width:100%;
+}
+
+.stronger_together{
+	font-size:4em;
+	line-height: 1em;
+	/*font-family: "Times New Roman",Georgia,Serif;*/
+	font-weight: lighter;
+}
+
+.copy_text{
+	padding:0 8% 0 8%;
+}
+
+
 	
 
 /*FEATURE AREA*/
@@ -557,10 +590,11 @@ h2{
     -khtml-border-radius: 50%;
     border-radius: 50%;	
     behavior: url(css/PIE.htc);
-	width:40px;
-	height:40px;
-	background-size: 40px auto;
+	width:39px;
+	height:39px;
+	background-size: 42px auto;
 	background-image: url('../img/flags/large/united-states.png');
+	background-position: 0 -1px;
 }
 
 .circle_container a{
