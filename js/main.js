@@ -118,27 +118,6 @@ $(document).ready(function(){
 
 });
 
-createPhoto = function( _data ){
-	$.ajax({
-		url	: './php/create-circle.php',
-		type : "post",
-		dataType:"json",
-		data : {
-			thumbs_url: _data.friends_photos,
-			user_name: _data.users_name,
-			content: _data.goal,
-		},
-		success : function(_response){
-			console.log('---- create photo success. ' + _response.result + ' ----'); 
-
-			//main.facebook.photoUrl = _response.url;
-		},
-		fail : function(_response){ 
-			console.log('---- create photo failed. ----'); 
-		}
-	});
-}
-
 // Temp!
 function translatePage(){
 	var country = $('#language_menu.dropdown-menu #' + selectedCountry);
@@ -214,7 +193,7 @@ function displayUserInfo(e){
 	$('.user_location_display').html(userLocation);
 	$('#create_circle_user').html(fullName);
 	$('.sign_in_btn').html('logout');
-	$('.sign_in_btn').unbind('click').click(facebook.logOut);
+	$('.sign_in_btn').unbind('click').click(facebook.logout);
 
 	getUserCircleData();
 }
