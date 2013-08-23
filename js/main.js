@@ -7,7 +7,7 @@ var isLogin;
 var ored 			= {};
 ored.friendsCircles	= [];
 ored.postVars		= {};
-ored.count 			= 20;
+ored.count 			= 128;//oc: how many do we from feedmagnet at a time to see if our friends are in there?
 
 //events
 var LOGIN_SUCCESS			= "LOGIN_SUCCESS";
@@ -17,7 +17,7 @@ var GOT_USER_INFO 			= "GOT_USER_INFO";
 var GOT_USER_PROFILE_PIC 	= "GOT_USER_PROFILE_PIC";
 var GOT_FRIEND_LIST 		= "GOT_FRIEND_LIST";
 
-var language = "English";
+var language 				= "English";
 
 var userID;
 var userName;
@@ -27,8 +27,8 @@ var userLocation;
 var userProfilePhoto;
 
 
-var carousel = new Carousel();
-var gallery = new Gallery();
+var carousel 	= new Carousel();
+var gallery 	= new Gallery();
 
 var friendProfileList = new Array();
 var curSelectedFriendID;
@@ -37,11 +37,11 @@ var curSelectedFriendPic;
 var friendSelectedArray = new Array();
 var friendTagIDs  = new Array();
 
-var selectOpen = false;
-var createCircleClicked = false;
-var createCircleWindowOpen = false;
-var stepID = 1;
-var agree = false;
+var selectOpen 				= false;
+var createCircleClicked 	= false;
+var createCircleWindowOpen 	= false;
+var stepID 					= 1;
+var agree 					= false;
 
 var goal;
 var goalID;
