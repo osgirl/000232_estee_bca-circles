@@ -120,29 +120,45 @@ class Circle extends CI_Controller {
 
 	public function fetchFriendCircleData()
 	{
+		
+		//$this->output->enable_profiler(TRUE);
 		$this->post = $this->input->post();
-		if ( isset ( $this->post['feedIds'] )) {	
 
-			$feedArr = json_decode($this->post['feedIds']);
-			print_r($feedArr);
+		if ( isset ( $this->post['feedIdsJSON'] )) {	
 
-			$data = array();
-			$query = $this->db->query("SELECT * FROM circles WHERE id = '$circle_id'"); 
+			$feedArr 		= json_decode($this->post['feedIdsJSON']);
+			$circle_id 		= $feedArr[0];
+			//print_r($feedArr);
+			$friendsArr 	= json_decode($this->post['friendIdsJSON']);
+			//print_r($friendsArr);
+
+			$data 		= array();
+			$circles 	= array();
+			
+			$query = $this->db->select()	
+				->from("circles")
+				->where_in("circles.id",$feedArr)
+				->where_in("users_fb_id",$friendsArr)
+				->join("goals", 'goals.id AS gid = circles.ref_goal_id')
+				->get();
+			
 
 			if ($query->num_rows() > 0) {
 			  foreach($query->result() as $row) {
 
-			  	$goal_id = $row->ref_goal_id;
+			  	$circle_id 				= $row->id;
 
-			  	$data['circle_id'] = $circle_id;
-			    $data['user_id'] = $row->users_fb_id;
-			    $data['user_name'] = $row->users_name;
+			  	$data['circle_id'] 		= $circle_id;
+			    $data['user_id'] 		= $row->users_fb_id;
+			    $data['user_name'] 		= $row->users_name;
 			    $data['user_photo_url'] = $row->users_photo_url;
-			    $data['goal'] = $row->goal;
-			    $data['goal_id'] = $goal_id;
-			    $data['language'] = $row->language;
-			    $data['country'] = $row->country;
+			    $data['goal'] 			= $row->goal;
+			    $data['goal_id'] 		= $row->ref_goal_id;
+			    $data['language'] 		= $row->language;
+			    $data['country'] 		= $row->country;
+			    $data['goal_type'] 		= $row->goal_type;
 
+//select all circles where circle's userid is in 
 			    $friend_query = $this->db->query("SELECT * FROM friends WHERE ref_circle_id = '$circle_id'"); 
 
 			    if ($friend_query->num_rows() > 0) {
@@ -151,23 +167,14 @@ class Circle extends CI_Controller {
 				  								'friend_name'=>$row->friends_name);
 
 				  }
-				    $data['friends_data'] = $friends_data;
+				$data['friends_data'] = $friends_data;
+				$circles[]	= $data;
 
-				    $goal_query = $this->db->query("SELECT goal_type FROM goals WHERE id = '$goal_id'");
-
-				    if($goal_query->num_rows() > 0){
-
-				    	foreach($goal_query->result() as $goal_row){
-				    		$data['goal_type'] = $goal_row->goal_type;
-				    	}
-
-				    }
 				}//endif
+			  }//endforeach
+			}//endif
 
-			  }//endif
-			}
-
-			echo json_encode($data);
+			echo json_encode($circles);
 			
 		}
 		else
