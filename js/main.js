@@ -265,13 +265,6 @@ function enableButtons(){
 	$('.feature_circle_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('.feature_photo_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 
-	$('#like_us').unbind('mouseover').mouseover(function(e){
-				$(e.currentTarget).css('cursor','pointer');
-				$(e.currentTarget).css('color','#f33c72');
-			})
-
-	$('#like_us').unbind('mouseout').mouseout(function(e){$(e.currentTarget).css('color','#f38dab');})
-
 	//enable clicks
 	/*$('.language').unbind('click').click(function(e){
 
@@ -319,11 +312,6 @@ function enableButtons(){
 		var currentClickedCircle = $(e.currentTarget).parents('.circle_container');
 		shareTwitter($(currentClickedCircle));
 	});
-
-	$('#like_us').unbind('click').click(function(e){
-
-	});
-	
 
 	//$('#show_friendlist_btn').unbind("click").click(facebook.showFriendlist);
 }
