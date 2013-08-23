@@ -198,15 +198,19 @@ $.extend(
     },
     popup_share: function(v)
     {
+        console.log(v);
+
         cid = $('.popup#popup_circle').attr('cid');
         u = baseUrl + 'circle/share/' + cid;
+
+        var caption = 'Take action against breast cancer.' + (v.action != undefined ? " " + v.action : "")
 
         if(v.type == "facebook"){
             FB.ui(
               {
                 method: 'feed',
                 name: "We're Stronger Together.",
-                link: baseUrl+"#"+$.address.path(),
+                link: baseUrl+"#"+ (v.id != undefined ? v.post_type + "/" + v.id : $.address.path() ),
                 picture: baseUrl + 'img/assets/fb_share.jpg' ,
                 caption: 'Take action against breast cancer.' + (v.action != undefined ? " " + v.action : ""),
                 description: 'Create a Circle of Strength with those who support you most now.'
@@ -220,7 +224,11 @@ $.extend(
               }
             );
         } else if(v.type == "twitter"){
-            openShareWindow(575, 380, 'http://twitter.com/home?status=Twitter msg here', 'Twitter');
+            var type = v.post_type != undefined ? v.post_type : "";
+            var id = v.id != undefined ? v.id : "";
+            var action = v.action != undefined ? v.action : "";
+
+            openShareWindow(575, 380, baseUrl + "home/twitter_share/" + type + "/" + id + "/" + action , 'Twitter');
         }
     }
 });
