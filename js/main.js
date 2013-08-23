@@ -5,7 +5,7 @@
 
 var isLogin;
 var ored = {};
-ored.varName = "something";
+
 //events
 var LOGIN_SUCCESS			= "LOGIN_SUCCESS";
 var NOT_LOGIN 				= "NOT_LOGIN"

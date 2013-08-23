@@ -121,9 +121,11 @@ class Circle extends CI_Controller {
 	public function fetchFriendCircleData()
 	{
 		$this->post = $this->input->post();
-		if ( isset ( $this->post['circle_id'] )) {	
+		if ( isset ( $this->post['feedIds'] )) {	
 
-			$circle_id = $this->post['circle_id'];
+			$feedArr = json_decode($this->post['feedIds']);
+			print_r($feedArr);
+
 			$data = array();
 			$query = $this->db->query("SELECT * FROM circles WHERE id = '$circle_id'"); 
 
