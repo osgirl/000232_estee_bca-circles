@@ -603,11 +603,9 @@ function Gallery()
 				});
 			})
 		};
-
-function onFetchFriendCircleData($data){
-console.log("onFetchFriendCircleData", $data);
-
-			createCircleLayout();
+function createCirclesFromORedCircles(){
+	$data = oredCircles;
+	createCircleLayout();
 
 		 	$($data).each(function(i){
 
@@ -652,30 +650,67 @@ console.log("onFetchFriendCircleData", $data);
 						$(window).unbind('scroll').bind('scroll', lazyloader);
 
 	             	}
-
         	});
 		 });
+};
+
+function onFetchFriendCircleData($data){
+	console.log("onFetchFriendCircleData");
+
+//oc: make sure we have enough to write to the page.
+console.log($data.length);			
+			if(isMoreFeed || oredCircles > 0 ){
+				console.log("she wants MORE MORE MORE");
+				ored.friendCircles.concat($data);
+			}else {
+				console.log("first time.");
+				circleFriendFeed 	= $data;
+				ored.friendCircles			= $data;
+			}	
+			
+			if(oredCircles.length < 4){
+				console.log("need sum mo");
+				$.feed.more('bca-circle', moreFriendCircleData, 4);
+				return;
+			}
+
+
+			createCirclesFromORedCircles();
 	             	
 };
 		//oc: give feedmagnet response to php to fetch only friend circles
-		function parseFriendCircleData(data){
+		function getFriendCircleData(data){
 
+		 	console.log("getFriendCircleData");
 
-
-		 	console.log("parseFriendCircleData");
-		 	console.log(data);
-		 	ored.friendIdsJSON	= JSON.stringify(getIdsFromFriends(friendProfileList));
-		 	ored.feedIdsJSON	= JSON.stringify(getIdsFromFeed(data));
+		 	ored.postVars.friendIdsJSON	= JSON.stringify(getIdsFromFriends(friendProfileList));
+		 	ored.postVars.feedIdsJSON	= JSON.stringify(getIdsFromFeed(data));
 
 			 	$.ajax({
 	        		type: 'post',
 	             	url: baseUrl + indexPage + 'circle/fetchFriendCircleData',
 	             	dataType: 'json',
-	             	data: ored,
+	             	data: ored.postVars,
 	             	success: onFetchFriendCircleData
 			});
 
-		};//end parseFriendCircleData
+		};//end getFriendCircleData
+		function moreFriendCircleData(data){
+
+		 	console.log("moreFriendCircleData");
+
+		 	ored.postVars.friendIdsJSON	= JSON.stringify(getIdsFromFriends(friendProfileList));
+		 	ored.postVars.feedIdsJSON	= JSON.stringify(getIdsFromFeed(data));
+
+			 	$.ajax({
+	        		type: 'post',
+	             	url: baseUrl + indexPage + 'circle/fetchFriendCircleData',
+	             	dataType: 'json',
+	             	data: ored.postVars,
+	             	success: onFetchFriendCircleData
+			});
+
+		};//end getFriendCircleData
 
 		function getIdsFromFeed($feed){
 			var ids = [];
@@ -718,11 +753,13 @@ console.log("onFetchFriendCircleData", $data);
 				break;
 
 				case 'friend':
-					console.log("friends Click");
+					console.log("friends click.");
+					//oc: destroy old circles...
+					ored.circles = [];
 					if(!isMoreFeed){
-						$.feed.get('bca-circle', parseFriendCircleData, 4);
+						$.feed.get('bca-circle', getFriendCircleData, ored.count);
 					}else{
-						if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', parseFriendCircleData, 4);
+						if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', moreFriendCircleData, ored.count);
 					}
 				break;
 
