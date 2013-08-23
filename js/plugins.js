@@ -252,6 +252,8 @@ $.extend(
         $circle_id = $($c + ' #circle_id').val();
         $users_fb_id = $($c + ' #users_fb_id').val();
 
+        console.log("$circle_id : " + $circle_id);
+
         //Start bind
         $($c + ' .btn_next').click(loadNext);
         $($c + ' .btn_cancel').click(closeWindow);
@@ -544,12 +546,14 @@ $.extend(
 
         closeWindow();
 
-        fakePhotoData = {
-                file_name: data.file_name,
-                description:des
-            }
-
+        //Add fake photo only circle id is null
+        if($circle_id == '' || $circle_id == null){
+            fakePhotoData = {
+                    file_name: data.file_name,
+                    description:des
+                }
             $('body').trigger('PHOTO_UPLOADED');
+        }
        
     }
 
@@ -927,7 +931,7 @@ $.extend(
             gallery.enableLazyloader();
 
             $this.remove();
-            $.address.path('/#');
+            $.address.path('/ ');
         });
     }
 
@@ -1101,11 +1105,13 @@ function checkAndLoadExternalUrl()
 
             function circle_success(data)
             {
+
                 $.popup(
                 {
                     type: 'circle',
                     data: {
                         id: data.circle_id,
+                        circle_id: data.circle_id,
                         content: data.goal,
                         avatar: data.user_photo_url,
                         users_fb_id: data.user_id,
