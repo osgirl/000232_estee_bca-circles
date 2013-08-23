@@ -256,6 +256,12 @@ function enableButtons(){
 	$('.feature_circle_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('.feature_photo_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 
+	$('#like_us').unbind('mouseover').mouseover(function(e){
+				$(e.currentTarget).css('cursor','pointer');
+				$(e.currentTarget).css('color','#f33c72');
+			})
+
+	$('#like_us').unbind('mouseout').mouseout(function(e){$(e.currentTarget).css('color','#f38dab');})
 
 	//enable clicks
 	$('.language').unbind('click').click(function(e){
@@ -303,6 +309,10 @@ function enableButtons(){
 	$('.circle_tw_share_btn').unbind('click').click(function(e){
 		var currentClickedCircle = $(e.currentTarget).parents('.circle_container');
 		shareTwitter($(currentClickedCircle));
+	});
+
+	$('#like_us').unbind('click').click(function(e){
+
 	});
 	
 
@@ -955,7 +965,14 @@ function createStatItem(item, parent, line1, line2, data, isCircle){
 
 		if(isCircle){
 
-			statItem.find('.circle_view_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+			statItem.find('.circle_view_link').unbind('mouseover').mouseover(function(e){
+				$(e.currentTarget).css('cursor','pointer');
+				$(e.currentTarget).css('color','#f33c72');
+			})
+
+			statItem.find('.circle_view_link').unbind('mouseout').mouseout(function(e){
+				$(e.currentTarget).css('color','#f38dab');
+			})
         	statItem.find('.circle_view_link').unbind('click').click(function(e){
         			var popupData = {
 						type:'circle', 

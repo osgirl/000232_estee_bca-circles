@@ -22,11 +22,11 @@
 	}
 
 	#big_image{
-		min-height:330px;
+		min-height:310px;
 	}
 
 	#tagline{
-		top:140px;
+		top:130px;
 	}
 
 	.stronger_together{
@@ -41,6 +41,11 @@
 
 	#carousel {
 	    height: 1100px;
+	}
+
+	#around_the_world{
+		font-size:1em;
+		margin: 6px 5px 0 10px;
 	}
 	
 }
@@ -141,12 +146,12 @@
 	}
 
 	.pink_btn{
-	   font-size: 11px;
+	   font-size: 12px;
        padding:12px 23px 12px 23px;
    }
 
    .pink_btn_rollover{
-   	font-size: 11px;
+   	font-size: 12px;
        padding:12px 23px 12px 23px;
    }
 
@@ -156,7 +161,7 @@
 
 	#filter_instagram_btn{
 		margin-top:1px;
-		padding:5px 13px 4px 13px;
+		padding:6px 13px 4px 13px;
 	}
 
    .view_circle_btn{
@@ -368,7 +373,7 @@
     }
 
    #custom_action{	
-        min-width: 485px;
+        min-width: 650px;
     }
 
     .friend_content{

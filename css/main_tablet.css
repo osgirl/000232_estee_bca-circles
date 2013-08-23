@@ -410,6 +410,10 @@
 		right:10px;
 	}
 
+	.full_photo{
+		max-width:140%;
+	}
+
     
 }
 
@@ -579,6 +583,10 @@
 	.circle_flag{
 		top:20px;
 		right:20px;
+	}
+
+	.full_photo{
+		max-width:110%;
 	}
 
 }

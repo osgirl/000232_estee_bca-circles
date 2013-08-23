@@ -72,7 +72,7 @@
 		                <div class="top_content_span span6">
 		                	<div class="row">
 		                		<div id='featured_header' class="span6">
-		                			<img class='pull_left' src='<?= base_url(); ?>img/headers/featured-header.png'/>
+		                			<div id="around_the_world" class="all_cap">feature from around the world</div>
 		                			<div class='pull_left'>
 										<div class='featured_dot featured_selected'></div>
 										<div class='featured_dot featured_deselected'></div>
@@ -125,7 +125,7 @@
 	            	<div class='log_out_status'>
 	            		<div class="row">
 							<div id='join_conversation' class="span7">
-								<div id='join_header'><img class='auto_resize' src='<?= base_url(); ?>img/headers/join-the-conversation.png'/></div>
+								<div id='join_header' class="all_cap">join the conversation</div>
 								<div>
 									<div id='join_text' class='light_font'>Show how you're fighting breast cancer by creating a circle, uploading a photo, or tagging posts on Instagram and Twitter with <b>#BCAstrength</b>.</div>
 									<table class="btn_control">
