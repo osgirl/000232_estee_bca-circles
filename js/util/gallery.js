@@ -58,6 +58,7 @@ function Gallery()
 		
 
 		var circleFeed;
+		var circleFriendFeed;
 		var photoFeed;
 		var instagramFeed;
 		var twitterFeed;
@@ -72,6 +73,8 @@ function Gallery()
 			var photoNum;
 			var twitterNum;
 			var instagramNum;
+
+		var uploadedPhotoCount;
 
 
 
@@ -126,15 +129,83 @@ function Gallery()
 			);
 		};
 
-		function checkFriendCircle(data){
+		function parseFriendCircleData(data){
 
-			console.log("checking friend cirlc", data);
+		 	var feed;
+		 	var containerCount = 0;
+		 	var circleFeedDataArray = new Array();
 
-		}
+		 	$(data).each(function(i){
+
+
+		  	 	feed = data[i].data;
+
+		  	 	console.log(feed)
+			 	$.ajax({
+	        		type: 'post',
+	             	url: baseUrl + 'index.php/circle/fetchCircleData',
+	             	dataType: 'json',
+	             	data: {
+	             		circle_id: feed.text
+	             	},
+	             	success: function(feedData) { 
+
+	            			console.log("checking friend cirlc", feedData);
+
+
+
+	       //           		circleFeedDataArray.push(feedData);
+
+		      //        		circleFeedDataArray.sort(function sortNumber(a, b){
+
+		 					//   var aNum = Number(a.circle_id);
+		 					//   var bNum = Number(b.circle_id); 
+		 					//   return ((aNum > bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+		 					// });
+
+	       //          		$.ajax({
+				    //     		type: 'get',
+				    //         	url: baseUrl + 'layout/loadLayoutCircle',
+				    //         	dataType: 'html',
+				            	
+				    //         	success: function(layoutData) {  
+
+				    //         		var circleDiv = $('<div>');
+				    //         			circleDiv.append(layoutData)
+				    //         			         .addClass('span6 circle_container gallery_item flex_margin_bottom');
+				    //         		$('.layout_circle').append(circleDiv);
+				    //         		$(circleDiv).hide();
+				    //         		$(circleDiv).fadeIn(200);
+
+				    //         		var contentData = {
+								// 		index:i,
+								// 		item:$(circleDiv),
+								// 		totalNum:data.length*pageNum,
+								// 		colNum:CIRCLE_LAYOUT_COLUMN_NUM
+								// 	}
+
+								// 	galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount]);
+
+								// 	if(containerCount == data.length-1) 
+								// 		updateGalleryLayout(contentData);
+
+								// 	containerCount++;
+
+								// 	$(window).unbind('scroll').bind('scroll', lazyloader);
+
+				    //          	}
+
+	                //	})
+	             	
+	       		}
+			});
+		 });
+
+	}
 
 		function parseCircleData(data){
 
-			circleFeed = (currentFilterType == 'circle') ? data : checkFriendCircle(data);
+			circleFeed = data;
 
 			if(data.length == 0) return;
 
@@ -178,7 +249,7 @@ function Gallery()
 
 				            		var circleDiv = $('<div>');
 				            			circleDiv.append(layoutData)
-				            			         .addClass('span6 circle_container gallery_item flex_margin_bottom');
+				            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
 				            		$('.layout_circle').append(circleDiv);
 				            		$(circleDiv).hide();
 				            		$(circleDiv).fadeIn(200);
@@ -192,8 +263,11 @@ function Gallery()
 
 									galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount]);
 
-									if(containerCount == data.length-1) 
+									if(containerCount == data.length-1) {
+
 										updateGalleryLayout(contentData);
+										$('body').trigger('ALL_LAYOUT_CREATED');
+									}
 
 									containerCount++;
 
@@ -254,8 +328,8 @@ function Gallery()
 			createAllLayout(data);
 
 			$('body').unbind("ALL_LAYOUT_SINGLE_CREATED").bind('ALL_LAYOUT_SINGLE_CREATED', function(){
-
 				var feed;
+				var dataCount = 0;
 
 				$(data).each(function(i){
 					feed = data[i].data;
@@ -271,6 +345,11 @@ function Gallery()
 			            	var circleContainer = (isMoreFeed) ? $($($(".page"+pageNum).find('.gallery_circle')).get(i)) : $($('.gallery_circle').get(i));
 			                galleryItem.populateCircleContent(circleContainer, feedData);
 
+			                dataCount++;
+
+			                if(dataCount == data.length){
+			                	$('body').trigger('ALL_LAYOUT_CREATED');
+			                }
 		             	}
 		      		});
 				});
@@ -350,14 +429,19 @@ function Gallery()
 
 			var feed;
 
+			uploadedPhotoCount = 0;
+
 			$(data).each(function(i){
 				feed = data[i].data;
 
 				getPhotoData(i, data, feed);
+
 			});
 		}
 
 		function getPhotoData(i, data, feed){
+
+			uploadedPhotoCount++;
 			$.ajax({
 	        		type: 'post',
 	            	url: baseUrl + 'photo/fetchUploadedPhotoData',
@@ -390,6 +474,8 @@ function Gallery()
 						}
 
 						populatePhotoContent(contentData);
+
+						if(uploadedPhotoCount == data.length)$('body').trigger("ALL_LAYOUT_CREATED");
 
 						$(window).unbind('scroll').bind('scroll', lazyloader);
 
@@ -603,12 +689,20 @@ function Gallery()
 				break;
 
 				case 'circle':
-				case 'friend':
-					
 					if(!isMoreFeed){
 						$.feed.get('bca-circle', parseCircleData, getCircleNum);
 					}else{
 						if(checkIfLoadMore(circleFeed, getCircleNum)) $.feed.more('bca-circle', parseCircleData, getCircleNum);
+					}
+
+				break;
+
+				case 'friend':
+					
+					if(!isMoreFeed){
+						$.feed.get('bca-circle', parseFriendCircleData, getCircleNum);
+					}else{
+						if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', parseFriendCircleData, getCircleNum);
 					}
 				break;
 
@@ -649,8 +743,6 @@ function Gallery()
 		
 
 		function createAllLayout(data){
-
-			console.log("CREATE_ALL_LAYOUT_START");
 
 			if(data && data.length > 0){
 				$.ajax({
@@ -704,7 +796,6 @@ function Gallery()
 
 	  			 				$('body').trigger('ALL_LAYOUT_SINGLE_CREATED');
 
-								//$('body').trigger('ALL_LAYOUT_CREATED');
 								
 			             	}
 			      		});
@@ -830,19 +921,41 @@ function Gallery()
 
 		},
 
-		refreshAsFakeData: function(data, type){
-			$.ajax({
-				type: 'post',
-		    	url: baseUrl + 'circle/fetchCircleData',
-		    	dataType: 'json',
-		    	data: {
-		    		circle_id:data.id
-		    	},
-		    	success: function(data) {           
-		        	console.log('success', data);
-		        	//loadLayout();
-		     	}
-			});
+		refreshAsFakeCircleData: function(data){	
+			var fakeDiv = $('.gallery_circle').get(0);
+			galleryItem.populateCircleContent($(fakeDiv), data);
+		},
+
+		refreshAsFakePhotoData: function(data){	
+
+			console.log("get fake data")
+
+			var fakeDiv = $('.photo_container').get(0);
+
+			var photoIcon = baseUrl + "img/icons/bca.png";          
+
+        	var popupData = {
+					type:'photo', 
+					data:{
+						id: 1,
+						source:'bca',
+						content:data.description,
+						photo_url:baseUrl + "uploads/" + data.file_name
+					}}
+        	var html = "<img class='full_photo' src='" + baseUrl + "uploads/" + data.file_name + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
+
+			var contentData = {
+				index:0,
+				item:$(fakeDiv),
+				totalNum:0,
+				type:'photo',
+				content:html,
+				popupData:popupData,
+				colNum:0
+			}
+
+			populatePhotoContent(contentData);
+
 		},
 
 		enableLazyloader: function(){

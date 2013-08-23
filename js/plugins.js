@@ -472,7 +472,7 @@ $.extend(
                 {
                     type: 'post',
                     url: baseUrl + 'photo/saveRawFile',
-                    dataType: 'text',
+                    dataType: 'json',
                     data: {
                         base64data: canvasData,
                         desc: $desc,
@@ -481,7 +481,7 @@ $.extend(
                     },
                     success: function(data)
                     {
-                        saveFileSuccess(data);
+                        saveFileSuccess(data, $desc);
                     },
                     error: function(jqXHR, textStatus, errorThrown)
                     {
@@ -496,6 +496,7 @@ $.extend(
                 {
                     type: 'post',
                     url: baseUrl + 'photo/saveFile',
+                    dataType: 'json',
                     data: {
                         filePath: $preview_img_path,
                         x: $l,
@@ -506,7 +507,8 @@ $.extend(
                     },
                     success: function(data)
                     {
-                        saveFileSuccess(data);
+                        saveFileSuccess(data, $desc);
+   
                     },
                     error: function(jqXHR, textStatus, errorThrown)
                     {
@@ -514,7 +516,6 @@ $.extend(
                     }
                 });
             }
-
         }
         else
         {
@@ -522,15 +523,25 @@ $.extend(
         }
     }
 
-    function saveFileSuccess(data)
+    function saveFileSuccess(data, des)
     {
+        
         loadEnd();
        //alert('Image saved successfully.');
         if ($('#popup_circle').length != 0)
         {
             $('#popup_circle').trigger('photo_upload_complete');
         }
+
         closeWindow();
+
+        fakePhotoData = {
+                file_name: data.file_name,
+                description:des
+            }
+
+            $('body').trigger('PHOTO_UPLOADED');
+       
     }
 
     function saveFileFailed(jqXHR, textStatus, errorThrown)
