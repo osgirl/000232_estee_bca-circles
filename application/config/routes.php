@@ -41,8 +41,8 @@
 $route['default_controller'] = "home";
 
 //Rerouting Country and language abbreviation (ex: us/en) - Check out BCA_lang in core for more detail
-$route['(\w{2})/(\w{2})/(.*)'] = '$5';
-$route['(\w{2})/(\w{2})'] = $route['default_controller'];
+// $route['(\w{2})/(\w{2})/(.*)'] = '$3';
+// $route['(\w{2})/(\w{2})'] = $route['default_controller'];
 
 $route['404_override'] = '';
 
