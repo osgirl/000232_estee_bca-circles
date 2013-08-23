@@ -4,16 +4,16 @@
         <div id="au">
             <img src='<?php echo base_url(); ?>img/flags/small/australia.png' />
             <span class="country">&nbsp;&nbsp;Australia</span>&nbsp;&nbsp;
-            <a href="/au/en/">English</a>
+            <a href= "<?=base_url()?>au/en/">English</a>
         </div>
     </li>
     <li>
         <div id="ca">
             <img src='<?php echo base_url(); ?>img/flags/small/canada.png' />
             <span class="country">&nbsp;&nbsp;Canada</span>&nbsp;&nbsp;
-            <a href="/ca/en/">English</a>
+            <a href= "<?=base_url()?>ca/en/">English</a>
             <span class="language_divider">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-            <a href="/ca/fr/">Français</a>
+            <a href= "<?=base_url()?>ca/fr/">Français</a>
         </div>
     </li>
     <li>
@@ -127,7 +127,7 @@
         <div id="us">
             <img src='<?php echo base_url(); ?>img/flags/small/united-states.png' />
             <span class="country">&nbsp;&nbsp;United States</span>&nbsp;&nbsp;
-            <a href="/us/en/">English</a>
+            <a href= "<?=base_url()?>us/en/">English</a>
         </div>
     </li>
 </ul>
