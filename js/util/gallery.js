@@ -666,18 +666,30 @@ console.log("onFetchFriendCircleData", feedData);
 		 	var containerCount = 0;
 		 	var circleFeedDataArray = new Array();
 
+		 	console.log("parseFriendCircleData");
+		 	console.log(data);
+		 	ored.feedJSON 	= JSON.stringify(data);
+		 	ored.feedObj	= data;
+		 	ored.feedIds	= getIdsFromFeed(data);
+
 			 	$.ajax({
 	        		type: 'post',
 	             	url: baseUrl + 'index.php/circle/fetchFriendCircleData',
 	             	dataType: 'json',
-	             	data: {
-	             		circle_id: feed.text
-	             	},
+	             	data: ored,
 	             	success: onFetchFriendCircleData
 			});
 
 		}//end parseFriendCircleData
+		function getIdsFromFeed($feed){
+			var ids = [];
+			$($feed).each(function(i){
+				var o = $feed[i];
 
+				ids[i] = o.data.text;
+			});
+			return ids;
+		}
 		function loadLayout(){
 
 			if(!isMoreFeed) $('.gallery_layout').remove();
@@ -702,9 +714,9 @@ console.log("onFetchFriendCircleData", feedData);
 				case 'friend':
 					console.log("friends Click");
 					if(!isMoreFeed){
-						$.feed.get('bca-circle', parseFriendCircleData, getCircleNum);
+						$.feed.get('bca-circle', parseFriendCircleData, 20);
 					}else{
-						if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', parseFriendCircleData, getCircleNum);
+						if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', parseFriendCircleData, 20);
 					}
 				break;
 
