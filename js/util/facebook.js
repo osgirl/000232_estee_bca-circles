@@ -103,9 +103,9 @@ facebook.login = function( _callback ){
 
 			$('body').trigger('LOGIN_SUCCESS');
 
-			facebook.fetchUserData( facebook.fetchFriendlist );
-
-			if(_callback) _callback();
+			facebook.fetchUserData( function(){
+				facebook.fetchFriendlist(_callback);
+			});
 		} else {
 			console.log('-- user cancelled login or did not fully authorize. --');
 		}

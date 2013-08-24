@@ -661,17 +661,23 @@ function onFetchFriendCircleData($data){
 		function getFriendCircleData(data){
 
 		 	console.log("getFriendCircleData");
-
-		 	ored.postVars.friendIdsJSON	= JSON.stringify(getIdsFromFriends(friendProfileList));
-		 	ored.postVars.feedIdsJSON	= JSON.stringify(getIdsFromFeed(data));
-
+		 	var feedMagnetIds			= getIdsFromFeed(data);
+		 	console.log(feedMagnetIds);
+		 	//only get friend's circles if necessary.
+		 	if(feedMagnetIds.length > 0){
+		 		
+			 	ored.postVars.friendIdsJSON	= JSON.stringify(getIdsFromFriends(friendProfileList));
+			 	ored.postVars.feedIdsJSON	= JSON.stringify(feedMagnetIds);
 			 	$.ajax({
 	        		type: 'post',
 	             	url: baseUrl + indexPage + 'circle/fetchFriendCircleData',
 	             	dataType: 'json',
 	             	data: ored.postVars,
 	             	success: onFetchFriendCircleData
-			});
+				});
+		 	}else{
+		 		console.log("no more in feed")
+		 	}
 
 		};//end getFriendCircleData
 
@@ -717,11 +723,16 @@ function onFetchFriendCircleData($data){
 
 				case 'friend':
 					console.log("friends click.");
-
-					if(!isMoreFeed){
-						$.feed.get('bca-circle', getFriendCircleData, ored.count);
-					}else{
+					if(!isLogin){	facebook.login(function(){
+										if(!isMoreFeed){	$.feed.get('bca-circle', getFriendCircleData, ored.count);
+										}else{				if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', getFriendCircleData, ored.count);
+										}
+									});
+					} else{
+						if(!isMoreFeed){	$.feed.get('bca-circle', getFriendCircleData, ored.count);
+						}else{
 						if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', getFriendCircleData, ored.count);
+						}
 					}
 				break;
 
