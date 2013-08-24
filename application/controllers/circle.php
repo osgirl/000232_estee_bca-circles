@@ -141,7 +141,6 @@ class Circle extends CI_Controller {
 				->where_in("users_fb_id",$friendsArr)
 				->join("goals AS g", 'g.id = circles.ref_goal_id', "LEFT")
 				->order_by("circles.id DESC")
-				//->limit(4)
 				->get();
 			
 
