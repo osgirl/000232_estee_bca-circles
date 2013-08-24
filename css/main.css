@@ -198,6 +198,7 @@ h2{
 	color:#333333;
 	background-color:#ffffff;
 	*background-color:#ffffff;
+
 }
 .btn-navbar:active,.btn-navbar.active{background-color:#ffffff \9;}
 
@@ -232,6 +233,7 @@ h2{
 
 .navbar .btn-navbar{
 	float:right;
+	margin-top:6px;
 	padding:7px 10px;
 	margin-left:5px;
 	margin-right:-8px;

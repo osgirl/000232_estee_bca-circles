@@ -7,25 +7,25 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <div class='top_sub_nav_item pull-right vertical_mode_show' style="margin-right:-8px;">
-                    	<div class='top_user_name user_name_display pull-left' class='all_cap'></div>
-    						<a class='sign_in_btn'>
-                                <span style="margin-top:1px" class='sign_in all_cap pink_text pull-left'>SIGN IN</span>
-    						  <span class="pull-left" style="margin-left:5px;"><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></span>
-                            </a>
-    					</div>
-    					<div id="collapse_share_module" class='top_sub_nav_item pull-left vertical_mode_show'>
-                        	<a href="#" style="margin-right:5px;" class='facebook_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></a>
-    						<a href="#" class='twitter_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/twitter-mid.png'/></a>
-    					</div>
-    					<span class="pull-left vertical_mode_show" style="margin:0px 6px 0 6px;"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
-    					<span class='top_sub_nav_item pull-left vertical_mode_show'>
-                            
-                            <span class="language_toggle_btn dropdown">
-                                <?php include('top_popup/language_dropdown_view.php');?>
-                            </span>
-
+                    <span class='top_sub_nav_item pull-right vertical_mode_show' style="margin-right:-8px;">
+                	   <span class='top_user_name user_name_display' class='all_cap'></span>
+						<a class='sign_in_btn'>
+                            <span style="margin-top:1px" class='sign_in all_cap pink_text'>SIGN IN</span>
+						  <span style="margin-left:5px;"><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></span>
+                        </a>
+					</span>
+					<span id="collapse_share_module" class='top_sub_nav_item pull-left vertical_mode_show'>
+                    	<a href="#" style="margin-right:5px;" class='facebook_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></a>
+						<a href="#" class='twitter_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/twitter-mid.png'/></a>
+					</span>
+					<span class="pull-left vertical_mode_show" style="margin:0px 6px 0 6px;"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
+					<span class='top_sub_nav_item pull-left vertical_mode_show'>
+                        
+                        <span class="language_toggle_btn dropdown">
+                            <?php include('top_popup/language_dropdown_view.php');?>
                         </span>
+
+                    </span>
 
                     <div class="nav-collapse collapse">
                         <ul id='top_main_nav' class="nav">
