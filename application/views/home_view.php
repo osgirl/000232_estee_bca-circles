@@ -68,7 +68,7 @@
 		                <div class="top_content_span span6">
 		                	<div class="row">
 		                		<div id='featured_header' class="span6">
-		                			<div id="around_the_world" class="all_cap">feature from around the world</div>
+		                			<div id="around_the_world" class="all_cap">featured from around the world</div>
 		                			<div class='pull_left'>
 										<div class='featured_dot featured_selected'></div>
 										<div class='featured_dot featured_deselected'></div>
