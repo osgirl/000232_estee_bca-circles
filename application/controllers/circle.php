@@ -184,43 +184,43 @@ class Circle extends CI_Controller {
 	}
 	public function fetchUserCircleData()
 	{
-		$this->post = $this->input->post();
+		$this->post 	= $this->input->post();
 		if ( isset ( $this->post['user_id'] )) {	
 
-			$user_id = $this->post['user_id'];
-			$query = $this->db->query("SELECT * FROM circles WHERE users_fb_id = '$user_id'"); 
+			$user_id 	= $this->post['user_id'];
+			$query 		= $this->db->query("SELECT * FROM circles WHERE users_fb_id = '$user_id'"); 
 
 			if ($query->num_rows() > 0) {
 			  foreach($query->result() as $circleRow) {
-			  	$circle_id = $circleRow->id;
-			  	$ref_goal_id = $circleRow->ref_goal_id;
+			  	$circle_id 		= $circleRow->id;
+			  	$ref_goal_id 	= $circleRow->ref_goal_id;
+			    $friend_query 	= $this->db->query("SELECT * FROM friends WHERE ref_circle_id = '$circle_id'"); 
 
-			    $friend_query = $this->db->query("SELECT * FROM friends WHERE ref_circle_id = '$circle_id'"); 
-
+		    	$friends_data = array();
 			    if ($friend_query->num_rows() > 0) {
-			    	$friends_data = array();
 				   foreach($friend_query->result() as $row) {
 				  	$friends_data[] = array (	'friend_id'=>$row->friends_fb_id,
 				  								'friend_name'=>$row->friends_name);
-
-				  	$goal_query = $this->db->query("SELECT * FROM goals WHERE id = '$ref_goal_id'");
+				  	$goal_query 	= $this->db->query("SELECT * FROM goals WHERE id = '$ref_goal_id'");
 
 				  	if ($goal_query->num_rows() > 0) {
-				  		 foreach($goal_query->result() as $goal_row) {
-
-				  		 	$goal_icon = $goal_row->icon;
-				  		 }
+				  		 foreach($goal_query->result() as $goal_row) 	$goal_icon = $goal_row->icon;
 				  	}
 
 				  }
-
-				  $circles_data[] = array('goal'=>$circleRow->goal, 'friends_data'=>$friends_data, 'circle_id'=>$circle_id, 'avatar'=>$circleRow->users_photo_url, 'goal_icon'=>$goal_icon);
 				 
 				}//endif
+
+			  $circles_data[] = array(	'goal'=>$circleRow->goal, 
+			  							'friends_data'=>$friends_data, 
+			  							'circle_id'=>$circle_id, 
+			  							'avatar'=>$circleRow->users_photo_url, 
+			  							'goal_icon'=>$goal_icon
+			  						);
 				
 				
-			  }//endif
-			}
+			  }//endforeach
+			}//endif
 
 			echo json_encode($circles_data);
 			
