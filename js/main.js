@@ -444,7 +444,7 @@ function openCreateCircleScreen(hasGoal){
 	}
 	
 	$("#custom_action").unbind("keyup").keyup(function(e){
-		goal = $(e.currentTarget).val();
+		goal = String($(e.currentTarget).val());
 		if($(e.currentTarget).val() == "")
 			$("#select_action").css({ opacity: 1 });
 		else
@@ -987,7 +987,7 @@ function createCircle(){
 	var goalCount = 0;
 
 	$.ajax({
-		url: baseUrl + 'goal/fetchGoalData',
+		url: baseUrl + indexPage + 'goal/fetchGoalData',
 		dataType: 'json',
 		success: function(data) { 
 
@@ -1005,21 +1005,17 @@ function createCircle(){
 
 				if(goalCount == goalData.length) {
 
-					console.log('am i counting the goal')
-
 						if(isCustomizeGoal){
 
 							console.log("this is customize", goal)
 							$.ajax({
 				        		type: 'post',
-				            	url: baseUrl + 'goal/create',
+				            	url: baseUrl + indexPage + 'goal/create',
 				            	dataType: 'json',
 				            	data: {
-				            		goal:goal
+				            		goal_cotent: goal
 				            	},
 				            	success: function(data) {   
-
-				            		console.log("what's the goal id from here??", data.id);
 
 				            		postCircleData(data.id);
 

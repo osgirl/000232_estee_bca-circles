@@ -12,10 +12,10 @@ class Goal extends CI_Controller {
 
 		$this->post = $this->input->post();
 
-		if ( isset ( $this->post['goal'] )) {	
+		if ( isset ( $this->post['goal_cotent'] )) {	
 
 				$post = array(
-					'goal'				=> $this->post['goal'],
+					'goal'				=> $this->post['goal_cotent'],
 					'icon'				=> 'generic',
 					'taken_number'		=> 0,
 					'goal_type'			=> 'customize'
