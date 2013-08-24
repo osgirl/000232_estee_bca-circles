@@ -122,27 +122,6 @@ $(document).ready(function(){
 
 });
 
-createPhoto = function( _data ){
-	$.ajax({
-		url	: './php/create-circle.php',
-		type : "post",
-		dataType:"json",
-		data : {
-			thumbs_url: _data.friends_photos,
-			user_name: _data.users_name,
-			content: _data.goal,
-		},
-		success : function(_response){
-			console.log('---- create photo success. ' + _response.result + ' ----'); 
-
-			//main.facebook.photoUrl = _response.url;
-		},
-		fail : function(_response){ 
-			console.log('---- create photo failed. ----'); 
-		}
-	});
-}
-
 // Temp!
 function translatePage(){
 	var country = $('#language_menu.dropdown-menu #' + selectedCountry);
@@ -159,11 +138,11 @@ function enableEventBinds(){
 	$('body').bind(GOT_FRIEND_LIST, getFriendList);
 	$('body').bind("SAME_GOAL_BUTTON_CLICKED", function(e){
 
-		(isLogin) ? openCreateCircleScreen(true) : facebook.logIn();
+		(isLogin) ? openCreateCircleScreen(true) : facebook.login(function(){openCreateCircleScreen(true)});
 	});
 
 	$('body').bind("CREATE_NEW_CIRCLE_BUTTON_CLICKED", function(e){
-		(isLogin) ? openCreateCircleScreen(false) : facebook.logIn();
+		(isLogin) ? openCreateCircleScreen(false) : facebook.login(function(){openCreateCircleScreen(false)});
 	});
 
 	$('body').bind('PHOTO_UPLOADED', function(e){
@@ -198,7 +177,7 @@ function getLogoutStatus(e){
 	$('.sign_in_btn').unbind('click').click(facebook.login);
 	
 	$('.start_create_circle_btn').unbind('click').click(function(e){
-		facebook.login();
+		facebook.login(function(){openCreateCircleScreen(false)});
 		createCircleClicked = true;
 	})
 	
