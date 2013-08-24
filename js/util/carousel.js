@@ -161,10 +161,13 @@ function Carousel()
 			galleryItem = new GalleryItem();
 
 			carouselItemWidth = $('#carousel_slider').width()/3;
+			$('.language_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");
 
 			$(window).resize(function(e){
 				carouselItemWidth = $('#carousel_slider').width()/3;
 				onDotSelected(0);
+
+				$('.language_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");
 			})	
 
 

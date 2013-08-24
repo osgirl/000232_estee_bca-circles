@@ -1,10 +1,10 @@
 <div class="dropdown-toggle all_cap" data-toggle="dropdown">
+<span class='flag' style="margin-right:2px"><img src='<?php echo base_url(); ?>img/flags/small/united-states.png' /></span>
     <span class="country_name" >US</span> 
-    <img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/>
-    <div class='flag pull-left' style="margin-right:5px"><img src='<?php echo base_url(); ?>img/flags/small/united-states.png' /></div>
-    <div class='language_arrow pull-left'></div>
+    <img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/> 
+    <span class='language_arrow'></span>
 </div>
-<ul id="language_menu" class="dropdown-menu">
+<ul id="language_menu" class="language_menu_dropdown dropdown-menu">
     <li>
         <div id="au">
             <img src='<?php echo base_url(); ?>img/flags/small/australia.png' />
