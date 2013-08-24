@@ -1103,8 +1103,20 @@ function postCircleData(goal_id){
 
 	        console.log("circle created:", data.id)
 
-			var popupData = "$.popup({type:'circle', data:{  id:'" + data.id + "', content: '"+ goal+ "',avatar: '"+ userProfilePhoto + "', num_friends: " + friendNum + ", is_user:true}});"
-			$($('#close_create_circle_btn').parent()).attr('onclick', popupData);
+			var popupData = {
+				type:'circle',
+				data:{
+					id:data.id,
+					content:goal,
+					avatar:userProfilePhoto,
+					num_friends:friendNum,
+					is_user:true
+				}
+			}
+
+			$($('#close_create_circle_btn').parent()).click(function(e){
+				gallery.openPopUp(popupData);
+			})
 
         	$.each(friendSelectedArray, function(i,v){
         		//console.log(data.id, v.id, v.name);
