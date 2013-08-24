@@ -724,11 +724,16 @@ function onFetchFriendCircleData($data){
 
 				case 'friend':
 					console.log("friends click.");
-
-					if(!isMoreFeed){
-						$.feed.get('bca-circle', getFriendCircleData, ored.count);
-					}else{
+					if(!isLogin){	facebook.login(function(){
+										if(!isMoreFeed){	$.feed.get('bca-circle', getFriendCircleData, ored.count);
+										}else{				if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', getFriendCircleData, ored.count);
+										}
+									});
+					} else{
+						if(!isMoreFeed){	$.feed.get('bca-circle', getFriendCircleData, ored.count);
+						}else{
 						if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more('bca-circle', getFriendCircleData, ored.count);
+						}
 					}
 				break;
 
