@@ -9,21 +9,24 @@
                     </a>
                     <div class='top_sub_nav_item pull-right vertical_mode_show' style="margin-right:-8px;">
                     	<div class='top_user_name user_name_display pull-left' class='all_cap'></div>
-						<a class='sign_in_btn'><div style="margin-top:1px" class='sign_in all_cap pink_text pull-left'>SIGN IN</div>
-						<div class="pull-left" style="margin-left:5px;"><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div></a>
-					</div>
-					<div id="collapse_share_module" class='top_sub_nav_item pull-left vertical_mode_show'>
-                    	<div class='facebook_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div>
-						<div class='twitter_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/twitter-mid.png'/></div>
-					</div>
-					<div class="pull-left vertical_mode_show" style="margin:0px 6px 0 6px;"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
-					<div class='top_sub_nav_item pull-left vertical_mode_show'>
-                        
-                        <div class="dropdown pull-left">
-                            <?php include('top_popup/language_dropdown_view.php');?>
-                        </div>
+    						<a class='sign_in_btn'>
+                                <span style="margin-top:1px" class='sign_in all_cap pink_text pull-left'>SIGN IN</span>
+    						  <span class="pull-left" style="margin-left:5px;"><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></span>
+                            </a>
+    					</div>
+    					<div id="collapse_share_module" class='top_sub_nav_item pull-left vertical_mode_show'>
+                        	<a href="#" style="margin-right:5px;" class='facebook_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></a>
+    						<a href="#" class='twitter_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/twitter-mid.png'/></a>
+    					</div>
+    					<span class="pull-left vertical_mode_show" style="margin:0px 6px 0 6px;"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
+    					<span class='top_sub_nav_item pull-left vertical_mode_show'>
+                            
+                            <span class="language_toggle_btn dropdown">
+                                <?php include('top_popup/language_dropdown_view.php');?>
+                            </span>
 
-                    </div>
+                        </span>
+
                     <div class="nav-collapse collapse">
                         <ul id='top_main_nav' class="nav">
                             <li><a id="conversation_btn" href="#conversation" onclick="$('.popup#popup_circle .btn_close').trigger('click');" class='all_cap'>Conversation</a></li>
@@ -41,15 +44,15 @@
 							</span>
 							<span class="language_divider"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
 							<span class='top_sub_nav_item'>
-	                            <span class="dropdown">
+	                            <span class="language_toggle_btn dropdown">
 	                                <?php include('top_popup/language_dropdown_view.php');?>
 	                            </span>
                             </span>
                             <span class="language_divider"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
                             <span class='top_sub_nav_item'>
                             	<span class='all_cap' style="vertical-align:center;">share</span>
-                            	<span onclick="$.popup_share({type:'facebook'})" style="margin-top:-1px" class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></span>
-								<span onclick="$.popup_share({type:'twitter'})" style="margin-top:-1px" class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></span>
+                            	<a href="#" onclick="$.popup_share({type:'facebook'})" style="margin-top:-1px" class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></a>
+								<a href="#" onclick="$.popup_share({type:'twitter'})" style="margin-top:-1px" class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></a>
 							</span>
                         </div>
                         

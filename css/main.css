@@ -1600,7 +1600,7 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 #language_menu.dropdown-menu img{
-	margin-top:1px;
+	margin-top:-2px;
 }
 
 #language_menu.dropdown-menu li div{
@@ -1630,11 +1630,6 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 .language_divider{
 	margin: 0 5px 0 5px;
 }
-
-.country_flag{
-	margin-top:-3px;
-}
-
 
 
 /* ==========================================================================

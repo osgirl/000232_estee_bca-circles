@@ -223,8 +223,14 @@ function enableButtons(){
 	})
 	$('.pink_btn_rollover').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 
-	$('.sign_in_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+	$('.sign_in_btn').unbind('mouseover').mouseover(function(e){
+		$(e.currentTarget).css({
+			cursor:'pointer',
+			textDecoration:'none'
+		});
+	})
 	$('#language_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
+	$('.language_toggle_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#select_action_button').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#name_plus_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
 	$('#close_friend_photos_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
