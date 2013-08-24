@@ -9,8 +9,8 @@
                     </a>
                     <div class='top_sub_nav_item pull-right vertical_mode_show' style="margin-right:-8px;">
                     	<div id='top_user_name' class='top_user_name user_name_display pull-left' class='all_cap'></div>
-						<a class='sign_in_btn'><div class='sign_in all_cap pink_text pull-left'>SIGN IN</div>
-						<div class="pull-left" style="margin-left:5px; margin-top:-1px"><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div></a>
+						<a class='sign_in_btn'><div style="margin-top:1px" class='sign_in all_cap pink_text pull-left'>SIGN IN</div>
+						<div class="pull-left" style="margin-left:5px;"><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div></a>
 					</div>
 					<div id="collapse_share_module" class='top_sub_nav_item pull-left vertical_mode_show'>
                     	<div class='facebook_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div>
@@ -19,7 +19,7 @@
 					<div class="pull-left vertical_mode_show" style="margin:0px 6px 0 6px;"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
 					<div class='top_sub_nav_item pull-left vertical_mode_show'>
                         
-                        <div class="dropdown pull-left">
+                        <div style="margin-top:0px" class="dropdown pull-left">
                             <?php include('top_popup/language_dropdown_view.php');?>
                         </div>
 
@@ -39,7 +39,7 @@
 							</div>
 							<div><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
 							<div class='top_sub_nav_item'>
-	                            <div class="dropdown">
+	                            <div style="margin-top:-1px" class="dropdown">
 	                                <?php include('top_popup/language_dropdown_view.php');?>
 	                            </div>
                             </div>
