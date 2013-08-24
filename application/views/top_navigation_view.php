@@ -8,7 +8,7 @@
                         <span class="icon-bar"></span>
                     </a>
                     <div class='top_sub_nav_item pull-right vertical_mode_show' style="margin-right:-8px;">
-                    	<div id='top_user_name' class='top_user_name user_name_display pull-left' class='all_cap'></div>
+                    	<div class='top_user_name user_name_display pull-left' class='all_cap'></div>
 						<a class='sign_in_btn'><div style="margin-top:1px" class='sign_in all_cap pink_text pull-left'>SIGN IN</div>
 						<div class="pull-left" style="margin-left:5px;"><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></div></a>
 					</div>
@@ -19,7 +19,7 @@
 					<div class="pull-left vertical_mode_show" style="margin:0px 6px 0 6px;"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
 					<div class='top_sub_nav_item pull-left vertical_mode_show'>
                         
-                        <div style="margin-top:0px" class="dropdown pull-left">
+                        <div class="dropdown pull-left">
                             <?php include('top_popup/language_dropdown_view.php');?>
                         </div>
 
@@ -32,23 +32,25 @@
                             <li><a href="#about" onclick="$.popup({type:'about'});" class='all_cap'>about</a></li>
                         </ul>
                         <div id='top_sub_nav' class='pull-right'>
-                            <div class='top_sub_nav_item'>
-                            	<div id='top_user_name' class='top_user_name user_name_display' class='all_cap'></div>
-								<a class='sign_in_btn'><div class='sign_in all_cap pink_text'>SIGN IN</div>
-								<div  style="margin-left:5px; margin-top:-1px"><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div></a>
-							</div>
-							<div><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
-							<div class='top_sub_nav_item'>
-	                            <div style="margin-top:-1px" class="dropdown">
+                            <span class='top_sub_nav_item'>
+                            	<span class='top_user_name user_name_display' class='all_cap'></span>
+								<a class='sign_in_btn'>
+                                    <span class='sign_in all_cap pink_text' style="vertical-align:center;">SIGN IN</span>
+								    <span><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></span>
+                                </a>
+							</span>
+							<span class="language_divider"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
+							<span class='top_sub_nav_item'>
+	                            <span class="dropdown">
 	                                <?php include('top_popup/language_dropdown_view.php');?>
-	                            </div>
-                            </div>
-                            <div><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></div>
-                            <div class='top_sub_nav_item'>
-                            	<div class='all_cap'>share</div>
-                            	<div onclick="$.popup_share({type:'facebook'})" style="margin-top:-1px" class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
-								<div onclick="$.popup_share({type:'twitter'})" style="margin-top:-1px" class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
-							</div>
+	                            </span>
+                            </span>
+                            <span class="language_divider"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
+                            <span class='top_sub_nav_item'>
+                            	<span class='all_cap' style="vertical-align:center;">share</span>
+                            	<span onclick="$.popup_share({type:'facebook'})" style="margin-top:-1px" class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></span>
+								<span onclick="$.popup_share({type:'twitter'})" style="margin-top:-1px" class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></span>
+							</span>
                         </div>
                         
                     </div><!--/.nav-collapse -->

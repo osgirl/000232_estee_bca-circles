@@ -1,8 +1,8 @@
-<div class="dropdown-toggle all_cap" data-toggle="dropdown">
+<span class="dropdown-toggle all_cap" data-toggle="dropdown">
     <span class='flag'><img src='<?php echo base_url(); ?>img/flags/small/united-states.png' /></span>
-    <span class="country_name">US</span>    
+    <span class="country_name" style="vertical-align:center;">US</span>    
     <span class='language_arrow'><img src='<?php echo base_url(); ?>img/icons/language-arrow.png'/> </span>
-</div>
+</span>
 <ul id="language_menu" class="language_menu_dropdown dropdown-menu">
     <li>
         <div id="au">
