@@ -661,17 +661,24 @@ function onFetchFriendCircleData($data){
 		function getFriendCircleData(data){
 
 		 	console.log("getFriendCircleData");
-
 		 	ored.postVars.friendIdsJSON	= JSON.stringify(getIdsFromFriends(friendProfileList));
-		 	ored.postVars.feedIdsJSON	= JSON.stringify(getIdsFromFeed(data));
+		 	var feedMagnetIds			= getIdsFromFeed(data);
 
-			 	$.ajax({
-	        		type: 'post',
-	             	url: baseUrl + indexPage + 'circle/fetchFriendCircleData',
-	             	dataType: 'json',
-	             	data: ored.postVars,
-	             	success: onFetchFriendCircleData
-			});
+		 	//only get circles if necessary.
+		 	if(feedMagnetIds.length > 0){
+		 		
+			 	ored.postVars.feedIdsJSON		= JSON.stringify();
+
+				 	$.ajax({
+		        		type: 'post',
+		             	url: baseUrl + indexPage + 'circle/fetchFriendCircleData',
+		             	dataType: 'json',
+		             	data: ored.postVars,
+		             	success: onFetchFriendCircleData
+				});
+		 	}else{
+		 		console.log("no more in feed")
+		 	}
 
 		};//end getFriendCircleData
 
