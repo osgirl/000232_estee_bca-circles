@@ -1627,12 +1627,12 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	
 }
 
-.menu_right{
-	left:-200px;
+.flag{
+	margin: -3px 2px 0 0;
 }
 
-.menu_left{
-	left:-200px;
+.country_flag{
+	margin-top:-2px;
 }
 
 
