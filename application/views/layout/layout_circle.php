@@ -17,8 +17,8 @@
 </div> -->
 <div class="gallery_item_btn">
 	<div class="rollover_content">
-		<div class="view_circle_btn pink_btn all_cap">view</div>
-		<div>Create your own Circle of Strength.<br/>Choose the <span class="same_goal_btn">same goal</span> or <span class="create_a_new_one_btn">create a new one.</span></div>
+		<a class="view_circle_btn pink_btn all_cap">view</a>
+		<div>Create your own Circle of Strength.<br/>Choose the <a class="same_goal_btn rollover_link">same goal</a> or <a class="create_a_new_one_btn rollover_link">create a new one.</a></div>
 	</div>
 </div>
 

@@ -10,8 +10,8 @@
 		</div>
 		<table class="btn_control">
 			<tr>
-			    <td class="button_left_wrapper"><div class='pink_btn pull_right cancel_create_circle_btn'>cancel</div></td>
-				<td class="button_right_wrapper"><div id="final_create_btn" class='pink_btn pull-left dim'>create</div></td>
+			    <td class="button_left_wrapper"><a class='pink_btn pull_right cancel_create_circle_btn'>cancel</a></td>
+				<td class="button_right_wrapper"><a id="final_create_btn" class='pink_btn pull-left dim'>create</a></td>
 			</tr>
 		</table>
 	</div>
@@ -30,7 +30,7 @@
 		</div>
 		<table class="btn_control">
 			<tr>
-			    <td style="text-align:center"><a><div id="close_create_circle_btn" class='pink_btn pull_right'>close</div></a></td>
+			    <td style="text-align:center"><a id="close_create_circle_btn" class='pink_btn pull_right'>close</a></td>
 			</tr>
 		</table>
 	</div>
