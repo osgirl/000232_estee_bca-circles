@@ -102,17 +102,16 @@ function Gallery()
 
 				pageNum++;
 				console.log("PAGE PLUS", pageNum)
-				$('#donate_area').fadeIn();
-	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 				loadLayout();
 
 	  		}else if($(window).scrollTop() > SCROLL_TO_SHOW_FOOTER){
-	  			$('#donate_area').show();
+	  			$('#donate_area').fadeIn();
 	  			$('#donate_area').addClass('footer_fixed').removeClass('footer_relative');
 
 	  		}else if($(window).scrollTop() <= SCROLL_TO_SHOW_FOOTER){
-	  			//$('#donate_area').fadeOut();
+	  			$('#donate_area').fadeOut();
 	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+
 	  		}
 
 		};
@@ -308,6 +307,7 @@ function Gallery()
 
 			if(feed.length < getNum){
 				isMore = false;
+				$(window).unbind('scroll').bind('scroll', lazyloader);
 			}else{
 				isMore = true;
 			}
@@ -600,7 +600,7 @@ function Gallery()
 			//var rowNum = Math.ceil(contentData.totalNum/contentData.colNum);
 			//var getHeight = ($(contentData.item).height() + 130)*rowNum;
 
-			var baseHeight = (contentData.type == "circle") ? 1200 : 900;
+			var baseHeight = (contentData.type == "circle") ? 1150 : 950;
 			var getHeight = baseHeight*pageNum;
 
 			if(getHeight > baseHeight) {
