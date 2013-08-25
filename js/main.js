@@ -207,46 +207,6 @@ function displayUserProfilePic(e){
 }
 
 function enableButtons(){
-	//enable finger cursor
-	$('.language').unbind('mouseover').mouseover(function(e){
-		$(e.currentTarget).css('color','#f38dab');
-	})
-	$('.language').unbind('mouseout').mouseout(function(e){
-		$(e.currentTarget).css('color','#777');
-	})
-	$('.pink_btn').unbind('mouseover').mouseover(function(e){
-		$(e.currentTarget).css('cursor','pointer');
-		$(e.currentTarget).removeClass("pink_btn").addClass("pink_btn_rollover");
-	})
-	$('.pink_btn').unbind('mouseout').mouseout(function(e){
-		$(e.currentTarget).removeClass("pink_btn_rollover").addClass("pink_btn");
-	})
-	$('.pink_btn_rollover').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-
-	$('.sign_in_btn').unbind('mouseover').mouseover(function(e){
-		$(e.currentTarget).css({
-			cursor:'pointer',
-			textDecoration:'none'
-		});
-	})
-	$('#language_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('.language_toggle_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('#select_action_button').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('#name_plus_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('#close_friend_photos_btn').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('.feature_circle_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-	$('.feature_photo_link').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-
-	//enable clicks
-	/*$('.language').unbind('click').click(function(e){
-
-		country = $($(e.currentTarget).parent()).attr('id');
-		var smallflagSrc = baseUrl + "img/flags/small/" + country + ".png";
-		var shorten_country = $($($(e.currentTarget).parent()).find('.ab_country')).html();
-		
-		$('.flag img').attr('src', smallflagSrc);
-		$('.country_name').html(shorten_country);
-	})*/
 
 	$('#conversation_btn').unbind("click").click(function(e){
 		$('html, body').animate({
@@ -274,53 +234,10 @@ function enableButtons(){
 
 	$('.popup_checkbox').click(toggleCheckbox);
 
-	$('.circle_fb_share_btn').click(function(e){
-
-		var currentClickedCircle = $(e.currentTarget).parents('.circle_container');
-		shareFacebook($(currentClickedCircle));
-	});
-
-	$('.circle_tw_share_btn').unbind('click').click(function(e){
-		var currentClickedCircle = $(e.currentTarget).parents('.circle_container');
-		shareTwitter($(currentClickedCircle));
-	});
 
 	//$('#show_friendlist_btn').unbind("click").click(facebook.showFriendlist);
 }
 
-
-
-function shareFacebook(circle){
-
-	console.log('pop up', circle)
-
-	var circle_goal = $(circle.find(".goal_text")).html();
-	var circle_id = circle.attr('circle_id');
-
-	var shareData = {
-		type:'facebook',
-		action: circle_goal,
-		id:circle_id,
-		post_type:'circle'
-	}
-	$.popup_share(shareData);
-}
-
-function shareTwitter(circle){
-
-		var circle_goal = $(circle.find(".goal_text")).html();
-		var circle_id = circle.attr('circle_id');
-
-		console.log(circle_goal, circle_id)
-
-		var shareData = {
-			type:'twitter',
-			action: circle_goal,
-			id:circle_id,
-			post_type:'circle'
-		}
-		$.popup_share(shareData);
-	}
 
 function toggleCheckbox(e)
 {
@@ -932,15 +849,6 @@ function createStatItem(item, parent, line1, line2, data, isCircle){
 		statItem.find('img').attr('src', baseUrl + "img/icons/actions/" + data.goal_icon + ".png");
 
 		if(isCircle){
-
-			statItem.find('.circle_view_link').unbind('mouseover').mouseover(function(e){
-				$(e.currentTarget).css('cursor','pointer');
-				$(e.currentTarget).css('color','#f33c72');
-			})
-
-			statItem.find('.circle_view_link').unbind('mouseout').mouseout(function(e){
-				$(e.currentTarget).css('color','#f38dab');
-			})
         	statItem.find('.circle_view_link').unbind('click').click(function(e){
         			var popupData = {
 						type:'circle', 

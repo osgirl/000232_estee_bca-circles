@@ -126,7 +126,7 @@
 									<div id='join_text' class='light_font'>Show how you're fighting breast cancer by creating a circle, uploading a photo, or tagging posts on Instagram and Twitter with <b>#BCAstrength</b>.</div>
 									<table class="btn_control">
 										<tr>
-										    <td class="button_left_wrapper"><div class='start_create_circle_btn pink_btn all_cap'>CREATE A CIRCLE</div></td>
+										    <td class="button_left_wrapper"><a class='start_create_circle_btn pink_btn all_cap'>CREATE A CIRCLE</a></td>
 											<td class="button_right_wrapper"><a onclick="$.popup({type:'photo_upload'});" class='upload_photo_btn pink_btn pull_left all_cap'>UPLOAD A PHOTO</a></td>
 										</tr>
 									</table>
@@ -145,8 +145,8 @@
 									<div id='bottom_user_name' class='user_name_display'></div>
 									<div class='user_location_display'></div>
 									<div id='user_circle_num'>Belongs to <span id='circle_num'>0 Circle</span></div>
-									<div id='create_another_circle' class='start_create_circle_btn pink_btn all_cap light_font'>Create a Circle</div>
-									<div><a onclick="$.popup({type:'photo_upload'});" id="log_in_upload_photo_btn" class='upload_photo_btn pink_btn pull_left all_cap'>UPLOAD A PHOTO</a></div>
+									<a id='create_another_circle' class='start_create_circle_btn pink_btn all_cap light_font'>Create a Circle</a>
+									<a onclick="$.popup({type:'photo_upload'});" id="log_in_upload_photo_btn" class='upload_photo_btn pink_btn pull_left all_cap'>UPLOAD A PHOTO</a>
 								</div>
 								
 							</div>
@@ -165,12 +165,12 @@
 					<div class='h_divider_top'></div>
 					<div id="filter_nav">
 						<div style="display:inline-block"><img src='<?= base_url(); ?>img/icons/filter.png'/></div>
-						<div id="filter_all_btn" type="all" class="pink_btn pink_filter_btn all_cap">all</div>
-						<div id="filter_circles_btn" type="circle" class="pink_btn pink_filter_btn all_cap">circles</div>
-						<div id="filter_photos_btn" type="photo" class="pink_btn pink_filter_btn all_cap">photos</div>
-						<div id="filter_instagram_btn" type="instagram" class="pink_btn pink_filter_btn blue_btn"><img src='<?= base_url(); ?>img/buttons/instagram.png'></div>
-						<div id="filter_twitter_btn" type="twitter" class="pink_btn pink_filter_btn light_blue_btn"><img src='<?= base_url(); ?>img/buttons/twitter.png'></div>
-						<div id="filter_friends_btn" type="friend" class="pink_btn pink_filter_btn all_cap">my friend's circles</div>
+						<a id="filter_all_btn" type="all" class="pink_btn pink_filter_btn all_cap">all</a>
+						<a id="filter_circles_btn" type="circle" class="pink_btn pink_filter_btn all_cap">circles</a>
+						<a id="filter_photos_btn" type="photo" class="pink_btn pink_filter_btn all_cap">photos</a>
+						<a id="filter_instagram_btn" type="instagram" class="pink_btn pink_filter_btn blue_btn"><img src='<?= base_url(); ?>img/buttons/instagram.png'></a>
+						<a id="filter_twitter_btn" type="twitter" class="pink_btn pink_filter_btn light_blue_btn"><img src='<?= base_url(); ?>img/buttons/twitter.png'></a>
+						<a id="filter_friends_btn" type="friend" class="pink_btn pink_filter_btn all_cap">my friend's circles</a>
 					</div>
 					<div id="feed_magnet"> </div>
 				</div>

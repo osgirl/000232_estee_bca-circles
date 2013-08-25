@@ -83,27 +83,7 @@ function Carousel()
 			featurePhotoData = new Array();
 
 			$.feed.featured('bca-circle', parseFeatureCircleData, 3);
-			$.feed.featured('bca-photo', handleFeaturePhotoData, 2);
-			$.feed.featured('bca-twitter', handleFeaturePhotoData, 2);
-			$.feed.featured('bca-instagram', handleFeaturePhotoData, 2);
-		}
-
-		function handleFeaturePhotoData(data){
-
-			$(data).each(function (i, v){
-				featurePhotoData.push(v);
-			})
-
-
-			featurePhotoData.sort(function sortNumber(a, b){
-			  var aNum = Number(a.data.timestamp);
-			  var bNum = Number(b.data.timestamp); 
-			  return ((aNum > bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
-			});
-
-
-			galleryItem.parseAllPhotoData(featurePhotoData, true);
-
+			
 		}
 
 		function parseFeatureCircleData(data){
@@ -124,11 +104,44 @@ function Carousel()
 	            	success: function(feedData) { 
 
 						galleryItem.populateCircleContent($(circleDiv), feedData);
+						galleryItem.enableShareButton($(circleDiv));
 
 	             	}
 	      		})
 	      	});
 
+	      	$.feed.featured('bca-photo', handleFeaturePhotoData, 2);
+			
+
+		}
+
+		function handleFeaturePhotoData(data){
+			pushPhotoData(data);
+			$.feed.featured('bca-instagram', handleFeatureInstagramData, 2);
+		}
+
+		function handleFeatureInstagramData(data){
+			pushPhotoData(data);
+			$.feed.featured('bca-twitter', handleFeatureTwitterData, 2);
+		}
+
+		function handleFeatureTwitterData(data){
+			pushPhotoData(data);
+
+			featurePhotoData.sort(function(a, b) {
+			   return (a.data.timestamp > b.data.timestamp) ? 1 : -1;
+			});
+
+
+			galleryItem.parseAllPhotoData(featurePhotoData, true);
+		}
+
+		function pushPhotoData(data){
+			if(data.length > 0){
+				$(data).each(function (i, v){
+					featurePhotoData.push(v);
+				})
+			}
 		}
 
 
@@ -170,16 +183,13 @@ function Carousel()
 				$('.language_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");
 			})	
 
-
-		    $('.featured_dot').unbind('mouseover').mouseover(function(e){$(e.currentTarget).css('cursor','pointer');})
-
 		    $('.featured_dot').click(function(e){
 		    	onDotSelected($(e.currentTarget).index())
 		    });
 
 		    getFeatureData();
 		},
-		
+
 		
 		/**
 		*	@private

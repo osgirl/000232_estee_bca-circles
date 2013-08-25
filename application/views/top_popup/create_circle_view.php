@@ -25,8 +25,8 @@
 		<input id="custom_action" autocomplete="off" type="text" maxlength="80" placeholder="ex: Let's be more active."></input>
 		<table class="btn_control">
 			<tr>
-			    <td class="button_left_wrapper"><div class='pink_btn pull_right cancel_create_circle_btn'>cancel</div></td>
-				<td class="button_right_wrapper"><div id="next_step_btn" class='pink_btn pull-left'>next step</div></td>
+			    <td class="button_left_wrapper"><a class='pink_btn pull_right cancel_create_circle_btn'>cancel</a></td>
+				<td class="button_right_wrapper"><a id="next_step_btn" class='pink_btn pull-left'>next step</a></td>
 			</tr>
 		</table>
 	</div>
@@ -47,7 +47,7 @@
         			</div>
         			<div id="choose_photos_wrapper">
             			<span class="all_cap"><b> or </b></span>
-            			<span id="choose_photos_btn" class="pink_btn all_cap">choose by photo</span>
+            			<a id="choose_photos_btn" class="pink_btn all_cap">choose by photo</a>
         			</div>
     			</div>
     			
@@ -55,16 +55,16 @@
     	</div>
     	<table id="edit_friend_control" style="display:none" class="btn_control">
 			<tr>
-			    <td class="button_left_wrapper"><div class='pink_btn pull_right cancel_edit_friend_btn'>cancel</div></td>
-				<td class="button_right_wrapper"><div id="edit_friend_done_btn" class='pink_btn pull-left'>done</div></td>
+			    <td class="button_left_wrapper"><a class='pink_btn pull_right cancel_edit_friend_btn'>cancel</a></td>
+				<td class="button_right_wrapper"><a id="edit_friend_done_btn" class='pink_btn pull-left'>done</a></td>
 			</tr>
 		</table>
 		
 		<table id="create_circle_control" class="btn_control">
 			<tr>
-			    <td class='tributton_left_wrapper'><div id="back_step_btn" class='pink_btn pull_right'>back</div></td>
-			    <td class="tributton_mid_wrapper"><div class='pink_btn cancel_create_circle_btn'>cancel</div></td>
-				<td class="tributton_right_wrapper"><div id="create_circle_btn" class='pink_btn pull-left'>create your circle</div></td>
+			    <td class='tributton_left_wrapper'><a id="back_step_btn" class='pink_btn pull_right'>back</a></td>
+			    <td class="tributton_mid_wrapper"><a class='pink_btn cancel_create_circle_btn'>cancel</a></td>
+				<td class="tributton_right_wrapper"><a id="create_circle_btn" class='pink_btn pull-left'>create your circle</a></td>
 			</tr>
 		</table>
 		
@@ -72,7 +72,7 @@
 
 	<div id="friend_photos">
 		<div class='h_divider_top'></div>
-		<div id="close_friend_photos_btn"><img src="<?php echo base_url(); ?>img/buttons/delete-name-btn.png"/></div>
+		<a id="close_friend_photos_btn"><img src="<?php echo base_url(); ?>img/buttons/delete-name-btn.png"/></a>
 		<div id="friend_photos_container" class="container scroll-pane"></div>
 	</div>
 

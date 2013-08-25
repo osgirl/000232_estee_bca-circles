@@ -53,7 +53,7 @@ function GalleryItem()
 				$(e.currentTarget).stop(true, true).fadeTo("fast", 1);
 				$($(e.currentTarget).next()).find('.share_text').css('color', "#f38dab");
 
-				$(item.find('.gallery_item_btn')).unbind('click').click(function(e){openPopUp(popupData)})
+			$(item.find('.gallery_item_btn')).unbind('click').click(function(e){openPopUp(popupData)})
 				centerRollOverContent(.55);
 			})
 
@@ -81,47 +81,34 @@ function GalleryItem()
         		$('body').trigger('CREATE_NEW_CIRCLE_BUTTON_CLICKED');
         	})
 
+        	enableShareButton(item);
+        }
+
+        function enableShareButton(item){
+        	var itemType = ($(item).hasClass('circle_container')) ? 'circle' : 'photo';
+
         	$(item.find('.circle_fb_share_btn')).unbind('click').click(function(e){
-				shareFacebook($(item));
+				share($(item), "facebook", itemType);
 			});
 
 			$(item.find('.circle_tw_share_btn')).unbind('click').click(function(e){
-				shareTwitter($(item));
+				share($(item), "twitter", itemType);
 			});
         }
 
-		function shareFacebook(circle){
+		function share(circle, shareType, itemType){
 
 			var circle_goal = $(circle.find(".goal_text")).html();
 			var circle_id = circle.attr('circle_id');
 
-			console.log(circle_goal, circle_id)
-
 			var shareData = {
-				type:'facebook',
+				type:shareType,
 				action: circle_goal,
 				id:circle_id,
-				post_type:'circle'
+				post_type:itemType
 			}
 			$.popup_share(shareData);
 		}
-
-		function shareTwitter(circle){
-
-			var circle_goal = $(circle.find(".goal_text")).html();
-			var circle_id = circle.attr('circle_id');
-
-			console.log(circle_goal, circle_id)
-
-			var shareData = {
-				type:'twitter',
-				action: circle_goal,
-				id:circle_id,
-				post_type:'circle'
-			}
-			$.popup_share(shareData);
-		}
-
 
 		function centerRollOverContent(portion){
 			$('.rollover_content').each(function(i, v){
@@ -360,6 +347,10 @@ function GalleryItem()
 
 		openPopUp: function(popupData){
 			openPopUp(popupData);
+		},
+
+		enableShareButton: function(item){
+			enableShareButton(item);
 		},
 
 		

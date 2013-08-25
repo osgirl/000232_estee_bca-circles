@@ -101,6 +101,7 @@ function Gallery()
 				isMoreFeed = true;
 
 				pageNum++;
+				console.log("PAGE PLUS", pageNum)
 				$('#donate_area').fadeIn();
 	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 				loadLayout();
@@ -161,11 +162,10 @@ function Gallery()
 
 	                		circleFeedDataArray.push(feedData);
 
-		            		circleFeedDataArray.sort(function sortNumber(a, b){
-
-							  var aNum = Number(a.circle_id);
-							  var bNum = Number(b.circle_id); 
-							  return ((aNum > bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+		            		circleFeedDataArray.sort(function(a, b) {
+		            			var aNum = Number(a.circle_id);
+		            			var bNum = Number(b.circle_id);
+							   return (aNum > bNum) ? 1 : -1;
 							});
 
 	                		$.ajax({
@@ -178,7 +178,7 @@ function Gallery()
 				            		var circleDiv = $('<div>');
 				            			circleDiv.append(layoutData)
 				            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
-				            		$('.layout_circle').append(circleDiv);
+				            		$('.page' + pageNum).append(circleDiv);
 				            		$(circleDiv).hide();
 				            		$(circleDiv).fadeIn(200);
 
