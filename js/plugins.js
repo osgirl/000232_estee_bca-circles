@@ -211,7 +211,7 @@ $.extend(
             dl = $.address.path() + v.type + '/' + ((d.source == null) ? '' : d.source + '/') + ((d.id == null) ? '' : d.id + '/')
             $.address.path(dl);
         }
-
+        return false;
     },
     popup_share: function(v)
     {

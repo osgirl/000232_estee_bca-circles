@@ -186,7 +186,7 @@
 				<p>Breast cancer affects 1 in 8 women in their lifetime. A donation of $50 raised by a Circle funds approximately one hour of lifesaving research through The Breast Cancer Research Foundation. Donate now and take us a step closer to eradicating this disease.</p>
 			</div>
 			<div id='watch_video' class="span5">
-				<div><a  href="#video" onclick="$.popup({type:'video'});"><img src="<?= base_url(); ?>img/assets/video-thumb.png"/></a></div>
+				<div><a  href="#video" onclick="return $.popup({type:'video'});"><img src="<?= base_url(); ?>img/assets/video-thumb.png"/></a></div>
 				<div id="watch_video_text" class='pink_text all_cap'>watch the<br/>bca video</div>
 			</div>
 			<div id="footer">
