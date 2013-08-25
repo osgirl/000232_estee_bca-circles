@@ -1422,8 +1422,12 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	margin-top:5px;
 }
 
-#footer a:hover{
-	color:#f38dab;
+#footer .cta {
+	cursor: pointer;
+}
+
+#footer .cta:hover, #footer a:hover{
+	color:#f33c72;
 }
 
 
@@ -1438,8 +1442,6 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 #friendlist{
 	margin-top:40px;
 }
-
-
 
 @font-face {
     font-family: 'nimbussanconregular';

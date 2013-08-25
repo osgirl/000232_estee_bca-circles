@@ -113,6 +113,12 @@ $.extend(
             u = "popup/circle/";
             $isCircle = true;
             break;
+        case 'privacy_policy':
+            u = "popup/privacy_policy/";
+            break;
+        case 'terms_and_conditions':
+            u = "popup/terms_and_conditions/";
+            break;            
         }
         if ($isCircle)
         {
@@ -155,6 +161,12 @@ $.extend(
                 },
                 afterClose: function()
                 {
+
+                    //unbind unnecessary event from window
+                    if($('html').hasClass('_resize_')){
+                        $(window).removeClass('resize').unbind('resize');
+                    }
+
                     //Reset url
                     adr = $.address.value().split('/');
                     if (!$isUpload)
@@ -1056,10 +1068,24 @@ function checkAndLoadExternalUrl()
     {
         switch (adr[1])
         {
+        //General
         case 'video':
             $.popup({type:'video', data:{outlink: true}});
             break;
 
+        case 'about':
+            $.popup({type:'about', data:{outlink: true}});
+            break;
+
+        case 'privacy_policy':
+            $.popup({type:'privacy_policy', data:{outlink: true}});
+            break;
+
+        case 'terms_and_conditions':
+            $.popup({type:'terms_and_conditions', data:{outlink: true}});
+            break;
+
+        //Dynamic
         case 'circle':
             u = baseUrl + indexPage + "circle/fetchCircleData/";
             $data = {
