@@ -527,14 +527,13 @@ function getFriendList(e){
 			    return items.sort();
 			},
 			updater: function (item) {
-				console.log("item", item)
+
 				curSelectedFriendID = nameObj[item].id;
-				
+				curSelectedFriendPic = nameObj[item].pic;
+
 				FB.api('/'+curSelectedFriendID, function(response){
 			      if (response){
-			        console.log("am i here", response);
 			        curFriendSelectedName = response.first_name + " " + response.last_name.substr(0,1) + ".";
-			        //curSelectedFriendPic = response.
 			        
 			        //resize the field
 			        $("#temp_name_enter_container").html(response.name);
@@ -575,10 +574,10 @@ function addFriend(){
 		var friendObj = new Object();
 		friendObj.id = curSelectedFriendID;
 		friendObj.name = curFriendSelectedName;
+		friendObj.url = curSelectedFriendPic;
 		friendSelectedArray.push(friendObj);
 		friendTagIDs.push(curSelectedFriendID);
-		
-		
+
 		var tempFriendList = $('<span>');
 		tempFriendList.html(curFriendSelectedName)
 					  .addClass('temp_name_input_container');
@@ -936,7 +935,7 @@ function createCircle(){
 	});
 
 	openLoadingScreen();
-	facebook.createCircle(friendSelectedArray);
+	//facebook.createCircle(friendSelectedArray);
 }
 
 function saveCircleToCookie($data){
