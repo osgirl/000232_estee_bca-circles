@@ -84,11 +84,11 @@ function Gallery()
 
 		function lazyloader(){
 
-			if(currentFilterType == "circle" || currentFilterType == "friend"){
-				SCROLL_TO_SHOW_FOOTER = 2400
-			}else{
-				SCROLL_TO_SHOW_FOOTER = 2000
-			}
+			// if(currentFilterType == "circle" || currentFilterType == "friend"){
+			// 	SCROLL_TO_SHOW_FOOTER = 2400
+			// }else{
+				SCROLL_TO_SHOW_FOOTER = 1900
+			//}
 
 			if($(window).scrollTop() + $(window).height() == getDocHeight() ) {
 
@@ -600,7 +600,7 @@ function Gallery()
 			//var rowNum = Math.ceil(contentData.totalNum/contentData.colNum);
 			//var getHeight = ($(contentData.item).height() + 130)*rowNum;
 
-			var baseHeight = (contentData.type == "circle") ? 1150 : 950;
+			var baseHeight = (contentData.type == "circle") ? 1300 : 1000;
 			var getHeight = baseHeight*pageNum;
 
 			if(getHeight > baseHeight) {

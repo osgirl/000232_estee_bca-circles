@@ -725,9 +725,12 @@ h2{
 	width:100%;
 }
 
-
 .gallery_layout:last-child{
 	margin-bottom:22px;
+}
+
+.layout_circle{
+	margin-bottom:0;
 }
 
 .photo_icon{
