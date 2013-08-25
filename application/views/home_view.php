@@ -190,8 +190,12 @@
 				<div id="watch_video_text" class='pink_text all_cap'>watch the<br/>bca video</div>
 			</div>
 			<div id="footer">
-                <div style='width:48%; float:left; border-right:#f38dab 1px solid; padding-right:1.5%'><a class='pink_text' href='#' target='blank'><div id='privacy_policy_btn'>Privacy Policy</div></a></div>
-				<div style='width:49%; float:right; padding-left:1%'><a class='pink_text' href='#' target='blank'><div id='term_and_cons_btn'>Terms & Conditions</div></a></div>
+                <div style='width:48%; float:left; border-right:#f38dab 1px solid; padding-right:1.5%'> 
+                	<div class='pink_text cta' id='privacy_policy_btn' onclick="$.popup({type:'privacy_policy'});">Privacy Policy</div> 
+                </div>
+				<div style='width:49%; float:right; padding-left:1%'>
+					<div class='pink_text cta' id='term_and_cons_btn' onclick="$.popup({type:'terms_and_conditions'});">Terms & Conditions</div>
+				</div>
             </div>
 		</div>	
 
@@ -208,6 +212,7 @@
 		<script src="<?= base_url(); ?>js/vendor/fancybox2/jquery.fancybox.pack.js?cachebuster=<?= $cacheBuster; ?>&v=2.1.5"></script>
         <script src="<?= base_url(); ?>js/vendor/bootstrap.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/vendor/jquery.jscrollpane.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?= base_url(); ?>js/vendor/jquery.mousewheel.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/vendor/masonry.pkgd.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/vendor/jquery.cookie.js"></script>
         <script src="<?= base_url(); ?>js/plugins.js?cachebuster=<?= $cacheBuster; ?>"></script>
