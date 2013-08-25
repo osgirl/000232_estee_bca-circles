@@ -87,7 +87,7 @@ function Gallery()
 			// if(currentFilterType == "circle" || currentFilterType == "friend"){
 			// 	SCROLL_TO_SHOW_FOOTER = 2400
 			// }else{
-				SCROLL_TO_SHOW_FOOTER = 1900
+				SCROLL_TO_SHOW_FOOTER = 1800
 			//}
 
 			if($(window).scrollTop() + $(window).height() == getDocHeight() ) {
