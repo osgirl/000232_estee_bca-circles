@@ -350,6 +350,7 @@ function Gallery()
 		function parsePhotoData(data){
 
 			photoFeed = data;
+			uploadedPhotoCount = 0;
 
 			if(data.length == 0) return;
 
@@ -357,19 +358,15 @@ function Gallery()
 
 			var feed;
 
-			uploadedPhotoCount = 0;
-
 			$(data).each(function(i){
 				feed = data[i].data;
-
-				getPhotoData(i, data, feed);
+				getPhotoData(data, feed);
 
 			});
 		}
 
-		function getPhotoData(i, data, feed){
+		function getPhotoData(data, feed){
 
-			uploadedPhotoCount++;
 			$.ajax({
 	        		type: 'post',
 	            	url: baseUrl + indexPage + 'photo/fetchUploadedPhotoData',
@@ -391,9 +388,11 @@ function Gallery()
 								}}
 	                	var html = "<img class='full_photo' src='" + baseUrl + "uploads/" + dbData.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 
+						uploadedPhotoCount++;
+
 						var contentData = {
-							index:i,
-							item:photoDiv(i),
+							index:uploadedPhotoCount,
+							item:photoDiv(uploadedPhotoCount),
 							totalNum:data.length*pageNum,
 							type:'photo',
 							content:html,
@@ -405,6 +404,7 @@ function Gallery()
 
 						if(uploadedPhotoCount == data.length)$('body').trigger("ALL_LAYOUT_CREATED");
 
+
 						$(window).unbind('scroll').bind('scroll', lazyloader);
 
 	             	}
@@ -414,6 +414,7 @@ function Gallery()
 		function parseInstagramData(data){
 
 			instagramFeed = data;
+			uploadedPhotoCount = 0;
 
 			if(data.length == 0) return;
 
@@ -423,13 +424,12 @@ function Gallery()
 
 			$(data).each(function(i){
 				feed = data[i].data;
-
-				getInstagramData(i, data, feed);
+				getInstagramData(data, feed);
 
 			})
 		}
 
-		function getInstagramData(i, data, feed){
+		function getInstagramData(data, feed){
 
 			var popupData = {
 						type:'photo', 
@@ -445,9 +445,10 @@ function Gallery()
 
 				var html = "<img class='full_photo' src='" + feed.photos[0].url + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 
+				uploadedPhotoCount++;
 				var contentData = {
-					index:i,
-					item:photoDiv(i),
+					index:uploadedPhotoCount,
+					item:photoDiv(uploadedPhotoCount),
 					totalNum:data.length*pageNum,
 					type:'instagram',
 					content:html,
@@ -463,6 +464,7 @@ function Gallery()
 		function parseTwitterData(data){
 
 			twitterFeed = data;
+			uploadedPhotoCount = 0;
 
 			if(data.length == 0) return;
 
@@ -472,14 +474,15 @@ function Gallery()
 
 			$(data).each(function(i){
 				feed = data[i].data;
-
-				getTwitterData(i, data, feed);
+				
+				getTwitterData(data, feed);
 
 			})
 
 		}
 
-		function getTwitterData(i, data, feed){
+		function getTwitterData(data, feed){
+
 			var popupData = {
 							type:'twitter', 
 							data:{
@@ -496,10 +499,10 @@ function Gallery()
 					html	+= "<div class='twitter_time'>"+ tsToDate(feed.timestamp) + "</div></div>"
 					html	+= "<div class='twitter_text'>"+ feed.text + "</div>"
 					html 	+= "<img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
-
+				uploadedPhotoCount++;
 				var contentData = {
-					index:i,
-					item:photoDiv(i),
+					index:uploadedPhotoCount,
+					item:photoDiv(uploadedPhotoCount),
 					totalNum:data.length*pageNum,
 					type:'twitter',
 					content:html,
@@ -519,8 +522,6 @@ function Gallery()
 			var feed;
 
 			createPhotoLayout();
-
-			console.log(data.length)
 
 			$(data).each(function(i){
 				feed = data[i].data;
@@ -567,8 +568,9 @@ function Gallery()
 		}
 
 		function updateGalleryLayout(contentData){
+			console.log(contentData.index, contentData.colNum)
 
-			if(contentData.index%contentData.colNum == contentData.colNum-1) 
+			if((contentData.index-1)%contentData.colNum == contentData.colNum-1) 
 				$(contentData.item).css('margin-right', '0');
 										
 			//var rowNum = Math.ceil(contentData.totalNum/contentData.colNum);
