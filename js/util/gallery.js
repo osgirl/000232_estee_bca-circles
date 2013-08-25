@@ -175,29 +175,36 @@ function Gallery()
 				            	
 				            	success: function(layoutData) {  
 
+				            		
+
 				            		var circleDiv = $('<div>');
 				            			circleDiv.append(layoutData)
 				            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
-				            		$('.page' + pageNum).append(circleDiv);
+
+				            		var rowTarget = (containerCount<2) ? 0 : 1;
+				            		$($($('.page' + pageNum).find('.row')).get(rowTarget)).append(circleDiv);
+
 				            		$(circleDiv).hide();
 				            		$(circleDiv).fadeIn(200);
 
+				            		containerCount++;
+
 				            		var contentData = {
-										index:i,
+										index:containerCount,
 										item:$(circleDiv),
 										totalNum:data.length*pageNum,
-										colNum:CIRCLE_LAYOUT_COLUMN_NUM
+										colNum:CIRCLE_LAYOUT_COLUMN_NUM,
+										type:'circle'
 									}
 
-									galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount]);
+									galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount-1]);
 
-									if(containerCount == data.length-1) {
-
-										updateGalleryLayout(contentData);
+									updateGalleryLayout(contentData);
+									if(containerCount == data.length) {
 										$('body').trigger('ALL_LAYOUT_CREATED');
 									}
 
-									containerCount++;
+									
 
 									$(window).unbind('scroll').bind('scroll', lazyloader);
 
@@ -585,19 +592,21 @@ function Gallery()
 		}
 
 		function updateGalleryLayout(contentData){
-			console.log(contentData.index, contentData.colNum)
 
 			if((contentData.index-1)%contentData.colNum == contentData.colNum-1) 
 				$(contentData.item).css('margin-right', '0');
+
 										
 			//var rowNum = Math.ceil(contentData.totalNum/contentData.colNum);
 			//var getHeight = ($(contentData.item).height() + 130)*rowNum;
-			var getHeight = 900*pageNum;
 
-			if(getHeight > 900) {
+			var baseHeight = (contentData.type == "circle") ? 1200 : 900;
+			var getHeight = baseHeight*pageNum;
+
+			if(getHeight > baseHeight) {
 				$('#gallery').height(getHeight);
 			}else{
-				$('#gallery').height(800);
+				$('#gallery').height(baseHeight);
 			}
 
 		}
@@ -633,10 +642,11 @@ function onFetchFriendCircleData($data){
 			createCircleLayout();
 			circleFriendFeed 		= $data;
 
-		 	$($data).each(function(i){
+			var containerCount 		= 0;
+			var circleFeedDataArray = new Array();
 
-			 	var containerCount 		= 0;
-			 	var circleFeedDataArray = new Array();
+		 	$($data).each(function(i){	
+			 	
 		  	 	var feed 				= $data[i];
          		circleFeedDataArray.push(feed);
 
@@ -649,24 +659,29 @@ function onFetchFriendCircleData($data){
 	            		console.log("layout success");
 	            		var circleDiv = $('<div>');
 	            			circleDiv.append(layoutData)
-	            			         .addClass('span6 circle_container gallery_item flex_margin_bottom');
-	            		$('.page'+pageNum).append(circleDiv);
+	            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
+	            		var rowTarget = (containerCount<2) ? 0 : 1;
+				            		$($($('.page' + pageNum).find('.row')).get(rowTarget)).append(circleDiv);
 	            		$(circleDiv).hide();
 	            		$(circleDiv).fadeIn(200);
 
+	            		containerCount++;
+
+	            		console.log('huh', containerCount)
+
 	            		var contentData = {
-							index:i,
+							index:containerCount,
 							item:$(circleDiv),
 							totalNum: $data.length*pageNum,
-							colNum:CIRCLE_LAYOUT_COLUMN_NUM
+							colNum:CIRCLE_LAYOUT_COLUMN_NUM,
+							type:'circle'
 						}
 
-						galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount]);
+						galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount-1]);
 
-						if(containerCount == $data.length-1) 
-							updateGalleryLayout(contentData);
+						updateGalleryLayout(contentData);
 
-						containerCount++;
+						
 
 						$(window).unbind('scroll').bind('scroll', lazyloader);
 
@@ -864,6 +879,13 @@ function onFetchFriendCircleData($data){
 			var circleLayout = $('<div>');
 			circleLayout.addClass('layout_circle gallery_layout page' + pageNum)
 						.appendTo(gallery_container);
+
+			for(var i=0; i<2; i++){
+				var row = $('<div>');
+				row.addClass('row')
+					.appendTo(circleLayout);
+
+			}
 
 
 		}

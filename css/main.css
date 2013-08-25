@@ -582,6 +582,7 @@ h2{
 /*GALLERY*/
 
 #filter_nav{
+	margin-top:20px;
 	margin-bottom:15px;
 }
 
@@ -700,9 +701,14 @@ h2{
 /*LAYOUT PHOTO*/
 
 .layout_photo{
-	width:98%;
+	width:100%;
 	margin-bottom:22px;
 }
+
+.layout_photo .photo_container{
+		width:100%;
+		margin-right:2%;
+	}
 
 /*GALLERY ASSETS*/
 
@@ -710,6 +716,14 @@ h2{
 	margin-bottom:0px;
 }
 
+.layout_circle {
+	width:100%;
+}
+
+.layout_circle .gallery_circle{
+	margin-right:0;
+	width:100%;
+}
 
 
 .gallery_layout:last-child{
