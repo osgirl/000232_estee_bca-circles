@@ -710,6 +710,7 @@ function onFetchFriendCircleData($data){
 				});
 		 	}else{
 		 		console.log("no more in feed")
+		 		$(window).unbind('scroll').bind('scroll', lazyloader);
 		 	}
 
 		};//end getFriendCircleData
