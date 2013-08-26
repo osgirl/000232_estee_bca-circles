@@ -28,6 +28,8 @@ body {
 	font-family: 'Helvetica', Arial, Verdana;
 	padding: 0;
 	color:#333;
+	width:88%;
+	margin-left:5.5%;
 }
 
 /*
@@ -979,7 +981,7 @@ h2{
 	letter-spacing:1px;
 	line-height:1.5em;
 	text-align:center;
-	padding:0 4% 0 4%;
+	/*padding:0 4% 0 4%;*/
 	display:none;
 }
 
@@ -1040,7 +1042,7 @@ h2{
 	color:white;
 	background-color:#10dcd6;
 	font-size:1.6em;
-	padding:20px 2% 16px 4%;
+	/*padding:20px 2% 16px 4%;*/
 	font-weight:lighter;
 	margin-top:0;
 	text-align:center;
