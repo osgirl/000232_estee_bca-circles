@@ -14,6 +14,7 @@ ored.count 			= 128;//oc: how many do we from feedmagnet at a time to see if our
 var LOGIN_SUCCESS			= "LOGIN_SUCCESS";
 var NOT_LOGIN 				= "NOT_LOGIN"
 var LOGOUT_SUCCESS 			= "LOGOUT_SUCCESS";
+var LOGIN_CANCEL			= "LOGIN_CANCEL";
 var GOT_USER_INFO 			= "GOT_USER_INFO";
 var GOT_USER_PROFILE_PIC 	= "GOT_USER_PROFILE_PIC";
 var GOT_FRIEND_LIST 		= "GOT_FRIEND_LIST";
@@ -133,6 +134,7 @@ function translatePage(){
 function enableEventBinds(){
 	$('body').bind(LOGIN_SUCCESS, getLoginStatus);
 	$('body').bind(NOT_LOGIN, getLogoutStatus);
+	$('body').bind(LOGIN_CANCEL, getLoginCancelStatus);
 	$('body').bind(LOGOUT_SUCCESS, getLogoutStatus);
 	$('body').bind(GOT_USER_INFO, displayUserInfo);
 	$('body').bind(GOT_USER_PROFILE_PIC, displayUserProfilePic);
@@ -168,6 +170,8 @@ function getLoginStatus(e){
 	$('.log_in_status').show();
 	
 	if(createCircleClicked) openCreateCircleScreen(false);
+
+	gallery.showFriendCircles();
 }
 
 function getLogoutStatus(e){
@@ -188,7 +192,13 @@ function getLogoutStatus(e){
 	
 	$('.log_out_status').show();
 	$('.log_in_status').hide();
+
 	
+	
+}
+
+function getLoginCancelStatus(){
+	gallery.showAllCircles();
 }
 
 function displayUserInfo(e){
@@ -862,7 +872,7 @@ function getUserCircleData(){
         		var line1 = '<a class="circle_view_link">' + v.goal + '</a>';
         		var line2 = v.friends_data.length + " Friends Taking Action";
 
-        		createStatItem(v, $('#my_circles'), line1, line2, v, true);
+        		createStatItem(v, $('#my_circle_scroll'), line1, line2, v, true);
 
         		
         	})
@@ -1159,6 +1169,7 @@ function updateFriends(){
 					})
 
 					getUserCircleData(); 
+					getTrendingAction();
 
          	}
   		});

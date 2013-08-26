@@ -108,6 +108,7 @@ facebook.login = function( _callback ){
 			});
 		} else {
 			console.log('-- user cancelled login or did not fully authorize. --');
+			$('body').trigger('LOGIN_CANCEL');
 		}
 	}, {scope:facebook.scope} );
 }

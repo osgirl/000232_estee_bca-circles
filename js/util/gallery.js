@@ -613,19 +613,7 @@ function Gallery()
 			$(".pink_filter_btn").each(function(index, value){
 		
 				$(value).unbind("click").click(function(e){
-					isMoreFeed = false;
-					pageNum = 1;
-					$.feed.reset();
-					currentFilterType = $(value).attr('type');
-					if(currentFilterType == "all") {
-						pageNum = 2;
-						$('#gallery').height(DEFAULT_GALLERY_HEIGHT);
-					}
-					$(window).unbind('scroll').bind('scroll', lazyloader);
-					$('#donate_area').show();
-					$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
-					
-					loadLayout();
+					filterButtonSelected($(value));
 				});
 			})
 		};
@@ -633,6 +621,22 @@ function Gallery()
 			$data = ored.friendsCircles;
 			
 };
+
+function filterButtonSelected(btn){
+	isMoreFeed = false;
+	pageNum = 1;
+	$.feed.reset();
+	currentFilterType = btn.attr('type');
+	if(currentFilterType == "all") {
+		pageNum = 2;
+		$('#gallery').height(DEFAULT_GALLERY_HEIGHT);
+	}
+	$(window).unbind('scroll').bind('scroll', lazyloader);
+	$('#donate_area').show();
+	$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+	
+	loadLayout();
+}
 
 function onFetchFriendCircleData($data){
 	console.log("onFetchFriendCircleData");
@@ -1028,6 +1032,17 @@ function onFetchFriendCircleData($data){
 		disableLazyloader: function(){
 			$(window).unbind('scroll');
 		},		
+
+		showFriendCircles: function(){
+			if(currentFilterType == "friend"){
+				filterButtonSelected($('#filter_friends_btn'));
+			}
+		},
+
+		showAllCircles: function(){
+			filterButtonSelected($('#filter_all_btn'));
+			
+		},
 
 
 		/**
