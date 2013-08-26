@@ -43,11 +43,6 @@
 	    height: 1100px;
 	}
 
-	#around_the_world{
-		font-size:1em;
-		margin: 6px 5px 0 10px;
-	}
-
 	#custom_action{
 		min-width: 380px;
 	}
@@ -257,6 +252,11 @@
 
 	#carousel {
 	    height: 1200px;
+	}
+
+	#around_the_world{
+		font-size:1em;
+		margin: 6px 5px 0 10px;
 	}
 
 
