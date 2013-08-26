@@ -56,9 +56,7 @@
 							</span>
                         </div>
                         
-                    </div><!--/.nav-collapse -->
-
-                    <div class="overlay"></div>
+                    </div><!--/.nav-collapse --> 
 
                     <?php include('top_popup/create_circle_view.php');?>
 

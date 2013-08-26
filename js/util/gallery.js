@@ -1033,9 +1033,6 @@ function onFetchFriendCircleData($data){
 			$(window).unbind('scroll');
 		},		
 
-		openPopUp:function(data){
-			galleryItem.openPopUp(data);
-		},
 
 		/**
 		*	@private

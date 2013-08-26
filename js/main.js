@@ -328,6 +328,8 @@ function getTrendingAction(){
 
 function openCreateCircleScreen(hasGoal){
 	$(".overlay").fadeIn(100);
+	$('#content_wrap').css('z-index', '-9999');
+	$('.overlay').css('z-index', '9999');
 	$("#create_circle_screen").fadeIn(200);
 	$("html, body").animate({ scrollTop: 0 }, "slow");
 	createCircleWindowOpen = true;
@@ -892,7 +894,7 @@ function createStatItem(item, parent, line1, line2, data, isCircle){
 							is_user:true
 				}
 			}
-			gallery.openPopUp(popupData);
+			galleryItem.openPopUp(popupData);
 		})
 	}
 }
@@ -1075,10 +1077,8 @@ function postCircleData(goal_id){
 								}
 							}
 
-							console.log("pop up data", popupData)
-
 							$($('#close_create_circle_btn').parent()).click(function(e){
-								gallery.openPopUp(popupData);
+								galleryItem.openPopUp(popupData);
 							})
 
 	            			 
@@ -1140,7 +1140,7 @@ function updateFriends(){
 						}
 					}
 
-					gallery.openPopUp(popupData);
+					galleryItem.openPopUp(popupData);
 					closeEditFriend();
 
 					var updatedCircle;

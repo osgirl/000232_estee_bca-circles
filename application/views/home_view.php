@@ -51,10 +51,11 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        <?php include('top_navigation_view.php');?>
+        <?php $this->load->view('top_navigation_view');?>
 
 
         <div id="content_wrap" class="container">
+        <div class="overlay"></div>
                 <div id='top_content'>
 	             	<div class="row">
 		                <div class="top_content_span span6">
@@ -81,7 +82,7 @@
 			                    	<div class="carousel_item">
 				                		<div class="top_content_sub_span4">
 				                			<div class="feature_circle circle_container">
-												<?php include('layout/layout_circle.php');?>
+												<?php $this->load->view('layout/layout_circle.php');?>
 											</div>
 				                		</div>
 				                		<div class="top_content_sub_span2">
@@ -92,7 +93,7 @@
 				                	<div class="carousel_item">
 				                		<div class="top_content_sub_span4 ">
 				                			<div class="feature_circle circle_container">
-												<?php include('layout/layout_circle.php');?>
+												<?php $this->load->view('layout/layout_circle.php');?>
 											</div>
 				                		</div>
 				                		<div class="top_content_sub_span2">
@@ -103,7 +104,7 @@
 				                	<div class="carousel_item">
 				                		<div class="top_content_sub_span4">
 				                			<div class="feature_circle circle_container">
-												<?php include('layout/layout_circle.php');?>
+												<?php $this->load->view('layout/layout_circle.php');?>
 											</div>
 				                		</div>
 				                		<div class="top_content_sub_span2">
@@ -199,6 +200,8 @@
             </div>
 		</div>	
 
+
+
 		<!-- Facebook --> 
         <script src='http://connect.facebook.net/en_US/all.js'></script>
 
@@ -230,4 +233,5 @@
         </script>
 
     </body>
+
 </html>

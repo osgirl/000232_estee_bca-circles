@@ -47,6 +47,10 @@
 		font-size:1em;
 		margin: 6px 5px 0 10px;
 	}
+
+	#custom_action{
+		min-width: 380px;
+	}
 	
 }
 
@@ -117,7 +121,7 @@
 
    #custom_action{
 	    font-size:1.7em;	
-        min-width: 426px;
+        
     }
     
     .select_dropdown{
@@ -372,10 +376,6 @@
 	    font-size:36px;
     }
 
-   #custom_action{	
-        min-width: 650px;
-    }
-
     .friend_content{
 		margin-left:0px;
 	}
@@ -486,6 +486,10 @@
 	.copy_text{
 		font-size:.8em;
 		max-width:420px;
+	}
+
+	#custom_action{
+		min-width: 510px;
 	}
 	  
 }

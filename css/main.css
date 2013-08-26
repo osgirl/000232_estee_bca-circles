@@ -1506,7 +1506,7 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	top:0;
 	left:0;
 	background: url('../img/assets/black-opacity-70.png');
-	z-index: -99999;
+	z-index: 9999;
 	width:100%;
 	height:100%;
 	display:none;
