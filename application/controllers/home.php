@@ -24,8 +24,11 @@ class Home extends CI_Controller {
 
 	public function twitter_share($category = "", $id = "", $goal = "")
 	{
-		$long_url 	= "https://staging.click3x.com/estee_lauder/bca/#".$category."/".$id;
+		$long_url 	= base_url() + index_page() + "#".$category."/".$id;
+
 		$short_url 	= file_get_contents( "https://api-ssl.bitly.com/v3/shorten?access_token=".BITLY_ACCESS_TOKEN."&longUrl=".urlencode($long_url)  );
+		$short_url 	= json_decode($short_url);
+		$short_url 	= $short_url->data->url;
 
 		$title 	 	= SHARE_TITLE." ".SHARE_CAPTION;
 		$title 		= str_replace("[GOAL]", $goal, $title )." ".$short_url;
