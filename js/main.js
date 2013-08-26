@@ -366,6 +366,8 @@ function openCreateCircleScreen(hasGoal){
 
 function openEditFriend(){
 	resetCircle();
+	$('#content_wrap').css('z-index', '-9999');
+	$('.overlay').css('z-index', '9999');
 	$('.popup#popup_circle .btn_close').trigger('click');
 	$(".overlay").fadeIn(100);
 	$("#create_circle_screen").fadeIn(200);
@@ -385,9 +387,6 @@ function openEditFriend(){
 	curSelectedFriendPic = null;
 
 
-
-	console.log("checking from outside", currentCircleViewData);
-
 	$(currentCircleViewData.friends_data).each(function(i, v){
 		console.log("checking from inside", v);
 		curFriendSelectedName = v.name;
@@ -403,6 +402,8 @@ function openEditFriend(){
 function closeEditFriend(){
 	$(".overlay").fadeOut(100);
 	$("#create_circle_screen").fadeOut(200);
+	$('#content_wrap').css('z-index', '0');
+	$('.overlay').css('z-index', '-9999');
 	createCircleWindowOpen = false;
 	stepID = 1;
 	goNextCreateCircleScreen(null);
