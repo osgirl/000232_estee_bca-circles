@@ -952,8 +952,8 @@ $.extend(
 
     function editFriends(v)
     {
-        console.log('edit friend open', v)
-        currentCircleViewData = v.friends_data;
+        currentCircleViewData = v;
+
        $('body').trigger('EDIT_FRIEND');
     }
 

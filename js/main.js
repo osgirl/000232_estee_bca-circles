@@ -30,6 +30,7 @@ var userProfilePhoto;
 
 var carousel 	= new Carousel();
 var gallery 	= new Gallery();
+var galleryItem = new GalleryItem;
 
 var friendProfileList = new Array();
 var curSelectedFriendID;
@@ -234,6 +235,8 @@ function enableButtons(){
 
 	$('.popup_checkbox').click(toggleCheckbox);
 
+	$('#edit_friend_done_btn').click(updateFriends);
+
 
 	//$('#show_friendlist_btn').unbind("click").click(facebook.showFriendlist);
 }
@@ -360,6 +363,8 @@ function openCreateCircleScreen(hasGoal){
 }
 
 function openEditFriend(){
+	resetCircle();
+	$('.popup#popup_circle .btn_close').trigger('click');
 	$(".overlay").fadeIn(100);
 	$("#create_circle_screen").fadeIn(200);
 	$("html, body").animate({ scrollTop: 0 }, "slow");
@@ -373,13 +378,36 @@ function openEditFriend(){
 	$(".steps").hide();
 
 	friendSelectedArray = new Array();
+	curFriendSelectedName = null;
+	curSelectedFriendID = null;
+	curSelectedFriendPic = null;
 
-	$(currentCircleViewData).each(function(i, v){
+
+
+	console.log("checking from outside", currentCircleViewData);
+
+	$(currentCircleViewData.friends_data).each(function(i, v){
+		console.log("checking from inside", v);
 		curFriendSelectedName = v.name;
-		curSelectedFriendID = v.id;
+		curSelectedFriendID = v.fb_id;
+		curSelectedFriendPic = v.url;
+
+		console.log(curFriendSelectedName, curSelectedFriendID)
 		addFriend();
 	})
 	
+}
+
+function closeEditFriend(){
+	$(".overlay").fadeOut(100);
+	$("#create_circle_screen").fadeOut(200);
+	createCircleWindowOpen = false;
+	stepID = 1;
+	goNextCreateCircleScreen(null);
+
+	$("#edit_friend_control").hide();
+	$("#create_circle_control").show();
+	$(".steps").show();
 }
 
 function backToCreateCircleScreen(){
@@ -436,13 +464,15 @@ function resetCircle(){
 	curSelectedGoal = goal;
 	$("#select_action_field").html(goal);
 	$("#custom_action").val("");
+	curSelectedFriendID = null;
+	curSelectedFriendName = null;
+	curSelectedFriendPic = null;
 	friendSelectedArray=[];
     friendTagIDs=[];
     $(".friend_btn").remove();
     $(".temp_name_input_container").remove();
     $(".comma").remove();
     resetNameTextfield();
-
     
     $('.popup_checkbox').css('background-position', ((agree) ? $('.popup_checkbox').width() * -1 : 0), 0);
 
@@ -823,7 +853,7 @@ function getUserCircleData(){
 
         	$(data).each(function(i,v){
 
-        		console.log(v)
+        		//console.log(v)
         		var line1 = '<a class="circle_view_link">' + v.goal + '</a>';
         		var line2 = v.friends_data.length + " Friends Taking Action";
 
@@ -878,8 +908,6 @@ function createCircle(){
 
 	isCustomizeGoal = ($("#custom_action").val() == "") ? false : true;
 
-	var goalExist = false;
-
 	var goalCount = 0;
 
 	$.ajax({
@@ -890,7 +918,6 @@ function createCircle(){
 			goalData = data;
 			 
 	    	$(goalData).each(function(i, v){
-				console.log(v.goal, goal)
 
 				if(goal == String(v.goal)) {
 					isCustomizeGoal = false;
@@ -902,8 +929,6 @@ function createCircle(){
 				if(goalCount == goalData.length) {
 
 						if(isCustomizeGoal){
-
-							console.log("this is customize", goal)
 							$.ajax({
 				        		type: 'post',
 				            	url: baseUrl + indexPage + 'goal/create',
@@ -940,8 +965,8 @@ function createCircle(){
 
 function saveCircleToCookie($data){
 	//oc: save cookie.
-	console.log("save cookie");
-	console.log($data);
+	//console.log("save cookie");
+	//console.log($data);
 	var circle = JSON.stringify($data);
 
 	//oc: set cookie valid for 7 days, across whole site
@@ -952,8 +977,8 @@ function saveCircleToCookie($data){
 
 function savePhotoToCookie($data){
 	//oc: save cookie.
-	console.log("save cookie");
-	console.log($data);
+	//console.log("save cookie");
+	//console.log($data);
 	var photo = JSON.stringify($data);
 
 	//oc: set cookie valid for 7 days, across whole site
@@ -963,14 +988,14 @@ function savePhotoToCookie($data){
 function getCircleCookie(c_name){
 
 	var c_value = $.cookie("circle");
-	console.log(c_value);
+	//console.log(c_value);
 	return JSON.parse(c_value);
 };
 
 function getPhotoCookie(c_name){
 
 	var p_value = $.cookie("photo");
-	console.log(p_value);
+	//console.log(p_value);
 	return JSON.parse(p_value);
 };
 
@@ -1008,70 +1033,112 @@ function postCircleData(goal_id){
     	dataType: 'json',
     	data: value,
     	success: function(data) {   
-
-	        var friendCount = 0;
-
-
-	        var friendNum = friendSelectedArray.length;
-
-	        console.log("circle created:", data.id)
-
-			var popupData = {
-				type:'circle',
-				data:{
-					id:data.id,
-					content:goal,
-					avatar:userProfilePhoto,
-					num_friends:friendNum,
-					is_user:true
-				}
-			}
-
-			$($('#close_create_circle_btn').parent()).click(function(e){
-				gallery.openPopUp(popupData);
-			})
-
-        	$.each(friendSelectedArray, function(i,v){
-        		//console.log(data.id, v.id, v.name);
-        		$.ajax({
+    		$.ajax({
 	        		type: 'post',
 	            	url: baseUrl + indexPage + 'friend/create',
 	            	dataType: 'json',
 	            	data: {
 	            		ref_circle_id: data.id,
-	            		friends_fb_id: v.id,
-	            		friends_name:v.name
+	            		friends_data:friendSelectedArray
 	            	},
-	            	success: function(friendData) {  
-	            		friendCount++;
+	            	success: function(friendsData) {  
 
-	            		if(friendCount == friendSelectedArray.length){
+	            		    console.log("friends data", friendsData);
 
-	            			 var cookieData 					= {};
+	            			var cookieData 					= {};
 							cookieData.circle_id 			= data.id;
 							cookieData.user_id				= userID;
 							cookieData.user_name			= userName;
-							cookieData.goal 				= goal;
+							cookieData.goal 				= data.goal;
 							cookieData.goal_type 			= currentSameGoalType;
-							cookieData.country				= country;
-							cookieData.goal_id  			= goalID;
-							cookieData.language 			= language;
+							cookieData.country				= data.country;
+							cookieData.goal_id  			= data.goal_id;
+							cookieData.language 			= data.language;
 							cookieData.user_photo_url		= userProfilePhoto;
-							cookieData.friends_data			= friendSelectedArray;
+							cookieData.friends_data			= friendsData;
 
 							saveCircleToCookie(cookieData);
 
 							gallery.refreshAsFakeCircleData(cookieData); 
+
+							resetCircle();
+
+							var popupData = {
+								type:'circle',
+								data:{
+									id:data.id,
+									content:goal,
+									avatar:userProfilePhoto,
+									friends_data:friendsData,
+									num_friends:friendsData.length,
+									is_user:true
+								}
+							}
+
+							console.log("pop up data", popupData)
+
+							$($('#close_create_circle_btn').parent()).click(function(e){
+								gallery.openPopUp(popupData);
+							})
+
+	            			 
 	            			openThankYouScreen();
-					        resetCircle();
+					        
 					        getUserCircleData(); 
 
-					       
-	            		}
 	             	}
 	      		});
-        	});
-     	}
-	});
+			}
+     	 })
+}
+
+function updateFriends(){
+	$.ajax({
+    		type: 'post',
+        	url: baseUrl + indexPage + 'friend/create',
+        	dataType: 'json',
+        	data: {
+        		ref_circle_id: currentCircleViewData.id,
+        		friends_data:friendSelectedArray
+        	},
+        	success: function(friendsData) {  
+
+        		    console.log("friends data", friendsData);
+
+        		    var circle_id = currentCircleViewData.id;
+        		    var circle_content = currentCircleViewData.content;
+        		    var circle_photo = currentCircleViewData.avatar;
+
+					var popupData = {
+						type:'circle',
+						data:{
+							id:circle_id,
+							circle_id:circle_id,
+							content:circle_content,
+							avatar:circle_photo,
+							users_fb_id:userID,
+							friends_data:friendsData,
+							num_friends:friendsData.length,
+							is_user:true
+						}
+					}
+
+					gallery.openPopUp(popupData);
+					closeEditFriend();
+
+					var updatedCircle;
+
+					$('.circle_container').each(function(i,v){
+						if($(v).attr('circle_id') == currentCircleViewData.id){
+							updatedCircle = $(v);
+							galleryItem.updateUserCirclePopupContent(updatedCircle, circle_id, circle_content, circle_photo, userID, friendsData, true);
+
+						}
+					})
+
+					getUserCircleData(); 
+
+         	}
+  		});
 }
 

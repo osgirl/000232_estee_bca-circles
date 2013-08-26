@@ -473,9 +473,16 @@ h2{
 	padding:2% 0 3% 6%;
 }
 
-/*.circle_view_link{
+.circle_view_link{
+	color:#f38dab;
+	cursor:pointer;
+	text-decoration: none;
+}
+
+.circle_view_link:hover{
 	color:#f33c72;
-}*/
+	text-decoration: none;
+}
 
 
 #user_profile_pic{
@@ -541,11 +548,6 @@ h2{
 
 .action_item{
 	margin-bottom:5px;
-}
-
-.action_item a, .action_item a:hover{
-	color:#f38dab;
-	text-decoration: none;
 }
 
 .action_line_1{

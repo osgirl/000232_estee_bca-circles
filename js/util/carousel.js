@@ -43,8 +43,6 @@ function Carousel()
 
 		var featurePhotoData;
 
-		var galleryItem;
-
 		//--------------------------------------
 		//+ PRIVATE & PROTECTED INSTANCE METHODS
 		//--------------------------------------
@@ -170,8 +168,6 @@ function Carousel()
 		*/
 		
 		initCarousel: function(){
-
-			galleryItem = new GalleryItem();
 
 			carouselItemWidth = $('#carousel_slider').width()/3;
 			$('.language_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");

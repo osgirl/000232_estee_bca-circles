@@ -53,8 +53,6 @@ function Gallery()
 
 		var allPhotoData;
 		var morePhotoData;
-
-		var galleryItem;
 		
 
 		var circleFeed;
@@ -965,8 +963,6 @@ function onFetchFriendCircleData($data){
 		*/
 		
 		loadGallery: function(){
-
-			galleryItem = new GalleryItem();
 
 			$(window).scrollTop(0);
 

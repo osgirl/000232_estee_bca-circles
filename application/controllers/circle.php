@@ -53,6 +53,10 @@ class Circle extends CI_Controller {
 
 			if ($result){
 				$data['id'] = $result;
+				$data['goal'] = $this->post['goal'];
+				$data['goal_id'] = $ref_goal_id;
+				$data['language'] = $this->post['language'];
+				$data['country'] = $this->post['country'];
 				echo json_encode($data);
 			}
 			else
@@ -91,8 +95,9 @@ class Circle extends CI_Controller {
 
 			    if ($friend_query->num_rows() > 0) {
 				  foreach($friend_query->result() as $row) {
-				  	$friends_data[] = array (	'friend_id'=>$row->friends_fb_id,
-				  								'friend_name'=>$row->friends_name);
+				  	$friends_data[] = array (	'fb_id'=>$row->friends_fb_id,
+				  								'name'=>$row->friends_name,
+				  								'url'=>$row->friends_photo_url);
 
 				  }
 				    $data['friends_data'] = $friends_data;
@@ -165,8 +170,9 @@ class Circle extends CI_Controller {
 
 			    if ($friend_query->num_rows() > 0) {
 				  foreach($friend_query->result() as $row) {
-				  	$friends_data[] = array (	'friend_id'=>$row->friends_fb_id,
-				  								'friend_name'=>$row->friends_name);
+				  	$friends_data[] = array (	'fb_id'=>$row->friends_fb_id,
+				  								'name'=>$row->friends_name,
+				  								'url'=>$row->friends_photo_url);
 
 				  }
 				$data['friends_data'] = $friends_data;
@@ -199,8 +205,9 @@ class Circle extends CI_Controller {
 		    	$friends_data = array();
 			    if ($friend_query->num_rows() > 0) {
 				   foreach($friend_query->result() as $row) {
-				  	$friends_data[] = array (	'friend_id'=>$row->friends_fb_id,
-				  								'friend_name'=>$row->friends_name);
+				  	$friends_data[] = array (	'fb_id'=>$row->friends_fb_id,
+				  								'name'=>$row->friends_name,
+				  								'url'=>$row->friends_photo_url);
 				  	$goal_query 	= $this->db->query("SELECT * FROM goals WHERE id = '$ref_goal_id'");
 
 				  	if ($goal_query->num_rows() > 0) {
