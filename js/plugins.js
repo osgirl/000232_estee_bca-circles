@@ -119,7 +119,7 @@ $.extend(
             break;
         case 'terms_and_conditions':
             u = "popup/terms_and_conditions/";
-            break;            
+            break;
         }
         if ($isCircle)
         {
@@ -146,8 +146,7 @@ $.extend(
         else
         {
             //Close Circle detail unless it's a child
-            if(!$child && $('#popup_circle').length != 0 )
-                $('.popup#popup_circle .btn_close').trigger('click');
+            if (!$child && $('#popup_circle').length != 0) $('.popup#popup_circle .btn_close').trigger('click');
 
             $.fancybox(
             {
@@ -164,7 +163,8 @@ $.extend(
                 {
 
                     //unbind unnecessary event from window
-                    if($('html').hasClass('_resize_')){
+                    if ($('html').hasClass('_resize_'))
+                    {
                         $(window).removeClass('resize').unbind('resize');
                     }
 
@@ -197,7 +197,7 @@ $.extend(
                 child: null,
                 child_id: null,
                 outlink: null,
-                is_user:null
+                is_user: null
             };
             if (v != undefined)
             {
@@ -217,47 +217,51 @@ $.extend(
     },
 
     /*******************************
-    * Global share function
-    * v.post_type
-    * v.type (SNS type)
-    * v.url
-    * v.id
-    ******************************/
+     * Global share function
+     * v.post_type
+     * v.type (SNS type)
+     * v.url
+     * v.id
+     ******************************/
     popup_share: function(v)
     {
-        if(v.post_type == 'circle'){
+        if (v.post_type == 'circle')
+        {
             u = baseUrl + indexPage + 'circle/share/' + v.id;
         }
-        else{
-            u = baseUrl +indexPage + v.url;
+        else
+        {
+            u = baseUrl + indexPage + v.url;
         }
         console.debug('URL is ' + u);
         var caption = 'Take action against breast cancer.' + (v.action != undefined ? " " + v.action : "");
 
-        if(v.type == "facebook"){
+        if (v.type == "facebook")
+        {
             FB.ui(
-              {
+            {
                 method: 'feed',
                 name: "We're Stronger Together.",
-                link: baseUrl + indexPage +"#"+ (v.id != undefined ? v.post_type + "/" + v.id : $.address.path() ),
-                picture: baseUrl + 'img/assets/fb_share.jpg' ,
+                link: baseUrl + indexPage + "#" + (v.id != undefined ? v.post_type + "/" + v.id : $.address.path()),
+                picture: baseUrl + 'img/assets/fb_share.jpg',
                 caption: 'Take action against breast cancer.' + (v.action != undefined ? " " + v.action : ""),
                 description: 'Create a Circle of Strength with those who support you most now.'
-              },
-              function(response) {
-                if (response && response.post_id)
-                  $.gaEvent((v.post_type).capitalize(), 'Shared','by Facebook');
+            },
+
+            function(response)
+            {
+                if (response && response.post_id) $.gaEvent((v.post_type).capitalize(), 'Shared', 'by Facebook');
                 // else
-                 // alert('Post was not published. Please try again.');
-              }
-            );
-        } 
-        else if(v.type == "twitter"){
+                // alert('Post was not published. Please try again.');
+            });
+        }
+        else if (v.type == "twitter")
+        {
             var type = v.post_type != undefined ? v.post_type : "";
             var id = v.id != undefined ? v.id : "";
             var action = v.action != undefined ? v.action : "";
-            openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + type + "/" + id + "/" + action , 'Twitter');
-            $.gaEvent((v.post_type).capitalize(), 'Shared','by Twitter');
+            openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + type + "/" + id + "/" + action, 'Twitter');
+            $.gaEvent((v.post_type).capitalize(), 'Shared', 'by Twitter');
         }
     }
 });
@@ -495,7 +499,6 @@ $.extend(
             loadStart();
             if ($('#imageCanvas').length)
             {
-                console.log('Save using canvas');
                 $('<canvas id="outputCanvas"></canvas>').appendTo($parent);
                 var canvas = document.getElementById('outputCanvas');
                 var ctx = canvas.getContext('2d');
@@ -527,7 +530,6 @@ $.extend(
             }
             else
             {
-                console.log('Save using uploaded image');
                 $.ajax(
                 {
                     type: 'post',
@@ -544,7 +546,7 @@ $.extend(
                     success: function(data)
                     {
                         saveFileSuccess(data, $desc);
-   
+
                     },
                     error: function(jqXHR, textStatus, errorThrown)
                     {
@@ -561,9 +563,9 @@ $.extend(
 
     function saveFileSuccess(data, des)
     {
-        
+
         loadEnd();
-       //alert('Image saved successfully.');
+        //alert('Image saved successfully.');
         if ($('#popup_circle').length != 0)
         {
             $('#popup_circle').trigger('photo_upload_complete');
@@ -571,15 +573,24 @@ $.extend(
 
         closeWindow();
 
-        //Add fake photo only circle id is null
-        if($circle_id == '' || $circle_id == null){
+        //Add fake photo only circle id is null, and send custom tracking event
+        if ($circle_id == '' || $circle_id == null)
+        {
+            console.debug(data.id);
+            //This is photo feed to gallery
             fakePhotoData = {
-                    file_name: data.file_name,
-                    description:des
-                }
+                id: data.id,
+                file_name: data.file_name,
+                description: des
+            }
             $('body').trigger('PHOTO_UPLOADED');
+            $.gaEvent('Photo', 'Added to feed');
         }
-       
+        else{
+            //Photo added to some circle
+            $.gaEvent('Circle', 'Photo added', 'Circle ID#: ' + $circle_id);
+        }
+
     }
 
     function saveFileFailed(jqXHR, textStatus, errorThrown)
@@ -622,8 +633,7 @@ $.extend(
         $pagn = $($c + ' #popup_circle_photo_carousel_pagn')
         $this.attr('cid', $d.id);
         $d.child = true;
-        if($d.circle_id == null)
-            $d.circle_id = $d.id;
+        if ($d.circle_id == null) $d.circle_id = $d.id;
 
         //Add padding when header page has net been scrolled to the top
         if (($win_abs_y + $margin_top) < $this.parent().offset().top)
@@ -682,10 +692,13 @@ $.extend(
             }
         });
 
-        if(!v.is_user) $($c + ' .btn_edit').hide();
+        if (!v.is_user) $($c + ' .btn_edit').hide();
 
         //Start bind
-        $($c + ' .btn_edit').click(function(){editFriends(v)});
+        $($c + ' .btn_edit').click(function()
+        {
+            editFriends(v)
+        });
         $($c + ' .btn_close').click(closeWindow);
         $($c + ' .btn_add_photo').click(addPhoto);
         $($c + ' .btn_nav_photo').click(navPhoto);
@@ -723,7 +736,7 @@ $.extend(
 
             if ($i != 0)
             {
-                $('<div class="dot"><img src="' + baseUrl+ 'img/popups/circle/dot.png"/></div>').css(
+                $('<div class="dot"><img src="' + baseUrl + 'img/popups/circle/dot.png"/></div>').css(
                 {
                     'left': $x + '%',
                     'top': $y + '%'
@@ -830,12 +843,10 @@ $.extend(
                 });
 
                 //Add swipe event if photo is more than two
-                if (v.length > 2) 
-                    $container.on('swipeleft swiperight', carouselSwipeHandler);
+                if (v.length > 2) $container.on('swipeleft swiperight', carouselSwipeHandler);
 
                 //Check if the circle opened with child_id and popup the photo if it's available.
-                if( $d.child_id != null)
-                    openPhotofromExternalLink($d.child_id);
+                if ($d.child_id != null) openPhotofromExternalLink($d.child_id);
 
             }
             else
@@ -866,8 +877,8 @@ $.extend(
 
     function loadCommentBox()
     {
-        var $holder     = $($c + ' #popup_circle_comment_holder');
-        var iframeSrc   = baseUrl + indexPage + 'popup/facebook_comment_iframe/' + $d.id;
+        var $holder = $($c + ' #popup_circle_comment_holder');
+        var iframeSrc = baseUrl + indexPage + 'popup/facebook_comment_iframe/' + $d.id;
         $('<iframe src="' + iframeSrc + '"></iframe>').appendTo($holder);
     }
 
@@ -952,7 +963,7 @@ $.extend(
     function editFriends(v)
     {
         currentCircleViewData = v;
-       $('body').trigger('EDIT_FRIEND');
+        $('body').trigger('EDIT_FRIEND');
     }
 
     function openPhotofromExternalLink($id)
@@ -969,17 +980,17 @@ $.extend(
             {
                 console.log(data);
                 $.popup(
-                        {
-                            type: 'photo',
-                            data: {
-                                id: data.id,
-                                circle_id: data.ref_circle_id,
-                                source: 'bca',
-                                content: data.description,
-                                photo_url: baseUrl + 'uploads/' + data.filename,
-                                child: true
-                            }
-                        })
+                {
+                    type: 'photo',
+                    data: {
+                        id: data.id,
+                        circle_id: data.ref_circle_id,
+                        source: 'bca',
+                        content: data.description,
+                        photo_url: baseUrl + 'uploads/' + data.filename,
+                        child: true
+                    }
+                })
 
             },
             error: function(jqXHR, textStatus, errorThrown)
@@ -987,7 +998,7 @@ $.extend(
                 console.log('Error ' + textStatus);
             }
         });
-    }    
+    }
 
     function closeWindow()
     {
@@ -1012,9 +1023,9 @@ $.extend(
 })(jQuery);
 
 
-/******************************************
+/**************************************************
  * Private function for FeedMagnet (jquery extend)
- ******************************************/
+ **************************************************/
 (function(f)
 {
     var fo = {}, sfo;
@@ -1107,9 +1118,9 @@ $.extend(
 })(jQuery);
 
 
-/******************************************
+/******************************************************
  * Public function for Load data from deeplink share
- ******************************************/
+ ******************************************************/
 
 function checkAndLoadExternalUrl()
 {
@@ -1119,24 +1130,48 @@ function checkAndLoadExternalUrl()
     {
         switch (adr[1])
         {
-        //General
+            //General
         case 'video':
-            $.popup({type:'video', data:{outlink: true}});
+            $.popup(
+            {
+                type: 'video',
+                data: {
+                    outlink: true
+                }
+            });
             break;
 
         case 'about':
-            $.popup({type:'about', data:{outlink: true}});
+            $.popup(
+            {
+                type: 'about',
+                data: {
+                    outlink: true
+                }
+            });
             break;
 
         case 'privacy_policy':
-            $.popup({type:'privacy_policy', data:{outlink: true}});
+            $.popup(
+            {
+                type: 'privacy_policy',
+                data: {
+                    outlink: true
+                }
+            });
             break;
 
         case 'terms_and_conditions':
-            $.popup({type:'terms_and_conditions', data:{outlink: true}});
+            $.popup(
+            {
+                type: 'terms_and_conditions',
+                data: {
+                    outlink: true
+                }
+            });
             break;
 
-        //Dynamic
+            //Dynamic
         case 'circle':
             u = baseUrl + indexPage + "circle/fetchCircleData/";
             $data = {
@@ -1190,7 +1225,7 @@ function checkAndLoadExternalUrl()
                 {
                     type: 'circle',
                     data: {
-                        id: data.circle_id,                        
+                        id: data.circle_id,
                         content: data.goal,
                         avatar: data.user_photo_url,
                         users_fb_id: data.user_id,
@@ -1255,11 +1290,11 @@ function checkAndLoadExternalUrl()
 //jsAddress temp
 // $.address.change(function(e)
 // {
-    // var v = e.value.replace(/^\//, '').split('/');
-    // console.log(v);
-    // $.address.hash('_');
-    // return false;
-    // e.preventdefault;
+// var v = e.value.replace(/^\//, '').split('/');
+// console.log(v);
+// $.address.hash('_');
+// return false;
+// e.preventdefault;
 // });
 
 /***************************************************
@@ -1270,15 +1305,14 @@ $.extend(
 {
     gaEvent: function(_category, _action, _label)
     {
-        if(_label == undefined) _label = '';
+        if (_label == undefined) _label = '';
         console.log(_category, _action, _label);
         _gaq.push(['_trackEvent', _category, _action, _label]);
     }
 });
 
-// $.gaEvent('Circle', 'Created');
-
 //Helpers
+
 function openShareWindow(_w, _h, _url, _title)
 {
     var width = _w,
@@ -1289,6 +1323,7 @@ function openShareWindow(_w, _h, _url, _title)
     window.open(_url, _title, opts);
 }
 
-String.prototype.capitalize = function() {
+String.prototype.capitalize = function()
+{
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
