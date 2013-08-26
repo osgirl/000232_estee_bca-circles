@@ -1004,7 +1004,7 @@ function onFetchFriendCircleData($data){
         	var popupData = {
 					type:'photo', 
 					data:{
-						id: 1,
+						id: data.id,
 						source:'bca',
 						content:data.description,
 						photo_url:baseUrl + "uploads/" + data.file_name
