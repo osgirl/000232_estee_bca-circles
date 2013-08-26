@@ -1093,6 +1093,8 @@ function postCircleData(goal_id){
 	      		});
 			}
      	 })
+			//gaTracking after circle has been created
+			$.gaEvent('Circle', 'Created', (isCustomizeGoal) ? 'custom goal' : 'pre-populated goal');
 }
 
 function updateFriends(){
