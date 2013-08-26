@@ -51,8 +51,8 @@
                             <span class="language_divider"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
                             <span class='top_sub_nav_item'>
                             	<span class='all_cap' style="vertical-align:center;">share</span>
-                            	<a href="#" onclick="$.popup_share({type:'facebook'})" style="margin-top:-1px" class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></a>
-								<a href="#" onclick="$.popup_share({type:'twitter'})" style="margin-top:-1px" class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></a>
+                            	<a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'facebook'})" style="margin-top:-1px" class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></a>
+								<a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'twitter'})" style="margin-top:-1px" class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></a>
 							</span>
                         </div>
                         

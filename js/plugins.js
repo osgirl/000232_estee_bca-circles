@@ -213,14 +213,24 @@ $.extend(
         }
         return false;
     },
+
+    /*******************************
+    * Global share function
+    * v.post_type
+    * v.type (SNS type)
+    * v.url
+    * v.id
+    ******************************/
     popup_share: function(v)
     {
-        console.log(v);
-
-        cid = $('.popup#popup_circle').attr('cid');
-        u = baseUrl + indexPage + 'circle/share/' + cid;
-
-        var caption = 'Take action against breast cancer.' + (v.action != undefined ? " " + v.action : "")
+        if(v.post_type == 'circle'){
+            u = baseUrl + indexPage + 'circle/share/' + v.id;
+        }
+        else{
+            u = baseUrl +indexPage + v.url;
+        }
+        console.debug('URL is ' + u);
+        var caption = 'Take action against breast cancer.' + (v.action != undefined ? " " + v.action : "");
 
         if(v.type == "facebook"){
             FB.ui(
@@ -233,15 +243,14 @@ $.extend(
                 description: 'Create a Circle of Strength with those who support you most now.'
               },
               function(response) {
-                if (response && response.post_id) {
-                  //alert('Post was published.');
-                  $.gaEvent('Circle', 'Shared','by Facebook');
-                } else {
-                 // alert('Post was not published.');
-                }
+                if (response && response.post_id)
+                  $.gaEvent((v.post_type).capitalize(), 'Shared','by Facebook');
+                else
+                 alert('Post was not published. Please try again.');
               }
             );
-        } else if(v.type == "twitter"){
+        } 
+        else if(v.type == "twitter"){
             var type = v.post_type != undefined ? v.post_type : "";
             var id = v.id != undefined ? v.id : "";
             var action = v.action != undefined ? v.action : "";
@@ -1222,7 +1231,6 @@ $.extend(
         console.log(_category, _action, _label);
         _gaq.push(['_trackEvent', _category, _action, _label]);
     }
-
 });
 
 // $.gaEvent('Circle', 'Created');
@@ -1236,4 +1244,8 @@ function openShareWindow(_w, _h, _url, _title)
         top = window.screenY + ((window.outerHeight - height) / 2),
         opts = 'location=0' + ',toolbar=0' + ',titlebar=0' + ',status=0' + ',width=' + width + ',height=' + height + ',top=' + top + ',left=' + left;
     window.open(_url, _title, opts);
+}
+
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
 }
