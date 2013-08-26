@@ -193,7 +193,7 @@ function getLogoutStatus(e){
 	$('.log_out_status').show();
 	$('.log_in_status').hide();
 
-	
+	//cancelCreateCircleScreen();
 	
 }
 

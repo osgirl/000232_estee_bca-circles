@@ -110,18 +110,18 @@
 	    padding:20px 3% 16px 5%;
     }
     
-    .select_field{
+/*    .select_field{
     	font-size:1.6em;
-    }
+    }*/
 
-   #custom_action{
+/*   #custom_action{
 	    font-size:1.7em;	
         
-    }
+    }*/
     
     .select_dropdown{
 		top:37px;
-		font-size:18px;
+		/*font-size:18px;*/
 	}
 	
 	.goal_dropdown_list{
@@ -132,9 +132,9 @@
 		font-size:1.6em;
 	}
 	
-	.select_icon{
+/*	.select_icon{
 		padding:12px 10px 10px 10px;
-	}
+	}*/
 	
 	.tributton_left_wrapper{
 		width:37.5%; 
@@ -490,6 +490,18 @@
 
 	#custom_action{
 		min-width: 510px;
+	}
+
+	.select_action_text{
+		font-size:1.4em;
+	}
+
+	#custom_action{
+		font-size:1.5em;
+	}
+
+	.select_icon img{
+		margin-top:12px;
 	}
 	  
 }

@@ -205,6 +205,7 @@
 
 	#custom_action{	
         min-width: 650px;
+        /*font-size:1.3em;*/
     }
 	
 	
@@ -424,6 +425,18 @@
 
 	#filter_nav{
 		margin-top:0px;
+	}
+
+	.select_action_text{
+		font-size:1.6em;
+	}
+
+	#custom_action{
+		font-size:1.7em;
+	}
+
+	.select_icon img{
+		margin-top:16px;
 	}
 
     
