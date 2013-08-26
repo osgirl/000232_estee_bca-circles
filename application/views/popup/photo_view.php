@@ -13,12 +13,12 @@
 	</div>
 	<?
 		if($source =="instagram")
-			$url = "#/photo/instagram/" . $id;
+			$url = "/photo/instagram/" . $id;
 		else{
 			if ($circle_id != null)
-				$url = "#/circle/" . $circle_id . "/photo/bca/" . $id;
+				$url = "/circle/" . $circle_id . "/photo/bca/" . $id;
 			else
-				$url = "#/photo/bca/" . $id;
+				$url = "/photo/bca/" . $id;
 		}
 	?>
 	<div id="photo_footer">

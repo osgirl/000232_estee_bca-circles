@@ -226,41 +226,33 @@ $.extend(
     popup_share: function(v)
     {
         if (v.post_type == 'circle')
-        {
-            u = baseUrl + indexPage + 'circle/share/' + v.id;
-        }
+            u = '/circle/' + v.id + '/?refferal=circle';
         else
-        {
-            u = baseUrl + indexPage + v.url;
-        }
-        console.debug('URL is ' + u);
-        var caption = 'Take action against breast cancer.' + (v.action != undefined ? " " + v.action : "");
+            u = v.url;
 
         if (v.type == "facebook")
         {
+            var _caption;
             FB.ui(
             {
                 method: 'feed',
+                link: baseUrl + indexPage + '#' + u,
                 name: "We're Stronger Together.",
-                link: baseUrl + indexPage + "#" + (v.id != undefined ? v.post_type + "/" + v.id : $.address.path()),
                 picture: baseUrl + 'img/assets/fb_share.jpg',
-                caption: 'Take action against breast cancer.' + (v.action != undefined ? " " + v.action : ""),
+                caption: _caption,
                 description: 'Create a Circle of Strength with those who support you most now.'
             },
 
             function(response)
             {
                 if (response && response.post_id) $.gaEvent((v.post_type).capitalize(), 'Shared', 'by Facebook');
-                // else
-                // alert('Post was not published. Please try again.');
             });
         }
         else if (v.type == "twitter")
-        {
-            var type = v.post_type != undefined ? v.post_type : "";
-            var id = v.id != undefined ? v.id : "";
-            var action = v.action != undefined ? v.action : "";
-            openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + type + "/" + id + "/" + action, 'Twitter');
+        {            
+            var goal = v.action != undefined ? v.action : "";
+            u = u.replace(/\//gi,'-').replace(/\?/gi,'_').replace(/\=/gi,'^');
+            openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + u +"/" + escape(goal), 'Twitter');
             $.gaEvent((v.post_type).capitalize(), 'Shared', 'by Twitter');
         }
     }

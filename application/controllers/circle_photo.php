@@ -15,7 +15,7 @@ class Circle_Photo extends CI_Controller {
 	{
 		$post = $this->input->post();
 		if( isset ( $post['id'] ) ){
-			$query = array('id' => $post['id']);			
+			$query = array('id' => $post['id']);
 			$result = $this->circle_photos_model->get($query);
 			echo json_encode($result);
 		}
