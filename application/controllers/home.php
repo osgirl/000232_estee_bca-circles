@@ -23,5 +23,4 @@ class Home extends CI_Controller {
 
 		header( 'Location: https://twitter.com/intent/tweet?text='.$title );
 	}
-
 }
