@@ -245,7 +245,7 @@ $.extend(
             var type = v.post_type != undefined ? v.post_type : "";
             var id = v.id != undefined ? v.id : "";
             var action = v.action != undefined ? v.action : "";
-            openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + type + "/" + id + "/" + action , 'Twitter');
+            openShareWindow(575, 380, baseUrl + "home/twitter_share/" + type + "/" + id + "/" + action , 'Twitter');
             $.gaEvent('Circle', 'Shared','by Twitter');
         }
     }

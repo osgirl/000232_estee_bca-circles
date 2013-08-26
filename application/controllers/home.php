@@ -24,31 +24,13 @@ class Home extends CI_Controller {
 
 	public function twitter_share($category = "", $id = "", $goal = "")
 	{
-		$long_url 	= "http://staging.click3x.com/estee_lauder/bca/".urlencode("#").$category."/".$id;
-		$short_url 	= $this->getbitly($long_url);
+		$long_url 	= "https://staging.click3x.com/estee_lauder/bca/#".$category."/".$id;
+		$short_url 	= file_get_contents( "http://api-ssl.bitly.com/v3/shorten?access_token=".BITLY_ACCESS_TOKEN."&longUrl=".urlencode($long_url)  );
 
 		$title 	 	= SHARE_TITLE." ".SHARE_CAPTION;
 		$title 		= str_replace("[GOAL]", $goal, $title )." ".$short_url;
 
 		header( 'Location: https://twitter.com/intent/tweet?text='.$title );
-	}
-
-	public function getbitly($long_url){
-		$ch = curl_init();
-	 
-	    curl_setopt($ch, CURLOPT_URL, "https://api-ssl.bitly.com/v3/shorten?access_token=".BITLY_ACCESS_TOKEN."&longUrl=".$long_url );
-	    curl_setopt($ch, CURLOPT_REFERER, base_url());
-	    curl_setopt($ch, CURLOPT_HEADER, 0);
-	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-	 
-	    $output = curl_exec($ch);
-	    $output = json_decode($output);
-		$output	= $output->data->url;
-	 
-	    curl_close($ch);
-
-	    return $output;
 	}
 }
 
