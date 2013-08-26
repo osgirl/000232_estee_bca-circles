@@ -51,14 +51,15 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        <?php include('top_navigation_view.php');?>
+        <?php $this->load->view('top_navigation_view');?>
 
 
         <div id="content_wrap" class="container">
+        <div class="overlay"></div>
                 <div id='top_content'>
 	             	<div class="row">
 		                <div class="top_content_span span6">
-		                    <div id="big_image"><img src='<?= base_url(); ?>img/pics/stronger-together.png'/>
+		                    <div id="big_image"><img src='<?= base_url(); ?>img/pics/stronger-together.jpg'/>
 			                    <div id="tagline">
 			                    	<div class="stronger_together all_cap">we’re stronger<br /><span style="font-size:165%">together</div>
 			                    	<div class="copy_text">Together, take action in defeating breast cancer by inviting your friends to join your circle of strength. Show how you're fighting breast cancer by adding a photo, creating a circle, or tagging #BCAstrength.</div>
@@ -68,7 +69,7 @@
 		                <div class="top_content_span span6">
 		                	<div class="row">
 		                		<div id='featured_header' class="span6">
-		                			<div id="around_the_world" class="all_cap">feature from around the world</div>
+		                			<div id="around_the_world" class="all_cap">featured from around the world</div>
 		                			<div class='pull_left'>
 										<div class='featured_dot featured_selected'></div>
 										<div class='featured_dot featured_deselected'></div>
@@ -81,7 +82,7 @@
 			                    	<div class="carousel_item">
 				                		<div class="top_content_sub_span4">
 				                			<div class="feature_circle circle_container">
-												<?php include('layout/layout_circle.php');?>
+												<?php $this->load->view('layout/layout_circle.php');?>
 											</div>
 				                		</div>
 				                		<div class="top_content_sub_span2">
@@ -92,7 +93,7 @@
 				                	<div class="carousel_item">
 				                		<div class="top_content_sub_span4 ">
 				                			<div class="feature_circle circle_container">
-												<?php include('layout/layout_circle.php');?>
+												<?php $this->load->view('layout/layout_circle.php');?>
 											</div>
 				                		</div>
 				                		<div class="top_content_sub_span2">
@@ -103,7 +104,7 @@
 				                	<div class="carousel_item">
 				                		<div class="top_content_sub_span4">
 				                			<div class="feature_circle circle_container">
-												<?php include('layout/layout_circle.php');?>
+												<?php $this->load->view('layout/layout_circle.php');?>
 											</div>
 				                		</div>
 				                		<div class="top_content_sub_span2">
@@ -126,7 +127,7 @@
 									<div id='join_text' class='light_font'>Show how you're fighting breast cancer by creating a circle, uploading a photo, or tagging posts on Instagram and Twitter with <b>#BCAstrength</b>.</div>
 									<table class="btn_control">
 										<tr>
-										    <td class="button_left_wrapper"><div class='start_create_circle_btn pink_btn all_cap'>CREATE A CIRCLE</div></td>
+										    <td class="button_left_wrapper"><a class='start_create_circle_btn pink_btn all_cap'>CREATE A CIRCLE</a></td>
 											<td class="button_right_wrapper"><a onclick="$.popup({type:'photo_upload'});" class='upload_photo_btn pink_btn pull_left all_cap'>UPLOAD A PHOTO</a></td>
 										</tr>
 									</table>
@@ -145,8 +146,8 @@
 									<div id='bottom_user_name' class='user_name_display'></div>
 									<div class='user_location_display'></div>
 									<div id='user_circle_num'>Belongs to <span id='circle_num'>0 Circle</span></div>
-									<div id='create_another_circle' class='start_create_circle_btn pink_btn all_cap light_font'>Create a Circle</div>
-									<div><a onclick="$.popup({type:'photo_upload'});" id="log_in_upload_photo_btn" class='upload_photo_btn pink_btn pull_left all_cap'>UPLOAD A PHOTO</a></div>
+									<a id='create_another_circle' class='start_create_circle_btn pink_btn all_cap light_font'>Create a Circle</a>
+									<a onclick="$.popup({type:'photo_upload'});" id="log_in_upload_photo_btn" class='upload_photo_btn pink_btn pull_left all_cap'>UPLOAD A PHOTO</a>
 								</div>
 								
 							</div>
@@ -165,12 +166,12 @@
 					<div class='h_divider_top'></div>
 					<div id="filter_nav">
 						<div style="display:inline-block"><img src='<?= base_url(); ?>img/icons/filter.png'/></div>
-						<div id="filter_all_btn" type="all" class="pink_btn pink_filter_btn all_cap">all</div>
-						<div id="filter_circles_btn" type="circle" class="pink_btn pink_filter_btn all_cap">circles</div>
-						<div id="filter_photos_btn" type="photo" class="pink_btn pink_filter_btn all_cap">photos</div>
-						<div id="filter_instagram_btn" type="instagram" class="pink_btn pink_filter_btn blue_btn"><img src='<?= base_url(); ?>img/buttons/instagram.png'></div>
-						<div id="filter_twitter_btn" type="twitter" class="pink_btn pink_filter_btn light_blue_btn"><img src='<?= base_url(); ?>img/buttons/twitter.png'></div>
-						<div id="filter_friends_btn" type="friend" class="pink_btn pink_filter_btn all_cap">my friend's circles</div>
+						<a id="filter_all_btn" type="all" class="pink_btn pink_filter_btn all_cap">all</a>
+						<a id="filter_circles_btn" type="circle" class="pink_btn pink_filter_btn all_cap">circles</a>
+						<a id="filter_photos_btn" type="photo" class="pink_btn pink_filter_btn all_cap">photos</a>
+						<a id="filter_instagram_btn" type="instagram" class="pink_btn pink_filter_btn blue_btn"><img src='<?= base_url(); ?>img/buttons/instagram.png'></a>
+						<a id="filter_twitter_btn" type="twitter" class="pink_btn pink_filter_btn light_blue_btn"><img src='<?= base_url(); ?>img/buttons/twitter.png'></a>
+						<a id="filter_friends_btn" type="friend" class="pink_btn pink_filter_btn all_cap">my friend's circles</a>
 					</div>
 					<div id="feed_magnet"> </div>
 				</div>
@@ -186,14 +187,20 @@
 				<p>Breast cancer affects 1 in 8 women in their lifetime. A donation of $50 raised by a Circle funds approximately one hour of lifesaving research through The Breast Cancer Research Foundation. Donate now and take us a step closer to eradicating this disease.</p>
 			</div>
 			<div id='watch_video' class="span5">
-				<div><a  href="#video" onclick="$.popup({type:'video'});"><img src="<?= base_url(); ?>img/assets/video-thumb.png"/></a></div>
+				<div><a  href="#video" onclick="return $.popup({type:'video'});"><img src="<?= base_url(); ?>img/assets/video-thumb.png"/></a></div>
 				<div id="watch_video_text" class='pink_text all_cap'>watch the<br/>bca video</div>
 			</div>
 			<div id="footer">
-                <div style='width:48%; float:left; border-right:#f38dab 1px solid; padding-right:1.5%'><a class='pink_text' href='#' target='blank'><div id='privacy_policy_btn'>Privacy Policy</div></a></div>
-				<div style='width:49%; float:right; padding-left:1%'><a class='pink_text' href='#' target='blank'><div id='term_and_cons_btn'>Terms & Conditions</div></a></div>
+                <div style='width:48%; float:left; border-right:#f38dab 1px solid; padding-right:1.5%'> 
+                	<div class='pink_text cta' id='privacy_policy_btn' onclick="$.popup({type:'privacy_policy'});">Privacy Policy</div> 
+                </div>
+				<div style='width:49%; float:right; padding-left:1%'>
+					<div class='pink_text cta' id='term_and_cons_btn' onclick="$.popup({type:'terms_and_conditions'});">Terms & Conditions</div>
+				</div>
             </div>
 		</div>	
+
+
 
 		<!-- Facebook --> 
         <script src='http://connect.facebook.net/en_US/all.js'></script>
@@ -208,6 +215,7 @@
 		<script src="<?= base_url(); ?>js/vendor/fancybox2/jquery.fancybox.pack.js?cachebuster=<?= $cacheBuster; ?>&v=2.1.5"></script>
         <script src="<?= base_url(); ?>js/vendor/bootstrap.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/vendor/jquery.jscrollpane.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <script src="<?= base_url(); ?>js/vendor/jquery.mousewheel.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/vendor/masonry.pkgd.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/vendor/jquery.cookie.js"></script>
         <script src="<?= base_url(); ?>js/plugins.js?cachebuster=<?= $cacheBuster; ?>"></script>
@@ -225,4 +233,5 @@
         </script>
 
     </body>
+
 </html>

@@ -53,7 +53,7 @@ function GalleryItem()
 				$(e.currentTarget).stop(true, true).fadeTo("fast", 1);
 				$($(e.currentTarget).next()).find('.share_text').css('color', "#f38dab");
 
-				$(item.find('.gallery_item_btn')).unbind('click').click(function(e){openPopUp(popupData)})
+			$(item.find('.gallery_item_btn')).unbind('click').click(function(e){openPopUp(popupData)})
 				centerRollOverContent(.55);
 			})
 
@@ -81,47 +81,34 @@ function GalleryItem()
         		$('body').trigger('CREATE_NEW_CIRCLE_BUTTON_CLICKED');
         	})
 
+        	enableShareButton(item);
+        }
+
+        function enableShareButton(item){
+        	var itemType = ($(item).hasClass('circle_container')) ? 'circle' : 'photo';
+
         	$(item.find('.circle_fb_share_btn')).unbind('click').click(function(e){
-				shareFacebook($(item));
+				share($(item), "facebook", itemType);
 			});
 
 			$(item.find('.circle_tw_share_btn')).unbind('click').click(function(e){
-				shareTwitter($(item));
+				share($(item), "twitter", itemType);
 			});
         }
 
-		function shareFacebook(circle){
+		function share(circle, shareType, itemType){
 
 			var circle_goal = $(circle.find(".goal_text")).html();
 			var circle_id = circle.attr('circle_id');
 
-			console.log(circle_goal, circle_id)
-
 			var shareData = {
-				type:'facebook',
+				type:shareType,
 				action: circle_goal,
 				id:circle_id,
-				post_type:'circle'
+				post_type:itemType
 			}
 			$.popup_share(shareData);
 		}
-
-		function shareTwitter(circle){
-
-			var circle_goal = $(circle.find(".goal_text")).html();
-			var circle_id = circle.attr('circle_id');
-
-			console.log(circle_goal, circle_id)
-
-			var shareData = {
-				type:'twitter',
-				action: circle_goal,
-				id:circle_id,
-				post_type:'circle'
-			}
-			$.popup_share(shareData);
-		}
-
 
 		function centerRollOverContent(portion){
 			$('.rollover_content').each(function(i, v){
@@ -132,6 +119,8 @@ function GalleryItem()
 		}
 
 		function placeCircleInAngles(parent, profileImageUrl, friendNum){
+			$(parent).find('.point').remove();
+			$(parent).find('.profile_image_small').remove();
 			var radius 	= 44.7,
 				cx 		= 47,
 				cy 		= 47,
@@ -153,6 +142,31 @@ function GalleryItem()
 
 				if(i == 0) dotItem.css('background-image', 'url(' + profileImageUrl + ')');
 			}
+		}
+
+		function updateUserCirclePopupContent(circle, id, content, avatar, userID, friendData, isUser){
+			//if(friendData != undefined)
+	        	placeCircleInAngles(circle.find('.circle_area'), avatar, friendData.length);
+
+			var popupData = {
+					type:'circle', 
+					data:{
+						id:id,
+						circle_id:id,
+						content:content, 
+						avatar:avatar,
+						users_fb_id:userID,
+						num_friends: friendData.length,
+						friends_data: friendData,
+						is_user:isUser
+
+					}}
+
+	        	enableItemButton(circle, popupData);
+
+	        	setTimeout(function(){
+	        		centerRollOverContent(.4);
+	        	},200);
 		}
 
 		
@@ -183,8 +197,6 @@ function GalleryItem()
 
 		populateCircleContent:function(circle, data){
 
-			console.log('data country', data.country)
-
 			circle.attr('circle_id', data.circle_id);
 			circle.attr('user_id', data.user_id);
 			circle.attr('goal_id', data.goal_id);
@@ -194,31 +206,14 @@ function GalleryItem()
 			circle.find('.goal_text').html(data.goal);
 			circle.fadeIn(200);
 
-			if(data.friends_data != undefined){
-	        	placeCircleInAngles(circle.find('.circle_area'), data.user_photo_url, data.friends_data.length);
+	        var isUser = (data.user_id == userID) ? true : false;
+	        updateUserCirclePopupContent(circle, data.circle_id, data.goal, data.user_photo_url, data.user_id, data.friends_data, isUser);
+	        	
+		},
 
-	        	var isUser = (data.user_id == userID) ? true : false;
-
-	        	var popupData = {
-					type:'circle', 
-					data:{
-						id:data.circle_id,
-						circle_id:data.circle_id,
-						content:data.goal, 
-						avatar:data.user_photo_url,
-						users_fb_id:data.user_id,
-						num_friends: data.friends_data.length,
-						friends_data: data.friends_data,
-						is_user:isUser
-
-					}}
-
-	        	enableItemButton(circle, popupData);
-
-	        	setTimeout(function(){
-	        		centerRollOverContent(.4);
-	        	},200);
-	        }
+		updateUserCirclePopupContent:function(circle, id, content, avatar, userID, friendData, isUser){
+			updateUserCirclePopupContent(circle, id, content, avatar, userID, friendData, isUser);
+			
 		},
 
 		parseAllPhotoData:function(data, isFeatured){
@@ -362,7 +357,9 @@ function GalleryItem()
 			openPopUp(popupData);
 		},
 
-		
+		enableShareButton: function(item){
+			enableShareButton(item);
+		},
 		
 		
 		/**

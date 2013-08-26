@@ -198,6 +198,7 @@ h2{
 	color:#333333;
 	background-color:#ffffff;
 	*background-color:#ffffff;
+
 }
 .btn-navbar:active,.btn-navbar.active{background-color:#ffffff \9;}
 
@@ -207,12 +208,14 @@ h2{
     padding: 10px 15px;
     text-decoration: none;
     text-shadow: none;
+    font-weight:lighter;
 }
 
 .navbar .nav > li > a:hover,
 .navbar .nav > li > a:focus {
     color: #f38dab;
     outline:none;
+    font-weight:lighter;
 }
 
 .navbar-fixed-top{margin-bottom:0px;}
@@ -232,6 +235,7 @@ h2{
 
 .navbar .btn-navbar{
 	float:right;
+	margin-top:6px;
 	padding:7px 10px;
 	margin-left:5px;
 	margin-right:-8px;
@@ -252,6 +256,19 @@ h2{
 .navbar .btn-navbar:active,.navbar .btn-navbar.active{
 	background-color:#ffffff \9;
 	}
+
+.sign_in_btn, .sign_in_btn:hover{
+	text-decoration: none;
+	cursor:pointer;
+}
+
+.sign_in_btn:hover{
+	color:#f33c72;
+}
+
+.language_toggle_btn{
+	cursor:pointer;
+}
 
 #big_image{
 	position:relative;
@@ -339,6 +356,7 @@ h2{
     border-radius: 50%;	
     behavior: url(css/PIE.htc);
     float:left;
+    cursor: pointer;
 }
 
 .featured_selected{
@@ -353,7 +371,7 @@ h2{
 	overflow: hidden;
 	position: relative;;
 	min-height:313px;
-	background-color:#444;
+	background-color:#ede1e4;
 	border-top:1px solid white;
 	border-left:1px solid white;
 }
@@ -455,9 +473,16 @@ h2{
 	padding:2% 0 3% 6%;
 }
 
-/*.circle_view_link{
+.circle_view_link{
+	color:#f38dab;
+	cursor:pointer;
+	text-decoration: none;
+}
+
+.circle_view_link:hover{
 	color:#f33c72;
-}*/
+	text-decoration: none;
+}
 
 
 #user_profile_pic{
@@ -525,11 +550,6 @@ h2{
 	margin-bottom:5px;
 }
 
-.action_item a, .action_item a:hover{
-	color:#f38dab;
-	text-decoration: none;
-}
-
 .action_line_1{
 	font-size:1.1em;
 	color:#333333;
@@ -564,6 +584,7 @@ h2{
 /*GALLERY*/
 
 #filter_nav{
+	margin-top:20px;
 	margin-bottom:15px;
 }
 
@@ -607,11 +628,17 @@ h2{
 	height:39px;
 	background-size: 42px auto;
 	background-image: url('../img/flags/large/united-states.png');
-	background-position: 0 -1px;
+	background-position: -1px -1px;
 }
 
-.circle_container a{
-	color:white;
+.rollover_link{
+	color:#f38dab;
+	text-decoration: underline;
+	cursor:pointer;
+}
+
+.rollover_link:hover{
+	color:#f33c72;
 }
 
 .gallery_circle{
@@ -629,7 +656,7 @@ h2{
 }
 
 .photo_container{
-	background-color:#444;
+	background-color:#ede1e4;
 	height:312px;
 	position:relative;
 	background-size:110%;
@@ -676,9 +703,14 @@ h2{
 /*LAYOUT PHOTO*/
 
 .layout_photo{
-	width:98%;
+	width:100%;
 	margin-bottom:22px;
 }
+
+.layout_photo .photo_container{
+		width:100%;
+		margin-right:2%;
+	}
 
 /*GALLERY ASSETS*/
 
@@ -686,10 +718,21 @@ h2{
 	margin-bottom:0px;
 }
 
+.layout_circle {
+	width:100%;
+}
 
+.layout_circle .gallery_circle{
+	margin-right:0;
+	width:100%;
+}
 
 .gallery_layout:last-child{
 	margin-bottom:22px;
+}
+
+.layout_circle{
+	margin-bottom:0;
 }
 
 .photo_icon{
@@ -720,7 +763,7 @@ h2{
 
 .twitter_author{
 	font-size:1.4em;
-	color:#0e6578;
+	color:#333388;
 	margin-top:3px;
 }
 
@@ -1101,6 +1144,10 @@ h2{
 	position:relative;
 }
 
+#name_plus_btn, #close_friend_photos_btn, #select_action_button{
+	cursor:pointer;
+}
+
 .temp_name_input_container{
 	font-size:1em;
     display:none;
@@ -1420,8 +1467,12 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	margin-top:5px;
 }
 
-#footer a:hover{
-	color:#f38dab;
+#footer .cta {
+	cursor: pointer;
+}
+
+#footer .cta:hover, #footer a:hover{
+	color:#f33c72;
 }
 
 
@@ -1436,8 +1487,6 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 #friendlist{
 	margin-top:40px;
 }
-
-
 
 @font-face {
     font-family: 'nimbussanconregular';
@@ -1457,7 +1506,7 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	top:0;
 	left:0;
 	background: url('../img/assets/black-opacity-70.png');
-	z-index: -99999;
+	z-index: 9999;
 	width:100%;
 	height:100%;
 	display:none;
@@ -1517,25 +1566,21 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	letter-spacing:1px;
 	text-align:center;
 	text-transform: uppercase;
+	cursor:pointer;
 }
 
-.pink_btn_rollover{
-	font-size: 11px;
+.pink_btn:hover{
 	background-color:#f33c72;
 	color:white;
-	-moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -khtml-border-radius: 50px;
-    border-radius: 50px;
-    behavior: url(css/PIE.htc);
-    padding:6px 13px 6px 13px;
-    display:inline-block;
-    *display: inline;
-	zoom: 1;
-	font-weight:lighter;
-	letter-spacing:1px;
-	text-align:center;
-	text-transform: uppercase;
+	text-decoration: none
+}
+
+.pink_btn_dark{
+	background-color:#f33c72;
+}
+
+.pink_btn_dark:hover{
+	background-color: #c20e43;
 }
 
 .pink_filter_btn{
@@ -1543,10 +1588,6 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
     margin-bottom:10px;
 }
 
-.pink_filter_btn_rollover{
-    padding:6px 13px 4px 13px;
-    margin-bottom:10px;
-}
 
 #filter_instagram_btn{
 	margin-top:0;
@@ -1600,7 +1641,7 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 #language_menu.dropdown-menu img{
-	margin-top:1px;
+	margin-top:-2px;
 }
 
 #language_menu.dropdown-menu li div{
@@ -1619,12 +1660,20 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 
 #language_menu .language{
 	text-decoration: underline;
-	color:#333;
+	color:#777;
+}
+
+#language_menu .language:hover{
+	color:#f38dab;
 }
 
 #language_menu .language_divider{
 	color:#333;	
 	
+}
+
+.language_divider{
+	margin: 0 5px 0 5px;
 }
 
 

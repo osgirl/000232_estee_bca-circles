@@ -64,7 +64,7 @@ facebook.fetchFriendlist = function( _callback ){
 				friendObj.name = value.name;
 			
 	        	FB.api('/'+value.id+'/picture?type=large', function(fbresponse_b){
-	        		console.log("-- got "+ friendObj.name + "s photo. --" );
+	        		// console.log("-- got "+ friendObj.name + "s photo. --" );
 
 			    	if (fbresponse_b && fbresponse_b.data){
 				       	$(fbresponse_b.data).each(function(i,v){

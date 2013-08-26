@@ -53,8 +53,6 @@ function Gallery()
 
 		var allPhotoData;
 		var morePhotoData;
-
-		var galleryItem;
 		
 
 		var circleFeed;
@@ -84,11 +82,11 @@ function Gallery()
 
 		function lazyloader(){
 
-			if(currentFilterType == "circle" || currentFilterType == "friend"){
-				SCROLL_TO_SHOW_FOOTER = 2400
-			}else{
-				SCROLL_TO_SHOW_FOOTER = 2000
-			}
+			// if(currentFilterType == "circle" || currentFilterType == "friend"){
+			// 	SCROLL_TO_SHOW_FOOTER = 2400
+			// }else{
+				SCROLL_TO_SHOW_FOOTER = 1800
+			//}
 
 			if($(window).scrollTop() + $(window).height() == getDocHeight() ) {
 
@@ -101,17 +99,17 @@ function Gallery()
 				isMoreFeed = true;
 
 				pageNum++;
-				$('#donate_area').fadeIn();
-	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+				console.log("PAGE PLUS", pageNum)
 				loadLayout();
 
 	  		}else if($(window).scrollTop() > SCROLL_TO_SHOW_FOOTER){
-	  			$('#donate_area').show();
+	  			$('#donate_area').fadeIn();
 	  			$('#donate_area').addClass('footer_fixed').removeClass('footer_relative');
 
 	  		}else if($(window).scrollTop() <= SCROLL_TO_SHOW_FOOTER){
-	  			//$('#donate_area').fadeOut();
+	  			$('#donate_area').fadeOut();
 	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+
 	  		}
 
 		};
@@ -161,11 +159,10 @@ function Gallery()
 
 	                		circleFeedDataArray.push(feedData);
 
-		            		circleFeedDataArray.sort(function sortNumber(a, b){
-
-							  var aNum = Number(a.circle_id);
-							  var bNum = Number(b.circle_id); 
-							  return ((aNum > bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+		            		circleFeedDataArray.sort(function(a, b) {
+		            			var aNum = Number(a.circle_id);
+		            			var bNum = Number(b.circle_id);
+							   return (aNum > bNum) ? 1 : -1;
 							});
 
 	                		$.ajax({
@@ -175,29 +172,36 @@ function Gallery()
 				            	
 				            	success: function(layoutData) {  
 
+				            		
+
 				            		var circleDiv = $('<div>');
 				            			circleDiv.append(layoutData)
 				            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
-				            		$('.layout_circle').append(circleDiv);
+
+				            		var rowTarget = (containerCount<2) ? 0 : 1;
+				            		$($($('.page' + pageNum).find('.row')).get(rowTarget)).append(circleDiv);
+
 				            		$(circleDiv).hide();
 				            		$(circleDiv).fadeIn(200);
 
+				            		containerCount++;
+
 				            		var contentData = {
-										index:i,
+										index:containerCount,
 										item:$(circleDiv),
 										totalNum:data.length*pageNum,
-										colNum:CIRCLE_LAYOUT_COLUMN_NUM
+										colNum:CIRCLE_LAYOUT_COLUMN_NUM,
+										type:'circle'
 									}
 
-									galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount]);
+									galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount-1]);
 
-									if(containerCount == data.length-1) {
-
-										updateGalleryLayout(contentData);
+									updateGalleryLayout(contentData);
+									if(containerCount == data.length) {
 										$('body').trigger('ALL_LAYOUT_CREATED');
 									}
 
-									containerCount++;
+									
 
 									$(window).unbind('scroll').bind('scroll', lazyloader);
 
@@ -301,6 +305,7 @@ function Gallery()
 
 			if(feed.length < getNum){
 				isMore = false;
+				$(window).unbind('scroll').bind('scroll', lazyloader);
 			}else{
 				isMore = true;
 			}
@@ -350,6 +355,7 @@ function Gallery()
 		function parsePhotoData(data){
 
 			photoFeed = data;
+			uploadedPhotoCount = 0;
 
 			if(data.length == 0) return;
 
@@ -357,19 +363,15 @@ function Gallery()
 
 			var feed;
 
-			uploadedPhotoCount = 0;
-
 			$(data).each(function(i){
 				feed = data[i].data;
-
-				getPhotoData(i, data, feed);
+				getPhotoData(data, feed);
 
 			});
 		}
 
-		function getPhotoData(i, data, feed){
+		function getPhotoData(data, feed){
 
-			uploadedPhotoCount++;
 			$.ajax({
 	        		type: 'post',
 	            	url: baseUrl + indexPage + 'photo/fetchUploadedPhotoData',
@@ -378,6 +380,7 @@ function Gallery()
 	            		photo_id: feed.text
 	            	},
 	            	success: function(dbData) {  
+
 
 	            		var photoIcon = baseUrl + "img/icons/bca.png";          
 
@@ -389,24 +392,43 @@ function Gallery()
 									content:dbData.description,
 									photo_url:baseUrl + "uploads/" + dbData.filename
 								}}
-	                	var html = "<img class='full_photo' src='" + baseUrl + "uploads/" + dbData.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 
-						var contentData = {
-							index:i,
-							item:photoDiv(i),
-							totalNum:data.length*pageNum,
-							type:'photo',
-							content:html,
-							popupData:popupData,
-							colNum:PHOTO_LAYOUT_COLUMN_NUM
-						}
+						// var image = $('<img/>');
+						// 	image.attr('src', baseUrl + "uploads/" + dbData.filename);
 
-						populatePhotoContent(contentData);
+						// image.load(function(){
+						// 	console.log('IMAGE LOADED')
+						// })
 
-						if(uploadedPhotoCount == data.length)$('body').trigger("ALL_LAYOUT_CREATED");
+						// image.error(function(){
+						// 	console.log('no image loaded')
+						// })
 
-						$(window).unbind('scroll').bind('scroll', lazyloader);
 
+						uploadedPhotoCount++;
+
+							var html = "<img class='full_photo' src='" + baseUrl + "uploads/" + dbData.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
+
+
+							var contentData = {
+								index:uploadedPhotoCount,
+								item:photoDiv(uploadedPhotoCount),
+								totalNum:data.length*pageNum,
+								type:'photo',
+								content:html,
+								popupData:popupData,
+								colNum:PHOTO_LAYOUT_COLUMN_NUM
+							}
+
+							populatePhotoContent(contentData);
+
+							if(uploadedPhotoCount == data.length) $('body').trigger("ALL_LAYOUT_CREATED");
+
+							$(window).unbind('scroll').bind('scroll', lazyloader);
+
+	             	},
+	             	error: function(XMLHttpRequest, textStatus, errorThrown){
+	             		console.log('this is an error', textStatus, errorThrown)
 	             	}
 			});
 		}
@@ -414,6 +436,7 @@ function Gallery()
 		function parseInstagramData(data){
 
 			instagramFeed = data;
+			uploadedPhotoCount = 0;
 
 			if(data.length == 0) return;
 
@@ -423,13 +446,12 @@ function Gallery()
 
 			$(data).each(function(i){
 				feed = data[i].data;
-
-				getInstagramData(i, data, feed);
+				getInstagramData(data, feed);
 
 			})
 		}
 
-		function getInstagramData(i, data, feed){
+		function getInstagramData(data, feed){
 
 			var popupData = {
 						type:'photo', 
@@ -445,9 +467,10 @@ function Gallery()
 
 				var html = "<img class='full_photo' src='" + feed.photos[0].url + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 
+				uploadedPhotoCount++;
 				var contentData = {
-					index:i,
-					item:photoDiv(i),
+					index:uploadedPhotoCount,
+					item:photoDiv(uploadedPhotoCount),
 					totalNum:data.length*pageNum,
 					type:'instagram',
 					content:html,
@@ -463,6 +486,7 @@ function Gallery()
 		function parseTwitterData(data){
 
 			twitterFeed = data;
+			uploadedPhotoCount = 0;
 
 			if(data.length == 0) return;
 
@@ -472,14 +496,15 @@ function Gallery()
 
 			$(data).each(function(i){
 				feed = data[i].data;
-
-				getTwitterData(i, data, feed);
+				
+				getTwitterData(data, feed);
 
 			})
 
 		}
 
-		function getTwitterData(i, data, feed){
+		function getTwitterData(data, feed){
+
 			var popupData = {
 							type:'twitter', 
 							data:{
@@ -496,10 +521,10 @@ function Gallery()
 					html	+= "<div class='twitter_time'>"+ tsToDate(feed.timestamp) + "</div></div>"
 					html	+= "<div class='twitter_text'>"+ feed.text + "</div>"
 					html 	+= "<img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
-
+				uploadedPhotoCount++;
 				var contentData = {
-					index:i,
-					item:photoDiv(i),
+					index:uploadedPhotoCount,
+					item:photoDiv(uploadedPhotoCount),
 					totalNum:data.length*pageNum,
 					type:'twitter',
 					content:html,
@@ -519,8 +544,6 @@ function Gallery()
 			var feed;
 
 			createPhotoLayout();
-
-			console.log(data.length)
 
 			$(data).each(function(i){
 				feed = data[i].data;
@@ -568,17 +591,20 @@ function Gallery()
 
 		function updateGalleryLayout(contentData){
 
-			if(contentData.index%contentData.colNum == contentData.colNum-1) 
+			if((contentData.index-1)%contentData.colNum == contentData.colNum-1) 
 				$(contentData.item).css('margin-right', '0');
+
 										
 			//var rowNum = Math.ceil(contentData.totalNum/contentData.colNum);
 			//var getHeight = ($(contentData.item).height() + 130)*rowNum;
-			var getHeight = 800*pageNum;
 
-			if(getHeight > 800) {
+			var baseHeight = (contentData.type == "circle") ? 1300 : 1000;
+			var getHeight = baseHeight*pageNum;
+
+			if(getHeight > baseHeight) {
 				$('#gallery').height(getHeight);
 			}else{
-				$('#gallery').height(800);
+				$('#gallery').height(baseHeight);
 			}
 
 		}
@@ -611,14 +637,14 @@ function Gallery()
 function onFetchFriendCircleData($data){
 	console.log("onFetchFriendCircleData");
 
-
 			createCircleLayout();
 			circleFriendFeed 		= $data;
 
-		 	$($data).each(function(i){
+			var containerCount 		= 0;
+			var circleFeedDataArray = new Array();
 
-			 	var containerCount 		= 0;
-			 	var circleFeedDataArray = new Array();
+		 	$($data).each(function(i){	
+			 	
 		  	 	var feed 				= $data[i];
          		circleFeedDataArray.push(feed);
 
@@ -631,24 +657,29 @@ function onFetchFriendCircleData($data){
 	            		console.log("layout success");
 	            		var circleDiv = $('<div>');
 	            			circleDiv.append(layoutData)
-	            			         .addClass('span6 circle_container gallery_item flex_margin_bottom');
-	            		$('.layout_circle').append(circleDiv);
+	            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
+	            		var rowTarget = (containerCount<2) ? 0 : 1;
+				            		$($($('.page' + pageNum).find('.row')).get(rowTarget)).append(circleDiv);
 	            		$(circleDiv).hide();
 	            		$(circleDiv).fadeIn(200);
 
+	            		containerCount++;
+
+	            		console.log('huh', containerCount)
+
 	            		var contentData = {
-							index:i,
+							index:containerCount,
 							item:$(circleDiv),
 							totalNum: $data.length*pageNum,
-							colNum:CIRCLE_LAYOUT_COLUMN_NUM
+							colNum:CIRCLE_LAYOUT_COLUMN_NUM,
+							type:'circle'
 						}
 
-						galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount]);
+						galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount-1]);
 
-						if(containerCount == $data.length-1) 
-							updateGalleryLayout(contentData);
+						updateGalleryLayout(contentData);
 
-						containerCount++;
+						
 
 						$(window).unbind('scroll').bind('scroll', lazyloader);
 
@@ -677,6 +708,7 @@ function onFetchFriendCircleData($data){
 				});
 		 	}else{
 		 		console.log("no more in feed")
+		 		$(window).unbind('scroll').bind('scroll', lazyloader);
 		 	}
 
 		};//end getFriendCircleData
@@ -847,6 +879,13 @@ function onFetchFriendCircleData($data){
 			circleLayout.addClass('layout_circle gallery_layout page' + pageNum)
 						.appendTo(gallery_container);
 
+			for(var i=0; i<2; i++){
+				var row = $('<div>');
+				row.addClass('row')
+					.appendTo(circleLayout);
+
+			}
+
 
 		}
 
@@ -925,8 +964,6 @@ function onFetchFriendCircleData($data){
 		
 		loadGallery: function(){
 
-			galleryItem = new GalleryItem();
-
 			$(window).scrollTop(0);
 
 			gallery_container = $('#feed_magnet');
@@ -951,9 +988,10 @@ function onFetchFriendCircleData($data){
 
 		},
 
-		refreshAsFakeCircleData: function(data){	
+		refreshAsFakeCircleData: function(data, isUpdateFriend){	
 			var fakeDiv = $('.gallery_circle').get(0);
 			galleryItem.populateCircleContent($(fakeDiv), data);
+
 		},
 
 		refreshAsFakePhotoData: function(data){	
@@ -995,9 +1033,6 @@ function onFetchFriendCircleData($data){
 			$(window).unbind('scroll');
 		},		
 
-		openPopUp:function(data){
-			galleryItem.openPopUp(data);
-		},
 
 		/**
 		*	@private
