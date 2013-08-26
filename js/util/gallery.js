@@ -988,9 +988,10 @@ function onFetchFriendCircleData($data){
 
 		},
 
-		refreshAsFakeCircleData: function(data){	
+		refreshAsFakeCircleData: function(data, isUpdateFriend){	
 			var fakeDiv = $('.gallery_circle').get(0);
 			galleryItem.populateCircleContent($(fakeDiv), data);
+
 		},
 
 		refreshAsFakePhotoData: function(data){	

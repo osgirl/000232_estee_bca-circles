@@ -960,7 +960,7 @@ function createCircle(){
 	});
 
 	openLoadingScreen();
-	//facebook.createCircle(friendSelectedArray);
+	facebook.createCircle(friendSelectedArray);
 }
 
 function saveCircleToCookie($data){
@@ -1108,6 +1108,23 @@ function updateFriends(){
         		    var circle_id = currentCircleViewData.id;
         		    var circle_content = currentCircleViewData.content;
         		    var circle_photo = currentCircleViewData.avatar;
+
+     //    		    var cookieData 					= {};
+					// cookieData.circle_id 			= circle_id;
+					// cookieData.user_id				= userID;
+					// cookieData.user_name			= userName;
+					// //cookieData.goal 				= data.goal;
+					// //cookieData.goal_type 			= currentSameGoalType;
+					// cookieData.country				= country;
+					// //cookieData.goal_id  			= data.goal_id;
+					// //cookieData.language 			= data.language;
+					// cookieData.user_photo_url		= userProfilePhoto;
+					// cookieData.friends_data			= friendsData;
+
+					// saveCircleToCookie(cookieData);
+
+					// gallery.refreshAsFakeCircleData(cookieData); 
+
 
 					var popupData = {
 						type:'circle',
