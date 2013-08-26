@@ -71,6 +71,7 @@ function tsToDate(ts)
  *   users_fb_id
  *   type
  *   child
+ *   child_id
  *   outlink
  */
 $.extend(
@@ -194,6 +195,7 @@ $.extend(
                 friends_data: null,
                 users_fb_id: null,
                 child: null,
+                child_id: null,
                 outlink: null,
                 is_user:null
             };
@@ -245,8 +247,8 @@ $.extend(
               function(response) {
                 if (response && response.post_id)
                   $.gaEvent((v.post_type).capitalize(), 'Shared','by Facebook');
-                else
-                 alert('Post was not published. Please try again.');
+                // else
+                 // alert('Post was not published. Please try again.');
               }
             );
         } 
@@ -254,8 +256,8 @@ $.extend(
             var type = v.post_type != undefined ? v.post_type : "";
             var id = v.id != undefined ? v.id : "";
             var action = v.action != undefined ? v.action : "";
-            openShareWindow(575, 380, baseUrl + "home/twitter_share/" + type + "/" + id + "/" + action , 'Twitter');
-            $.gaEvent('Circle', 'Shared','by Twitter');
+            openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + type + "/" + id + "/" + action , 'Twitter');
+            $.gaEvent((v.post_type).capitalize(), 'Shared','by Twitter');
         }
     }
 });
@@ -604,9 +606,9 @@ $.extend(
 })(jQuery);
 
 
-/******************************************
+/*************************************************************
  * Private function for Circle Detail Window (jquery extend)
- ******************************************/
+ *************************************************************/
 (function($)
 {
     var $this, $d, $c, $win_abs_y, $scroll_y, $margin_top, $margin_bottom, $padding_top, $gap, $bound = {}, $hasPhoto, $pagn, $nav_count;
@@ -676,7 +678,7 @@ $.extend(
 
             if (e.type == 'resize' && $hasPhoto)
             {
-                resizeCirclePHotosNav();
+                resizeCirclePhotosNav();
             }
         });
 
@@ -781,6 +783,7 @@ $.extend(
                             type: 'photo',
                             data: {
                                 id: v[i].id,
+                                circle_id: $d.circle_id,
                                 source: 'bca',
                                 content: v[i].description,
                                 photo_url: baseUrl + 'uploads/' + v[i].filename,
@@ -814,6 +817,7 @@ $.extend(
 
                     tmbs_width += 220;
                 });
+
                 $hasPhoto = true;
                 $tmbs.width(tmbs_width);
                 $container.parent().animate(
@@ -826,7 +830,13 @@ $.extend(
                 });
 
                 //Add swipe event if photo is more than two
-                if (v.length > 2) $container.on('swipeleft swiperight', carouselSwipeHandler);
+                if (v.length > 2) 
+                    $container.on('swipeleft swiperight', carouselSwipeHandler);
+
+                //Check if the circle opened with child_id and popup the photo if it's available.
+                if( $d.child_id != null)
+                    openPhotofromExternalLink($d.child_id);
+
             }
             else
             {
@@ -834,7 +844,7 @@ $.extend(
                 loadCommentBox();
                 resizeGalleryHeight();
             }
-            resizeCirclePHotosNav();
+            resizeCirclePhotosNav();
 
             function imgLoadComplete()
             {
@@ -861,7 +871,7 @@ $.extend(
         $('<iframe src="' + iframeSrc + '"></iframe>').appendTo($holder);
     }
 
-    function resizeCirclePHotosNav()
+    function resizeCirclePhotosNav()
     {
         var $container = $($c + ' #popup_circle_photo_carousel_wrapper #container'),
             $tmbs = $container.children(),
@@ -939,6 +949,46 @@ $.extend(
         if ($pagn.css('display') == 'block') navPhoto(e.type);
     }
 
+    function editFriends(v)
+    {
+        currentCircleViewData = v;
+       $('body').trigger('EDIT_FRIEND');
+    }
+
+    function openPhotofromExternalLink($id)
+    {
+        $.ajax(
+        {
+            type: 'POST',
+            url: baseUrl + indexPage + 'circle_photo/get',
+            dataType: 'json',
+            data: {
+                id: $id
+            },
+            success: function(data)
+            {
+                console.log(data);
+                $.popup(
+                        {
+                            type: 'photo',
+                            data: {
+                                id: data.id,
+                                circle_id: data.ref_circle_id,
+                                source: 'bca',
+                                content: data.description,
+                                photo_url: baseUrl + 'uploads/' + data.filename,
+                                child: true
+                            }
+                        })
+
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+                console.log('Error ' + textStatus);
+            }
+        });
+    }    
+
     function closeWindow()
     {
         $('#magnet_feed').animate(
@@ -958,14 +1008,6 @@ $.extend(
             $.address.path('/ ');
         });
     }
-
-    function editFriends(v)
-    {
-        currentCircleViewData = v;
-
-       $('body').trigger('EDIT_FRIEND');
-    }
-
 
 })(jQuery);
 
@@ -1153,7 +1195,8 @@ function checkAndLoadExternalUrl()
                         avatar: data.user_photo_url,
                         users_fb_id: data.user_id,
                         num_friends: data.friends_data.length,
-                        outlink: true
+                        outlink: true,
+                        child_id: (adr[5] != undefined) ? adr[5] : null
                     }
                 });
             }

@@ -11,6 +11,19 @@ class Circle_Photo extends CI_Controller {
 	{		
 	}
 
+	public function get()
+	{
+		$post = $this->input->post();
+		if( isset ( $post['id'] ) ){
+			$query = array('id' => $post['id']);			
+			$result = $this->circle_photos_model->get($query);
+			echo json_encode($result);
+		}
+		else{
+			echo 'Invalid access';
+		}
+	}
+
 	public function getlist()
 	{
 		$post = $this->input->post();
