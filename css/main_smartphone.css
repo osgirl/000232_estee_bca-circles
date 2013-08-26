@@ -44,7 +44,7 @@
 	}
 
 	#custom_action{
-		min-width: 380px;
+		min-width: 350px;
 	}
 	
 }
@@ -82,7 +82,7 @@
 	}
 	
 	#my_circles{
-		padding:2% 0 3% 15%;
+		padding:2% 2% 3% 15%;
 	}
 	
 	#trending_actions_2{
@@ -314,8 +314,8 @@
 	
 	#my_circles{
 		background:none;
-		width:53%;
-		padding:5% 0 3% 0;
+		width:51%;
+		padding:5% 2% 3% 0;
 	}
 	
 	#trending_actions_2{
@@ -411,7 +411,7 @@
 		line-height: 1em;
 	}
 
-	.jspVerticalBar
+	#friend_photos .jspVerticalBar
 	{
 		width: 25px;
 	}

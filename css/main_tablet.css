@@ -6,9 +6,8 @@
    =============== */
 
    body{
-   	width:100%;
-   	margin-left:0;
    	overflow-x: visible !important;
+   	overflow-y: visible !important;
    }
 
 	 #top_nav{
@@ -71,8 +70,8 @@
 	
 	#my_circles{
 		background:none;
-		width:53%;
-		padding:5% 0 3% 0;
+		width:51%;
+		padding:5% 2% 3% 0;
 	}
 
 	
@@ -199,8 +198,8 @@
 	}
 	
 	#my_circles{
-		padding:3% 0 3% 2.5%;
-		width:30.5%;
+		padding:3% 2% 3% 2.5%;
+		width:28.5%;
 		background:url('../img/assets/v-divider.png') no-repeat left center;
 	}
 

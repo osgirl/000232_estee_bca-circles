@@ -153,6 +153,7 @@
 							</div>
 							<div id="my_circles" class='user_stats span4'>
 								<h2>My Circles</h2>
+								<div id="my_circle_scroll" class="scroll-pane"></div>
 							</div>
 							
 							<div id="trending_actions_2" class='user_stats span4'>

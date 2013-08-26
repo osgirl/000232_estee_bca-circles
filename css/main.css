@@ -34,6 +34,7 @@ body {
 	color:#333;
 	width: auto !important;
  	overflow-x: hidden !important;
+ 	overflow-y: hidden !important;
 }
 
 /*
@@ -476,7 +477,7 @@ h2{
 
 #my_circles{
 	background:none;
-	padding:2% 0 3% 6%;
+	padding:2% 4% 3% 6%;
 }
 
 .circle_view_link{
@@ -1046,7 +1047,7 @@ h2{
 	color:white;
 	background-color:#10dcd6;
 	font-size:1.6em;
-	/*padding:20px 2% 16px 4%;*/
+	padding:20px 2% 16px 4%;
 	font-weight:lighter;
 	margin-top:0;
 	text-align:center;
@@ -1173,7 +1174,7 @@ h2{
 }
 
 #friend_search_field{
-	font-size:2em;
+	font-size:1.8em;
     background-color:#e8e8e8;
     border:none;
     text-align:left;
@@ -1181,7 +1182,6 @@ h2{
     letter-spacing: 1px;
     box-shadow:none;
     margin-top:-7px;
-
 }
 
 #friend_search_field:focus{
@@ -1378,11 +1378,29 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 .scroll-pane{		
-    width: 100%;
-	height: 100%;
+    
 	overflow: auto;
 	outline:none;
+	
+}
+
+#friend_photos .scroll-pane{
 	margin-top:10px;
+	/*width: 100%;*/
+	/*height: 100%;*/
+}
+
+#friend_photos .jspVerticalBar{
+	width:25px;
+}
+
+#my_circle_scroll{
+	width: 100%;
+	height: 190px;
+}
+
+#friend_photos .jspVerticalBar{
+	width:15px;
 }
 
 #close_friend_photos_btn{
@@ -1391,10 +1409,6 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	top:7px;
 }
 
-.jspVerticalBar
-	{
-		width: 15px;
-	}
 
 /*CREATE CIRCLE CONFIRM*/
 #circle_confirm_screen{
