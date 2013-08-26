@@ -628,7 +628,7 @@ h2{
 	height:39px;
 	background-size: 42px auto;
 	background-image: url('../img/flags/large/united-states.png');
-	background-position: 0 -1px;
+	background-position: -1px -1px;
 }
 
 .rollover_link{

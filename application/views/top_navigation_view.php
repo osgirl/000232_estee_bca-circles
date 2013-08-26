@@ -1,4 +1,4 @@
-<div class="navbar navbar-fixed-top">
+<div id="top_navigation_view" class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div id="top_nav" class="container">
                 	
