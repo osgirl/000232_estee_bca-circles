@@ -436,6 +436,8 @@ function closeCreateCircleScreen(){
 	$("#create_circle_screen").hide();
 	closeFriendPhotosPanel();
 	createCircleWindowOpen = false;
+	$('#content_wrap').css('z-index', '9999');
+	$('.overlay').css('z-index', '-9999');
 }
 
 function openCancelScreen(){
