@@ -17,8 +17,8 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed sodales est. Vivamus non dolor tempus, aliquet diam sagittis, molestie tortor.</p>
 		<ul id="popup_footer_share">
 			<li>SHARE</li>
-			<li class="share-ico" id="popup_footer_share_facebook" onclick="$.popup_share({type:'facebook'})"></li>
-			<li class="share-ico" id="popup_footer_share_twitter" onclick="$.popup_share({type:'twitter'})"></li>
+			<li class="share-ico" id="popup_footer_share_facebook" onclick="$.popup_share({post_type:'video', url:'#/video', type:'facebook'})"></li>
+			<li class="share-ico" id="popup_footer_share_twitter" onclick="$.popup_share({post_type:'video', url:'#/video', type:'twitter'})"></li>
 		</ul>
 	</div>
 </div>
