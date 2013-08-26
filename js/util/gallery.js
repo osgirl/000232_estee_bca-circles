@@ -853,12 +853,8 @@ function onFetchFriendCircleData($data){
 	  			 					$(window).bind('scroll', lazyloader);
 	  			 					
 	  			 				}
-
-	  			 				console.log('layout is created')
-
 	  			 				$('body').trigger('ALL_LAYOUT_SINGLE_CREATED');
 
-								
 			             	}
 			      		});
 						

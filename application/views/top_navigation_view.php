@@ -27,6 +27,7 @@
 
                     </span>
 
+
                     <div class="nav-collapse collapse">
                         <ul id='top_main_nav' class="nav">
                             <li><a id="conversation_btn" href="#conversation" onclick="$('.popup#popup_circle .btn_close').trigger('click');" class='all_cap'>Conversation</a></li>
@@ -36,31 +37,30 @@
                         </ul>
                         <div id='top_sub_nav' class='pull-right'>
                             <span class='top_sub_nav_item'>
-                            	<span class='top_user_name user_name_display' class='all_cap'></span>
-								<a class='sign_in_btn'>
+                                <span class='top_user_name user_name_display' class='all_cap'></span>
+                                <a class='sign_in_btn'>
                                     <span class='sign_in all_cap pink_text' style="vertical-align:center;">SIGN IN</span>
-								    <span><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></span>
+                                    <span><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></span>
                                 </a>
-							</span>
-							<span class="language_divider"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
-							<span class='top_sub_nav_item'>
-	                            <span class="language_toggle_btn dropdown">
-	                                <?php include('top_popup/language_dropdown_view.php');?>
-	                            </span>
                             </span>
                             <span class="language_divider"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
                             <span class='top_sub_nav_item'>
-                            	<span class='all_cap' style="vertical-align:center;">share</span>
-                            	<a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'facebook'})" style="margin-top:-1px" class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></a>
-								<a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'twitter'})" style="margin-top:-1px" class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></a>
-							</span>
+                                <span class="language_toggle_btn dropdown">
+                                    <?php include('top_popup/language_dropdown_view.php');?>
+                                </span>
+                            </span>
+                            <span class="language_divider"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
+                            <span class='top_sub_nav_item'>
+                                <span class='all_cap' style="vertical-align:center;">share</span>
+                                <a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'facebook'})" style="margin-top:-1px" class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></a>
+                                <a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'twitter'})" style="margin-top:-1px" class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></a>
+                            </span>
                         </div>
                         
                     </div><!--/.nav-collapse --> 
-
                     <?php include('top_popup/create_circle_view.php');?>
 
-    </div>
+            </div>
     <?php include('top_popup/cancel_view.php');?>
     <?php include('top_popup/circle_confirm_view.php');?>
 </div>

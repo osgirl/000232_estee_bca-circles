@@ -8,6 +8,7 @@
    body{
    	width:100%;
    	margin-left:0;
+   	overflow-x: visible !important;
    }
 
 	 #top_nav{

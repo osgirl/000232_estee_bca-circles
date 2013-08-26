@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>BCA - We are Stronger Together</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <meta property="fb:app_id" content="704339276259855">
@@ -61,7 +61,7 @@
 		                <div class="top_content_span span6">
 		                    <div id="big_image"><img src='<?= base_url(); ?>img/pics/stronger-together.jpg'/>
 			                    <div id="tagline">
-			                    	<div class="stronger_together all_cap">we’re stronger<br /><span style="font-size:165%">together</div>
+			                    	<div class="stronger_together all_cap">we’re stronger<br /><span style="font-size:165%">together</span></div>
 			                    	<div class="copy_text">Together, take action in defeating breast cancer by inviting your friends to join your circle of strength. Show how you're fighting breast cancer by adding a photo, creating a circle, or tagging #BCAstrength.</div>
 			                    </div>
 		                    </div>

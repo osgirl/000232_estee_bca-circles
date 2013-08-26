@@ -22,14 +22,18 @@ textarea {
     color: #222;
 }
 
+html{
+	width: auto !important;
+  	overflow-x: hidden !important;
+}
 body {
     font-size: 100%;
     line-height: 1.4;
 	font-family: 'Helvetica', Arial, Verdana;
 	padding: 0;
 	color:#333;
-	width:88%;
-	margin-left:5.5%;
+	width: auto !important;
+ 	overflow-x: hidden !important;
 }
 
 /*
@@ -797,7 +801,7 @@ h2{
     width:300px;
     height:300px;
     display:inline-block;
-    margin-left:-12px;
+    margin-left:-14px;
 }
 
 .feature_circle .circle_area{
