@@ -170,7 +170,7 @@ facebook.createCircle = function(_friendids){
 
 facebook.createPhoto = function( _data, _callback ){
 	$.ajax({
-		url	: 'http://staging.click3x.com/estee_lauder/bca/php/create-circle.php',
+		url	: baseUrl + indexPage + 'photocreate-circle.php',
 		type : "post",
 		dataType:"json",
 		data : {
@@ -182,7 +182,7 @@ facebook.createPhoto = function( _data, _callback ){
 		success : function(_response){
 			console.log('---- create photo success. ' + _response.result + ' ----'); 
 
-			if(_callback) _callback( "http://staging.click3x.com/estee_lauder/bca/php/" + _response.filename);
+			if(_callback) _callback( baseUrl + indexPage + "img" + _response.filename);
 		},
 		fail : function(_response){ 
 			console.log('---- create photo failed. ----'); 

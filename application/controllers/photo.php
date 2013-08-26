@@ -108,6 +108,7 @@ class Photo extends CI_Controller {
 
 	public function saveFile(){
 		$data = $this->input->post();
+
 		if(!empty($data)){
 			$len = $this->img_length;
 			$canvas = imagecreatetruecolor($len, $len);
@@ -215,7 +216,7 @@ class Photo extends CI_Controller {
 			echo 'Invalid access';
 	}
 
-	public function save_circle_photo(){
+	public function save_facebook_photo(){
 		$data = $this->input->post();
 
 		$this->load->library("image_smooth_arc");
@@ -233,7 +234,7 @@ class Photo extends CI_Controller {
 		$user_name      = $data.user_name;
 		$content_text   = $data.content;
 		$circle_id      = $data.circle_id;
-		$filename       = "circle_photo_".$circle_id.".jpg";
+		$filename       = base_url(). "uploads/facebook/" . "circle_photo_".$circle_id.".jpg";
 
 		$steps          = count( $thumbs_url );
 		$radius         = 180;
@@ -262,7 +263,7 @@ class Photo extends CI_Controller {
 		  }
 		  //If image is not available, draw whie dot
 		  else {
-		    imageSmoothArc( $canvas, $x, $y, 20, 20, array( 255, 255, 255, 0 ), M_PI/2, 0 );
+		    $this->image_smooth_arc->imageSmoothArc( $canvas, $x, $y, 20, 20, array( 255, 255, 255, 0 ), M_PI/2, 0 );
 		  }
 		}
 
@@ -288,7 +289,6 @@ class Photo extends CI_Controller {
 		              );
 
 		echo json_encode($data);
-		// End ingres_result_seek(result, position)	
 	}
 
 	function image_mask( &$img, &$mask ) {
