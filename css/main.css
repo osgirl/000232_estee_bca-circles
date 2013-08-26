@@ -23,8 +23,8 @@ textarea {
 }
 
 html{
-	width: auto !important;
-  	overflow-x: hidden !important;
+/*	width: auto !important;
+  	overflow-x: hidden !important;*/
 }
 body {
     font-size: 100%;
