@@ -226,7 +226,8 @@ $.extend(
     popup_share: function(v)
     {
         if (v.post_type == 'circle')
-            u = '/circle/' + v.id + '/?refferal=circle';
+            // u = '/circle/' + v.id + '/?refferal=circle';
+            u = '/circle/' + v.id;
         else
             u = v.url;
 
@@ -1276,6 +1277,12 @@ function checkAndLoadExternalUrl()
             })
         }
     }
+
+    //Check refferal and send gaEvent if available
+    var ref = getURLParameter('refferal');
+    if (ref != undefined)
+        $.gaEvent('Refferal',ref.capitalize())
+
 }
 
 
@@ -1313,6 +1320,17 @@ function openShareWindow(_w, _h, _url, _title)
         top = window.screenY + ((window.outerHeight - height) / 2),
         opts = 'location=0' + ',toolbar=0' + ',titlebar=0' + ',status=0' + ',width=' + width + ',height=' + height + ',top=' + top + ',left=' + left;
     window.open(_url, _title, opts);
+}
+
+function getURLParameter(param){
+    var sPageURL = $.address.queryString();//window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++){
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == param) {
+            return sParameterName[1];
+        }
+    }
 }
 
 String.prototype.capitalize = function()
