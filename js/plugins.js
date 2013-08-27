@@ -1307,7 +1307,13 @@ $.extend(
     {
         if (_label == undefined) _label = '';
         console.log(_category, _action, _label);
-        _gaq.push(['_trackEvent', _category, _action, _label]);
+        // _gaq.push(['_trackEvent', _category, _action, _label]);
+        ga('send', 'event', _category, _action, _label);
+    },
+    gaPageview:function(_url)
+    {
+        console.log('Pageview: ' + _url);
+        ga('send', 'pageview', _url);
     }
 });
 

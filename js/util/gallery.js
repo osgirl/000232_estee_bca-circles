@@ -128,13 +128,21 @@ function Gallery()
 		};
 
 		
-
+/*
+this function handles the onComplete of the loading the list of cirle ID's from feedmagnet
+then requests a list of circles 
+parse the circle data from feedmagnet and calls a route on our server to ccreates the markup from the list of 
+*/
 		function parseCircleData(data){
 
 			circleFeed = data;
+<<<<<<< HEAD
 
 			console.log("---------------------------------how many more circle data?", data.length)
 
+=======
+//oc: this is where we get
+>>>>>>> 657ed4ebfd6d8c61f09c709d8ff456215b159737
 			if(data.length == 0) return;
 
 			console.log("---------------------------------is circle end?", circleEnd, data.length);
@@ -157,6 +165,7 @@ function Gallery()
 	            	},
 	            	success: function(feedData) { 
 
+//oc: this is where we get CFM data 
 	                	if(currentFilterType != "all"){
 
 	                		//this extra step is to fix the circle id that sometimes is not in order
