@@ -160,17 +160,14 @@ facebook.logOut = function( _callback ){
 }
 
 facebook.createCircle = function(_friendsData){
-
-	console.debug('_friendsData');
-	console.debug(_friendsData);
-
 	facebook.createPhoto(_friendsData, function(data){		
-		
 		facebook.createAlbum( {name: facebook.albumName, message:facebook.albumMessage}, function( _album_response ){
 			facebook.postPhotoToAlbum( {album_id:_album_response.id, url: baseUrl + data['file_location'] , message:facebook.photoMessage}, function( _photo_response ){ // static img path for test : 'http://staging.click3x.com/estee_lauder/bca/img/circle_dotted_outline.png'			
 			// 	facebook.tagPhoto({photo_id:_photo_response.id, users:_friendsData}, function(){
 			// 		console.log("create circle complete");
 			// 	});
+
+					facebook.deletePhoto(data['file_location']);
 					console.log("create circle complete");
 			});
 		});
@@ -179,22 +176,28 @@ facebook.createCircle = function(_friendsData){
 }
 
 facebook.createPhoto = function( _data, _callback ){
-	// console.log(baseUrl + indexPage + 'photo/save_facebook_photo');
-	
-	console.log(JSON.stringify(_data));
-
 	$.ajax({
 		url	: baseUrl + indexPage + 'photo/save_facebook_photo', //baseUrl + indexPage + 'photocreate-circle.php',
 		type : "post",
-		// dataType:"json",
 		data : {data: JSON.stringify(_data)},
 		success : function(_response){
-			// console.log('---- create photo success. ' + _response + ' ----'); 
+			console.log('---- create photo success. ' + _response + ' ----'); 
 			// if(_callback) _callback( baseUrl + indexPage + "img" + _response.filename);
 			if(_callback) _callback( JSON.parse(_response) );
 		},
 		fail : function(_response){ 
 			console.log('---- create photo failed. ----'); 
+		}
+	});
+}
+
+facebook.deletePhoto = function(_fn){
+	$.ajax({
+		url: baseUrl + indexPage + 'photo/delete_photo',
+		type: 'post',
+		data: {data: _fn},
+		success : function(){
+			console.log('Deleted');
 		}
 	});
 }
