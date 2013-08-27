@@ -135,6 +135,11 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 */
 		function parseCircleData(data){
 
+			//oc: prep feedmagnet array for db req
+				//1. parse feedmagnet array deleting cookie if it matches
+				//2. insert circle id from cookie (if its there)
+				//3. req db circles with new array of circle ids
+
 			circleFeed = data;
 //oc: this is where we get
 			if(data.length == 0) return;
@@ -160,7 +165,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 	            	success: function(feedData) { 
 
 //oc: this is where we get CFM data 
-	                	if(currentFilterType != "all"){
+	                
 
 	                		//this extra step is to fix the circle id that sometimes is not in order
 
@@ -215,9 +220,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				             	}
 				      		});
 
-	                	}else{
-	                		galleryItem.populateCircleContent($($('.circle_container').get(i)), feedData);
-	                	}
+	   
 	             	}
 	      		});
 			});
