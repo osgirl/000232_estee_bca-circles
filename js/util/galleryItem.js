@@ -105,7 +105,8 @@ function GalleryItem()
 				type:shareType,
 				action: circle_goal,
 				id:circle_id,
-				post_type:itemType
+				post_type:itemType,
+				referral:'circle'
 			}
 			$.popup_share(shareData);
 		}

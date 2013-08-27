@@ -870,7 +870,9 @@ function getUserCircleData(){
     	data: {
     		user_id:userID
     	},
-    	success: function(data) {           
+    	success: function(data) {   
+
+    	data.reverse();     
 
         	var circlePlural;
 
@@ -1081,6 +1083,9 @@ function postCircleData(goal_id){
     	dataType: 'json',
     	data: value,
     	success: function(data) {   
+
+    		//oc: save circle id in cookie.
+
     		$.ajax({
 	        		type: 'post',
 	            	url: baseUrl + indexPage + 'friend/create',

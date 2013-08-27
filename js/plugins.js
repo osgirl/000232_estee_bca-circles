@@ -224,13 +224,17 @@ $.extend(
     popup_share: function(v)
     {
         if (v.post_type == 'circle')
-            // u = '/circle/' + v.id + '/?refferal=circle';
             u = '/circle/' + v.id;
+        else if (v.post_type =='page')
+            u = v.url;
         else
             u = v.url +'/';
 
         if (v.type == "facebook")
         {
+            if(v.referral !=undefined || v.referral !=null)
+                u +="/?referral=facebook-" + v.referral;
+
             var _caption;
             FB.ui(
             {
@@ -249,11 +253,15 @@ $.extend(
         }
         else if (v.type == "twitter")
         {            
-            var goal = v.action != undefined ? v.action : "";
-            u = u.replace(/\//gi,'-').replace(/\?/gi,'_').replace(/\=/gi,'^');
+            var goal = v.action != undefined ? v.action : "";            
+            if(v.referral !=undefined || v.referral !=null)
+                u +="/?referral=twitter-" + v.referral;
+
+            u = u.replace(/\//gi,'_').replace(/\?/gi,'~').replace(/\=/gi,'^');
             openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + u +"/" + escape(goal), 'Twitter');
             $.gaEvent((v.post_type).capitalize(), 'Shared', 'by Twitter');
         }
+        // console.debug("URL is: " + u);
     }
 });
 
@@ -1279,10 +1287,10 @@ function checkAndLoadExternalUrl()
         }
     }
 
-    //Check refferal and send gaEvent if available
-    var ref = getURLParameter('refferal');
+    //Check referral and send gaEvent if available
+    var ref = getURLParameter('referral');
     if (ref != undefined)
-        $.gaEvent('Refferal',ref.capitalize())
+        $.gaEvent('referral',ref.capitalize())
 
 }
 

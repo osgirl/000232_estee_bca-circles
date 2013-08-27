@@ -135,11 +135,22 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 */
 		function parseCircleData(data){
 
+			//oc: prep feedmagnet array for db req
+				//1. parse feedmagnet array deleting cookie if it matches
+				//2. insert circle id from cookie (if its there)
+				//3. req db circles with new array of circle ids
+
 			circleFeed = data;
+<<<<<<< HEAD
+
+			console.log("---------------------------------how many more circle data?", data.length)
+
+=======
 //oc: this is where we get
+>>>>>>> 657ed4ebfd6d8c61f09c709d8ff456215b159737
 			if(data.length == 0) return;
 
-			console.log("is circle end", data.length);
+			console.log("---------------------------------is circle end?", circleEnd, data.length);
 
 			createCircleLayout();
 
@@ -160,7 +171,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 	            	success: function(feedData) { 
 
 //oc: this is where we get CFM data 
-	                	if(currentFilterType != "all"){
+	                
 
 	                		//this extra step is to fix the circle id that sometimes is not in order
 
@@ -178,8 +189,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				            	dataType: 'html',
 				            	
 				            	success: function(layoutData) {  
-
-				            		
 
 				            		var circleDiv = $('<div>');
 				            			circleDiv.append(layoutData)
@@ -215,17 +224,13 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				             	}
 				      		});
 
-	                	}else{
-	                		galleryItem.populateCircleContent($($('.circle_container').get(i)), feedData);
-	                	}
+	   
 	             	}
 	      		});
 			});
 		}
 
 		function getMoreAllFeed(){
-
-			
 
 			morePhotoData = new Array();
 
@@ -245,26 +250,30 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				break;
 			}
 
-			if(circleEnd) {
-				circleNum       = 0;
-				photoNum 		= 4;
-				twitterNum 		= 4;
-				instagramNum 	= 4;
+			 if(circleEnd) {
+			 	circleNum       = 0;
+			 	photoNum 		= 4;
+			 	twitterNum 		= 4;
+			 	instagramNum 	= 4;
+			 }
+			
+			$.feed.more('bca-circle', parseAllCircleData, circleNum);
 
-			}else{
-				$.feed.more('bca-circle', parseAllCircleData, circleNum);
-			}
+
+			console.log("---------------------------------get more feed, but is the circle finished?", circleEnd)
 
 
 		}
 
 		function parseAllCircleData(data){
 
+			console.log("---------------------------------how many more circle data?", data.length)
+
 			if(data.length == 0) {
 				circleEnd = true;
 			}
 
-			console.log("is circle end", circleEnd, data.length);
+			console.log("---------------------------------is circle end?", circleEnd, data.length);
 
 			createAllLayout(data);
 
@@ -751,9 +760,14 @@ function onFetchFriendCircleData($data){
 
 			switch(currentFilterType){
 				case 'all':
+
+				console.log("------------------Is More FEed??", isMoreFeed)
 					morePhotoCount = 0;
 					allPhotoData = [];
+					
 					(!isMoreFeed) ? getAllFeed() : getMoreAllFeed();
+
+
 					
 				break;
 
@@ -819,7 +833,7 @@ function onFetchFriendCircleData($data){
 
 		function createAllLayout(data){
 
-			if(data && data.length > 0){
+			if(!circleEnd){
 				$.ajax({
 	        		type: 'get',
 	            	url: baseUrl + indexPage + 'layout/loadLayout' + current_add_layout,
@@ -876,7 +890,7 @@ function onFetchFriendCircleData($data){
 
 			}else{
 
-				createPhotoLayout();
+				$.feed.more('bca-twitter', parseTwitterData, getPhotoNum);
 
 			}
 
