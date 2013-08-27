@@ -160,13 +160,13 @@ facebook.logOut = function( _callback ){
 }
 
 facebook.createCircle = function(_friendsData){
-	facebook.createPhoto(_friendsData, function(data){		
+	facebook.createPhoto(_friendsData, function(_create_response){		
 		facebook.createAlbum( {name: facebook.albumName, message:facebook.albumMessage}, function( _album_response ){
-			facebook.postPhotoToAlbum( {album_id:_album_response.id, url: baseUrl + data['file_location'] , message:facebook.photoMessage}, function( _photo_response ){ // static img path for test : 'http://staging.click3x.com/estee_lauder/bca/img/circle_dotted_outline.png'			
+			facebook.postPhotoToAlbum( {album_id:_album_response.id, url: baseUrl + _create_response['file_location'] , message:facebook.photoMessage}, function( _photo_response ){ // static img path for test : 'http://staging.click3x.com/estee_lauder/bca/img/circle_dotted_outline.png'			
 			 	facebook.tagPhoto({photo_id:_photo_response.id, users:_friendsData}, function(){
 			 		console.log("create circle complete");
 
-			 		facebook.deletePhoto(data['file_location']);
+			 		facebook.deletePhoto(_create_response['file_location']);
 					console.log("create circle complete");
 			 	});
 			});
@@ -242,14 +242,15 @@ facebook.postPhotoToAlbum = function( _data, _callback ){
 facebook.tagPhoto = function( _data, _callback ){
 	console.log("-- attempting to tag photo : " + _data.photo_id + ". --");
 
+	var new_users = [];
+
 	for( var _id in _data.users ){
-		var old_val = _data.users[_id].id;
-		_data.users[_id] = {"tag_uid":old_val};
+		new_users[_id] = {"tag_uid":_data.users[_id].id};
 	}
 
-	console.log(_data.users);
+	console.log(new_users);
 
-	FB.api('/'+_data.photo_id+'/tags', 'post', { tags:_data.users }, function(fbresponse){
+	FB.api('/'+_data.photo_id+'/tags', 'post', { tags:new_users }, function(fbresponse){
 		if (!fbresponse || fbresponse.error) {
 			console.log("-- tag photo error. --" );
 			console.log(fbresponse.error);
