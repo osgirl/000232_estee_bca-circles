@@ -10,12 +10,12 @@ class Layout extends CI_Controller {
 		$this->load->view('layout/layout2');
 	}
 
-	public function loadLayoutCircle(){
-		$this->load->view('layout/layout_circle');
+	public function loadLayout3(){
+		$this->load->view('layout/layout3');
 	}
 
-	public function loadLayoutPhoto(){
-		$this->load->view('layout/layout_photo');
+	public function loadLayoutCircle(){
+		$this->load->view('layout/layout_circle');
 	}
 }
 

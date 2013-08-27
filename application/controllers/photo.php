@@ -217,33 +217,36 @@ class Photo extends CI_Controller {
 	}
 
 	public function save_facebook_photo(){
-		$data = $this->input->post();
-
+		$data = json_decode($this->input->post('data'));
 		$this->load->library("image_smooth_arc");
 
 		$canvas         = imagecreatetruecolor( 500, 580 );
 		$bgColor        = imagecolorallocate( $canvas, 243, 141, 171 );
 		$bgCircleColor  = array( 245, 113, 157, 0 );
 
-		$fontNormal     = base_url(). 'fonts/HelveticaBQ-Roman.otf';
-		$fontLight      = base_url(). 'fonts/HelveticaBQ-Light.otf';
-		$fontBold       = base_url(). './../fonts/HelveticaBQ-Medium.otf';
+		//Font location musr be a relative
+		$fontNormal     = 'fonts/HelveticaBQ-Roman.otf';
+		$fontLight      = 'fonts/HelveticaBQ-Light.otf';
+		$fontBold       = 'fonts/HelveticaBQ-Medium.otf';
 		$colorWhite     = imagecolorallocate( $canvas, 255, 255, 255 );
 
-		$thumbs_url     = $data.thumbs_url;
-		$user_name      = $data.user_name;
-		$content_text   = $data.content;
-		$circle_id      = $data.circle_id;
-		$filename       = base_url(). "uploads/facebook/" . "circle_photo_".$circle_id.".jpg";
+		$thumbs_url     = $data->photo;
+		$user_name      = $data->name;
+		$content_text   = $data->goal;
+		$id 	        = $data->id;
+		$friends 	    = $data->friends;
+		$filename       = "circle_photo_".$id.".jpg";
 
-		$steps          = count( $thumbs_url );
+		$steps          = count( $friends ) + 1;
 		$radius         = 180;
 		$cx             = 250;
 		$cy             = 340;
 
+		// print_r($friends);
+
 		// Create canvas
 		imagefill( $canvas, 0, 0, $bgColor );
-		imageSmoothArc( $canvas, 250, 340, 265, 265, $bgCircleColor, M_PI/2, 0 );
+		$this->image_smooth_arc->imageSmoothArc( $canvas, 250, 340, 265, 265, $bgCircleColor, M_PI/2, 0 );
 		$dotted = @imagecreatefrompng(base_url(). "img/circle_dotted_outline.png");
 		imagecopy($canvas, $dotted, 70,160,0,0,imagesx($dotted), imagesy($dotted));
 
@@ -252,12 +255,22 @@ class Photo extends CI_Controller {
 		  $angle = ( pi() * ( $i / $steps -.25 ) ) *2;
 		  $x = $cx + $radius * cos( $angle );
 		  $y = $cy + $radius * sin( $angle );
-		  $thumb = @imagecreatefromjpeg( base_url(). "img/".$thumbs_url[$i] );
+		  // $thumb = @imagecreatefromjpeg( base_url(). "img/".$thumbs_url[$i] );
+
+		  // print_r($friends[$i]['url']);
+
+		  if($i==0){
+		  	$thumb = @imagecreatefromjpeg( $thumbs_url );
+		  }
+		  else{
+		  	// print_r($friends[$i-1]->url);
+		  	$thumb = @imagecreatefromjpeg( $friends[$i-1]->url );
+		  }
 
 		  if ( $thumb ) {
 		    $w_h = imagesx( $thumb );
 		    $mask = imagecreatetruecolor( $w_h,$w_h );
-		    imageSmoothArc( $mask, $w_h/2, $w_h/2, $w_h-4, $w_h-4, array( 255, 0, 0, 0 ), M_PI/2, 0 );
+		    $this->image_smooth_arc->imageSmoothArc( $mask, $w_h/2, $w_h/2, $w_h-4, $w_h-4, array( 255, 0, 0, 0 ), M_PI/2, 0 );
 		    $this->image_mask( $thumb, $mask );
 		    imagecopyresampled( $canvas, $thumb, $x-40, $y-40, 0, 0, 80, 80, $w_h, $w_h );
 		  }
@@ -276,19 +289,36 @@ class Photo extends CI_Controller {
 		imagefttext( $canvas, 14, 0, 160, 290, $colorWhite, $fontBold, "We Will -" );
 		$this->multiline_text( $canvas, 18, $colorWhite, $fontLight, $content_text, 160, 315, 200 );
 
-		// Create image
+
+
+		$file_location 	= config_item('upload_url') . 'facebook/' . $filename;
+
+		// Save image
 		ob_start (); 
+		imagejpeg( $canvas, null, 90 );
+		$output = ob_get_contents (); 
+		ob_end_clean (); 
+		file_put_contents( $file_location , $output );
+		unset($canvas);
+
+		// Create image
+		/*ob_start (); 
 		imagejpeg( $canvas, $filename, 90 );
 		$output = ob_get_contents (); 
 		ob_end_clean ();
 		$output_base64 = base64_encode ($output);
-
+		// file_put_contents(filename, data)
+		unset($canvas);
+		*/
 		// Results
-		$data = array (  'result'=>"Success",
-		                 'filename'=>$filename
+		$result = array (  'result'=>"Success",
+		                 'filename'=>$filename,
+		                 'file_location'=>$file_location
+
 		              );
 
-		echo json_encode($data);
+		echo json_encode($result);
+		// unset($output);
 	}
 
 	function image_mask( &$img, &$mask ) {

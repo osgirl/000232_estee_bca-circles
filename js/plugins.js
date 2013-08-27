@@ -93,11 +93,9 @@ $.extend(
         {
         case 'about':
             u = "popup/about/";
-            $.gaEvent('About', 'Viewed');
             break;
         case 'video':
             u = "popup/video/";
-            $.gaEvent('Video', 'Viewed');
             break;
         case 'photo':
             u = "popup/photo/";
@@ -229,7 +227,7 @@ $.extend(
             // u = '/circle/' + v.id + '/?refferal=circle';
             u = '/circle/' + v.id;
         else
-            u = v.url;
+            u = v.url +'/';
 
         if (v.type == "facebook")
         {
@@ -686,6 +684,9 @@ $.extend(
         });
 
         if (!v.is_user) $($c + ' .btn_edit').hide();
+
+        currentCircleViewIsUser = v.is_user;
+        currentCircleView = $c;
 
         //Start bind
         $($c + ' .btn_edit').click(function()

@@ -139,6 +139,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 //oc: this is where we get
 			if(data.length == 0) return;
 
+			console.log("is circle end", data.length);
+
 			createCircleLayout();
 
 			var feed;
@@ -261,6 +263,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			if(data.length == 0) {
 				circleEnd = true;
 			}
+
+			console.log("is circle end", circleEnd, data.length);
 
 			createAllLayout(data);
 
