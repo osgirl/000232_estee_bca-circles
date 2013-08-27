@@ -244,9 +244,10 @@ facebook.tagPhoto = function( _data, _callback ){
 
 	var new_users = [];
 
-	for( var _id in _data.users ){
-		new_users.push({"tag_uid":_data.users[_id].id});
-	}
+	_data.users.each(function(v,i){
+		console.log(v);
+		new_users.push({"tag_uid":v.id});
+	});
 
 	console.log(new_users);
 
