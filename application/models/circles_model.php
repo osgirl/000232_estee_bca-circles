@@ -13,6 +13,7 @@ class Circles_Model extends BCA_Model
 			'users_photo_url'				=> array("shown"=>true, 	"label"=>"User's Profile Photo"),
 			'goal'							=> array("shown"=>true, 	"label"=>"Goal"),
 			'ref_goal_id'					=> array("shown"=>true, 	"label"=>"Goal Reference ID"),
+			'language'						=> array("shown"=>true, 	"label"=>"Language"),
 			'country'						=> array("shown"=>true, 	"label"=>"Country"),
 			'date'							=> array("shown"=>true, 	"label"=>"Date & time")
 		);

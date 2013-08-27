@@ -3,7 +3,7 @@
 	<div id="opt_in">
 		<div class="confirm_content">
 			<p>
-				By providing my information, I acknowledge that I have read, understand and agree to the <a>Terms and Conditions</a> and <a>Privacy Policy</a>.  I agree any personal information that I may provide here will be processed in 
+				By providing my information, I acknowledge that I have read, understand and agree to the <a onclick="$.popup({type:'terms_and_conditions'});">Terms and Conditions</a> and <a onclick="$.popup({type:'privacy_policy'});">Privacy Policy</a>.  I agree any personal information that I may provide here will be processed in 
 				accordance with the Privacy Policy [hyperlink] and transferred to the United States and I hereby give my consent to such processing and transfer.
 			</p>
 			<span class="popup_checkbox"></span><span>Yes, I undestand and agree</span>

@@ -75,6 +75,8 @@ var country = "united-states";
 var fakePhotoData;
 
 var currentCircleViewData;
+var currentCircleViewIsUser;
+var currentCircleView;
 
 $(document).ready(function(){	
 	facebook.init(fbAppId);
@@ -95,7 +97,7 @@ $(document).ready(function(){
 				if(checkCircleCookie()){
 					var c = getCircleCookie("circle");
 					
-					console.log("circle cookie");
+					//console.log("circle cookie");
 
 					gallery.refreshAsFakeCircleData(c); 
 				}
@@ -103,11 +105,10 @@ $(document).ready(function(){
 			    if(checkPhotoCookie()){
 					var p = getPhotoCookie("photo");	
 
-					console.log("photo cookie");
+					//console.log("photo cookie");
 				    gallery.refreshAsFakePhotoData(p); 
 			}
 		})
-
 	});
 	
 	
@@ -166,34 +167,36 @@ function enableEventBinds(){
 function getLoginStatus(e){
 	$('.start_create_circle_btn').unbind('click').click(function(e){openCreateCircleScreen(false);})
 	
-	$('.log_out_status').hide();
-	$('.log_in_status').show();
-	
 	if(createCircleClicked) openCreateCircleScreen(false);
 
 	gallery.showFriendCircles();
 }
 
 function getLogoutStatus(e){
-	console.log("get logout status");
+	//console.log("get logout status");
 
 	$('.top_user_name').html("");
 	$('.sign_in_btn .sign_in').html('sign in');
 	$('.sign_in_btn').unbind('click').click(facebook.login);
 	
 	$('.start_create_circle_btn').unbind('click').click(function(e){
-		facebook.login(function(){openCreateCircleScreen(false)});
+		if(isLogin)
+			openCreateCircleScreen(false);
+		else
+			facebook.login(function(){openCreateCircleScreen(false)});
 		createCircleClicked = true;
 	})
 	
-	$('.upload_photo_btn').unbind('click').click(function(e){
-		console.log('do upload photo');
-	});
+	// $('.upload_photo_btn').unbind('click').click(function(e){
+	// 	console.log('do upload photo');
+	// });
 	
 	$('.log_out_status').show();
 	$('.log_in_status').hide();
 
-	//cancelCreateCircleScreen();
+	cancelCreateCircleScreen();
+	$('.popup#popup_circle .btn_close').trigger('click');
+	$('.btn_edit').hide();
 	
 }
 
@@ -202,6 +205,15 @@ function getLoginCancelStatus(){
 }
 
 function displayUserInfo(e){
+	$('.log_out_status').hide();
+	$('.log_in_status').show();
+
+    if(currentCircleViewIsUser) 
+    	$(currentCircleView + ' .btn_edit').show();
+    else
+    	$(currentCircleView + ' .btn_edit').hide();
+    
+
 	var shortenName = userFirstName + " " + userLastName.substr(0,1) + ".";
 	var fullName = userFirstName + " " + userLastName;
 	$('.user_name_display').html(shortenName);
@@ -337,6 +349,7 @@ function getTrendingAction(){
 
 
 function openCreateCircleScreen(hasGoal){
+
 	$(".overlay").fadeIn(100);
 	$('#content_wrap').css('z-index', '-9999');
 	$('.overlay').css('z-index', '9999');
@@ -461,7 +474,7 @@ function openCancelScreen(){
 function cancelCreateCircleScreen(){
 	$('#circle_confirm_screen').slideUp(200);
 	$('.overlay').fadeOut(200);
-	$('#opt_in').fadeIn(200);
+	$('#opt_in').show();
 	$('#thank_you').hide();
 	$('#cancel_screen').hide();
 	closeCreateCircleScreen();
@@ -829,6 +842,8 @@ function confirmCreateCircle(){
 
 	closeCreateCircleScreen();
 	$('#circle_confirm_screen').slideDown(300);
+	$('#content_wrap').css('z-index', '-9999');
+	$('.overlay').css('z-index', '9999');
 }
 
 function openLoadingScreen(){
@@ -846,6 +861,8 @@ function getUserCircleData(){
 
 	$('#my_circles .action_item').remove();
 
+	console.log('get user circle data', userID);
+
 	$.ajax({
 		type: 'post',
     	url: baseUrl + indexPage + 'circle/fetchUserCircleData',
@@ -859,12 +876,13 @@ function getUserCircleData(){
 
         	if(data.length > 0) {
         		$('#create_another_circle').html('create another circle');
-        		circleText = " Circles";
-        	}else{
-        		circleText = " Circle";
+        		if(data.length > 1)
+        			circlePlural = " Circles";
+        		else
+        			circlePlural = " Circle";
         	}
 
-        	$('#circle_num').html(data.length + circleText);
+        	$('#circle_num').html(data.length + circlePlural);
 
         	$(data).each(function(i,v){
 
@@ -872,9 +890,16 @@ function getUserCircleData(){
         		var line1 = '<a class="circle_view_link">' + v.goal + '</a>';
         		var line2 = v.friends_data.length + " Friends Taking Action";
 
-        		createStatItem(v, $('#my_circle_scroll'), line1, line2, v, true);
+        		var interval = setInterval(function(){ 
 
-        		
+	        		if($('#my_circle_scroll .jspPane').is(":visible")){
+	        			clearInterval(interval);
+	        			var parent = $('#my_circle_scroll .jspPane');
+						createStatItem(v, parent, line1, line2, v, true);
+	        		}
+        			
+				}, 100);
+
         	})
 
      	}
@@ -969,12 +994,12 @@ function createCircle(){
 			})
 
 	    	trendingData = data;
-	    	
 	    	getTrendingAction();
 	 	}
 	});
 
 	openLoadingScreen();
+
 	facebook.createCircle({
 		id :userID,
 		name: userName,
@@ -993,7 +1018,6 @@ function saveCircleToCookie($data){
 	//oc: set cookie valid for 7 days, across whole site
 	$.cookie("circle",circle,{ expires: 7, path: '/' });
 
-	
 }
 
 function savePhotoToCookie($data){
@@ -1037,6 +1061,8 @@ function checkPhotoCookie(){
 };
 
 function postCircleData(goal_id){
+
+	console.log("USER ID -----------------", userID)
 
 	var value = {
 		'users_fb_id' 	  : userID,
@@ -1082,8 +1108,6 @@ function postCircleData(goal_id){
 
 							gallery.refreshAsFakeCircleData(cookieData); 
 
-							resetCircle();
-
 							var popupData = {
 								type:'circle',
 								data:{
@@ -1095,15 +1119,18 @@ function postCircleData(goal_id){
 									is_user:true
 								}
 							}
-
 							$($('#close_create_circle_btn').parent()).click(function(e){
 								galleryItem.openPopUp(popupData);
 							})
 
+							getUserCircleData(); 
+
+							resetCircle();
+
 	            			 
 	            			openThankYouScreen();
 					        
-					        getUserCircleData(); 
+					        
 
 	             	}
 	      		});
