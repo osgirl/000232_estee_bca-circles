@@ -128,11 +128,15 @@ function Gallery()
 		};
 
 		
-
+/*
+this function handles the onComplete of the loading the list of cirle ID's from feedmagnet
+then requests a list of circles 
+parse the circle data from feedmagnet and calls a route on our server to ccreates the markup from the list of 
+*/
 		function parseCircleData(data){
 
 			circleFeed = data;
-
+//oc: this is where we get
 			if(data.length == 0) return;
 
 			createCircleLayout();
@@ -153,6 +157,7 @@ function Gallery()
 	            	},
 	            	success: function(feedData) { 
 
+//oc: this is where we get CFM data 
 	                	if(currentFilterType != "all"){
 
 	                		//this extra step is to fix the circle id that sometimes is not in order
