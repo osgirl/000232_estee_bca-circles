@@ -999,7 +999,7 @@ function createCircle(){
 	});
 
 	openLoadingScreen();
-	//facebook.createCircle(friendSelectedArray);
+	facebook.createCircle(friendSelectedArray);
 }
 
 function saveCircleToCookie($data){
