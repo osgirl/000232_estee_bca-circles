@@ -975,7 +975,13 @@ function createCircle(){
 	});
 
 	openLoadingScreen();
-	facebook.createCircle(friendSelectedArray);
+	facebook.createCircle({
+		id :userID,
+		name: userName,
+		photo: userProfilePhoto,
+		goal: goal,
+		friends: friendSelectedArray
+	});
 }
 
 function saveCircleToCookie($data){

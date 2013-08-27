@@ -100,8 +100,8 @@ class Image_Smooth_Arc {
         
         if ($start > $stop)
         {
-            imageSmoothArc ( &$img, $cx, $cy, $w, $h, $color, $start, 2*M_PI);
-            imageSmoothArc ( &$img, $cx, $cy, $w, $h, $color, 0, $stop);
+            $this->imageSmoothArc ( &$img, $cx, $cy, $w, $h, $color, $start, 2*M_PI);
+            $this->imageSmoothArc ( &$img, $cx, $cy, $w, $h, $color, 0, $stop);
             return;
         }
         
@@ -118,11 +118,11 @@ class Image_Smooth_Arc {
                 {
                     if ($stop > ($i+1)*M_PI/2)
                     {
-                        imageSmoothArcDrawSegment($img, $cx, $cy, $a, $b, $color, $start, ($i+1)*M_PI/2, $i);
+                        $this->imageSmoothArcDrawSegment($img, $cx, $cy, $a, $b, $color, $start, ($i+1)*M_PI/2, $i);
                     }
                     else
                     {
-                        imageSmoothArcDrawSegment($img, $cx, $cy, $a, $b, $color, $start, $stop, $i);
+                        $this->imageSmoothArcDrawSegment($img, $cx, $cy, $a, $b, $color, $start, $stop, $i);
                         break;
                     }
                 }
@@ -130,11 +130,11 @@ class Image_Smooth_Arc {
                 {
                     if ($stop > ($i+1)*M_PI/2)
                     {
-                        imageSmoothArcDrawSegment($img, $cx, $cy, $a, $b, $color, $i*M_PI/2, ($i+1)*M_PI/2, $i);
+                        $this->imageSmoothArcDrawSegment($img, $cx, $cy, $a, $b, $color, $i*M_PI/2, ($i+1)*M_PI/2, $i);
                     }
                     else
                     {
-                        imageSmoothArcDrawSegment($img, $cx, $cy, $a, $b, $color, $i*M_PI/2, $stop, $i);
+                        $this->imageSmoothArcDrawSegment($img, $cx, $cy, $a, $b, $color, $i*M_PI/2, $stop, $i);
                         break;
                     }
                 }

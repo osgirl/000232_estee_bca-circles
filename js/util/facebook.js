@@ -157,33 +157,43 @@ facebook.logOut = function( _callback ){
 	});	
 }
 
-facebook.createCircle = function(_friendids){
-	//facebook.createPhoto( function(_photo_url){		
+facebook.createCircle = function(_friendsData){
+
+	facebook.createPhoto(_friendsData, function(data){		
+
+		console.log('Created');
+
+		console.log( data );
+		
+
+		console.log( baseUrl + data['file_location'] );
+
+
 		facebook.createAlbum( {name: facebook.albumName, message:facebook.albumMessage}, function( _album_response ){
-			facebook.postPhotoToAlbum( {album_id:_album_response.id, url:"http://staging.click3x.com/estee_lauder/bca/php/output.jpg", message:facebook.photoMessage}, function( _photo_response ){
-				facebook.tagPhoto({photo_id:_photo_response.id, users:_friendids}, function(){
+			facebook.postPhotoToAlbum( {album_id:_album_response.id, url: baseUrl + data['file_location'] , message:facebook.photoMessage}, function( _photo_response ){
+				facebook.tagPhoto({photo_id:_photo_response.id, users:_friendsData}, function(){
 					console.log("create circle complete");
 				});
 			});
 		});
-	//});
+		
+	});
 }
 
 facebook.createPhoto = function( _data, _callback ){
-	$.ajax({
-		url	: baseUrl + indexPage + 'photocreate-circle.php',
-		type : "post",
-		dataType:"json",
-		data : {
-			thumbs_url: _data.friends_photos,
-			user_name: _data.users_name,
-			content: _data.goal,
-			circle_id: _data.circle_id
-		},
-		success : function(_response){
-			console.log('---- create photo success. ' + _response.result + ' ----'); 
+	// console.log(baseUrl + indexPage + 'photo/save_facebook_photo');
+	
+	console.log(JSON.stringify(_data));
 
-			if(_callback) _callback( baseUrl + indexPage + "img" + _response.filename);
+	$.ajax({
+		url	: baseUrl + indexPage + 'photo/save_facebook_photo', //baseUrl + indexPage + 'photocreate-circle.php',
+		type : "post",
+		// dataType:"json",
+		data : {data: JSON.stringify(_data)},
+		success : function(_response){
+			// console.log('---- create photo success. ' + _response + ' ----'); 
+			// if(_callback) _callback( baseUrl + indexPage + "img" + _response.filename);
+			if(_callback) _callback( JSON.parse(_response) );
 		},
 		fail : function(_response){ 
 			console.log('---- create photo failed. ----'); 
