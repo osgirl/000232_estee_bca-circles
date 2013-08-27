@@ -19,7 +19,7 @@ class Home extends CI_Controller {
 		$short_url 	= $short_url->data->url;
 
 		$title 	 	= $goal;
-		$title 		= $title." ".$short_url;
+		$title 		= $title." ".SHARE_HASHTAG." ".$short_url;
 
 		header( 'Location: https://twitter.com/intent/tweet?text='.$title );
 	}
