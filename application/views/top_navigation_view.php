@@ -32,7 +32,7 @@
                         <ul id='top_main_nav' class="nav">
                             <li><a id="conversation_btn" href="#conversation" onclick="$('.popup#popup_circle .btn_close').trigger('click');" class='all_cap'>Conversation</a></li>
                             <li><a href="#video" onclick="return $.popup({type:'video'});" class='all_cap'>video</a></li>
-                            <li><a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" target="_blank" class='all_cap'>donate</a></li>
+                            <li><a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" target="_blank" class='all_cap' onclick="$.gaPageview(/donate/)">donate</a></li>
                             <li><a href="#about" onclick="return $.popup({type:'about'});" class='all_cap'>about</a></li>
                         </ul>
                         <div id='top_sub_nav' class='pull-right'>
