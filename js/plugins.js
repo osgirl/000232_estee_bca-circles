@@ -1320,8 +1320,13 @@ $.extend(
     },
     gaPageview:function(_url)
     {
-        console.log('Pageview: ' + _url);
-        ga('send', 'pageview', _url);
+        var title = _url.toString().replace(/\//gi,'');
+        console.log('Pageview: ' + _url + ' Title is: ' +  title );
+        ga('send', {
+            'hitType': 'pageview',
+            'page': _url,
+            'title': title
+        });
     }
 });
 
