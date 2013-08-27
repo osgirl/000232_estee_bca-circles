@@ -135,6 +135,8 @@ function Gallery()
 
 			if(data.length == 0) return;
 
+			console.log("is circle end", data.length);
+
 			createCircleLayout();
 
 			var feed;
@@ -256,6 +258,8 @@ function Gallery()
 			if(data.length == 0) {
 				circleEnd = true;
 			}
+
+			console.log("is circle end", circleEnd, data.length);
 
 			createAllLayout(data);
 

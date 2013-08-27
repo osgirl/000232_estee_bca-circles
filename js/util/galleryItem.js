@@ -213,8 +213,6 @@ function GalleryItem()
 			else
 				isUser = false;		
 
-			console.log("is login", isLogin, "is user", isUser)
-
 			updateUserCirclePopupContent(circle, data.circle_id, data.goal, data.user_photo_url, data.user_id, data.friends_data, isUser);
 
 		},

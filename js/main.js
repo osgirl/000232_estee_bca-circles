@@ -1000,6 +1000,7 @@ function createCircle(){
 
 	openLoadingScreen();
 
+
 	facebook.createCircle({
 		id :userID,
 		name: userName,
