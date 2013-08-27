@@ -247,6 +247,8 @@ facebook.tagPhoto = function( _data, _callback ){
 		_data.users[_id] = {"tag_uid":old_val};
 	}
 
+	console.log(_data.users);
+
 	FB.api('/'+_data.photo_id+'/tags', 'post', { tags:_data.users }, function(fbresponse){
 		if (!fbresponse || fbresponse.error) {
 			console.log("-- tag photo error. --" );
