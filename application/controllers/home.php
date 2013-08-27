@@ -18,8 +18,8 @@ class Home extends CI_Controller {
 		$short_url 	= json_decode($short_url);
 		$short_url 	= $short_url->data->url;
 
-		$title 	 	= SHARE_TITLE." ".SHARE_CAPTION;
-		$title 		= str_replace("[GOAL]", $goal, $title )." ".$short_url;
+		$title 	 	= $goal;
+		$title 		= $title." ".$short_url;
 
 		header( 'Location: https://twitter.com/intent/tweet?text='.$title );
 	}

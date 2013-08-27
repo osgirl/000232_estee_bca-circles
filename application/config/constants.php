@@ -21,8 +21,6 @@ define('FILE_WRITE_MODE', 0666);
 define('DIR_READ_MODE', 0755);
 define('DIR_WRITE_MODE', 0777);
 
-define("SHARE_TITLE", "We're Stronger Together.");
-define("SHARE_CAPTION", "Take action against breast cancer. [GOAL]");
 define("SHARE_MESSAGE", "Create a Circle of Strength with those who support you most now.");
 define("BITLY_ACCESS_TOKEN", "ce1cb3356808fcf009cda750ef8f1ce940c592a8");
 
