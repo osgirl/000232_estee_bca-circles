@@ -141,13 +141,9 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				//3. req db circles with new array of circle ids
 
 			circleFeed = data;
-<<<<<<< HEAD
-
 			console.log("---------------------------------how many more circle data?", data.length)
-
-=======
 //oc: this is where we get
->>>>>>> 657ed4ebfd6d8c61f09c709d8ff456215b159737
+
 			if(data.length == 0) return;
 
 			console.log("---------------------------------is circle end?", circleEnd, data.length);
