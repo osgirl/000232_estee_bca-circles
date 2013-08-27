@@ -46,13 +46,13 @@ class Circle extends CI_Controller {
 				'country'				=> $this->post['country']
 				);
 
-			$query = $this->db->query("UPDATE goals SET taken_number=taken_number + 1 WHERE id = '$ref_goal_id'"); 
+			$result = $this->circles_model->Add($post);
 
-			
-		 	$result = $this->circles_model->Add($post);
+			$query = $this->db->query("UPDATE goals SET taken_number=taken_number + 1 WHERE id = '$ref_goal_id'"); 
 
 			if ($result){
 				$data['id'] = $result;
+				$data['fb_id'] = $this->post['users_fb_id'];
 				$data['goal'] = $this->post['goal'];
 				$data['goal_id'] = $ref_goal_id;
 				$data['language'] = $this->post['language'];
@@ -196,7 +196,10 @@ class Circle extends CI_Controller {
 			$user_id 	= $this->post['user_id'];
 			$query 		= $this->db->query("SELECT * FROM circles WHERE users_fb_id = '$user_id'"); 
 
+
 			if ($query->num_rows() > 0) {
+
+			$circles_data = array();
 			  foreach($query->result() as $circleRow) {
 			  	$circle_id 		= $circleRow->id;
 			  	$ref_goal_id 	= $circleRow->ref_goal_id;
@@ -227,9 +230,11 @@ class Circle extends CI_Controller {
 				
 				
 			  }//endforeach
+
+			  echo json_encode($circles_data);
 			}//endif
 
-			echo json_encode($circles_data);
+			
 			
 		}
 		else

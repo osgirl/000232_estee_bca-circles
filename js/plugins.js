@@ -687,6 +687,9 @@ $.extend(
 
         if (!v.is_user) $($c + ' .btn_edit').hide();
 
+        currentCircleViewIsUser = v.is_user;
+        currentCircleView = $c;
+
         //Start bind
         $($c + ' .btn_edit').click(function()
         {

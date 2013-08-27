@@ -206,9 +206,21 @@ function GalleryItem()
 			circle.find('.goal_text').html(data.goal);
 			circle.fadeIn(200);
 
-	        var isUser = (data.user_id == userID) ? true : false;
-	        updateUserCirclePopupContent(circle, data.circle_id, data.goal, data.user_photo_url, data.user_id, data.friends_data, isUser);
-	        	
+			var isUser;
+
+			
+
+			if(isLogin)
+				isUser = (data.user_id == userID) ? true : false;
+			else
+				isUser = false;		
+
+
+
+			console.log("is login", isLogin, "is user", isUser)
+
+			updateUserCirclePopupContent(circle, data.circle_id, data.goal, data.user_photo_url, data.user_id, data.friends_data, isUser);
+
 		},
 
 		updateUserCirclePopupContent:function(circle, id, content, avatar, userID, friendData, isUser){

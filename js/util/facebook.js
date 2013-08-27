@@ -153,6 +153,8 @@ facebook.logOut = function( _callback ){
 		$('body').trigger('LOGOUT_SUCCESS');
 		isLogin = false;
 
+		console.log("log out success", isLogin)
+
 		if(_callback) _callback();
 	});	
 }
