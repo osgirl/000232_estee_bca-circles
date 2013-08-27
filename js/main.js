@@ -870,7 +870,9 @@ function getUserCircleData(){
     	data: {
     		user_id:userID
     	},
-    	success: function(data) {           
+    	success: function(data) {   
+
+    	data.reverse();     
 
         	var circlePlural;
 

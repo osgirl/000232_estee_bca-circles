@@ -191,6 +191,11 @@ class Photo extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function delete_photo()
+	{
+		unlink($this->input->post('data'));
+	}
+
 	public function fetchUploadedPhotoData()
 	{
 		$this->load->model('photos_model');
@@ -318,7 +323,6 @@ class Photo extends CI_Controller {
 		              );
 
 		echo json_encode($result);
-		// unset($output);
 	}
 
 	function image_mask( &$img, &$mask ) {
@@ -371,6 +375,4 @@ class Photo extends CI_Controller {
 	  }
 	  imagefttext( $image, $font_size, 0, $start_x, $start_y, $color, $font, $string );
 	}
-
-
 }

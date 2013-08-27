@@ -32,7 +32,7 @@
                         <ul id='top_main_nav' class="nav">
                             <li><a id="conversation_btn" href="#conversation" onclick="$('.popup#popup_circle .btn_close').trigger('click');" class='all_cap'>Conversation</a></li>
                             <li><a href="#video" onclick="return $.popup({type:'video'});" class='all_cap'>video</a></li>
-                            <li><a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" target="_blank" class='all_cap'>donate</a></li>
+                            <li><a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" target="_blank" class='all_cap' onclick="$.gaPageview(/donate/)">donate</a></li>
                             <li><a href="#about" onclick="return $.popup({type:'about'});" class='all_cap'>about</a></li>
                         </ul>
                         <div id='top_sub_nav' class='pull-right'>
@@ -52,8 +52,8 @@
                             <span class="language_divider"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
                             <span class='top_sub_nav_item'>
                                 <span class='all_cap' style="vertical-align:center;">share</span>
-                                <a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'facebook'})" style="margin-top:-1px" class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></a>
-                                <a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'twitter'})" style="margin-top:-1px" class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></a>
+                                <a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'facebook', referral:'site'})" style="margin-top:-1px" class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></a>
+                                <a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'twitter', referral:'site'})" style="margin-top:-1px" class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></a>
                             </span>
                         </div>
                         
