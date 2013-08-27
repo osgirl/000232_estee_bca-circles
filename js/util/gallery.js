@@ -41,12 +41,12 @@ function Gallery()
 		var feed_circles;		
 		var feed_photos;	
 		var gallery_container;
-		var current_add_layout = 1;
-		var currentFilterType = "all";
+		var current_add_layout 	= 1;
+		var currentFilterType 	= "all";
 		var currentLayoutPath;
 		
 
-		var SCROLL_TO_SHOW_FOOTER = 2000;
+		var SCROLL_TO_SHOW_FOOTER 		= 2000;
 		var PHOTO_LAYOUT_COLUMN_NUM		= 4;
 		var CIRCLE_LAYOUT_COLUMN_NUM	= 2;
 		var DEFAULT_GALLERY_HEIGHT		=  1500;
@@ -68,9 +68,9 @@ function Gallery()
 		var morePhotoCount = 0;
 
 		var circleNum;
-			var photoNum;
-			var twitterNum;
-			var instagramNum;
+		var photoNum;
+		var twitterNum;
+		var instagramNum;
 
 		var uploadedPhotoCount;
 
@@ -127,9 +127,42 @@ function Gallery()
 			);
 		};
 
-		
-/*
-this function handles the onComplete of the loading the list of cirle ID's from feedmagnet
+		function getMoreAllFeed(){
+
+			morePhotoData = new Array();
+
+			switch(current_add_layout){
+				case 1:
+					circleNum 		= 2;
+					photoNum 		= 1;
+					twitterNum 		= 2;
+					instagramNum 	= 2;
+				break;
+
+				case 2:
+					circleNum 		= 1;
+					photoNum 		= 1;
+					twitterNum 		= 2;
+					instagramNum 	= 2;
+				break;
+			}
+
+			 if(circleEnd) {
+			 	circleNum       = 0;
+			 	photoNum 		= 4;
+			 	twitterNum 		= 4;
+			 	instagramNum 	= 4;
+			 }
+			
+			$.feed.more('bca-circle', parseAllCircleData, circleNum);
+
+
+			console.log("---------------------------------get more feed, but is the circle finished?", circleEnd)
+
+
+		}
+/*   oc: 
+this function handles the onComplete of the loading the list of cirle ID's from feedmagnet upon filter click
 then requests a list of circles 
 parse the circle data from feedmagnet and calls a route on our server to ccreates the markup from the list of 
 */
@@ -142,7 +175,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			circleFeed = data;
 			console.log("---------------------------------how many more circle data?", data.length)
-//oc: this is where we get
 
 			if(data.length == 0) return;
 
@@ -226,41 +258,11 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			});
 		}
 
-		function getMoreAllFeed(){
 
-			morePhotoData = new Array();
-
-			switch(current_add_layout){
-				case 1:
-					circleNum 		= 2;
-					photoNum 		= 1;
-					twitterNum 		= 2;
-					instagramNum 	= 2;
-				break;
-
-				case 2:
-					circleNum 		= 1;
-					photoNum 		= 1;
-					twitterNum 		= 2;
-					instagramNum 	= 2;
-				break;
-			}
-
-			 if(circleEnd) {
-			 	circleNum       = 0;
-			 	photoNum 		= 4;
-			 	twitterNum 		= 4;
-			 	instagramNum 	= 4;
-			 }
-			
-			$.feed.more('bca-circle', parseAllCircleData, circleNum);
-
-
-			console.log("---------------------------------get more feed, but is the circle finished?", circleEnd)
-
-
-		}
-
+			//oc: prep feedmagnet array for db req
+				//1. parse feedmagnet array deleting cookie if it matches
+				//2. insert circle id from cookie (if its there)
+				//3. req db circles with new array of circle ids
 		function parseAllCircleData(data){
 
 			console.log("---------------------------------how many more circle data?", data.length)
@@ -731,12 +733,14 @@ function onFetchFriendCircleData($data){
 
 		};//end getFriendCircleData
 
+//oc: util getters/setters
 		function getIdsFromFeed($feed){
 			var ids = [];
 			$($feed).each(function(i){
-				var o = $feed[i];
 
-				ids[i] = o.data.text;
+				var o 	= $feed[i];
+				ids[i] 	= o.data.text;
+				deleteCookieIfNecessary(ids[i]);
 			});
 			return ids;
 		};
@@ -749,6 +753,8 @@ function onFetchFriendCircleData($data){
 			});
 			return ids;
 		};
+
+
 
 		function loadLayout(){
 
