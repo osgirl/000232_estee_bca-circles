@@ -208,14 +208,10 @@ function GalleryItem()
 
 			var isUser;
 
-			
-
 			if(isLogin)
 				isUser = (data.user_id == userID) ? true : false;
 			else
 				isUser = false;		
-
-
 
 			console.log("is login", isLogin, "is user", isUser)
 
