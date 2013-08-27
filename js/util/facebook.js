@@ -63,7 +63,7 @@ facebook.fetchFriendlist = function( _callback ){
 				friendObj.id = value.id;
 				friendObj.name = value.name;
 			
-	        	FB.api('/'+value.id+'/picture?type=large', function(fbresponse_b){
+	        	FB.api('/'+value.id+'/picture?width=100&height=100', function(fbresponse_b){
 	        		// console.log("-- got "+ friendObj.name + "s photo. --" );
 
 			    	if (fbresponse_b && fbresponse_b.data){
@@ -163,14 +163,9 @@ facebook.createCircle = function(_friendsData){
 
 	facebook.createPhoto(_friendsData, function(data){		
 
-		console.log('Created');
-
-		console.log( data );
-		
-
 		console.log( baseUrl + data['file_location'] );
 
-
+		/*
 		facebook.createAlbum( {name: facebook.albumName, message:facebook.albumMessage}, function( _album_response ){
 			facebook.postPhotoToAlbum( {album_id:_album_response.id, url: baseUrl + data['file_location'] , message:facebook.photoMessage}, function( _photo_response ){
 				facebook.tagPhoto({photo_id:_photo_response.id, users:_friendsData}, function(){
@@ -178,7 +173,7 @@ facebook.createCircle = function(_friendsData){
 				});
 			});
 		});
-		
+		*/
 	});
 }
 
