@@ -293,7 +293,7 @@ class Photo extends CI_Controller {
 		$file_location 	= config_item('upload_url') . 'facebook/' . $filename;
 
 		// Save image
-		imagepng( $canvas, $file_location, 90 );
+		imagepng( $canvas, $file_location, 0 );
 		unset($canvas);
 	
 		// Results
