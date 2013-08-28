@@ -334,8 +334,7 @@ $.extend(
     {
         if (Modernizr.canvas && !ismobile)
         {
-            // uploadToCanvas(e);
-            uploadFile();
+            uploadToCanvas(e);
         }
         else
         {
@@ -395,9 +394,6 @@ $.extend(
     function uploadFileSuccess(data)
     {
         $preview_img_path = data.file_location;
-
-        // console.log ( $preview_img_path );
-
         //create image control            
         $img = $('<img src="' + baseUrl + data.file_location + '"/>');
         $ratio = 1;
