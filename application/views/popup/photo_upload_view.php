@@ -23,24 +23,24 @@
 			<div id="message">
 				<img src="<?= base_url(); ?>img/popups/icons/ico_photo_upload-preview.png"/>
 				<p>Who makes you stronger? Upload a photo to show us your Circle of Strength.</p>
-			</div>				
+			</div>
 			<div id ="holder">
 			</div>
 			<span id="anim_loading"></span>
 		</div>
 		<div id="popup_photo_desc_holder">
 			<textarea class="greyfont">Add a short description</textarea>
-		</div>
-		<div id="button_wrapper">
-			<form id="file_form" name='form' method='POST' enctype='multipart/form-data'>
-				<input type="hidden" id="circle_id" name="circle_id" value="<? echo $circle_id?>">
-				<input type="hidden" id="users_fb_id" name="users_fb_id" value="<? echo $users_fb_id?>">
-				<input name="uploadFile" type="file" class="hidden" id="uploadFile"/>
+		</div>		
+		<form id="file_form" name='form' method='POST' enctype='multipart/form-data'>
+			<input type="hidden" id="circle_id" name="circle_id" value="<? echo $circle_id?>">
+			<input type="hidden" id="users_fb_id" name="users_fb_id" value="<? echo $users_fb_id?>">
+			<input name="uploadFile" type="file" class="hidden" id="uploadFile"/>
+			<div id="button_wrapper">
 				<div class="popup_round_button btn_browse" id="popup_btn_pink">BROWSE</div>
 				<div class="popup_round_button btn_cancel" id="popup_btn_pink">CANCEL</div>
 				<div class="popup_round_button btn_submit dim" id="popup_btn_pink">SUBMIT</div>
-			</form>
-		</div>
+			</div>
+		</form>
 	</div>
 </div>
 <script type="text/javascript">
