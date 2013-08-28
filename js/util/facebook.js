@@ -4,7 +4,7 @@ facebook.friendids			= [];
 facebook.scope 				= "user_photos,publish_stream,publish_actions";
 facebook.albumName 			= "Circle of Strength";
 facebook.albumMessage 		= "We're Stronger Totether";
-facebook.photoMessage 		= "We're Stronger Together. I created a Circle of Strength to take action against breast cancer. We will [GOAL]. Create your Circle of Strength with those who support you most. http://staging.click3x.com/estee_lauder/bca/";
+facebook.photoMessage 		= "We're Stronger Together. I created a Circle of Strength to take action against breast cancer. We will: '[GOAL]' Create your Circle of Strength with those who support you most. http://staging.click3x.com/estee_lauder/bca/";
 facebook.photoUrl 			= "http://firstknowwhatyouwant.com/wp-content/uploads/2011/08/iStock_000002337513Medium.jpg";
 
 facebook.init = function( _appid ){
@@ -160,19 +160,21 @@ facebook.logOut = function( _callback ){
 }
 
 facebook.createCircle = function(_friendsData){
+	var photo_message = facebook.photoMessage.replace("[GOAL]",_friendsData.goal);
 
 	//save photo to server 
 	createMainCirclePhoto( _friendsData, function( _create_response ){		
 		console.log(_create_response);
+		_friendsData
 
 		//create facebook album
 		facebook.createAlbum( {name: facebook.albumName, message:facebook.albumMessage}, function( _album_response ){
 
 			//post photo to album
-			facebook.postPhotoToAlbum( {album_id:_album_response.id, url: baseUrl + _create_response['file_location'] , message:facebook.photoMessage}, function( _photo_response ){ 
+			facebook.postPhotoToAlbum( {album_id:_album_response.id, url: baseUrl + _create_response['file_location'], message:photo_message}, function( _photo_response ){ 
 
-				//tag the phogo
-			 	facebook.tagPhoto({photo_id:_photo_response.id, users:_friendsData.friends, tag_positions:_create_response.tag_positions}, function(){
+				//tag the phogo "http://staging.click3x.com/estee_lauder/bca/uploads/photo_1377294239.jpg" 
+			 	facebook.tagPhoto({photo_id:_photo_response.id, users:_friendsData.friends, tag_positions:_create_response['tag_positions']}, function(){
 			 		console.log("create circle complete");
 
 			 		//delete the photo. wer're done here. (main.js)
@@ -223,14 +225,17 @@ facebook.postPhotoToAlbum = function( _data, _callback ){
 facebook.tagPhoto = function( _data, _callback ){
 	console.log("-- attempting to tag photo : " + _data.photo_id + ". --");
 
-	for( var _id in _data.users ){
-		var old_val = _data.users[_id].id;
-		_data.users[_id] = {"tag_uid":old_val, "x":_data.tag_positions[_id].x , "y":_data.tag_positions[_id].y};
-	}
+	var _tags = [];
 
-	console.log(_data.users);
+	$.each(_data.users, function(i,v){
+		_tags.push( {	
+			"tag_uid":v.id, 
+			"x":_data.tag_positions[i+1].x*100, 
+			"y":_data.tag_positions[i+1].y*100
+		});
+	});
 
-	FB.api('/'+_data.photo_id+'/tags', 'post', { tags:_data.users }, function(fbresponse){
+	FB.api('/'+_data.photo_id+'/tags', 'post', { tags:_tags }, function(fbresponse){
 		if (!fbresponse || fbresponse.error) {
 			console.log("-- tag photo error. --" );
 			console.log(fbresponse.error);

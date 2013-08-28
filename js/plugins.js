@@ -151,6 +151,7 @@ $.extend(
                 href: baseUrl + indexPage + u,
                 type: 'ajax',
                 padding: 0,
+                margin:0,
                 closeBtn: $closeBtn,
                 modal: $isUpload,
                 ajax: {
@@ -208,8 +209,8 @@ $.extend(
         //Update deeplink
         if (!$isUpload && !$isOutlink)
         {
-            dl = $.address.path() + v.type + '/' + ((d.source == null) ? '' : d.source + '/') + ((d.id == null) ? '' : d.id + '/')
-            $.address.path(dl);
+            dl = $.address.path() + v.type + '/' + ((d.source == null) ? '' : d.source + '/') + ((d.id == null) ? '' : d.id + '/');
+            $.address.path(dl.replace(/ |%20/gi,''));
         }
         return false;
     },
@@ -236,12 +237,18 @@ $.extend(
                 u +="/?referral=facebook-" + v.referral;
 
             var _caption;
+
+            var _picture = baseUrl + 'img/assets/fb_share.jpg';
+
+            if(v.photo_url != undefined)
+                _picture = v.photo_url;
+
             FB.ui(
             {
                 method: 'feed',
                 link: baseUrl + indexPage + '#' + u,
                 name: "We're Stronger Together.",
-                picture: baseUrl + 'img/assets/fb_share.jpg',
+                picture: _picture,
                 caption: _caption,
                 description: 'Create a Circle of Strength with those who support you most now.'
             },
@@ -290,6 +297,7 @@ $.extend(
         $($c + ' #popup_checkbox').click(toggleCheckbox);
         $($c + ' #popup_photo_desc_holder textarea').focus(descFocus);
         $($c + ' input[type=file]').change(fileChangeListener);
+        $parent.click(function(){ if ($parent.children().length == 0) $($c + ' #uploadFile').click(); });
     }
 
     function toggleCheckbox(e)
@@ -1128,6 +1136,11 @@ function checkAndLoadExternalUrl()
 {
     var u, $data,
     adr = $.address.value().split('/');
+
+    console.debug('>> checkAndLoadExternalUrl')
+    console.debug('>> ' + adr.length);
+    console.debug('>> ' + adr);
+
     if (adr.length != 0)
     {
         switch (adr[1])
@@ -1182,7 +1195,6 @@ function checkAndLoadExternalUrl()
             loadLocalData();
             break;
         case 'photo':
-
             if (adr[2] == 'bca')
             {
                 u = baseUrl + indexPage + "photo/fetchUploadedPhotoData";
@@ -1197,94 +1209,94 @@ function checkAndLoadExternalUrl()
             }
             break;
         }
+    }
 
-        function loadLocalData()
+    function loadLocalData()
+    {
+        $.ajax(
         {
-            $.ajax(
+            url: u,
+            type: 'post',
+            dataType: 'json',
+            data: $data,
+            success: function(data)
             {
-                url: u,
-                type: 'post',
-                dataType: 'json',
-                data: $data,
-                success: function(data)
+                switch (adr[1])
                 {
-                    switch (adr[1])
-                    {
-                    case 'circle':
-                        circle_success(data);
-                        break;
-                    case 'photo':
-                        photo_success(data)
-                        break;
-                    }
+                case 'circle':
+                    circle_success(data);
+                    break;
+                case 'photo':
+                    photo_success(data)
+                    break;
+                }
+            }
+        });
+
+        function circle_success(data)
+        {
+
+            $.popup(
+            {
+                type: 'circle',
+                data: {
+                    id: data.circle_id,
+                    content: data.goal,
+                    avatar: data.user_photo_url,
+                    users_fb_id: data.user_id,
+                    num_friends: data.friends_data.length,
+                    outlink: true,
+                    child_id: (adr[5] != undefined) ? adr[5] : null
                 }
             });
+        }
 
-            function circle_success(data)
+        function photo_success(data)
+        {
+            $.popup(
             {
+                type: 'photo',
+                data: {
+                    id: data.photo_id,
+                    source: 'bca',
+                    content: data.description,
+                    photo_url: baseUrl + "uploads/" + data.filename,
+                    outlink: true
+                }
+            });
+        }
+    }
 
-                $.popup(
-                {
-                    type: 'circle',
-                    data: {
-                        id: data.circle_id,
-                        content: data.goal,
-                        avatar: data.user_photo_url,
-                        users_fb_id: data.user_id,
-                        num_friends: data.friends_data.length,
-                        outlink: true,
-                        child_id: (adr[5] != undefined) ? adr[5] : null
-                    }
-                });
-            }
-
-            function photo_success(data)
+    function loadInstagramData()
+    {
+        //TEMP TEMP TEMP
+        $.ajax(
+        {
+            type: 'GET',
+            dataType: 'jsonp',
+            url: 'https://api.instagram.com/v1/media/' + adr[3] + '?client_id=3cff2efc3c714b4ab94a289918992d9c',
+            success: function(result)
             {
+                var data = result.data;
                 $.popup(
                 {
                     type: 'photo',
                     data: {
-                        id: data.photo_id,
-                        source: 'bca',
-                        content: data.description,
-                        photo_url: baseUrl + "uploads/" + data.filename,
+                        id: data.id,
+                        source: 'instagram',
+                        author: data.caption.from.full_name,
+                        content: data.caption.text,
+                        photo_url: data.images.standard_resolution.url,
                         outlink: true
                     }
                 });
-            }
-        }
 
-        function loadInstagramData()
-        {
-            //TEMP TEMP TEMP
-            $.ajax(
+            },
+            error: function(jqXHR, textStatus, errorThrown)
             {
-                type: 'GET',
-                dataType: 'jsonp',
-                url: 'https://api.instagram.com/v1/media/' + adr[3] + '?client_id=3cff2efc3c714b4ab94a289918992d9c',
-                success: function(result)
-                {
-                    var data = result.data;
-                    $.popup(
-                    {
-                        type: 'photo',
-                        data: {
-                            id: data.id,
-                            source: 'instagram',
-                            author: data.caption.from.full_name,
-                            content: data.caption.text,
-                            photo_url: data.images.standard_resolution.url,
-                            outlink: true
-                        }
-                    });
-
-                },
-                error: function(jqXHR, textStatus, errorThrown)
-                {
-                    console.debug('Error ' + textStatus);
-                }
-            })
-        }
+                console.debug('Error ' + textStatus);
+            }
+        })
     }
 
     //Check referral and send gaEvent if available
