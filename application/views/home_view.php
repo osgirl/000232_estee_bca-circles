@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>BCA - We are Stronger Together</title>
+        <title>BCA - We're Stronger Together</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <meta property="fb:app_id" content="704339276259855">
