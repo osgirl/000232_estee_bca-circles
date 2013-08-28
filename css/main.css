@@ -316,7 +316,7 @@ h2{
 	padding:0 8% 0 8%;
 }
 
-#PP_btn, #CC_btn{
+#PP_btn, #TC_btn{
 		display:block;
 	}
 
@@ -1418,8 +1418,8 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 #friend_photos_container{
-	width:85%;
-	height:330px;
+	width:80%;
+	height:240px;
 }
 
 .friend_item{
@@ -1428,8 +1428,8 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 .friend_pic_wrapper_large{
-	width:60px;
-	height:60px;
+	width:50px;
+	height:50px;
 	overflow:hidden;
 	background-color:#000;
 	margin-right:15px;
@@ -1439,7 +1439,7 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 .friend_name_large{
-	font-size:1.2em;
+	font-size:.8em;
 	margin-top:3px;
 	max-width:60px;
 	float:none;
