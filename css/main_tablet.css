@@ -104,20 +104,10 @@
 		width:90%;
 	}
 
-	.feature_circle .circle_area {
-	    width:300px;
-	    height:300px;
-	    margin-left:0;
-	}
-
-	.circle_flag{
-		top:10px;
-		right:10px;
-	}
-
 	.layout_circle .gallery_circle{
 		width:93%;
 	}
+
 
 }
 
@@ -127,6 +117,7 @@
 /* ===============
     Tablet (980px)
    =============== */
+
 
    /*OVERLAYS*/
 	.overlay{
@@ -374,6 +365,28 @@
 	#carousel_slider{
 		width:1425px;
 	}
+
+	 .feature_circle .profile_image_small{
+		width:55px;
+		height:55px;
+		background-size: 55px auto;
+		margin-left:-15px;
+		margin-top:-22px;
+	}
+
+	.feature_circle .circle_of_strength{
+		font-size:1.6em;
+	}
+
+	.feature_circle .circle_goal{
+		left:27%;
+		font-size:.9em;
+		width:120px;
+	}
+
+	.feature_circle .share_circle{
+		bottom:5%;
+	}
 	
 	.feature_photo{
 		min-height:177px;
@@ -381,16 +394,10 @@
 
 	
 	.feature_circle .circle_area {
-	    width:220px;
-	    height:220px;
+	    width:230px;
+	    height:230px;
 	    margin-left:-10px;
 	    margin-top:-10px;
-	}
-
-	.feature_circle .circle_goal{
-		left:20%;
-		font-size:.9em;
-		width:140px;
 	}
 
 	.twitter_avatar, .twitter_title{
@@ -487,6 +494,10 @@
 		min-height:192px;
 	}
 
+	.feature_circle .share_circle{
+		bottom:2%;
+	}
+
 	
 	.feature_circle .circle_area {
 	    width:250px;
@@ -496,9 +507,9 @@
 	}
 
 	.feature_circle .circle_goal{
-		left:17%;
-		width:180px;
-		font-size:1.1em;
+		left:22%;
+		width:150px;
+		font-size:1em;
 	}
 
 	.feature_photo .twitter_author{
@@ -583,14 +594,14 @@
 	}
 
 	.feature_circle .circle_area {
-	    width:300px;
-	    height:300px;
+	    width:310px;
+	    height:310px;
 	    margin-top:0px;
 	}
 
 	.feature_circle .circle_goal{
-		left:20%;
-		font-size:1.2em;
+		left:27%;
+		font-size:1.1em;
 	}
 
 	.twitter_avatar, .twitter_title{
