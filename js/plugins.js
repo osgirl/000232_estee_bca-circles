@@ -151,6 +151,7 @@ $.extend(
                 href: baseUrl + indexPage + u,
                 type: 'ajax',
                 padding: 0,
+                margin:0,
                 closeBtn: $closeBtn,
                 modal: $isUpload,
                 ajax: {
@@ -290,6 +291,7 @@ $.extend(
         $($c + ' #popup_checkbox').click(toggleCheckbox);
         $($c + ' #popup_photo_desc_holder textarea').focus(descFocus);
         $($c + ' input[type=file]').change(fileChangeListener);
+        $parent.click(function(){ if ($parent.children().length == 0) $($c + ' #uploadFile').click(); });
     }
 
     function toggleCheckbox(e)
