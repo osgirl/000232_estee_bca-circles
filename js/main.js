@@ -868,6 +868,8 @@ function confirmCreateCircle(){
 
 	closeCreateCircleScreen();
 	$('#circle_confirm_screen').slideDown(300);
+	$("html, body").animate({ scrollTop: 0 }, "fast");
+
 	$('#content_wrap').css('z-index', '-9999');
 	$('.overlay').css('z-index', '9999');
 }
