@@ -167,7 +167,7 @@ then requests a list of circles
 parse the circle data from feedmagnet and calls a route on our server to ccreates the markup from the list of 
 */
 		function parseCircleData(data){
-
+console.log("parseCircleData");
 			//oc: prep feedmagnet array for db req
 				//1. parse feedmagnet array deleting cookie if it matches
 				//2. insert circle id from cookie (if its there)
@@ -191,7 +191,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 				$.ajax({
 	        		type: 'post',
-	            	url: baseUrl + indexPage + 'circle/fetchCircleData',
+	            	url: baseUrl + indexPage + 'circle/fetchPoopyData',
 	            	dataType: 'json',
 	            	data: {
 	            		circle_id: feed.text
@@ -263,58 +263,51 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				//1. parse feedmagnet array deleting cookie if it matches
 				//2. insert circle id from cookie (if its there)
 				//3. req db circles with new array of circle ids
-		function parseAllCircleData(data){
+		function parseAllCircleData($data){
 
-			console.log("---------------------------------how many more circle data?", data.length)
+			console.log("parseAllCircleData");
 
-			if(data.length == 0) {
-				circleEnd = true;
-			}
+			if($data.length == 0) circleEnd = true;
 
-			console.log("---------------------------------is circle end?", circleEnd, data.length);
+			createAllLayout();
 
-			createAllLayout(data);
+			var data = getIdsFromFeed($data);
 
-			$('body').unbind("ALL_LAYOUT_SINGLE_CREATED").bind('ALL_LAYOUT_SINGLE_CREATED', function(){
-				var feed;
-				var dataCount = 0;
-
-				$(data).each(function(i){
-					feed = data[i].data;
-					$.ajax({
+			$.ajax({
 		        		type: 'post',
-		            	url: baseUrl + indexPage + 'circle/fetchCircleData',
+		            	url: baseUrl + indexPage + 'circle/fetchAllCircles',
 		            	dataType: 'json',
 		            	data: {
-		            		circle_id: feed.text
+		            		feedIdsJSON: JSON.stringify(data)
 		            	},
-		            	success: function(feedData) { 
-
-			            	var circleContainer = (isMoreFeed) ? $($($(".page"+pageNum).find('.gallery_circle')).get(i)) : $($('.gallery_circle').get(i));
-			                galleryItem.populateCircleContent(circleContainer, feedData);
-
-			                dataCount++;
-
-			                if(dataCount == data.length){
-			                	$('body').trigger('ALL_LAYOUT_CREATED');
-			                }
-		             	}
+		            	success: onFetchAllCircles
 		      		});
-				});
+		};
+		
+		function onFetchAllCircles($circles){
+			console.log("onFetchAllCircles");
 
-				if(!isMoreFeed){
-					$.feed.get('bca-photo', handleAllPhotoData, 3);
-			        $.feed.get('bca-instagram', handleAllPhotoData, 3);
-			        $.feed.get('bca-twitter', handleAllPhotoData, 3);
-				}else{
-					$.feed.more('bca-photo', handleAllPhotoData, photoNum);
-					$.feed.more('bca-twitter', handleAllPhotoData, twitterNum);
-					$.feed.more('bca-instagram', handleAllPhotoData, instagramNum);
-				}
-
+			$('body').unbind("ALL_LAYOUT_SINGLE_CREATED").bind('ALL_LAYOUT_SINGLE_CREATED');
+			
+			$($circles).each(function(i,v){
+				console.log("populate circle:",v.circle_id);
+				var circleContainer = (isMoreFeed) ? $($($(".page"+pageNum).find('.gallery_circle')).get(i)) : $($('.gallery_circle').get(i));
+				galleryItem.populateCircleContent(circleContainer, v);
+	            
+	            if(i == $circles.length - 1 )	$('body').trigger('ALL_LAYOUT_CREATED');
+	            
 			});
 
-		}
+			if(!isMoreFeed){
+				$.feed.get('bca-photo', handleAllPhotoData, 3);
+		        $.feed.get('bca-instagram', handleAllPhotoData, 3);
+		        $.feed.get('bca-twitter', handleAllPhotoData, 3);
+			}else{
+				$.feed.more('bca-photo', handleAllPhotoData, photoNum);
+				$.feed.more('bca-twitter', handleAllPhotoData, twitterNum);
+				$.feed.more('bca-instagram', handleAllPhotoData, instagramNum);
+			}
+		};
 
 		function checkIfLoadMore(feed, getNum){
 			var isMore;
@@ -740,16 +733,22 @@ function onFetchFriendCircleData($data){
 
 				var o 	= $feed[i];
 				ids[i] 	= o.data.text;
-				deleteCookieIfNecessary(ids[i]);
+				ored.cookieMonster.deleteCookieIfNecessary(ids[i]);
 			});
+			//oc: push ids from cookie if anything's there. 
+			if($.cookie("circle")){
+				//oc: push cookie circle ids onto the array
+				ids.concat(ored.cookieMonster.getCircleCookie());
+			} 
 			return ids;
 		};
 
 		function getIdsFromFriends($list){
+			console.log($list);
 			var ids 	= [];
-			$($list).each(function(i){
-				var o 	= $list[i];
-				ids[i] 	= o.id;
+			$($list).each(function(i,v){
+			
+				ids[i] 	= v.id;
 			});
 			return ids;
 		};
@@ -834,7 +833,7 @@ function onFetchFriendCircleData($data){
 		
 
 		function createAllLayout(data){
-
+console.log('createAllLayout');
 			if(!circleEnd){
 				$.ajax({
 	        		type: 'get',
