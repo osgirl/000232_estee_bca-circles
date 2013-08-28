@@ -28,6 +28,7 @@ if( ! ini_get('date.timezone') )
         case "staging.click3x.com": 		define('ENVIRONMENT','staging'); break;
 		case "localhost": 					define('ENVIRONMENT','development'); break;
 		case "bca.dev": 					define('ENVIRONMENT','sean_config'); break;
+		case "192.168.1.100": 				define('ENVIRONMENT','sean_config'); break;
 		case "bcasite.dev": 				define('ENVIRONMENT','mili_config'); break;
 		case "bcastronger.dev": 			define('ENVIRONMENT','jason'); break;
 		//TODO enter more environments as needed
