@@ -15,9 +15,6 @@
 		padding: 2px 20px 0 10px;
 	}
 	
-	#collapse_share_module{
-		margin-left:1%;
-	}
 	
 	.vertical_mode_show{
 		padding: 14px 0 14px 0;
@@ -106,6 +103,10 @@
 
 	.layout_circle .gallery_circle{
 		width:93%;
+	}
+
+	#PP_btn, #CC_btn{
+		display:none;
 	}
 
 

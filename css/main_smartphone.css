@@ -3,10 +3,7 @@
 /* ===============
     Smartphone (360px)
    =============== */
-	
-	#collapse_share_module{
-		margin-left:6%;
-	}
+
   
 	#top_content{
 		max-height:2100px;
@@ -56,10 +53,6 @@
 	
 	#top_nav{
 		max-width:480px;
-	}
-	
-	#collapse_share_module{
-		margin-left:5%;
 	}
 	
 	.user_info{
@@ -310,6 +303,10 @@
 		margin:20px 10px 0 10px;
 	}
 
+	.feature_circle .share_circle{
+		display:block;
+	}
+
 
 }
 
@@ -327,10 +324,6 @@
 		max-width:600px;
 	}
 	
-	#collapse_share_module{
-		margin-left:2.5%;
-	}
-  
 	#top_content{
 		max-height:1020px;
 		overflow:hidden;

@@ -7,11 +7,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <span class='top_sub_nav_item pull-right vertical_mode_show' style="margin-right:-8px;">
+                    <span class='top_sub_nav_item pull-right vertical_mode_show' style="margin-right:5px;">
                 	   <span class='top_user_name user_name_display' class='all_cap'></span>
 						<a class='sign_in_btn'>
-                            <span style="margin-top:1px" class='sign_in all_cap pink_text'>SIGN IN</span>
-						  <span style="margin-left:5px;"><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></span>
+                            <span style="margin-top:1px;" class='sign_in all_cap pink_text'>SIGN IN</span>
+						  <!-- <span style="margin-left:5px;"><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></span> -->
                         </a>
 					</span>
 					<span id="collapse_share_module" class='top_sub_nav_item pull-left vertical_mode_show'>
@@ -34,6 +34,8 @@
                             <li><a href="#video" onclick="return $.popup({type:'video'});" class='all_cap'>video</a></li>
                             <li><a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" target="_blank" class='all_cap' onclick="$.gaPageview(/donate/)">donate</a></li>
                             <li><a href="#about" onclick="return $.popup({type:'about'});" class='all_cap'>about</a></li>
+                            <li><a id="PP_btn" href="" onclick="$.popup({type:'privacy_policy'});" class='all_cap'>Privacy Policy</a></li>
+                            <li><a id="TC_btn" href="" onclick="$.popup({type:'terms_and_conditions'});" class='all_cap'>Terms & Conditions</a></li>
                         </ul>
                         <div id='top_sub_nav' class='pull-right'>
                             <span class='top_sub_nav_item'>
