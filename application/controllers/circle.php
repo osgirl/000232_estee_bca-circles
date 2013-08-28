@@ -122,8 +122,7 @@ class Circle extends CI_Controller {
 		else
 			echo 'Invalid access';
 	}
-
-	public function fetchFriendCircleData()
+	public function fetchAllCircles()
 	{
 		
 		//$this->output->enable_profiler(TRUE);
@@ -132,18 +131,16 @@ class Circle extends CI_Controller {
 		if ( isset ( $this->post['feedIdsJSON'] )) {	
 
 			$feedArr 		= json_decode($this->post['feedIdsJSON']);
-			$circle_id 		= $feedArr[0];
 			//print_r($feedArr);
-			$friendsArr 	= json_decode($this->post['friendIdsJSON']);
-			//print_r($friendsArr);
-
-			$data 		= array();
-			$circles 	= array();
 			
+
+			$circles 		= array();
+			$data 			= array();
+			$friends_data 	= array();
+
 			$query = $this->db->select("circles.*, g.goal_type")	
 				->from("circles")
 				->where_in("circles.id",$feedArr)
-				->where_in("users_fb_id",$friendsArr)
 				->join("goals AS g", 'g.id = circles.ref_goal_id', "LEFT")
 				->order_by("circles.id DESC")
 				->get();
@@ -164,9 +161,12 @@ class Circle extends CI_Controller {
 			    $data['country'] 		= $row->country;
 			    $data['goal_type'] 		= $row->goal_type;
 
-//print_r($row);
-//select all circles where circle's userid is in 
-			    $friend_query = $this->db->query("SELECT * FROM friends WHERE ref_circle_id = '$circle_id'"); 
+
+				//oc: select all circles where circle's userid is in 
+			    $friend_query = $this->db->select()
+			    	->from("friends")
+			    	->where("ref_circle_id", $circle_id)
+			    	->get();
 
 			    if ($friend_query->num_rows() > 0) {
 				  foreach($friend_query->result() as $row) {
@@ -175,10 +175,10 @@ class Circle extends CI_Controller {
 				  								'url'=>$row->friends_photo_url);
 
 				  }
-				$data['friends_data'] = $friends_data;
-				$circles[]	= $data;
+				}//endif friends
 
-				}//endif
+				$data['friends_data'] 	= $friends_data;
+				$circles[]				= $data;
 			  }//endforeach
 			}//endif
 
@@ -188,6 +188,77 @@ class Circle extends CI_Controller {
 		else
 			echo 'Invalid access';
 	}
+
+	public function fetchFriendCircleData()
+	{
+		
+		//$this->output->enable_profiler(TRUE);
+		$this->post = $this->input->post();
+
+		if ( isset ( $this->post['feedIdsJSON'] )) {	
+
+			$feedArr 		= json_decode($this->post['feedIdsJSON']);
+			$circle_id 		= $feedArr[0];
+			//print_r($feedArr);
+			$friendsArr 	= json_decode($this->post['friendIdsJSON']);
+			//print_r($friendsArr);
+
+			$circles 		= array();
+			$data 			= array();
+
+
+			$query = $this->db->select("circles.*, g.goal_type")	
+				->from("circles")
+				->where_in("circles.id",$feedArr)
+				->where_in("users_fb_id",$friendsArr)
+				->join("goals AS g", 'g.id = circles.ref_goal_id', "LEFT")
+				->order_by("circles.id DESC")
+				->get();
+			
+
+			if ($query->num_rows() > 0) {
+			  foreach($query->result() as $row) {
+				$friends_data 			= array();
+			  	$circle_id 				= $row->id;
+
+			  	$data['circle_id'] 		= $circle_id;
+			    $data['user_id'] 		= $row->users_fb_id;
+			    $data['user_name'] 		= $row->users_name;
+			    $data['user_photo_url'] = $row->users_photo_url;
+			    $data['goal'] 			= $row->goal;
+			    $data['goal_id'] 		= $row->ref_goal_id;
+			    $data['language'] 		= $row->language;
+			    $data['country'] 		= $row->country;
+			    $data['goal_type'] 		= $row->goal_type;
+
+//oc: select all circles where circle's userid is in 
+			    $friend_query = $this->db->select()
+			    	->from("friends")
+			    	->where("ref_circle_id", $circle_id)
+			    	->get();
+
+			    if ($friend_query->num_rows() > 0) {
+				  foreach($friend_query->result() as $row) {
+				  	$friends_data[] = array (	'fb_id'=>$row->friends_fb_id,
+				  								'name'=>$row->friends_name,
+				  								'url'=>$row->friends_photo_url);
+
+				  }
+
+				}//endif
+				$data['friends_data'] 	= $friends_data;
+				$circles[]				= $data;
+			  }//endforeach
+			}//endif
+
+			echo json_encode($circles);
+			
+		}
+		else
+			echo 'Invalid access';
+	}
+
+
 	public function fetchUserCircleData()
 	{
 		$this->post 	= $this->input->post();

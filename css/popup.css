@@ -263,7 +263,7 @@
 
 .popup #popup_photo_upload_agreement_window h2 {
 	margin: 10px 0 5px;
-	font-size: 14px;
+	font-size: 13px;
 }
 
 .popup #popup_photo_upload_agreement_window a {
@@ -480,16 +480,20 @@
 	margin: -23px 0 0 -23px; 
 }
 
+.popup #popup_circle_modal {
+	font-size: 2.4em;
+}
+
 .popup #popup_circle_modal #goal {
 	position: absolute;
 	display: block;
 	width: 50%;
 	margin-left: -25%;
-	top: 32%;
+	top: 30%;
 	left:50%;
 	font-family: 'Helvetica',Arial, sans-serif;
 	font-weight: 300;
-	font-size: 1.2em;
+	font-size: 40%;
 	text-align: center;
 	line-height: 1.1em;
 	z-index: 2;
@@ -501,6 +505,7 @@
 	float: none;
 	width: 110px;
 	margin-left: -55px;	
+	font-size: 11px;
 	top: 65%;
 	left: 50%;
 	border: none;
@@ -746,7 +751,7 @@
 	}
 
 	.popup #popup_circle_modal #goal {
-		font-size: 1.5em;
+		font-size: 50%;
 	}
 
 	.popup #popup_circle_photo_button_wrapper span{
@@ -853,11 +858,12 @@
 	}
 
 	.popup #popup_circle_modal #goal {
-		font-size: 1.9em;
+		font-size: 80%;
 	}
 
 	.popup #popup_circle_modal #popup_footer_share {
 		top: 75%;
+		font-size: 14px;
 	}
 
 	.popup #popup_circle_photo_carousel_wrapper {
@@ -941,10 +947,6 @@
 	}
 
 	/*Circle*/
-	.popup #popup_circle_modal #goal {
-		font-size: 2em;
-	}
-
 	.popup #popup_circle_photo_carousel_wrapper #container{
 		width: 660px;
 	}
@@ -1030,7 +1032,7 @@
 
 	/*Circle*/
 	.popup #popup_circle_modal #goal {
-		font-size: 2.1em;
+		font-size: 100%;`
 	}
 
 	.popup #popup_circle_photo_carousel_wrapper #container{
@@ -1047,9 +1049,6 @@
 }
 
 @media only screen and (min-width: 1200px) {
-	.popup #popup_circle_modal #goal {
-		font-size: 2.4em;
-	}
 
 	/*Circle*/
 	.popup #popup_circle_photo_carousel_wrapper #container{

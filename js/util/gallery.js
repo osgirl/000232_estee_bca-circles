@@ -41,12 +41,12 @@ function Gallery()
 		var feed_circles;		
 		var feed_photos;	
 		var gallery_container;
-		var current_add_layout = 1;
-		var currentFilterType = "all";
+		var current_add_layout 	= 1;
+		var currentFilterType 	= "all";
 		var currentLayoutPath;
 		
 
-		var SCROLL_TO_SHOW_FOOTER = 2000;
+		var SCROLL_TO_SHOW_FOOTER 		= 2000;
 		var PHOTO_LAYOUT_COLUMN_NUM		= 4;
 		var CIRCLE_LAYOUT_COLUMN_NUM	= 2;
 		var DEFAULT_GALLERY_HEIGHT		=  1500;
@@ -68,9 +68,9 @@ function Gallery()
 		var morePhotoCount = 0;
 
 		var circleNum;
-			var photoNum;
-			var twitterNum;
-			var instagramNum;
+		var photoNum;
+		var twitterNum;
+		var instagramNum;
 
 		var uploadedPhotoCount;
 
@@ -127,14 +127,47 @@ function Gallery()
 			);
 		};
 
-		
-/*
-this function handles the onComplete of the loading the list of cirle ID's from feedmagnet
+		function getMoreAllFeed(){
+
+			morePhotoData = new Array();
+
+			switch(current_add_layout){
+				case 1:
+					circleNum 		= 2;
+					photoNum 		= 1;
+					twitterNum 		= 2;
+					instagramNum 	= 2;
+				break;
+
+				case 2:
+					circleNum 		= 1;
+					photoNum 		= 1;
+					twitterNum 		= 2;
+					instagramNum 	= 2;
+				break;
+			}
+
+			 if(circleEnd) {
+			 	circleNum       = 0;
+			 	photoNum 		= 4;
+			 	twitterNum 		= 4;
+			 	instagramNum 	= 4;
+			 }
+			
+			$.feed.more('bca-circle', parseAllCircleData, circleNum);
+
+
+			console.log("---------------------------------get more feed, but is the circle finished?", circleEnd)
+
+
+		}
+/*   oc: 
+this function handles the onComplete of the loading the list of cirle ID's from feedmagnet upon filter click
 then requests a list of circles 
 parse the circle data from feedmagnet and calls a route on our server to ccreates the markup from the list of 
 */
 		function parseCircleData(data){
-
+console.log("parseCircleData");
 			//oc: prep feedmagnet array for db req
 				//1. parse feedmagnet array deleting cookie if it matches
 				//2. insert circle id from cookie (if its there)
@@ -142,7 +175,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			circleFeed = data;
 			console.log("---------------------------------how many more circle data?", data.length)
-//oc: this is where we get
 
 			if(data.length == 0) return;
 
@@ -159,7 +191,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 				$.ajax({
 	        		type: 'post',
-	            	url: baseUrl + indexPage + 'circle/fetchCircleData',
+	            	url: baseUrl + indexPage + 'circle/fetchPoopyData',
 	            	dataType: 'json',
 	            	data: {
 	            		circle_id: feed.text
@@ -226,93 +258,56 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			});
 		}
 
-		function getMoreAllFeed(){
 
-			morePhotoData = new Array();
+			//oc: prep feedmagnet array for db req
+				//1. parse feedmagnet array deleting cookie if it matches
+				//2. insert circle id from cookie (if its there)
+				//3. req db circles with new array of circle ids
+		function parseAllCircleData($data){
 
-			switch(current_add_layout){
-				case 1:
-					circleNum 		= 2;
-					photoNum 		= 1;
-					twitterNum 		= 2;
-					instagramNum 	= 2;
-				break;
+			console.log("parseAllCircleData");
 
-				case 2:
-					circleNum 		= 1;
-					photoNum 		= 1;
-					twitterNum 		= 2;
-					instagramNum 	= 2;
-				break;
-			}
+			if($data.length == 0) circleEnd = true;
 
-			 if(circleEnd) {
-			 	circleNum       = 0;
-			 	photoNum 		= 4;
-			 	twitterNum 		= 4;
-			 	instagramNum 	= 4;
-			 }
-			
-			$.feed.more('bca-circle', parseAllCircleData, circleNum);
+			createAllLayout();
 
+			var data = getIdsFromFeed($data);
 
-			console.log("---------------------------------get more feed, but is the circle finished?", circleEnd)
-
-
-		}
-
-		function parseAllCircleData(data){
-
-			console.log("---------------------------------how many more circle data?", data.length)
-
-			if(data.length == 0) {
-				circleEnd = true;
-			}
-
-			console.log("---------------------------------is circle end?", circleEnd, data.length);
-
-			createAllLayout(data);
-
-			$('body').unbind("ALL_LAYOUT_SINGLE_CREATED").bind('ALL_LAYOUT_SINGLE_CREATED', function(){
-				var feed;
-				var dataCount = 0;
-
-				$(data).each(function(i){
-					feed = data[i].data;
-					$.ajax({
+			$.ajax({
 		        		type: 'post',
-		            	url: baseUrl + indexPage + 'circle/fetchCircleData',
+		            	url: baseUrl + indexPage + 'circle/fetchAllCircles',
 		            	dataType: 'json',
 		            	data: {
-		            		circle_id: feed.text
+		            		feedIdsJSON: JSON.stringify(data)
 		            	},
-		            	success: function(feedData) { 
-
-			            	var circleContainer = (isMoreFeed) ? $($($(".page"+pageNum).find('.gallery_circle')).get(i)) : $($('.gallery_circle').get(i));
-			                galleryItem.populateCircleContent(circleContainer, feedData);
-
-			                dataCount++;
-
-			                if(dataCount == data.length){
-			                	$('body').trigger('ALL_LAYOUT_CREATED');
-			                }
-		             	}
+		            	success: onFetchAllCircles
 		      		});
-				});
+		};
+		
+		function onFetchAllCircles($circles){
+			console.log("onFetchAllCircles");
 
-				if(!isMoreFeed){
-					$.feed.get('bca-photo', handleAllPhotoData, 3);
-			        $.feed.get('bca-instagram', handleAllPhotoData, 3);
-			        $.feed.get('bca-twitter', handleAllPhotoData, 3);
-				}else{
-					$.feed.more('bca-photo', handleAllPhotoData, photoNum);
-					$.feed.more('bca-twitter', handleAllPhotoData, twitterNum);
-					$.feed.more('bca-instagram', handleAllPhotoData, instagramNum);
-				}
-
+			$('body').unbind("ALL_LAYOUT_SINGLE_CREATED").bind('ALL_LAYOUT_SINGLE_CREATED');
+			
+			$($circles).each(function(i,v){
+				console.log("populate circle:",v.circle_id);
+				var circleContainer = (isMoreFeed) ? $($($(".page"+pageNum).find('.gallery_circle')).get(i)) : $($('.gallery_circle').get(i));
+				galleryItem.populateCircleContent(circleContainer, v);
+	            
+	            if(i == $circles.length - 1 )	$('body').trigger('ALL_LAYOUT_CREATED');
+	            
 			});
 
-		}
+			if(!isMoreFeed){
+				$.feed.get('bca-photo', handleAllPhotoData, 3);
+		        $.feed.get('bca-instagram', handleAllPhotoData, 3);
+		        $.feed.get('bca-twitter', handleAllPhotoData, 3);
+			}else{
+				$.feed.more('bca-photo', handleAllPhotoData, photoNum);
+				$.feed.more('bca-twitter', handleAllPhotoData, twitterNum);
+				$.feed.more('bca-instagram', handleAllPhotoData, instagramNum);
+			}
+		};
 
 		function checkIfLoadMore(feed, getNum){
 			var isMore;
@@ -731,24 +726,34 @@ function onFetchFriendCircleData($data){
 
 		};//end getFriendCircleData
 
+//oc: util getters/setters
 		function getIdsFromFeed($feed){
 			var ids = [];
 			$($feed).each(function(i){
-				var o = $feed[i];
 
-				ids[i] = o.data.text;
+				var o 	= $feed[i];
+				ids[i] 	= o.data.text;
+				ored.cookieMonster.deleteCookieIfNecessary(ids[i]);
 			});
+			//oc: push ids from cookie if anything's there. 
+			if($.cookie("circle")){
+				//oc: push cookie circle ids onto the array
+				ids.concat(ored.cookieMonster.getCircleCookie());
+			} 
 			return ids;
 		};
 
 		function getIdsFromFriends($list){
+			console.log($list);
 			var ids 	= [];
-			$($list).each(function(i){
-				var o 	= $list[i];
-				ids[i] 	= o.id;
+			$($list).each(function(i,v){
+			
+				ids[i] 	= v.id;
 			});
 			return ids;
 		};
+
+
 
 		function loadLayout(){
 
@@ -828,7 +833,7 @@ function onFetchFriendCircleData($data){
 		
 
 		function createAllLayout(data){
-
+console.log('createAllLayout');
 			if(!circleEnd){
 				$.ajax({
 	        		type: 'get',

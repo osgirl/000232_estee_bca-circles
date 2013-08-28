@@ -347,7 +347,7 @@ $.extend(
 
     function fileChangeListener(e)
     {
-        if (Modernizr.canvas)
+        if (Modernizr.canvas && !ismobile)
         {
             uploadToCanvas(e);
         }
@@ -651,15 +651,57 @@ $.extend(
         $this = $(this);
         $c = '.' + $(this).attr('class');
         $d = v;
-        $win_abs_y = $(window).scrollTop();
-        $margin_top = $('.navbar').height();
         $pagn = $($c + ' #popup_circle_photo_carousel_pagn')
         $this.attr('cid', $d.id);
         $d.child = true;
         if ($d.circle_id == null) $d.circle_id = $d.id;
 
+
+
+        //Disable lazyLoader first
+        gallery.disableLazyloader();
+
+        //initalize scroll detection
+        windowEventListener();
+        
+        //Hide edit user button
+        if (!v.is_user) $($c + ' .btn_edit').hide();
+        currentCircleViewIsUser = v.is_user;
+        currentCircleView = $c;
+
+        //Start bind
+        $($c + ' .btn_edit').click(function()
+        {
+            editFriends(v)
+        });
+        $($c + ' .btn_close').click(closeWindow);
+        $($c + ' .btn_add_photo').click(addPhoto);
+        $($c + ' .btn_nav_photo').click(navPhoto);
+
+        $this.bind('photo_upload_complete', loadCirclePhotos)
+
+        //Startup some function
+        $(window).trigger('scroll');
+
+        $('#magnet_feed').animate(
+        {
+            opacity: 0
+        }, 250);
+        $this.animate(
+        {
+            opacity: 1
+        }, 250);
+        createDots();
+    }
+
+    function windowEventListener()
+    {
         //Add padding when header page has net been scrolled to the top
-        if (($win_abs_y + $margin_top) < $this.parent().offset().top)
+        $win_abs_y = $(window).scrollTop();
+        $margin_top = getMarginTop();
+
+        //Scroll only when the browser is on desktop mode
+        if (($win_abs_y + $margin_top) < $this.parent().offset().top && $('.navbar').css('position') == 'fixed')
         {
             $padding_top = $this.parent().offset().top - $win_abs_y - $margin_top;
             $('html,body').animate(
@@ -672,13 +714,13 @@ $.extend(
             $padding_top = 0;
         }
 
-
-        //Disable lazyLoader first
-        gallery.disableLazyloader();
-
-        //initalize scroll detection
         $(window).bind('resize scroll', function(e)
         {
+
+            if(e.type == 'resize'){
+                $margin_top = getMarginTop();
+            }
+
             $scroll_y = $(this).scrollTop() - $win_abs_y;
             $bound.w = $this.parent().outerWidth();
             $bound.l = $this.parent().offset().left;
@@ -715,34 +757,11 @@ $.extend(
             }
         });
 
-        if (!v.is_user) $($c + ' .btn_edit').hide();
-
-        currentCircleViewIsUser = v.is_user;
-        currentCircleView = $c;
-
-        //Start bind
-        $($c + ' .btn_edit').click(function()
+        function getMarginTop()
         {
-            editFriends(v)
-        });
-        $($c + ' .btn_close').click(closeWindow);
-        $($c + ' .btn_add_photo').click(addPhoto);
-        $($c + ' .btn_nav_photo').click(navPhoto);
-
-        $this.bind('photo_upload_complete', loadCirclePhotos)
-
-        //Startup some function
-        $(window).trigger('scroll');
-
-        $('#magnet_feed').animate(
-        {
-            opacity: 0
-        }, 250);
-        $this.animate(
-        {
-            opacity: 1
-        }, 250);
-        createDots();
+            return ( $('.navbar').css('position') == 'fixed'  ) ?  $('.navbar').height() : 0;
+        }
+        
     }
 
     function createDots()

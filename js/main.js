@@ -8,7 +8,7 @@ var ored 			= {};
 ored.friendsCircles	= [];
 ored.postVars		= {};
 ored.count 			= 128;//oc: how many do we from feedmagnet at a time to see if our friends are in there?
-
+ored.cookieMonster	= {};
 
 //events
 var LOGIN_SUCCESS			= "LOGIN_SUCCESS";
@@ -103,20 +103,21 @@ $(document).ready(function(){
 
 				console.log("ALL_LAYOUT_CREATED");
 
-				if(checkCircleCookie()){
-					var c = getCircleCookie("circle");
+//oc: uncomment for now.
+			// 	if(checkCircleCookie()){
+			// 		var c = getCircleCookie("circle");
 					
-					//console.log("circle cookie");
+			// 		//console.log("circle cookie");
 
-					gallery.refreshAsFakeCircleData(c); 
-				}
+			// 		gallery.refreshAsFakeCircleData(c); 
+			// 	}
 
-			    if(checkPhotoCookie()){
-					var p = getPhotoCookie("photo");	
+			//     if(checkPhotoCookie()){
+			// 		var p = getPhotoCookie("photo");	
 
-					//console.log("photo cookie");
-				    gallery.refreshAsFakePhotoData(p); 
-			}
+			// 		//console.log("photo cookie");
+			// 	    gallery.refreshAsFakePhotoData(p); 
+			// }
 		})
 	});
 	
@@ -204,7 +205,7 @@ function getLoginStatus(e){
 	
 	if(createCircleClicked) openCreateCircleScreen(false);
 
-	gallery.showFriendCircles();
+
 }
 
 function getLogoutStatus(e){
@@ -599,6 +600,9 @@ function actionSelected(e){
 
 
 function getFriendList(e){
+	console.log("getFriendList");
+
+	gallery.showFriendCircles();
 	
 	$('#friend_search_field').unbind('keyup').keyup(function(e){
 		if($(e.currentTarget).val() == "")  resetNameTextfield();
@@ -977,6 +981,7 @@ function createStatItem(item, parent, line1, line2, data, isCircle){
 }
 
 function createCircle(){	
+	console.log("createCircle");
 	console.log("user info", userID, userName)
 	console.log("user photo", userProfilePhoto);
 	console.log("user friends info", friendSelectedArray);
@@ -1049,55 +1054,75 @@ function createCircle(){
 	});
 }
 
-function saveCircleToCookie($data){
 	//oc: save cookie.
-	//console.log("save cookie");
-	//console.log($data);
-	var circle = JSON.stringify($data);
+ored.cookieMonster.saveCircleId = function ($id){
+	console.log("ored.cookieMonster.saveCircleId:", $id);
 
-	//oc: set cookie valid for 7 days, across whole site
-	$.cookie("circle",circle,{ expires: 7, path: '/' });
+var circleArr = $.cookie("circles") ? JSON.parse($.cookie("circles")) : new Array();
+	circleArr.push($id);
+
+	//oc: set cookie valid for 1 days, across whole site
+	$.cookie("circles",JSON.stringify(circleArr),{ expires: 1, path: '/' });
 
 }
 
-function savePhotoToCookie($data){
+ored.cookieMonster.savePhotoToCookie = function ($data){
 	//oc: save cookie.
 	//console.log("save cookie");
 	//console.log($data);
 	var photo = JSON.stringify($data);
 
 	//oc: set cookie valid for 7 days, across whole site
-	$.cookie("photo",photo,{ expires: 7, path: '/' });
+	$.cookie("photo",photo,{ expires: 2, path: '/' });
 }
 
-function getCircleCookie(c_name){
+ored.cookieMonster.getCircleCookie = function (){
 
-	var c_value = $.cookie("circle");
-	//console.log(c_value);
-	return JSON.parse(c_value);
+	var c_value = $.cookie("circles");
+	console.log(c_value);
+	return c_value ? JSON.parse(c_value) : false;
 };
 
-function getPhotoCookie(c_name){
+ored.cookieMonster.getPhotoCookie = function (){
 
 	var p_value = $.cookie("photo");
 	//console.log(p_value);
 	return JSON.parse(p_value);
 };
 
-function checkCircleCookie(){
-
-	//oc: is cookie present?
-	return $.cookie("circle");
-
-	
-};
-
-function checkPhotoCookie(){
+ored.cookieMonster.checkPhotoCookie = function(){
 
 	//oc: is cookie present?
 	return $.cookie("photo");
 
 	
+};
+
+ored.cookieMonster.deleteCookieIfNecessary = function ($id){
+
+	if( $.cookie("circles")) {
+			
+		var circleArr = ored.cookieMonster.getCircleCookie();
+		for (var i in circleArr){
+			if($id == circleArr[i])
+				// 
+				console.log("delete: "+$id);
+				var index = circleArr.indexOf($id);
+				circleArr.splice(index, 1);
+				//oc: set cookie valid for 1 days, across whole site
+				$.cookie("circles",JSON.stringify(circleArr),{ expires: 1, path: '/' });
+		}
+	}
+};
+
+ored.show_props = function (obj, objName) {
+  var result = "";
+    
+  for (var prop in obj) {
+    result += objName + "." + prop + " = " + obj[prop] + "\n";
+  }
+    
+  return result;
 };
 
 function postCircleData(goal_id){
@@ -1121,7 +1146,8 @@ function postCircleData(goal_id){
     	data: value,
     	success: function(data) {   
 
-    		//oc: save circle id in cookie.
+			//oc: save circle id in cookie.
+			ored.cookieMonster.saveCircleId(data.id);
 
     		$.ajax({
 	        		type: 'post',
@@ -1135,21 +1161,20 @@ function postCircleData(goal_id){
 
 	            		    console.log("friends data", friendsData);
 
-	            			var cookieData 					= {};
-							cookieData.circle_id 			= data.id;
-							cookieData.user_id				= userID;
-							cookieData.user_name			= userName;
-							cookieData.goal 				= data.goal;
-							cookieData.goal_type 			= currentSameGoalType;
-							cookieData.country				= data.country;
-							cookieData.goal_id  			= data.goal_id;
-							cookieData.language 			= data.language;
-							cookieData.user_photo_url		= userProfilePhoto;
-							cookieData.friends_data			= friendsData;
+	            			var newCircleData 			= {};
+							newCircleData.circle_id 	= data.id;
+							newCircleData.user_id		= userID;
+							newCircleData.user_name		= userName;
+							newCircleData.goal 			= data.goal;
+							newCircleData.goal_type 	= currentSameGoalType;
+							newCircleData.country		= data.country;
+							newCircleData.goal_id  		= data.goal_id;
+							newCircleData.language 		= data.language;
+							newCircleData.user_photo_url= userProfilePhoto;
+							newCircleData.friends_data	= friendsData;
 
-							saveCircleToCookie(cookieData);
-
-							gallery.refreshAsFakeCircleData(cookieData); 
+					
+							gallery.refreshAsFakeCircleData(newCircleData); 
 
 							var popupData = {
 								type:'circle',
@@ -1196,26 +1221,9 @@ function updateFriends(){
 
         		    console.log("friends data", friendsData);
 
-        		    var circle_id = currentCircleViewData.id;
-        		    var circle_content = currentCircleViewData.content;
-        		    var circle_photo = currentCircleViewData.avatar;
-
-     //    		    var cookieData 					= {};
-					// cookieData.circle_id 			= circle_id;
-					// cookieData.user_id				= userID;
-					// cookieData.user_name			= userName;
-					// //cookieData.goal 				= data.goal;
-					// //cookieData.goal_type 			= currentSameGoalType;
-					// cookieData.country				= country;
-					// //cookieData.goal_id  			= data.goal_id;
-					// //cookieData.language 			= data.language;
-					// cookieData.user_photo_url		= userProfilePhoto;
-					// cookieData.friends_data			= friendsData;
-
-					// saveCircleToCookie(cookieData);
-
-					// gallery.refreshAsFakeCircleData(cookieData); 
-
+        		    var circle_id 		= currentCircleViewData.id;
+        		    var circle_content 	= currentCircleViewData.content;
+        		    var circle_photo 	= currentCircleViewData.avatar;
 
 					var popupData = {
 						type:'circle',
