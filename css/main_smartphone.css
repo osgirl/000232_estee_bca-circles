@@ -186,7 +186,8 @@
 	.feature_circle .circle_goal{
 		font-size:1em;
 		width:150px;
-		left:23%;
+		left:24%;
+		top:2%;
 	}
 
 	.feature_circle .profile_image_small{
@@ -370,6 +371,7 @@
 		left:22%;
 		font-size:1.2em;
 		width:180px;
+		top:0;
 	}
 	
 	.user_stats{
