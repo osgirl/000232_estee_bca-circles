@@ -347,7 +347,7 @@ $.extend(
 
     function fileChangeListener(e)
     {
-        if (Modernizr.canvas && !ismobile)
+        if (Modernizr.canvas)
         {
             uploadToCanvas(e);
         }
@@ -400,7 +400,7 @@ $.extend(
             },
             error: function(data, status, e)
             {
-                alert('Please use an image in JPG, GIF and PNG format under 2mb.');
+                alert('Please use an image in JPG, GIF and PNG format under 5mb.');
                 loadEnd();
             }
         })

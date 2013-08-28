@@ -2,7 +2,8 @@
 
 class Photo extends CI_Controller {
 
-	public $img_length 		= 580;
+	public $img_length 			= 580;
+	public $max_img_length 		= 1024;
 
 	public function index()
 	{
@@ -85,7 +86,15 @@ class Photo extends CI_Controller {
 
 				// Resample
 				$canvas = imagecreatetruecolor($w, $h);
-				$image = imagecreatefromjpeg($file_location);
+				
+				if($extension == 'jpg' || $extension == 'jpeg'){
+					$image = imagecreatefromjpeg($file_location);
+				}
+				else if($extension == 'png'){
+					$image = imagecreatefrompng($file_location);	
+				}
+				
+
 				imagecopyresampled($canvas, $image, 0, 0, 0, 0, $w, $h, $o_w, $o_h);
 				
 				// Output
