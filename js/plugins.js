@@ -237,12 +237,19 @@ $.extend(
                 u +="/?referral=facebook-" + v.referral;
 
             var _caption;
+
+            var _picture = baseUrl + 'img/assets/fb_share.jpg';
+
+            if(v.photo_url != undefined)
+                _picture = v.photo_url;
+
             FB.ui(
             {
                 method: 'feed',
+                display: ismobile ? 'touch' : 'popup',
                 link: baseUrl + indexPage + '#' + u,
                 name: "We're Stronger Together.",
-                picture: baseUrl + 'img/assets/fb_share.jpg',
+                picture: _picture,
                 caption: _caption,
                 description: 'Create a Circle of Strength with those who support you most now.'
             },

@@ -458,8 +458,10 @@ h2{
     behavior: url(css/PIE.htc);
 	width:140px;
 	height:140px;
-	background-size: 150px auto;
+	background:center center no-repeat;
+	background-size: 160px auto;
 	margin-right:5%;
+	background-color:#ede1e4;
 }
 
 #bottom_user_name{
@@ -810,6 +812,7 @@ h2{
 	font-size:2em;
 }
 
+
 .profile_image_small{
 	float:left;
 	-moz-border-radius: 50%;
@@ -819,6 +822,8 @@ h2{
     behavior: url(css/PIE.htc);
 	width:70px;
 	height:70px;
+	background:center center no-repeat;
+	background-color:#ede1e4;
 	background-size: 70px auto;
 	position:absolute;
 	margin-left:-22px;
