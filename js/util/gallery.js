@@ -268,26 +268,30 @@ console.log("parseCircleData");
 			console.log("parseAllCircleData");
 
 			if($data.length == 0) circleEnd = true;
-
-			createAllLayout();
-
 			var data = getIdsFromFeed($data);
 
-			$.ajax({
-		        		type: 'post',
-		            	url: baseUrl + indexPage + 'circle/fetchAllCircles',
-		            	dataType: 'json',
-		            	data: {
-		            		feedIdsJSON: JSON.stringify(data)
-		            	},
-		            	success: onFetchAllCircles
-		      		});
+			createAllLayout();
+			$('body').unbind().bind('ALL_LAYOUT_SINGLE_CREATED', function(){ 
+
+				$.ajax({
+			        		type: 'post',
+			            	url: baseUrl + indexPage + 'circle/fetchAllCircles',
+			            	dataType: 'json',
+			            	data: {
+			            		feedIdsJSON: JSON.stringify(data)
+			            	},
+			            	success: onFetchAllCircles
+			      		});
+
+
+			});
+			
 		};
 		
 		function onFetchAllCircles($circles){
 			console.log("onFetchAllCircles");
 
-			$('body').unbind("ALL_LAYOUT_SINGLE_CREATED").bind('ALL_LAYOUT_SINGLE_CREATED');
+			
 			
 			$($circles).each(function(i,v){
 				console.log("populate circle:",v.circle_id);
