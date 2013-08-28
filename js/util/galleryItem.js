@@ -197,7 +197,10 @@ function GalleryItem()
 		
 
 		populateCircleContent:function(circle, data){
-
+			console.log("populateCircleContent");
+			console.log(circle);
+			console.log(data);
+			
 			circle.attr('circle_id', data.circle_id);
 			circle.attr('user_id', data.user_id);
 			circle.attr('goal_id', data.goal_id);

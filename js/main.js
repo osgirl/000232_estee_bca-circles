@@ -1077,10 +1077,10 @@ ored.cookieMonster.savePhotoToCookie = function ($data){
 }
 
 ored.cookieMonster.getCircleCookie = function (){
-
+	console.log("ored.cookieMonster.getCircleCookie");
 	var c_value = $.cookie("circles");
 	console.log(c_value);
-	return c_value ? JSON.parse(c_value) : false;
+	return c_value ? JSON.parse(c_value) : [];
 };
 
 ored.cookieMonster.getPhotoCookie = function (){
@@ -1209,6 +1209,7 @@ function postCircleData(goal_id){
 }
 
 function updateFriends(){
+	console.log("updateFriends");
 	$.ajax({
     		type: 'post',
         	url: baseUrl + indexPage + 'friend/create',
@@ -1219,7 +1220,7 @@ function updateFriends(){
         	},
         	success: function(friendsData) {  
 
-        		    console.log("friends data", friendsData);
+        		    console.log("updateFriends onAJAX complete of friend/create. friendsData", friendsData);
 
         		    var circle_id 		= currentCircleViewData.id;
         		    var circle_content 	= currentCircleViewData.content;
