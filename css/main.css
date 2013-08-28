@@ -721,7 +721,7 @@ h2{
 }
 
 .twitter_time{
-	font-size:.8em;
+	font-size:.circ8em;
 	color:white;
 }
 
@@ -948,8 +948,8 @@ h2{
 .feature_circle .circle_area{
 	margin-left:-15px;
 	margin-top:-20px;
-	width:160px;
-	height:160px;
+	width:165px;
+	height:165px;
 }
 
 .feature_circle .circle_area img{
