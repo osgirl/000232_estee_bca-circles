@@ -1077,7 +1077,7 @@ ored.cookieMonster.savePhotoToCookie = function ($data){
 }
 
 ored.cookieMonster.getCircleCookie = function (){
-
+	console.log("ored.cookieMonster.getCircleCookie");
 	var c_value = $.cookie("circles");
 	console.log(c_value);
 	return c_value ? JSON.parse(c_value) : [];
