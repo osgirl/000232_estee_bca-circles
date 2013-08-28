@@ -160,45 +160,26 @@ facebook.logOut = function( _callback ){
 }
 
 facebook.createCircle = function(_friendsData){
-	facebook.createPhoto(_friendsData, function(_create_response){		
+
+	//save photo to server 
+	createMainCirclePhoto( _friendsData, function( _create_response ){		
+		console.log(_create_response);
+
+		//create facebook album
 		facebook.createAlbum( {name: facebook.albumName, message:facebook.albumMessage}, function( _album_response ){
-			facebook.postPhotoToAlbum( {album_id:_album_response.id, url: baseUrl + _create_response['file_location'] , message:facebook.photoMessage}, function( _photo_response ){ // static img path for test : 'http://staging.click3x.com/estee_lauder/bca/img/circle_dotted_outline.png'			
-			 	facebook.tagPhoto({photo_id:_photo_response.id, users:_friendsData.friends}, function(){
+
+			//post photo to album
+			facebook.postPhotoToAlbum( {album_id:_album_response.id, url: baseUrl + _create_response['file_location'] , message:facebook.photoMessage}, function( _photo_response ){ 
+
+				//tag the phogo
+			 	facebook.tagPhoto({photo_id:_photo_response.id, users:_friendsData.friends, tag_positions:_create_response.tag_positions}, function(){
 			 		console.log("create circle complete");
 
-			 		facebook.deletePhoto(_create_response['file_location']);
-					console.log("create circle complete");
+			 		//delete the photo. wer're done here. (main.js)
+			 		deleteMainCirclePhoto( _create_response['file_location'] );
 			 	});
 			});
 		});
-		
-	});
-}
-
-facebook.createPhoto = function( _data, _callback ){
-	$.ajax({
-		url	: baseUrl + indexPage + 'photo/save_facebook_photo', //baseUrl + indexPage + 'photocreate-circle.php',
-		type : "post",
-		data : {data: JSON.stringify(_data)},
-		success : function(_response){
-			console.log('---- create photo success. ' + _response + ' ----'); 
-			// if(_callback) _callback( baseUrl + indexPage + "img" + _response.filename);
-			if(_callback) _callback( JSON.parse(_response) );
-		},
-		fail : function(_response){ 
-			console.log('---- create photo failed. ----'); 
-		}
-	});
-}
-
-facebook.deletePhoto = function(_fn){
-	$.ajax({
-		url: baseUrl + indexPage + 'photo/delete_photo',
-		type: 'post',
-		data: {data: _fn},
-		success : function(){
-			console.log('Deleted');
-		}
 	});
 }
 
@@ -244,7 +225,7 @@ facebook.tagPhoto = function( _data, _callback ){
 
 	for( var _id in _data.users ){
 		var old_val = _data.users[_id].id;
-		_data.users[_id] = {"tag_uid":old_val};
+		_data.users[_id] = {"tag_uid":old_val, "x":_data.tag_positions[_id].x , "y":_data.tag_positions[_id].y};
 	}
 
 	console.log(_data.users);

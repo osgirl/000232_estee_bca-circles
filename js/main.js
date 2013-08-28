@@ -125,6 +125,32 @@ $(document).ready(function(){
 
 });
 
+function createMainCirclePhoto( _data, _callback ){
+	$.ajax({
+		url	: baseUrl + indexPage + 'photo/save_facebook_photo',
+		type : "post",
+		data : {data: JSON.stringify(_data)},
+		success : function(_response){
+			console.log('---- create photo success. ' + _response + ' ----'); 
+			if(_callback) _callback( JSON.parse(_response) );
+		},
+		fail : function(_response){ 
+			console.log('---- create photo failed. ----'); 
+		}
+	});
+}
+
+function deleteMainCirclePhoto(_filename){
+	$.ajax({
+		url: baseUrl + indexPage + 'photo/delete_photo',
+		type: 'post',
+		data: {data: _filename},
+		success : function(){
+			console.log('Deleted');
+		}
+	});
+}
+
 // Temp!
 function translatePage(){
 	var country = $('#language_menu.dropdown-menu #' + selectedCountry);
