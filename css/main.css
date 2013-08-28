@@ -146,7 +146,7 @@ h2{
 }
 
 #collapse_share_module{
-	margin-left:8%;
+	margin-left:2%;
 }
 
 #top_main_nav{
@@ -241,10 +241,10 @@ h2{
 }
 
 .navbar .btn-navbar{
-	float:right;
-	margin-top:6px;
+	float:left;
+	margin-top:5px;
 	padding:7px 10px;
-	margin-left:5px;
+	margin-left:15px;
 	margin-right:-8px;
 	color:#ffffff;
 	text-shadow:none;
@@ -316,6 +316,10 @@ h2{
 	padding:0 8% 0 8%;
 }
 
+#PP_btn, #CC_btn{
+		display:block;
+	}
+
 
 
 /*FEATURE AREA*/
@@ -372,51 +376,6 @@ h2{
 
 .featured_deselected{
 	background-color:white;
-}
-
-.feature_photo{
-	overflow: hidden;
-	position: relative;;
-	min-height:313px;
-	background-color:#ede1e4;
-	border-top:1px solid white;
-	border-left:1px solid white;
-}
-
-.featured_circle{
-	background-color:#f38dab;
-	min-height:380px;
-	overflow:hidden;
-	text-align:center;
-	border-top:1px solid white;
-}
-
-.featured_circle img{
-	max-width:90%;
-	height:auto;
-}
-
-
-/*CAROUSEL*/
-
-#carousel{
-	overflow: hidden;
-	position: relative;
-	height: 1085px;
-    width: 100%;
-}
-
-#carousel_slider{
-	height:100%;
-	width:300%;
-	position: absolute;
-	top:0;
-	left:0;
-}
-
-.carousel_item{
-	width:33.33%;
-	float:left;
 }
 
 
@@ -503,8 +462,10 @@ h2{
     behavior: url(css/PIE.htc);
 	width:140px;
 	height:140px;
-	background-size: 150px auto;
+	background:center center no-repeat;
+	background-size: 160px auto;
 	margin-right:5%;
+	background-color:#ede1e4;
 }
 
 #bottom_user_name{
@@ -653,15 +614,6 @@ h2{
 	margin-bottom: 22px;
 }
 
-
-.feature_circle{
-	height:100%;
-	background-color:#f38dab;
-	position:relative;
-	padding:20px;
-	color:white;
-}
-
 .photo_container{
 	background-color:#ede1e4;
 	height:312px;
@@ -775,7 +727,7 @@ h2{
 }
 
 .twitter_time{
-	font-size:.8em;
+	font-size:.circ8em;
 	color:white;
 }
 
@@ -788,6 +740,36 @@ h2{
 }
 .twitter_text a{
 	color: #333388;
+}
+
+.feature_photo .twitter_title{
+	height:40px;
+}
+
+.feature_photo .twitter_avatar, .twitter_title{
+	margin-top:10px;
+}
+
+
+.feature_photo .twitter_avatar{
+	margin:10px 10px 0 10px;
+}
+
+
+.feature_photo .twitter_author{
+	font-size:.8em;
+}
+
+.feature_photo .twitter_time{
+	font-size:.4em;
+}
+
+.feature_photo .twitter_text{
+	font-size:.6em;
+}
+
+.feature_photo .twitter_avatar{
+	width:20px;
 }
 
 .circle_area_wrapper{
@@ -805,23 +787,12 @@ h2{
     margin-left:-14px;
 }
 
-.feature_circle .circle_area{
-	margin-left:-13px;
-	margin-top:0px;
-}
-
 .circle_area img{
 	position:absolute;
 	top:12px;
 	left:15px;
 	max-width:91%;
 	height:auto;
-}
-
-.feature_circle .circle_area img{
-	top:17px;
-	left:15px;
-	max-width:91%;
 }
 
 .circle_goal{
@@ -835,10 +806,6 @@ h2{
 	left:22%;
 }
 
-.feature_circle .circle_goal{
-	left:21%;
-}
-
 .circle_divider{
 	border-bottom:1px solid white;
 	height:2px; 
@@ -849,6 +816,7 @@ h2{
 	font-size:2em;
 }
 
+
 .profile_image_small{
 	float:left;
 	-moz-border-radius: 50%;
@@ -858,6 +826,8 @@ h2{
     behavior: url(css/PIE.htc);
 	width:70px;
 	height:70px;
+	background:center center no-repeat;
+	background-color:#ede1e4;
 	background-size: 70px auto;
 	position:absolute;
 	margin-left:-22px;
@@ -944,13 +914,113 @@ h2{
 }
 
 
-/*.rollover_photo_content{
-	margin-top:38%;
+/*CAROUSEL*/
+
+#carousel{
+	overflow: hidden;
+	position: relative;
+	height: 268px;
+    width: 100%;
 }
 
-.rollover_circle_content{
-	margin-top:45%;
-}*/
+#carousel_slider{
+	height:100%;
+	width:300%;
+	position: absolute;
+	top:0;
+	left:0;
+}
+
+.carousel_item{
+	width:33.33%;
+	float:left;
+}
+
+.top_content_sub_span4{
+	width:62%;
+	float:left;
+}
+
+.top_content_sub_span2{
+	width:38%;
+	float:left;
+}
+
+.feature_circle{
+	height:100%;
+	background-color:#f38dab;
+	position:relative;
+	padding:20px;
+	color:white;
+}
+
+.feature_circle .circle_area{
+	margin-left:-15px;
+	margin-top:-20px;
+	width:165px;
+	height:165px;
+}
+
+.feature_circle .circle_area img{
+	top:17px;
+	left:15px;
+	max-width:91%;
+}
+
+.feature_circle .circle_goal{
+	left:28%;
+	font-size:.65em;
+	width:90px;
+	top:32%;
+}
+
+.feature_photo{
+	overflow: hidden;
+	position: relative;;
+	min-height:133px;
+	background-color:#ede1e4;
+	border-top:1px solid white;
+	border-left:1px solid white;
+}
+
+.feature_circle .circle_flag{
+	top:5px;
+	right:5px;
+	width:30px;
+	height:30px;
+	background-size: 33px auto;
+}
+
+.feature_circle .circle_creator_area{
+	font-size:.7em;
+}
+
+.circle_of_strength{
+	font-size:2em;
+}
+
+.feature_circle .circle_of_strength{
+	font-size:1em;
+}
+
+.feature_circle .profile_image_small{
+	width:45px;
+	height:45px;
+	background-size: 45px auto;
+	margin-left:-8px;
+	margin-top:-15px;
+
+}
+
+.feature_circle .share_circle{
+	font-size:.8em;
+	position: absolute;
+	right:2%;
+	bottom:2%;
+	display:none;
+}
+
+
 
 /*DONATE*/
 

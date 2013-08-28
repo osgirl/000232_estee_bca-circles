@@ -78,7 +78,16 @@ var currentCircleViewData;
 var currentCircleViewIsUser;
 var currentCircleView;
 
+var ismobile = false;
+
 $(document).ready(function(){	
+	if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/iPad/i) ){
+		$('body').addClass( 'is_mobile' );
+		ismobile = true;
+	} else{
+		ismobile = false;
+	}
+
 	facebook.init(fbAppId);
 	translatePage();
 	enableButtons();
@@ -125,6 +134,32 @@ $(document).ready(function(){
 	createGoalDropdown();
 
 });
+
+function createMainCirclePhoto( _data, _callback ){
+	$.ajax({
+		url	: baseUrl + indexPage + 'photo/save_facebook_photo',
+		type : "post",
+		data : {data: JSON.stringify(_data)},
+		success : function(_response){
+			console.log('---- create photo success. ' + _response + ' ----'); 
+			if(_callback) _callback( JSON.parse(_response) );
+		},
+		fail : function(_response){ 
+			console.log('---- create photo failed. ----'); 
+		}
+	});
+}
+
+function deleteMainCirclePhoto(_filename){
+	$.ajax({
+		url: baseUrl + indexPage + 'photo/delete_photo',
+		type: 'post',
+		data: {data: _filename},
+		success : function(){
+			console.log('Deleted');
+		}
+	});
+}
 
 // Temp!
 function translatePage(){
@@ -846,6 +881,8 @@ function confirmCreateCircle(){
 
 	closeCreateCircleScreen();
 	$('#circle_confirm_screen').slideDown(300);
+	$("html, body").animate({ scrollTop: 0 }, "fast");
+
 	$('#content_wrap').css('z-index', '-9999');
 	$('.overlay').css('z-index', '9999');
 }

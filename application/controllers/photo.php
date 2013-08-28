@@ -247,28 +247,25 @@ class Photo extends CI_Controller {
 		$cx             = 250;
 		$cy             = 340;
 
-		// print_r($friends);
-
 		// Create canvas
 		imagefill( $canvas, 0, 0, $bgColor );
 		$this->image_smooth_arc->imageSmoothArc( $canvas, 250, 340, 265, 265, $bgCircleColor, M_PI/2, 0 );
 		$dotted = @imagecreatefrompng(base_url(). "img/circle_dotted_outline.png");
 		imagecopy($canvas, $dotted, 70,160,0,0,imagesx($dotted), imagesy($dotted));
 
+		$tag_positions = array();
+
 		// Create circular positioned thumbnails
 		for ( $i =0; $i < $steps; $i++ ) {
 		  $angle = ( pi() * ( $i / $steps -.25 ) ) *2;
 		  $x = $cx + $radius * cos( $angle );
 		  $y = $cy + $radius * sin( $angle );
-		  // $thumb = @imagecreatefromjpeg( base_url(). "img/".$thumbs_url[$i] );
 
-		  // print_r($friends[$i]['url']);
+		  array_push( $tag_positions, array("x"=>$x/500, "y"=>$y/580) );
 
 		  if($i==0){
 		  	$thumb = @imagecreatefromjpeg( $thumbs_url );
-		  }
-		  else{
-		  	// print_r($friends[$i-1]->url);
+		  } else{
 		  	$thumb = @imagecreatefromjpeg( $friends[$i-1]->url );
 		  }
 
@@ -278,9 +275,8 @@ class Photo extends CI_Controller {
 		    $this->image_smooth_arc->imageSmoothArc( $mask, $w_h/2, $w_h/2, $w_h-4, $w_h-4, array( 255, 0, 0, 0 ), M_PI/2, 0 );
 		    $this->image_mask( $thumb, $mask );
 		    imagecopyresampled( $canvas, $thumb, $x-40, $y-40, 0, 0, 80, 80, $w_h, $w_h );
-		  }
-		  //If image is not available, draw whie dot
-		  else {
+		  } else {
+		  	//If image is not available, draw whie dot
 		    $this->image_smooth_arc->imageSmoothArc( $canvas, $x, $y, 20, 20, array( 255, 255, 255, 0 ), M_PI/2, 0 );
 		  }
 		}
@@ -294,33 +290,18 @@ class Photo extends CI_Controller {
 		imagefttext( $canvas, 14, 0, 160, 290, $colorWhite, $fontBold, "We Will -" );
 		$this->multiline_text( $canvas, 18, $colorWhite, $fontLight, $content_text, 160, 315, 200 );
 
-
-
 		$file_location 	= config_item('upload_url') . 'facebook/' . $filename;
 
 		// Save image
-		ob_start (); 
-		imagejpeg( $canvas, null, 90 );
-		$output = ob_get_contents (); 
-		ob_end_clean (); 
-		file_put_contents( $file_location , $output );
+		imagejpeg( $canvas, $file_location, 90 );
 		unset($canvas);
-
-		// Create image
-		/*ob_start (); 
-		imagejpeg( $canvas, $filename, 90 );
-		$output = ob_get_contents (); 
-		ob_end_clean ();
-		$output_base64 = base64_encode ($output);
-		// file_put_contents(filename, data)
-		unset($canvas);
-		*/
+	
 		// Results
-		$result = array (  'result'=>"Success",
-		                 'filename'=>$filename,
-		                 'file_location'=>$file_location
-
-		              );
+		$result = array (	'result'=>"Success",
+		                 	'filename'=>$filename,
+							'file_location'=>$file_location,
+							'tag_positions'=>$tag_positions
+		);
 
 		echo json_encode($result);
 	}

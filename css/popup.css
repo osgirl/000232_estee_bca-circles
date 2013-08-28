@@ -55,13 +55,12 @@
 }
 
 .popup_round_button {
-
 	display: inline-block;
 	width: 110px;
 	height: 32px;
 	margin: 0 3px;
 	text-align: center;
-	font: normal lighter 12px/30px Helvetica, Arial, sans-serif !important;
+	font: 12px/33px normal lighter Helvetica, Arial, sans-serif !important;
 	cursor: pointer;
 	letter-spacing: 1px;
 	-webkit-border-radius:16px;
@@ -79,9 +78,17 @@
 	background: #FFF;
 }
 
+.popup_round_button#popup_btn_white:hover{
+	background: #ffedf2;
+}
+
 .popup_round_button#popup_btn_pink {
 	color: #FFF;
 	background: #f38dab;
+}
+
+.popup_round_button#popup_btn_pink:hover{
+	background: #F33C72;	
 }
 
 .popup_round_button.dim {
@@ -235,9 +242,13 @@
 
 /*Photo upload*/
 .popup#popup_photo_upload {
-	width: 310px;
-	height: 420px;
+	width: 300px;
+	height: 435px;
 	font: 11px/14px Helvetica, Arial, sans-serif;
+}
+
+.popup#popup_photo_upload .popup_round_button {
+	width: 85px;
 }
 
 .popup #popup_photo_upload_agreement_window {
@@ -252,7 +263,7 @@
 
 .popup #popup_photo_upload_agreement_window h2 {
 	margin: 10px 0 5px;
-	font-size: 14px;
+	font-size: 13px;
 }
 
 .popup #popup_photo_upload_agreement_window a {
@@ -292,8 +303,8 @@
 
 .popup #popup_photo_img_holder {
 	position: relative;
-	width: 370px;
-	height: 370px;
+	width: 260px;
+	height: 260px;
 	margin: 0 auto;
 	border: 2px #aeaeae dashed;
 	text-align: center;
@@ -339,10 +350,15 @@
 	width: 32px;
 	height: 32px;
 	margin-left: -16px;
-	left: 185px;
-	top: 280px;
-	background: url('../img/popups/icons/anim-loader.gif') no-repeat 0 0;
+	padding: 4px;
+	left: 128px;
+	top: 110px;
+	background: #f38dab url('../img/popups/icons/anim-loader.gif') no-repeat center center;
 	z-index: 2;
+	-webkit-border-radius:5px;
+	   -moz-border-radius:5px;
+		 -o-border-radius:5px;
+			border-radius:5px;
 }
 
 .popup #popup_photo_img_holder #holder img, .popup #popup_photo_img_holder #holder canvas {
@@ -352,7 +368,7 @@
 
 .popup #popup_photo_desc_holder {
 	width: 98%;
-	height: 90px;
+	height: 45px;
 	margin: 12px 0;
 	padding: 1%;
 	text-align: center;
@@ -361,8 +377,8 @@
 
 .popup #popup_photo_desc_holder textarea {
 	width: 95%;
-	min-height: 80px;
-	max-height: 80px;
+	min-height: 40px;
+	max-height: 40px;
 	border-style: none; 
     border-color: Transparent;
 	resize: none;
@@ -379,7 +395,7 @@
 }
 
 .popup #popup_photo_upload_preview_window #button_wrapper{
-	text-align: right;
+	text-align: center;
 }
 
 /*Circle*/
@@ -464,16 +480,20 @@
 	margin: -23px 0 0 -23px; 
 }
 
+.popup #popup_circle_modal {
+	font-size: 2.4em;
+}
+
 .popup #popup_circle_modal #goal {
 	position: absolute;
 	display: block;
 	width: 50%;
 	margin-left: -25%;
-	top: 32%;
+	top: 30%;
 	left:50%;
 	font-family: 'Helvetica',Arial, sans-serif;
 	font-weight: 300;
-	font-size: 1.2em;
+	font-size: 45%;
 	text-align: center;
 	line-height: 1.1em;
 	z-index: 2;
@@ -730,7 +750,7 @@
 	}
 
 	.popup #popup_circle_modal #goal {
-		font-size: 1.5em;
+		font-size: 50%;
 	}
 
 	.popup #popup_circle_photo_button_wrapper span{
@@ -797,6 +817,10 @@
 		font: 13px/22px Helvetica, Arial, sans-serif;
 	}	
 
+	.popup#popup_photo_upload .popup_round_button {
+		width: 110px;
+	}
+
 	.popup #popup_photo_upload_agreement_window h2 {
 		margin: 70px 0 20px;
 		font-size: 23px;
@@ -812,6 +836,17 @@
 		font-size: 23px;
 	}
 
+	.popup #popup_photo_img_holder {
+		width: 370px;
+		height: 370px;
+	}
+
+	.popup #popup_photo_img_holder #anim_loading{
+		margin-left: -16px;
+		left: 185px;
+		top: 280px;
+	}	
+
 	/*Circle*/
 
 	.popup #popup_circle_modal #avatar{
@@ -822,7 +857,7 @@
 	}
 
 	.popup #popup_circle_modal #goal {
-		font-size: 1.9em;
+		font-size: 80%;
 	}
 
 	.popup #popup_circle_modal #popup_footer_share {
@@ -859,6 +894,19 @@
 	.popup #popup_circle_comment_holder{
 		padding: 0 15%;
 	}
+
+	.popup #popup_photo_desc_holder {
+		height: 90px;
+	}
+
+	.popup #popup_photo_desc_holder textarea {
+		min-height: 80px;
+		max-height: 80px;
+	}
+
+	.popup #popup_photo_upload_preview_window #button_wrapper{
+		text-align: right;
+	}	
 
 	/*Legal*/
 	.popup#popup_legal{
@@ -897,10 +945,6 @@
 	}
 
 	/*Circle*/
-	.popup #popup_circle_modal #goal {
-		font-size: 2em;
-	}
-
 	.popup #popup_circle_photo_carousel_wrapper #container{
 		width: 660px;
 	}
@@ -986,7 +1030,7 @@
 
 	/*Circle*/
 	.popup #popup_circle_modal #goal {
-		font-size: 2.1em;
+		font-size: 100%;`
 	}
 
 	.popup #popup_circle_photo_carousel_wrapper #container{
@@ -1003,9 +1047,6 @@
 }
 
 @media only screen and (min-width: 1200px) {
-	.popup #popup_circle_modal #goal {
-		font-size: 2.4em;
-	}
 
 	/*Circle*/
 	.popup #popup_circle_photo_carousel_wrapper #container{
