@@ -1,5 +1,6 @@
 var facebook = {};
 
+facebook.access_token		= "";
 facebook.friendids			= [];
 facebook.scope 				= "user_photos,publish_stream,publish_actions";
 facebook.albumName 			= "Circle of Strength";
@@ -29,7 +30,7 @@ facebook.checkLoginStatus = function(){
 			console.log('-- good to see you, ' + fbresponse.authResponse.userID + '. --');
 
 			userID = fbresponse.authResponse.userID;
-			accessToken = fbresponse.authResponse.accessToken;
+			facebook.access_token = fbresponse.authResponse.accessToken;
 
 			$('body').trigger('LOGIN_SUCCESS');
 			isLogin = true;
@@ -98,7 +99,7 @@ facebook.login = function( _callback ){
 			console.log('-- fetching user information. --');
 
 			userID = fbresponse.authResponse.userID;
-			//accessToken = fbresponse.authResponse.accessToken;
+			facebook.access_token = fbresponse.authResponse.accessToken;
 			isLogin = true;
 
 			$('body').trigger('LOGIN_SUCCESS');
