@@ -34,8 +34,8 @@
                             <li><a href="#video" onclick="return $.popup({type:'video'});" class='all_cap'>video</a></li>
                             <li><a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" target="_blank" class='all_cap' onclick="$.gaPageview(/donate/)">donate</a></li>
                             <li><a href="#about" onclick="return $.popup({type:'about'});" class='all_cap'>about</a></li>
-                            <li><a id="PP_btn" href="" onclick="$.popup({type:'privacy_policy'});" class='all_cap'>Privacy Policy</a></li>
-                            <li><a id="TC_btn" href="" onclick="$.popup({type:'terms_and_conditions'});" class='all_cap'>Terms & Conditions</a></li>
+                            <li><a id="PP_btn" href="#privacy_policy" onclick="return $.popup({type:'privacy_policy'});" class='all_cap'>Privacy Policy</a></li>
+                            <li><a id="TC_btn" href="#terms_and_conditions" onclick="return $.popup({type:'terms_and_conditions'});" class='all_cap'>Terms & Conditions</a></li>
                         </ul>
                         <div id='top_sub_nav' class='pull-right'>
                             <span class='top_sub_nav_item'>

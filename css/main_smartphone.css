@@ -307,6 +307,20 @@
 		display:block;
 	}
 
+	#friend_photos_container{
+		width:85%;
+		height:280px;
+	}
+
+	.friend_pic_wrapper_large{
+		width:60px;
+		height:60px;
+		
+	}
+
+	.friend_name_large{
+		font-size:1em;
+	}
 
 }
 
@@ -540,6 +554,11 @@
 
 	.select_icon img{
 		margin-top:12px;
+	}
+
+	#friend_photos_container{
+		width:85%;
+		height:270px;
 	}
 	  
 }

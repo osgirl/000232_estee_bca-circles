@@ -97,18 +97,9 @@
 		margin-right:5%;
 	}
 
-	#friend_photos_container{
-		width:90%;
-	}
-
 	.layout_circle .gallery_circle{
 		width:93%;
 	}
-
-	#PP_btn, #CC_btn{
-		display:none;
-	}
-
 
 }
 
@@ -447,6 +438,14 @@
 		margin-top:16px;
 	}
 
+	#PP_btn, #TC_btn{
+		display:none;
+	}
+
+	#friend_photos_container{
+		width:85%;
+		height:400px;
+	}
     
 }
 
@@ -457,7 +456,6 @@
     Tablet (1024px)
    =============== */
  
-	
 	#top_nav{
 		max-width:984px;
 	    
@@ -529,8 +527,6 @@
 	.stronger_together{
 		font-size:3em;
 	}
-
-	
 }
 
 
@@ -628,6 +624,11 @@
 
 	.layout_circle .gallery_circle{
 		width:44.3%;
+	}
+
+	#friend_photos_container{
+		width:85%;
+		height:330px;
 	}
 
 }
