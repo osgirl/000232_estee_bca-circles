@@ -332,7 +332,7 @@ $.extend(
 
     function fileChangeListener(e)
     {
-        if (Modernizr.canvas)
+        if (Modernizr.canvas && !ismobile)
         {
             uploadToCanvas(e);
         }

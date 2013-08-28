@@ -493,7 +493,7 @@
 	left:50%;
 	font-family: 'Helvetica',Arial, sans-serif;
 	font-weight: 300;
-	font-size: 45%;
+	font-size: 40%;
 	text-align: center;
 	line-height: 1.1em;
 	z-index: 2;
@@ -505,6 +505,7 @@
 	float: none;
 	width: 110px;
 	margin-left: -55px;	
+	font-size: 11px;
 	top: 65%;
 	left: 50%;
 	border: none;
@@ -862,6 +863,7 @@
 
 	.popup #popup_circle_modal #popup_footer_share {
 		top: 75%;
+		font-size: 14px;
 	}
 
 	.popup #popup_circle_photo_carousel_wrapper {
