@@ -172,7 +172,7 @@ facebook.createCircle = function(_friendsData){
 			facebook.postPhotoToAlbum( {album_id:_album_response.id, url: baseUrl + _create_response['file_location'] , message:facebook.photoMessage}, function( _photo_response ){ 
 
 				//tag the phogo
-			 	facebook.tagPhoto({photo_id:_photo_response.id, users:_friendsData.friends, tag_positions:_create_response.tag_positions}, function(){
+			 	facebook.tagPhoto({photo_id:_photo_response.id, users:_friendsData.friends, tag_positions:_create_response['tag_positions']}, function(){
 			 		console.log("create circle complete");
 
 			 		//delete the photo. wer're done here. (main.js)
@@ -223,14 +223,17 @@ facebook.postPhotoToAlbum = function( _data, _callback ){
 facebook.tagPhoto = function( _data, _callback ){
 	console.log("-- attempting to tag photo : " + _data.photo_id + ". --");
 
-	for( var _id in _data.users ){
-		var old_val = _data.users[_id].id;
-		_data.users[_id] = {"tag_uid":old_val, "x":_data.tag_positions[_id].x , "y":_data.tag_positions[_id].y};
-	}
+	var _tags = [];
 
-	console.log(_data.users);
+	$.each(_data.users, function(i,v){
+		_tags.push( {	
+			"tag_uid":v.id, 
+			"x":_data.tag_positions[i+1].x*100, 
+			"y":_data.tag_positions[i+1].y*100
+		});
+	});
 
-	FB.api('/'+_data.photo_id+'/tags', 'post', { tags:_data.users }, function(fbresponse){
+	FB.api('/'+_data.photo_id+'/tags', 'post', { tags:_tags }, function(fbresponse){
 		if (!fbresponse || fbresponse.error) {
 			console.log("-- tag photo error. --" );
 			console.log(fbresponse.error);
