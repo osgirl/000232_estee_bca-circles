@@ -78,7 +78,16 @@ var currentCircleViewData;
 var currentCircleViewIsUser;
 var currentCircleView;
 
+var ismobile = false;
+
 $(document).ready(function(){	
+	if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/iPad/i) ){
+		$('body').addClass( 'is_mobile' );
+		ismobile = true;
+	} else{
+		ismobile = false;
+	}
+
 	facebook.init(fbAppId);
 	translatePage();
 	enableButtons();

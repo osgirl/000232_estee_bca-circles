@@ -246,7 +246,7 @@ $.extend(
             FB.ui(
             {
                 method: 'feed',
-                display: 'popup',
+                display: ismobile ? 'touch' : 'popup',
                 link: baseUrl + indexPage + '#' + u,
                 name: "We're Stronger Together.",
                 picture: _picture,
