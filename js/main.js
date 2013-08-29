@@ -469,18 +469,18 @@ function openEditFriend(){
 	$(".steps").hide();
 
 	friendSelectedArray = new Array();
-	curFriendSelectedName = null;
+	curSelectedFriendName = null;
 	curSelectedFriendID = null;
 	curSelectedFriendPic = null;
 
 
 	$(currentCircleViewData.friends_data).each(function(i, v){
 		console.log("checking from inside", v);
-		curFriendSelectedName = v.name;
+		curSelectedFriendName = v.name;
 		curSelectedFriendID = v.fb_id;
 		curSelectedFriendPic = v.url;
 
-		console.log(curFriendSelectedName, curSelectedFriendID)
+		console.log(curSelectedFriendName, curSelectedFriendID)
 		addFriend();
 	})
 	
@@ -658,7 +658,7 @@ function getFriendList(e){
 
 				FB.api('/'+curSelectedFriendID, function(response){
 			      if (response){
-			        curFriendSelectedName = response.first_name + " " + response.last_name.substr(0,1) + ".";
+			        curSelectedFriendName = response.first_name + " " + response.last_name.substr(0,1) + ".";
 			        
 			        //resize the field
 			        $("#temp_name_enter_container").html(response.name);
@@ -698,17 +698,17 @@ function addFriend(){
 	if(!friendExist(curSelectedFriendID)){
 		var friendObj = new Object();
 		friendObj.id = curSelectedFriendID;
-		friendObj.name = curFriendSelectedName;
+		friendObj.name = curSelectedFriendName;
 		friendObj.url = curSelectedFriendPic;
 		friendSelectedArray.push(friendObj);
 		friendTagIDs.push(curSelectedFriendID);
 
 		var tempFriendList = $('<span>');
-		tempFriendList.html(curFriendSelectedName)
+		tempFriendList.html(curSelectedFriendName)
 					  .addClass('temp_name_input_container');
 	
 		var friendList = $('<div>');
-		friendList.html(curFriendSelectedName)
+		friendList.html(curSelectedFriendName)
 				  .attr('id', curSelectedFriendID)
 				  .addClass('friend_btn');
 		
@@ -851,7 +851,7 @@ function createFriendPhotosPanel(){
 
              		FB.api('/'+curSelectedFriendID, function(response){
 				      if (response){
-				        curFriendSelectedName = response.first_name + " " + response.last_name.substr(0,1) + ".";
+				        curSelectedFriendName = response.first_name + " " + response.last_name.substr(0,1) + ".";
 				        $("#temp_name_enter_container").html(response.name);
 
 				        addFriend();
@@ -1178,6 +1178,8 @@ function postCircleData(goal_id){
 
 			//oc: save circle id in cookie.
 			ored.cookieMonster.saveCircleId(data.id);
+
+			console.log("friends array", friendSelectedArray)
 
     		$.ajax({
 	        		type: 'post',
