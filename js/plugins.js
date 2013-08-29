@@ -234,6 +234,9 @@ $.extend(
         else
             u = v.url +'/';
 
+
+        console.debug("MY url: "+ u);
+
         var goal = v.action != undefined ? v.action : "";   
 
         if (v.type == "facebook")

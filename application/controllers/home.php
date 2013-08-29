@@ -7,7 +7,7 @@ class Home extends CI_Controller {
 		$this->load->view('home_view');
 	}
 
-	public function twitter_share($url ="", $goal = "", $hashtag_before_url)
+	public function twitter_share($url ="", $goal = "", $hashtag_before_url = false)
 	{
 		$pt = preg_replace('/_/i','/', $url);
 		$pt = preg_replace('/%3F/i','?', $pt);
