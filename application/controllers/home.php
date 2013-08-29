@@ -23,7 +23,7 @@ class Home extends CI_Controller {
 			$title = $title." ".$short_url . " " .SHARE_HASHTAG;
 		}
 		else{
-			$title = $title." ".SHARE_HASHTAG." ".$short_url;
+			$title = "We Will: ".$title." ".SHARE_HASHTAG." ".$short_url;
 		}
 
 		header( 'Location: https://twitter.com/intent/tweet?text='.$title );
