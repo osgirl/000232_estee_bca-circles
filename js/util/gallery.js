@@ -74,6 +74,8 @@ function Gallery()
 
 		var uploadedPhotoCount;
 
+		var galleryHeight = 0;
+
 
 
 		//--------------------------------------
@@ -103,7 +105,7 @@ function Gallery()
 
 	  		}else if($(window).scrollTop() > SCROLL_TO_SHOW_FOOTER){
 
-	  			if(!isMobile){
+	  			if($(window).width() >= 980 ){
 	  				$('#donate_area').fadeIn();
 	  				$('#donate_area').addClass('footer_fixed').removeClass('footer_relative');
 	  			}
@@ -227,6 +229,7 @@ console.log("parseCircleData");
 				            		var rowTarget = (containerCount<2) ? 0 : 1;
 				            		$($($('.page' + pageNum).find('.row')).get(rowTarget)).append(circleDiv);
 
+				            		$(circleDiv).addClass('pull-left');
 				            		$(circleDiv).hide();
 				            		$(circleDiv).fadeIn(200);
 
@@ -242,14 +245,11 @@ console.log("parseCircleData");
 
 									galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount-1]);
 
-									updateGalleryLayout(contentData);
 									if(containerCount == data.length) {
 										$('body').trigger('ALL_LAYOUT_CREATED');
 									}
 
-									
-
-									$(window).unbind('scroll').bind('scroll', lazyloader);
+									enablelazyLoader();
 
 				             	}
 				      		});
@@ -320,7 +320,7 @@ console.log("parseCircleData");
 
 			if(feed.length < getNum){
 				isMore = false;
-				$(window).unbind('scroll').bind('scroll', lazyloader);
+				enableLazyloader();
 			}else{
 				isMore = true;
 			}
@@ -439,13 +439,21 @@ console.log("parseCircleData");
 
 							if(uploadedPhotoCount == data.length) $('body').trigger("ALL_LAYOUT_CREATED");
 
-							$(window).unbind('scroll').bind('scroll', lazyloader);
+							enableLazyloader();
 
 	             	},
 	             	error: function(XMLHttpRequest, textStatus, errorThrown){
 	             		console.log('this is an error', textStatus, errorThrown)
 	             	}
 			});
+		}
+
+		function enableLazyloader(){
+			console.log("enable??", $(window).width())
+			if($(window).width() >= 980){
+				console.log("enable lazy loader")
+				$(window).unbind('scroll').bind('scroll', lazyloader);
+			}
 		}
 
 		function parseInstagramData(data){
@@ -495,7 +503,7 @@ console.log("parseCircleData");
 
 				populatePhotoContent(contentData);
 
-				$(window).unbind('scroll').bind('scroll', lazyloader);
+				enableLazyloader();
 		}
 
 		function parseTwitterData(data){
@@ -549,7 +557,7 @@ console.log("parseCircleData");
 
 				populatePhotoContent(contentData);
 
-				$(window).unbind('scroll').bind('scroll', lazyloader);
+				enableLazyloader();
 		}
 
 		
@@ -583,7 +591,7 @@ console.log("parseCircleData");
 
 			});
 
-			$(window).unbind('scroll').bind('scroll', lazyloader);
+			enableLazyloader();
 		}
 
 
@@ -595,8 +603,6 @@ console.log("parseCircleData");
 			contentData.item.attr('type', contentData.type);
 			contentData.item.hide();
 			contentData.item.fadeIn(200);
-
-			updateGalleryLayout(contentData);
 			
 			galleryItem.enableItemButton(contentData.item, contentData.popupData);
 			setTimeout(function(){
@@ -604,24 +610,16 @@ console.log("parseCircleData");
 			}, 200);
 		}
 
-		function updateGalleryLayout(contentData){
+		function updateGalleryHeight(height){
 
-			if((contentData.index-1)%contentData.colNum == contentData.colNum-1) 
-				$(contentData.item).css('margin-right', '0');
+			galleryHeight += height;
 
-										
-			//var rowNum = Math.ceil(contentData.totalNum/contentData.colNum);
-			//var getHeight = ($(contentData.item).height() + 130)*rowNum;
+			console.log("UPDATE HEIHGT -----------------------------", galleryHeight)
+			$("#feed_magnet").height(galleryHeight);
+			$("#gallery").height(galleryHeight);
 
-			var baseHeight = (contentData.type == "circle") ? 1300 : 1000;
-			var getHeight = baseHeight*pageNum;
 
-			if(getHeight > baseHeight) {
-				$('#gallery').height(getHeight);
-			}else{
-				$('#gallery').height(baseHeight);
-			}
-
+			//$("#load_more_btn_wrapper").css("bottom", "0");
 		}
 
 		function initFilterButtons(){
@@ -646,9 +644,11 @@ function filterButtonSelected(btn){
 		pageNum = 2;
 		$('#gallery').height(DEFAULT_GALLERY_HEIGHT);
 	}
-	$(window).unbind('scroll').bind('scroll', lazyloader);
+	enableLazyloader();
 	$('#donate_area').show();
 	$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+
+	galleryHeight = 0;
 	
 	loadLayout();
 }
@@ -679,6 +679,8 @@ function onFetchFriendCircleData($data){
 	            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
 	            		var rowTarget = (containerCount<2) ? 0 : 1;
 				            		$($($('.page' + pageNum).find('.row')).get(rowTarget)).append(circleDiv);
+	            		$(circleDiv).css('float','left');
+	            		$(circleDiv).css('clear','none');
 	            		$(circleDiv).hide();
 	            		$(circleDiv).fadeIn(200);
 
@@ -696,11 +698,7 @@ function onFetchFriendCircleData($data){
 
 						galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount-1]);
 
-						updateGalleryLayout(contentData);
-
-						
-
-						$(window).unbind('scroll').bind('scroll', lazyloader);
+						enableLazyloader();
 
 	             	}
         	});
@@ -726,8 +724,7 @@ function onFetchFriendCircleData($data){
 	             	success: onFetchFriendCircleData
 				});
 		 	}else{
-		 		console.log("no more in feed")
-		 		$(window).unbind('scroll').bind('scroll', lazyloader);
+		 		enableLazyloader();
 		 	}
 
 		};//end getFriendCircleData
@@ -860,8 +857,10 @@ console.log('createAllLayout');
 							$(layout1).addClass('layout' + current_add_layout)
 							current_add_layout = (current_add_layout == 1) ? 2 : 1;
 							$(layout1).addClass('page'+pageNum);
-							$(window).bind('scroll', lazyloader);
+							enableLazyloader();
 							$('body').trigger('ALL_LAYOUT_SINGLE_CREATED');
+
+							updateGalleryHeight($(layout1).height());
 							
 							return;
 						}else{
@@ -883,11 +882,10 @@ console.log('createAllLayout');
 								$(layout2).addClass('page2');
 								galleryItem.centerRollOverContent(.55);
 
-	  			 				if(isMoreFeed)  {
-	  			 					$(window).bind('scroll', lazyloader);
-	  			 					
-	  			 				}
+	  			 				if(isMoreFeed)  enableLazyloader();
 	  			 				$('body').trigger('ALL_LAYOUT_SINGLE_CREATED');
+
+	  			 				updateGalleryHeight($(layout2).height() + 1200);
 
 			             	}
 			      		});
@@ -998,7 +996,7 @@ console.log('createAllLayout');
 
 			gallery_container = $('#feed_magnet');
 
-			$(window).bind('scroll', lazyloader);
+			enableLazyloader();
 			gallery_container.masonry();
 
 			galleryItem.centerRollOverContent();
@@ -1015,6 +1013,11 @@ console.log('createAllLayout');
 			$(window).resize(function(e){
 				galleryItem.centerRollOverContent();
 			})	
+
+			if($(window).width() >= 980 )
+	  				$('#donate_area').fadeIn();
+	  			else
+	  				$('#donate_area').hide();
 
 		},
 
@@ -1056,7 +1059,7 @@ console.log('createAllLayout');
 		},
 
 		enableLazyloader: function(){
-			$(window).bind('scroll', lazyloader);
+			enableLazyloader();
 		},
 
 		disableLazyloader: function(){
