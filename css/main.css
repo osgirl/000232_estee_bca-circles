@@ -711,6 +711,10 @@ h2{
 	min-height: 100px;
 }
 
+.gallery_layout .photo_container {
+	float: left;
+}
+
 .layout_circle {
 	width:100%;
 }
