@@ -19,6 +19,11 @@ $config['upload_url']		= 'uploads/';
 $config['file_max_size']	= 5000000;
 $config['fb_app_id'] 		= '1397356010483685';
 
+$config['circle_feed_name'] 	= "bca-circle-dev";
+$config['photo_feed_name'] 		= "bca-photo-dev";
+$config['instagram_feed_name'] 	= "bca-instagram-dev";
+$config['twitter_feed_name'] 	= "bca-twitter-dev";
+
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -97,7 +102,8 @@ $config['country_uri_abbr'] =
 		"tw" => "Taiwan", 
 		"tr" => "Turkey", 
 		"uk" => "United Kingdom", 
-		"us" => "United States"
+		"us" => "United States",
+		"ny" => "New York"
 	);
 
 $config['lang_uri_abbr'] = 

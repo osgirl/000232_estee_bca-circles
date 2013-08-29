@@ -88,6 +88,13 @@ var SCROLL_TO_SHOW_FOOTER;
 
 $(document).ready(function(){	
 	
+	//sean: check the url first and redirect to default if the first parameter is NY.
+    if(indexPage.split('/')[0] == 'ny' ){
+    	$.gaPageview(/NY/)
+        location.replace(baseUrl);
+        return true;
+    }
+
 	//oc: parse cookie for us.
 	$.cookie.json = true;
 
@@ -143,6 +150,7 @@ $(document).ready(function(){
 
 	createGoalDropdown();
 
+
 });
 
 function windowResize(){
@@ -160,8 +168,6 @@ function windowResize(){
 	}
 
 	carousel.windowResize();
-
-
 }
 
 function createMainCirclePhoto( _data, _callback ){
@@ -267,7 +273,6 @@ function getLogoutStatus(e){
 	$('.popup#popup_circle .btn_close').trigger('click');
 	$('.btn_edit').hide();
 
-	friendProfileList = new Array();
 	
 }
 
@@ -422,6 +427,9 @@ function getTrendingAction(){
 
 function openCreateCircleScreen(hasGoal){
 
+	checkPlaceHolderForIE($("#custom_action"), "ex: Be more active.");
+	checkPlaceHolderForIE($("#friend_search_field"), "ENTER NAME");
+
 	$(".overlay").fadeIn(100);
 	$('#content_wrap').css('z-index', '-9999');
 	$('.overlay').css('z-index', '9999');
@@ -496,7 +504,7 @@ function openEditFriend(){
 }
 
 function closeEditFriend(){
-	$(".overlay").fadeOut(100);
+	$(".overlay").hide();
 	$("#create_circle_screen").fadeOut(200);
 	$('#content_wrap').css('z-index', '0');
 	$('.overlay').css('z-index', '-9999');
@@ -546,7 +554,7 @@ function openCancelScreen(){
 
 function cancelCreateCircleScreen(){
 	$('#circle_confirm_screen').slideUp(200);
-	$('.overlay').fadeOut(200);
+	$('.overlay').hide();
 	$('#opt_in').show();
 	$('#thank_you').hide();
 	$('#cancel_screen').hide();
@@ -1229,12 +1237,8 @@ function postCircleData(goal_id){
 
 							getUserCircleData(); 
 
-							resetCircle();
-
-	            			 
+							resetCircle();            			 
 	            			openThankYouScreen();
-					        
-					        
 
 	             	}
 	      		});
@@ -1295,4 +1299,31 @@ function updateFriends(){
          	}
   		});
 }
+
+function checkPlaceHolderForIE(target, content){
+
+		if($("input").attr('placeholder') == undefined || $("input").attr('placeholder') == "") { 
+
+	        var active = document.activeElement;
+
+	        $(target).focus(function () {
+	            if ($(this).attr('placeholder') != '' && $(this).val() == $(this).attr(content)) {
+	                $(this).val('').removeClass('hasPlaceholder');
+	            }
+
+	        }).blur(function () {
+	            if ($(this).attr('placeholder') != '' && ($(this).val() == '' || $(this).val() == $(this).attr('placeholder'))) {
+	                $(this).val($(this).attr('placeholder')).addClass('hasPlaceholder');
+	            }
+	        });
+
+	        $(target).blur();
+	        $(active).focus();
+	        // $('form').submit(function () {
+	        //     $(this).find('.hasPlaceholder').each(function() { $(this).val(''); });
+	        // });
+
+	    }
+	
+   }
 
