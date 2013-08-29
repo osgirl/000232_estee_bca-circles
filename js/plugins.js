@@ -1217,6 +1217,9 @@ function checkAndLoadExternalUrl()
 {
     var u, $data,
     adr = $.address.value().split('/');
+
+    console.debug("index_page : " + indexPage.split('/')[0]);
+
     if (adr.length != 0)
     {
         switch (adr[1])
