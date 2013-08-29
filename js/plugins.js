@@ -824,7 +824,8 @@ $.extend(
 
             if ($i != 0)
             {
-                $('<div class="dot"><img src="' + baseUrl + 'img/popups/circle/dot.png"/></div>').css(
+                // $('<div class="dot"><img src="' + baseUrl + 'img/popups/circle/dot.png"/></div>').css(
+                $('<div class="dot"/>').css(
                 {
                     'left': $x + '%',
                     'top': $y + '%'

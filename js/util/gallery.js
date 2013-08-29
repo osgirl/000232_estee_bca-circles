@@ -646,8 +646,8 @@ console.log("parseCircleData");
 			galleryHeight += height;
 
 			console.log("UPDATE HEIHGT -----------------------------", galleryHeight)
-			$("#feed_magnet").height(galleryHeight);
-			$("#gallery").height(galleryHeight);
+			// $("#feed_magnet").height(galleryHeight);
+			// $("#gallery").height(galleryHeight);
 
 
 			//$("#load_more_btn_wrapper").css("bottom", "0");
@@ -678,14 +678,14 @@ function filterButtonSelected(btn){
 	currentFilterType = btn.attr('type');
 	if(currentFilterType == "all") {
 		pageNum = 2;
-		$('#gallery').height(DEFAULT_GALLERY_HEIGHT);
+		// $('#gallery').height(DEFAULT_GALLERY_HEIGHT);
 	}
 	enableLazyloader();
 	$('#donate_area').show();
 	$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 
 	galleryHeight = 0;
-	$('#gallery').height(600);
+	// $('#gallery').height(600);
 	
 	loadLayout();
 }
@@ -1051,7 +1051,7 @@ console.log('createAllLayout');
 
 			if(currentFilterType == "all") {
 				pageNum = 2;
-				$('#gallery').height(DEFAULT_GALLERY_HEIGHT);
+				// $('#gallery').height(DEFAULT_GALLERY_HEIGHT);
 			}
 
 			$(window).resize(function(e){
