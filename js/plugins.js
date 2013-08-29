@@ -283,7 +283,8 @@ $.extend(
             if(v.referral !=undefined || v.referral !=null)
                 u +="/?referral=twitter-" + v.referral;
 
-            u = u.replace(/\//gi,'_').replace(/\?/gi,'~').replace(/\=/gi,'^');
+            //Swap symbol to entities
+            u = u.replace(/\//gi,'%2F').replace(/\?/gi,'%3F').replace(/\=/gi,'%5E');
             openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + u +"/" + escape(goal), 'Twitter');
             $.gaEvent((v.post_type).capitalize(), 'Shared', 'by Twitter');
         }
