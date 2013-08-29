@@ -9,7 +9,9 @@ ored.friendsCircles	= [];
 ored.postVars		= {};
 ored.count 			= 128;//oc: how many do we from feedmagnet at a time to see if our friends are in there?
 ored.cookieMonster	= {};
-ored.photos 		= [];
+ored.photoIds 		= [];
+ored.photoData 		= [];
+ored.photoFeed		= [];
 ored.isPhotoLoaded	= false;
 
 //events
@@ -219,12 +221,12 @@ function enableEventBinds(){
 
 		console.log("photo name", fakePhotoData)
 
-		 var cookieData 			= {};
-			cookieData.file_name 	= fakePhotoData.file_name;
-			cookieData.description 	= fakePhotoData.description;
-			cookieData.id 			= fakePhotoData.id;
-			ored.cookieMonster.savePhotoToCookie(cookieData);
-			gallery.refreshAsFakePhotoData(cookieData);
+		 var newlyUploadedPhotoData 			= {};
+			newlyUploadedPhotoData.file_name 	= fakePhotoData.file_name;
+			newlyUploadedPhotoData.description 	= fakePhotoData.description;
+			newlyUploadedPhotoData.id 			= fakePhotoData.id;
+			ored.cookieMonster.saveIdToCookie(fakePhotoData.id, "photo");
+			gallery.refreshAsFakePhotoData(newlyUploadedPhotoData);
 	});
 
 	$('body').bind("EDIT_FRIEND", openEditFriend);
@@ -1091,81 +1093,71 @@ function createCircle(){
 		friends: friendSelectedArray
 	});
 }
+ored.getPhotoDataById = function ($id){
+	for (var i in ored.photoData){ 
+		if(ored.photoData[i]["id"] == $id){
+			return ored.photoData[i];
+		}
+	}
+	return -1;
+}
+ored.addCookiePhotosToFeed = function(){
+	if(ored.cookieMonster.checkCookie("photo")){
+
+		var photoIds = $.cookie("photo");
+		for (var p in photoIds){
+			var o 		= {};
+			o.timestamp = 999999999999;
+			o.text 		= photoIds[p];
+			o.channel	= "rss";
+			var feed	= {};
+			feed.data 	= o;
+			ored.photoFeed.push(o);
+		}
+		
+	}
+};
 
 	//oc: save cookie.
-ored.cookieMonster.saveCircleId = function ($id){
-	console.log("ored.cookieMonster.saveCircleId:", $id);
+ored.cookieMonster.saveIdToCookie = function ($id, $type){
+	console.log("ored.cookieMonster.saveIdToCookie:", $type, $id);
 
-	var circleArr = $.cookie("circles") ? $.cookie("circles") : new Array();
-	circleArr.push($id.toString());
+	var arr = $.cookie($type) ? $.cookie($type) : new Array();
+	arr.push($id.toString());
 
 	//oc: set cookie valid for x days, across whole site
-	$.cookie("circles",circleArr,{ expires: 7, path: '/' });
-
+	$.cookie($type,arr,{ expires: 7, path: '/' });
 }
 
-ored.cookieMonster.savePhotoToCookie = function ($data){
-	console.log("ored.cookieMonster.savePhotoToCookie",$data);
-	//oc: set cookie valid for 7 days, across whole site
-	$.cookie("photo",$data,{ expires: 7, path: '/' });
+ored.cookieMonster.getCookie = function ($type){
+		return $.cookie($type) ? $.cookie($type) : [];
 }
-
-ored.cookieMonster.getCircleCookie = function (){
-	console.log("ored.cookieMonster.getCircleCookie: ", $.cookie("circles"));
-	return $.cookie("circles") ? $.cookie("circles") : [];
-};
-
-ored.cookieMonster.getPhotoCookie = function (){
-
-	return $.cookie("photo");
-};
-
-ored.cookieMonster.checkPhotoCookie = function(){
+ored.cookieMonster.checkCookie = function($type){
 
 	//oc: is cookie present?
-	return $.cookie("photo");
+	return $.cookie($type);
 
 	
 };
 
-ored.cookieMonster.deleteCookieIfNecessary = function ($id){
-
-	if( $.cookie("circles")) {
-			
-		var circleArr = ored.cookieMonster.getCircleCookie();
-		for (var i in circleArr){
-			if($id == circleArr[i]){
-				console.warn("delete: "+$id);
-				var index = circleArr.indexOf($id);
-				circleArr.splice(index, 1);
-				//oc: set cookie valid for 1 days, across whole site
-				$.cookie("circles",circleArr,{ expires: 1, path: '/' });
+ored.cookieMonster.deleteCookieIfNecessary = function ($id, $type){
+	
+			if( $.cookie($type)) {
+					
+				var arr = ored.cookieMonster.getCookie($type);
+				for (var i in arr){
+					if($id == arr[i]){
+						console.warn("delete: "+$id);
+						var index = arr.indexOf($id);
+						arr.splice(index, 1);
+						//oc: set cookie valid for 1 days, across whole site
+						$.cookie($type,arr,{ expires: 1, path: '/' });
+					}
+				}
 			}
-		}
-	}
+
 };
-ored.isCookiedPhotoInFeed = function(){
-	if(ored.cookieMonster.checkPhotoCookie()){
-		
-		for (var i in ored.photos){
-			if ($.cookie("photo").id == ored.photos[i]){
-				console.warn("delete photo cookie", ored.photos[i]);
-				$.removeCookie("photo");
-				return true;
-			} 
-		}
-	}
-	return false;
-};
-ored.show_props = function (obj, objName) {
-  var result = "";
-    
-  for (var prop in obj) {
-    result += objName + "." + prop + " = " + obj[prop] + "\n";
-  }
-    
-  return result;
-};
+
 
 function postCircleData(goal_id){
 
@@ -1189,7 +1181,7 @@ function postCircleData(goal_id){
     	success: function(data) {   
 
 			//oc: save circle id in cookie.
-			ored.cookieMonster.saveCircleId(data.id);
+			ored.cookieMonster.saveIdToCookie(data.id, "circles");
 
 			console.log("friends array", friendSelectedArray)
 

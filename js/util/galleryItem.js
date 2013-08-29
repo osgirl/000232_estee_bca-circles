@@ -231,6 +231,8 @@ function GalleryItem()
 
 			var feed;
 
+//oc: insert cookie into Data if its there
+
 			$(data).each(function(i){
 				feed = data[i].data;
 
@@ -250,42 +252,35 @@ function GalleryItem()
 					
 					//oc: 
 					case 'rss':
-					console.log(feed);
-						//div.text('ID: ' + feed.text);			  // <-- ID
-						photoIcon = baseUrl + "img/icons/bca.png";
-						ored.photos.push(feed.text);
-						$.ajax({
-			        		type: 'post',
-			            	url: baseUrl + indexPage + 'photo/fetchUploadedPhotoData',
-			            	dataType: 'json',
-			            	data: {
-			            		photo_id: feed.text
-			            	},
-			            	success: function(data) {            
+						console.log("FEED");
+						console.log(feed);
+						
+						photoIcon 	= baseUrl + "img/icons/bca.png";
+						data 		= ored.getPhotoDataById(feed.text);
+						if(data != -1){
+		                	popupData 	= {
+											type:'photo', 
+											data:{
+												id: data.photo_id,
+												source:'bca',
+												content:data.description,
+												photo_url:baseUrl + "uploads/" + data.filename
+												}
+											};
+		                	html 		= "<img class='full_photo' src='" + baseUrl + "uploads/" + data.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
+		                	div.html(html);
+		                	div.attr('type', 'photo');
+		                	$('#feed_magnet').show();
 
-			                	popupData = {
-									type:'photo', 
-									data:{
-										id: data.photo_id,
-										source:'bca',
-										content:data.description,
-										photo_url:baseUrl + "uploads/" + data.filename
-									}}
-			                	html = "<img class='full_photo' src='" + baseUrl + "uploads/" + data.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
-			                	div.html(html);
-			                	div.attr('type', 'photo');
-			                	$('#feed_magnet').show();
+		                	div.fadeIn(200);
+							
+							enableItemButton(div, popupData);
 
-			                	div.fadeIn(200);
-								
-								enableItemButton(div, popupData);
+							centerRollOverContent(.55);
 
-								centerRollOverContent(.55);
-
-								$('body').trigger("ALL_LAYOUT_CREATED");
-
-			             	}
-			      		});
+							$('body').trigger("ALL_LAYOUT_CREATED");
+							
+						}else console.error("Photo Data Not Found");
 
 						break;
 
@@ -359,19 +354,7 @@ function GalleryItem()
 
 			});
 			
-			//oc: only do this once after looping the feed.
-			    if( ored.cookieMonster.checkPhotoCookie() && !ored.isCookiedPhotoInFeed() ){
-			    	if(!ored.isPhotoLoaded){
-				    	ored.isPhotoLoaded = true;
-				    	setTimeout(function(){
-console.log("SWAP PHOTO");
-							var p = ored.cookieMonster.getPhotoCookie("photo");	
-						    gallery.refreshAsFakePhotoData(p); 
-				    		
-				    	}, 1000);
-			    		
-			    	}
-			    }
+
 		},
 
 		centerRollOverContent:function(){

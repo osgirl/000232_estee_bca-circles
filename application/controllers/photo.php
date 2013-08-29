@@ -215,7 +215,39 @@ class Photo extends CI_Controller {
 		unlink($this->input->post('data'));
 	}
 
+//oc: this function retrieves the list of photos from the database
 	public function fetchUploadedPhotoData()
+	{
+		$this->load->model('photos_model');
+		$this->post = $this->input->post();
+		if ( isset ( $this->post['feedIdsJSON'] )) {	
+
+			$ids 	= json_decode($this->post['feedIdsJSON']);
+			$data 	= array();
+			$photos = array();
+			$query 	= $this->db->select()
+				->from('photos')
+				->where_in("id", $ids)
+				->get(); 
+
+			if ($query->num_rows() > 0) {
+			  foreach($query->result() as $row) {
+			  	
+			    $data['photo_id'] 		= $row->id;
+			    $data['filename'] 		= $row->filename;
+			    $data['description'] 	= $row->description;
+			    $photos[] 				= $data;
+			  }
+
+			  echo json_encode($photos);
+			}
+			
+		}
+		else
+			echo 'Invalid access';
+	}
+
+	public function OLDfetchUploadedPhotoData()
 	{
 		$this->load->model('photos_model');
 		$this->post = $this->input->post();
@@ -239,7 +271,6 @@ class Photo extends CI_Controller {
 		else
 			echo 'Invalid access';
 	}
-
 	public function save_facebook_photo(){
 		$data = json_decode($this->input->post('data'));
 		$this->load->library("image_smooth_arc");
