@@ -9,6 +9,7 @@ ored.friendsCircles	= [];
 ored.postVars		= {};
 ored.count 			= 128;//oc: how many do we from feedmagnet at a time to see if our friends are in there?
 ored.cookieMonster	= {};
+ored.photos 		= [];
 
 //events
 var LOGIN_SUCCESS			= "LOGIN_SUCCESS";
@@ -113,7 +114,7 @@ $(document).ready(function(){
 				console.log("ALL_LAYOUT_CREATED");
 
 //oc: uncomment for now.
-			    if(ored.cookieMonster.checkPhotoCookie()){
+			    if(ored.cookieMonster.checkPhotoCookie() && !ored.isCookiedPhotoInFeed()){
 					var p = ored.cookieMonster.getPhotoCookie("photo");	
 
 					//console.log("photo cookie");
@@ -1136,7 +1137,9 @@ ored.cookieMonster.deleteCookieIfNecessary = function ($id){
 		}
 	}
 };
-
+ored.isCookiedPhotoInFeed = function(){
+	return false;
+}
 ored.show_props = function (obj, objName) {
   var result = "";
     

@@ -252,7 +252,7 @@ function GalleryItem()
 					case 'rss':
 						//div.text('ID: ' + feed.text);			  // <-- ID
 						photoIcon = baseUrl + "img/icons/bca.png";
-
+						ored.photos.push(feed.text);
 						$.ajax({
 			        		type: 'post',
 			            	url: baseUrl + indexPage + 'photo/fetchUploadedPhotoData',
