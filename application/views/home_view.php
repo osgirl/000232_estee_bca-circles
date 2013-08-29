@@ -218,7 +218,7 @@
 		<script src="<?= base_url(); ?>js/vendor/jquery.mobile.custom.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
 		<script src="<?= base_url(); ?>js/vendor/jquery.easing.1.3.js?cachebuster=<?= $cacheBuster; ?>"></script>
 		<script src="<?= base_url(); ?>js/vendor/jquery.address-1.6.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
-		<script src="<?= base_url(); ?>js/vendor/ajaxFileUpload.js?cachebuster=<?= $cacheBuster; ?>"></script>
+		<script src="<?= base_url(); ?>js/vendor/ajaxfileupload.js?cachebuster=<?= $cacheBuster; ?>"></script>
 		<script src="<?= base_url(); ?>js/vendor/fancybox2/jquery.fancybox.pack.js?cachebuster=<?= $cacheBuster; ?>&v=2.1.5"></script>
         <script src="<?= base_url(); ?>js/vendor/bootstrap.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/vendor/jquery.jscrollpane.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
