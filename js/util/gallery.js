@@ -742,11 +742,14 @@ function onFetchFriendCircleData($data){
 				ids[i] 	= v.data.text;
 				ored.cookieMonster.deleteCookieIfNecessary(ids[i]);
 			});
-			//oc: push ids from cookie if anything's there. 
-			if($.cookie("circles")){
-				//oc: push cookie circle ids onto the array
-				console.log("combine", ids, $.cookie("circles"))
-				ids = ids.concat(ored.cookieMonster.getCircleCookie());
+			
+			if(!isMoreFeed){
+				//oc: push ids from cookie if anything's there. 
+				if($.cookie("circles")){
+					//oc: push cookie circle ids onto the array
+					console.log("combine", ids, $.cookie("circles"))
+					ids = ids.concat(ored.cookieMonster.getCircleCookie());
+				}
 			} 
 			console.log("ids from feedbag:",ids);
 			return ids;
