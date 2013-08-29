@@ -146,6 +146,7 @@ function GalleryItem()
 		}
 
 		function updateUserCirclePopupContent(circle, id, content, avatar, userID, friendData, isUser){
+			console.log("updateUserCirclePopupContent", friendData);
 			//if(friendData != undefined)
 	        	placeCircleInAngles(circle.find('.circle_area'), avatar, friendData.length);
 

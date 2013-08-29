@@ -83,6 +83,10 @@ var ismobile = false;
 var SCROLL_TO_SHOW_FOOTER;
 
 $(document).ready(function(){	
+	
+	//oc: parse cookie for us.
+	$.cookie.json = true;
+
 	if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/iPad/i) ){
 		$('body').addClass( 'is_mobile' );
 		ismobile = true;
@@ -468,19 +472,20 @@ function openEditFriend(){
 	$("#create_circle_control").hide();
 	$(".steps").hide();
 
+//oc: ??
 	friendSelectedArray = new Array();
-	curFriendSelectedName = null;
+	curSelectedFriendName = null;
 	curSelectedFriendID = null;
 	curSelectedFriendPic = null;
 
 
 	$(currentCircleViewData.friends_data).each(function(i, v){
 		console.log("checking from inside", v);
-		curFriendSelectedName = v.name;
+		curSelectedFriendName = v.name;
 		curSelectedFriendID = v.fb_id;
 		curSelectedFriendPic = v.url;
 
-		console.log(curFriendSelectedName, curSelectedFriendID)
+		console.log(curSelectedFriendName, curSelectedFriendID)
 		addFriend();
 	})
 	
@@ -653,12 +658,12 @@ function getFriendList(e){
 			},
 			updater: function (item) {
 
-				curSelectedFriendID = nameObj[item].id;
-				curSelectedFriendPic = nameObj[item].pic;
+				curSelectedFriendID 	= nameObj[item].id;
+				curSelectedFriendPic 	= nameObj[item].pic;
 
 				FB.api('/'+curSelectedFriendID, function(response){
 			      if (response){
-			        curFriendSelectedName = response.first_name + " " + response.last_name.substr(0,1) + ".";
+			        curSelectedFriendName = response.first_name + " " + response.last_name.substr(0,1) + ".";
 			        
 			        //resize the field
 			        $("#temp_name_enter_container").html(response.name);
@@ -696,19 +701,20 @@ function resetNameTextfield(){
 function addFriend(){
 	
 	if(!friendExist(curSelectedFriendID)){
-		var friendObj = new Object();
-		friendObj.id = curSelectedFriendID;
-		friendObj.name = curFriendSelectedName;
-		friendObj.url = curSelectedFriendPic;
+
+		var friendObj 	= new Object();
+		friendObj.id 	= curSelectedFriendID;
+		friendObj.name 	= curSelectedFriendName;
+		friendObj.url 	= curSelectedFriendPic;
 		friendSelectedArray.push(friendObj);
 		friendTagIDs.push(curSelectedFriendID);
 
 		var tempFriendList = $('<span>');
-		tempFriendList.html(curFriendSelectedName)
+		tempFriendList.html(curSelectedFriendName)
 					  .addClass('temp_name_input_container');
 	
 		var friendList = $('<div>');
-		friendList.html(curFriendSelectedName)
+		friendList.html(curSelectedFriendName)
 				  .attr('id', curSelectedFriendID)
 				  .addClass('friend_btn');
 		
@@ -851,7 +857,7 @@ function createFriendPhotosPanel(){
 
              		FB.api('/'+curSelectedFriendID, function(response){
 				      if (response){
-				        curFriendSelectedName = response.first_name + " " + response.last_name.substr(0,1) + ".";
+				        curSelectedFriendName = response.first_name + " " + response.last_name.substr(0,1) + ".";
 				        $("#temp_name_enter_container").html(response.name);
 
 				        addFriend();
@@ -1088,29 +1094,23 @@ function createCircle(){
 ored.cookieMonster.saveCircleId = function ($id){
 	console.log("ored.cookieMonster.saveCircleId:", $id);
 
-var circleArr = $.cookie("circles") ? JSON.parse($.cookie("circles")) : new Array();
-	circleArr.push($id);
+	var circleArr = $.cookie("circles") ? $.cookie("circles") : new Array();
+	circleArr.push($id.toString());
 
-	//oc: set cookie valid for 1 days, across whole site
-	$.cookie("circles",JSON.stringify(circleArr),{ expires: 1, path: '/' });
+	//oc: set cookie valid for x days, across whole site
+	$.cookie("circles",circleArr,{ expires: 7, path: '/' });
 
 }
 
 ored.cookieMonster.savePhotoToCookie = function ($data){
-	//oc: save cookie.
-	//console.log("save cookie");
-	//console.log($data);
-	var photo = JSON.stringify($data);
-
+	console.log("ored.cookieMonster.savePhotoToCookie");
 	//oc: set cookie valid for 7 days, across whole site
-	$.cookie("photo",photo,{ expires: 2, path: '/' });
+	$.cookie("photo",$data,{ expires: 7, path: '/' });
 }
 
 ored.cookieMonster.getCircleCookie = function (){
-	console.log("ored.cookieMonster.getCircleCookie");
-	var c_value = $.cookie("circles");
-	console.log(c_value);
-	return c_value ? JSON.parse(c_value) : [];
+	console.log("ored.cookieMonster.getCircleCookie: ", $.cookie("circles"));
+	return $.cookie("circles") ? $.cookie("circles") : [];
 };
 
 ored.cookieMonster.getPhotoCookie = function (){
@@ -1134,13 +1134,13 @@ ored.cookieMonster.deleteCookieIfNecessary = function ($id){
 			
 		var circleArr = ored.cookieMonster.getCircleCookie();
 		for (var i in circleArr){
-			if($id == circleArr[i])
-				// 
-				console.log("delete: "+$id);
+			if($id == circleArr[i]){
+				console.warn("delete: "+$id);
 				var index = circleArr.indexOf($id);
 				circleArr.splice(index, 1);
 				//oc: set cookie valid for 1 days, across whole site
-				$.cookie("circles",JSON.stringify(circleArr),{ expires: 1, path: '/' });
+				$.cookie("circles",circleArr,{ expires: 1, path: '/' });
+			}
 		}
 	}
 };
@@ -1178,6 +1178,8 @@ function postCircleData(goal_id){
 
 			//oc: save circle id in cookie.
 			ored.cookieMonster.saveCircleId(data.id);
+
+			console.log("friends array", friendSelectedArray)
 
     		$.ajax({
 	        		type: 'post',
