@@ -35,11 +35,11 @@ class Friend extends CI_Controller {
 				$result = $this->friends_model->Add($post);
 
 				if ($result){
-					$data['circle_id'] = $this->post['ref_circle_id'];
-					$data['fb_id'] = $friend['id'];
-					$data['name'] = $friend['name'];
-					$data['url'] = $friend['url'];
-					$return_result[] = $data;
+					$data['circle_id'] 	= $this->post['ref_circle_id'];
+					$data['fb_id'] 		= $friend['id'];
+					$data['name'] 		= $friend['name'];
+					$data['url'] 		= $friend['url'];
+					$return_result[] 	= $data;
 
 				}
 			}

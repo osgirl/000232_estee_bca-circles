@@ -327,7 +327,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			}
 
 			return isMore;
-		}
+		};
 
 
 		function photoDiv(index){
@@ -356,7 +356,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			return div;
 			
-		}
+		};
 
 		function getAllFeed(){
 
@@ -387,7 +387,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				getPhotoData(data, feed);
 
 			});
-		}
+		};
 
 		function getPhotoData(data, feed){
 
@@ -411,18 +411,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 									content:dbData.description,
 									photo_url:baseUrl + "uploads/" + dbData.filename
 								}}
-
-						// var image = $('<img/>');
-						// 	image.attr('src', baseUrl + "uploads/" + dbData.filename);
-
-						// image.load(function(){
-						// 	console.log('IMAGE LOADED')
-						// })
-
-						// image.error(function(){
-						// 	console.log('no image loaded')
-						// })
-
 
 						uploadedPhotoCount++;
 
@@ -750,17 +738,17 @@ function onFetchFriendCircleData($data){
 
 		function getIdsFromFeed($feed){
 			var ids = [];
-			$($feed).each(function(i){
-
-				var o 	= $feed[i];
-				ids[i] 	= o.data.text;
+			$($feed).each(function(i,v){
+				ids[i] 	= v.data.text;
 				ored.cookieMonster.deleteCookieIfNecessary(ids[i]);
 			});
 			//oc: push ids from cookie if anything's there. 
-			if($.cookie("circle")){
+			if($.cookie("circles")){
 				//oc: push cookie circle ids onto the array
-				ids.concat(ored.cookieMonster.getCircleCookie());
+				console.log("combine", ids, $.cookie("circles"))
+				ids = ids.concat(ored.cookieMonster.getCircleCookie());
 			} 
+			console.log("ids from feedbag:",ids);
 			return ids;
 		};
 
