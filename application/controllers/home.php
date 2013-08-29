@@ -7,7 +7,7 @@ class Home extends CI_Controller {
 		$this->load->view('home_view');
 	}
 
-	public function twitter_share($url ="", $goal = "")
+	public function twitter_share($url ="", $goal = "", $hashtag_before_url)
 	{
 		$pt = preg_replace('/_/i','/', $url);
 		$pt = preg_replace('/%3F/i','?', $pt);
@@ -19,7 +19,12 @@ class Home extends CI_Controller {
 		$short_url 	= $short_url->data->url;
 
 		$title 	 	= $goal;
-		$title 		= $title." ".SHARE_HASHTAG." ".$short_url;
+		if($hashtag_before_url){
+			$title = $title." ".$short_url . " " .SHARE_HASHTAG;
+		}
+		else{
+			$title = $title." ".SHARE_HASHTAG." ".$short_url;
+		}
 
 		header( 'Location: https://twitter.com/intent/tweet?text='.$title );
 	}

@@ -16,7 +16,7 @@
 					</span>
 					<span id="collapse_share_module" class='top_sub_nav_item pull-left vertical_mode_show'>
                     	<a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'facebook', referral:'site'})" style="margin-right:5px;" class='facebook_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></a>
-						<a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'twitter', referral:'site', action:'We\'re stronger together. Take action against breast cancer by creating a Circle of Strength at ', hashtag:'BCAStrength'})" class='twitter_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/twitter-mid.png'/></a>
+						<a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'twitter', referral:'site', action:'We\'re stronger together. Take action against breast cancer by creating a Circle of Strength at', hashtag_before_url:true})" class='twitter_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/twitter-mid.png'/></a>
 					</span>
 					<span class="pull-left vertical_mode_show" style="margin:0px 6px 0 6px;"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
 					<span class='top_sub_nav_item pull-left vertical_mode_show'>
@@ -54,7 +54,7 @@
                             <span class='top_sub_nav_item'>
                                 <span class='all_cap' style="vertical-align:center;">share</span>
                                 <a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'facebook', referral:'site'})" style="margin-top:-1px" class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></a>
-                                <a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'twitter', referral:'site', action:'We\'re stronger together. Take action against breast cancer by creating a Circle of Strength at ', hashtag:'BCAStrength'})" style="margin-top:-1px" class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></a>
+                                <a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'twitter', referral:'site', action:'We\'re stronger together. Take action against breast cancer by creating a Circle of Strength at', hashtag_before_url:true})" style="margin-top:-1px" class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></a>
 
                             </span>
                         </div>
