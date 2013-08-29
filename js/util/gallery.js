@@ -746,11 +746,14 @@ function onFetchFriendCircleData($data){
 				ids[i] 	= v.data.text;
 				ored.cookieMonster.deleteCookieIfNecessary(ids[i]);
 			});
-			//oc: push ids from cookie if anything's there. 
-			if($.cookie("circles")){
-				//oc: push cookie circle ids onto the array
-				console.log("combine", ids, $.cookie("circles"))
-				ids = ids.concat(ored.cookieMonster.getCircleCookie());
+			
+			if(!isMoreFeed){
+				//oc: push ids from cookie if anything's there. 
+				if($.cookie("circles")){
+					//oc: push cookie circle ids onto the array
+					console.log("combine", ids, $.cookie("circles"))
+					ids = ids.concat(ored.cookieMonster.getCircleCookie());
+				}
 			} 
 			console.log("ids from feedbag:",ids);
 			return ids;
@@ -1036,8 +1039,10 @@ function onFetchFriendCircleData($data){
 		},
 
 		refreshAsFakePhotoData: function(data){	
-
-			var fakeDiv = $('.photo_container').get(2);
+console.log("refreshAsFakePhotoData");
+			//var fakeDiv = $('.photo_container').get(2);
+			var fakeDiv = $('.layout1 .gallery_col_2 .photo_container_1');
+			console.log(fakeDiv.length());
 			$(fakeDiv).css('background-color', '#333')
 
 			var photoIcon = baseUrl + "img/icons/bca.png";          

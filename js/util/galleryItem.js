@@ -247,6 +247,8 @@ function GalleryItem()
 				var html;
 
 				switch(feed.channel){
+					
+					//oc: 
 					case 'rss':
 						//div.text('ID: ' + feed.text);			  // <-- ID
 						photoIcon = baseUrl + "img/icons/bca.png";
