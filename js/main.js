@@ -113,20 +113,12 @@ $(document).ready(function(){
 				console.log("ALL_LAYOUT_CREATED");
 
 //oc: uncomment for now.
-			// 	if(checkCircleCookie()){
-			// 		var c = getCircleCookie("circle");
-					
-			// 		//console.log("circle cookie");
+			    if(ored.cookieMonster.checkPhotoCookie()){
+					var p = ored.cookieMonster.getPhotoCookie("photo");	
 
-			// 		gallery.refreshAsFakeCircleData(c); 
-			// 	}
-
-			//     if(checkPhotoCookie()){
-			// 		var p = getPhotoCookie("photo");	
-
-			// 		//console.log("photo cookie");
-			// 	    gallery.refreshAsFakePhotoData(p); 
-			// }
+					//console.log("photo cookie");
+				    gallery.refreshAsFakePhotoData(p); 
+			}
 		})
 	});
 	
@@ -213,6 +205,9 @@ function enableEventBinds(){
 		(isLogin) ? openCreateCircleScreen(false) : facebook.login(function(){openCreateCircleScreen(false)});
 	});
 
+//===============================================
+//oc: cookie photo id.
+//===============================================
 	$('body').bind('PHOTO_UPLOADED', function(e){
 
 		console.log("photo name", fakePhotoData)
@@ -220,7 +215,7 @@ function enableEventBinds(){
 		 var cookieData 					= {};
 			cookieData.file_name 			= fakePhotoData.file_name;
 			cookieData.description 			= fakePhotoData.description;
-			 savePhotoToCookie(cookieData);
+			 ored.cookieMonster.savePhotoToCookie(cookieData);
 			 gallery.refreshAsFakePhotoData(cookieData);
 	});
 
@@ -1102,7 +1097,7 @@ ored.cookieMonster.saveCircleId = function ($id){
 }
 
 ored.cookieMonster.savePhotoToCookie = function ($data){
-	console.log("ored.cookieMonster.savePhotoToCookie");
+	console.log("ored.cookieMonster.savePhotoToCookie",$data);
 	//oc: set cookie valid for 7 days, across whole site
 	$.cookie("photo",$data,{ expires: 7, path: '/' });
 }
@@ -1114,9 +1109,7 @@ ored.cookieMonster.getCircleCookie = function (){
 
 ored.cookieMonster.getPhotoCookie = function (){
 
-	var p_value = $.cookie("photo");
-	//console.log(p_value);
-	return JSON.parse(p_value);
+	return $.cookie("photo");
 };
 
 ored.cookieMonster.checkPhotoCookie = function(){
