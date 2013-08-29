@@ -9,7 +9,7 @@ class Home extends CI_Controller {
 
 	public function twitter_share($url ="", $goal = "")
 	{
-		$pt = preg_replace('/%2F/i','/', $url);
+		$pt = preg_replace('/_/i','/', $url);
 		$pt = preg_replace('/%3F/i','?', $pt);
 		$pt = preg_replace('/%5E/i','=', $pt);
 		$long_url 	= base_url() . index_page() . '/#' . $pt;
