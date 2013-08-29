@@ -122,6 +122,7 @@ class Circle extends CI_Controller {
 		else
 			echo 'Invalid access';
 	}
+	
 	public function fetchAllCircles()
 	{
 		
