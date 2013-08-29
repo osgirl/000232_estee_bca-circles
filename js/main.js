@@ -80,6 +80,8 @@ var currentCircleView;
 
 var ismobile = false;
 
+var SCROLL_TO_SHOW_FOOTER;
+
 $(document).ready(function(){	
 	if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/iPad/i) ){
 		$('body').addClass( 'is_mobile' );
@@ -87,6 +89,9 @@ $(document).ready(function(){
 	} else{
 		ismobile = false;
 	}
+
+	windowResize();
+	$(window).resize(windowResize)
 
 	facebook.init(fbAppId);
 	translatePage();
@@ -134,6 +139,25 @@ $(document).ready(function(){
 	createGoalDropdown();
 
 });
+
+function windowResize(){
+	$('.language_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");
+
+	if($(window).width() >= 980 ){
+		$('#regular_footer').show();
+		$('#load_more_btn_wrapper').hide();
+		SCROLL_TO_SHOW_FOOTER = 2100;
+	}
+	else{
+		$('#regular_footer').hide();
+		$('#load_more_btn_wrapper').show();
+		SCROLL_TO_SHOW_FOOTER = 4000;
+	}
+
+	carousel.windowResize();
+
+
+}
 
 function createMainCirclePhoto( _data, _callback ){
 	$.ajax({
