@@ -73,6 +73,7 @@ function Gallery()
 		var uploadedPhotoCount;
 
 		var galleryHeight = 0;
+		var feedEnd = false;
 
 
 
@@ -82,7 +83,7 @@ function Gallery()
 
 		function lazyloader(){
 
-			console.log($(window).scrollTop() + $(window).height(), getDocHeight())
+			//console.log($(window).scrollTop() + $(window).height(), getDocHeight())
 
 
 			if($(window).scrollTop() + $(window).height() + 22  >= getDocHeight()) {
@@ -99,10 +100,16 @@ function Gallery()
 					loadNextPage();
 				}
 				else{
-					console.log("reach bottom")
+					console.log("reach bottom", feedEnd)
 					enableLazyloader();
-					$('#donate_area').fadeIn();
-	  				$('#donate_area').addClass('footer_fixed').removeClass('footer_relative');
+					if(!feedEnd){
+						$('#donate_area').fadeIn();
+	  					$('#donate_area').addClass('footer_fixed').removeClass('footer_relative');
+					}else{
+						$('#donate_area').fadeOut();
+	  					$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+					}
+					
 				}
 				
 	  		}else if($(window).scrollTop() > SCROLL_TO_SHOW_FOOTER){
@@ -189,12 +196,18 @@ console.log("parseCircleData");
 				//2. insert circle id from cookie (if its there)
 				//3. req db circles with new array of circle ids
 
-			var feed;
-			circleFeed 				= data;
-			var containerCount 		= 0;
-			var circleFeedDataArray = new Array();
-			if(data.length == 0) return;
+			circleFeed = data;
+			console.log("---------------------------------how many more circle data?", data.length)
+
+			if(data.length == 0) {
+				feedEnd = true;
+				return;
+			}
+
+			console.log("---------------------------------is circle end?", circleEnd, data.length);
+
 			createCircleLayout();
+
 
 			$(data).each(function(i){
 				feed = data[i].data;
@@ -270,8 +283,11 @@ console.log("parseCircleData");
 		function parseCircleData($data){
 			console.log("parseCircleData");
 
-			circleFeed 				= $data;
-			if(data.length == 0) return;
+			circleFeed = $data;
+			if(data.length == 0){
+				feedEnd = true; 
+				return;
+			} 
 			createCircleLayout();
 			var data = getIdsFromFeed($data);
 
@@ -444,7 +460,10 @@ console.log("parseCircleData");
 			photoFeed = data;
 			uploadedPhotoCount = 0;
 
-			if(data.length == 0) return;
+			if(data.length == 0) {
+				feedEnd = true;
+				return;
+			}
 
 			createPhotoLayout();
 
@@ -531,7 +550,10 @@ console.log("parseCircleData");
 			instagramFeed = data;
 			uploadedPhotoCount = 0;
 
-			if(data.length == 0) return;
+			if(data.length == 0) {
+				feedEnd = true;
+				return;
+			}
 
 			createPhotoLayout();
 
@@ -581,7 +603,10 @@ console.log("parseCircleData");
 			twitterFeed = data;
 			uploadedPhotoCount = 0;
 
-			if(data.length == 0) return;
+			if(data.length == 0) {
+				feedEnd = true;
+				return;
+			}
 
 			createPhotoLayout();
 
@@ -713,6 +738,7 @@ console.log("parseCircleData");
 
 function filterButtonSelected(btn){
 	isMoreFeed = false;
+	feedEnd = false;
 	pageNum = 1;
 	$.feed.reset();
 	currentFilterType = btn.attr('type');
@@ -786,6 +812,11 @@ function onFetchFriendCircleData($data){
 };
 		//oc: give feedmagnet response to php to fetch only friend circles
 		function getFriendCircleData(data){
+
+			if(data.length == 0) {
+				feedEnd = true;
+				return
+			}
 
 		 	console.log("getFriendCircleData");
 		 	var feedMagnetIds			= getIdsFromFeed(data);
