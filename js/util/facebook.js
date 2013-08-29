@@ -130,7 +130,8 @@ facebook.fetchUserData = function( _callback ){
 
     		console.log('-- getting users profile photo. --');
 
-    		FB.api('/'+userID+'/picture?type=large', function(fbresponse_c){
+    		// FB.api('/'+userID+'/picture?type=large', function(fbresponse_c){
+    		FB.api('/'+userID+'/picture?width=200&height=200', function(fbresponse_c){
     			if (!fbresponse_c || fbresponse_c.error) {
 					console.log("-- getting users photo error. --" );
 					console.log(fbresponse_c.error);
