@@ -130,7 +130,10 @@ $.extend(
                     data: d,
                     success: function(data)
                     {
-                        $('#gallery').append(data);
+                        if(ismobile)
+                            $('body').append(data);
+                        else
+                            $('#gallery').append(data);
                         $('.popup#popup_circle').init_circle(d);
                     },
                     error: function(jqXHR, textStatus, errorThrown)
@@ -437,6 +440,7 @@ $.extend(
 
         if (img.width > img.height)
         { // landscape
+            alert('landscape')
             $ratio = $length / img.height;
             $left = (-50 * $ratio);
             $(img).draggable(
@@ -448,6 +452,7 @@ $.extend(
         }
         else if (img.width < img.height)
         { // portrait
+            alert('portrait')
             $ratio = $length / img.width;
             $top = (-50 * $ratio);
             $(img).draggable(
@@ -701,7 +706,7 @@ $.extend(
         $margin_top = getMarginTop();
 
         //Scroll only when the browser is on desktop mode
-        if (($win_abs_y + $margin_top) < $this.parent().offset().top && $('.navbar').css('position') == 'fixed')
+        if (($win_abs_y + $margin_top) < $this.parent().offset().top && fixedNav())
         {
             $padding_top = $this.parent().offset().top - $win_abs_y - $margin_top;
             $('html,body').animate(
@@ -714,11 +719,15 @@ $.extend(
             $padding_top = 0;
         }
 
+
+        updateBrowerProperties();
+
         $(window).bind('resize scroll', function(e)
         {
 
             if(e.type == 'resize'){
-                $margin_top = getMarginTop();
+                $margin_top = getMarginTop();                
+                updateBrowerProperties();
             }
 
             $scroll_y = $(this).scrollTop() - $win_abs_y;
@@ -734,7 +743,7 @@ $.extend(
             {
                 $this.css(
                 {
-                    'position': 'fixed',
+                    // 'position': 'fixed',
                     'top': $bound.y,
                     'left': $bound.l,
                     'width': $bound.w
@@ -744,7 +753,7 @@ $.extend(
             {
                 $this.css(
                 {
-                    'position': 'fixed',
+                    // 'position': 'fixed',
                     'top': -$gap,
                     'left': $bound.l,
                     'width': $bound.w
@@ -759,7 +768,36 @@ $.extend(
 
         function getMarginTop()
         {
-            return ( $('.navbar').css('position') == 'fixed'  ) ?  $('.navbar').height() : 0;
+            return ( fixedNav() ) ?  $('.navbar').height() : 0;
+        }
+
+        function fixedNav()
+        {
+            return $('.navbar').css('position') == 'fixed';
+        }
+
+        function updateBrowerProperties()
+        {
+            //Mobile version get false from fixedNav
+            if( fixedNav() ){
+                 $this.css({
+                    'overflow-x' : '',
+                    'overflow-y' : '',
+                    'height' : '',
+                    'bottom' : ''
+                 });
+            }
+            else{
+                 $this.css({
+                    'overflow-x' : 'hidden',
+                    'overflow-y' : 'scroll',
+                    'height' :  '100%',
+                    'bottom' : '0'
+                 });
+
+                 if(ismobile) $('#content_wrap').animate({opacity:0},200);
+
+            }
         }
         
     }
@@ -1047,6 +1085,7 @@ $.extend(
 
     function closeWindow()
     {
+        if(ismobile) $('#content_wrap').animate({opacity:1},200);
         $('#magnet_feed').animate(
         {
             opacity: 1
