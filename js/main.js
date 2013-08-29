@@ -148,8 +148,6 @@ $(document).ready(function(){
 
 	createGoalDropdown();
 
-	checkPlaceHolderForIE($("#custom_action"), "ex: Be more active.");
-	checkPlaceHolderForIE($("#friend_search_field"), "ENTER NAME");
 
 });
 
@@ -426,6 +424,9 @@ function getTrendingAction(){
 
 
 function openCreateCircleScreen(hasGoal){
+
+	checkPlaceHolderForIE($("#custom_action"), "ex: Be more active.");
+	checkPlaceHolderForIE($("#friend_search_field"), "ENTER NAME");
 
 	$(".overlay").fadeIn(100);
 	$('#content_wrap').css('z-index', '-9999');
@@ -1244,12 +1245,8 @@ function postCircleData(goal_id){
 
 							getUserCircleData(); 
 
-							resetCircle();
-
-	            			 
+							resetCircle();            			 
 	            			openThankYouScreen();
-					        
-					        
 
 	             	}
 	      		});
@@ -1312,27 +1309,31 @@ function updateFriends(){
 }
 
 function checkPlaceHolderForIE(target, content){
-	if(!$.support.placeholder) { 
 
-        var active = document.activeElement;
+	if($.browser.msie){
+		if(!$.support.placeholder) { 
 
-        $(target).focus(function () {
-            if ($(this).attr('placeholder') != '' && $(this).val() == $(this).attr(content)) {
-                $(this).val('').removeClass('hasPlaceholder');
-            }
+	        var active = document.activeElement;
 
-        }).blur(function () {
-            if ($(this).attr('placeholder') != '' && ($(this).val() == '' || $(this).val() == $(this).attr('placeholder'))) {
-                $(this).val($(this).attr('placeholder')).addClass('hasPlaceholder');
-            }
-        });
+	        $(target).focus(function () {
+	            if ($(this).attr('placeholder') != '' && $(this).val() == $(this).attr(content)) {
+	                $(this).val('').removeClass('hasPlaceholder');
+	            }
 
-        $(target).blur();
-        $(active).focus();
-        // $('form').submit(function () {
-        //     $(this).find('.hasPlaceholder').each(function() { $(this).val(''); });
-        // });
+	        }).blur(function () {
+	            if ($(this).attr('placeholder') != '' && ($(this).val() == '' || $(this).val() == $(this).attr('placeholder'))) {
+	                $(this).val($(this).attr('placeholder')).addClass('hasPlaceholder');
+	            }
+	        });
 
-    }
+	        $(target).blur();
+	        $(active).focus();
+	        // $('form').submit(function () {
+	        //     $(this).find('.hasPlaceholder').each(function() { $(this).val(''); });
+	        // });
+
+	    }
+	}
+	
    }
 
