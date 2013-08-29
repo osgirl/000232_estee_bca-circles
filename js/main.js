@@ -502,7 +502,7 @@ function openEditFriend(){
 }
 
 function closeEditFriend(){
-	$(".overlay").fadeOut(100);
+	$(".overlay").hide();
 	$("#create_circle_screen").fadeOut(200);
 	$('#content_wrap').css('z-index', '0');
 	$('.overlay').css('z-index', '-9999');
@@ -552,7 +552,7 @@ function openCancelScreen(){
 
 function cancelCreateCircleScreen(){
 	$('#circle_confirm_screen').slideUp(200);
-	$('.overlay').fadeOut(200);
+	$('.overlay').hide();
 	$('#opt_in').show();
 	$('#thank_you').hide();
 	$('#cancel_screen').hide();
