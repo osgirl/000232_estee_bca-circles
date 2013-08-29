@@ -70,16 +70,18 @@ class BCA_Lang extends CI_Lang
           // reset the index_page value 
           $config['index_page'] = $index_page;
 
-
-          // set the language_abbreviation cookie                
-          // $IN->set_cookie('user_lang', $country_abbr, $config['sess_expiration']);
-
         } 
 
         else 
         {            
           // check and set the uri identifier to the default value     
-          $index_page .= empty($index_page) ? $default_country_abbr : "/$default_country_abbr";
+          if (isset($country_uri_abbr[$country_abbr])){            
+            $index_page .= empty($index_page) ? $country_abbr : "/$country_abbr";
+          }
+          else{
+            $index_page .= empty($index_page) ? $default_country_abbr : "/$default_country_abbr";
+          }
+
           $index_page .= empty($index_page) ? $default_language_abbr : "/$default_language_abbr";
         
           if (strlen($country_abbr) == 2) {

@@ -86,6 +86,13 @@ var SCROLL_TO_SHOW_FOOTER;
 
 $(document).ready(function(){	
 	
+	//sean: check the url first and redirect to default if the first parameter is NY.
+    if(indexPage.split('/')[0] == 'ny' ){
+    	$.gaPageview(/NY/)
+        location.replace(baseUrl);
+        return true;
+    }
+
 	//oc: parse cookie for us.
 	$.cookie.json = true;
 
