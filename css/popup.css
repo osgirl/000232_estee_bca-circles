@@ -574,7 +574,7 @@
 .popup #popup_circle_photo_carousel_wrapper #container{
 	position: relative;
 	display: inline-block;
-	width: 320px;
+	width: 300px;
 	min-height: 150px;
 	margin-left: 10px;
 	overflow: hidden;
@@ -593,8 +593,8 @@
 	position: relative;
 	display: inline-block;
 	float: left;
-	width: 150px;
-	height: 150px;
+	width: 140px;
+	height: 140px;
 	margin-right: 10px;
 	background: url('../img/popups/icons/anim-loader.gif') no-repeat center center;	
 	cursor: pointer;

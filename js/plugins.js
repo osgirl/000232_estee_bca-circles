@@ -213,7 +213,7 @@ $.extend(
         if (!$isUpload && !$isOutlink)
         {
             dl = $.address.path() + v.type + '/' + ((d.source == null) ? '' : d.source + '/') + ((d.id == null) ? '' : d.id + '/')
-            $.address.path(dl);
+            $.address.path(dl.replace(/ |%20/gi,''));
         }
         return false;
     },
