@@ -250,6 +250,7 @@ function GalleryItem()
 					
 					//oc: 
 					case 'rss':
+					console.log(feed);
 						//div.text('ID: ' + feed.text);			  // <-- ID
 						photoIcon = baseUrl + "img/icons/bca.png";
 						ored.photos.push(feed.text);
