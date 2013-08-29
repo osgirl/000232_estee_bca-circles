@@ -327,7 +327,6 @@ function enableButtons(){
 
 	$('#edit_friend_done_btn').click(updateFriends);
 
-
 	//$('#show_friendlist_btn').unbind("click").click(facebook.showFriendlist);
 }
 
