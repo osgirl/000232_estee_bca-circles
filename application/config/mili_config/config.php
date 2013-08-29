@@ -19,6 +19,11 @@ $config['file_max_size']	= 5000000;
 $config['fb_app_id'] 		= '704339276259855';
 $config['upload_url']		= 'uploads/';
 
+$config['circle_feed_name'] 	= "bca-circle-dev";
+$config['photo_feed_name'] 		= "bca-photo-dev";
+$config['instagram_feed_name'] 	= "bca-instagram-dev";
+$config['twitter_feed_name'] 	= "bca-twitter-dev";
+
 /*
 |--------------------------------------------------------------------------
 | Index File

@@ -46,14 +46,11 @@ function Carousel()
 		//--------------------------------------
 		//+ PRIVATE & PROTECTED INSTANCE METHODS
 		//--------------------------------------
-
 		
 		function onDotSelected(id){
-
 			carouselItemID = id;
 			carouselItemWidth = $('#carousel_slider').width()/3;
 		    scrollCarousel();
-
 
 	    	$('.featured_dot').each(function(i,v){
 	    		if(i == carouselItemID) {
@@ -65,6 +62,7 @@ function Carousel()
 		}
 
 		function scrollCarousel(){
+			console.log('scroll', carouselItemWidth*carouselItemID);
 
 			$('#carousel_slider').stop(true).animate({
 				left:-carouselItemWidth*carouselItemID
@@ -73,13 +71,12 @@ function Carousel()
 				duration: 600, 
 				easing: 'easeInOutExpo'
 			});
-
 		}
 
 		function getFeatureData(){
 			featurePhotoData = new Array();
 
-			$.feed.featured('bca-circle', parseFeatureCircleData, 3);
+			$.feed.featured(feedmagnet.circle_feed, parseFeatureCircleData, 3);
 			
 		}
 
@@ -109,19 +106,17 @@ function Carousel()
 	      		})
 	      	});
 
-	      	$.feed.featured('bca-photo', handleFeaturePhotoData, 2);
-			
-
+	      	$.feed.featured(feedmagnet.photo_feed, handleFeaturePhotoData, 2);
 		}
 
 		function handleFeaturePhotoData(data){
 			pushPhotoData(data);
-			$.feed.featured('bca-instagram', handleFeatureInstagramData, 2);
+			$.feed.featured(feedmagnet.instagram_feed, handleFeatureInstagramData, 2);
 		}
 
 		function handleFeatureInstagramData(data){
 			pushPhotoData(data);
-			$.feed.featured('bca-twitter', handleFeatureTwitterData, 2);
+			$.feed.featured(feedmagnet.twitter_feed, handleFeatureTwitterData, 2);
 		}
 
 		function handleFeatureTwitterData(data){
@@ -130,7 +125,6 @@ function Carousel()
 			featurePhotoData.sort(function(a, b) {
 			   return (a.data.timestamp > b.data.timestamp) ? 1 : -1;
 			});
-
 
 			galleryItem.parseAllPhotoData(featurePhotoData, true);
 		}
