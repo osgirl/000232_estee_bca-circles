@@ -188,6 +188,7 @@ h2{
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow:none;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffffffff', GradientType=0)
 }
 
 .btn-navbar{
