@@ -1008,17 +1008,16 @@ $.extend(
     {
         var dx,
         $container = $($c + ' #popup_circle_photo_carousel_wrapper #container ul'),
-            $tmb = $container.children('li:nth-child(1)'),
-            child_width = parseInt($tmb.css('margin-right').replace('px', '')) + +$tmb.width(),
-            container_width = $container.children('li').length * child_width,
-            multiplier = child_width * 2,
-            even = ($container.children().length % 2 == 0);
+        $tmb = $container.children('li:nth-child(1)'),
+        child_width = parseInt($tmb.css('margin-right').replace('px', '')) + +$tmb.width(),
+        container_width = $container.children('li').length * child_width,
+        multiplier = child_width * 2,
+        even = ($container.children().length % 2 == 0);
 
         if ($(this).hasClass('right') || type == 'swipeleft')
         {
-            dx = $container.position().left - (even ? multiplier * 1 : multiplier);
-
-            if ((dx + container_width) < 0) dx = $nav_count = 0;
+            dx = $container.position().left - ( even ? multiplier * 1 : multiplier);            
+            if ((dx + container_width) < (even) ? multiplier : 0) dx = $nav_count = 0;
             else
             {
                 $nav_count++;
