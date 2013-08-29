@@ -14,12 +14,15 @@
 | path to your installation.
 |
 */
-$config['base_url']			= '//www.bcacampaign.com/_efb/bca_strongertogether/';
+$config['base_url']			= '';
 $config['file_max_size']	= 5000000;
-//oc: production temp
 $config['fb_app_id'] 		= '669147239780429';
-//$config['fb_app_id'] 		= '307826036019777';
 $config['upload_url']		= 'uploads/';
+
+$config['circle_feed_name'] 	= "bca-circle";
+$config['photo_feed_name'] 		= "bca-photo";
+$config['instagram_feed_name'] 	= "bca-instagram";
+$config['twitter_feed_name'] 	= "bca-twitter";
 
 /*
 |--------------------------------------------------------------------------
