@@ -279,13 +279,14 @@ $.extend(
         }
         else if (v.type == "twitter")
         {            
-            var goal = v.action != undefined ? v.action : "";            
+            var goal = v.action != undefined ? v.action : "";
+            var hashtag_before_url = v.hashtag_before_url != undefined ? 1 : 0;
             if(v.referral !=undefined || v.referral !=null)
                 u +="/?referral=twitter-" + v.referral;
 
             //Swap symbol to entities
             u = u.replace(/\//gi,'_').replace(/\?/gi,'%3F').replace(/\=/gi,'%5E');
-            openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + u +"/" + escape(goal), 'Twitter');
+            openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + u +"/" + escape(goal) + "/" + hashtag_before_url, 'Twitter');
             $.gaEvent((v.post_type).capitalize(), 'Shared', 'by Twitter');
         }
         console.debug("URL is: " + u);
