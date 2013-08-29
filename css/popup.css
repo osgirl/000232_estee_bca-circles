@@ -181,8 +181,22 @@
 	display: inline-block;
 	width: 26px;
 	height: 26px;
-	margin: 0 0 2px 3px;	
+	margin: 0 20px 9px 0px;	
+	float:right;
 	background-image: url('../img/popups/icons/ico-instagram.png');
+}
+
+@media only screen and (min-width: 480px)  {
+	.popup #ico_instagram{
+		margin: 0 0 8px 3px;
+	}
+}
+
+@media only screen and (min-width: 640px)  {
+	.popup #ico_instagram{
+		float:none;
+		margin: 0 0 2px 3px;
+	}
 }
 
 .popup #photo_footer {
