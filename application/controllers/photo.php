@@ -259,7 +259,8 @@ class Photo extends CI_Controller {
 		$content_text   = $data->goal;
 		$id 	        = $data->id;
 		$friends 	    = $data->friends;
-		$filename       = "circle_photo_".$id.".jpg";
+		// $filename       = "circle_photo_".$id.".jpg";
+		$filename       = "circle_photo_".$id.".png";
 
 		$steps          = count( $friends ) + 1;
 		$radius         = 180;
@@ -327,7 +328,8 @@ class Photo extends CI_Controller {
 		$file_location 	= config_item('upload_url') . 'facebook/' . $filename;
 
 		// Save image
-		imagejpeg( $canvas, $file_location, 100 );
+		// imagejpeg( $canvas, $file_location, 100 );
+		imagepng( $canvas, $file_location );
 		unset($canvas);
 	
 		// Results

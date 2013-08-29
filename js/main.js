@@ -9,6 +9,7 @@ ored.friendsCircles	= [];
 ored.postVars		= {};
 ored.count 			= 128;//oc: how many do we from feedmagnet at a time to see if our friends are in there?
 ored.cookieMonster	= {};
+ored.photos 		= [];
 
 //events
 var LOGIN_SUCCESS			= "LOGIN_SUCCESS";
@@ -124,10 +125,8 @@ $(document).ready(function(){
 				
 
 //oc: uncomment for now.
-			    if(ored.cookieMonster.checkPhotoCookie()){
+			    if(ored.cookieMonster.checkPhotoCookie() && !ored.isCookiedPhotoInFeed()){
 					var p = ored.cookieMonster.getPhotoCookie("photo");	
-
-					//console.log("photo cookie");
 				    gallery.refreshAsFakePhotoData(p); 
 			}
 		})
@@ -223,11 +222,12 @@ function enableEventBinds(){
 
 		console.log("photo name", fakePhotoData)
 
-		 var cookieData 					= {};
-			cookieData.file_name 			= fakePhotoData.file_name;
-			cookieData.description 			= fakePhotoData.description;
-			 ored.cookieMonster.savePhotoToCookie(cookieData);
-			 gallery.refreshAsFakePhotoData(cookieData);
+		 var cookieData 			= {};
+			cookieData.file_name 	= fakePhotoData.file_name;
+			cookieData.description 	= fakePhotoData.description;
+			cookieData.id 			= fakePhotoData.id;
+			ored.cookieMonster.savePhotoToCookie(cookieData);
+			gallery.refreshAsFakePhotoData(cookieData);
 	});
 
 	$('body').bind("EDIT_FRIEND", openEditFriend);
@@ -1147,7 +1147,19 @@ ored.cookieMonster.deleteCookieIfNecessary = function ($id){
 		}
 	}
 };
-
+ored.isCookiedPhotoInFeed = function(){
+	if(ored.cookieMonster.checkPhotoCookie()){
+		
+		for (var i in ored.photos){
+			if ($.cookie("photo").id == ored.photos[i]){
+				console.warn("delete photo cookie", ored.photos[i]);
+				$.removeCookie("photo");
+				return true;
+			} 
+		}
+	}
+	return false;
+};
 ored.show_props = function (obj, objName) {
   var result = "";
     
