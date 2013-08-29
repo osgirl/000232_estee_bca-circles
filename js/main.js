@@ -704,7 +704,7 @@ function addFriend(){
 
 		var friendObj 	= new Object();
 		friendObj.id 	= curSelectedFriendID;
-		friendObj.name 	= curFriendSelectedName;
+		friendObj.name 	= curSelectedFriendName;
 		friendObj.url 	= curSelectedFriendPic;
 		friendSelectedArray.push(friendObj);
 		friendTagIDs.push(curSelectedFriendID);
