@@ -117,7 +117,7 @@ $(document).ready(function(){
 
 				console.log("CREATTTTTTINNNNNGGG", newPos);
 
-				if(isMoreFeed){
+				if(isMoreFeed && $(window).width() < 980){
 					$('html, body').animate({
 				        scrollTop: newPos
 				    }, 300);
