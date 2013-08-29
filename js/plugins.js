@@ -350,7 +350,7 @@ $.extend(
 
     function fileChangeListener(e)
     {
-        if (Modernizr.canvas)
+        if (Modernizr.canvas && !ismobile)
         {
             uploadToCanvas(e);
         }
@@ -363,6 +363,7 @@ $.extend(
     function uploadToCanvas(e)
     {
         $parent.empty();
+        loadStart();
         $('<canvas id="imageCanvas"></canvas>').appendTo($parent);
         var canvas = document.getElementById('imageCanvas');
 
@@ -373,6 +374,7 @@ $.extend(
             img.onload = function()
             {
                 //Load image to canvas
+                loadEnd();
                 createImageBound(img, canvas);
             }
             img.src = event.target.result;
@@ -423,6 +425,7 @@ $.extend(
         $($c + ' input[type=file]').unbind('fileChangeListener').remove();
         $('<input name="uploadFile" type="file" class="hidden" id="uploadFile"/>').appendTo($($c + ' #file_form'));
         $($c + ' input[type=file]').change(fileChangeListener);
+        
         //Load image to html
         $img.load(function(e)
         {
@@ -440,7 +443,7 @@ $.extend(
 
         if (img.width > img.height)
         { // landscape
-            alert('landscape')
+            // alert('landscape')
             $ratio = $length / img.height;
             $left = (-50 * $ratio);
             $(img).draggable(
@@ -452,7 +455,7 @@ $.extend(
         }
         else if (img.width < img.height)
         { // portrait
-            alert('portrait')
+            // alert('portrait')
             $ratio = $length / img.width;
             $top = (-50 * $ratio);
             $(img).draggable(
@@ -504,6 +507,8 @@ $.extend(
         {
             'min-width': $w + 'px',
             'min-height': $h + 'px',
+            'max-width': $bound.css('width'),
+            'max-height': $bound.css('height'),
             'left': $left + '%',
             'top': $top + '%'
         }).appendTo($parent);
@@ -533,6 +538,7 @@ $.extend(
                 canvas.width = $length;
                 canvas.height = $length;
                 ctx.drawImage($($img)[0], $l, $t, $w, $h);
+
                 var canvasData = canvas.toDataURL("image/png");
                 canvas.remove();
                 $.ajax(
@@ -604,7 +610,6 @@ $.extend(
         //Add fake photo only circle id is null, and send custom tracking event
         if ($circle_id == '' || $circle_id == null)
         {
-            console.debug(data.id);
             //This is photo feed to gallery
             fakePhotoData = {
                 id: data.id,
@@ -926,7 +931,7 @@ $.extend(
                 });
 
                 //Add swipe event if photo is more than two
-                if (v.length > 2) $container.on('swipeleft swiperight', carouselSwipeHandler);
+                if (v.length > 2) $container.off('swipeleft swiperight').on('swipeleft swiperight', carouselSwipeHandler);
 
                 //Check if the circle opened with child_id and popup the photo if it's available.
                 if ($d.child_id != null) openPhotofromExternalLink($d.child_id);
@@ -1011,7 +1016,7 @@ $.extend(
 
         if ($(this).hasClass('right') || type == 'swipeleft')
         {
-            dx = $container.position().left - (even ? multiplier * 2 : multiplier);
+            dx = $container.position().left - (even ? multiplier * 1 : multiplier);
 
             if ((dx + container_width) < 0) dx = $nav_count = 0;
             else
