@@ -233,12 +233,12 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 	            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
 
 	            		var rowTarget = (i%2) ? 0 : 1;
-	            		console.log("onLoadLayoutCircle:",i);
+	            		console.log("onLoadLayoutCircle:",rowTarget);
 	            		$($($('.page' + pageNum).find('.row')).get(rowTarget)).append(circleDiv);
 
-	            		$(circleDiv).addClass('pull-left');
-	            		$(circleDiv).hide();
-	            		$(circleDiv).fadeIn(200);
+	            		$(circleDiv).css({'float':'left','clear':'none'})
+	            			.hide()
+	            			.fadeIn(200);
 
 
 	            		var contentData = {
