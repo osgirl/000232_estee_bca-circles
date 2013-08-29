@@ -561,7 +561,9 @@ h2{
 	background-image: url('../img/assets/bg-pattern.png'); 
 	position:relative;
 	padding:3% 0 3% 0;
-	height:600px;
+	/*height:600px;*/
+	min-height: 600px;
+	/*max-height: 100%;*/
 }
 
 #load_more_btn_wrapper{
@@ -569,6 +571,10 @@ h2{
 	text-align: center;
 	position:absolute;
 	bottom:0;
+}
+
+#feed_magnet {
+	height: 100% !important;
 }
 
 

@@ -261,6 +261,8 @@ function getLogoutStatus(e){
 	cancelCreateCircleScreen();
 	$('.popup#popup_circle .btn_close').trigger('click');
 	$('.btn_edit').hide();
+
+	friendProfileList = new Array();
 	
 }
 
@@ -285,6 +287,8 @@ function displayUserInfo(e){
 	$('#create_circle_user').html(fullName);
 	$('.sign_in_btn  .sign_in').html('logout');
 	$('.sign_in_btn').unbind('click').click(facebook.logOut);
+
+	console.log("DISPLAY USER")
 
 	getUserCircleData();
 }
@@ -470,18 +474,18 @@ function openEditFriend(){
 
 //oc: ??
 	friendSelectedArray = new Array();
-	curFriendSelectedName = null;
+	curSelectedFriendName = null;
 	curSelectedFriendID = null;
 	curSelectedFriendPic = null;
 
 
 	$(currentCircleViewData.friends_data).each(function(i, v){
 		console.log("checking from inside", v);
-		curFriendSelectedName = v.name;
+		curSelectedFriendName = v.name;
 		curSelectedFriendID = v.fb_id;
 		curSelectedFriendPic = v.url;
 
-		console.log(curFriendSelectedName, curSelectedFriendID)
+		console.log(curSelectedFriendName, curSelectedFriendID)
 		addFriend();
 	})
 	
@@ -659,7 +663,7 @@ function getFriendList(e){
 
 				FB.api('/'+curSelectedFriendID, function(response){
 			      if (response){
-			        curFriendSelectedName = response.first_name + " " + response.last_name.substr(0,1) + ".";
+			        curSelectedFriendName = response.first_name + " " + response.last_name.substr(0,1) + ".";
 			        
 			        //resize the field
 			        $("#temp_name_enter_container").html(response.name);
@@ -697,6 +701,7 @@ function resetNameTextfield(){
 function addFriend(){
 	
 	if(!friendExist(curSelectedFriendID)){
+
 		var friendObj 	= new Object();
 		friendObj.id 	= curSelectedFriendID;
 		friendObj.name 	= curFriendSelectedName;
@@ -705,11 +710,11 @@ function addFriend(){
 		friendTagIDs.push(curSelectedFriendID);
 
 		var tempFriendList = $('<span>');
-		tempFriendList.html(curFriendSelectedName)
+		tempFriendList.html(curSelectedFriendName)
 					  .addClass('temp_name_input_container');
 	
 		var friendList = $('<div>');
-		friendList.html(curFriendSelectedName)
+		friendList.html(curSelectedFriendName)
 				  .attr('id', curSelectedFriendID)
 				  .addClass('friend_btn');
 		
@@ -852,7 +857,7 @@ function createFriendPhotosPanel(){
 
              		FB.api('/'+curSelectedFriendID, function(response){
 				      if (response){
-				        curFriendSelectedName = response.first_name + " " + response.last_name.substr(0,1) + ".";
+				        curSelectedFriendName = response.first_name + " " + response.last_name.substr(0,1) + ".";
 				        $("#temp_name_enter_container").html(response.name);
 
 				        addFriend();
@@ -963,8 +968,11 @@ function getUserCircleData(){
         		var line2 = v.friends_data.length + " Friends Taking Action";
 
         		var interval = setInterval(function(){ 
+        			//console.log("what the", $('#my_circle_scroll .jspPane'), $('#my_circle_scroll'))
 
 	        		if($('#my_circle_scroll .jspPane').is(":visible")){
+
+	        			//console.log('done??', $('#my_circle_scroll .jspPane'))
 	        			clearInterval(interval);
 	        			var parent = $('#my_circle_scroll .jspPane');
 						createStatItem(v, parent, line1, line2, v, true);
@@ -973,7 +981,6 @@ function getUserCircleData(){
 				}, 100);
 
         	})
-
      	}
 	});
 }
@@ -1171,6 +1178,8 @@ function postCircleData(goal_id){
 
 			//oc: save circle id in cookie.
 			ored.cookieMonster.saveCircleId(data.id);
+
+			console.log("friends array", friendSelectedArray)
 
     		$.ajax({
 	        		type: 'post',

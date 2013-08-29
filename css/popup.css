@@ -483,7 +483,16 @@
 	position: absolute;
 	width: 46px;
 	height: 46px;
-	margin: -23px 0 0 -23px; 
+	margin: -23px 0 0 -23px;
+	background: #f4d6df;
+	-webkit-border-radius:23px;
+	   -moz-border-radius:23px;
+		 -o-border-radius:23px;
+			border-radius:23px;	
+}
+
+.lt-ie9 .popup #dot_container .dot{
+	background: url('../img/popups/circle/dot.png') no-repeat 0 0;
 }
 
 .popup #popup_circle_modal {
