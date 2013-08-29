@@ -51,6 +51,7 @@ function Carousel()
 		function onDotSelected(id){
 
 			carouselItemID = id;
+			carouselItemWidth = $('#carousel_slider').width()/3;
 		    scrollCarousel();
 
 
@@ -89,6 +90,8 @@ function Carousel()
 
 			$(data).each(function(i){
 				feed = data[i].data;
+
+				console.log("feature circle", feed)
 
 				var circleDiv = $($('.carousel_item').get(i)).find('.feature_circle');
 
