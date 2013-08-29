@@ -305,6 +305,7 @@
 
 	.feature_circle .share_circle{
 		display:block;
+		bottom:4%;
 	}
 
 	#friend_photos_container{
@@ -369,8 +370,8 @@
 	}
 	
 	.feature_circle .circle_area {
-	    width:320px;
-	    height:320px;
+	    width:330px;
+	    height:330px;
 	    margin-left:0; 
 	}
 
@@ -379,7 +380,7 @@
 		font-size:1.2em;
 		width:180px;
 	}
-	
+
 	.user_stats{
 		float:left;
 	}

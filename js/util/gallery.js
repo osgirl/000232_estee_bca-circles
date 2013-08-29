@@ -93,7 +93,6 @@ function Gallery()
 				//unlbind scroll event until all new content loaded to screen
 
 				//load content
-				console.log('reach here?');
 
 				$(window).unbind('scroll');
 				isMoreFeed = true;
@@ -103,8 +102,11 @@ function Gallery()
 				loadLayout();
 
 	  		}else if($(window).scrollTop() > SCROLL_TO_SHOW_FOOTER){
-	  			$('#donate_area').fadeIn();
-	  			$('#donate_area').addClass('footer_fixed').removeClass('footer_relative');
+
+	  			if(!isMobile){
+	  				$('#donate_area').fadeIn();
+	  				$('#donate_area').addClass('footer_fixed').removeClass('footer_relative');
+	  			}
 
 	  		}else if($(window).scrollTop() <= SCROLL_TO_SHOW_FOOTER){
 	  			$('#donate_area').fadeOut();
