@@ -1310,7 +1310,6 @@ function updateFriends(){
 
 function checkPlaceHolderForIE(target, content){
 
-	if($.browser.msie){
 		if(!$.support.placeholder) { 
 
 	        var active = document.activeElement;
@@ -1333,7 +1332,6 @@ function checkPlaceHolderForIE(target, content){
 	        // });
 
 	    }
-	}
 	
    }
 
