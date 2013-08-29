@@ -113,20 +113,12 @@ $(document).ready(function(){
 				console.log("ALL_LAYOUT_CREATED");
 
 //oc: uncomment for now.
-			// 	if(checkCircleCookie()){
-			// 		var c = getCircleCookie("circle");
-					
-			// 		//console.log("circle cookie");
+			    if(ored.cookieMonster.checkPhotoCookie()){
+					var p = ored.cookieMonster.getPhotoCookie("photo");	
 
-			// 		gallery.refreshAsFakeCircleData(c); 
-			// 	}
-
-			//     if(checkPhotoCookie()){
-			// 		var p = getPhotoCookie("photo");	
-
-			// 		//console.log("photo cookie");
-			// 	    gallery.refreshAsFakePhotoData(p); 
-			// }
+					//console.log("photo cookie");
+				    gallery.refreshAsFakePhotoData(p); 
+			}
 		})
 	});
 	
@@ -213,6 +205,9 @@ function enableEventBinds(){
 		(isLogin) ? openCreateCircleScreen(false) : facebook.login(function(){openCreateCircleScreen(false)});
 	});
 
+//===============================================
+//oc: cookie photo id.
+//===============================================
 	$('body').bind('PHOTO_UPLOADED', function(e){
 
 		console.log("photo name", fakePhotoData)
@@ -220,7 +215,7 @@ function enableEventBinds(){
 		 var cookieData 					= {};
 			cookieData.file_name 			= fakePhotoData.file_name;
 			cookieData.description 			= fakePhotoData.description;
-			 savePhotoToCookie(cookieData);
+			 ored.cookieMonster.savePhotoToCookie(cookieData);
 			 gallery.refreshAsFakePhotoData(cookieData);
 	});
 
