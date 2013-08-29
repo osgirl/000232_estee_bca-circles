@@ -112,15 +112,16 @@ $(document).ready(function(){
 
 				console.log("ALL_LAYOUT_CREATED");
 
-				
-
 				var newPos = $(window).scrollTop() + 300;
 
 				console.log("CREATTTTTTINNNNNGGG", newPos);
 
-				$('html, body').animate({
-			        scrollTop: newPos
-			    }, 300);
+				if(isMoreFeed){
+					$('html, body').animate({
+				        scrollTop: newPos
+				    }, 300);
+				}
+				
 
 //oc: uncomment for now.
 			    if(ored.cookieMonster.checkPhotoCookie()){
