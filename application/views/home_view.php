@@ -128,7 +128,7 @@
 									<table class="btn_control">
 										<tr>
 										    <td class="button_left_wrapper"><a class='start_create_circle_btn pink_btn all_cap'>CREATE A CIRCLE</a></td>
-											<td class="button_right_wrapper"><a onclick="$.popup({type:'photo_upload'});" class='upload_photo_btn pink_btn pull_left all_cap'>UPLOAD A PHOTO</a></td>
+											<td class="button_right_wrapper"><a onclick="return $.popup({type:'photo_upload'});" class='upload_photo_btn pink_btn pull_left all_cap'>UPLOAD A PHOTO</a></td>
 										</tr>
 									</table>
 								</div>
