@@ -629,7 +629,6 @@ h2{
 	margin-right:0;
 }
 
-
 .photo_container{
 	background-color:#ede1e4;
 	height:170px;
@@ -642,7 +641,6 @@ h2{
 .layout1 .photo_container{
 	width:48%;
 	margin-right:4%;
-	float:left;
 }
 	
 
@@ -674,7 +672,6 @@ h2{
 .layout2 .photo_container{
 	width:48%;
 	margin-right:4%;
-	float:left;
 }
 
 .layout2 .photo_container:last-child{
@@ -685,13 +682,15 @@ h2{
 
 .layout_photo{
 	width:100%;
-	margin-bottom:13px;
+	margin-bottom:0 !important;
 }
 
 .layout_photo .photo_container{
 	width:48%;
 	margin-right:4%;
-	float:left;
+	float: none;
+	display: inline-block !important;
+	vertical-align: top;	
 }
 
 .layout_photo .photo_container:nth-child(even){
@@ -702,6 +701,11 @@ h2{
 
 .gallery_layout{
 	margin-bottom:0px;
+	min-height: 100px;
+}
+
+.gallery_layout .photo_container {
+	float: left;
 }
 
 .layout_circle {

@@ -137,6 +137,10 @@ function Gallery()
 			pageNum++;
 					
 			loadLayout();
+
+			$('html, body').animate({
+		        scrollTop: $(this).offset().top + 300
+		    }, 300);
 			console.log("PAGE PLUS", pageNum)
 
 		}
@@ -220,7 +224,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		};
 
 		function onFetchCircles($circles){
-		console.log("onFetchCircles");
+		console.log("onFetchCircles", $circles.length);
 
 			$($circles).each(function(i,v){
         		$.ajax({
@@ -233,7 +237,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 	            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
 
 	            		var rowTarget = (i<2) ? 0 : 1;
-	            		console.log("onLoadLayoutCircle:",rowTarget);
+	            		console.log("onLoadLayoutCircle:",i, rowTarget);
 	            		$($($('.page' + pageNum).find('.row')).get(rowTarget)).append(circleDiv);
 
 	            		$(circleDiv).css({'float':'left','clear':'none'})

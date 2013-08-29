@@ -783,26 +783,23 @@ $.extend(
         }
 
         function updateBrowerProperties()
-        {
-            //Mobile version get false from fixedNav
-            if( fixedNav() ){
-                 $this.css({
-                    'overflow-x' : '',
-                    'overflow-y' : '',
-                    'height' : '',
-                    'bottom' : ''
-                 });
-            }
-            else{
+        {            
+            if( ismobile ){
                  $this.css({
                     'overflow-x' : 'hidden',
                     'overflow-y' : 'scroll',
                     'height' :  '100%',
                     'bottom' : '0'
                  });
-
-                 if(ismobile) $('#content_wrap').animate({opacity:0},200);
-
+                $('#content_wrap').animate({opacity:0},200);
+            }
+            else{
+                 $this.css({
+                    'overflow-x' : '',
+                    'overflow-y' : '',
+                    'height' : '',
+                    'bottom' : ''
+                 });                
             }
         }
         
