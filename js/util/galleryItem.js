@@ -354,9 +354,24 @@ function GalleryItem()
 
 
 						break;
-				}
+						default : console.error("UNKNOWN feed channel");
+				}//end switch
 
 			});
+			
+			//oc: only do this once after looping the feed.
+			    if( ored.cookieMonster.checkPhotoCookie() && !ored.isCookiedPhotoInFeed() ){
+			    	if(!ored.isPhotoLoaded){
+				    	ored.isPhotoLoaded = true;
+				    	setTimeout(function(){
+console.log("SWAP PHOTO");
+							var p = ored.cookieMonster.getPhotoCookie("photo");	
+						    gallery.refreshAsFakePhotoData(p); 
+				    		
+				    	}, 1000);
+			    		
+			    	}
+			    }
 		},
 
 		centerRollOverContent:function(){

@@ -10,6 +10,7 @@ ored.postVars		= {};
 ored.count 			= 128;//oc: how many do we from feedmagnet at a time to see if our friends are in there?
 ored.cookieMonster	= {};
 ored.photos 		= [];
+ored.isPhotoLoaded	= false;
 
 //events
 var LOGIN_SUCCESS			= "LOGIN_SUCCESS";
@@ -124,11 +125,7 @@ $(document).ready(function(){
 				}
 				
 
-//oc: uncomment for now.
-			    if(ored.cookieMonster.checkPhotoCookie() && !ored.isCookiedPhotoInFeed()){
-					var p = ored.cookieMonster.getPhotoCookie("photo");	
-				    gallery.refreshAsFakePhotoData(p); 
-			}
+
 		})
 	});
 	
