@@ -148,6 +148,9 @@ $(document).ready(function(){
 
 	createGoalDropdown();
 
+	checkPlaceHolderForIE($("#custom_action"), "ex: Be more active.");
+	checkPlaceHolderForIE($("#friend_search_field"), "ENTER NAME");
+
 });
 
 function windowResize(){
@@ -165,8 +168,6 @@ function windowResize(){
 	}
 
 	carousel.windowResize();
-
-
 }
 
 function createMainCirclePhoto( _data, _callback ){
@@ -1309,4 +1310,29 @@ function updateFriends(){
          	}
   		});
 }
+
+function checkPlaceHolderForIE(target, content){
+	if(!$.support.placeholder) { 
+
+        var active = document.activeElement;
+
+        $(target).focus(function () {
+            if ($(this).attr('placeholder') != '' && $(this).val() == $(this).attr(content)) {
+                $(this).val('').removeClass('hasPlaceholder');
+            }
+
+        }).blur(function () {
+            if ($(this).attr('placeholder') != '' && ($(this).val() == '' || $(this).val() == $(this).attr('placeholder'))) {
+                $(this).val($(this).attr('placeholder')).addClass('hasPlaceholder');
+            }
+        });
+
+        $(target).blur();
+        $(active).focus();
+        // $('form').submit(function () {
+        //     $(this).find('.hasPlaceholder').each(function() { $(this).val(''); });
+        // });
+
+    }
+   }
 
