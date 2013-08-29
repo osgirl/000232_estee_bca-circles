@@ -273,7 +273,7 @@ console.log("parseCircleData");
 			var data = getIdsFromFeed($data);
 
 			createAllLayout();
-			$('body').bind('ALL_LAYOUT_SINGLE_CREATED', function(){ 
+			$('body').unbind('ALL_LAYOUT_SINGLE_CREATED').bind('ALL_LAYOUT_SINGLE_CREATED', function(){ 
 
 				$.ajax({
 			        		type: 'post',
