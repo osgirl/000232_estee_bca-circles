@@ -174,7 +174,11 @@
 						<a id="filter_twitter_btn" type="twitter" class="pink_btn pink_filter_btn light_blue_btn"><img src='<?= base_url(); ?>img/buttons/twitter.png'></a>
 						<a id="filter_friends_btn" type="friend" class="pink_btn pink_filter_btn all_cap">my friend's circles</a>
 					</div>
-					<div id="feed_magnet"> </div>
+					<div id="feed_magnet">
+						
+						<div id="load_more_btn_wrapper"><a id="load_more_btn" class="pink_btn all_cap">load more</a></div>
+					</div>
+
 				</div>
 				
         </div> <!-- /container -->

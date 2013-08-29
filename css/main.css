@@ -564,6 +564,13 @@ h2{
 	height:600px;
 }
 
+#load_more_btn_wrapper{
+	width:100%;
+	text-align: center;
+	position:absolute;
+	bottom:0;
+}
+
 
 /*LAYOUT 1*/
 
@@ -581,6 +588,7 @@ h2{
 	position:relative;
 	padding:20px;
 	color:white;
+	clear:left;
 }
 
 .circle_flag{
@@ -611,21 +619,24 @@ h2{
 
 .gallery_circle{
 	height:440px;
-	margin-bottom: 22px;
+	margin-bottom: 13px;
+	margin-right:0;
 }
+
 
 .photo_container{
 	background-color:#ede1e4;
-	height:312px;
+	height:170px;
 	position:relative;
 	background-size:110%;
 	overflow: hidden;
-	margin-bottom: 22px;
+	margin-bottom: 13px;
 }
 
 .layout1 .photo_container{
-	width:100%;
-	margin-right:0;
+	width:48%;
+	margin-right:4%;
+	float:left;
 }
 	
 
@@ -655,7 +666,12 @@ h2{
 }
 
 .layout2 .photo_container{
-	width:100%;
+	width:48%;
+	margin-right:4%;
+	float:left;
+}
+
+.layout2 .photo_container:last-child{
 	margin-right:0;
 }
 
@@ -663,13 +679,18 @@ h2{
 
 .layout_photo{
 	width:100%;
-	margin-bottom:22px;
+	margin-bottom:13px;
 }
 
 .layout_photo .photo_container{
-		width:100%;
-		margin-right:2%;
-	}
+	width:48%;
+	margin-right:4%;
+	float:left;
+}
+
+.layout_photo .photo_container:nth-child(even){
+	margin-right:0;
+}
 
 /*GALLERY ASSETS*/
 
@@ -709,30 +730,32 @@ h2{
 
 .twitter_avatar, .twitter_title{
 	float:left;
-	margin-top:20px;
+	margin-top:15px;
 }
 
 .twitter_title{
-	height:60px;
+	height:50px;
 }
 
 .twitter_avatar{
-	margin:20px 10px 0 10px;
+	margin:15px 10px 0 10px;
+	width:30px;
+	height:30px;
 }
 
 .twitter_author{
-	font-size:1.4em;
+	font-size:1em;
 	color:#333388;
 	margin-top:3px;
 }
 
 .twitter_time{
-	font-size:.circ8em;
+	font-size:.6em;
 	color:white;
 }
 
 .twitter_text{
-	font-size:1.2em;
+	font-size:.8em;
 	color:white;
 	clear:both;
 	width:92%;

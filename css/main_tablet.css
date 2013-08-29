@@ -110,6 +110,11 @@
     Tablet (980px)
    =============== */
 
+   .layout2 .photo_container{
+	width:100%;
+	margin-right:0;
+}
+
 
    /*OVERLAYS*/
 	.overlay{
@@ -306,9 +311,14 @@
 	}
 	.layout_photo .photo_container{
 		width:23.5%;
+		margin-right:2%;
 	}
 
-	.layout_photo .photo_container:last-child{
+	.layout_photo .photo_container:nth-child(even){
+		margin-right:2%;
+	}
+
+	.layout_photo .photo_container:nth-child(4n){
 		margin-right:0;
 	}
 
@@ -420,6 +430,10 @@
 	.layout_circle .gallery_circle{
 		width:43.3%;
 		margin-right:2%;
+	}
+
+	.gallery_circle:nth-child(even){
+		margin-right: 0;
 	}
 
 	#filter_nav{

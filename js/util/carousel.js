@@ -189,6 +189,13 @@ function Carousel()
 				onDotSelected(0);
 
 				$('.language_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");
+
+				if($(window).width() >= 980 )
+	  				$('#donate_area').fadeIn();
+	  			else
+	  				$('#donate_area').hide();
+	  		
+
 			})	
 
 		    $('.featured_dot').click(function(e){
