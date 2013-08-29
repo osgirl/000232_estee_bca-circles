@@ -102,7 +102,8 @@ $config['country_uri_abbr'] =
 		"tw" => "Taiwan", 
 		"tr" => "Turkey", 
 		"uk" => "United Kingdom", 
-		"us" => "United States"
+		"us" => "United States",
+		"ny" => "New York"
 	);
 
 $config['lang_uri_abbr'] = 
