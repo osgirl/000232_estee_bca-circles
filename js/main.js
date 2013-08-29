@@ -1107,7 +1107,7 @@ ored.cookieMonster.saveCircleId = function ($id){
 }
 
 ored.cookieMonster.savePhotoToCookie = function ($data){
-	console.log("ored.cookieMonster.savePhotoToCookie");
+	console.log("ored.cookieMonster.savePhotoToCookie",$data);
 	//oc: set cookie valid for 7 days, across whole site
 	$.cookie("photo",$data,{ expires: 7, path: '/' });
 }
@@ -1119,9 +1119,7 @@ ored.cookieMonster.getCircleCookie = function (){
 
 ored.cookieMonster.getPhotoCookie = function (){
 
-	var p_value = $.cookie("photo");
-	//console.log(p_value);
-	return JSON.parse(p_value);
+	return $.cookie("photo");
 };
 
 ored.cookieMonster.checkPhotoCookie = function(){

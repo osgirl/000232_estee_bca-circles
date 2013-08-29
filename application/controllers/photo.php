@@ -109,7 +109,7 @@ class Photo extends CI_Controller {
 				
 				// Output
 				ob_start (); 
-				imagejpeg( $canvas, null, 70 );
+				imagejpeg( $canvas, null, 90 );
 				$output = ob_get_contents (); 
 				ob_end_clean (); 
 				file_put_contents( $file_location , $output );
@@ -283,10 +283,25 @@ class Photo extends CI_Controller {
 		  array_push( $tag_positions, array("x"=>$x/500, "y"=>$y/580) );
 
 		  if($i==0){
-		  	$thumb = @imagecreatefromjpeg( $thumbs_url );
+		  	$img_path = $thumbs_url;
 		  } else{
-		  	$thumb = @imagecreatefromjpeg( $friends[$i-1]->url );
+		  	$img_path = $friends[$i-1]->url;
 		  }
+
+		  $extension = strtolower(end(explode(".", $img_path)));
+
+			switch( $extension ) {
+				case 'jpg':
+				case 'jpeg':
+				 $thumb = imagecreatefromjpeg($img_path);
+			 	break;
+				case 'gif':
+			 	$thumb = imagecreatefromgif($img_path);
+			 	break;
+				case 'png':
+			 	$thumb = imagecreatefrompng($img_path);
+			 	break;
+			}
 
 		  if ( $thumb ) {
 		    $w_h = imagesx( $thumb );

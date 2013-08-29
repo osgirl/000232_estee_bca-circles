@@ -1039,7 +1039,7 @@ function onFetchFriendCircleData($data){
 console.log("refreshAsFakePhotoData");
 			//var fakeDiv = $('.photo_container').get(2);
 			var fakeDiv = $('.layout1 .gallery_col_2 .photo_container_1');
-			console.log(fakeDiv.length());
+			
 			$(fakeDiv).css('background-color', '#333')
 
 			var photoIcon = baseUrl + "img/icons/bca.png";          
