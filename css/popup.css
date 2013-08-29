@@ -57,10 +57,10 @@
 .popup_round_button {
 	display: inline-block;
 	width: 110px;
-	height: 32px;
+	height: 28px;
 	margin: 0 3px;
 	text-align: center;
-	font: 12px/33px normal lighter Helvetica, Arial, sans-serif !important;
+	font: normal lighter 11px/31px Helvetica, Arial, sans-serif !important;
 	cursor: pointer;
 	letter-spacing: 1px;
 	-webkit-border-radius:16px;
@@ -411,10 +411,10 @@
     zoom: 1;
 }
 
-.popup#popup_circle .btn_edit, .popup#popup_circle .btn_add_photo{	
+/*.popup#popup_circle .btn_edit, .popup#popup_circle .btn_add_photo{	
 	font-size: .7em !important;
 	height: 28px;
-}
+}*/
 
 .popup#popup_circle .btn_edit {
 	float: left;
@@ -490,7 +490,7 @@
 	display: block;
 	width: 50%;
 	margin-left: -25%;
-	top: 30%;
+	top: 27%;
 	left:50%;
 	font-family: 'Helvetica',Arial, sans-serif;
 	font-weight: 300;
@@ -507,7 +507,7 @@
 	width: 110px;
 	margin-left: -55px;	
 	font-size: 11px;
-	top: 65%;
+	top: 64%;
 	left: 50%;
 	border: none;
 	color: #FFFFFF;
@@ -521,14 +521,17 @@
 
 .popup #popup_circle_photo_button_wrapper{
 	padding: 20px 0;
+	text-align: center;
 }
 
 .popup #popup_circle_photo_button_wrapper span{
+	height: 28px;
 	padding: 0 15px 0 30px;
 	font-family: Arial, 'Arial', sans-serif;
 	font-weight: 300;
-	font-size: .8em;
-	line-height: 0em;	
+	font-size: 1em;
+	line-height: 2em;
+	vertical-align: middle;
 }
 
 .popup .h_divider_top{
@@ -752,11 +755,16 @@
 	}
 
 	.popup #popup_circle_modal #goal {
+		top: 30%;
 		font-size: 50%;
 	}
 
+	.popup #popup_circle_photo_button_wrapper{
+		text-align: left;
+	}
+
 	.popup #popup_circle_photo_button_wrapper span{
-	font-size: 1.2em;
+		font-size: 1.2em;
 	}
 
 

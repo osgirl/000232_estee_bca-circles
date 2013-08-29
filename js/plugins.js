@@ -1279,95 +1279,96 @@ function checkAndLoadExternalUrl()
             }
             break;
         }
+    }
 
-        function loadLocalData()
+    function loadLocalData()
+    {
+        $.ajax(
         {
-            $.ajax(
+            url: u,
+            type: 'post',
+            dataType: 'json',
+            data: $data,
+            success: function(data)
             {
-                url: u,
-                type: 'post',
-                dataType: 'json',
-                data: $data,
-                success: function(data)
+                switch (adr[1])
                 {
-                    switch (adr[1])
-                    {
-                    case 'circle':
-                        circle_success(data);
-                        break;
-                    case 'photo':
-                        photo_success(data)
-                        break;
-                    }
+                case 'circle':
+                    circle_success(data);
+                    break;
+                case 'photo':
+                    photo_success(data)
+                    break;
+                }
+            }
+        });
+
+        function circle_success(data)
+        {
+
+            $.popup(
+            {
+                type: 'circle',
+                data: {
+                    id: data.circle_id,
+                    content: data.goal,
+                    avatar: data.user_photo_url,
+                    users_fb_id: data.user_id,
+                    num_friends: data.friends_data.length,
+                    outlink: true,
+                    child_id: (adr[5] != undefined) ? adr[5] : null
                 }
             });
+        }
 
-            function circle_success(data)
+        function photo_success(data)
+        {
+            $.popup(
             {
+                type: 'photo',
+                data: {
+                    id: data.photo_id,
+                    source: 'bca',
+                    content: data.description,
+                    photo_url: baseUrl + "uploads/" + data.filename,
+                    outlink: true
+                }
+            });
+        }
+    }
 
-                $.popup(
-                {
-                    type: 'circle',
-                    data: {
-                        id: data.circle_id,
-                        content: data.goal,
-                        avatar: data.user_photo_url,
-                        users_fb_id: data.user_id,
-                        num_friends: data.friends_data.length,
-                        outlink: true,
-                        child_id: (adr[5] != undefined) ? adr[5] : null
-                    }
-                });
-            }
-
-            function photo_success(data)
+    function loadInstagramData()
+    {
+        //TEMP TEMP TEMP
+        $.ajax(
+        {
+            type: 'GET',
+            dataType: 'jsonp',
+            url: 'https://api.instagram.com/v1/media/' + adr[3] + '?client_id=3cff2efc3c714b4ab94a289918992d9c',
+            success: function(result)
             {
+                var data = result.data;
                 $.popup(
                 {
                     type: 'photo',
                     data: {
-                        id: data.photo_id,
-                        source: 'bca',
-                        content: data.description,
-                        photo_url: baseUrl + "uploads/" + data.filename,
+                        id: data.id,
+                        source: 'instagram',
+                        author: data.caption.from.full_name,
+                        content: data.caption.text,
+                        photo_url: data.images.standard_resolution.url,
                         outlink: true
                     }
                 });
-            }
-        }
 
-        function loadInstagramData()
-        {
-            //TEMP TEMP TEMP
-            $.ajax(
+            },
+            error: function(jqXHR, textStatus, errorThrown)
             {
-                type: 'GET',
-                dataType: 'jsonp',
-                url: 'https://api.instagram.com/v1/media/' + adr[3] + '?client_id=3cff2efc3c714b4ab94a289918992d9c',
-                success: function(result)
-                {
-                    var data = result.data;
-                    $.popup(
-                    {
-                        type: 'photo',
-                        data: {
-                            id: data.id,
-                            source: 'instagram',
-                            author: data.caption.from.full_name,
-                            content: data.caption.text,
-                            photo_url: data.images.standard_resolution.url,
-                            outlink: true
-                        }
-                    });
-
-                },
-                error: function(jqXHR, textStatus, errorThrown)
-                {
-                    console.debug('Error ' + textStatus);
-                }
-            })
-        }
+                console.debug('Error ' + textStatus);
+            }
+        })
     }
+    
 
     //Check referral and send gaEvent if available
     var ref = getURLParameter('referral');
