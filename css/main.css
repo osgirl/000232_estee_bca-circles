@@ -1052,6 +1052,8 @@ h2{
 	padding:15px 0 0 0;
 	background-color: #fff;
 	width:100%;
+	display:none;
+	min-height:30px;
 }
 
 .footer_relative{
@@ -1716,6 +1718,12 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 #filter_instagram_btn{
 	margin-top:0;
 	padding:6px 13px 4px 13px;
+}
+
+#load_more_btn{
+	height:15px;
+	padding: 6px 60px 5px 60px;
+	margin-left:-10px
 }
 
 .view_circle_btn{

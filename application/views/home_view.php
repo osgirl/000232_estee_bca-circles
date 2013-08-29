@@ -175,8 +175,6 @@
 						<a id="filter_friends_btn" type="friend" class="pink_btn pink_filter_btn all_cap">my friend's circles</a>
 					</div>
 					<div id="feed_magnet">
-						
-						<div id="load_more_btn_wrapper"><a id="load_more_btn" class="pink_btn all_cap">load more</a></div>
 					</div>
 
 				</div>
@@ -184,25 +182,28 @@
         </div> <!-- /container -->
 
         <div id='donate_area'>
-			<div id='join_fight' class='span2 all_cap light_font span'>
-				<div id='join_fight_text'>Join the fight<br /><span style='font-size:160%'>donate!</span></div>
-				<a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" target="_blank" ><div id='donate_btn' class='pink_btn'>DONATE NOW</div></a>
-			</div>
-			<div id='join_fight_content' class="span5">
-				<p>Breast cancer affects 1 in 8 women in their lifetime. A donation of $50 raised by a Circle funds approximately one hour of lifesaving research through The Breast Cancer Research Foundation. Donate now and take us a step closer to eradicating this disease.</p>
-			</div>
-			<div id='watch_video' class="span5">
-				<div><a  href="#video" onclick="return $.popup({type:'video'});"><img src="<?= base_url(); ?>img/assets/video-thumb.png"/></a></div>
-				<div id="watch_video_text" class='pink_text all_cap'>watch the<br/>bca video</div>
-			</div>
-			<div id="footer">
-                <div style='width:48%; float:left; border-right:#f38dab 1px solid; padding-right:1.5%'> 
-                	<div class='pink_text cta' id='privacy_policy_btn' onclick="$.popup({type:'privacy_policy'});">Privacy Policy</div> 
-                </div>
-				<div style='width:49%; float:right; padding-left:1%'>
-					<div class='pink_text cta' id='term_and_cons_btn' onclick="$.popup({type:'terms_and_conditions'});">Terms & Conditions</div>
+        	<div id="regular_footer">
+				<div id='join_fight' class='span2 all_cap light_font span'>
+					<div id='join_fight_text'>Join the fight<br /><span style='font-size:160%'>donate!</span></div>
+					<a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" target="_blank" ><div id='donate_btn' class='pink_btn'>DONATE NOW</div></a>
 				</div>
+				<div id='join_fight_content' class="span5">
+					<p>Breast cancer affects 1 in 8 women in their lifetime. A donation of $50 raised by a Circle funds approximately one hour of lifesaving research through The Breast Cancer Research Foundation. Donate now and take us a step closer to eradicating this disease.</p>
+				</div>
+				<div id='watch_video' class="span5">
+					<div><a  href="#video" onclick="return $.popup({type:'video'});"><img src="<?= base_url(); ?>img/assets/video-thumb.png"/></a></div>
+					<div id="watch_video_text" class='pink_text all_cap'>watch the<br/>bca video</div>
+				</div>
+				<div id="footer">
+	                <div style='width:48%; float:left; border-right:#f38dab 1px solid; padding-right:1.5%'> 
+	                	<div class='pink_text cta' id='privacy_policy_btn' onclick="$.popup({type:'privacy_policy'});">Privacy Policy</div> 
+	                </div>
+					<div style='width:49%; float:right; padding-left:1%'>
+						<div class='pink_text cta' id='term_and_cons_btn' onclick="$.popup({type:'terms_and_conditions'});">Terms & Conditions</div>
+					</div>
+	            </div>
             </div>
+            <div id="load_more_btn_wrapper"><a id="load_more_btn" class="pink_btn all_cap">load more</a></div>
 		</div>	
 
 

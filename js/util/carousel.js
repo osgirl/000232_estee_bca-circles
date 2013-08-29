@@ -182,21 +182,8 @@ function Carousel()
 		initCarousel: function(){
 
 			carouselItemWidth = $('#carousel_slider').width()/3;
-			$('.language_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");
+			onDotSelected(0);
 
-			$(window).resize(function(e){
-				carouselItemWidth = $('#carousel_slider').width()/3;
-				onDotSelected(0);
-
-				$('.language_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");
-
-				if($(window).width() >= 980 )
-	  				$('#donate_area').fadeIn();
-	  			else
-	  				$('#donate_area').hide();
-	  		
-
-			})	
 
 		    $('.featured_dot').click(function(e){
 		    	onDotSelected($(e.currentTarget).index())
@@ -207,6 +194,11 @@ function Carousel()
 
 		    if(ismobile) $('#carousel_slider').on('swipeleft swiperight', carouselSwipeHandler);
 
+		},
+
+		windowResize: function(){
+			carouselItemWidth = $('#carousel_slider').width()/3;
+			onDotSelected(0);
 		},
 
 		
