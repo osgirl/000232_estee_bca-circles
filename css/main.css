@@ -642,7 +642,7 @@ h2{
 .layout1 .photo_container{
 	width:48%;
 	margin-right:4%;
-	float:left;
+	/*float:left;*/
 }
 	
 
@@ -674,7 +674,7 @@ h2{
 .layout2 .photo_container{
 	width:48%;
 	margin-right:4%;
-	float:left;
+	/*float:left;*/
 }
 
 .layout2 .photo_container:last-child{
@@ -685,23 +685,30 @@ h2{
 
 .layout_photo{
 	width:100%;
-	margin-bottom:13px;
+	margin-bottom:0 !important;
 }
 
 .layout_photo .photo_container{
 	width:48%;
 	margin-right:4%;
-	float:left;
+	/*float:left;*/
 }
 
 .layout_photo .photo_container:nth-child(even){
 	margin-right:0;
 }
 
+.layout_photo .photo_container{
+	float: none !important;
+	display: inline-block !important;
+	vertical-align: top;
+}
+
 /*GALLERY ASSETS*/
 
 .gallery_layout{
 	margin-bottom:0px;
+	min-height: 100px;
 }
 
 .layout_circle {
