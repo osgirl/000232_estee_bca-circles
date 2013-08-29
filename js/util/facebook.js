@@ -65,7 +65,7 @@ facebook.fetchFriendlist = function( _callback ){
 				friendObj.name = value.name;
 			
 	        	FB.api('/'+value.id+'/picture?width=100&height=100', function(fbresponse_b){
-	        		// console.log("-- got "+ friendObj.name + "s photo. --" );
+	        		console.log("-- got "+ friendObj.name + "s photo. --" );
 
 			    	if (fbresponse_b && fbresponse_b.data){
 				       	$(fbresponse_b.data).each(function(i,v){
@@ -82,6 +82,9 @@ facebook.fetchFriendlist = function( _callback ){
 			    	} else {
 			        	console.log("-- error getting "+ friendObj.name + "s photo. --" );
 			    	}
+
+			    	if(friendObj.pic == undefined || friendObj.pic == null || friendObj.pic.indexOf(".gif") != -1)
+						friendObj.pic = baseUrl + indexPage + "img/assets/profile_generic.jpg";
 			    });
 	        });
 	    } else {
@@ -137,10 +140,17 @@ facebook.fetchUserData = function( _callback ){
 					console.log(fbresponse_c.error);
 				} else {
 					console.log('-- getting users photo success. --');
-
 					userProfilePhoto = fbresponse_c.data.url;
-			        $('body').trigger('GOT_USER_PROFILE_PIC');
 		    	}
+
+		    	console.log(userProfilePhoto);
+
+				if(userProfilePhoto == undefined || userProfilePhoto == null || userProfilePhoto.indexOf(".gif") != -1){
+					console.log("using generic photo for user");
+					userProfilePhoto = baseUrl + "img/assets/profile_generic.jpg";
+				}
+
+				$('body').trigger('GOT_USER_PROFILE_PIC');
 			});
 
     		$('body').trigger('GOT_USER_INFO');

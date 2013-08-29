@@ -133,14 +133,9 @@ function Gallery()
 
 		function loadNextPage(){
 			isMoreFeed = true;
-
 			pageNum++;
-					
 			loadLayout();
-
-			$('html, body').animate({
-		        scrollTop: $(this).offset().top + 300
-		    }, 300);
+		
 			console.log("PAGE PLUS", pageNum)
 
 		}
@@ -871,7 +866,9 @@ function onFetchFriendCircleData($data){
 							enableLazyloader();
 							$('body').trigger('ALL_LAYOUT_SINGLE_CREATED');
 
-							updateGalleryHeight($(layout1).height());
+							//updateGalleryHeight($(layout1).height());
+
+							
 							
 							return;
 						}else{
