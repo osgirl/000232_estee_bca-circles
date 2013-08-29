@@ -1310,7 +1310,7 @@ function updateFriends(){
 
 function checkPlaceHolderForIE(target, content){
 
-		if(!$.support.placeholder) { 
+		if($("input").attr('placeholder') == undefined || $("input").attr('placeholder') == "") { 
 
 	        var active = document.activeElement;
 
