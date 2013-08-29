@@ -16,8 +16,11 @@ class Photo extends CI_Controller {
 		$base_url			= config_item('base_url');
 		$file_name 			= 'uploadFile';
 		$file_max_size		= config_item('file_max_size');
-		$extension 			= end(explode(".", $_FILES[$file_name]["name"]));
+		$extension 			= strtolower(end(explode(".", $_FILES[$file_name]["name"])));
 		$allowed_exts		 = array("jpg", "jpeg", "gif", "png");
+		$name 				= '';
+
+		// print_r($_FILES[$file_name]);
 
 		if ((($_FILES[$file_name]["type"] == "image/gif")
 		|| ($_FILES[$file_name]["type"] == "image/jpeg")
@@ -86,13 +89,20 @@ class Photo extends CI_Controller {
 
 				// Resample
 				$canvas = imagecreatetruecolor($w, $h);
-				
-				if($extension == 'jpg' || $extension == 'jpeg'){
-					$image = imagecreatefromjpeg($file_location);
-				}
-				else if($extension == 'png'){
-					$image = imagecreatefrompng($file_location);	
-				}
+					
+				 switch( $extension ) {
+              		case 'jpg':
+              		case 'jpeg':
+                    	 $image = imagecreatefromjpeg($file_location);
+                     	break;
+              		case 'gif':
+                     	$image = imagecreatefromgif($file_location);
+                     	break;
+              		case 'png':
+                     	$image = imagecreatefrompng($file_location);
+                     	break;
+       			}
+
 				
 
 				imagecopyresampled($canvas, $image, 0, 0, 0, 0, $w, $h, $o_w, $o_h);
