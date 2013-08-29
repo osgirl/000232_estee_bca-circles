@@ -257,6 +257,8 @@ function getLogoutStatus(e){
 	cancelCreateCircleScreen();
 	$('.popup#popup_circle .btn_close').trigger('click');
 	$('.btn_edit').hide();
+
+	friendProfileList = new Array();
 	
 }
 
@@ -281,6 +283,8 @@ function displayUserInfo(e){
 	$('#create_circle_user').html(fullName);
 	$('.sign_in_btn  .sign_in').html('logout');
 	$('.sign_in_btn').unbind('click').click(facebook.logOut);
+
+	console.log("DISPLAY USER")
 
 	getUserCircleData();
 }
@@ -958,8 +962,11 @@ function getUserCircleData(){
         		var line2 = v.friends_data.length + " Friends Taking Action";
 
         		var interval = setInterval(function(){ 
+        			//console.log("what the", $('#my_circle_scroll .jspPane'), $('#my_circle_scroll'))
 
 	        		if($('#my_circle_scroll .jspPane').is(":visible")){
+
+	        			//console.log('done??', $('#my_circle_scroll .jspPane'))
 	        			clearInterval(interval);
 	        			var parent = $('#my_circle_scroll .jspPane');
 						createStatItem(v, parent, line1, line2, v, true);
@@ -968,7 +975,6 @@ function getUserCircleData(){
 				}, 100);
 
         	})
-
      	}
 	});
 }

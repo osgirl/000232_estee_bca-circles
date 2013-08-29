@@ -81,6 +81,11 @@ function Gallery()
 		//+ PRIVATE & PROTECTED INSTANCE METHODS
 		//--------------------------------------
 
+		function enableLazyloader(){
+			//if($(window).width() >= 980){
+				$(window).unbind('scroll').bind('scroll', lazyloader);
+			//}
+		}
 		function lazyloader(){
 
 			//console.log($(window).scrollTop() + $(window).height(), getDocHeight())
@@ -188,99 +193,73 @@ this function handles the onComplete of the loading the list of cirle ID's from 
 then requests a list of circles 
 parse the circle data from feedmagnet and calls a route on our server to ccreates the markup from the list of 
 */
-		function parseCircleData(data){
-console.log("parseCircleData");
-			//oc: prep feedmagnet array for db req
-				//1. parse feedmagnet array deleting cookie if it matches
-				//2. insert circle id from cookie (if its there)
-				//3. req db circles with new array of circle ids
 
-			circleFeed = data;
-			console.log("---------------------------------how many more circle data?", data.length)
 
-			if(data.length == 0) {
-				feedEnd = true;
+
+		function parseCircleData($data){
+			console.log("parseCircleData");
+
+			circleFeed = $data;
+			if($data.length == 0){
+				feedEnd = true; 
 				return;
-			}
-
-			console.log("---------------------------------is circle end?", circleEnd, data.length);
-
+			} 
 			createCircleLayout();
+			var data = getIdsFromFeed($data);
 
-			var feed;
-			var containerCount = 0;
-			var circleFeedDataArray = new Array();
+			$.ajax({
+		        		type: 'post',
+		            	url: baseUrl + indexPage + 'circle/fetchAllCircles',
+		            	dataType: 'json',
+		            	data: {
+		            		feedIdsJSON: JSON.stringify(data)
+		            	},
+		            	success: onFetchCircles
+		      		});
 
-			$(data).each(function(i){
-				feed = data[i].data;
+		};
 
-				$.ajax({
-	        		type: 'post',
-	            	url: baseUrl + indexPage + 'circle/fetchPoopyData',
-	            	dataType: 'json',
-	            	data: {
-	            		circle_id: feed.text
-	            	},
-	            	success: function(feedData) { 
+		function onFetchCircles($circles){
+		console.log("onFetchCircles");
 
-//oc: this is where we get CFM data 
-	                
+			$($circles).each(function(i,v){
+        		$.ajax({
+	        		type: 'get',
+	            	url: baseUrl + indexPage + 'layout/loadLayoutCircle',
+	            	dataType: 'html',
+	            	success: function (layoutData){
+	            		var circleDiv = $('<div>');
+	            			circleDiv.append(layoutData)
+	            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
 
-	                		//this extra step is to fix the circle id that sometimes is not in order
+	            		var rowTarget = (i%2) ? 0 : 1;
+	            		console.log("onLoadLayoutCircle:",rowTarget);
+	            		$($($('.page' + pageNum).find('.row')).get(rowTarget)).append(circleDiv);
 
-	                		circleFeedDataArray.push(feedData);
+	            		$(circleDiv).css({'float':'left','clear':'none'})
+	            			.hide()
+	            			.fadeIn(200);
 
-		            		circleFeedDataArray.sort(function(a, b) {
-		            			var aNum = Number(a.circle_id);
-		            			var bNum = Number(b.circle_id);
-							   return (aNum > bNum) ? 1 : -1;
-							});
 
-	                		$.ajax({
-				        		type: 'get',
-				            	url: baseUrl + indexPage + 'layout/loadLayoutCircle',
-				            	dataType: 'html',
-				            	
-				            	success: function(layoutData) {  
+	            		var contentData = {
+							index:i,
+							item:$(circleDiv),
+							totalNum:$circles.length*pageNum,
+							colNum:CIRCLE_LAYOUT_COLUMN_NUM,
+							type:'circle'
+						}
 
-				            		var circleDiv = $('<div>');
-				            			circleDiv.append(layoutData)
-				            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
-
-				            		var rowTarget = (containerCount<2) ? 0 : 1;
-				            		$($($('.page' + pageNum).find('.row')).get(rowTarget)).append(circleDiv);
-
-				            		$(circleDiv).addClass('pull-left');
-				            		$(circleDiv).hide();
-				            		$(circleDiv).fadeIn(200);
-
-				            		containerCount++;
-
-				            		var contentData = {
-										index:containerCount,
-										item:$(circleDiv),
-										totalNum:data.length*pageNum,
-										colNum:CIRCLE_LAYOUT_COLUMN_NUM,
-										type:'circle'
-									}
-
-									galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount-1]);
-									if(contentData.index%2 == 0) updateGalleryHeight($(circleDiv).height()+50);
-									
-									if(containerCount == data.length) {
-										$('body').trigger('ALL_LAYOUT_CREATED');
-									}
-
-									enablelazyLoader();
-
-				             	}
-				      		});
-
-	   
-	             	}
+						galleryItem.populateCircleContent($(circleDiv), v);
+						if(contentData.index%2 == 0) updateGalleryHeight($(circleDiv).height()+50);
+						
+						if(i == $circles.length - 1) $('body').trigger('ALL_LAYOUT_CREATED');
+						
+						enableLazyloader();
+					}
 	      		});
-			});
-		}
+
+	   		});//end each
+		};
 
 
 			//oc: prep feedmagnet array for db req
@@ -308,7 +287,7 @@ console.log("parseCircleData");
 			      		});
 
 
-			});
+			});//end binding complete
 			
 		};
 		
@@ -473,11 +452,6 @@ console.log("parseCircleData");
 			});
 		}
 
-		function enableLazyloader(){
-			//if($(window).width() >= 980){
-				$(window).unbind('scroll').bind('scroll', lazyloader);
-			//}
-		}
 
 		function parseInstagramData(data){
 
@@ -597,7 +571,7 @@ console.log("parseCircleData");
 
 			createPhotoLayout();
 
-			$(data).each(function(i){
+			$(data).each(function(i,v){
 				feed = data[i].data;
 
 				var popupData;
@@ -773,7 +747,7 @@ function onFetchFriendCircleData($data){
 
 		};//end getFriendCircleData
 
-//oc: util getters/setters
+
 		function getIdsFromFeed($feed){
 			var ids = [];
 			$($feed).each(function(i){
@@ -815,8 +789,6 @@ function onFetchFriendCircleData($data){
 					
 					(!isMoreFeed) ? getAllFeed() : getMoreAllFeed();
 
-
-					
 				break;
 
 				case 'circle':
@@ -880,7 +852,7 @@ function onFetchFriendCircleData($data){
 		
 
 		function createAllLayout(data){
-console.log('createAllLayout');
+			console.log('createAllLayout');
 			if(!circleEnd){
 				$.ajax({
 	        		type: 'get',

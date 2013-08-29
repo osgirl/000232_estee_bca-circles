@@ -55,9 +55,9 @@ facebook.checkLoginStatus = function(){
 }
 
 facebook.fetchFriendlist = function( _callback ){
-	FB.api('/me/friends', function(fbresponse){
+	FB.api('/me/friends?limit=5000', function(fbresponse){
 	    if (fbresponse && fbresponse.data){
-	    	console.log("-- successfully retrieved friends list --" );
+	    	console.log("-- successfully retrieved friends list --");
 
 	        $(fbresponse.data).each( function(index,value){
 				var friendObj = new Object();
