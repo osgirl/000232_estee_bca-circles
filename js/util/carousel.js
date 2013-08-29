@@ -142,7 +142,19 @@ function Carousel()
 			}
 		}
 
-
+		function carouselSwipeHandler(e) {
+			var cur_n = (carouselItemID == undefined) ? 0 : carouselItemID, 
+				max_n = $('.featured_dot').length;
+			if(e.type =='swipeleft'){
+				cur_n ++;
+				cur_n %= max_n;
+			}
+			else{
+				cur_n --;
+				if (cur_n < 0) cur_n = max_n-1;
+			}
+			onDotSelected(cur_n);
+		}
 		
 		return {
 			
@@ -184,6 +196,10 @@ function Carousel()
 		    });
 
 		    getFeatureData();
+
+
+		    if(ismobile) $('#carousel_slider').on('swipeleft swiperight', carouselSwipeHandler);
+
 		},
 
 		
