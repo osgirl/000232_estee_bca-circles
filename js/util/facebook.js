@@ -59,6 +59,8 @@ facebook.fetchFriendlist = function( _callback ){
 	    if (fbresponse && fbresponse.data){
 	    	console.log("-- successfully retrieved friends list --");
 
+	    	friendProfileList = new Array();
+
 	        $(fbresponse.data).each( function(index,value){
 				var friendObj = new Object();
 				friendObj.id = value.id;
@@ -106,6 +108,7 @@ facebook.login = function( _callback ){
 			isLogin = true;
 
 			$('body').trigger('LOGIN_SUCCESS');
+
 
 			facebook.fetchUserData( function(){
 				facebook.fetchFriendlist(_callback);

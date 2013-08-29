@@ -66,8 +66,6 @@ function Carousel()
 
 		function scrollCarousel(){
 
-			console.log('scroll', carouselItemWidth*carouselItemID);
-
 			$('#carousel_slider').stop(true).animate({
 				left:-carouselItemWidth*carouselItemID
 				}, 

@@ -265,7 +265,6 @@ function getLogoutStatus(e){
 	$('.popup#popup_circle .btn_close').trigger('click');
 	$('.btn_edit').hide();
 
-	friendProfileList = new Array();
 	
 }
 
