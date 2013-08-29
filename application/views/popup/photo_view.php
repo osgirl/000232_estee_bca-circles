@@ -17,8 +17,10 @@
 		else{
 			if ($circle_id != null)
 				$url = "/circle/" . $circle_id . "/photo/bca/" . $id;
-			else
-				$url = "/photo/bca/" . $id;
+			else{
+
+				$url = "/photo/bca/" . (empty($id)) ? '' : $id;
+			}
 		}
 	?>
 	<div id="photo_footer">
