@@ -19,7 +19,7 @@
 				$url = "/circle/" . $circle_id . "/photo/bca/" . $id;
 			else{
 
-				$url = "/photo/bca/" . (empty($id)) ? '' : $id;
+				$url = "/photo/bca/" . ((empty($id)) ? '' : $id);
 			}
 		}
 	?>
