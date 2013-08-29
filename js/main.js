@@ -1140,7 +1140,11 @@ ored.isCookiedPhotoInFeed = function(){
 	if(ored.cookieMonster.checkPhotoCookie()){
 		
 		for (var i in ored.photos){
-			if ($.cookie("photo").id == ored.photos[i]) return true;
+			if ($.cookie("photo").id == ored.photos[i]){
+				console.warn("delete photo cookie", ored.photos[i]);
+				$.removeCookie("photo");
+				return true;
+			} 
 		}
 	}
 	return false;
