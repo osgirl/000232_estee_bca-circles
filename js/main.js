@@ -1089,15 +1089,6 @@ function createCircle(){
 	});
 
 	openLoadingScreen();
-
-
-	facebook.createCircle({
-		id :userID,
-		name: userName,
-		photo: userProfilePhoto,
-		goal: goal,
-		friends: friendSelectedArray
-	});
 }
 
 	//oc: save cookie.
@@ -1248,6 +1239,14 @@ function postCircleData(goal_id){
 							resetCircle();            			 
 	            			openThankYouScreen();
 
+	            			facebook.createCircle({
+	            				circle_id:data.id,
+								id :userID,
+								name: userName,
+								photo: userProfilePhoto,
+								goal: goal,
+								friends: friendSelectedArray
+							});
 	             	}
 	      		});
 			}

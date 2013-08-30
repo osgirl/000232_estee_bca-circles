@@ -176,7 +176,7 @@ facebook.logOut = function( _callback ){
 }
 
 facebook.createCircle = function(_friendsData){
-	var photo_message = facebook.photoMessage.replace("[GOAL]",_friendsData.goal).replace("[URL]",_friendsData.url);
+	var photo_message = facebook.photoMessage.replace("[GOAL]",_friendsData.goal).replace("[URL]", baseUrl + indexPage + "circle/" + _friendsData.circle_id);
 
 	//save photo to server 
 	createMainCirclePhoto( _friendsData, function( _create_response ){		
