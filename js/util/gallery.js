@@ -374,57 +374,37 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			ored.photoIds 	= ored.photoIds.concat(data);
 			ored.addCookiePhotosToFeed();
 			
-			$.ajax({
+			loadPhotoData(data, onPhotoDataLoadComplete);
+
+		};//
+
+		function loadPhotoData($data, $onComplete){
+						$.ajax({
 			        		type: 'post',
 			            	url: baseUrl + indexPage + 'photo/fetchUploadedPhotoData',
 			            	dataType: 'json',
 			            	data: {
-			            		feedIdsJSON: JSON.stringify(data)
+			            		feedIdsJSON: JSON.stringify($data)
 			            	},
-			            	success: function(data) { console.log("photo data load complete"); ored.photoData = ored.photoData.concat(data); handleAllPhotoData( ored.photoFeed)}
+			            	success: $onComplete
 			       });
-		};//
+		};
 
-		function parseMorePhotoData(data){
-console.log("parseMorePhotoData");
-console.log(data);
-			var feed;
+		function onPhotoDataLoadComplete(data){
+			console.log("photo data load complete"); 
+			ored.photoData = ored.photoData.concat(data); 
+			handleAllPhotoData( ored.photoFeed);
+		};
 
-			createPhotoLayout();
 
-			$(data).each(function(i,v){
-				feed = data[i].data;
 
-				var popupData;
-				var photoIcon;
-				var html;
+		function parsePhotoData($data){
+			
+			console.log("parsePhotoData");
+			console.log($data);
+			feed = $data;
 
-				switch(feed.channel){
-					case 'rss':
-						getPhotoData(i, data, feed);
-						break;
-
-					case 'instagram':
-						getInstagramData(i, data, feed);
-						break;
-
-					case 'twitter':
-						getTwitterData(i, data, feed);
-						break;
-				}
-
-			});
-
-			enableLazyloader();
-		}
-
-		function parsePhotoData(data){
-console.log("parsePhotoData");
-console.log(data);
-			photoFeed 			= data;
-			uploadedPhotoCount 	= 0;
-
-			if(data.length == 0) {
+			if($data.length == 0) {
 				feedEnd = true;
 				return;
 			}
@@ -436,64 +416,46 @@ console.log(data);
 				//return;
 			}
 
-			var feed;
+			var data 		= ored.getIdsFromFeed($data, "photo");
+			
 
-			$(data).each(function(i){
-				feed = data[i].data;
-				getPhotoData(data, feed);
+			loadPhotoData(data, getPhotoData);
 
-			});
 		};
 
-		function getPhotoData(data, feed){
+		function getPhotoData($data){
 
-			$.ajax({
-	        		type: 'post',
-	            	url: baseUrl + indexPage + 'photo/fetchUploadedPhotoData',
-	            	dataType: 'json',
-	            	data: {
-	            		photo_id: feed.text
-	            	},
-	            	success: function(dbData) {  
+			$($data).each(function(i,v){
+				
+        		var photoIcon = baseUrl + "img/icons/bca.png";          
+            	var popupData = {
+					type:'photo', 
+					data:{
+							id: v.photo_id,
+							source:'bca',
+							content: v.description,
+							photo_url:baseUrl + "uploads/" + v.filename
+						}
+					};
 
+				var html = "<img class='full_photo' src='" + baseUrl + "uploads/" + v.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 
-	            		var photoIcon = baseUrl + "img/icons/bca.png";          
+				var contentData = {
+					index:uploadedPhotoCount,
+					item:photoDiv(uploadedPhotoCount),
+					totalNum:$data.length*pageNum,
+					type:'photo',
+					content:html,
+					popupData:popupData,
+					colNum:PHOTO_LAYOUT_COLUMN_NUM
+				}
 
-	                	var popupData = {
-								type:'photo', 
-								data:{
-									id: data.photo_id,
-									source:'bca',
-									content:dbData.description,
-									photo_url:baseUrl + "uploads/" + dbData.filename
-								}}
+				populatePhotoContent(contentData);
+				enableLazyloader();
 
-						uploadedPhotoCount++;
-
-							var html = "<img class='full_photo' src='" + baseUrl + "uploads/" + dbData.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
-
-
-							var contentData = {
-								index:uploadedPhotoCount,
-								item:photoDiv(uploadedPhotoCount),
-								totalNum:data.length*pageNum,
-								type:'photo',
-								content:html,
-								popupData:popupData,
-								colNum:PHOTO_LAYOUT_COLUMN_NUM
-							}
-
-							populatePhotoContent(contentData);
-
-							if(uploadedPhotoCount == data.length) $('body').trigger("ALL_LAYOUT_CREATED");
-
-							enableLazyloader();
-
-	             	},
-	             	error: function(XMLHttpRequest, textStatus, errorThrown){
-	             		console.log('this is an error', textStatus, errorThrown)
-	             	}
 			});
+
+			$('body').trigger("ALL_LAYOUT_CREATED");
 		}
 
 
@@ -951,6 +913,7 @@ console.log(data);
 			var div;
 
 			if(currentFilterType == "all") {
+				
 				if(!circleEnd){
 					div = $($('.photo_container').get(index));
 				}else{
@@ -975,7 +938,7 @@ console.log(data);
 		};
 
 		function createPhotoLayout(){
-			console.log('create photo layout')
+			console.log('createPhotoLayout');
 			var photoLayout = $('<div>');
 			photoLayout.addClass('layout_photo gallery_layout page' + pageNum)
 						.appendTo(gallery_container);
