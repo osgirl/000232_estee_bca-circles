@@ -404,15 +404,13 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				feedEnd = true;
 				return;
 			}
-
+			
 			createPhotoLayout();
-
+			var data 		= ored.getIdsFromFeed($data, "photo");
 			if(data.length < getPhotoNum) {
 				onePage = true;
 				//return;
 			}
-
-			var data 		= ored.getIdsFromFeed($data, "photo");
 
 			loadPhotoData(data, getPhotoData);
 
