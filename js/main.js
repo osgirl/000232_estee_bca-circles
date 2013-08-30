@@ -1087,15 +1087,6 @@ function createCircle(){
 	});
 
 	openLoadingScreen();
-
-
-	facebook.createCircle({
-		id :userID,
-		name: userName,
-		photo: userProfilePhoto,
-		goal: goal,
-		friends: friendSelectedArray
-	});
 }
 ored.getPhotoDataById = function ($id){
 	for (var i in ored.photoData){ 
@@ -1265,6 +1256,14 @@ function postCircleData(goal_id){
 							resetCircle();            			 
 	            			openThankYouScreen();
 
+	            			facebook.createCircle({
+	            				circle_id:data.id,
+								id :userID,
+								name: userName,
+								photo: userProfilePhoto,
+								goal: goal,
+								friends: friendSelectedArray
+							});
 	             	}
 	      		});
 			}
