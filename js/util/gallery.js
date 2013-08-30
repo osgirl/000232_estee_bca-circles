@@ -365,7 +365,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			console.log($data);
 
 
-			ored.photoFeed 	= ored.photoFeed.concat($data);
+			ored.photoFeed 	= $data;
 			var data 		= ored.getIdsFromFeed($data, "photo");
 			ored.photoIds 	= ored.photoIds.concat(data);
 			ored.addCookiePhotosToFeed();
