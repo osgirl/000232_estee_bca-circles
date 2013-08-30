@@ -74,6 +74,7 @@ function Gallery()
 
 		var galleryHeight = 0;
 		var feedEnd = false;
+		var onePage = false;
 
 
 
@@ -101,6 +102,12 @@ function Gallery()
 
 				$(window).unbind('scroll');
 
+				if(onePage){
+					$('#donate_area').fadeIn();
+	  				$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+					return;
+				}
+
 				if($(window).width() >= 980 ) {
 					loadNextPage();
 				}
@@ -114,8 +121,9 @@ function Gallery()
 						$('#donate_area').fadeOut();
 	  					$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 					}
-					
+
 				}
+
 				
 	  		}else if($(window).scrollTop() > SCROLL_TO_SHOW_FOOTER){
 
@@ -194,10 +202,20 @@ function Gallery()
 
 			console.log("parseAllCircleData");
 
-			if($data.length == 0) circleEnd = true;
+			if($data.length == 0) {
+				feedEnd = true;
+				return;
+			}
+
 			var data = ored.getIdsFromFeed($data, "circles");
 
 			createAllLayout();
+
+			if($data.length < getCircleNum) {
+				onePage = true;
+				//return;
+			}
+
 			$('body').unbind('ALL_LAYOUT_SINGLE_CREATED').bind('ALL_LAYOUT_SINGLE_CREATED', function(){ 
 
 				$.ajax({
@@ -251,11 +269,18 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			console.log("parseCircleData");
 
 			circleFeed = $data;
-			if($data.length == 0){
-				feedEnd = true; 
+			if($data.length == 0) {
+				feedEnd = true;
 				return;
-			} 
+			}
+
 			createCircleLayout();
+
+			if($data.length < getPhotoNum) {
+				onePage = true;
+				//return;
+			}
+
 			var data = ored.getIdsFromFeed($data, "circles");
 
 			$.ajax({
@@ -378,13 +403,21 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			console.log("parsePhotoData");
 			console.log($data);
 			feed = $data;
-			createPhotoLayout();
 
-			var data 		= ored.getIdsFromFeed($data, "photo");
 			if($data.length == 0) {
 				feedEnd = true;
 				return;
 			}
+
+			createPhotoLayout();
+
+			if(data.length < getPhotoNum) {
+				onePage = true;
+				//return;
+			}
+
+			var data 		= ored.getIdsFromFeed($data, "photo");
+			
 
 			loadPhotoData(data, getPhotoData);
 
@@ -435,8 +468,12 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				feedEnd = true;
 				return;
 			}
-
 			createPhotoLayout();
+
+			if(data.length < getPhotoNum) {
+				onePage = true;
+				//return;
+			}
 
 			var feed;
 
@@ -490,6 +527,11 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			}
 
 			createPhotoLayout();
+
+			if(data.length < getPhotoNum) {
+				onePage = true;
+				//return;
+			}
 
 			var feed;
 
@@ -589,6 +631,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		function filterButtonSelected(btn){
 			isMoreFeed = false;
 			feedEnd = false;
+			onePage = false;
 			pageNum = 1;
 			$.feed.reset();
 			currentFilterType = btn.attr('type');
