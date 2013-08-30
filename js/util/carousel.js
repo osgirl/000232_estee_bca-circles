@@ -133,6 +133,7 @@ function Carousel()
 		//oc: this handles response from feedmagnet and retreives the data associated with each photo
 		//		prior to the parse of the combining of all 3 feeds, this way, there is no asynchronous lapse.
 		function onPhotoFeedLoadComplete($data){
+
 			console.log("carousel:onPhotoFeedLoadComplete");
 console.log($data);
 			var data 		= ored.getIdsFromFeed($data, "photo");

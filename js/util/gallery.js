@@ -91,8 +91,6 @@ function Gallery()
 
 			//console.log($(window).scrollTop() + $(window).height(), getDocHeight())
 
-			console.log("---------------------------only one page???", onePage)
-
 			if(onePage){
 				$('#donate_area').fadeIn();
   				$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
@@ -162,14 +160,14 @@ function Gallery()
 					circleNum 		= 2;
 					photoNum 		= 1;
 					twitterNum 		= 2;
-					instagramNum 	= 2;
+					instagramNum 	= 1;
 				break;
 
 				case 2:
 					circleNum 		= 1;
 					photoNum 		= 1;
 					twitterNum 		= 2;
-					instagramNum 	= 2;
+					instagramNum 	= 1;
 				break;
 			}
 
@@ -231,7 +229,7 @@ function Gallery()
 		};
 		
 		function onFetchAllCircles($circles){
-			console.log("onFetchAllCircles");
+			console.log("onFetchAllCircles", $circles);
 
 			$($circles).each(function(i,v){
 				console.log("populate circle:",v.circle_id);
@@ -243,7 +241,7 @@ function Gallery()
 			});
 
 			if(!isMoreFeed){
-				$.feed.get(feedmagnet.photo_feed, onPhotoFeedLoadComplete, 3);
+				$.feed.get(feedmagnet.photo_feed, onPhotoFeedLoadComplete, 2);
 		        $.feed.get(feedmagnet.instagram_feed, handleAllPhotoData, 3);
 		        $.feed.get(feedmagnet.twitter_feed, handleAllPhotoData, 3);
 			}else{
@@ -333,6 +331,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		};
 		function handleAllPhotoData(data){
 
+			console.log("HANDLE ALL PHOTO DATA", data)
+
 			//oc: combine all 3 feeds into 1
 			if(data.length != 0) {
 				$(data).each(function (i, v){
@@ -351,8 +351,15 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			//oc: only call when we have all 3 feeds.
 			 if(morePhotoCount == 3){
-			 ored.masterFeed = allPhotoData;
-			 galleryItem.parseAllPhotoData(allPhotoData, false);
+
+			 	// if(allPhotoData.length < getPhotoNum){
+			 	// 	var rest = getPhotoNum - allPhotoData.length;
+			 	// 	$.feed.more(feedmagnet.twitter_feed, handleAllPhotoData, rest);
+			 	//}else{
+			 		ored.masterFeed = allPhotoData;
+					 galleryItem.parseAllPhotoData(allPhotoData, false);
+			 	//}
+			 
 			 }	
 
 		};
