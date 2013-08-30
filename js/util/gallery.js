@@ -377,6 +377,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			
 			console.log("parsePhotoData");
 			console.log($data);
+			feed = $data;
 			createPhotoLayout();
 
 			var data 		= ored.getIdsFromFeed($data, "photo");
@@ -385,7 +386,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				return;
 			}
 
-			createPhotoLayout();
 			loadPhotoData(data, getPhotoData);
 
 		};
@@ -870,6 +870,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			var div;
 
 			if(currentFilterType == "all") {
+				
 				if(!circleEnd){
 					div = $($('.photo_container').get(index));
 				}else{
@@ -894,7 +895,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		};
 
 		function createPhotoLayout(){
-			console.log('create photo layout')
+			console.log('createPhotoLayout');
 			var photoLayout = $('<div>');
 			photoLayout.addClass('layout_photo gallery_layout page' + pageNum)
 						.appendTo(gallery_container);
