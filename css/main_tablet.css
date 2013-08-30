@@ -259,7 +259,7 @@
 		margin-bottom:22px;
 	}
 
-	.layout1 .gallery_col{
+	.layout1 .gallery_col, .layout3 .gallery_col{
 		width:48%;
 		margin-right:2%;
 	}

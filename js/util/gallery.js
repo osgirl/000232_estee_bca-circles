@@ -108,6 +108,7 @@ function Gallery()
 				console.log("reach bottom")
 
 				$(window).unbind('scroll');
+
 				if($(window).width() >= 980 ) {
 					loadNextPage();
 				}
@@ -399,7 +400,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			}
 
 			var data 		= ored.getIdsFromFeed($data, "photo");
-			
 
 			loadPhotoData(data, getPhotoData);
 
