@@ -440,8 +440,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			var feed;
 
-			$(data).each(function(i){
-				feed = data[i].data;
+			$(data).each(function(i, v){
+				feed = v.data;
 				getInstagramData(data, feed);
 
 			})
