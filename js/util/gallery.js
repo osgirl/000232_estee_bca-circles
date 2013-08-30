@@ -64,6 +64,7 @@ function Gallery()
 
 		var circleEnd = false;
 		var morePhotoCount = 0;
+		var onePage = false;
 
 		var circleNum;
 		var photoNum;
@@ -206,6 +207,12 @@ function Gallery()
 			var data = ored.getIdsFromFeed($data, "circles");
 
 			createAllLayout();
+
+			if($data.length < circleNum) {
+				onePage = true;
+				//return;
+			}
+
 			$('body').unbind('ALL_LAYOUT_SINGLE_CREATED').bind('ALL_LAYOUT_SINGLE_CREATED', function(){ 
 
 				$.ajax({
@@ -264,6 +271,12 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				return;
 			} 
 			createCircleLayout();
+
+			if($data.length < getCircleNum) {
+				onePage = true;
+				//return;
+			}
+
 			var data = ored.getIdsFromFeed($data, "circles");
 
 			$.ajax({
@@ -453,6 +466,11 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			createPhotoLayout();
 
+			if(data.length < getPhotoNum) {
+				onePage = true;
+				//return;
+			}
+
 			var feed;
 
 			$(data).each(function(i, v){
@@ -505,6 +523,11 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			}
 
 			createPhotoLayout();
+
+			if(data.length < getPhotoNum) {
+				onePage = true;
+				//return;
+			}
 
 			var feed;
 
@@ -604,6 +627,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		function filterButtonSelected(btn){
 			isMoreFeed = false;
 			feedEnd = false;
+			onePage = false;
 			pageNum = 1;
 			$.feed.reset();
 			currentFilterType = btn.attr('type');
