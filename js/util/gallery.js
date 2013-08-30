@@ -90,6 +90,14 @@ function Gallery()
 
 			//console.log($(window).scrollTop() + $(window).height(), getDocHeight())
 
+			console.log("---------------------------only one page???", onePage)
+
+			if(onePage){
+				$('#donate_area').fadeIn();
+  				$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+  				return;
+			}
+
 
 			if($(window).scrollTop() + $(window).height() + 22  >= getDocHeight()) {
 
@@ -101,6 +109,10 @@ function Gallery()
 
 				$(window).unbind('scroll');
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f3d3f56bfc9e5bb506ef073b5a7ca1259a9086a9
 				if($(window).width() >= 980 ) {
 					loadNextPage();
 				}
@@ -452,8 +464,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			var feed;
 
-			$(data).each(function(i){
-				feed = data[i].data;
+			$(data).each(function(i, v){
+				feed = v.data;
 				getInstagramData(data, feed);
 
 			})
