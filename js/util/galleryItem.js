@@ -257,20 +257,20 @@ ored.allPhotoDataParsed.push(data);
 					//oc: 
 					case 'rss':
 
-						
+						console.log("searching for :",feed.text);
 						photoIcon 	= baseUrl + "img/icons/bca.png";
-						data 		= ored.getPhotoDataById(feed.text);
-						if(data != -1){
+						 pData 		= ored.getPhotoDataById(feed.text);
+						if(pData != -1){
 		                	popupData 	= {
 											type:'photo', 
 											data:{
-												id: data.photo_id,
+												id: pData.photo_id,
 												source:'bca',
-												content:data.description,
-												photo_url:baseUrl + "uploads/" + data.filename
+												content:pData.description,
+												photo_url:baseUrl + "uploads/" + pData.filename
 												}
 											};
-		                	html 		= "<img class='full_photo' src='" + baseUrl + "uploads/" + data.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
+		                	html 		= "<img class='full_photo' src='" + baseUrl + "uploads/" + pData.filename + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 		                	div.html(html);
 		                	div.attr('type', 'photo');
 		                	$('#feed_magnet').show();
