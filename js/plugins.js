@@ -1170,9 +1170,12 @@ $.extend(
                 limit: n,
                 success: function(self, data)
                 {
-                    console.debug('--->FEED: GET ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
+                    if (v.indexOf('bca-photo') !=-1 ) {
+                        console.debug('--->FEED: GET ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
+                        console.debug(data.response.updates);
+                    }
                     saveHistory(v, data.response.updates);
-                    // console.debug(data.response.updates);
+                    
                     f(data.response.updates);
                 }
             });
@@ -1187,7 +1190,10 @@ $.extend(
                 limit: n,
                 success: function(self, data)
                 {
-                    console.debug('--->FEED: MORE ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
+                    if (v.indexOf('bca-photo') !=-1 ) {
+                        console.debug('--->FEED: MORE ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
+                        console.debug(data.response.updates)
+                    }
                     
                     if (checkDuplicateData(v, data.response.updates))
                         f(data.response.updates);
@@ -1209,7 +1215,6 @@ $.extend(
                 success: function(self, data)
                 {
                     console.debug('--->FEED: FEAT ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
-                    console.debug(data.response.updates);
                     f(data.response.updates);
                 }
             });
@@ -1231,7 +1236,6 @@ $.extend(
     function saveHistory(v, result)
     {
         history[v] = result[result.length-1].data.id;
-        console.debug(history[v]);
     }
 
     function checkDuplicateData(v, result)
