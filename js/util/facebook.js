@@ -5,7 +5,7 @@ facebook.friendids			= [];
 facebook.scope 				= "user_photos,publish_stream,publish_actions";
 facebook.albumName 			= "Circle of Strength";
 facebook.albumMessage 		= "We're Stronger Totether";
-facebook.photoMessage 		= "We're Stronger Together. I created a Circle of Strength to take action against breast cancer. We will: [GOAL] Create your Circle of Strength with those who support you most. http://staging.click3x.com/estee_lauder/bca/";
+facebook.photoMessage 		= "We're Stronger Together. I created a Circle of Strength to take action against breast cancer. We will: [GOAL] Create your Circle of Strength with those who support you most. [URL]";
 facebook.photoUrl 			= "http://firstknowwhatyouwant.com/wp-content/uploads/2011/08/iStock_000002337513Medium.jpg";
 
 facebook.init = function( _appid ){
@@ -176,7 +176,7 @@ facebook.logOut = function( _callback ){
 }
 
 facebook.createCircle = function(_friendsData){
-	var photo_message = facebook.photoMessage.replace("[GOAL]",_friendsData.goal);
+	var photo_message = facebook.photoMessage.replace("[GOAL]",_friendsData.goal).replace("[URL]",_friendsData.url);
 
 	//save photo to server 
 	createMainCirclePhoto( _friendsData, function( _create_response ){		
