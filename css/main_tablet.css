@@ -424,7 +424,9 @@
 	}
 
 	.full_photo{
-		max-width:140%;
+		max-width: 139%;
+		top: -4%;
+		left: -21%;
 	}
 
 	.layout_circle .gallery_circle{
@@ -633,7 +635,9 @@
 	}
 
 	.full_photo{
-		max-width:110%;
+		max-width: 117%;
+		top: -4%;
+		left: -7%;
 	}
 
 	.layout_circle .gallery_circle{
