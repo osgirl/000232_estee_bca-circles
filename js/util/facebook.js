@@ -187,7 +187,7 @@ facebook.createCircle = function(_friendsData){
 		facebook.createAlbum( {name: facebook.albumName, message:facebook.albumMessage}, function( _album_response ){
 
 			//post photo to album
-			facebook.postPhotoToAlbum( {album_id:_album_response.id, url: baseUrl + _create_response['file_location'], message:photo_message}, function( _photo_response ){ 
+			facebook.postPhotoToAlbum( {album_id:_album_response.id, url: baseUrl + _create_response['file_location'] + "?cachebuster=" + Math.random().toString(), message:photo_message}, function( _photo_response ){ 
 
 				//tag the phogo "http://staging.click3x.com/estee_lauder/bca/uploads/photo_1377294239.jpg" 
 			 	facebook.tagPhoto({photo_id:_photo_response.id, users:_friendsData.friends, tag_positions:_create_response['tag_positions']}, function(){
