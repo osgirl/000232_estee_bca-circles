@@ -198,9 +198,9 @@ function GalleryItem()
 		
 
 		populateCircleContent:function(circle, data){
-			console.log("populateCircleContent");
-			console.log(circle);
-			console.log(data);
+			//console.log("populateCircleContent");
+			//console.log(circle);
+			//console.log(data);
 			
 			circle.attr('circle_id', data.circle_id);
 			circle.attr('user_id', data.user_id);
@@ -243,7 +243,7 @@ ored.allPhotoDataParsed.push(data);
 
 				if(isFeatured) {
 					div = $($('.feature_photo').get(i));
-					console.log("featured.");
+					
 				}else{	
 					div = (isMoreFeed) ? $($($(".page"+pageNum).find('.photo_container')).get(i)) : $($('.photo_container').get(i));
 				}
