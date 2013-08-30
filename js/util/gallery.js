@@ -91,6 +91,14 @@ function Gallery()
 
 			//console.log($(window).scrollTop() + $(window).height(), getDocHeight())
 
+			console.log("---------------------------only one page???", onePage)
+
+			if(onePage){
+				$('#donate_area').fadeIn();
+  				$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+  				return;
+			}
+
 
 			if($(window).scrollTop() + $(window).height() + 22  >= getDocHeight()) {
 
@@ -102,11 +110,6 @@ function Gallery()
 
 				$(window).unbind('scroll');
 
-				if(onePage){
-					$('#donate_area').fadeIn();
-	  				$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
-					return;
-				}
 
 				if($(window).width() >= 980 ) {
 					loadNextPage();
