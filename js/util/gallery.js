@@ -63,6 +63,7 @@ function Gallery()
 		var getPhotoNum = 12;
 
 		var circleEnd = false;
+		var oneCircleLeft = false;
 		var morePhotoCount = 0;
 
 		var circleNum;
@@ -74,6 +75,8 @@ function Gallery()
 
 		var galleryHeight = 0;
 		var feedEnd = false;
+
+		var restPhotoArray = new Array();
 
 
 
@@ -143,6 +146,15 @@ function Gallery()
 		//This event will fire after when layout changed. Save this for later use.
 		//$container.masonry( 'on', 'layoutComplete', function( msnryInstance, laidOutItems ) { });
 
+		//Helper
+		function getDocHeight() {
+			var D = document;
+			return Math.max(
+				Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
+				Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
+				Math.max(D.body.clientHeight, D.documentElement.clientHeight)
+			);
+		};
 
 		function getMoreAllFeed(){
 
@@ -178,67 +190,6 @@ function Gallery()
 
 
 		}
-
-		function getAllFeed(){
-			console.log("getAllFeed");
-			allPhotoData = new Array();
-			$.feed.get('bca-circle', parseAllCircleData, 3);
-			
-		}
-
-			//oc: prep feedmagnet array for db req
-				//1. parse feedmagnet array deleting cookie if it matches
-				//2. insert circle id from cookie (if its there)
-				//3. req db circles with new array of circle ids
-		function parseAllCircleData($data){
-
-			console.log("parseAllCircleData");
-
-			if($data.length == 0) circleEnd = true;
-			var data = ored.getIdsFromFeed($data, "circles");
-
-			createAllLayout();
-			$('body').unbind('ALL_LAYOUT_SINGLE_CREATED').bind('ALL_LAYOUT_SINGLE_CREATED', function(){ 
-
-				$.ajax({
-			        		type: 'post',
-			            	url: baseUrl + indexPage + 'circle/fetchAllCircles',
-			            	dataType: 'json',
-			            	data: {
-			            		feedIdsJSON: JSON.stringify(data)
-			            	},
-			            	success: onFetchAllCircles
-			      		});
-
-
-			});//end binding complete
-			
-		};
-		
-		function onFetchAllCircles($circles){
-			console.log("onFetchAllCircles");
-
-			$($circles).each(function(i,v){
-				console.log("populate circle:",v.circle_id);
-				var circleContainer = (isMoreFeed) ? $($($(".page"+pageNum).find('.gallery_circle')).get(i)) : $($('.gallery_circle').get(i));
-				galleryItem.populateCircleContent(circleContainer, v);
-	            
-	            if(i == $circles.length - 1 )	$('body').trigger('ALL_LAYOUT_CREATED');
-	            
-			});
-
-			if(!isMoreFeed){
-				$.feed.get('bca-photo', onPhotoFeedLoadComplete, 3);
-		        $.feed.get('bca-instagram', handleAllPhotoData, 3);
-		        $.feed.get('bca-twitter', handleAllPhotoData, 3);
-			}else{
-				$.feed.more('bca-photo', onPhotoFeedLoadComplete, photoNum);
-				$.feed.more('bca-twitter', handleAllPhotoData, twitterNum);
-				$.feed.more('bca-instagram', handleAllPhotoData, instagramNum);
-			}
-		};
-
-		
 /*   oc: 
 this function handles the onComplete of the loading the list of cirle ID's from feedmagnet upon filter click
 then requests a list of circles 
@@ -256,7 +207,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				return;
 			} 
 			createCircleLayout();
-			var data = ored.getIdsFromFeed($data, "circles");
+			var data = getIdsFromFeed($data);
 
 			$.ajax({
 		        		type: 'post',
@@ -311,93 +262,121 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 	   		});//end each
 		};
-		function handleAllPhotoData(data){
 
-			//oc: combine all 3 feeds into 1
-			if(data.length != 0) {
-				$(data).each(function (i, v){
-					allPhotoData.push(v);
-				})
+
+			//oc: prep feedmagnet array for db req
+				//1. parse feedmagnet array deleting cookie if it matches
+				//2. insert circle id from cookie (if its there)
+				//3. req db circles with new array of circle ids
+		function parseAllCircleData($data){
+
+			console.log("parseAllCircleData");
+
+			if($data.length == 0){
+				circleEnd = true;
+				return;
+			} else if ($data.length == 1){
+				oneCircleLeft = true;
 			}
+			var data = getIdsFromFeed($data);
 
-			//oc: sort by timestamp
-			allPhotoData.sort(function sortNumber(a, b){
-				  var aNum = Number(a.data.timestamp);
-				  var bNum = Number(b.data.timestamp); 
-				  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
-			});
+			createAllLayout();
+			$('body').unbind('ALL_LAYOUT_SINGLE_CREATED').bind('ALL_LAYOUT_SINGLE_CREATED', function(){ 
 
-			morePhotoCount++;
-
-			//oc: only call when we have all 3 feeds.
-			 if(morePhotoCount == 3){
-			 ored.masterFeed = allPhotoData;
-			 galleryItem.parseAllPhotoData(allPhotoData, false);
-			 }	
-
-		};
-
-		//oc: this handles response from feedmagnet and retreives the data associated with each photo
-		//		prior to the parse of the combining of all 3 feeds, this way, there is no asynchronous lapse.
-		function onPhotoFeedLoadComplete($data){
-			console.log("onPhotoFeedLoadComplete");
-			console.log($data);
-
-
-			ored.photoFeed 	= ored.photoFeed.concat($data);
-			var data 		= ored.getIdsFromFeed($data, "photo");
-			ored.photoIds 	= ored.photoIds.concat(data);
-			ored.addCookiePhotosToFeed();
-			
-			$.ajax({
+				$.ajax({
 			        		type: 'post',
-			            	url: baseUrl + indexPage + 'photo/fetchUploadedPhotoData',
+			            	url: baseUrl + indexPage + 'circle/fetchAllCircles',
 			            	dataType: 'json',
 			            	data: {
 			            		feedIdsJSON: JSON.stringify(data)
 			            	},
-			            	success: function(data) { console.log("photo data load complete"); ored.photoData = ored.photoData.concat(data); handleAllPhotoData( ored.photoFeed)}
-			       });
-		};//
+			            	success: onFetchAllCircles
+			      		});
 
-		function parseMorePhotoData(data){
-console.log("parseMorePhotoData");
-console.log(data);
-			var feed;
 
-			createPhotoLayout();
+			});//end binding complete
+			
+		};
+		
+		function onFetchAllCircles($circles){
+			console.log("onFetchAllCircles");
 
-			$(data).each(function(i,v){
-				feed = data[i].data;
-
-				var popupData;
-				var photoIcon;
-				var html;
-
-				switch(feed.channel){
-					case 'rss':
-						getPhotoData(i, data, feed);
-						break;
-
-					case 'instagram':
-						getInstagramData(i, data, feed);
-						break;
-
-					case 'twitter':
-						getTwitterData(i, data, feed);
-						break;
-				}
-
+			$($circles).each(function(i,v){
+				console.log("populate circle:",v.circle_id);
+				var circleContainer = (isMoreFeed) ? $($($(".page"+pageNum).find('.gallery_circle')).get(i)) : $($('.gallery_circle').get(i));
+				galleryItem.populateCircleContent(circleContainer, v);
+	            
+	            if(i == $circles.length - 1 )	$('body').trigger('ALL_LAYOUT_CREATED');
+	            
 			});
 
-			enableLazyloader();
+			if(!isMoreFeed){
+				$.feed.get('bca-photo', handleAllPhotoData, 3);
+		        $.feed.get('bca-instagram', handleAllPhotoData, 3);
+		        $.feed.get('bca-twitter', handleAllPhotoData, 3);
+			}else{
+				$.feed.more('bca-photo', handleAllPhotoData, photoNum);
+				$.feed.more('bca-twitter', handleAllPhotoData, twitterNum);
+				$.feed.more('bca-instagram', handleAllPhotoData, instagramNum);
+			}
+		};
+
+		function checkIfLoadMore(feed, getNum){
+			var isMore;
+
+			if(feed.length < getNum){
+				isMore = false;
+				enableLazyloader();
+			}else{
+				isMore = true;
+			}
+
+			return isMore;
+		};
+
+
+		function photoDiv(index){
+
+			var div;
+
+			if(currentFilterType == "all") {
+				if(!circleEnd){
+					div = $($('.photo_container').get(index));
+				}else{
+					div = $('<div>');
+					div.addClass('span3 photo_container gallery_item flex_margin_bottom');
+					div.appendTo('.page' + pageNum);
+
+					div.hide();
+					div.fadeIn(200);
+				}
+			}else{
+				div = $('<div>');
+				div.addClass('span3 photo_container gallery_item flex_margin_bottom');
+				div.appendTo('.page' + pageNum);
+
+				div.hide();
+				div.fadeIn(200);
+			}
+
+			return div;
+			
+		};
+
+		function getAllFeed(){
+
+			allPhotoData = new Array();
+
+			$.feed.get('bca-circle', parseAllCircleData, 3);
+			
+			
 		}
 
+
 		function parsePhotoData(data){
-console.log("parsePhotoData");
-console.log(data);
-			photoFeed 			= data;
-			uploadedPhotoCount 	= 0;
+
+			photoFeed = data;
+			uploadedPhotoCount = 0;
 
 			if(data.length == 0) {
 				feedEnd = true;
@@ -577,6 +556,41 @@ console.log(data);
 				enableLazyloader();
 		}
 
+		
+
+		function parseMorePhotoData(data){
+
+			var feed;
+
+			createPhotoLayout();
+
+			$(data).each(function(i,v){
+				feed = data[i].data;
+
+				var popupData;
+				var photoIcon;
+				var html;
+
+				switch(feed.channel){
+					case 'rss':
+						getPhotoData(i, data, feed);
+						break;
+
+					case 'instagram':
+						getInstagramData(i, data, feed);
+						break;
+
+					case 'twitter':
+						getTwitterData(i, data, feed);
+						break;
+				}
+
+			});
+
+			enableLazyloader();
+		}
+
+
 		function populatePhotoContent(contentData){
 			if(contentData.type == "twitter")
 				contentData.item.css('background', '#2caae1');
@@ -594,20 +608,16 @@ console.log(data);
 			}, 200);
 		}
 
-		//Helpers
-		function getDocHeight() {
-			var D = document;
-			return Math.max(
-				Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
-				Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
-				Math.max(D.body.clientHeight, D.documentElement.clientHeight)
-			);
-		};
-
 		function updateGalleryHeight(height){
 
 			galleryHeight += height;
 
+			console.log("UPDATE HEIHGT -----------------------------", galleryHeight)
+			// $("#feed_magnet").height(galleryHeight);
+			// $("#gallery").height(galleryHeight);
+
+
+			//$("#load_more_btn_wrapper").css("bottom", "0");
 		}
 
 		function initFilterButtons(){
@@ -622,32 +632,85 @@ console.log(data);
 				loadNextPage();
 			});
 		};
-
 		function createCirclesFromORedCircles(){
-			$data = ored.friendsCircles;	
-		};
-
-		function filterButtonSelected(btn){
-			isMoreFeed = false;
-			feedEnd = false;
-			pageNum = 1;
-			$.feed.reset();
-			currentFilterType = btn.attr('type');
-			if(currentFilterType == "all") {
-				pageNum = 2;
-				// $('#gallery').height(DEFAULT_GALLERY_HEIGHT);
-			}
-			enableLazyloader();
-			$('#donate_area').show();
-			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
-
-			galleryHeight = 0;
-			// $('#gallery').height(600);
+			$data = ored.friendsCircles;
 			
-			loadLayout();
-		}
+};
 
+function filterButtonSelected(btn){
+	isMoreFeed = false;
+	feedEnd = false;
+	pageNum = 1;
+	$.feed.reset();
+	currentFilterType = btn.attr('type');
+	if(currentFilterType == "all") {
+		pageNum = 2;
+		// $('#gallery').height(DEFAULT_GALLERY_HEIGHT);
+	}
+	enableLazyloader();
+	$('#donate_area').show();
+	$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 
+	galleryHeight = 0;
+	// $('#gallery').height(600);
+	
+	loadLayout();
+}
+
+function onFetchFriendCircleData($data){
+	console.log("onFetchFriendCircleData");
+
+			createCircleLayout();
+			circleFriendFeed 		= $data;
+
+			var containerCount 		= 0;
+			var circleFeedDataArray = new Array();
+
+		 	$($data).each(function(i){	
+			 	
+		  	 	var feed 				= $data[i];
+         		circleFeedDataArray.push(feed);
+
+        		$.ajax({
+	        		type: 'get',
+	            	url: baseUrl + 'layout/loadLayoutCircle',
+	            	dataType: 'html',
+	            	
+	            	success: function(layoutData) {  
+	            		console.log("layout success");
+	            		var circleDiv = $('<div>');
+	            			circleDiv.append(layoutData)
+	            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
+	            		var rowTarget = (containerCount<2) ? 0 : 1;
+				            		$($($('.page' + pageNum).find('.row')).get(rowTarget)).append(circleDiv);
+	            		$(circleDiv).css('float','left');
+	            		$(circleDiv).css('clear','none');
+	            		$(circleDiv).hide();
+	            		$(circleDiv).fadeIn(200);
+
+	            		containerCount++;
+
+	            		console.log('huh', containerCount)
+
+	            		var contentData = {
+							index:containerCount,
+							item:$(circleDiv),
+							totalNum: $data.length*pageNum,
+							colNum:CIRCLE_LAYOUT_COLUMN_NUM,
+							type:'circle'
+						}
+
+						galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount-1]);
+
+						if(contentData.index%2 == 0) updateGalleryHeight($(circleDiv).height()+50);
+
+						enableLazyloader();
+
+	             	}
+        	});
+		 });
+	             	
+};
 		//oc: give feedmagnet response to php to fetch only friend circles
 		function getFriendCircleData(data){
 
@@ -657,12 +720,12 @@ console.log(data);
 			}
 
 		 	console.log("getFriendCircleData");
-		 	var feedMagnetIds			= ored.getIdsFromFeed(data, "circles");
+		 	var feedMagnetIds			= getIdsFromFeed(data);
 		 	console.log(feedMagnetIds);
 		 	//only get friend's circles if necessary.
 		 	if(feedMagnetIds.length > 0){
 		 		
-			 	ored.postVars.friendIdsJSON	= JSON.stringify(ored.getIdsFromFriends(friendProfileList));
+			 	ored.postVars.friendIdsJSON	= JSON.stringify(getIdsFromFriends(friendProfileList));
 			 	ored.postVars.feedIdsJSON	= JSON.stringify(feedMagnetIds);
 			 	$.ajax({
 	        		type: 'post',
@@ -677,74 +740,36 @@ console.log(data);
 
 		};//end getFriendCircleData
 
-		function onFetchFriendCircleData($data){
-			console.log("onFetchFriendCircleData");
 
-					createCircleLayout();
-					circleFriendFeed 		= $data;
-
-					var containerCount 		= 0;
-					var circleFeedDataArray = new Array();
-
-				 	$($data).each(function(i){	
-					 	
-				  	 	var feed 				= $data[i];
-		         		circleFeedDataArray.push(feed);
-
-		        		$.ajax({
-			        		type: 'get',
-			            	url: baseUrl + 'layout/loadLayoutCircle',
-			            	dataType: 'html',
-			            	
-			            	success: function(layoutData) {  
-			            		console.log("layout success");
-			            		var circleDiv = $('<div>');
-			            			circleDiv.append(layoutData)
-			            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
-			            		var rowTarget = (containerCount<2) ? 0 : 1;
-						            		$($($('.page' + pageNum).find('.row')).get(rowTarget)).append(circleDiv);
-			            		$(circleDiv).css('float','left');
-			            		$(circleDiv).css('clear','none');
-			            		$(circleDiv).hide();
-			            		$(circleDiv).fadeIn(200);
-
-			            		containerCount++;
-
-			            		console.log('huh', containerCount)
-
-			            		var contentData = {
-									index:containerCount,
-									item:$(circleDiv),
-									totalNum: $data.length*pageNum,
-									colNum:CIRCLE_LAYOUT_COLUMN_NUM,
-									type:'circle'
-								}
-
-								galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount-1]);
-
-								if(contentData.index%2 == 0) updateGalleryHeight($(circleDiv).height()+50);
-
-								enableLazyloader();
-
-			             	}
-		        	});
-				 });
-			             	
+		function getIdsFromFeed($feed){
+			var ids = [];
+			$($feed).each(function(i,v){
+				ids[i] 	= v.data.text;
+				ored.cookieMonster.deleteCookieIfNecessary(ids[i]);
+			});
+			
+			if(!isMoreFeed){
+				//oc: push ids from cookie if anything's there. 
+				if($.cookie("circles")){
+					//oc: push cookie circle ids onto the array
+					console.log("combine", ids, $.cookie("circles"))
+					ids = ids.concat(ored.cookieMonster.getCircleCookie());
+				}
+			} 
+			console.log("ids from feedbag:",ids);
+			return ids;
 		};
 
-
-		function checkIfLoadMore(feed, getNum){
-			var isMore;
-
-			if(feed.length < getNum){
-				isMore = false;
-				enableLazyloader();
-			}else{
-				isMore = true;
-			}
-
-			return isMore;
+		function getIdsFromFriends($list){
+			console.log($list);
+			var ids 	= [];
+			$($list).each(function(i,v){
+			
+				ids[i] 	= v.id;
+			});
+			return ids;
 		};
+
 
 
 		function loadLayout(){
@@ -882,14 +907,73 @@ console.log(data);
 	             	}
 	      		});
 
+			}else if(oneCircleLeft){
+				console.log("create 3rd layout");
+				$.ajax({
+		        		type: 'get',
+		            	url: baseUrl + 'layout/loadLayout3',
+		            	dataType: 'html',
+		            	
+		            	success: function(layout3data) {  
+			            	var layout3 = $('<div>');     
+			            	layout3.addClass('layout3 gallery_layout row')
+	            				.html(layout3data); 
+
+	            			$(layout3).appendTo(gallery_container);
+
+							$(layout3).addClass('page'+pageNum);
+							galleryItem.centerRollOverContent(.55);
+
+  			 				if(isMoreFeed)  enableLazyloader();
+  			 				$('body').trigger('ALL_LAYOUT_SINGLE_CREATED');
+
+		             	}
+		      		});
+				
+
 			}else{
-
-				$.feed.more('bca-twitter', parseTwitterData, getPhotoNum);
-
+				getRestPhotos();
 			}
 
 		}
-		
+
+		function getRestPhotos(){
+			$.feed.more('bca-photo', handleRestPhotoData, PHOTO_LAYOUT_COLUMN_NUM);
+			$.feed.more('bca-instagram', handleRestPhotoData, PHOTO_LAYOUT_COLUMN_NUM);
+			$.feed.more('bca-twitter', handleRestPhotoData, PHOTO_LAYOUT_COLUMN_NUM);
+		}
+
+		function handleRestPhotoData(data){
+
+			restPhotoArray.push(data);
+			if(restPhotoArray.length >= 12) {
+
+				createPhotoLayout();
+
+				var feed;
+
+				$(restPhotoArray).each(function(i){
+					feed = data[i].data;
+					getPhotoData(data, feed);
+
+				});
+
+				return;
+			}else{
+				getRestPhotos();
+			}
+			
+			if(data.length < PHOTO_LAYOUT_COLUMN_NUM){
+				$.feed.more('bca-instagram', function(instagramData){
+					if(instagramData.length < PHOTO_LAYOUT_COLUMN_NUM){
+						$.feed.more('bca-twitter', function(twitterData){
+
+						}, PHOTO_LAYOUT_COLUMN_NUM);
+					}
+				}, PHOTO_LAYOUT_COLUMN_NUM);
+			}
+		}
+
 
 		function createCircleLayout(){
 			var circleLayout = $('<div>');
@@ -904,35 +988,7 @@ console.log(data);
 			}
 
 
-		};
-
-		function photoDiv(index){
-
-			var div;
-
-			if(currentFilterType == "all") {
-				if(!circleEnd){
-					div = $($('.photo_container').get(index));
-				}else{
-					div = $('<div>');
-					div.addClass('span3 photo_container gallery_item flex_margin_bottom');
-					div.appendTo('.page' + pageNum);
-
-					div.hide();
-					div.fadeIn(200);
-				}
-			}else{
-				div = $('<div>');
-				div.addClass('span3 photo_container gallery_item flex_margin_bottom');
-				div.appendTo('.page' + pageNum);
-
-				div.hide();
-				div.fadeIn(200);
-			}
-
-			return div;
-			
-		};
+		}
 
 		function createPhotoLayout(){
 			console.log('create photo layout')
@@ -941,7 +997,47 @@ console.log(data);
 						.appendTo(gallery_container);
 		}
 
+		function handleAllPhotoData(data){
 
+			if(data.length != 0) {
+				$(data).each(function (i, v){
+					allPhotoData.push(v);
+				})
+			}
+
+			allPhotoData.sort(function sortNumber(a, b){
+				  var aNum = Number(a.data.timestamp);
+				  var bNum = Number(b.data.timestamp); 
+				  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+			});
+
+			morePhotoCount++;
+
+			 if(morePhotoCount == 3)	galleryItem.parseAllPhotoData(allPhotoData, false);
+
+		}
+
+		
+
+		// function handleMorePhotoData(data){
+
+		// 	if(data.length != 0) {
+		// 		$(data).each(function (i, v){
+		// 			morePhotoData.push(v);
+		// 		})
+		// 	}
+
+		// 	morePhotoCount++;
+
+		// 	morePhotoData.sort(function sortNumber(a, b){
+		// 	  var aNum = Number(a.data.timestamp);
+		// 	  var bNum = Number(b.data.timestamp); 
+		// 	  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+		// 	});
+
+		// 	if(morePhotoCount == 3) galleryItem.parseAllPhotoData(allPhotoData, false);
+
+		// }
 
 		
 		return {
