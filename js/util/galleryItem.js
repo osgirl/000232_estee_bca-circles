@@ -232,13 +232,13 @@ console.log("galleryItem:parseAllPhotoData");
 			var feed;
 
 //oc: loop through all items in the master feed to write them into the gallery
-ored.stuffForParseAllPhotoData = data;
+ored.allPhotoDataParsed.push(data);
 
-			$(ored.masterFeed).each(function(i, v){
+			$(data).each(function(i, v){
 				console.log("FEED:",i);
 				//console.log(data);
 
-				feed = ored.masterFeed[i].data;
+				feed = v.data;
 				var div;
 
 				if(isFeatured) {

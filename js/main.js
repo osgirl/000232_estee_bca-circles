@@ -14,6 +14,7 @@ ored.photoData 		= [];
 ored.photoFeed		= [];
 ored.isPhotoLoaded	= false;
 ored.masterFeed		= [];
+ored.allPhotoDataParsed = [];
 
 //events
 var LOGIN_SUCCESS			= "LOGIN_SUCCESS";

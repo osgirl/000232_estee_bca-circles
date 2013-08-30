@@ -125,7 +125,7 @@ function Carousel()
 			featurePhotoData.sort(function(a, b) {
 			   return (a.data.timestamp > b.data.timestamp) ? 1 : -1;
 			});
-			ored.masterFeed = ored.masterFeed.concat(featurePhotoData);
+			//ored.masterFeed = ored.masterFeed.concat(featurePhotoData);
 			//oc: need to load data.
 			galleryItem.parseAllPhotoData(featurePhotoData, true);
 		}
