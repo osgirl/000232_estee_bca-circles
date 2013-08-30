@@ -92,7 +92,7 @@ function Gallery()
 
 			//console.log($(window).scrollTop() + $(window).height(), getDocHeight())
 
-			console.log("---------------------------only one page???", onePage)
+			console.log("lazyloader...only one page???", onePage)
 
 			if(onePage){
 				$('#donate_area').fadeIn();
@@ -106,8 +106,6 @@ function Gallery()
 				//unlbind scroll event until all new content loaded to screen
 
 				//load content
-
-				console.log("reach bottom")
 
 				$(window).unbind('scroll');
 
@@ -155,6 +153,7 @@ function Gallery()
 
 
 		function getMoreAllFeed(){
+console.log("getMoreAllFeed", current_add_layout);
 
 			morePhotoData = new Array();
 
@@ -252,6 +251,7 @@ function Gallery()
 		        $.feed.get('bca-instagram', handleAllPhotoData, 3);
 		        $.feed.get('bca-twitter', handleAllPhotoData, 3);
 			}else{
+				console.log("ITS MORE LOAD FEEDS");
 				$.feed.more('bca-photo', onPhotoFeedLoadComplete, photoNum);
 				$.feed.more('bca-twitter', handleAllPhotoData, twitterNum);
 				$.feed.more('bca-instagram', handleAllPhotoData, instagramNum);
@@ -799,6 +799,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 						$.feed.get('bca-photo', parsePhotoData, getPhotoNum);
 					}
 					else{
+						console.log("MORE PHOTOS");
 						if(checkIfLoadMore(photoFeed, getPhotoNum)) $.feed.more('bca-photo', parsePhotoData, getPhotoNum);
 					}
 					
