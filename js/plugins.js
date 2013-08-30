@@ -1119,21 +1119,26 @@ $.extend(
  **************************************************/
 (function(f)
 {
-    var fo = {}, sfo;
-    var b = f.feed = function()
+    /*****************
+    * fo  = Feed Object
+    * sfo = Selected Feed Object
+    * history = Store the last result of Feed Object, use signal name as a key
+    ******************/
+    var fo = {}, sfo, history = {},
+    b = f.feed = function()
     {
         var fm_server = 'estee.feedmagnet.com';
         window.fm_ready = function(fx)
         {
             if (typeof $FM !== 'undefined' && typeof $FM.ready === 'function')
             {
-                console.log('Connected---');
+                console.debug('--->FEED: Connected---');
                 $FM.ready(fx);
                 checkAndLoadExternalUrl();
             }
             else
             {
-                console.log('Connecting...');
+                console.debug('--->FEED: Connecting...');
                 window.setTimeout(function()
                 {
                     fm_ready.call(null, fx);
@@ -1149,9 +1154,12 @@ $.extend(
     };
     f.extend(b,
     {
+        //This will reset all of Feed Magnet Feed
         reset: function()
         {
-            fo = {};
+            console.debug('--->FEED: RESET');
+            fo      = {};
+            history = {};
         },
 
         get: function(v, f, n)
@@ -1162,6 +1170,12 @@ $.extend(
                 limit: n,
                 success: function(self, data)
                 {
+                    if (v.indexOf('bca-photo') !=-1 ) {
+                        console.debug('--->FEED: GET ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
+                        console.debug(data.response.updates);
+                    }
+                    saveHistory(v, data.response.updates);
+                    
                     f(data.response.updates);
                 }
             });
@@ -1176,7 +1190,17 @@ $.extend(
                 limit: n,
                 success: function(self, data)
                 {
-                    f(data.response.updates);
+                    if (v.indexOf('bca-photo') !=-1 ) {
+                        console.debug('--->FEED: MORE ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
+                        console.debug(data.response.updates)
+                    }
+                    
+                    if (checkDuplicateData(v, data.response.updates))
+                        f(data.response.updates);
+                    else{
+                        console.debug('RETURN EMPTY')
+                        f([]);
+                    }
                 }
             });
         }
@@ -1190,12 +1214,14 @@ $.extend(
                 limit: n,
                 success: function(self, data)
                 {
+                    console.debug('--->FEED: FEAT ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
                     f(data.response.updates);
                 }
             });
         }
     });
 
+    //Store the Feed Magnet's connection object to fo{}
     function fetch_fo(v)
     {
         if (!fo[v])
@@ -1206,6 +1232,24 @@ $.extend(
         {}
         return fo[v];
     };
+
+    function saveHistory(v, result)
+    {
+        history[v] = result[result.length-1].data.id;
+    }
+
+    function checkDuplicateData(v, result)
+    {
+        var valid = true;
+        result.forEach(function(obj){
+            if( parseInt(obj.data.id) == parseInt(history[v])){
+                console.debug("MATCH FOUND");
+                valid = false;
+            }
+        })
+        return valid;
+    }
+
 })(jQuery);
 
 
