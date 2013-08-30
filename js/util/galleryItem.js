@@ -235,7 +235,7 @@ console.log("galleryItem:parseAllPhotoData");
 ored.allPhotoDataParsed.push(data);
 
 			$(data).each(function(i, v){
-				console.log("FEED:",i);
+				//console.log("FEED:",i);
 				//console.log(data);
 
 				feed = v.data;
