@@ -361,18 +361,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			 	// 	var rest = getPhotoNum - allPhotoData.length;
 			 	// 	$.feed.more(feedmagnet.twitter_feed, handleAllPhotoData, rest);
 			 	//}else{
-			 		ored.masterFeed = allPhotoData;
-
-			 		// console.debug( allPhotoData );
-			 		// console.debug( allPhotoData );
-			 		var xt ='';
-			 		  allPhotoData.forEach(function(obj){
-                            // console.debug(' allPhotoData ' + obj.data.id);
-                            xt += obj.data.id + ' | ';
-                        });
-			 		  console.debug(xt);
-
-					 galleryItem.parseAllPhotoData(allPhotoData, false);
+	 		ored.masterFeed = allPhotoData;
+			galleryItem.parseAllPhotoData(allPhotoData, false);
 			 	//}
 			 
 			 }	

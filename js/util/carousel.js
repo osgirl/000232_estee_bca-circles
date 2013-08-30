@@ -76,7 +76,7 @@ function Carousel()
 		function getFeatureData(){
 			featurePhotoData = new Array();
 
-			$.feed.featured(feedmagnet.circle_feed, parseFeatureCircleData, 3);
+			$.feed.featured(feedmagnet.circle_feat_feed, parseFeatureCircleData, 3);
 			
 		}
 
@@ -106,7 +106,7 @@ function Carousel()
 	      		})
 	      	});
 
-	      	$.feed.featured(feedmagnet.photo_feed, onPhotoFeedLoadComplete, 2);
+	      	$.feed.featured(feedmagnet.photo_feat_feed, onPhotoFeedLoadComplete, 2);
 		}
 
 		function handleFeaturePhotoData(data){
@@ -133,21 +133,29 @@ function Carousel()
 		//oc: this handles response from feedmagnet and retreives the data associated with each photo
 		//		prior to the parse of the combining of all 3 feeds, this way, there is no asynchronous lapse.
 		function onPhotoFeedLoadComplete($data){
-
 			console.log("carousel:onPhotoFeedLoadComplete");
-console.log($data);
+
 			var data 		= ored.getIdsFromFeed($data, "photo");
 			ored.photoIds 	= ored.photoIds.concat(data);
-			
-			$.ajax({
+			if($data != ''){
+					$.ajax({
 			        		type: 'post',
 			            	url: baseUrl + indexPage + 'photo/fetchUploadedPhotoData',
 			            	dataType: 'json',
 			            	data: {
 			            		feedIdsJSON: JSON.stringify(data)
 			            	},
-			            	success: function(data) { console.log("photo data load complete"); ored.photoData = ored.photoData.concat(data); handleFeaturePhotoData( $data)}
+			            	success: function(data) { 
+			            		console.log("photo data load complete"); 
+			            		ored.photoData = ored.photoData.concat(data); 
+			            		handleFeaturePhotoData( $data)
+			            	}
 			       });
+			}
+			else{
+				handleFeaturePhotoData([]);
+			}
+
 		};//
 		function pushPhotoData(data){
 			if(data.length > 0){
