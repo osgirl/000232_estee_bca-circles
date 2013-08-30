@@ -75,6 +75,7 @@ function Gallery()
 
 		var galleryHeight = 0;
 		var feedEnd = false;
+		var oneCircleLeft = false;
 
 
 
@@ -203,7 +204,11 @@ function Gallery()
 
 			console.log("parseAllCircleData");
 
-			if($data.length == 0) circleEnd = true;
+			if($data.length == 0) {
+				circleEnd = true;
+			}else if($data.length == 1){
+				oneCircleLeft = true;
+			}
 			var data = ored.getIdsFromFeed($data, "circles");
 
 			createAllLayout();
@@ -352,8 +357,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			//oc: only call when we have all 3 feeds.
 			 if(morePhotoCount == 3){
-			 ored.masterFeed = allPhotoData;
-			 galleryItem.parseAllPhotoData(allPhotoData, false);
+				 ored.masterFeed = allPhotoData;
+			 	galleryItem.parseAllPhotoData(allPhotoData, false);
 			 }	
 
 		};
@@ -626,6 +631,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			isMoreFeed = false;
 			feedEnd = false;
 			onePage = false;
+			oneCircleLeft = false;
 			pageNum = 1;
 			$.feed.reset();
 			currentFilterType = btn.attr('type');
@@ -850,9 +856,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 							$('body').trigger('ALL_LAYOUT_SINGLE_CREATED');
 
 							//updateGalleryHeight($(layout1).height());
-
-							
-							
 							return;
 						}else{
 							$(layout1).addClass('layout1 page1');
@@ -876,13 +879,36 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 	  			 				if(isMoreFeed)  enableLazyloader();
 	  			 				$('body').trigger('ALL_LAYOUT_SINGLE_CREATED');
 
-	  			 				updateGalleryHeight($(layout2).height() + 1200);
 
 			             	}
 			      		});
 						
 	             	}
 	      		});
+			}else if(oneCircleLeft){
+
+				console.log("create layout 3");
+				$.ajax({
+			        		type: 'get',
+			            	url: baseUrl + 'layout/loadLayout3',
+			            	dataType: 'html',
+			            	
+			            	success: function(layout3data) {  
+				            	var layout3 = $('<div>');     
+				            	layout3.addClass('layout3 gallery_layout row')
+		            				.html(layout3data); 
+
+		            			$(layout3).appendTo(gallery_container);
+
+								$(layout3).addClass('page'+pageNum);
+								galleryItem.centerRollOverContent(.55);
+
+	  			 				if(isMoreFeed)  enableLazyloader();
+	  			 				$('body').trigger('ALL_LAYOUT_SINGLE_CREATED');
+
+
+			             	}
+			      		});
 
 			}else{
 

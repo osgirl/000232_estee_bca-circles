@@ -843,7 +843,7 @@ function createFriendPhotosPanel(){
               html += '<div class="friend_name_large">'+friendProfileList[index].name
               html += '</div>';
 
-              console.log("hmmmmm",friendProfileList[index]);
+              //console.log("hmmmmm",friendProfileList[index]);
 
              $(value).attr('id', friendProfileList[index].id);
              $(value).attr('url', friendProfileList[index].pic);
