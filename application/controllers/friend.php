@@ -24,9 +24,12 @@ class Friend extends CI_Controller {
 
 			$return_result 	= array();
 			 foreach($friends_data as $friend) {
-
-			 	$profilePic = isset($friend['url']) ? $friend['url'] : base_url() . "img/assets/profile_generic.jpg";
 			 	
+			 	//oc: fall back if friend profile pic doesn't come across...
+			 	$profile_generic = base_url() . "img/assets/profile_generic.jpg";
+			 	$profilePic = isset($friend['url']) ? $friend['url'] : $profile_generic;
+			 	if($profilePic == "") $profilePic = $profile_generic;
+
 			 	$post = array(
 					'ref_circle_id'			=> $this->post['ref_circle_id'],
 			 		'friends_fb_id'			=> $friend['id'],
