@@ -679,6 +679,12 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			console.log("onFetchFriendCircleData");
 
 					createCircleLayout();
+
+					if($data.length < getCircleNum) {
+						onePage = true;
+						//return;
+					}
+					
 					circleFriendFeed 		= $data;
 
 					var containerCount 		= 0;
