@@ -843,7 +843,10 @@ function createFriendPhotosPanel(){
               html += '<div class="friend_name_large">'+friendProfileList[index].name
               html += '</div>';
 
+              console.log("hmmmmm",friendProfileList[index]);
+
              $(value).attr('id', friendProfileList[index].id);
+             $(value).attr('url', friendProfileList[index].pic);
              $(value).attr('checked', false);
              $(value).html(html);
 
@@ -863,10 +866,12 @@ function createFriendPhotosPanel(){
              	if(!$(e.currentTarget).attr('checked')){
 
              		curSelectedFriendID = $(e.currentTarget).attr('id');
+             		curSelectedFriendPic = $(e.currentTarget).attr('url');
 
              		FB.api('/'+curSelectedFriendID, function(response){
 				      if (response){
 				        curSelectedFriendName = response.first_name + " " + response.last_name.substr(0,1) + ".";
+
 				        $("#temp_name_enter_container").html(response.name);
 
 				        addFriend();
@@ -1255,7 +1260,7 @@ function postCircleData(goal_id){
 
 							getUserCircleData(); 
 
-							console.log("FRIEND LIST URL", friendSelectedArray);
+							console.log("FRIEND LIST URL", friendSelectedArray)
 
 	            			facebook.createCircle({
 	            				circle_id:data.id,
