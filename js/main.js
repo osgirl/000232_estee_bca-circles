@@ -494,7 +494,7 @@ function openEditFriend(){
 		curSelectedFriendID = v.fb_id;
 		curSelectedFriendPic = v.url;
 
-		console.log(curSelectedFriendName, curSelectedFriendID)
+		console.log(curSelectedFriendName, curSelectedFriendID, curSelectedFriendPic);
 		addFriend();
 	})
 	
