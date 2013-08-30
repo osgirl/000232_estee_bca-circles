@@ -13,6 +13,7 @@ ored.photoIds 		= [];
 ored.photoData 		= [];
 ored.photoFeed		= [];
 ored.isPhotoLoaded	= false;
+ored.masterFeed		= [];
 
 //events
 var LOGIN_SUCCESS			= "LOGIN_SUCCESS";
@@ -125,16 +126,11 @@ $(document).ready(function(){
 
 				var newPos = $(window).scrollTop() + 300;
 
-				console.log("CREATTTTTTINNNNNGGG", newPos);
-
 				if(isMoreFeed && $(window).width() < 980){
 					$('html, body').animate({
 				        scrollTop: newPos
 				    }, 300);
 				}
-				
-
-
 		})
 	});
 	
@@ -1103,13 +1099,14 @@ function createCircle(){
 }
 ored.getPhotoDataById = function ($id){
 	for (var i in ored.photoData){ 
-		if(ored.photoData[i]["id"] == $id){
+		if(ored.photoData[i]["photo_id"] == $id){
 			return ored.photoData[i];
 		}
 	}
 	return -1;
 }
 ored.addCookiePhotosToFeed = function(){
+	console.log("ored.addCookiePhotosToFeed");
 	if(ored.cookieMonster.checkCookie("photo")){
 
 		var photoIds = $.cookie("photo");
@@ -1120,7 +1117,7 @@ ored.addCookiePhotosToFeed = function(){
 			o.channel	= "rss";
 			var feed	= {};
 			feed.data 	= o;
-			ored.photoFeed.push(o);
+			ored.photoFeed.push(feed);
 		}
 		
 	}
@@ -1166,6 +1163,34 @@ ored.cookieMonster.deleteCookieIfNecessary = function ($id, $type){
 
 };
 
+ored.getIdsFromFeed = function($feed, $type){
+	var ids = [];
+	$($feed).each(function(i,v){
+		ids[i] 	= v.data.text;
+		ored.cookieMonster.deleteCookieIfNecessary(ids[i], $type);
+	});
+	
+	if(!isMoreFeed){
+		//oc: push ids from cookie if anything's there. 
+		if($.cookie($type)){
+			//oc: push cookie circle ids onto the array
+			console.log("combine", ids, $.cookie($type))
+			ids = ids.concat(ored.cookieMonster.getCookie($type));
+		}
+	} 
+	console.log("ids from feedbag merged with cookie:",ids);
+	return ids;
+};
+
+ored.getIdsFromFriends = function($list){
+	console.log($list);
+	var ids 	= [];
+	$($list).each(function(i,v){
+	
+		ids[i] 	= v.id;
+	});
+	return ids;
+};
 
 function postCircleData(goal_id){
 

@@ -178,6 +178,67 @@ function Gallery()
 
 
 		}
+
+		function getAllFeed(){
+			console.log("getAllFeed");
+			allPhotoData = new Array();
+			$.feed.get('bca-circle', parseAllCircleData, 3);
+			
+		}
+
+			//oc: prep feedmagnet array for db req
+				//1. parse feedmagnet array deleting cookie if it matches
+				//2. insert circle id from cookie (if its there)
+				//3. req db circles with new array of circle ids
+		function parseAllCircleData($data){
+
+			console.log("parseAllCircleData");
+
+			if($data.length == 0) circleEnd = true;
+			var data = ored.getIdsFromFeed($data, "circles");
+
+			createAllLayout();
+			$('body').unbind('ALL_LAYOUT_SINGLE_CREATED').bind('ALL_LAYOUT_SINGLE_CREATED', function(){ 
+
+				$.ajax({
+			        		type: 'post',
+			            	url: baseUrl + indexPage + 'circle/fetchAllCircles',
+			            	dataType: 'json',
+			            	data: {
+			            		feedIdsJSON: JSON.stringify(data)
+			            	},
+			            	success: onFetchAllCircles
+			      		});
+
+
+			});//end binding complete
+			
+		};
+		
+		function onFetchAllCircles($circles){
+			console.log("onFetchAllCircles");
+
+			$($circles).each(function(i,v){
+				console.log("populate circle:",v.circle_id);
+				var circleContainer = (isMoreFeed) ? $($($(".page"+pageNum).find('.gallery_circle')).get(i)) : $($('.gallery_circle').get(i));
+				galleryItem.populateCircleContent(circleContainer, v);
+	            
+	            if(i == $circles.length - 1 )	$('body').trigger('ALL_LAYOUT_CREATED');
+	            
+			});
+
+			if(!isMoreFeed){
+				$.feed.get('bca-photo', onPhotoFeedLoadComplete, 3);
+		        $.feed.get('bca-instagram', handleAllPhotoData, 3);
+		        $.feed.get('bca-twitter', handleAllPhotoData, 3);
+			}else{
+				$.feed.more('bca-photo', onPhotoFeedLoadComplete, photoNum);
+				$.feed.more('bca-twitter', handleAllPhotoData, twitterNum);
+				$.feed.more('bca-instagram', handleAllPhotoData, instagramNum);
+			}
+		};
+
+		
 /*   oc: 
 this function handles the onComplete of the loading the list of cirle ID's from feedmagnet upon filter click
 then requests a list of circles 
@@ -195,7 +256,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				return;
 			} 
 			createCircleLayout();
-			var data = getIdsFromFeed($data, "circles");
+			var data = ored.getIdsFromFeed($data, "circles");
 
 			$.ajax({
 		        		type: 'post',
@@ -250,64 +311,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 	   		});//end each
 		};
-
-
-			//oc: prep feedmagnet array for db req
-				//1. parse feedmagnet array deleting cookie if it matches
-				//2. insert circle id from cookie (if its there)
-				//3. req db circles with new array of circle ids
-		function parseAllCircleData($data){
-
-			console.log("parseAllCircleData");
-
-			if($data.length == 0) circleEnd = true;
-			var data = getIdsFromFeed($data, "circles");
-
-			createAllLayout();
-			$('body').unbind('ALL_LAYOUT_SINGLE_CREATED').bind('ALL_LAYOUT_SINGLE_CREATED', function(){ 
-
-				$.ajax({
-			        		type: 'post',
-			            	url: baseUrl + indexPage + 'circle/fetchAllCircles',
-			            	dataType: 'json',
-			            	data: {
-			            		feedIdsJSON: JSON.stringify(data)
-			            	},
-			            	success: onFetchAllCircles
-			      		});
-
-
-			});//end binding complete
-			
-		};
-		
-		function onFetchAllCircles($circles){
-			console.log("onFetchAllCircles");
-<<<<<<< HEAD
-			
-=======
-
->>>>>>> a19927ad346b94a698bd981eedf5359f8a1eeb1c
-			$($circles).each(function(i,v){
-				console.log("populate circle:",v.circle_id);
-				var circleContainer = (isMoreFeed) ? $($($(".page"+pageNum).find('.gallery_circle')).get(i)) : $($('.gallery_circle').get(i));
-				galleryItem.populateCircleContent(circleContainer, v);
-	            
-	            if(i == $circles.length - 1 )	$('body').trigger('ALL_LAYOUT_CREATED');
-	            
-			});
-
-			if(!isMoreFeed){
-				$.feed.get('bca-photo', onPhotoFeedLoadComplete, 3);
-		        $.feed.get('bca-instagram', handleAllPhotoData, 3);
-		        $.feed.get('bca-twitter', handleAllPhotoData, 3);
-			}else{
-				$.feed.more('bca-photo', onPhotoFeedLoadComplete, photoNum);
-				$.feed.more('bca-twitter', handleAllPhotoData, twitterNum);
-				$.feed.more('bca-instagram', handleAllPhotoData, instagramNum);
-			}
-		};
-
 		function handleAllPhotoData(data){
 
 			//oc: combine all 3 feeds into 1
@@ -327,7 +330,10 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			morePhotoCount++;
 
 			//oc: only call when we have all 3 feeds.
-			 if(morePhotoCount == 3)	galleryItem.parseAllPhotoData(allPhotoData, false);
+			 if(morePhotoCount == 3){
+			 ored.masterFeed = allPhotoData;
+			 galleryItem.parseAllPhotoData(allPhotoData, false);
+			 }	
 
 		};
 
@@ -338,8 +344,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			console.log($data);
 
 
-			ored.photoFeed 	= $data;
-			var data 		= getIdsFromFeed($data, "photo");
+			ored.photoFeed 	= ored.photoFeed.concat($data);
+			var data 		= ored.getIdsFromFeed($data, "photo");
 			ored.photoIds 	= ored.photoIds.concat(data);
 			ored.addCookiePhotosToFeed();
 			
@@ -350,19 +356,9 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			            	data: {
 			            		feedIdsJSON: JSON.stringify(data)
 			            	},
-			            	success: function(data) { console.log("photo data load complete"); ored.photoData = data; handleAllPhotoData( ored.photoFeed)}
+			            	success: function(data) { console.log("photo data load complete"); ored.photoData = ored.photoData.concat(data); handleAllPhotoData( ored.photoFeed)}
 			       });
 		};//
-
-
-
-
-		function getAllFeed(){
-			console.log("getAllFeed");
-			allPhotoData = new Array();
-			$.feed.get('bca-circle', parseAllCircleData, 3);
-			
-		}
 
 		function parseMorePhotoData(data){
 console.log("parseMorePhotoData");
@@ -651,6 +647,36 @@ console.log(data);
 			loadLayout();
 		}
 
+
+		//oc: give feedmagnet response to php to fetch only friend circles
+		function getFriendCircleData(data){
+
+			if(data.length == 0) {
+				feedEnd = true;
+				return
+			}
+
+		 	console.log("getFriendCircleData");
+		 	var feedMagnetIds			= ored.getIdsFromFeed(data, "circles");
+		 	console.log(feedMagnetIds);
+		 	//only get friend's circles if necessary.
+		 	if(feedMagnetIds.length > 0){
+		 		
+			 	ored.postVars.friendIdsJSON	= JSON.stringify(ored.getIdsFromFriends(friendProfileList));
+			 	ored.postVars.feedIdsJSON	= JSON.stringify(feedMagnetIds);
+			 	$.ajax({
+	        		type: 'post',
+	             	url: baseUrl + indexPage + 'circle/fetchFriendCircleData',
+	             	dataType: 'json',
+	             	data: ored.postVars,
+	             	success: onFetchFriendCircleData
+				});
+		 	}else{
+		 		enableLazyloader();
+		 	}
+
+		};//end getFriendCircleData
+
 		function onFetchFriendCircleData($data){
 			console.log("onFetchFriendCircleData");
 
@@ -706,64 +732,6 @@ console.log(data);
 			             	
 		};
 
-		//oc: give feedmagnet response to php to fetch only friend circles
-		function getFriendCircleData(data){
-
-			if(data.length == 0) {
-				feedEnd = true;
-				return
-			}
-
-		 	console.log("getFriendCircleData");
-		 	var feedMagnetIds			= getIdsFromFeed(data, "circles");
-		 	console.log(feedMagnetIds);
-		 	//only get friend's circles if necessary.
-		 	if(feedMagnetIds.length > 0){
-		 		
-			 	ored.postVars.friendIdsJSON	= JSON.stringify(getIdsFromFriends(friendProfileList));
-			 	ored.postVars.feedIdsJSON	= JSON.stringify(feedMagnetIds);
-			 	$.ajax({
-	        		type: 'post',
-	             	url: baseUrl + indexPage + 'circle/fetchFriendCircleData',
-	             	dataType: 'json',
-	             	data: ored.postVars,
-	             	success: onFetchFriendCircleData
-				});
-		 	}else{
-		 		enableLazyloader();
-		 	}
-
-		};//end getFriendCircleData
-
-
-		function getIdsFromFeed($feed, $type){
-			var ids = [];
-			$($feed).each(function(i,v){
-				ids[i] 	= v.data.text;
-				ored.cookieMonster.deleteCookieIfNecessary(ids[i], $type);
-			});
-			
-			if(!isMoreFeed){
-				//oc: push ids from cookie if anything's there. 
-				if($.cookie($type)){
-					//oc: push cookie circle ids onto the array
-					console.log("combine", ids, $.cookie($type))
-					ids = ids.concat(ored.cookieMonster.getCookie($type));
-				}
-			} 
-			console.log("ids from feedbag merged with cookie:",ids);
-			return ids;
-		};
-
-		function getIdsFromFriends($list){
-			console.log($list);
-			var ids 	= [];
-			$($list).each(function(i,v){
-			
-				ids[i] 	= v.id;
-			});
-			return ids;
-		};
 
 		function checkIfLoadMore(feed, getNum){
 			var isMore;

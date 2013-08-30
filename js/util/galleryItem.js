@@ -228,18 +228,22 @@ function GalleryItem()
 		},
 
 		parseAllPhotoData:function(data, isFeatured){
-
+console.log("galleryItem:parseAllPhotoData");
 			var feed;
 
-//oc: insert cookie into Data if its there
+//oc: loop through all items in the master feed to write them into the gallery
+ored.stuffForParseAllPhotoData = data;
 
-			$(data).each(function(i){
-				feed = data[i].data;
+			$(ored.masterFeed).each(function(i, v){
+				console.log("FEED:",i);
+				//console.log(data);
 
+				feed = ored.masterFeed[i].data;
 				var div;
 
 				if(isFeatured) {
 					div = $($('.feature_photo').get(i));
+					console.log("featured.");
 				}else{	
 					div = (isMoreFeed) ? $($($(".page"+pageNum).find('.photo_container')).get(i)) : $($('.photo_container').get(i));
 				}
@@ -252,8 +256,7 @@ function GalleryItem()
 					
 					//oc: 
 					case 'rss':
-						console.log("FEED");
-						console.log(feed);
+
 						
 						photoIcon 	= baseUrl + "img/icons/bca.png";
 						data 		= ored.getPhotoDataById(feed.text);
@@ -349,7 +352,7 @@ function GalleryItem()
 
 
 						break;
-						default : console.error("UNKNOWN feed channel");
+						default : console.error("UNKNOWN feed channel", feed.channel);
 				}//end switch
 
 			});
