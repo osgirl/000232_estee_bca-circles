@@ -109,10 +109,6 @@ function Gallery()
 
 				$(window).unbind('scroll');
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f3d3f56bfc9e5bb506ef073b5a7ca1259a9086a9
 				if($(window).width() >= 980 ) {
 					loadNextPage();
 				}
@@ -397,19 +393,12 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			}
 
 			createPhotoLayout();
-
-<<<<<<< HEAD
 			if(data.length < getPhotoNum) {
 				onePage = true;
 				//return;
 			}
 
 			var data 		= ored.getIdsFromFeed($data, "photo");
-			
-=======
-			var feed;
->>>>>>> parent of 29949df... gallery push
-
 			loadPhotoData(data, getPhotoData);
 
 		};
