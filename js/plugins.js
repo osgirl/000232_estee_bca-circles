@@ -1127,13 +1127,13 @@ $.extend(
         {
             if (typeof $FM !== 'undefined' && typeof $FM.ready === 'function')
             {
-                console.log('Connected---');
+                console.debug('--->FEED: Connected---');
                 $FM.ready(fx);
                 checkAndLoadExternalUrl();
             }
             else
             {
-                console.log('Connecting...');
+                console.debug('--->FEED: Connecting...');
                 window.setTimeout(function()
                 {
                     fm_ready.call(null, fx);
@@ -1151,6 +1151,7 @@ $.extend(
     {
         reset: function()
         {
+            console.debug('--->FEED: RESET');
             fo = {};
         },
 
@@ -1162,6 +1163,8 @@ $.extend(
                 limit: n,
                 success: function(self, data)
                 {
+                    console.debug('--->FEED: GET ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
+                    console.debug(data.response.updates);
                     f(data.response.updates);
                 }
             });
@@ -1176,6 +1179,8 @@ $.extend(
                 limit: n,
                 success: function(self, data)
                 {
+                    console.debug('--->FEED: MORE ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
+                    console.debug(data.response.updates);
                     f(data.response.updates);
                 }
             });
@@ -1190,6 +1195,8 @@ $.extend(
                 limit: n,
                 success: function(self, data)
                 {
+                    console.debug('--->FEED: FEAT ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
+                    console.debug(data.response.updates);
                     f(data.response.updates);
                 }
             });
