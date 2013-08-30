@@ -240,7 +240,7 @@ function Gallery()
 	            
 			});
 
-			if(!isMoreFeed){
+			if(!isMoreFeed){				
 				$.feed.get(feedmagnet.photo_feed, onPhotoFeedLoadComplete, 2);
 		        $.feed.get(feedmagnet.instagram_feed, handleAllPhotoData, 3);
 		        $.feed.get(feedmagnet.twitter_feed, handleAllPhotoData, 3);
@@ -336,6 +336,9 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			//oc: combine all 3 feeds into 1
 			if(data.length != 0) {
 				$(data).each(function (i, v){
+
+					console.debug( v.data.channel + ' - ' + v.data.id );
+
 					allPhotoData.push(v);
 				})
 			}
@@ -347,6 +350,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
 			});
 
+			// console.debug("morePhotoCount " + morePhotoCount);
+
 			morePhotoCount++;
 
 			//oc: only call when we have all 3 feeds.
@@ -357,6 +362,16 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			 	// 	$.feed.more(feedmagnet.twitter_feed, handleAllPhotoData, rest);
 			 	//}else{
 			 		ored.masterFeed = allPhotoData;
+
+			 		// console.debug( allPhotoData );
+			 		// console.debug( allPhotoData );
+			 		var xt ='';
+			 		  allPhotoData.forEach(function(obj){
+                            // console.debug(' allPhotoData ' + obj.data.id);
+                            xt += obj.data.id + ' | ';
+                        });
+			 		  console.debug(xt);
+
 					 galleryItem.parseAllPhotoData(allPhotoData, false);
 			 	//}
 			 
@@ -368,37 +383,43 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		//		prior to the parse of the combining of all 3 feeds, this way, there is no asynchronous lapse.
 		function onPhotoFeedLoadComplete($data){
 			console.log("onPhotoFeedLoadComplete");
-			console.log($data);
 
+			console.debug('Strait from FM :' + $data);
+			ored.photoFeed 	= $data;
+			console.debug('ored.photoFeed :' + ored.photoFeed);
 
-			ored.photoFeed 	= ored.photoFeed.concat($data);
 			var data 		= ored.getIdsFromFeed($data, "photo");
 			ored.photoIds 	= ored.photoIds.concat(data);
 			ored.addCookiePhotosToFeed();
-			
 			loadPhotoData(data, onPhotoDataLoadComplete);
-
 		};//
 
 		function loadPhotoData($data, $onComplete){
-						$.ajax({
+				if($data != ''){
+					$.ajax({
 			        		type: 'post',
 			            	url: baseUrl + indexPage + 'photo/fetchUploadedPhotoData',
 			            	dataType: 'json',
 			            	data: {
 			            		feedIdsJSON: JSON.stringify($data)
 			            	},
-			            	success: $onComplete
+			            	success: $onComplete,
+			            	error:function(x,e,r){
+			            		console.debug(x,e,r);
+			            	}
 			       });
+				}
+				else{
+					console.debug('error - no more data to load');
+					handleAllPhotoData([]);
+				}
 		};
 
 		function onPhotoDataLoadComplete(data){
 			console.log("photo data load complete"); 
-			ored.photoData = ored.photoData.concat(data); 
+			ored.photoData = ored.photoData.concat(data); 			
 			handleAllPhotoData( ored.photoFeed);
 		};
-
-
 
 		function parsePhotoData($data){
 			

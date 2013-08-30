@@ -1172,7 +1172,9 @@ $.extend(
                 {
                     if (v.indexOf('bca-photo') !=-1 ) {
                         console.debug('--->FEED: GET ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
-                        console.debug(data.response.updates);
+                        data.response.updates.forEach(function(obj){
+                            console.debug(' from FM id ' + obj.data.text);
+                        });
                     }
                     saveHistory(v, data.response.updates);
                     
@@ -1192,13 +1194,16 @@ $.extend(
                 {
                     if (v.indexOf('bca-photo') !=-1 ) {
                         console.debug('--->FEED: MORE ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
-                        console.debug(data.response.updates)
+                        data.response.updates.forEach(function(obj){
+                            console.debug(' from FM id ' + obj.data.text);
+                        });
+
                     }
                     
                     if (checkDuplicateData(v, data.response.updates))
                         f(data.response.updates);
                     else{
-                        console.debug('RETURN EMPTY')
+                        // console.debug('RETURN EMPTY')
                         f([]);
                     }
                 }
@@ -1235,15 +1240,22 @@ $.extend(
 
     function saveHistory(v, result)
     {
-        history[v] = result[result.length-1].data.id;
+        var str = '';
+        result.forEach(function(obj){
+            str += obj.data.id + ',';
+        });
+
+        history[v] = str;
     }
 
     function checkDuplicateData(v, result)
-    {
+    {   
+        // console.debug('checkDuplicateData ' + v + ' from ' + history[v]);
         var valid = true;
         result.forEach(function(obj){
-            if( parseInt(obj.data.id) == parseInt(history[v])){
-                console.debug("MATCH FOUND");
+            // console.debug( history[v].indexOf(obj.data.id) != -1)
+            if( history[v].indexOf(obj.data.id) != -1){
+                // console.debug("MATCH FOUND");
                 valid = false;
             }
         })
