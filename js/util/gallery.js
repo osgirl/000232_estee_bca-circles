@@ -63,6 +63,7 @@ function Gallery()
 		var getPhotoNum = 12;
 
 		var circleEnd = false;
+		var oneCircleLeft = false;
 		var morePhotoCount = 0;
 
 		var circleNum;
@@ -74,6 +75,8 @@ function Gallery()
 
 		var galleryHeight = 0;
 		var feedEnd = false;
+
+		var restPhotoArray = new Array();
 
 
 
@@ -269,7 +272,12 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			console.log("parseAllCircleData");
 
-			if($data.length == 0) circleEnd = true;
+			if($data.length == 0){
+				circleEnd = true;
+				return;
+			} else if ($data.length == 1){
+				oneCircleLeft = true;
+			}
 			var data = getIdsFromFeed($data);
 
 			createAllLayout();
@@ -899,14 +907,73 @@ function onFetchFriendCircleData($data){
 	             	}
 	      		});
 
+			}else if(oneCircleLeft){
+				console.log("create 3rd layout");
+				$.ajax({
+		        		type: 'get',
+		            	url: baseUrl + 'layout/loadLayout3',
+		            	dataType: 'html',
+		            	
+		            	success: function(layout3data) {  
+			            	var layout3 = $('<div>');     
+			            	layout3.addClass('layout3 gallery_layout row')
+	            				.html(layout3data); 
+
+	            			$(layout3).appendTo(gallery_container);
+
+							$(layout3).addClass('page'+pageNum);
+							galleryItem.centerRollOverContent(.55);
+
+  			 				if(isMoreFeed)  enableLazyloader();
+  			 				$('body').trigger('ALL_LAYOUT_SINGLE_CREATED');
+
+		             	}
+		      		});
+				
+
 			}else{
-
-				$.feed.more('bca-twitter', parseTwitterData, getPhotoNum);
-
+				getRestPhotos();
 			}
 
 		}
-		
+
+		function getRestPhotos(){
+			$.feed.more('bca-photo', handleRestPhotoData, PHOTO_LAYOUT_COLUMN_NUM);
+			$.feed.more('bca-instagram', handleRestPhotoData, PHOTO_LAYOUT_COLUMN_NUM);
+			$.feed.more('bca-twitter', handleRestPhotoData, PHOTO_LAYOUT_COLUMN_NUM);
+		}
+
+		function handleRestPhotoData(data){
+
+			restPhotoArray.push(data);
+			if(restPhotoArray.length >= 12) {
+
+				createPhotoLayout();
+
+				var feed;
+
+				$(restPhotoArray).each(function(i){
+					feed = data[i].data;
+					getPhotoData(data, feed);
+
+				});
+
+				return;
+			}else{
+				getRestPhotos();
+			}
+			
+			if(data.length < PHOTO_LAYOUT_COLUMN_NUM){
+				$.feed.more('bca-instagram', function(instagramData){
+					if(instagramData.length < PHOTO_LAYOUT_COLUMN_NUM){
+						$.feed.more('bca-twitter', function(twitterData){
+
+						}, PHOTO_LAYOUT_COLUMN_NUM);
+					}
+				}, PHOTO_LAYOUT_COLUMN_NUM);
+			}
+		}
+
 
 		function createCircleLayout(){
 			var circleLayout = $('<div>');
