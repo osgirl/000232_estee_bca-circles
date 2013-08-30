@@ -1187,6 +1187,7 @@ ored.getIdsFromFriends = function($list){
 function postCircleData(goal_id){
 
 	console.log("USER ID -----------------", userID)
+	
 
 	var value = {
 		'users_fb_id' 	  : userID,
@@ -1254,8 +1255,7 @@ function postCircleData(goal_id){
 
 							getUserCircleData(); 
 
-							resetCircle();            			 
-	            			openThankYouScreen();
+							console.log("FRIEND LIST URL", friendSelectedArray);
 
 	            			facebook.createCircle({
 	            				circle_id:data.id,
@@ -1265,6 +1265,10 @@ function postCircleData(goal_id){
 								goal: goal,
 								friends: friendSelectedArray
 							});
+
+							resetCircle();            			 
+	            			openThankYouScreen();
+
 	             	}
 	      		});
 			}
