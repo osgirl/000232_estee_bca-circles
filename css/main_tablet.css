@@ -1,0 +1,648 @@
+
+@media only screen and (min-width:768px) {
+
+/* ===============
+    Tablet (768px)
+   =============== */
+
+   body{
+   	overflow-x: visible !important;
+   	overflow-y: visible !important;
+   }
+
+	 #top_nav{
+
+		padding: 2px 20px 0 10px;
+	}
+	
+	
+	.vertical_mode_show{
+		padding: 14px 0 14px 0;
+		display:block;
+	}
+  
+	  #top_content{
+		max-height:1020px;
+		overflow:hidden;
+	 }
+	 
+	 .top_content_sub_span4{
+		width:62%;
+	}
+	
+	.top_content_sub_span2{
+		width:38%;
+	}
+	
+	.feature_photo{
+		min-height:228px;
+	}
+	
+	#join_conversation{
+		width:46%;
+		padding:5% 7% 5% 7%;
+		text-align:center;
+	}
+	
+	#trending_actions_1{
+		width:30%;
+		padding:3% 5% 3% 5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+
+	#trending_actions_2{
+		width:44.5%;
+		padding:5% 0 3% 2.5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+	
+	.user_info{
+		padding:7% 0 0 18%;
+		min-height:0;
+	}
+	
+	.user_stats{
+		float:left;
+	}
+	
+	#my_circles{
+		background:none;
+		width:51%;
+		padding:5% 2% 3% 0;
+	}
+
+	
+	/*DONATE*/
+	
+	#donate_area{
+		/*padding:25px 0 0 1%;*/
+	}
+	
+	#join_fight{
+		width:20%;
+	}
+	
+	#join_fight_content{
+		width:48%;
+		padding:0 2% 0 2%;
+	}
+	
+	#watch_video{
+		padding-left: 5%;
+		width:23%;
+	}
+	
+	#watch_video div{
+		float:left;
+		margin-right:5%;
+	}
+
+	.layout_circle .gallery_circle{
+		width:93%;
+	}
+
+}
+
+
+@media only screen and (min-width:980px) {
+
+/* ===============
+    Tablet (980px)
+   =============== */
+
+   .layout2 .photo_container{
+	width:100%;
+	margin-right:0;
+}
+
+
+   /*OVERLAYS*/
+	.overlay{
+		z-index: -99999;
+		width:100%;
+		height:100%;
+		display:none;
+	}
+
+  
+	body {
+		padding: 75px 0 0 0;
+	}
+	  
+	  #top_nav{
+		max-width:939px;
+		padding: 20px 0 13px 0;
+	}
+	
+	#top_sub_nav{
+		margin:12px 2% 0 0;
+		display:block;
+	}
+	
+	.vertical_mode_show{
+		display:none;
+	}
+	
+	  #content_wrap{
+		max-width:939px;
+	  }
+		
+  
+	  #top_content{
+		max-height:390px;
+		overflow:hidden;
+	 }
+	 
+	 .top_content_span{
+		width:50%;
+	}
+	
+	.feature_photo{
+		min-height:178px;
+	}
+	
+	#join_conversation{
+		width:46%;
+		padding:5% 7% 5% 7%;
+		text-align:center;
+		
+	}
+	
+	#trending_actions_1{
+		width:30%;
+		padding:3% 5% 3% 5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+
+	#trending_actions_2{
+		padding:3% 0 3% 2.5%;
+		width:22.5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+	
+	.user_info{
+		padding:3% 2% 3% 2%;
+		width:38%;
+	}
+	
+	#my_circles{
+		padding:3% 2% 3% 2.5%;
+		width:28.5%;
+		background:url('../img/assets/v-divider.png') no-repeat left center;
+	}
+
+	#custom_action{	
+        min-width: 650px;
+        /*font-size:1.3em;*/
+    }
+	
+	
+	
+	/*DONATE*/
+	
+	
+	#join_fight{
+		width:12%;
+		padding-left:15%;
+	}
+	
+	#join_fight_content{
+		width:30%;
+		padding:0 3% 0 2%;
+		font-size:.8em;
+		letter-spacing:1px;
+		line-height:1.6em;
+	}
+	
+	#watch_video{
+		padding-left: 2.5%;
+		width:35.5%;
+	}
+	
+	#watch_video div{
+		float:left;
+		margin-right:5%;
+	}
+	
+	#watch_video_text{
+		font-size:1.4em;
+		line-height:1.2em;
+		text-align:left;
+		margin-top:15px;
+		display:block;
+	}
+	
+	/*CREATE YOUR OWN CIRCLE SCREEN*/
+    #create_circle_header{
+	    font-size:3.6em;
+	    margin-top:55px;
+	    text-align:left;
+    }
+
+    #create_circle_screen h1{ 
+	    line-height:1.2em;
+	    font-size:4.2em;
+    }
+
+    .confirm_content{
+		padding:5% 26% 2% 26%;
+	}
+
+
+    /*LAYOUT 1*/
+
+    #gallery{
+		padding:3% 4% 3% 5.5%;
+	}
+
+    .gallery_layout{
+		margin-bottom:22px;
+	}
+
+	.layout1 .gallery_col, .layout3 .gallery_col{
+		width:48%;
+		margin-right:2%;
+	}
+
+	.circle_container{
+		margin-bottom:0;
+	}
+
+	.photo_container{
+		height:265px;
+		margin-bottom:0;
+	}
+
+	.layout1 .photo_container{
+		width:48%;
+		margin-right:4%;
+	}
+
+	.layout1 .gallery_col2, .layout1 .photo_container_2{
+		margin-right:0;
+	}
+
+	/*LAYOUT 2*/
+
+	.layout2 .photo_col{
+		width:23%;
+		margin-right:2%;
+	}
+
+	.layout2 .photo_col:last-child{
+			margin-right:0;
+		}
+
+	.layout2 .circle_col{
+		width:48%;
+		margin-right:2%;
+	}
+
+	.layout_circle{
+		margin-bottom:0;
+	}
+
+/*	.layout_photo {
+		width:;
+	}*/
+
+	.layout_photo{
+		width:98%;
+	}
+	.layout_photo .photo_container{
+		width:23.5%;
+		margin-right:2%;
+	}
+
+	.layout_photo .photo_container:nth-child(even){
+		margin-right:2%;
+	}
+
+	.layout_photo .photo_container:nth-child(4n){
+		margin-right:0;
+	}
+
+	.flex_margin_bottom{
+		margin-bottom:22px;
+	}
+
+	.twitter_author{
+		font-size:1em;
+	}
+
+	.twitter_time{
+		font-size:.8em;
+	}
+
+	.twitter_text{
+		font-size:.8em;
+	}
+
+	.twitter_avatar{
+		width:20px;
+	}
+
+	.feature_photo .twitter_author{
+		font-size:.9em;
+	}
+
+	.feature_photo .twitter_time{
+		font-size:.7em;
+	}
+
+	.feature_photo .twitter_text{
+		font-size:.7em;
+	}
+
+	.circle_area{
+	    margin-left:-15px;
+	}
+
+	/*CAROUSEL*/
+
+	#carousel{
+		height: 421px;
+	}
+
+	#carousel_slider{
+		width:1425px;
+	}
+
+	 .feature_circle .profile_image_small{
+		width:55px;
+		height:55px;
+		background-size: 55px auto;
+		margin-left:-15px;
+		margin-top:-22px;
+	}
+
+	.feature_circle .circle_of_strength{
+		font-size:1.6em;
+	}
+
+	.feature_circle .circle_goal{
+		left:27%;
+		font-size:.9em;
+		width:120px;
+	}
+
+	.feature_circle .share_circle{
+		bottom:5%;
+	}
+	
+	.feature_photo{
+		min-height:177px;
+	}
+
+	
+	.feature_circle .circle_area {
+	    width:230px;
+	    height:230px;
+	    margin-left:-10px;
+	    margin-top:-10px;
+	}
+
+	.twitter_avatar, .twitter_title{
+		margin-top:10px;
+	}
+
+	#tagline{
+		top:175px;
+	}
+
+	.stronger_together{
+		font-size:2.8em;
+	}
+
+	.copy_text{
+		font-size:.8em;
+	}
+
+	.circle_flag{
+		top:10px;
+		right:10px;
+	}
+
+	.full_photo{
+		max-width:140%;
+	}
+
+	.layout_circle .gallery_circle{
+		width:43.3%;
+		margin-right:2%;
+	}
+
+	.gallery_circle:nth-child(even){
+		margin-right: 0;
+	}
+
+	#filter_nav{
+		margin-top:0px;
+	}
+
+	.select_action_text{
+		font-size:1.6em;
+	}
+
+	#custom_action{
+		font-size:1.7em;
+	}
+
+	.select_icon img{
+		margin-top:16px;
+	}
+
+	#PP_btn, #TC_btn{
+		display:none;
+	}
+
+	#friend_photos_container{
+		width:85%;
+		height:400px;
+	}
+    
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+/* ===============
+    Tablet (1024px)
+   =============== */
+ 
+	#top_nav{
+		max-width:984px;
+	    
+	}
+	
+	#top_sub_nav{
+		margin:12px 2% 0 0;
+		display:block;
+	}
+	
+	#content_wrap{
+		max-width:984px;
+	}
+	
+	 #top_content{
+		max-height:421px;
+		overflow:hidden;
+	 }
+
+	 /*CAROUSEL*/
+
+	#carousel{
+		height: 421px;
+	}
+
+	#carousel_slider{
+		width:1479px;
+	}
+
+	.circle_area{
+	    margin-left:-5px;
+	}
+	
+	.feature_photo{
+		min-height:192px;
+	}
+
+	.feature_circle .share_circle{
+		bottom:2%;
+	}
+
+	
+	.feature_circle .circle_area {
+	    width:250px;
+	    height:250px;
+	    margin-top:-10px;
+
+	}
+
+	.feature_circle .circle_goal{
+		left:22%;
+		width:150px;
+		font-size:1em;
+	}
+
+	.feature_photo .twitter_author{
+		font-size:1em;
+	}
+
+	.feature_photo .twitter_time{
+		font-size:.8em;
+	}
+
+	.feature_photo .twitter_text{
+		font-size:.8em;
+	}
+
+
+	.stronger_together{
+		font-size:3em;
+	}
+}
+
+
+@media only screen and (min-width: 1200px)  {
+
+/* ===============
+    Tablet (1200px)
+   =============== */
+  
+	
+	#top_nav{
+		max-width:1200px;
+	}
+	
+	#top_sub_nav{
+		margin:12px 2% 0 0;
+		display:block;
+	}
+	
+	#content_wrap{
+		max-width:1200px;
+	}
+  
+    #top_content{
+		max-height:490px;
+		overflow:hidden;
+	}
+
+	.feature_photo{
+		min-height:228px;
+	}
+
+	#friend_photos_container{
+		width:95%;
+	}
+
+	.friend_pic_wrapper_large{
+		margin-right:15px;
+		float:left;
+		
+	}
+
+	.friend_name_large{
+		font-size:1.2em;
+		margin-top:40px;
+		max-width:100px;
+		float:left;
+	}
+
+	.twitter_avatar{
+		width:40px;
+	}
+
+	/*CAROUSEL*/
+
+	#carousel{
+		height: 460px;
+	}
+
+	#carousel_slider{
+		width:1803px;
+	}
+
+	.feature_circle .circle_area {
+	    width:310px;
+	    height:310px;
+	    margin-top:0px;
+	}
+
+	.feature_circle .circle_goal{
+		left:27%;
+		font-size:1.1em;
+	}
+
+	.twitter_avatar, .twitter_title{
+		margin-top:20px;
+	}
+
+	#tagline{
+		top:210px;
+	}
+
+	.stronger_together{
+		font-size:3.8em;
+	}
+
+	.circle_flag{
+		top:20px;
+		right:20px;
+	}
+
+	.full_photo{
+		max-width:110%;
+	}
+
+	.layout_circle .gallery_circle{
+		width:44.3%;
+	}
+
+	#friend_photos_container{
+		width:85%;
+		height:330px;
+	}
+
+}
