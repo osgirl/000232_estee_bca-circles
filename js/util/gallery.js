@@ -695,6 +695,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			restNum = 0;
 			subRestNum = 0;
 			pageNum = 1;
+			current_add_layout = 1;
 			$.feed.reset();
 			currentFilterType = btn.attr('type');
 			if(currentFilterType == "all") {
