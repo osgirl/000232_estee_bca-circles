@@ -101,6 +101,8 @@ function Gallery()
 
 			//console.log($(window).scrollTop() + $(window).height(), getDocHeight())
 
+			console.debug("LAZY LOADER", onePage)
+
 			if(onePage){
 				$('#donate_area').fadeIn();
   				$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
@@ -194,9 +196,6 @@ function Gallery()
 
 			
 			$.feed.more(feedmagnet.circle_feed, parseAllCircleData, circleNum);
-
-
-			console.log("---------------------------------get more feed, but is the circle finished?", circleEnd)
 
 
 		}
@@ -477,16 +476,17 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			
 			createPhotoLayout();
 			var data 		= ored.getIdsFromFeed($data, "photo");
-			if(data.length < getPhotoNum) {
-				onePage = true;
-				//return;
-			}
+			photoFeed = data;
+			if(data.length < getPhotoNum) onePage = true;
+
 
 			loadPhotoData(data, getPhotoData);
 
 		};
 
 		function getPhotoData($data){
+
+			console.debug("GET PHOTO DATA?", $data.length)
 
 			$($data).each(function(i,v){
 				
