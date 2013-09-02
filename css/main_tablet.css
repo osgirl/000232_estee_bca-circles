@@ -273,12 +273,12 @@
 		margin-bottom:0;
 	}
 
-	.layout1 .photo_container{
+	.layout1 .photo_container, .layout3 .photo_container{
 		width:48%;
 		margin-right:4%;
 	}
 
-	.layout1 .gallery_col2, .layout1 .photo_container_2{
+	.layout1 .gallery_col2, .layout1 .photo_container_2, .layout3 .gallery_col2, .layout3 .photo_container_2{
 		margin-right:0;
 	}
 
@@ -633,7 +633,7 @@
 	}
 
 	.full_photo{
-		max-width:110%;
+		max-width:112%;
 	}
 
 	.layout_circle .gallery_circle{

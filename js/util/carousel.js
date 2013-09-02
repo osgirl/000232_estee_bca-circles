@@ -127,7 +127,7 @@ function Carousel()
 			});
 			//ored.masterFeed = ored.masterFeed.concat(featurePhotoData);
 			//oc: need to load data.
-			galleryItem.parseAllPhotoData(featurePhotoData, true);
+			galleryItem.parseAllPhotoData(featurePhotoData, true, false);
 		}
 
 		//oc: this handles response from feedmagnet and retreives the data associated with each photo

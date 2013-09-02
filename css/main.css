@@ -640,18 +640,18 @@ h2{
 	margin-bottom: 13px;
 }
 
-.layout1 .photo_container{
+.layout1 .photo_container, .layout3 .photo_container{
 	width:48%;
 	margin-right:4%;
 	/*float:left;*/
 }
 	
 
-.layout1 .gallery_col2, .layout1 .photo_container_2{
+.layout1 .gallery_col2, .layout1 .photo_container_2, .layout3 .gallery_col2, .layout3 .photo_container_2{
 	margin-right:0;
 }
 
-.layout1 .gallery_col{
+.layout1 .gallery_col, .layout3 .gallery_col{
 	width:100%;
 	margin-right:0;
 }
@@ -773,7 +773,7 @@ h2{
 }
 
 .twitter_text{
-	font-size:.8em;
+	font-size:.7em;
 	color:white;
 	clear:both;
 	width:92%;

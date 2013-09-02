@@ -227,12 +227,12 @@ function GalleryItem()
 			
 		},
 
-		parseAllPhotoData:function(data, isFeatured){
-console.log("galleryItem:parseAllPhotoData");
-			var feed;
+		parseAllPhotoData:function(data, isFeatured, isRest){
+			console.log("galleryItem:parseAllPhotoData");
+						var feed;
 
-//oc: loop through all items in the master feed to write them into the gallery
-ored.allPhotoDataParsed.push(data);
+			//oc: loop through all items in the master feed to write them into the gallery
+			ored.allPhotoDataParsed.push(data);
 
 			$(data).each(function(i, v){
 				//console.log("FEED:",i);
@@ -243,6 +243,10 @@ ored.allPhotoDataParsed.push(data);
 
 				if(isFeatured) {
 					div = $($('.feature_photo').get(i));
+				}else if(isRest){
+					div = $('<div>');
+					div.addClass('span3 photo_container gallery_item flex_margin_bottom')
+						.appendTo($(".page"+pageNum));
 					
 				}else{	
 					div = (isMoreFeed) ? $($($(".page"+pageNum).find('.photo_container')).get(i)) : $($('.photo_container').get(i));
