@@ -241,7 +241,6 @@ function getLoginStatus(e){
 	
 	if(createCircleClicked) openCreateCircleScreen(false);
 
-
 }
 
 function getLogoutStatus(e){

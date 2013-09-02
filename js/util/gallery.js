@@ -964,7 +964,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			            	
 			            	success: function(layout2data) {  
 				            	var layout2 = $('<div>');     
-				            	layout2.addClass('layout2 gallery_layout row')
+				            	layout2.addClass('gallery_layout row layout2')
 		            				.html(layout2data); 
 
 		            			$(layout2).appendTo(gallery_container);
@@ -1154,13 +1154,11 @@ console.log("refreshAsFakePhotoData");
 
 		showFriendCircles: function(){
 			console.debug("SHOW FRIEND");
-			if(currentFilterType == "friend"){
-				filterButtonSelected($('#filter_friends_btn'));
-			}
+			if(currentFilterType == "friend") filterButtonSelected($('#filter_friends_btn'));
 		},
 
 		showAllCircles: function(){
-			filterButtonSelected($('#filter_all_btn'));
+			if(currentFilterType == "friend") filterButtonSelected($('#filter_all_btn'));
 			
 		},
 
