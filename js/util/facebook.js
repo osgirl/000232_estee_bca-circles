@@ -60,8 +60,6 @@ facebook.fetchFriendlist = function( _callback ){
 	    if (fbresponse && fbresponse.data){
 	    	console.log("-- successfully retrieved friends list --");
 
-	    	friendProfileList = new Array();
-
 	        $(fbresponse.data).each( function(index,value){
 				var friendObj = new Object();
 				friendObj.id = value.id;
