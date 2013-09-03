@@ -413,6 +413,10 @@
 	text-align: center;
 }
 
+.popup #popup_photo_upload_preview_window input[type="file"]{
+	width: 200px;
+}
+
 /*Circle*/
 .popup#popup_circle{
 	position: fixed;
