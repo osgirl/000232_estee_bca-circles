@@ -26,9 +26,10 @@ if( ! ini_get('date.timezone') )
 	switch ($_SERVER["HTTP_HOST"]){
         case "16w22ventures.info": 		 	define('ENVIRONMENT','staging'); break;
         case "staging.click3x.com": 		define('ENVIRONMENT','staging'); break;
-		case "localhost": 					define('ENVIRONMENT','development'); break;
+		// case "localhost": 					define('ENVIRONMENT','development'); break;
 		case "bca.dev": 					define('ENVIRONMENT','sean_config'); break;
-		case "10.0.1.4":	 				define('ENVIRONMENT','sean_config'); break;
+		case "10.0.1.8":	 				define('ENVIRONMENT','sean_config'); break;
+		case "localhost":	 				define('ENVIRONMENT','sean_config'); break;
 		case "bcasite.dev": 				define('ENVIRONMENT','mili_config'); break;
 		case "bcastronger.dev": 			define('ENVIRONMENT','jason'); break;
 		//TODO enter more environments as needed

@@ -98,6 +98,7 @@ jQuery.extend({
                     if ( status != "error" )
                     {
                         // process the data (runs the xml through httpData regardless of callback)
+
                         var data = jQuery.uploadHttpData( xml, s.dataType );    
                         // If a local callback was specified, fire it and pass it the data
                         if ( s.success )
@@ -192,7 +193,6 @@ jQuery.extend({
         // evaluate scripts within html
         if ( type == "html" )
             jQuery("<div>").html(data).evalScripts();
-
         return data;
     },
 

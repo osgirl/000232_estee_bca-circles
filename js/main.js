@@ -1261,8 +1261,6 @@ function postCircleData(goal_id){
 
 							getUserCircleData(); 
 
-							console.log("FRIEND LIST URL", friendSelectedArray)
-
 	            			facebook.createCircle({
 	            				circle_id:data.id,
 								id :userID,

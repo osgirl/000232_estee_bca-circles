@@ -62,10 +62,10 @@ function Gallery()
 		var getCircleNum = 4;
 		var getPhotoNum = 12;
 
-		var circleEnd = false;
 		var oneCircle = false;
 		var morePhotoCount = 0;
 		var onePage = false;
+		var circleEnd = false;
 
 		var circleNum;
 		var photoNum;
@@ -436,9 +436,9 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		//		prior to the parse of the combining of all 3 feeds, this way, there is no asynchronous lapse.
 		function onPhotoFeedLoadComplete($data){
 
-			
-
 			if(notEnoughPhoto) {
+
+				console.debug("NOT ENOUGH PHOTO")
 				if($data.length < restNum){
 					subRestNum = restNum - $data.length;
 					$.feed.more(feedmagnet.instagram_feed, function(inData){
@@ -460,19 +460,24 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 					}, subRestNum);
 				}
 			}else{
-				//console.debug('Strait from FM :' + $data);
+				
+				console.debug('Strait from FM :', $data);
 				ored.photoFeed 	= $data;
-				//console.debug('ored.photoFeed :' + ored.photoFeed);
+				console.debug('ored.photoFeed :', ored.photoFeed);
 
 				var data 		= ored.getIdsFromFeed($data, "photo");
 				ored.photoIds 	= ored.photoIds.concat(data);
-				ored.addCookiePhotosToFeed();
+				ored.photoIds = data;
+				if(!isMoreFeed && !circleEnd) ored.addCookiePhotosToFeed();
 				loadPhotoData(data, onPhotoDataLoadComplete);
+
 			}
 
 		};
 
 		function loadPhotoData($data, $onComplete){
+			console.debug("LOAD PHOTO DATA", $data)
+
 				if($data != ''){
 					$.ajax({
 			        		type: 'post',
@@ -495,7 +500,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		};
 
 		function onPhotoDataLoadComplete(data){
-			console.log("photo data load complete"); 
+
 			ored.photoData = ored.photoData.concat(data); 
 
 			handleAllPhotoData( ored.photoFeed);
@@ -509,24 +514,23 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			if(data.length != 0) {
 				$(data).each(function (i, v){
 
-					console.debug( v.data.channel + ' - ' + v.data.id );
-
-					if(v.data.id != undefined) allPhotoData.push(v);
+					console.debug( v.data.channel + ' - ' + v.data.text );
+					allPhotoData.push(v);
 				})
 			}
 
-			//oc: sort by timestamp
-			allPhotoData.sort(function sortNumber(a, b){
-				  var aNum = Number(a.data.timestamp);
-				  var bNum = Number(b.data.timestamp); 
-				  return ((aNum < bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
-			});
 
 			
 			morePhotoCount++;
 
 			//oc: only call when we have all 3 feeds.
 			 if(morePhotoCount == 3){
+
+			 	
+			 	sortByTimestamp(allPhotoData);
+				// $(allPhotoData).each(function(i,v){
+				// 	console.debug("THESE ARE ALL DATAS", v.data.channel + " - " + v.data.timestamp)
+				// })
 
 			 	if(allPhotoData.length >= photoSum ){
 			 		notEnoughPhoto = false;
@@ -547,6 +551,17 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			
 		};
 
+		function sortByTimestamp(dataArray){
+			//oc: sort by timestamp
+				dataArray.sort(function compare(a,b) {
+					  if (a.data.timestamp > b.data.timestamp)
+					     return -1;
+					  if (a.data.timestamp < b.data.timestamp)
+					    return 1;
+					  return 0;
+				});
+		}
+
 		function parsePhotoData($data){
 			
 			console.log("parsePhotoData");
@@ -561,6 +576,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			
 			var data 		= ored.getIdsFromFeed($data, "photo");
 			photoFeed = data;
+
 			if(data.length < getPhotoNum) onePage = true;
 
 

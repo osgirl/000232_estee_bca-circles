@@ -130,10 +130,8 @@ $.extend(
                     data: d,
                     success: function(data)
                     {
-                        if(ismobile)
-                            $('body').append(data);
-                        else
-                            $('#gallery').append(data);
+                        if (ismobile) $('body').append(data);
+                        else $('#gallery').append(data);
                         $('.popup#popup_circle').init_circle(d);
                     },
                     error: function(jqXHR, textStatus, errorThrown)
@@ -154,7 +152,7 @@ $.extend(
                 href: baseUrl + indexPage + u,
                 type: 'ajax',
                 padding: 0,
-                margin:0,
+                margin: 0,
                 closeBtn: $closeBtn,
                 modal: $isUpload,
                 ajax: {
@@ -213,7 +211,7 @@ $.extend(
         if (!$isUpload && !$isOutlink)
         {
             dl = $.address.path() + v.type + '/' + ((d.source == null) ? '' : d.source + '/') + ((d.id == null) ? '' : d.id + '/')
-            $.address.path(dl.replace(/ |%20/gi,''));
+            $.address.path(dl.replace(/ |%20/gi, ''));
         }
         return false;
     },
@@ -227,43 +225,31 @@ $.extend(
      ******************************/
     popup_share: function(v)
     {
-        if (v.post_type == 'circle')
-            u = '/circle/' + v.id;
-        else if (v.post_type =='page')
-            u = v.url;
-        else
-            u = v.url +'/';
+        if (v.post_type == 'circle') u = '/circle/' + v.id;
+        else if (v.post_type == 'page') u = v.url;
+        else u = v.url + '/';
 
-
-        console.debug("MY url: "+ u);
-
-        var goal = v.action != undefined ? v.action : "";   
+        var goal = v.action != undefined ? v.action : "";
 
         if (v.type == "facebook")
         {
-            if(v.referral !=undefined || v.referral !=null)
-                u +="/?referral=facebook-" + v.referral;
+            if (v.referral != undefined || v.referral != null) u += "/?referral=facebook-" + v.referral;
 
             var _picture = baseUrl + 'img/assets/fb_share.jpg';
 
-            if(v.photo_url != undefined)
-                _picture = v.photo_url;
+            if (v.photo_url != undefined) _picture = v.photo_url;
 
             var _title = "Circle of Strength";
             var _caption = "We're Stronger Together.";
             var _description = 'Create a Circle of Strength with those who support you most now. ' + goal;
             var _link = baseUrl + indexPage + '#' + u;
 
-            if(ismobile){
-                window.open( "https://www.facebook.com/dialog/feed?" +
-                    "app_id=" + fbAppId + "&" +
-                    "link=" + encodeURIComponent(_link) + "&" +
-                    "picture=" + encodeURIComponent(_picture) + "&" +
-                    "name=" + encodeURIComponent(_title) + "&" +
-                    "caption=" + encodeURIComponent(_caption) + "&" +
-                    "description=" + encodeURIComponent(_description) + "&" +
-                    "redirect_uri=" + encodeURIComponent(baseUrl + indexPage), "_blank" );
-            } else {
+            if (ismobile)
+            {
+                window.open("https://www.facebook.com/dialog/feed?" + "app_id=" + fbAppId + "&" + "link=" + encodeURIComponent(_link) + "&" + "picture=" + encodeURIComponent(_picture) + "&" + "name=" + encodeURIComponent(_title) + "&" + "caption=" + encodeURIComponent(_caption) + "&" + "description=" + encodeURIComponent(_description) + "&" + "redirect_uri=" + encodeURIComponent(baseUrl + indexPage), "_blank");
+            }
+            else
+            {
                 FB.ui(
                 {
                     method: 'feed',
@@ -281,18 +267,16 @@ $.extend(
             }
         }
         else if (v.type == "twitter")
-        {            
+        {
             var goal = v.action != undefined ? v.action : "";
             var hashtag_before_url = v.hashtag_before_url != undefined ? 1 : 0;
-            if(v.referral !=undefined || v.referral !=null)
-                u +="/?referral=twitter-" + v.referral;
+            if (v.referral != undefined || v.referral != null) u += "/?referral=twitter-" + v.referral;
 
             //Swap symbol to entities
-            u = u.replace(/\//gi,'_').replace(/\?/gi,'%3F').replace(/\=/gi,'%5E');
-            openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + u +"/" + escape(goal) + "/" + hashtag_before_url, 'Twitter');
+            u = u.replace(/\//gi, '_').replace(/\?/gi, '%3F').replace(/\=/gi, '%5E');
+            openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + u + "/" + escape(goal) + "/" + hashtag_before_url, 'Twitter');
             $.gaEvent((v.post_type).capitalize(), 'Shared', 'by Twitter');
         }
-        console.debug("URL is: " + u);
     }
 });
 
@@ -311,17 +295,26 @@ $.extend(
         $circle_id = $($c + ' #circle_id').val();
         $users_fb_id = $($c + ' #users_fb_id').val();
 
-        console.log("$circle_id : " + $circle_id);
-
         //Start bind
         $($c + ' .btn_next').click(loadNext);
         $($c + ' .btn_cancel').click(closeWindow);
-        $($c + ' .btn_browse').click(browseFile);
         $($c + ' .btn_submit').click(saveFile);
         $($c + ' #popup_checkbox').click(toggleCheckbox);
         $($c + ' #popup_photo_desc_holder textarea').focus(descFocus);
         $($c + ' input[type=file]').change(fileChangeListener);
-        $parent.click(function(){ if ($parent.children().length == 0) $($c + ' #uploadFile').click(); });
+
+        //IE9 or lower version fix (using a default file browse)
+        if(!$('html').hasClass('lte-ie9')){
+            $($c + ' .btn_browse').click(browseFile);
+            $parent.click(function()
+            {
+                if ($parent.children().length == 0) $($c + ' #uploadFile').click();
+            });
+        }
+        else{
+            $($c + ' .btn_browse').hide();
+            $($c + ' #uploadFile').attr('class', 'file');
+        }
     }
 
     function toggleCheckbox(e)
@@ -355,7 +348,7 @@ $.extend(
 
     function fileChangeListener(e)
     {
-        if (Modernizr.canvas && !ismobile)
+        if (Modernizr.canvas && !ismobile && !$('html').hasClass('lte-ie9'))
         {
             uploadToCanvas(e);
         }
@@ -420,7 +413,7 @@ $.extend(
     {
         $preview_img_path = data.file_location;
         //create image control            
-        $img = $('<img src="' + baseUrl + data.file_location + '"/>');
+        $img = $('<img src="' + baseUrl + data.file_location + '" style="visibility:hidden"/>');
         $ratio = 1;
         $top = 0;
         $left = 0;
@@ -428,13 +421,20 @@ $.extend(
 
         //remove old input element and create a new one
         $($c + ' input[type=file]').unbind('fileChangeListener').remove();
-        $('<input name="uploadFile" type="file" class="hidden" id="uploadFile"/>').appendTo($($c + ' #file_form'));
+        // $('<input name="uploadFile" type="file" class="file" id="uploadFile"/>').prependTo($($c + ' #button_wrapper'));
         $($c + ' input[type=file]').change(fileChangeListener);
-        
+
         //Load image to html
-        $img.load(function(e)
+        $img.load(function()
         {
-            createImageBound(this);
+            //IE9 fix
+            var sto = setTimeout(delay, 500);
+            function delay(){
+                clearTimeout(sto);
+                var image = new Image();
+                image.src = $($img).attr('src');
+                createImageBound(image);
+            }
         });
     }
 
@@ -545,7 +545,7 @@ $.extend(
                 ctx.drawImage($($img)[0], $l, $t, $w, $h);
 
                 var canvasData = canvas.toDataURL("image/png");
-                canvas.remove();
+                // $parent.remove(canvas);
                 $.ajax(
                 {
                     type: 'post',
@@ -624,7 +624,8 @@ $.extend(
             $('body').trigger('PHOTO_UPLOADED');
             $.gaEvent('Photo', 'Added to feed');
         }
-        else{
+        else
+        {
             //Photo added to some circle
             $.gaEvent('Circle', 'Photo added', 'Circle ID#: ' + $circle_id);
         }
@@ -678,7 +679,7 @@ $.extend(
 
         //initalize scroll detection
         windowEventListener();
-        
+
         //Hide edit user button
         if (!v.is_user) $($c + ' .btn_edit').hide();
         currentCircleViewIsUser = v.is_user;
@@ -735,8 +736,9 @@ $.extend(
         $(window).bind('resize scroll', function(e)
         {
 
-            if(e.type == 'resize'){
-                $margin_top = getMarginTop();                
+            if (e.type == 'resize')
+            {
+                $margin_top = getMarginTop();
                 updateBrowerProperties();
             }
 
@@ -778,7 +780,7 @@ $.extend(
 
         function getMarginTop()
         {
-            return ( fixedNav() ) ?  $('.navbar').height() : 0;
+            return (fixedNav()) ? $('.navbar').height() : 0;
         }
 
         function fixedNav()
@@ -787,26 +789,33 @@ $.extend(
         }
 
         function updateBrowerProperties()
-        {            
-            if( ismobile ){
-                 $this.css({
-                    'overflow-x' : 'hidden',
-                    'overflow-y' : 'scroll',
-                    'height' :  '100%',
-                    'bottom' : '0'
-                 });
-                $('#content_wrap').animate({opacity:0},200);
+        {
+            if (ismobile)
+            {
+                $this.css(
+                {
+                    'overflow-x': 'hidden',
+                    'overflow-y': 'scroll',
+                    'height': '100%',
+                    'bottom': '0'
+                });
+                $('#content_wrap').animate(
+                {
+                    opacity: 0
+                }, 200);
             }
-            else{
-                 $this.css({
-                    'overflow-x' : '',
-                    'overflow-y' : '',
-                    'height' : '',
-                    'bottom' : ''
-                 });                
+            else
+            {
+                $this.css(
+                {
+                    'overflow-x': '',
+                    'overflow-y': '',
+                    'height': '',
+                    'bottom': ''
+                });
             }
         }
-        
+
     }
 
     function createDots()
@@ -1011,15 +1020,15 @@ $.extend(
     {
         var dx,
         $container = $($c + ' #popup_circle_photo_carousel_wrapper #container ul'),
-        $tmb = $container.children('li:nth-child(1)'),
-        child_width = parseInt($tmb.css('margin-right').replace('px', '')) + +$tmb.width(),
-        container_width = $container.children('li').length * child_width,
-        multiplier = child_width * 2,
-        even = ($container.children().length % 2 == 0);
+            $tmb = $container.children('li:nth-child(1)'),
+            child_width = parseInt($tmb.css('margin-right').replace('px', '')) + +$tmb.width(),
+            container_width = $container.children('li').length * child_width,
+            multiplier = child_width * 2,
+            even = ($container.children().length % 2 == 0);
 
         if ($(this).hasClass('right') || type == 'swipeleft')
         {
-            dx = $container.position().left - ( even ? multiplier * 1 : multiplier);            
+            dx = $container.position().left - (even ? multiplier * 1 : multiplier);
             if ((dx + container_width) < (even) ? multiplier : 0) dx = $nav_count = 0;
             else
             {
@@ -1092,7 +1101,10 @@ $.extend(
 
     function closeWindow()
     {
-        if(ismobile) $('#content_wrap').animate({opacity:1},200);
+        if (ismobile) $('#content_wrap').animate(
+        {
+            opacity: 1
+        }, 200);
         $('#magnet_feed').animate(
         {
             opacity: 1
@@ -1120,10 +1132,10 @@ $.extend(
 (function(f)
 {
     /*****************
-    * fo  = Feed Object
-    * sfo = Selected Feed Object
-    * history = Store the last result of Feed Object, use signal name as a key
-    ******************/
+     * fo  = Feed Object
+     * sfo = Selected Feed Object
+     * history = Store the last result of Feed Object, use signal name as a key
+     ******************/
     var fo = {}, sfo, history = {},
     b = f.feed = function()
     {
@@ -1158,7 +1170,7 @@ $.extend(
         reset: function()
         {
             console.debug('--->FEED: RESET');
-            fo      = {};
+            fo = {};
             history = {};
         },
 
@@ -1170,14 +1182,15 @@ $.extend(
                 limit: n,
                 success: function(self, data)
                 {
-                    if (v.indexOf('bca-photo') !=-1 ) {
+                    /*if (v.indexOf('bca-photo') != -1)
+                    {
                         console.debug('--->FEED: GET ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
-                        data.response.updates.forEach(function(obj){
+                        data.response.updates.forEach(function(obj)
+                        {
                             console.debug(' from FM id ' + obj.data.text);
                         });
-                    }
+                    }*/
                     saveHistory(v, data.response.updates);
-                    
                     f(data.response.updates);
                 }
             });
@@ -1192,18 +1205,17 @@ $.extend(
                 limit: n,
                 success: function(self, data)
                 {
-                    if (v.indexOf('bca-photo') !=-1 ) {
+                    /*if (v.indexOf('bca-photo') != -1)
+                    {
                         console.debug('--->FEED: MORE ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
-                        data.response.updates.forEach(function(obj){
+                        data.response.updates.forEach(function(obj)
+                        {
                             console.debug(' from FM id ' + obj.data.text);
                         });
-
-                    }
-                    
-                    if (checkDuplicateData(v, data.response.updates))
-                        f(data.response.updates);
-                    else{
-                        // console.debug('RETURN EMPTY')
+                    }*/
+                    if (checkDuplicateData(v, data.response.updates)) f(data.response.updates);
+                    else
+                    {
                         f([]);
                     }
                 }
@@ -1219,7 +1231,7 @@ $.extend(
                 limit: n,
                 success: function(self, data)
                 {
-                    console.debug('--->FEED: FEAT ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
+                    // console.debug('--->FEED: FEAT ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
                     f(data.response.updates);
                 }
             });
@@ -1241,7 +1253,8 @@ $.extend(
     function saveHistory(v, result)
     {
         var str = '';
-        result.forEach(function(obj){
+        result.forEach(function(obj)
+        {
             str += obj.data.id + ',';
         });
 
@@ -1249,12 +1262,12 @@ $.extend(
     }
 
     function checkDuplicateData(v, result)
-    {   
-        // console.debug('checkDuplicateData ' + v + ' from ' + history[v]);
+    {
         var valid = true;
-        result.forEach(function(obj){
-            // console.debug( history[v].indexOf(obj.data.id) != -1)
-            if( history[v].indexOf(obj.data.id) != -1){
+        result.forEach(function(obj)
+        {
+            if (history[v].indexOf(obj.data.id) != -1)
+            {
                 // console.debug("MATCH FOUND");
                 valid = false;
             }
@@ -1432,12 +1445,11 @@ function checkAndLoadExternalUrl()
             }
         })
     }
-    
+
 
     //Check referral and send gaEvent if available
     var ref = getURLParameter('referral');
-    if (ref != undefined)
-        $.gaEvent('referral',ref.capitalize())
+    if (ref != undefined) $.gaEvent('referral', ref.capitalize())
 
 }
 
@@ -1465,11 +1477,12 @@ $.extend(
         // _gaq.push(['_trackEvent', _category, _action, _label]);
         ga('send', 'event', _category, _action, _label);
     },
-    gaPageview:function(_url)
+    gaPageview: function(_url)
     {
-        var title = _url.toString().replace(/\//gi,'');
-        console.log('Pageview: ' + _url + ' Title is: ' +  title );
-        ga('send', {
+        var title = _url.toString().replace(/\//gi, '');
+        console.log('Pageview: ' + _url + ' Title is: ' + title);
+        ga('send',
+        {
             'hitType': 'pageview',
             'page': _url,
             'title': title
@@ -1489,12 +1502,15 @@ function openShareWindow(_w, _h, _url, _title)
     window.open(_url, _title, opts);
 }
 
-function getURLParameter(param){
-    var sPageURL = $.address.queryString();//window.location.search.substring(1);
+function getURLParameter(param)
+{
+    var sPageURL = $.address.queryString(); //window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++){
+    for (var i = 0; i < sURLVariables.length; i++)
+    {
         var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == param) {
+        if (sParameterName[0] == param)
+        {
             return sParameterName[1];
         }
     }
