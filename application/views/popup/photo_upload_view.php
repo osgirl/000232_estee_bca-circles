@@ -9,7 +9,7 @@
 			<li>Uploaded images may be used by the Breast Cancer Awareness Campaign on the internet and in other media</li>		
 			<li>You agree to our terms and conditions</li>
 		</ul>
-		<p>By providing my information, I acknowledge that I have read, understand and agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy.</a> I agree any personal information that I may provide here will be processed in accordance with the Privacy Policy [hyperlink] and transferred to the United States and I hereby give my consent to such processing and transfer.</p>
+		<p>By providing my information, I acknowledge that I have read, understand and agree to the <a class="link terms" href="#">Terms and Conditions</a> and <a class="link privacy" href="#">Privacy Policy.</a> I agree any personal information that I may provide here will be processed in accordance with the Privacy Policy [hyperlink] and transferred to the United States and I hereby give my consent to such processing and transfer.</p>
 
 		<span id="popup_checkbox"></span><span>Yes, I undestand and agree</span>
 		<div id="button_wrapper">
@@ -45,4 +45,8 @@
 </div>
 <script type="text/javascript">
 	$('#popup_photo_upload').init_upload();
+	$('#popup_photo_upload .link').click(function(e){
+		$.popup({type: ($(this).hasClass('terms')) ? 'terms_and_conditions' : 'privacy_policy' });
+		return false;
+	})
 </script>

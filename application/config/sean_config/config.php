@@ -120,6 +120,7 @@ $config['lang_uri_abbr'] =
 		"ru" => "Russian", 
 		"zh" => "Singapore", 
 		"tr" => "Turkish"
+
 	);
 
 /*
