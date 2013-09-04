@@ -34,7 +34,7 @@
 		<form id="file_form" name='form' method='POST' enctype='multipart/form-data'>
 			<input type="hidden" id="circle_id" name="circle_id" value="<? echo $circle_id?>">
 			<input type="hidden" id="users_fb_id" name="users_fb_id" value="<? echo $users_fb_id?>">
-			<input name="uploadFile" type="file" class="hidden" id="uploadFile"/>
+			<input name="uploadFile" type="file" class="file" id="uploadFile"/>
 			<div id="button_wrapper">
 				<div class="popup_round_button btn_browse" id="popup_btn_pink">BROWSE</div>
 				<div class="popup_round_button btn_cancel" id="popup_btn_pink">CANCEL</div>
