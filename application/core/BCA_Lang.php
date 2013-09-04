@@ -84,7 +84,7 @@ class BCA_Lang extends CI_Lang
           // REDIRECT           
           // check cookie and set the uri identifier to the default value
           $cookie = $IN->cookie($config['cookie_prefix'].'lang_setting');
-          if(isset($cookie)){
+          if(!empty($cookie)){
             $cookie = explode("/", $cookie);
           }
 
