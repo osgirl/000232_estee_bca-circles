@@ -980,11 +980,17 @@
     Tablet portrait (768px) 
    =============== */
 
+   /*about*/
+   .popup#popup_about p {
+   		display: block;
+   }
+
 
 	/*Video*/
 
-	.popup#popup_video{
-		width: 640px;
+	.popup #about_logo{
+		float: none;
+		margin: 0 auto 10px;
 	}
 
 	.popup#popup_video #popup_video_holder {		
@@ -1049,12 +1055,8 @@
 		height: 92px;		
 		display: inline-block;	
 		vertical-align: top;
-		margin-right: 8px;
-	}	
-
-	.popup #about_indent_p{
-		display: inline-block;
-		width: 40%;
+		float: left;
+		margin: 10px 12px 0 0;
 	}	
 
 	.popup #about_content {

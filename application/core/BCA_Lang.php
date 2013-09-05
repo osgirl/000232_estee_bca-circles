@@ -44,9 +44,7 @@ class BCA_Lang extends CI_Lang
         $lang_uri_abbr          = $config['lang_uri_abbr'];
         
          // adjust the uri string leading slash 
-        $URI->uri_string        = preg_replace("|^\/?|", '/', $URI->uri_string);
-        
-        
+        $URI->uri_string        = preg_replace("|^\/?|", '/', $URI->uri_string);              
         $country_abbr           = $URI->segment(1); //Country
         $lang_abbr              = $URI->segment(2); //Language
 
@@ -70,40 +68,57 @@ class BCA_Lang extends CI_Lang
           // reset the index_page value 
           $config['index_page'] = $index_page;
 
+          // Set cookie
+          $cookie = array(
+                   'name'   => 'lang_setting',
+                   'value'  => $index_page,
+                   'expire' => $config['sess_expiration'],
+                   'domain' => $config['cookie_domain'],
+                   'path'   => $config['cookie_path'],
+                   'prefix' => $config['cookie_prefix'],
+               );
+          $IN->set_cookie($cookie);
         } 
-
         else 
-        {            
-          // check and set the uri identifier to the default value     
+        { 
+          // REDIRECT           
+          // check cookie and set the uri identifier to the default value
+          $cookie = $IN->cookie($config['cookie_prefix'].'lang_setting');
+          if(!empty($cookie)){
+            $cookie = explode("/", $cookie);
+          }
+
+          //Country
           if (isset($country_uri_abbr[$country_abbr])){            
             $index_page .= empty($index_page) ? $country_abbr : "/$country_abbr";
+          }
+          else if(isset($cookie[0])){
+            $index_page .= empty($index_page) ? $cookie[0] : "/$cookie[0]";
           }
           else{
             $index_page .= empty($index_page) ? $default_country_abbr : "/$default_country_abbr";
           }
 
-          $index_page .= empty($index_page) ? $default_language_abbr : "/$default_language_abbr";
+          //Language
+          if(isset($cookie[1])){
+            $index_page .= empty($index_page) ? $cookie[1] : "/$cookie[1]";
+          }
+          else{
+            $index_page .= empty($index_page) ? $default_language_abbr : "/$default_language_abbr";
+          }
         
-          if (strlen($country_abbr) == 2) {
-               // remove invalid abbreviation 
+          // remove invalid abbreviation 
+          if (strlen($country_abbr) == 2) {               
               $URI->uri_string = preg_replace("|^\/?$country_abbr/?$lang_abbr|", '', $URI->uri_string);
           }
 
-          // var_dump($config['base_url'].$index_page.$URI->uri_string);
           //Redirect
           header('Location: '.$config['base_url'].$index_page.$URI->uri_string);
           exit;
-
-          // set the language_abbreviation cookie                 
-          // $IN->set_cookie('user_lang', $default_country_abbr, $config['sess_expiration']);
         }
     }
 }
 
-/* translate helper */
-function t($line) {
-    global $LANG;
-    return ($t = $LANG->line($line)) ? $t : $line;
-}
+ 
 
 ?>

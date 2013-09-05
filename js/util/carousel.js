@@ -111,12 +111,12 @@ function Carousel()
 
 		function handleFeaturePhotoData(data){
 			pushPhotoData(data);
-			$.feed.featured(feedmagnet.instagram_feed, handleFeatureInstagramData, 2);
+			$.feed.featured(feedmagnet.instagram_feat_feed, handleFeatureInstagramData, 2);
 		}
 
 		function handleFeatureInstagramData(data){
 			pushPhotoData(data);
-			$.feed.featured(feedmagnet.twitter_feed, handleFeatureTwitterData, 2);
+			$.feed.featured(feedmagnet.twitter_feat_feed, handleFeatureTwitterData, 2);
 		}
 
 		function handleFeatureTwitterData(data){

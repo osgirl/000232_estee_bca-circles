@@ -20,11 +20,13 @@ $config['fb_app_id'] 		= '669147239780429';
 $config['upload_url']		= 'uploads/';
 
 $config['circle_feed_name'] 		= "bca-circle";
-$config['circle_feed_feat_name'] 	= "bca-circle-feat";
 $config['photo_feed_name'] 			= "bca-photo";
-$config['photo_feed_feat_name'] 	= "bca-photo-feat";
 $config['instagram_feed_name'] 		= "bca-instagram";
 $config['twitter_feed_name'] 		= "bca-twitter";
+$config['circle_feed_feat_name'] 	= "bca-circle-feat";
+$config['photo_feed_feat_name'] 	= "bca-photo-feat";
+$config['instagram_feed_feat_name'] = "bca-instagram-feat";
+$config['twitter_feed_feat_name'] 	= "bca-twitter-feat";
 
 /*
 |--------------------------------------------------------------------------
@@ -275,7 +277,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'BCA';
 
 /*
 |--------------------------------------------------------------------------
@@ -316,7 +318,7 @@ $config['sess_time_to_update']	= 300;
 | 'cookie_secure' =  Cookies will only be set if a secure HTTPS connection exists.
 |
 */
-$config['cookie_prefix']	= "";
+$config['cookie_prefix']	= "BCA_";
 $config['cookie_domain']	= "";
 $config['cookie_path']		= "/";
 $config['cookie_secure']	= FALSE;
