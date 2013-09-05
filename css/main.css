@@ -29,7 +29,7 @@ html{
 body {
     font-size: 100%;
     line-height: 1.4;
-	font-family: 'Helvetica', Arial, Verdana;
+	font-family: 'Arial', Verdana;
 	padding: 0;
 	color:#333;
 	width: auto !important;
@@ -1340,7 +1340,7 @@ h2{
 
 .friend_name{
 	margin-top:-10px;
-	font-size:1.4em;
+	font-size:1.2em;
 }
 
 #add_friend{
@@ -1348,7 +1348,7 @@ h2{
 }
 
 .typeahead{
-	min-width:240px;
+	min-width:270px;
 }
 
 .typeahead li{

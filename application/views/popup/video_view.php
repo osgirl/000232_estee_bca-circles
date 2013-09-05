@@ -14,9 +14,9 @@
 		  </video>
 	</div>
 	<div id="popup_video_footer">
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed sodales est. Vivamus non dolor tempus, aliquet diam sagittis, molestie tortor.</p>
+		<p language_id="video_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed sodales est. Vivamus non dolor tempus, aliquet diam sagittis, molestie tortor.</p>
 		<ul id="popup_footer_share">
-			<li>SHARE</li>
+			<li language_id="share">SHARE</li>
 			<li class="share-ico" id="popup_footer_share_facebook" onclick="$.popup_share({post_type:'video', url:'/video', type:'facebook'})"></li>
 			<li class="share-ico" id="popup_footer_share_twitter" onclick="$.popup_share({post_type:'video', url:'/video', type:'twitter'})"></li>
 		</ul>

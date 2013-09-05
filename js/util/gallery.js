@@ -331,6 +331,7 @@ function Gallery()
 		        $.feed.get(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
 		        $.feed.get(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
 			}else{
+				console.debug("instagram number", instagramNum);
 				$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
 				$.feed.more(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
 				$.feed.more(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
@@ -438,11 +439,11 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			if(notEnoughPhoto) {
 
-				console.debug("NOT ENOUGH PHOTO")
+				console.debug("NOT ENOUGH PHOTO", $data.length, restNum);
+
 				if($data.length < restNum){
 					subRestNum = restNum - $data.length;
 					$.feed.more(feedmagnet.instagram_feed, function(inData){
-
 						if(inData.length < subRestNum ){
 							var subSubRestNum = subRestNum - inData.length;
 							$.feed.more(feedmagnet.twitter_feed, function(twitterData){
@@ -510,6 +511,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 		function handleAllPhotoData(data){
 
+			console.debug( "WHERE IS INSTAGRAM", data);
+
 			//oc: combine all 3 feeds into 1
 			if(data.length != 0) {
 				$(data).each(function (i, v){
@@ -531,6 +534,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				// $(allPhotoData).each(function(i,v){
 				// 	console.debug("THESE ARE ALL DATAS", v.data.channel + " - " + v.data.timestamp)
 				// })
+
+				console.debug("all photo data", allPhotoData.length, photoSum)
 
 			 	if(allPhotoData.length >= photoSum ){
 			 		notEnoughPhoto = false;
@@ -796,6 +801,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			feedEnd = false;
 			onePage = false;
 			oneCircle = false;
+			notEnoughPhoto = false;
 			restNum = 0;
 			subRestNum = 0;
 			restCount = 0;

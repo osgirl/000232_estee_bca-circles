@@ -1001,6 +1001,8 @@ function getUserCircleData(){
 }
 
 function createStatItem(item, parent, line1, line2, data, isCircle){
+
+	//to do: pop in goal with different languages
 		var statItem = $('<table>');
 		statItem.addClass('action_item');
 
@@ -1024,11 +1026,14 @@ function createStatItem(item, parent, line1, line2, data, isCircle){
 							num_friends: data.friends_data.length,
 							friends_data: data.friends_data,
 							is_user:true
+					}
 				}
-			}
-			galleryItem.openPopUp(popupData);
-		})
-	}
+				galleryItem.openPopUp(popupData);
+			})
+			statItem.find('.action_line_2').attr('language_id', 'n_friend_taking_action');
+		}else{
+			statItem.find('.action_line_1').attr('language_id', 'n_people_will');
+		}
 }
 
 function createCircle(){	

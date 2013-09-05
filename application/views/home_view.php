@@ -74,15 +74,15 @@
 		                <div class="top_content_span span6">
 		                    <div id="big_image"><img src='<?= base_url(); ?>img/pics/stronger-together.jpg'/>
 			                    <div id="tagline">
-			                    	<div class="stronger_together all_cap">we’re stronger<br /><span style="font-size:165%">together</span></div>
-			                    	<div class="copy_text">Together, take action in defeating breast cancer by inviting your friends to join your circle of strength. Show how you're fighting breast cancer by adding a photo, creating a circle, or tagging #BCAstrength.</div>
+			                    	<div language_id="we_are_stronger_together" class="stronger_together all_cap">we’re stronger<br /><span style="font-size:165%">together</span></div>
+			                    	<div language_id="main_image_copy" class="copy_text">Together, take action in defeating breast cancer by inviting your friends to join your circle of strength. Show how you're fighting breast cancer by adding a photo, creating a circle, or tagging #BCAstrength.</div>
 			                    </div>
 		                    </div>
 		                </div>
 		                <div class="top_content_span span6">
 		                	<div class="row">
 		                		<div id='featured_header' class="span6">
-		                			<div id="around_the_world" class="all_cap">featured from around the world</div>
+		                			<div id="around_the_world" language_id="featured_around_world" class="all_cap">featured from around the world</div>
 		                			<div class='pull_left'>
 										<div class='featured_dot featured_selected'></div>
 										<div class='featured_dot featured_deselected'></div>
@@ -135,19 +135,19 @@
 	            	<div class='log_out_status'>
 	            		<div class="row">
 							<div id='join_conversation' class="span7">
-								<div id='join_header' class="all_cap">join the conversation</div>
+								<div id='join_header' class="all_cap" language_id="join_the_conversation">join the conversation</div>
 								<div>
-									<div id='join_text' class='light_font'>Show how you're fighting breast cancer by creating a circle, uploading a photo, or tagging posts on Instagram and Twitter with <b>#BCAstrength</b>.</div>
+									<div id='join_text' class='light_font' language_id="join_the_conversation_copy">Show how you're fighting breast cancer by creating a circle, uploading a photo, or tagging posts on Instagram and Twitter with <b>#BCAstrength</b>.</div>
 									<table class="btn_control">
 										<tr>
-										    <td class="button_left_wrapper"><a class='start_create_circle_btn pink_btn all_cap'>CREATE A CIRCLE</a></td>
-											<td class="button_right_wrapper"><a onclick="return $.popup({type:'photo_upload'});" class='upload_photo_btn pink_btn pull_left all_cap'>UPLOAD A PHOTO</a></td>
+										    <td class="button_left_wrapper"><a class='start_create_circle_btn pink_btn all_cap' language_id="create_a_circle">CREATE A CIRCLE</a></td>
+											<td class="button_right_wrapper"><a onclick="return $.popup({type:'photo_upload'});" class='upload_photo_btn pink_btn pull_left all_cap' language_id="upload_a_photo">UPLOAD A PHOTO</a></td>
 										</tr>
 									</table>
 								</div>
 							</div>
 							<div id='trending_actions_1' class='span5'>
-								<h2>Trending Actions</h2>
+								<h2 language_id="trending_actions">Trending Actions</h2>
 							</div>
 						</div>
 					</div>
@@ -158,19 +158,19 @@
 								<div id='user_profile_info'>
 									<div id='bottom_user_name' class='user_name_display'></div>
 									<div class='user_location_display'></div>
-									<div id='user_circle_num'>Belongs to <span id='circle_num'>0 Circle</span></div>
-									<a id='create_another_circle' class='start_create_circle_btn pink_btn all_cap light_font'>Create a Circle</a>
-									<a onclick="$.popup({type:'photo_upload'});" id="log_in_upload_photo_btn" class='upload_photo_btn pink_btn pull_left all_cap'>UPLOAD A PHOTO</a>
+									<div id='user_circle_num' language_id="belongs_to_n_circles">Belongs to <span id='circle_num'>0 Circle</span></div>
+									<a id='create_another_circle' class='start_create_circle_btn pink_btn all_cap light_font' language_id="create_a_circle">Create a Circle</a>
+									<a onclick="return $.popup({type:'photo_upload'});" id="log_in_upload_photo_btn" class='upload_photo_btn pink_btn pull_left all_cap' language_id="upload_a_photo">UPLOAD A PHOTO</a>
 								</div>
 								
 							</div>
 							<div id="my_circles" class='user_stats span4'>
-								<h2>My Circles</h2>
+								<h2 language_id="my_circles">My Circles</h2>
 								<div id="my_circle_scroll" class="scroll-pane"></div>
 							</div>
 							
 							<div id="trending_actions_2" class='user_stats span4'>
-								<h2>Trending Actions</h2>
+								<h2 language_id="trending_actions">Trending Actions</h2>
 							</div>
 						</div>
 					</div>  
@@ -180,12 +180,12 @@
 					<div class='h_divider_top'></div>
 					<div id="filter_nav">
 						<div style="display:inline-block"><img src='<?= base_url(); ?>img/icons/filter.png'/></div>
-						<a id="filter_all_btn" type="all" class="pink_btn pink_filter_btn all_cap">all</a>
-						<a id="filter_circles_btn" type="circle" class="pink_btn pink_filter_btn all_cap">circles</a>
-						<a id="filter_photos_btn" type="photo" class="pink_btn pink_filter_btn all_cap">photos</a>
-						<a id="filter_instagram_btn" type="instagram" class="pink_btn pink_filter_btn blue_btn"><img src='<?= base_url(); ?>img/buttons/instagram.png'></a>
-						<a id="filter_twitter_btn" type="twitter" class="pink_btn pink_filter_btn light_blue_btn"><img src='<?= base_url(); ?>img/buttons/twitter.png'></a>
-						<a id="filter_friends_btn" type="friend" class="pink_btn pink_filter_btn all_cap">my friend's circles</a>
+						<a id="filter_all_btn" type="all" class="pink_btn pink_filter_btn all_cap" language_id="all">all</a>
+						<a id="filter_circles_btn" type="circle" class="pink_btn pink_filter_btn all_cap" language_id="circles">circles</a>
+						<a id="filter_photos_btn" type="photo" class="pink_btn pink_filter_btn all_cap" language_id="photos">photos</a>
+						<a id="filter_instagram_btn" type="instagram" class="pink_btn pink_filter_btn blue_btn" language_id="instagram"><img src='<?= base_url(); ?>img/buttons/instagram.png'></a>
+						<a id="filter_twitter_btn" type="twitter" class="pink_btn pink_filter_btn light_blue_btn" language_id="twitter"><img src='<?= base_url(); ?>img/buttons/twitter.png'></a>
+						<a id="filter_friends_btn" type="friend" class="pink_btn pink_filter_btn all_cap" language_id="my_friends_circle">my friend's circle</a>
 					</div>
 					<div id="feed_magnet">
 					</div>
@@ -197,26 +197,26 @@
         <div id='donate_area'>
         	<div id="regular_footer">
 				<div id='join_fight' class='span2 all_cap light_font span'>
-					<div id='join_fight_text'>Join the fight<br /><span style='font-size:160%'>donate!</span></div>
-					<a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" target="_blank" ><div id='donate_btn' class='pink_btn'>DONATE NOW</div></a>
+					<div id='join_fight_text' language_id="join_the_fight_donate">Join the fight<br /><span style='font-size:160%'>donate!</span></div>
+					<a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" target="_blank" ><div id='donate_btn' class='pink_btn' language_id="donate_now">DONATE NOW</div></a>
 				</div>
-				<div id='join_fight_content' class="span5">
+				<div id='join_fight_content' class="span5" language_id="footer_copy">
 					<p>Breast cancer affects 1 in 8 women in their lifetime. A donation of $50 raised by a Circle funds approximately one hour of lifesaving research through The Breast Cancer Research Foundation. Donate now and take us a step closer to eradicating this disease.</p>
 				</div>
 				<div id='watch_video' class="span5">
 					<div><a  href="#video" onclick="return $.popup({type:'video'});"><img src="<?= base_url(); ?>img/assets/video-thumb.png"/></a></div>
-					<div id="watch_video_text" class='pink_text all_cap'>watch the<br/>bca video</div>
+					<div id="watch_video_text" class='pink_text all_cap' language_id="watch_bca_video">watch the<br/>bca video</div>
 				</div>
 				<div id="footer">
 	                <div style='width:48%; float:left; border-right:#f38dab 1px solid; padding-right:1.5%'> 
-	                	<div class='pink_text cta' id='privacy_policy_btn' onclick="$.popup({type:'privacy_policy'});">Privacy Policy</div> 
+	                	<div class='pink_text cta' id='privacy_policy_btn' onclick="$.popup({type:'privacy_policy'});" language_id="privacy_policy">Privacy Policy</div> 
 	                </div>
 					<div style='width:49%; float:right; padding-left:1%'>
-						<div class='pink_text cta' id='term_and_cons_btn' onclick="$.popup({type:'terms_and_conditions'});">Terms & Conditions</div>
+						<div class='pink_text cta' id='term_and_cons_btn' onclick="$.popup({type:'terms_and_conditions'});" language_id="terms_and_conditions">Terms & Conditions</div>
 					</div>
 	            </div>
             </div>
-            <div id="load_more_btn_wrapper"><a id="load_more_btn" class="pink_btn all_cap">load more</a></div>
+            <div id="load_more_btn_wrapper"><a id="load_more_btn" class="pink_btn all_cap" language_id="load_more">load more</a></div>
 		</div>	
 
 

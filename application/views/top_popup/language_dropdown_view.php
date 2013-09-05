@@ -28,10 +28,11 @@
         </div>
     </li>
     <li>
-        <div id="cn">
-            <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/china.png' />
-            <span class="country">&nbsp;&nbsp;China</span>&nbsp;&nbsp;
-            <a >中文</a>
+    <li>
+        <div id="cl">
+            <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/french.png' />
+            <span class="country">&nbsp;&nbsp;France</span>&nbsp;&nbsp;
+            <a >French</a>
         </div>
     </li>
     <li>

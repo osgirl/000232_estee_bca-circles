@@ -1,11 +1,11 @@
 
 <div id="create_circle_screen">
-	<div id="create_circle_header" class="all_cap light_font">Create your own circle of strength</div>
+	<div id="create_circle_header" class="all_cap light_font" language_id="create_your_own_circle">Create your own circle of strength</div>
 	
 	<!--STEP 1-->
 	<div id="create_circle_step1" class="create_circle_step header_pop_content">
-    	<div class="steps">Step 1: Choose an action for your Circle</div>
-    	<h1 class="all_cap">how will you fight breast cancer this year?</h1>
+    	<div class="steps" language_id="step_1_choose_an_action">Step 1: Choose an action for your Circle</div>
+    	<h1 class="all_cap" language_id="how_will_you_fight">how will you fight breast cancer this year?</h1>
     	<div id="select_action">
     		<div id="select_action_button" class="select_button">
     			<div id="select_action_field" class="select_field select_action_text"><span id="goal_selected"><!-- Be proactive. Schedule a mammogram. --></span></div>
@@ -21,21 +21,21 @@
 				</ul>
 			</div>
 		</div>
-		<div class="steps">Or <span class="pink_text">Create your own action!</span></div>
+		<div class="steps"><span language_id="or">Or</span> <span class="pink_text" language_id="create_your_own_action">Create your own action!</span></div>
 		<input id="custom_action" autocomplete="off" type="text" maxlength="80" placeholder="ex: Be more active."></input>
 		<table class="btn_control">
 			<tr>
-			    <td class="button_left_wrapper"><a class='pink_btn pull_right cancel_create_circle_btn'>cancel</a></td>
-				<td class="button_right_wrapper"><a id="next_step_btn" class='pink_btn pull-left'>next step</a></td>
+			    <td class="button_left_wrapper"><a class='pink_btn pull_right cancel_create_circle_btn' language_id="cancel">cancel</a></td>
+				<td class="button_right_wrapper"><a id="next_step_btn" class='pink_btn pull-left' language_id="next_step">next step</a></td>
 			</tr>
 		</table>
 	</div>
 	<!--STEP 1 END-->
 	<!--STEP 2-->
 	<div id="create_circle_step2" style="display:none" class="create_circle_step header_pop_content">
-		<div class="steps">Step 2: Add your friends. You may add up to 10 friends to your circle.</div>
+		<div class="steps" language_id="step_2_add_your_friend">Step 2: Add your friends. You may add up to 10 friends to your circle.</div>
     	<div style="font-size:4em" class="all_cap friend_content"><span id="create_circle_user" class="pink_text"></span>,</div>
-    	<div style="margin-bottom:10px;" class="friend_content"><span id="friend_list" class="all_cap">take action against breast cancer by creating a circle of strength with </span>
+    	<div style="margin-bottom:10px;" class="friend_content"><span id="friend_list" class="all_cap" language_id="add_friends">take action against breast cancer by creating a circle of strength with </span>
     		<span id="add_friend">
     			<!--DO NOT DELETE THIS!! THIS IS FOR DETECTING THE WIDTH OF THE NAME-->
     			<span id="temp_name_enter_container" class="all_cap"></span>
@@ -46,8 +46,8 @@
         				<a id="name_plus_btn"><img src="<?php echo base_url(); ?>img/buttons/plus-name-btn.png"></a>
         			</div>
         			<div id="choose_photos_wrapper">
-            			<span class="all_cap"><b> or </b></span>
-            			<a id="choose_photos_btn" class="pink_btn all_cap">choose by photo</a>
+            			<span class="all_cap" language_id="or"><b> or </b></span>
+            			<a id="choose_photos_btn" class="pink_btn all_cap" language_id="choose_by_photo">choose by photo</a>
         			</div>
     			</div>
     			
@@ -55,16 +55,16 @@
     	</div>
     	<table id="edit_friend_control" style="display:none" class="btn_control">
 			<tr>
-			    <td class="button_left_wrapper"><a class='pink_btn pull_right cancel_edit_friend_btn'>cancel</a></td>
-				<td class="button_right_wrapper"><a id="edit_friend_done_btn" class='pink_btn pull-left'>done</a></td>
+			    <td class="button_left_wrapper"><a class='pink_btn pull_right cancel_edit_friend_btn' language_id="cancel">cancel</a></td>
+				<td class="button_right_wrapper"><a id="edit_friend_done_btn" class='pink_btn pull-left' language_id="done">done</a></td>
 			</tr>
 		</table>
 		
 		<table id="create_circle_control" class="btn_control">
 			<tr>
-			    <td class='tributton_left_wrapper'><a id="back_step_btn" class='pink_btn pull_right'>back</a></td>
-			    <td class="tributton_mid_wrapper"><a class='pink_btn cancel_create_circle_btn'>cancel</a></td>
-				<td class="tributton_right_wrapper"><a id="create_circle_btn" class='pink_btn pull-left'>create your circle</a></td>
+			    <td class='tributton_left_wrapper'><a id="back_step_btn" class='pink_btn pull_right' language_id="back">back</a></td>
+			    <td class="tributton_mid_wrapper"><a class='pink_btn cancel_create_circle_btn' language_id="cancel">cancel</a></td>
+				<td class="tributton_right_wrapper"><a id="create_circle_btn" class='pink_btn pull-left' language_id="create_your_circle">create your circle</a></td>
 			</tr>
 		</table>
 		
