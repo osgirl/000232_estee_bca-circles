@@ -49,12 +49,14 @@
 		  if (indexPage !='') indexPage += '/';
 
 		  var feedmagnet = {};
-		  feedmagnet.circle_feed = '<?= config_item("circle_feed_name"); ?>';
-		  feedmagnet.circle_feat_feed = '<?= config_item("circle_feed_feat_name"); ?>';
-		  feedmagnet.photo_feed = '<?= config_item("photo_feed_name"); ?>';
-		  feedmagnet.photo_feat_feed = '<?= config_item("photo_feed_feat_name"); ?>';
-		  feedmagnet.instagram_feed = '<?= config_item("instagram_feed_name"); ?>';
-		  feedmagnet.twitter_feed = '<?= config_item("twitter_feed_name"); ?>';
+		  feedmagnet.circle_feed 		 = '<?= config_item("circle_feed_name"); ?>';
+		  feedmagnet.circle_feat_feed  	 = '<?= config_item("circle_feed_feat_name"); ?>';
+		  feedmagnet.photo_feed 		 = '<?= config_item("photo_feed_name"); ?>';
+		  feedmagnet.photo_feat_feed	 = '<?= config_item("photo_feed_feat_name"); ?>';
+		  feedmagnet.instagram_feed 	 = '<?= config_item("instagram_feed_name"); ?>';
+		  feedmagnet.instagram_feat_feed = '<?= config_item("instagram_feed_feat_name"); ?>';
+		  feedmagnet.twitter_feed 		 = '<?= config_item("twitter_feed_name"); ?>';
+		  feedmagnet.twitter_feat_feed   = '<?= config_item("twitter_feed_feat_name"); ?>';
 
 		  console.log(feedmagnet);
 		  
