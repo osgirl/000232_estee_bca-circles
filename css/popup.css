@@ -278,7 +278,7 @@
 
 .popup #popup_photo_upload_agreement_window h2 {
 	margin: 10px 0 5px;
-	font-size: 13px;
+	font-size: 11px;
 }
 
 .popup #popup_photo_upload_agreement_window a {
@@ -524,7 +524,7 @@
 	margin-left: -25%;
 	top: 27%;
 	left:50%;
-	font-family: 'Helvetica',Arial, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-weight: 300;
 	font-size: 40%;
 	text-align: center;
@@ -559,7 +559,7 @@
 .popup #popup_circle_photo_button_wrapper span{
 	height: 28px;
 	padding: 0 15px 0 30px;
-	font-family: Arial, 'Arial', sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-weight: 300;
 	font-size: 1em;
 	line-height: 2em;
@@ -716,7 +716,7 @@
 }
 
 .popup #popup_legal_content{
-	font-family: Helvetica, Arial, sans-serif;	
+	font-family: Arial, Helvetica, sans-serif;
 	width: 96%;
 	height: 94%;
 	margin: 9% 3%;
@@ -875,7 +875,7 @@
 
 	.popup #popup_photo_upload_agreement_window h2 {
 		margin: 70px 0 20px;
-		font-size: 23px;
+		font-size: 20px;
 	}
 
 	.popup #popup_photo_upload_agreement_window ul li{
