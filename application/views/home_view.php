@@ -12,12 +12,6 @@
         <title>BCA - We're Stronger Together</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=0"/> 
-        <meta property="fb:app_id" content="704339276259855">
-        <meta property="og:title" content="BCA Circle">
-        <meta property="og:image" content="http://16w22ventures.info/staging/estee_lauder/bca/img/pics/stronger-together.png">
-        <meta property="og:description" content="<? if(isset($user_goal)) echo $user_goal; else echo 'general description' ?>">
-        <meta property="og:url" content="http://bcasite.dev?">
-        <meta property="og:type" content="bcacircles:circle">
 
         <link rel="stylesheet" href="<?= base_url(); ?>css/bootstrap.min.css?cachebuster=<?= $cacheBuster; ?>">
         <!-- <link rel="stylesheet" href="<?= base_url(); ?>css/bootstrap-responsive.min.css?cachebuster=<?= $cacheBuster; ?>"> -->

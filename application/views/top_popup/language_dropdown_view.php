@@ -24,7 +24,7 @@
         <div id="cl">
             <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/chile.png' />
             <span class="country">&nbsp;&nbsp;Chile</span>&nbsp;&nbsp;
-            <a >Español</a>
+            <a href= "<?=base_url()?>es/cl/">Español</a>
         </div>
     </li>
     <li>

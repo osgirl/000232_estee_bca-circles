@@ -88,6 +88,8 @@ var ismobile = false;
 
 var SCROLL_TO_SHOW_FOOTER;
 
+var translatedItem;
+
 $(document).ready(function(){	
 	
 	//sean: check the url first and redirect to en/us if the first parameter is NY.
@@ -96,12 +98,6 @@ $(document).ready(function(){
         location.replace(baseUrl + "en/us");
         return true;
     }
-
-    //sean: language loader (function is in plugins.js)
-    $.language.load(languageLoadComplete);
-		function languageLoadComplete(e){
-    	console.debug(e);
-	}
 
 	//oc: parse cookie for us.
 	$.cookie.json = true;
@@ -205,9 +201,39 @@ function translatePage(){
 	$('.country_name').html(selectedCountry);
 	$('.flag img').attr('src', $(country).children('img').attr('src') );
 
-	var pathArray = window.location.pathname.split( '/' );
-	var currentSelectedLanguage = pathArray[pathArray.length-2];
+	$.language.load(function(e){
+   		loadLanguageToElements(e);
+	});
 
+}
+
+function loadLanguageToElements(languageData){
+	translatedItem = new Array();
+	$("*").each(function(i,v){
+		if( typeof( $(v).attr('language_id') ) != 'undefined') {
+			var item = new Object();
+			item.id = $(v).attr('language_id');
+			item.item = v;
+			translatedItem.push(item);
+		}
+	})
+
+	$(languageData).each(function(i,v){
+
+		$(translatedItem).each(function(l,t){
+
+			if(v.language_id == t.id) {
+
+				$(v).each(function(g,b){
+					console.log(b[g])
+					//$(t.item).html(b[1]);
+				})
+				
+			}
+
+		})
+
+	})
 }
 
 function enableEventBinds(){
@@ -1054,6 +1080,7 @@ function createCircle(){
 	console.log("friend tags", friendTagIDs);
 	console.log("goal", goal);
 	console.log("goalID", goalID);
+	console.log("language", language);
 
 	isCustomizeGoal = ($("#custom_action").val() == "") ? false : true;
 
