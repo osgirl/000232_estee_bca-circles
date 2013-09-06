@@ -29,9 +29,6 @@ class Circle extends CI_Controller {
 	{
 		$this->post = $this->input->post();
 		if ( isset ( $this->post['users_fb_id'] )) {	
-			
-		// 	$php_date 	= new DateTime();
-		// 	$time_date  = $php_date->format('Y-m-d H:i:s');
 
 			$ref_goal_id = $this->post['ref_goal_id'];
 
@@ -40,8 +37,6 @@ class Circle extends CI_Controller {
 				'users_name'			=> $this->post['users_name'],
 				'users_photo_url'		=> $this->post['users_photo_url'],
 				'goal'					=> $this->post['goal'],
-				//'date'					=> '2013-07-31 11:50:53',
-				'language'				=> $this->post['language'],
 				'ref_goal_id'			=> $ref_goal_id,
 				'country'				=> $this->post['country']
 				);
@@ -55,7 +50,6 @@ class Circle extends CI_Controller {
 				$data['fb_id'] = $this->post['users_fb_id'];
 				$data['goal'] = $this->post['goal'];
 				$data['goal_id'] = $ref_goal_id;
-				$data['language'] = $this->post['language'];
 				$data['country'] = $this->post['country'];
 				echo json_encode($data);
 			}
@@ -88,7 +82,6 @@ class Circle extends CI_Controller {
 			    $data['user_photo_url'] = $row->users_photo_url;
 			    $data['goal'] = $row->goal;
 			    $data['goal_id'] = $goal_id;
-			    $data['language'] = $row->language;
 			    $data['country'] = $row->country;
 
 			    $friend_query = $this->db->query("SELECT * FROM friends WHERE ref_circle_id = '$circle_id'"); 
@@ -158,7 +151,6 @@ class Circle extends CI_Controller {
 			    $data['user_photo_url'] = $row->users_photo_url;
 			    $data['goal'] 			= $row->goal;
 			    $data['goal_id'] 		= $row->ref_goal_id;
-			    $data['language'] 		= $row->language;
 			    $data['country'] 		= $row->country;
 			    $data['goal_type'] 		= $row->goal_type;
 
