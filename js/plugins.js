@@ -1259,7 +1259,7 @@ $.extend(
         });
 
         history[v] = str;
-    }
+    };
 
     function checkDuplicateData(v, result)
     {
@@ -1273,7 +1273,7 @@ $.extend(
             }
         })
         return valid;
-    }
+    };
 
 })(jQuery);
 
