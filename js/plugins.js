@@ -1156,7 +1156,7 @@ $.extend(
                     type: 'post',
                     dataType: 'json',
                     data: {
-                        language : 'es'
+                        language : $language
                     },
                     success: function(data)
                     {

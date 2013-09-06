@@ -6,7 +6,7 @@ class Goals_Model extends BCA_Model
 	{
 		$this->table = "goals";
 		$this->pk = "id";
-    	$this->fields = array(
+    	$this->goal = array(
 			'id' 							=> array("shown"=>true, 	"label"=>"Id"),
 			'goal' 							=> array("shown"=>true, 	"label"=>"Circle Goal"),
 			'taken_number'					=> array("shown"=>true, 	"label"=>"Goal Taken Number"),
