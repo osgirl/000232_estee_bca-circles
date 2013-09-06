@@ -672,8 +672,6 @@ $.extend(
         $d.child = true;
         if ($d.circle_id == null) $d.circle_id = $d.id;
 
-
-
         //Disable lazyLoader first
         gallery.disableLazyloader();
 
@@ -1125,6 +1123,53 @@ $.extend(
 
 })(jQuery);
 
+/************************************************************
+ * Private function for Language data loader (jquery extend)
+ ************************************************************/
+(function(f)
+{    
+    var $language,
+    b = f.language = function(v)
+    {};
+    f.extend(b,
+    {
+        load: function(fn)
+        {
+            if(fn == null){
+                console.debug('$.language Error: event Listener Function is missing');
+                return false;
+            }
+
+            $language = selectedLanguage;
+            //Manual language selector (possible update)
+            if ($language == 'en'){
+                if(selectedCountry == 'uk')
+                    $language = 'en-uk';
+                else 
+                    $language = 'en-us';
+            }
+            else if ($language == 'es' && selectedCountry == 'mx')
+                $language = 'es-mx';   
+            $.ajax(
+                {
+                    url: baseUrl + indexPage + 'language/fetchLanguageData',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        language : 'es'
+                    },
+                    success: function(data)
+                    {
+                       fn(data);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown)
+                    {
+                        console.debug('Error ' + textStatus);
+                    }
+                });
+        }
+    });
+})(jQuery);
 
 /**************************************************
  * Private function for FeedMagnet (jquery extend)
@@ -1182,14 +1227,6 @@ $.extend(
                 limit: n,
                 success: function(self, data)
                 {
-                    /*if (v.indexOf('bca-photo') != -1)
-                    {
-                        console.debug('--->FEED: GET ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
-                        data.response.updates.forEach(function(obj)
-                        {
-                            console.debug(' from FM id ' + obj.data.text);
-                        });
-                    }*/
                     saveHistory(v, data.response.updates);
                     f(data.response.updates);
                 }
@@ -1205,14 +1242,6 @@ $.extend(
                 limit: n,
                 success: function(self, data)
                 {
-                    /*if (v.indexOf('bca-photo') != -1)
-                    {
-                        console.debug('--->FEED: MORE ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
-                        data.response.updates.forEach(function(obj)
-                        {
-                            console.debug(' from FM id ' + obj.data.text);
-                        });
-                    }*/
                     if (checkDuplicateData(v, data.response.updates)) f(data.response.updates);
                     else
                     {
@@ -1230,8 +1259,7 @@ $.extend(
             {
                 limit: n,
                 success: function(self, data)
-                {
-                    // console.debug('--->FEED: FEAT ' + v + ' | Limit of ' + n + ' | data length ' + data.response.updates.length);
+                {                    
                     f(data.response.updates);
                 }
             });

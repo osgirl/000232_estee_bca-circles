@@ -23,23 +23,9 @@ class BCA_Model extends CI_Model
 	/** CRUD Methods **/
 	function get( $options = array() ){
 		foreach ($this->fields as $key => $value) {
-			if(isset($options[$key]) && $key != "pages" && $key != "categories")
+			if(isset($options[$key]))
 				$this->db->where($key, $options[$key]);
 		}
-			
-		/*if(!empty($options['pages'])){
-			$pages = str_replace("-", " ", $options['pages'] );
-			$this->db->where("MATCH(pages) AGAINST('".$pages."' IN BOOLEAN MODE)");
-		}
-
-		if(!empty($options['categories'])){
-			$categories = str_replace("-", " ", $options['categories'] );
-			$this->db->where("MATCH(categories) AGAINST('".$categories."' IN BOOLEAN MODE)");
-		}
-
-		if(isset($options['exclude'])){
-			$this->db->where("id NOT IN ('".implode("','", $options['exclude']). "')");
-		}*/
 			
 		if(isset($options[$this->pk]))
 				$this->db->where($this->pk, $options[$this->pk]);
@@ -54,6 +40,10 @@ class BCA_Model extends CI_Model
 		if(isset($options['sortBy']) && isset($options['sortDirection']))
 			$this->db->order_by($options['sortBy'], $options['sortDirection']);
 		
+		// select (always return with primary key)
+		if(isset($options['select']))
+			$this->db->select( $this->pk . ',' .$options['select'] );
+
 		$query = $this->db->get($this->table);
 		
 		if(isset($options['count'])) return $query->num_rows();
