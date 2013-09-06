@@ -1,6 +1,6 @@
 <!--LAYOUT CIRCLE START-->
 <div class="circle_flag"></div>
-<div class="circle_creator_area"><span class="circle_creator"></span> created a</div>
+<div class="circle_creator_area"><span class="circle_creator"></span> <span language_id="created_a">created a</span></div>
 <div class="circle_of_strength" language_id="circle_of_strength" >Circle of Strength</div>
 <div class="circle_divider"></div>
 <div class="circle_area_wrapper">

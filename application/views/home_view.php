@@ -153,8 +153,8 @@
 								<div id='user_profile_info'>
 									<div id='bottom_user_name' class='user_name_display'></div>
 									<div class='user_location_display'></div>
-									<div id='user_circle_num' language_id="belongs_to_n_circles">Belongs to <span id='circle_num'>0 Circle</span></div>
-									<a id='create_another_circle' class='start_create_circle_btn pink_btn all_cap light_font' language_id="create_a_circle">Create a Circle</a>
+									<div id='user_circle_num'>Belongs to <span id='circle_num'>0 Circle</span></div>
+									<a id='create_another_circle' class='start_create_circle_btn pink_btn all_cap light_font' language_id="create_a_circle">Create a Circle</a><br />
 									<a onclick="return $.popup({type:'photo_upload'});" id="log_in_upload_photo_btn" class='upload_photo_btn pink_btn pull_left all_cap' language_id="upload_a_photo">UPLOAD A PHOTO</a>
 								</div>
 								
@@ -178,8 +178,8 @@
 						<a id="filter_all_btn" type="all" class="pink_btn pink_filter_btn all_cap" language_id="all">all</a>
 						<a id="filter_circles_btn" type="circle" class="pink_btn pink_filter_btn all_cap" language_id="circles">circles</a>
 						<a id="filter_photos_btn" type="photo" class="pink_btn pink_filter_btn all_cap" language_id="photos">photos</a>
-						<a id="filter_instagram_btn" type="instagram" class="pink_btn pink_filter_btn blue_btn" language_id="instagram"><img src='<?= base_url(); ?>img/buttons/instagram.png'></a>
-						<a id="filter_twitter_btn" type="twitter" class="pink_btn pink_filter_btn light_blue_btn" language_id="twitter"><img src='<?= base_url(); ?>img/buttons/twitter.png'></a>
+						<a id="filter_instagram_btn" type="instagram" class="pink_btn pink_filter_btn blue_btn"><img src='<?= base_url(); ?>img/buttons/instagram.png'></a>
+						<a id="filter_twitter_btn" type="twitter" class="pink_btn pink_filter_btn light_blue_btn"><img src='<?= base_url(); ?>img/buttons/twitter.png'></a>
 						<a id="filter_friends_btn" type="friend" class="pink_btn pink_filter_btn all_cap" language_id="my_friends_circle">my friend's circle</a>
 					</div>
 					<div id="feed_magnet">
@@ -190,9 +190,9 @@
         </div> <!-- /container -->
 
         <div id='donate_area'>
-        	<div id="regular_footer">
+        	<div id="regular_footer" style="width:100%">
 				<div id='join_fight' class='span2 all_cap light_font span'>
-					<div id='join_fight_text' language_id="join_the_fight_donate">Join the fight<br /><span style='font-size:160%'>donate!</span></div>
+					<div id='join_fight_text'><span language_id="join_the_fight">Join the fight</span><br /><span language_id="join_the_fight_donate_ex" style='font-size:160%'>donate!</span></div>
 					<a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" target="_blank" ><div id='donate_btn' class='pink_btn' language_id="donate_now">DONATE NOW</div></a>
 				</div>
 				<div id='join_fight_content' class="span5" language_id="footer_copy">

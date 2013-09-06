@@ -67,7 +67,7 @@ var TRENDING_ACTION_SHOW	= 3;
 var goalData;
 var trendingData;
 
-var photoButtonHtml = '<div class="gallery_item_btn"><div class="rollover_content"><div class="pink_btn all_cap view_circle_btn">view</div></div></div>';
+var photoButtonHtml = '<div class="gallery_item_btn"><div class="rollover_content"><div class="pink_btn all_cap view_circle_btn" language_id="view">view</div></div></div>';
 var statsItemHtml = "<tr><td class='action_icon' rowspan='2'><img/></td><td class='action_line_1 light_font'></td></tr><tr><td class='action_line_2'></td></tr>";
 
 var pageNum = 1;
@@ -88,7 +88,16 @@ var ismobile = false;
 
 var SCROLL_TO_SHOW_FOOTER;
 
+var languageData;
+
 var translatedItem;
+var createACircleText;
+var createAnotherCircleText;
+var goalText;
+var belongCircleText;
+var trendingActionPeopleNumText;
+var myCircleFriendNumText;
+
 
 $(document).ready(function(){	
 	
@@ -116,39 +125,6 @@ $(document).ready(function(){
 	translatePage();
 	enableButtons();
 	enableEventBinds();
-
-	$.feed();
-	fm_ready(function() {
-		carousel.initCarousel();
-		gallery.loadGallery();	
-
-
-			$('body').unbind("ALL_LAYOUT_CREATED").bind('ALL_LAYOUT_CREATED', function(){
-
-				console.log("ALL_LAYOUT_CREATED");
-
-				var newPos = $(window).scrollTop() + 300;
-
-				if(isMoreFeed && $(window).width() < 980){
-					$('html, body').animate({
-				        scrollTop: newPos
-				    }, 300);
-				}
-		})
-	});
-	
-	
-	$('#friend_search_field').width(NAME_TEXTFIELD_WIDTH);
-	$('#friend_search_field').tooltip({
-		trigger:'manual'
-	});
-
-	$('#friend_search_wrapper').tooltip({
-		trigger:'manual'
-	});
-
-	createGoalDropdown();
-
 
 });
 
@@ -202,7 +178,41 @@ function translatePage(){
 	$('.flag img').attr('src', $(country).children('img').attr('src') );
 
 	$.language.load(function(e){
+
+		languageData = e;
    		loadLanguageToElements(e);
+
+   		$.feed();
+			fm_ready(function() {
+				carousel.initCarousel();
+				gallery.loadGallery();	
+
+
+					$('body').unbind("ALL_LAYOUT_CREATED").bind('ALL_LAYOUT_CREATED', function(){
+
+						//console.log("ALL_LAYOUT_CREATED");
+
+						var newPos = $(window).scrollTop() + 300;
+
+						if(isMoreFeed && $(window).width() < 980){
+							$('html, body').animate({
+						        scrollTop: newPos
+						    }, 300);
+						}
+				})
+			});
+			
+			
+			$('#friend_search_field').width(NAME_TEXTFIELD_WIDTH);
+			$('#friend_search_field').tooltip({
+				trigger:'manual'
+			});
+
+			$('#friend_search_wrapper').tooltip({
+				trigger:'manual'
+			});
+
+			createGoalDropdown();
 	});
 
 }
@@ -218,22 +228,23 @@ function loadLanguageToElements(languageData){
 		}
 	})
 
+
 	$(languageData).each(function(i,v){
 
 		$(translatedItem).each(function(l,t){
 
-			if(v.language_id == t.id) {
-
-				$(v).each(function(g,b){
-					console.log(b[g])
-					//$(t.item).html(b[1]);
-				})
-				
-			}
+			if(v[0] == t.id) $(t.item).html(v[1]);
 
 		})
 
-	})
+		if(v[0] == "create_a_circle") createACircleText = v[1];
+		if(v[0] == "create_another_circle") createAnotherCircleText = v[1];
+		if(v[0] == "belongs_to_n_circles") belongCircleText = v[1];
+		if(v[0] == "n_people_will") trendingActionPeopleNumText = v[1];
+		if(v[0] == "n_friend_taking_action") myCircleFriendNumText = v[1];
+		
+
+	});
 }
 
 function enableEventBinds(){
@@ -446,7 +457,8 @@ function getTrendingAction(){
 			actionCount++;
 
 			if(actionCount <= TRENDING_ACTION_SHOW){
-				var line1 = v.taken_number + " People will";
+				var line1 = trendingActionPeopleNumText;
+				line1 = line1.replace("#", v.taken_number);
 				var line2 = v.goal;
 
 				createStatItem(v, $('#trending_actions_1'), line1, line2, v, false);
@@ -987,7 +999,7 @@ function getUserCircleData(){
 
 	$('#my_circles .action_item').remove();
 
-	console.log('get user circle data', userID);
+	//console.log('get user circle data', userID);
 
 	$.ajax({
 		type: 'post',
@@ -1003,20 +1015,34 @@ function getUserCircleData(){
         	var circlePlural;
 
         	if(data.length > 0) {
-        		$('#create_another_circle').html('create another circle');
+        		$('#create_another_circle').html(createAnotherCircleText);
         		if(data.length > 1)
         			circlePlural = " Circles";
         		else
         			circlePlural = " Circle";
+        	}else{
+        		$('#create_another_circle').html(createACircleText);
         	}
 
-        	$('#circle_num').html(data.length + circlePlural);
+        	if(selectedLanguage == "en"){
+        		console.log("is english??")
+        		$('#circle_num').html(data.length + circlePlural);
+        	}else{
+        		console.log("is not english??", belongCircleText)
+        		belongCircleText = belongCircleText.replace("#", data.length);
+        		$("#user_circle_num").html(belongCircleText);
+        	}
+
+        	
+
+        	
 
         	$(data).each(function(i,v){
 
         		//console.log(v)
         		var line1 = '<a class="circle_view_link">' + v.goal + '</a>';
-        		var line2 = v.friends_data.length + " Friends Taking Action";
+        		var line2 = myCircleFriendNumText;
+        		line2 = line2.replace("#", v.friends_data.length);
 
         		var interval = setInterval(function(){ 
         			//console.log("what the", $('#my_circle_scroll .jspPane'), $('#my_circle_scroll'))

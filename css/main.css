@@ -139,7 +139,7 @@ h2{
 
 #top_nav{
 	min-width:320px;
-	font-size: .65em;
+	font-size: .7em;
     font-weight: lighter;
     letter-spacing: 1px;
     padding: 2px 20px 0 0;
@@ -901,17 +901,6 @@ h2{
 	
 }
 
-.circle_rollover{
-	background-image: url('../img/assets/white-opacity.png'); 
-	width:100%;
-	height:100%;
-	position:absolute;
-	top:0;
-	left:0;
-	text-align:center;
-	color:black;
-	display:none;
-}
 
 .photo_rollover{
 	background-image: url('../img/assets/white-opacity.png'); 
@@ -924,11 +913,8 @@ h2{
 	display:none;
 }
 
-.circle_rollover_content{
-	display:inline-block;
-	position:absolute;
-	top:0;
-	left:0;
+.rollover_content{
+	padding:4%;
 }
 
 /*.circle_rollover a{
