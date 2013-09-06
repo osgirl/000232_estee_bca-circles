@@ -37,6 +37,8 @@ class Circle extends CI_Controller {
 				'users_name'			=> $this->post['users_name'],
 				'users_photo_url'		=> $this->post['users_photo_url'],
 				'goal'					=> $this->post['goal'],
+				//'date'					=> '2013-07-31 11:50:53',
+				// 'language'				=> $this->post['language'],
 				'ref_goal_id'			=> $ref_goal_id,
 				'country'				=> $this->post['country']
 				);
