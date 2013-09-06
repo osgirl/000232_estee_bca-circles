@@ -1,4 +1,4 @@
-// Avoid `console` errors in browsers that lack a console.
+"use strict";
 (function()
 {
     var method;
@@ -11,7 +11,6 @@
     while (length--)
     {
         method = methods[length];
-
         // Only stub undefined methods.
         if (!console[method])
         {
@@ -49,7 +48,7 @@ function tsToDate(ts)
     {
         m = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         return m[n];
-    }
+    };
 };
 
 //Plugins
@@ -205,7 +204,7 @@ $.extend(
                 d[key] = v[key];
             }
             return d;
-        }
+        };
 
         //Update deeplink
         if (!$isUpload && !$isOutlink)
@@ -304,18 +303,20 @@ $.extend(
         $($c + ' input[type=file]').change(fileChangeListener);
 
         //IE9 or lower version fix (using a default file browse)
-        if(!$('html').hasClass('lte-ie9')){
+        if (!$('html').hasClass('lte-ie9'))
+        {
             $($c + ' .btn_browse').click(browseFile);
             $parent.click(function()
             {
                 if ($parent.children().length == 0) $($c + ' #uploadFile').click();
             });
         }
-        else{
+        else
+        {
             $($c + ' .btn_browse').hide();
             $($c + ' #uploadFile').attr('class', 'file');
         }
-    }
+    };
 
     function toggleCheckbox(e)
     {
@@ -324,7 +325,7 @@ $.extend(
 
         if ($agr) $($c + ' .btn_next').removeClass('dim');
         else $($c + ' .btn_next').addClass('dim');
-    }
+    };
 
     function loadNext()
     {
@@ -332,19 +333,19 @@ $.extend(
         {
             $($c + ' #popup_photo_upload_agreement_window').fadeOut();
         }
-    }
+    };
 
     function descFocus(e)
     {
         $desc_active = true;
         $(e.target).val('');
         $(e.target).removeClass('greyfont');
-    }
+    };
 
     function browseFile()
     {
         $($c + ' #uploadFile').click();
-    }
+    };
 
     function fileChangeListener(e)
     {
@@ -356,7 +357,7 @@ $.extend(
         {
             uploadFile();
         }
-    }
+    };
 
     function uploadToCanvas(e)
     {
@@ -378,7 +379,7 @@ $.extend(
             img.src = event.target.result;
         }
         reader.readAsDataURL(e.target.files[0]);
-    }
+    };
 
 
     function uploadFile()
@@ -407,7 +408,7 @@ $.extend(
                 loadEnd();
             }
         })
-    }
+    };
 
     function uploadFileSuccess(data)
     {
@@ -429,7 +430,9 @@ $.extend(
         {
             //IE9 fix
             var sto = setTimeout(delay, 500);
-            function delay(){
+
+            function delay()
+            {
                 clearTimeout(sto);
                 var image = new Image();
                 image.src = $($img).attr('src');
@@ -598,7 +601,7 @@ $.extend(
         {
             console.log('load image first');
         }
-    }
+    };
 
     function saveFileSuccess(data, des)
     {
@@ -609,9 +612,7 @@ $.extend(
         {
             $('#popup_circle').trigger('photo_upload_complete');
         }
-
         closeWindow();
-
         //Add fake photo only circle id is null, and send custom tracking event
         if ($circle_id == '' || $circle_id == null)
         {
@@ -626,33 +627,31 @@ $.extend(
         }
         else
         {
-            //Photo added to some circle
             $.gaEvent('Circle', 'Photo added', 'Circle ID#: ' + $circle_id);
         }
-
-    }
+    };
 
     function saveFileFailed(jqXHR, textStatus, errorThrown)
     {
         loadEnd();
         alert(jqXHR.responseText);
         console.log(jqXHR.status);
-    }
+    };
 
     function loadStart()
     {
         $($c + ' #anim_loading').show();
-    }
+    };
 
     function loadEnd()
     {
         $($c + ' #anim_loading').hide();
-    }
+    };
 
     function closeWindow()
     {
         $.fancybox.close();
-    }
+    };
 })(jQuery);
 
 
@@ -706,7 +705,7 @@ $.extend(
             opacity: 1
         }, 250);
         createDots();
-    }
+    };
 
     function windowEventListener()
     {
@@ -779,12 +778,12 @@ $.extend(
         function getMarginTop()
         {
             return (fixedNav()) ? $('.navbar').height() : 0;
-        }
+        };
 
         function fixedNav()
         {
             return $('.navbar').css('position') == 'fixed';
-        }
+        };
 
         function updateBrowerProperties()
         {
@@ -812,9 +811,8 @@ $.extend(
                     'bottom': ''
                 });
             }
-        }
-
-    }
+        };
+    };
 
     function createDots()
     {
@@ -845,7 +843,7 @@ $.extend(
                 });
             }
         }
-    }
+    };
 
     function loadCirclePhotos()
     {
@@ -969,16 +967,16 @@ $.extend(
                     opacity: 1
                 }, 500);
                 $(this).remove();
-            }
-        }
-    }
+            };
+        };
+    };
 
     function loadCommentBox()
     {
         var $holder = $($c + ' #popup_circle_comment_holder');
         var iframeSrc = baseUrl + indexPage + 'popup/facebook_comment_iframe/' + $d.id;
         $('<iframe src="' + iframeSrc + '"></iframe>').appendTo($holder);
-    }
+    };
 
     function resizeCirclePhotosNav()
     {
@@ -995,7 +993,7 @@ $.extend(
                 $navs.hide();
                 $tmbs.css('left', 0);
             }
-    }
+    };
 
     function resizeGalleryHeight()
     {
@@ -1003,7 +1001,7 @@ $.extend(
         $margin_bottom = $this.outerHeight() - ($this.parent().outerHeight() + $this.parent().offset().top - $win_abs_y);
         if ($margin_bottom > 0) $this.parent().outerHeight($this.parent().outerHeight() + $margin_bottom);
         else $margin_bottom = 0;
-    }
+    };
 
     function addPhoto()
     {
@@ -1012,7 +1010,7 @@ $.extend(
             type: 'photo_upload',
             data: $d
         });
-    }
+    };
 
     function navPhoto(type)
     {
@@ -1050,18 +1048,18 @@ $.extend(
         }, 500);
         $pagn.children('li').removeClass('selected');
         $pagn.children('li:nth-child(' + ($nav_count + 1) + ')').addClass('selected');
-    }
+    };
 
     function carouselSwipeHandler(e)
     {
         if ($pagn.css('display') == 'block') navPhoto(e.type);
-    }
+    };
 
     function editFriends(v)
     {
         currentCircleViewData = v;
         $('body').trigger('EDIT_FRIEND');
-    }
+    };
 
     function openPhotofromExternalLink($id)
     {
@@ -1095,7 +1093,7 @@ $.extend(
                 console.log('Error ' + textStatus);
             }
         });
-    }
+    };
 
     function closeWindow()
     {
@@ -1119,7 +1117,7 @@ $.extend(
             $this.remove();
             $.address.path('/ ');
         });
-    }
+    };
 
 })(jQuery);
 
@@ -1127,54 +1125,55 @@ $.extend(
  * Private function for Language data loader (jquery extend)
  ************************************************************/
 (function(f)
-{    
-    var $language, $output =[],
-    b = f.language = function(v)
-    {};
+{
+    var $language, $output = [],
+        b = f.language = function(v)
+        {};
     f.extend(b,
     {
         load: function(fn)
         {
-            if(fn == null){
+            if (fn == null)
+            {
                 console.debug('$.language Error: event Listener Function is missing');
                 return false;
             }
 
             $language = selectedLanguage;
             //Manual language selector (possible update)
-            if ($language == 'en'){
-                if(selectedCountry == 'uk')
-                    $language = 'en-uk';
-                else 
-                    $language = 'en-us';
+            if ($language == 'en')
+            {
+                if (selectedCountry == 'uk') $language = 'en-uk';
+                else $language = 'en-us';
             }
-            else if ($language == 'es' && selectedCountry == 'mx')
-                $language = 'es-mx';   
+            else if ($language == 'es' && selectedCountry == 'mx') $language = 'es-mx';
             $.ajax(
+            {
+                url: baseUrl + indexPage + 'language/fetchLanguageData',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    language: $language
+                },
+                success: function(data)
                 {
-                    url: baseUrl + indexPage + 'language/fetchLanguageData',
-                    type: 'post',
-                    dataType: 'json',
-                    data: {
-                        language : $language
-                    },
-                    success: function(data)
+                    var arr;
+                    for (var i = 0; i < data.length; i++)
                     {
-                        var arr;
-                        for(var i=0; i <data.length; i++){
-                            arr = [];
-                            for(var key in data[i]) {
-                                arr.push(data[i][key])
-                            }
-                            $output.push(arr);
+                        arr = [];
+                        for (var key in data[i])
+                        {
+                            arr.push(data[i][key])
                         }
-                       fn($output);
-                    },
-                    error: function(jqXHR, textStatus, errorThrown)
-                    {
-                        console.debug('Error ' + textStatus);
+                        $output.push(arr);
                     }
-                });
+                    fn($output);
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    console.debug('Error ' + textStatus);
+                }
+            });
         }
     });
 })(jQuery);
@@ -1267,7 +1266,7 @@ $.extend(
             {
                 limit: n,
                 success: function(self, data)
-                {                    
+                {
                     f(data.response.updates);
                 }
             });
@@ -1275,6 +1274,7 @@ $.extend(
     });
 
     //Store the Feed Magnet's connection object to fo{}
+
     function fetch_fo(v)
     {
         if (!fo[v])
@@ -1378,6 +1378,7 @@ function checkAndLoadExternalUrl()
             break;
         case 'photo':
 
+            //Load from local
             if (adr[2] == 'bca')
             {
                 u = baseUrl + indexPage + "photo/fetchUploadedPhotoData";
@@ -1386,6 +1387,7 @@ function checkAndLoadExternalUrl()
                 };
                 loadLocalData();
             }
+            //Load from instagram
             else
             {
                 loadInstagramData();
@@ -1432,7 +1434,7 @@ function checkAndLoadExternalUrl()
                     child_id: (adr[5] != undefined) ? adr[5] : null
                 }
             });
-        }
+        };
 
         function photo_success(data)
         {
@@ -1447,12 +1449,11 @@ function checkAndLoadExternalUrl()
                     outlink: true
                 }
             });
-        }
-    }
+        };
+    };
 
     function loadInstagramData()
     {
-        //TEMP TEMP TEMP
         $.ajax(
         {
             type: 'GET',
@@ -1479,26 +1480,12 @@ function checkAndLoadExternalUrl()
             {
                 console.debug('Error ' + textStatus);
             }
-        })
-    }
-
-
+        });
+    };
     //Check referral and send gaEvent if available
     var ref = getURLParameter('referral');
-    if (ref != undefined) $.gaEvent('referral', ref.capitalize())
-
-}
-
-
-//jsAddress temp
-// $.address.change(function(e)
-// {
-// var v = e.value.replace(/^\//, '').split('/');
-// console.log(v);
-// $.address.hash('_');
-// return false;
-// e.preventdefault;
-// });
+    if (ref != undefined) $.gaEvent('referral', ref.capitalize());
+};
 
 /***************************************************
  * Popup jQuery extend for Google analytics event
@@ -1526,7 +1513,9 @@ $.extend(
     }
 });
 
-//Helpers
+/***************************************************
+ * Helpers
+ ***************************************************/
 
 function openShareWindow(_w, _h, _url, _title)
 {
@@ -1536,11 +1525,11 @@ function openShareWindow(_w, _h, _url, _title)
         top = window.screenY + ((window.outerHeight - height) / 2),
         opts = 'location=0' + ',toolbar=0' + ',titlebar=0' + ',status=0' + ',width=' + width + ',height=' + height + ',top=' + top + ',left=' + left;
     window.open(_url, _title, opts);
-}
+};
 
 function getURLParameter(param)
 {
-    var sPageURL = $.address.queryString(); //window.location.search.substring(1);
+    var sPageURL = $.address.queryString();
     var sURLVariables = sPageURL.split('&');
     for (var i = 0; i < sURLVariables.length; i++)
     {
@@ -1550,9 +1539,9 @@ function getURLParameter(param)
             return sParameterName[1];
         }
     }
-}
+};
 
 String.prototype.capitalize = function()
 {
     return this.charAt(0).toUpperCase() + this.slice(1);
-}
+};
