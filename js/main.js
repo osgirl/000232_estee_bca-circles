@@ -198,6 +198,10 @@ function translatePage(){
 	var country = $('#language_menu.dropdown-menu #' + selectedCountry);
 	$('.country_name').html(selectedCountry);
 	$('.flag img').attr('src', $(country).children('img').attr('src') );
+
+	var pathArray = window.location.pathname.split( '/' );
+	var currentSelectedLanguage = pathArray[pathArray.length-2];
+
 }
 
 function enableEventBinds(){
