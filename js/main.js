@@ -97,6 +97,12 @@ $(document).ready(function(){
         return true;
     }
 
+    //sean: language loader 
+    $.language.load(languageLoadComplete);
+		function languageLoadComplete(e){
+    	console.debug(e);
+	}
+
 	//oc: parse cookie for us.
 	$.cookie.json = true;
 

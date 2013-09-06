@@ -2,24 +2,26 @@
 
 class Language extends CI_Controller {
 
+	function __construct() {
+		parent::__construct();		
+		$this->load->model('languages_model');
+	}
 
 	public function index()
 	{
 	}
 
-
 	public function fetchLanguageData()
 	{
 		$this->post = $this->input->post();
-		if ( isset ( $this->post['language'] )) {	
-
+		if (isset($this->post['language'])){	
 			$language = $this->post['language'];
-
-			else
-				echo 'Write failed';
+			$query = array('select'=> $language );
+			$result = $this->languages_model->get($query);
+			echo json_encode($result);
 		 }
 		 else
-		 	echo 'Invalid access';
+		 	echo 'Invalid access!';
 	}
 
 
