@@ -1128,7 +1128,7 @@ $.extend(
  ************************************************************/
 (function(f)
 {    
-    var $language,
+    var $language, $output =[],
     b = f.language = function(v)
     {};
     f.extend(b,
@@ -1160,7 +1160,15 @@ $.extend(
                     },
                     success: function(data)
                     {
-                       fn(data);
+                        var arr;
+                        for(var i=0; i <data.length; i++){
+                            arr = [];
+                            for(var key in data[i]) {
+                                arr.push(data[i][key])
+                            }
+                            $output.push(arr);
+                        }
+                       fn($output);
                     },
                     error: function(jqXHR, textStatus, errorThrown)
                     {
