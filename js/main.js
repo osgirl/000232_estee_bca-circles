@@ -1054,7 +1054,6 @@ function createCircle(){
 	console.log("friend tags", friendTagIDs);
 	console.log("goal", goal);
 	console.log("goalID", goalID);
-	console.log("language", language);
 
 	isCustomizeGoal = ($("#custom_action").val() == "") ? false : true;
 
@@ -1216,8 +1215,7 @@ function postCircleData(goal_id){
 		'users_photo_url' : userProfilePhoto,
 		'goal'			  : goal,
 		'ref_goal_id'	  : goal_id,	
-		'country'		  : country,
-		'language'		  : 0 // optional, we still not sure about this field
+		'country'		  : country
 	};
 
 	$.ajax({
@@ -1252,7 +1250,6 @@ function postCircleData(goal_id){
 							newCircleData.goal_type 	= currentSameGoalType;
 							newCircleData.country		= data.country;
 							newCircleData.goal_id  		= data.goal_id;
-							newCircleData.language 		= data.language;
 							newCircleData.user_photo_url= userProfilePhoto;
 							newCircleData.friends_data	= friendsData;
 
