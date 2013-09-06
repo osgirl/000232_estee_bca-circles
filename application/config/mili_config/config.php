@@ -79,20 +79,37 @@ $config['url_suffix'] = '';
 | This determines which set of Country and language files should be used.
 */
 
-$config['country']	= 'United States';
-$config['language']	= 'english';
-
 // default Country & language abbreviation 
-$config['country_abbr'] = "us";
-$config['language_abbr'] = "en";
+$config['default_language_abbr'] = "en";
+$config['default_country_abbr'] = "us";
+
+// selected Country & language abbreviation 
+$config['language_abbr'] = "";
+$config['country_abbr'] = "";
 
 // set available language abbreviations 
+$config['lang_uri_abbr'] = 
+	array(
+		"en" => "English", 
+		"fr" => "French", 
+		"es" => "Spanish", 
+		"cn" => "Chinese", 
+		"nl" => "Dutch", 
+		"el" => "Greek", 
+		"kr" => "Korean", 
+		"ru" => "Russian", 
+		"zh" => "Singapore", 
+		"tr" => "Turkish",
+		"ny" => "New York"
+	);
+
+// set available country abbreviations 
 $config['country_uri_abbr'] = 
 	array(
 		"au" => "Australia", 
 		"ca" => "Canada", 
 		"cl" => "Chile", 
-		"cn" => "China", 
+		"zh" => "China", 
 		"de" => "Germany", 
 		"gr" => "Greece", 
 		"hk" => "Hong Kong", 
@@ -106,23 +123,8 @@ $config['country_uri_abbr'] =
 		"tw" => "Taiwan", 
 		"tr" => "Turkey", 
 		"uk" => "United Kingdom", 
-		"us" => "United States",
-		"ny" => "New York"		
-	);
-
-$config['lang_uri_abbr'] = 
-	array(
-		"en" => "English", 
-		"fr" => "French", 
-		"es" => "Spanish", 
-		"cn" => "Chinese", 
-		"nl" => "Dutch", 
-		"el" => "Greek", 
-		"kr" => "Korean", 
-		"ru" => "Russian", 
-		"zh" => "Singapore", 
-		"tr" => "Turkish"
-	);
+		"us" => "United States"		
+	);	
 
 /*
 |--------------------------------------------------------------------------
