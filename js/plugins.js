@@ -284,7 +284,7 @@ $.extend(
  ******************************************/
 (function($)
 {
-    var $c, $agr, $desc_active, $preview_img_path, $circle_id, $users_fb_id;
+    var $c, $agr, $desc_active, $preview_img_path, $circle_id, $users_fb_id, $parent;
     $.fn.init_upload = function()
     {
         $c = '.' + $(this).attr('class');
@@ -447,7 +447,8 @@ $.extend(
             $bound = $('<div style="position:absolute; margin:0; padding:0; background:#FFFFFF"/>'),
             $ratio = 1,
             $top = 0,
-            $left = 0;
+            $left = 0,
+            $w,$h,$bw,$bh;
 
         if (img.width > img.height)
         { // landscape
