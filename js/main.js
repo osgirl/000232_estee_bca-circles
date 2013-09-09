@@ -91,6 +91,8 @@ var SCROLL_TO_SHOW_FOOTER;
 var languageData;
 
 var translatedItem;
+var signInText;
+var signOutText;
 var createACircleText;
 var createAnotherCircleText;
 var goalTextArray;
@@ -187,74 +189,40 @@ function translatePage(){
 				carousel.initCarousel();
 				gallery.loadGallery();	
 
+				$('body').unbind("ALL_LAYOUT_CREATED").bind('ALL_LAYOUT_CREATED', function(){
 
-					$('body').unbind("ALL_LAYOUT_CREATED").bind('ALL_LAYOUT_CREATED', function(){
+					var newPos = $(window).scrollTop() + 300;
 
-						//console.log("ALL_LAYOUT_CREATED");
+					if(isMoreFeed && $(window).width() < 980){
+						$('html, body').animate({
+					        scrollTop: newPos
+					    }, 300);
+					}
+			})
+		});
+		
+		
+		$('#friend_search_field').width(NAME_TEXTFIELD_WIDTH);
+		$('#friend_search_field').tooltip({
+			trigger:'manual'
+		});
 
-						var newPos = $(window).scrollTop() + 300;
+		$('#friend_search_wrapper').tooltip({
+			trigger:'manual'
+		});
 
-						if(isMoreFeed && $(window).width() < 980){
-							$('html, body').animate({
-						        scrollTop: newPos
-						    }, 300);
-						}
-				})
-			});
-			
-			
-			$('#friend_search_field').width(NAME_TEXTFIELD_WIDTH);
-			$('#friend_search_field').tooltip({
-				trigger:'manual'
-			});
-
-			$('#friend_search_wrapper').tooltip({
-				trigger:'manual'
-			});
-
-			createGoalDropdown();
-			getTrendingAction();
+		createGoalDropdown();
+		getTrendingAction();
 	});
 
 }
 
 function loadLanguageToElements(languageData){
-	translatedItem = new Array();
-	$("*").each(function(i,v){
-		if( typeof( $(v).attr('language_id') ) != 'undefined') {
-			var item = new Object();
-			item.id = $(v).attr('language_id');
-			item.item = v;
-			translatedItem.push(item);
-		}
-	})
+	
+	translator.translateItems("home");
+	translator.defineNumberItems();
+	translator.defineGoalItems();
 
-	goalTextArray = new Array();
-
-
-	$(languageData).each(function(i,v){
-
-		$(translatedItem).each(function(l,t){
-
-			if(v[0] == t.id) $(t.item).html(v[1]);
-
-		})
-
-		if(v[0] == "create_a_circle") createACircleText = v[1];
-		if(v[0] == "create_another_circle") createAnotherCircleText = v[1];
-		if(v[0] == "belongs_to_n_circles") belongCircleText = v[1];
-		if(v[0] == "n_people_will") trendingActionPeopleNumText = v[1];
-		if(v[0] == "n_friend_taking_action") myCircleFriendNumText = v[1];
-
-		if(v[0].substr(1,5) == "_goal") {
-			var goalObj = new Object();
-			goalObj.id = v[0];
-			goalObj.text = v[1];
-			goalTextArray.push(goalObj);
-		}
-		
-
-	});
 }
 
 function enableEventBinds(){
@@ -304,7 +272,7 @@ function getLogoutStatus(e){
 	//console.log("get logout status");
 
 	$('.top_user_name').html("");
-	$('.sign_in_btn .sign_in').html('sign in');
+	$('.sign_in_btn .sign_in').html(signInText);
 	$('.sign_in_btn').unbind('click').click(facebook.login);
 	
 	$('.start_create_circle_btn').unbind('click').click(function(e){
@@ -350,7 +318,7 @@ function displayUserInfo(e){
 	$('.user_name_display').html(shortenName);
 	$('.user_location_display').html(userLocation);
 	$('#create_circle_user').html(fullName);
-	$('.sign_in_btn  .sign_in').html('logout');
+	$('.sign_in_btn  .sign_in').html(signOutText);
 	$('.sign_in_btn').unbind('click').click(facebook.logOut);
 
 	console.log("DISPLAY USER")
@@ -411,14 +379,6 @@ function toggleCheckbox(e)
 }
 
 function createGoalDropdown(){
-
-	goalTextArray.sort(function compare(a,b) {
-					  if (a.id > b.id)
-					     return 1;
-					  if (a.id < b.id)
-					    return -1;
-					  return 0;
-				});
 
 	$.ajax({
 		type: 'post',
@@ -557,7 +517,6 @@ function openEditFriend(){
 	$("#create_circle_control").hide();
 	$(".steps").hide();
 
-//oc: ??
 	friendSelectedArray = new Array();
 	curSelectedFriendName = null;
 	curSelectedFriendID = null;

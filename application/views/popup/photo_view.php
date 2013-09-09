@@ -25,9 +25,12 @@
 	?>
 	<div id="photo_footer">
 		<ul id="popup_footer_share">
-			<li language_id="share">SHARE</li>
+			<li language_id="share" language_location="photo_view" >SHARE</li>
 			<li class="share-ico" id="popup_footer_share_facebook" onclick="$.popup_share({ photo_url:'<?php echo $photo_url; ?>', post_type:'photo', url:'<?php echo $url; ?>',type:'facebook'})"></li>
 			<li class="share-ico" id="popup_footer_share_twitter" onclick="$.popup_share({post_type:'photo', url:'<?echo $url?>',type:'twitter'})"></li>
 		</ul>
 	</div>
 </div>
+<script>
+	translator.translateItems("photo_view");
+</script>

@@ -14,9 +14,9 @@
 		  </video>
 	</div>
 	<div id="popup_video_footer">
-		<p language_id="video_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed sodales est. Vivamus non dolor tempus, aliquet diam sagittis, molestie tortor.</p>
+		<p language_id="video_description" language_location="video" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed sodales est. Vivamus non dolor tempus, aliquet diam sagittis, molestie tortor.</p>
 		<ul id="popup_footer_share">
-			<li language_id="share">SHARE</li>
+			<li language_id="share" language_location="video" >SHARE</li>
 			<li class="share-ico" id="popup_footer_share_facebook" onclick="$.popup_share({post_type:'video', url:'/video', type:'facebook'})"></li>
 			<li class="share-ico" id="popup_footer_share_twitter" onclick="$.popup_share({post_type:'video', url:'/video', type:'twitter'})"></li>
 		</ul>
@@ -32,4 +32,7 @@
 				myPlayer.trigger('mouseout');
 			},1000);
 		});
+</script>
+<script>
+	translator.translateItems("video");
 </script>

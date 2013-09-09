@@ -12,3 +12,6 @@
 	</table>
 	<p><?echo $content?></p>
 </div>
+<script>
+	translator.translateItems();
+</script>
