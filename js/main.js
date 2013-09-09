@@ -108,7 +108,8 @@ $(document).ready(function(){
         return true;
     }
 
-
+    //Sean: Start main page preloader
+    $.mainPreloader();
 
 	//oc: parse cookie for us.
 	$.cookie.json = true;
@@ -127,10 +128,33 @@ $(document).ready(function(){
 	translatePage();
 	enableButtons();
 	enableEventBinds();
-
-	$('#main_page').css('display','inherit');
-	$('#main_page').animate({'opacity':1}, 0);
+	
 });
+
+/*************************************************************
+ * Sean: Private function for Main page preloader (jquery extend)
+ *************************************************************/
+(function(f)
+{
+	var $this, $loader,
+	b = f.mainPreloader = function(){
+		$this = $('#main_page');
+		$loader = $('<img id="main_preloader" src="' + baseUrl + 'img/icons/preloader-anim.gif"/>').appendTo('body');
+	};
+	f.extend(b,
+	{
+        loadComplete: function()
+    	{
+			$loader.animate({'opacity':0}, 250, function()
+				{ 
+					$(this).remove();
+					$this.css('display','inherit');
+					$this.delay(250).animate({'opacity':1}, 250);
+					checkAndLoadExternalUrl();
+				});			
+    	},
+    });
+})(jQuery);
 
 function windowResize(){
 	$('.language_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");
@@ -189,10 +213,11 @@ function translatePage(){
    		$.feed();
 			fm_ready(function() {
 				carousel.initCarousel();
-				gallery.loadGallery();	
-
+				gallery.loadGallery();
 
 					$('body').unbind("ALL_LAYOUT_CREATED").bind('ALL_LAYOUT_CREATED', function(){
+
+						$.mainPreloader.loadComplete();
 
 						//console.log("ALL_LAYOUT_CREATED");
 
