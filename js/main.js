@@ -93,7 +93,7 @@ var languageData;
 var translatedItem;
 var createACircleText;
 var createAnotherCircleText;
-var goalText;
+var goalTextArray;
 var belongCircleText;
 var trendingActionPeopleNumText;
 var myCircleFriendNumText;
@@ -213,6 +213,7 @@ function translatePage(){
 			});
 
 			createGoalDropdown();
+			getTrendingAction();
 	});
 
 }
@@ -228,6 +229,8 @@ function loadLanguageToElements(languageData){
 		}
 	})
 
+	goalTextArray = new Array();
+
 
 	$(languageData).each(function(i,v){
 
@@ -242,6 +245,13 @@ function loadLanguageToElements(languageData){
 		if(v[0] == "belongs_to_n_circles") belongCircleText = v[1];
 		if(v[0] == "n_people_will") trendingActionPeopleNumText = v[1];
 		if(v[0] == "n_friend_taking_action") myCircleFriendNumText = v[1];
+
+		if(v[0].substr(1,5) == "_goal") {
+			var goalObj = new Object();
+			goalObj.id = v[0];
+			goalObj.text = v[1];
+			goalTextArray.push(goalObj);
+		}
 		
 
 	});
@@ -401,73 +411,90 @@ function toggleCheckbox(e)
 }
 
 function createGoalDropdown(){
+
+	goalTextArray.sort(function compare(a,b) {
+					  if (a.id > b.id)
+					     return 1;
+					  if (a.id < b.id)
+					    return -1;
+					  return 0;
+				});
+
 	$.ajax({
-    	url: baseUrl + indexPage + 'goal/fetchGoalData',
+		type: 'post',
+    	url: baseUrl + indexPage + 'goal/fetchDefaultGoalData',
     	dataType: 'json',
-    	success: function(data) {  
+    	data: {
+    		language:selectedLanguage
+    	},
+    	success: function(data) { 
+
+    	console.debug("GOAL --------", data, goalTextArray); 
 
     		goalData = data;
-    		
 
-    		$('#goal_selected').html(goalData[0].goal);      
+    		$('#goal_selected').html(goalTextArray[0].text);      
         	$(goalData).each(function(i, v){
 
-        		if(v.goal_type == "default"){
-        			var list = $('<li>');
-        			list.addClass('goal_dropdown_list')
-        			.html(v.goal)
-        			.appendTo($('#goal_dropdown_lists'));
+ 
+    			var list = $('<li>');
+    			list.addClass('goal_dropdown_list')
+    			.html(goalTextArray[i].text)
+    			.appendTo($('#goal_dropdown_lists'));
 
-        			list.unbind('mouseover').mouseover(function(e){
-						$(e.currentTarget).css({
-							cursor: "pointer",
-							backgroundColor: "#e8e8e8"
-						});
-					})
-					list.unbind('mouseout').mouseout(function(e){$(e.currentTarget).css("background", "none");})
-        			list.unbind('click').click(function(e){actionSelected(e);})
-        		}
+    			list.unbind('mouseover').mouseover(function(e){
+					$(e.currentTarget).css({
+						cursor: "pointer",
+						backgroundColor: "#e8e8e8"
+					});
+				})
+				list.unbind('mouseout').mouseout(function(e){$(e.currentTarget).css("background", "none");})
+    			list.unbind('click').click(function(e){actionSelected(e);})
 
         	})
 
-        	trendingData = data;
-        	
-        	getTrendingAction();
      	}
 	});
 }
 
 function getTrendingAction(){
 
-	trendingData.sort(function sortNumber(a, b){
-		  var aNum = Number(a.taken_number);
-		  var bNum = Number(b.taken_number); 
-		  return ((aNum > bNum) ? -1 : ((aNum > bNum) ? 0 : 1));
+	$.ajax({
+    	url: baseUrl + indexPage + 'goal/fetchAllGoalData',
+    	dataType: 'json',
+    	success: function(data) {  
+
+    		trendingData = data;
+    		console.debug("tranding", trendingData)
+
+			var actionCount = 0;
+
+			$('#trending_actions_1 .action_item').remove();
+			$('#trending_actions_2 .action_item').remove();
+
+			$(trendingData).each(function(i, v){
+
+				if(v.taken_number !=0){
+
+					actionCount++;
+
+					if(actionCount <= TRENDING_ACTION_SHOW){
+						var line1 = trendingActionPeopleNumText;
+						line1 = line1.replace("#", v.taken_number);
+						var line2 = (v.goal_type == "default") ? goalTextArray[v.id-1].text : v.goal;
+
+						createStatItem(v, $('#trending_actions_1'), line1, line2, v, false);
+						createStatItem(v, $('#trending_actions_2'), line1, line2, v, false);
+					}
+
+				}
+
+			})
+    		
+     	}
 	});
 
-	var actionCount = 0;
-
-	$('#trending_actions_1 .action_item').remove();
-	$('#trending_actions_2 .action_item').remove();
-
-	$(trendingData).each(function(i, v){
-
-		if(v.taken_number !=0){
-
-			actionCount++;
-
-			if(actionCount <= TRENDING_ACTION_SHOW){
-				var line1 = trendingActionPeopleNumText;
-				line1 = line1.replace("#", v.taken_number);
-				var line2 = v.goal;
-
-				createStatItem(v, $('#trending_actions_1'), line1, line2, v, false);
-				createStatItem(v, $('#trending_actions_2'), line1, line2, v, false);
-			}
-
-		}
-
-	})
+	
 }
 
 
@@ -1113,7 +1140,7 @@ function createCircle(){
 	var goalCount = 0;
 
 	$.ajax({
-		url: baseUrl + indexPage + 'goal/fetchGoalData',
+		url: baseUrl + indexPage + 'goal/fetchAllGoalData',
 		dataType: 'json',
 		success: function(data) { 
 

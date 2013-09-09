@@ -208,7 +208,8 @@ function GalleryItem()
 			circle.attr('goal_type', data.goal_type);
 			circle.find('.circle_flag').css("background-image", 'url("' + baseUrl + 'img/flags/large/' + data.country + '.png")');
 			circle.find('.circle_creator').html(data.user_name);
-			circle.find('.goal_text').html(data.goal);
+			var goalText = (data.goal_type == "default") ? goalTextArray[data.goal_id-1].text : data.goal;
+			circle.find('.goal_text').html(goalText);
 			circle.fadeIn(200);
 
 			var isUser;

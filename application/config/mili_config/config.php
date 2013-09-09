@@ -90,7 +90,7 @@ $config['country_abbr'] = "";
 // set available language abbreviations 
 $config['lang_uri_abbr'] = 
 	array(
-		"en" => "English", 
+		"en" => "English",
 		"fr" => "French", 
 		"es" => "Spanish", 
 		"cn" => "Chinese", 
