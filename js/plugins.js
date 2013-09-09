@@ -1198,8 +1198,7 @@ $.extend(
             if (typeof $FM !== 'undefined' && typeof $FM.ready === 'function')
             {
                 console.debug('--->FEED: Connected---');
-                $FM.ready(fx);
-                checkAndLoadExternalUrl();
+                $FM.ready(fx);                
             }
             else
             {
