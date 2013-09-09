@@ -108,6 +108,8 @@ $(document).ready(function(){
         return true;
     }
 
+
+
 	//oc: parse cookie for us.
 	$.cookie.json = true;
 
@@ -126,6 +128,8 @@ $(document).ready(function(){
 	enableButtons();
 	enableEventBinds();
 
+	$('#main_page').css('display','inherit');
+	$('#main_page').animate({'opacity':1}, 0);
 });
 
 function windowResize(){

@@ -116,11 +116,18 @@ overflow:hidden;
     Smartphone (320px)
    =============== */
 
+#main_page {
+	display: none;
+	opacity: 0;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    zoom: 1;	
+}
+
 #content_wrap{
+  	position:relative;
   	min-width:320px;
   	max-width:1200px;
-  	position:relative;
-
 }
 
 .vertical_mode_show{
