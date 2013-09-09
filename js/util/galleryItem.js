@@ -67,20 +67,6 @@ function GalleryItem()
 			$(item.find('.view_circle_btn')).unbind('click').click(function(e){openPopUp(popupData)});
 
 
-        	$(item.find('.same_goal_btn')).click(function(e){
-        		var circleContainer = $($(e.currentTarget).parents('.circle_container'));
-        		$(item.find('.gallery_item_btn')).unbind('click');
-        		currentSameGoal = $(circleContainer.find('.goal_text')).html();
-        		currentSameGoalID = circleContainer.attr('goal_id');
-        		currentSameGoalType = circleContainer.attr('goal_type');
-
-        		$('body').trigger('SAME_GOAL_BUTTON_CLICKED');
-        	})
-        	$(item.find('.create_a_new_one_btn')).click(function(e){
-        		$(item.find('.gallery_item_btn')).unbind('click');
-        		$('body').trigger('CREATE_NEW_CIRCLE_BUTTON_CLICKED');
-        	})
-
         	enableShareButton(item);
         }
 
@@ -219,7 +205,7 @@ function GalleryItem()
 			else
 				isUser = false;		
 
-			updateUserCirclePopupContent(circle, data.circle_id, data.goal, data.user_photo_url, data.user_id, data.friends_data, isUser);
+			updateUserCirclePopupContent(circle, data.circle_id, goalText, data.user_photo_url, data.user_id, data.friends_data, isUser);
 
 		},
 
@@ -361,6 +347,8 @@ function GalleryItem()
 				}//end switch
 
 			});
+
+			translator.translateSingleItem("view");
 			
 
 		},

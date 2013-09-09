@@ -29,12 +29,19 @@ function tsToDate(ts)
     {
         if (t.getHours() == d.getHours())
         {
-            result = (t.getMinutes() - d.getMinutes()) + 'min ago';
+            result = minsAgoText;
+            result = result.replace("#", (t.getMinutes() - d.getMinutes()));
+
         }
         else
         {
             df = t.getHours() - d.getHours();
-            result = df + ' hour' + ((df == 1) ? '' : 's') + ' ago';
+            if(selectedLanguage == "en"){ 
+                result = df + ' hour' + ((df == 1) ? '' : 's') + ' ago';
+            }else{
+                result = hoursAgoText;
+                result = result.replace("#", df);
+            }
         }
     }
     else

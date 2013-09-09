@@ -1,6 +1,6 @@
 <div class="popup" id="popup_circle">
 	<div id="popup_circle_detail_holder">
-		<div class="popup_round_button btn_edit" id="popup_btn_pink" language_id="edit_friends">
+		<div class="popup_round_button btn_edit" id="popup_btn_pink" language_id="edit_friends" language_location="circle_view" >
 		<!-- <div class="pink_btn" id="edit_friends_btn"> -->
 			EDIT FRIENDS
 		</div>
@@ -11,10 +11,10 @@
 					<img src="<?echo $avatar ?>">
 				</div>
 				<p id="goal">
-					<span language_id="we_will_text"><b>We Will - </b></span><br /><?echo $content ?>
+					<span language_id="we_will_text" language_location="circle_view" ><b>We Will - </b></span><br /><?echo $content ?>
 					</p>
 				<ul id="popup_footer_share">
-					<li language_id="share">SHARE
+					<li language_id="share" language_location="circle_view" >SHARE
 					</li>
 					<li class="share-ico" id="popup_footer_share_facebook" onclick="$.popup_share({post_type:'circle', type:'facebook', action:'<?echo $content ?>', id:'<?echo $circle_id ?>', referral: 'circle'})"></li>
 					<li class="share-ico" id="popup_footer_share_twitter" onclick="$.popup_share({post_type:'circle', type:'twitter', action:'<?echo $content ?>', id:'<?echo $circle_id ?>', referral: 'circle'})"></li>
@@ -24,8 +24,8 @@
 	</div>
 	<div id="popup_circle_photo_holder">
 		<div id="popup_circle_photo_button_wrapper">
-			<span language_id="circle_of_strengh_photos">CIRCLE OF STRENGTH PHOTOS</span>
-			<div class="popup_round_button btn_add_photo" id="popup_btn_pink" language_id="add_photos">
+			<span language_id="circle_of_strengh_photos" language_location="circle_view" >CIRCLE OF STRENGTH PHOTOS</span>
+			<div class="popup_round_button btn_add_photo" id="popup_btn_pink" language_id="add_photos" language_location="circle_view" >
 				ADD PHOTOS
 			</div>			
 		</div>
@@ -41,3 +41,7 @@
 	<div id="popup_circle_comment_holder">
 	</div>
 </div>
+
+<script>
+	translator.translateItems("circle_view");
+</script>

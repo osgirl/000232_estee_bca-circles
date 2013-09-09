@@ -1611,7 +1611,7 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	font-size:.6em;
 	clear:both;
 	width:100%;
-	margin-top:5px;
+	padding-top:0px;
 }
 
 #footer .cta {

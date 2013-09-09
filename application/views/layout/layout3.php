@@ -17,6 +17,3 @@
 		
 </div>
 <!--LAYOUT 3 END-->
-<script>
-	translator.translateItems("layout");
-</script>

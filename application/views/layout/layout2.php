@@ -16,6 +16,3 @@
 		<div class="span3 photo_container_2 photo_container gallery_item"></div>
 </div>
 <!--LAYOUT 2 END-->
-<script>
-	translator.translateItems("layout");
-</script>

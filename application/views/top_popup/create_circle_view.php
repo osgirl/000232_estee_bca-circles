@@ -13,11 +13,6 @@
     		</div>
     		<div id="select_goal_dropdown" class="select_dropdown select_action_text">
 				<ul id="goal_dropdown_lists">
-<!-- 					<li class="goal_dropdown_list">Be proactive. Schedule a mammogram.</li>
-					<li class="goal_dropdown_list">Volunteering at my local hospital.</li>
-					<li class="goal_dropdown_list">Walking everyday in October.</li>
-					<li class="goal_dropdown_list">Eating healthy.</li>
-					<li class="goal_dropdown_list">Raising 1,000 dollars for BCRF.</li> -->
 				</ul>
 			</div>
 		</div>

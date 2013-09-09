@@ -18,6 +18,3 @@
 	</div>		
 </div>
 <!--LAYOUT 1 END-->
-<script>
-	translator.translateItems("layout");
-</script>
