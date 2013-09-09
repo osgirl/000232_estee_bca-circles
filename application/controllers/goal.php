@@ -35,10 +35,38 @@ class Goal extends CI_Controller {
 		 	echo 'Invalid access';
 	}
 
-	public function fetchGoalData()
+	public function fetchDefaultGoalData()
 	{
 
-		$query = $this->db->query("SELECT * FROM goals"); 
+		$query = $this->db->from("goals")
+				->where("goal_type", "default")
+				->order_by("id", "asc")
+				->get();
+
+		if ($query->num_rows() > 0) {
+
+			$data = array();
+
+			  foreach($query->result() as $row) {
+
+			  	$data[] = array (   'id'=>$row->id,
+			  						'goal'=>$row->goal,
+					  				'goal_icon'=>$row->icon,
+			  						'taken_number' => $row->taken_number,
+									'goal_type' => $row->goal_type
+								);
+			  }//endif
+		}
+
+		echo json_encode($data);
+	}
+
+	public function fetchAllGoalData()
+	{
+
+		$query = $this->db->from("goals")
+				->order_by("taken_number", "desc")
+				->get();
 
 		if ($query->num_rows() > 0) {
 

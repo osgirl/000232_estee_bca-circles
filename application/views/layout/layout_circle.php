@@ -9,12 +9,6 @@
 		<div class="circle_goal"><span language_id="we_will_text"><b>We Will - </b></span><br /><span class="goal_text"></span></div>
 	</div>
 </div>
-
-<!-- <div class="circle_rollover item_rollover">
-	<div class="circle_rollover_content">
-		
-	</div>
-</div> -->
 <div class="gallery_item_btn">
 	<div class="rollover_content">
 		<a class="view_circle_btn pink_btn all_cap" language_id="view">view</a>

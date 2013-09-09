@@ -138,7 +138,7 @@ class Circle extends CI_Controller {
 				->from("circles")
 				->where_in("circles.id",$feedArr)
 				->join("goals AS g", 'g.id = circles.ref_goal_id', "LEFT")
-				->order_by("circles.id DESC")
+				->order_by("circles.id", "desc")
 				->get();
 			
 
