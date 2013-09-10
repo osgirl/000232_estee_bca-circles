@@ -1,0 +1,81 @@
+/* ==============
+   Language list (body class)
+   ==============
+    en-us
+    en-uk
+    ar
+    es-mx
+    es
+    fr
+    de
+    ko
+    el
+    he
+    it
+    pt
+    ru
+    cn
+    tr
+    vi
+  ==============*/
+
+
+@media only screen and (min-width: 360px) {
+
+/* ===============
+    Smartphone (360px)
+   =============== */
+	
+}
+
+@media only screen and (min-width: 480px)  {
+
+/* ===============
+    Smartphone (480px)
+   =============== */
+
+}
+
+@media only screen and (min-width: 640px)  {
+
+/* ===============
+    Smartphone (640px)
+   =============== */
+	  
+}
+
+
+@media only screen and (min-width:768px) {
+
+/* ===============
+    Tablet (768px)
+   =============== */
+
+}
+
+
+@media only screen and (min-width:980px) {
+
+/* ===============
+    Tablet (980px)
+   =============== */
+    
+}
+
+
+@media only screen and (min-width: 1024px) {
+
+/* ===============
+    Tablet (1024px)
+   =============== */
+
+}
+
+
+@media only screen and (min-width: 1200px)  {
+
+/* ===============
+    Tablet (1200px)
+   =============== */
+
+}

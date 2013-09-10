@@ -25,6 +25,10 @@
         <link rel="stylesheet" href="<?= base_url(); ?>css/main_smartphone.css?cachebuster=<?= $cacheBuster; ?>">
         <link rel="stylesheet" href="<?= base_url(); ?>css/main_tablet.css?cachebuster=<?= $cacheBuster; ?>">
 
+        <!-- TEMP -->
+        <link rel="stylesheet" href="<?= base_url(); ?>css/language_mili.css?cachebuster=<?= $cacheBuster; ?>">
+        <link rel="stylesheet" href="<?= base_url(); ?>css/language_sean.css?cachebuster=<?= $cacheBuster; ?>">
+
         <!-- This a css for popup window. You can merge this to main.css?cachebuster=<?= $cacheBuster; ?> in final production -->
         <link rel="stylesheet" href="<?= base_url(); ?>css/popup.css?cachebuster=<?= $cacheBuster; ?>">
 
