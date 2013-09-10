@@ -1591,6 +1591,10 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 
 /*CANCEL SCREEN*/
 
+#confirm_yes{
+    font-size:.8em;
+  }
+
 #cancel_screen{
 	display:none;
 	background-image: url('../img/assets/pink-opacity.png'); 

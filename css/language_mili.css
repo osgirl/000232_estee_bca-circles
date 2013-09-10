@@ -19,6 +19,45 @@
     vi
   ==============*/
 
+ /*Greek*/
+  .el .feature_circle .circle_creator_area {
+    font-size: .5em;
+  }
+  .el .feature_circle .circle_of_strength {
+    font-size: .6em;
+  }
+
+  .el .gallery_circle .circle_creator_area {
+    font-size: .6em;
+  }
+  .el .gallery_circle .circle_of_strength {
+    font-size: 1em;
+  }
+
+  .el .feature_circle{
+    height:230px;
+  }
+
+  .el .confirm_content{
+    padding:5% 20% 2% 20%;
+  }
+
+  .el #thank_you p{
+    font-size:1.1em;
+  }
+
+  .el .popup #popup_circle_modal #goal{
+    font-size:30%;
+  }
+
+  .el .feature_circle .circle_goal{
+    font-size:.6em;
+  }
+
+  .el .gallery_circle .circle_goal{
+    font-size:.9em;
+  }
+
 
 @media only screen and (min-width: 360px) {
 
@@ -34,6 +73,50 @@
     Smartphone (480px)
    =============== */
 
+             /*Greek*/
+  .el .feature_circle .circle_creator_area {
+    font-size: .7em;
+  }
+  .el .feature_circle .circle_of_strength {
+    font-size: .9em;
+  }
+
+  .el .gallery_circle .circle_creator_area {
+    font-size: .9em;
+  }
+  .el .gallery_circle .circle_of_strength {
+    font-size: 1.3em;
+  }
+
+  .el #create_another_circle{
+    font-size:.5em;
+  }
+
+  .el #log_in_upload_photo_btn{
+    font-size:.5em;
+  }
+
+  .el #friend_list{
+    font-size:2.4em;
+  }
+
+  .el .feature_circle{
+    height:360px;
+  }
+
+  .el .popup #popup_circle_modal #goal{
+    font-size:40%;
+  }
+
+  .el .feature_circle .circle_goal{
+    font-size:1em;
+  }
+
+  .el .gallery_circle .circle_goal{
+    font-size:1.1em;
+  }
+
+
 }
 
 @media only screen and (min-width: 640px)  {
@@ -41,7 +124,35 @@
 /* ===============
     Smartphone (640px)
    =============== */
-	  
+
+
+  /*Greek*/
+  .el .feature_circle .circle_creator_area {
+    font-size: .9em;
+  }
+  .el .feature_circle .circle_of_strength {
+    font-size: 1.3em;
+  }
+
+  .el .gallery_circle .circle_creator_area {
+    font-size: 1em;
+  }
+  .el .gallery_circle .circle_of_strength {
+    font-size: 1.7em;
+  }
+
+  .el .feature_circle{
+    height:420px;
+  }
+
+  .el #thank_you p{
+    font-size:1.4em;
+  }
+
+  .el .popup #popup_circle_modal #goal{
+    font-size:60%;
+  }
+
 }
 
 
@@ -51,6 +162,8 @@
     Tablet (768px)
    =============== */
 
+   
+
 }
 
 
@@ -59,6 +172,34 @@
 /* ===============
     Tablet (980px)
    =============== */
+
+       /*Greek*/
+  .el .feature_circle .circle_creator_area {
+    font-size: .7em;
+  }
+  .el .feature_circle .circle_of_strength {
+    font-size: .95em;
+  }
+
+  .el .gallery_circle .circle_creator_area {
+    font-size: .8em;
+  }
+  .el .gallery_circle .circle_of_strength {
+    font-size: 1.2em;
+  }
+
+  .el .feature_circle{
+    height:320px;
+  }
+
+  .el .popup #popup_circle_modal #goal{
+    font-size:80%;
+  }
+
+  .el #join_fight_text{
+    font-size:.6em;
+  }
+
     
 }
 
@@ -69,6 +210,11 @@
     Tablet (1024px)
    =============== */
 
+.el .feature_circle{
+    height:346px;
+  }
+
+
 }
 
 
@@ -77,5 +223,38 @@
 /* ===============
     Tablet (1200px)
    =============== */
+
+          /*Greek*/
+  .el .feature_circle .circle_creator_area {
+    font-size: .9em;
+  }
+  .el .feature_circle .circle_of_strength {
+    font-size: 1.3em;
+  }
+
+  .el .gallery_circle .circle_creator_area {
+    font-size: .9em;
+  }
+  .el .gallery_circle .circle_of_strength {
+    font-size: 1.7em;
+  }
+
+  .el #join_fight_text{
+    font-size:.7em;
+  }
+
+  .el #create_another_circle{
+    font-size:.7em;
+  }
+
+  .el #log_in_upload_photo_btn{
+    font-size:.7em;
+  }
+
+  .el .feature_circle{
+    height:420px;
+  }
+
+
 
 }
