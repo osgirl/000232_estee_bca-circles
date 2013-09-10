@@ -90,7 +90,15 @@ var SCROLL_TO_SHOW_FOOTER;
 
 var languageData;
 
-var FACEBOOK_FAN_PAGE = "https://www.facebook.com/BCACampaign";
+var translatedItem;
+var signInText;
+var signOutText;
+var createACircleText;
+var createAnotherCircleText;
+var goalTextArray;
+var belongCircleText;
+var trendingActionPeopleNumText;
+var myCircleFriendNumText;
 
 
 $(document).ready(function(){	
@@ -120,6 +128,8 @@ $(document).ready(function(){
 
 	facebook.init(fbAppId);
 	translatePage();
+	enableButtons();
+	enableEventBinds();
 	
 });
 
@@ -232,9 +242,6 @@ function translatePage(){
 			trigger:'manual'
 		});
 
-		enableButtons();
-		enableEventBinds();
-
 		createGoalDropdown();
 		getTrendingAction();
 	});
@@ -244,16 +251,8 @@ function translatePage(){
 function loadLanguageToElements(languageData){
 	
 	translator.translateItems("home");
-	translator.defineDynamicItems();
+	translator.defineNumberItems();
 	translator.defineGoalItems();
-	translator.defineOptItems();
-	translator.defineSpecialItems();
-	translator.defineThankYouItems();
-
-	$('.opt_copy .link').click(function(e){
-		$.popup({type: ($(this).hasClass('terms')) ? 'terms_and_conditions' : 'privacy_policy' });
-		return false;
-	})
 
 }
 
@@ -266,9 +265,8 @@ function enableEventBinds(){
 	$('body').bind(GOT_USER_PROFILE_PIC, displayUserProfilePic);
 	$('body').bind(GOT_FRIEND_LIST, getFriendList);
 	$('body').bind("SAME_GOAL_BUTTON_CLICKED", function(e){
-		(isLogin) ? openCreateCircleScreen(true) : facebook.login(function(){openCreateCircleScreen(true)});
 
-		console.debug("same goal clicked", isLogin);
+		(isLogin) ? openCreateCircleScreen(true) : facebook.login(function(){openCreateCircleScreen(true)});
 	});
 
 	$('body').bind("CREATE_NEW_CIRCLE_BUTTON_CLICKED", function(e){
@@ -353,6 +351,8 @@ function displayUserInfo(e){
 	$('#create_circle_user').html(fullName);
 	$('.sign_in_btn  .sign_in').html(signOutText);
 	$('.sign_in_btn').unbind('click').click(facebook.logOut);
+
+	console.log("DISPLAY USER")
 
 	getUserCircleData();
 }

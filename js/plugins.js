@@ -1155,6 +1155,10 @@ $.extend(
                 else $language = 'en-us';
             }
             else if ($language == 'es' && selectedCountry == 'mx') $language = 'es-mx';
+
+            //add langage abbreviation as class into body
+            $('body').addClass($language);
+
             $.ajax(
             {
                 url: baseUrl + indexPage + 'language/fetchLanguageData',
