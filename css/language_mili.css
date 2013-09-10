@@ -58,10 +58,6 @@
     font-size:.9em;
   }
 
-  .el #confirm_yes{
-    font-size:.8em;
-  }
-
 
 @media only screen and (min-width: 360px) {
 
@@ -118,10 +114,6 @@
 
   .el .gallery_circle .circle_goal{
     font-size:1.1em;
-  }
-
-  .el #confirm_yes{
-    font-size:1em;
   }
 
 
