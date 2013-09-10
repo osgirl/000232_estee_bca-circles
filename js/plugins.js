@@ -828,8 +828,9 @@ $.extend(
             $radius = 100,
             $cx = 0,
             $cy = 0,
-            $count = 1;
-        $parent = $($c + ' #dot_container');
+            $count = 1,
+            $parent = $($c + ' #dot_container'),
+            $i, $angle, $x, $y;
 
         for ($i = 0; $i < $steps; $i++)
         {
