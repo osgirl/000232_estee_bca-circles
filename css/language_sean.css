@@ -9,20 +9,20 @@
     fr
     de
     ko
-    el
-    he
-    it
-    pt
-    ru
-    cn
-    tr
-    vi
   ==============*/
 
 
 /*Korean*/
 .ko .stronger_together {
-	font-size: 3em;
+	font-size: 2.4em;
+}
+
+.ko .feature_circle .circle_creator_area {
+	/*font-size: .8em;*/
+}
+
+.ko .feature_circle .circle_of_strength {
+	/*font-size: .8em;*/
 }
 
 
