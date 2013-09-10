@@ -90,16 +90,20 @@ $config['country_abbr'] = "";
 // set available language abbreviations 
 $config['lang_uri_abbr'] = 
 	array(
-		"en" => "English", 
+		"en" => "English",
 		"fr" => "French", 
 		"es" => "Spanish", 
 		"cn" => "Chinese", 
 		"nl" => "Dutch", 
 		"el" => "Greek", 
-		"kr" => "Korean", 
+		"ko" => "Korean", 
 		"ru" => "Russian", 
-		"zh" => "Singapore", 
 		"tr" => "Turkish",
+		"pt" => "Portuguese",
+		"vi" => "Vietnamese",
+		"he" => "Hebrew",
+		"it" => "Italian",
+		"ar" => "Arabic",
 		"ny" => "New York"
 	);
 
@@ -110,9 +114,12 @@ $config['country_uri_abbr'] =
 		"ca" => "Canada", 
 		"cl" => "Chile", 
 		"zh" => "China", 
+		"fr" => "France",
 		"de" => "Germany", 
 		"gr" => "Greece", 
 		"hk" => "Hong Kong", 
+		"il" => "Israel",
+		"it" => "Italy",
 		"kr" => "Korea", 
 		"my" => "Malaysia", 
 		"mx" => "Mexico", 
