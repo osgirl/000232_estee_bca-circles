@@ -231,6 +231,7 @@ $.extend(
      ******************************/
     popup_share: function(v)
     {
+        var u;
         if (v.post_type == 'circle') u = '/circle/' + v.id;
         else if (v.post_type == 'page') u = v.url;
         else u = v.url + '/';
