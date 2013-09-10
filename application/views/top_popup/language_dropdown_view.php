@@ -128,6 +128,13 @@
         </div>
     </li>
     <li>
+        <div id="sy">
+            <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/syria.png' />
+            <span class="country">&nbsp;&nbsp;Syria</span>&nbsp;&nbsp;
+            <a href= "<?=base_url()?>ar/sy/">العربية</a>
+        </div>
+    </li>    
+    <li>
         <div id="tw">
             <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/taiwan.png' />
             <span class="country">&nbsp;&nbsp;Taiwan</span>&nbsp;&nbsp;

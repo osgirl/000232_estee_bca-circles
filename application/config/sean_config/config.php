@@ -124,6 +124,7 @@ $config['country_uri_abbr'] =
 		"ph" => "Philippines", 
 		"ru" => "Russia", 
 		"sc" => "Singapore", 
+		"sy" => "Syria", 
 		"es" => "Spain", 
 		"tw" => "Taiwan", 
 		"tr" => "Turkey", 
