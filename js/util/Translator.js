@@ -100,13 +100,13 @@ translator.defineOptItems = function(){
         if(v[0] == "opt_copy") optCopyText = v[1];
     }); 
 
-    var termsAndConditions = '<a class="link terms" href="#">' + termsAndConditionsText + '</a>';
-    var privacyPolicy = '<a class="link privacy" href="#">' + privacyPolicyText + '</a>';
-
-    optCopyText = optCopyText.replace("[termsandconditions]", termsAndConditions);
-    optCopyText = optCopyText.replace("[privacypolicy]", privacyPolicy);
-
-    $(".opt_copy").html(optCopyText);
+    if(optCopyText != null){
+        var termsAndConditions = '<a class="link terms" href="#">' + termsAndConditionsText + '</a>';
+        var privacyPolicy = '<a class="link privacy" href="#">' + privacyPolicyText + '</a>';
+        optCopyText = optCopyText.replace("[termsandconditions]", termsAndConditions);
+        optCopyText = optCopyText.replace("[privacypolicy]", privacyPolicy);
+        $(".opt_copy").html(optCopyText);
+    }
 }
 
 translator.defineThankYouItems = function(){
