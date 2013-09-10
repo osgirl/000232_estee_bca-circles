@@ -11,23 +11,116 @@
     ko
   ==============*/
 
-  .ko .feature_circle .circle_of_strength {
-    font-size: .8em;
-    line-height: 1.6em;
-  }
+/*==============
+  ES-MX
+==============*/
+.es-mx .circle_of_strength {
+  font-size: 1.5em; 
+}
 
+.es-mx .circle_goal {
+  margin-top: 15px;
+  font-size: .9em;
+  line-height: 1.2em;
+}
 
-@media only screen and (min-width: 360px) {
+.es-mx .feature_circle .circle_of_strength {
+  font-size: 1em; 
+}
 
-/* ===============
-    Smartphone (360px)
-   =============== */
-	
+.es-mx .feature_circle .circle_goal {
+  margin-top: -5px;
+  font-size: .7em;
+  line-height: .9em;
+}
+.es-mx .popup #popup_circle_modal #goal{
+  margin-top: 0;
+  font-size: 31%;
+}    
+
+.es-mx #popup_footer_share {
+  letter-spacing: 0!important;
+}
+
+/*==============
+  ES
+==============*/
+.es .circle_goal {
+  margin-top: 10px;
+  font-size: 1em;
+  line-height: 1.1em;
+}  
+.es .feature_circle .circle_goal {
+  margin-top: 12px;
+  font-size: .6em;
+  line-height: 1em;
+}
+.es #popup_footer_share {
+  letter-spacing: 0!important;
+}
+
+/*==============
+  KO
+==============*/
+.ko .circle_of_strength {
+  font-size: 1.3em; 
+}
+.ko .feature_circle .circle_of_strength {
+  font-size: .8em;
+  line-height: 1.6em;
 }
 
 @media only screen and (min-width: 480px)  {
 
-   .ko .feature_circle .circle_of_strength {
+  /*==============
+    ES-MX (480px)
+  ==============*/
+  .es-mx .circle_of_strength {
+    font-size: 2em; 
+  }
+
+  .es-mx .circle_goal {
+    margin-top: -10px;
+    font-size: 1.3em;
+    line-height: 1.1em;
+  }
+
+  .es-mx .feature_circle .circle_of_strength {
+    font-size: 1.5em; 
+  }
+
+  .es-mx .feature_circle .circle_goal {
+    margin-top: 0;
+    font-size: 1em;
+    line-height: 1em;
+  }
+  .es-mx .popup #popup_circle_modal #goal{
+    margin-top: -10px;
+    font-size: 50%;
+  }
+
+  /*==============
+    ES(480px)
+  ==============*/
+  .es .circle_goal {
+    margin-top: 0;
+    font-size: 1.2em;
+    line-height: 1.2em;
+  }    
+  .es .feature_circle .circle_goal {
+    margin-top: 10px;
+    font-size: 1em;
+    line-height: 1.2em;
+  }
+
+  /*==============
+    KO (480px)
+  ==============*/
+  .ko .circle_of_strength {
+    font-size: 1.5em;
+  }
+
+  .ko .feature_circle .circle_of_strength {
     font-size: 1.1em;
     line-height: 1.9em;
   }
@@ -36,22 +129,56 @@
 
 @media only screen and (min-width: 640px)  {
 
-   .ko .feature_circle .circle_of_strength {
+  /*==============
+    ES-MX (640px)
+  ==============*/
+  .es-mx .feature_circle .circle_goal {
+    margin-top: -10px;
+    font-size: 1.2em;
+    line-height: 1em;
+  }
+  .es-mx .popup #popup_circle_modal #goal{
+    margin-top: -30px;
+    font-size: 70%;
+  }  
+
+  /*==============
+    KO (640px)
+  ==============*/
+  .ko .feature_circle .circle_of_strength {
     font-size: 1.4em;
     line-height: 1.6em;
   }
 
 }
 
-
-@media only screen and (min-width:768px) {
-
-
-}
-
-
 @media only screen and (min-width:980px) {
 
+  /*==============
+    ES-MX (980px)
+  ==============*/
+  .es-mx .feature_circle .circle_goal {
+    margin-top: 0;
+    font-size: .8em;
+    line-height: 1.2em;
+  }
+
+  .es-mx #popup_circle_modal #goal {
+    margin-top: 0px;
+  }
+
+  /*==============
+    ES (980px)
+  ==============*/
+  .es .feature_circle .circle_goal {
+    margin-top: 14px;
+    font-size: .8em;
+    line-height: 1em;
+  }  
+
+  /*==============
+    KO (980px)
+  ==============*/
   .ko .feature_circle .circle_of_strength {
     font-size: 1.1em;
     line-height: 1.85em;
@@ -62,6 +189,38 @@
 
 @media only screen and (min-width: 1024px) {
 
+  
+  /*==============
+    ES-MX (1024px)
+  ==============*/
+  .es-mx .feature_circle .circle_goal {
+    margin-top: 12px;
+    font-size: .8em;
+  }
+  .es-mx .feature_circle .circle_of_strength {
+    font-size: 1.8em; 
+  }
+  .es-mx .popup #popup_circle_modal #goal{
+    margin-top: -30px;
+    font-size: 90%;
+  }
+
+  /*==============
+    ES (1024px)
+  ==============*/
+  .es .circle_goal {
+    font-size: 1.4em;
+    line-height: 1.1em;
+  }    
+  .es .feature_circle .circle_goal {
+    margin-top: 10px;
+    font-size: .9em;
+    line-height: 1.1em;
+  }
+
+  /*==============
+    KO (1024px)
+  ==============*/
   .ko .feature_circle .circle_of_strength {
     font-size: 1.2em;
     line-height: 1.85em;
@@ -72,7 +231,33 @@
 
 @media only screen and (min-width: 1200px)  {
 
-  /*Korean*/
+  /*==============
+    ES-MX (1200px)
+  ==============*/
+  .es-mx .circle_goal {
+    margin-top: -10px;
+    font-size: 1.4em;
+    line-height: 1.1em;
+  }
+
+  .es-mx .feature_circle .circle_goal {
+    margin-top: -10px;
+    font-size: 1em;
+    line-height: 1.2em;
+  }
+
+  /*==============
+    ES (1200px)
+  ==============*/
+  .es .feature_circle .circle_goal {
+    font-size: 1.1em;
+    line-height: 1.1em;
+  }
+
+
+  /*==============
+    KO (1200px)
+  ==============*/
   .ko .stronger_together {
     font-size: 2.4em;
   }
