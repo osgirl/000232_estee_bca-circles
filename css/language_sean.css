@@ -11,19 +11,10 @@
     ko
   ==============*/
 
-
-/*Korean*/
-.ko .stronger_together {
-	font-size: 2.4em;
-}
-
-.ko .feature_circle .circle_creator_area {
-	/*font-size: .8em;*/
-}
-
-.ko .feature_circle .circle_of_strength {
-	/*font-size: .8em;*/
-}
+  .ko .feature_circle .circle_of_strength {
+    font-size: .8em;
+    line-height: 1.6em;
+  }
 
 
 @media only screen and (min-width: 360px) {
@@ -36,52 +27,59 @@
 
 @media only screen and (min-width: 480px)  {
 
-/* ===============
-    Smartphone (480px)
-   =============== */
+   .ko .feature_circle .circle_of_strength {
+    font-size: 1.1em;
+    line-height: 1.9em;
+  }
 
 }
 
 @media only screen and (min-width: 640px)  {
 
-/* ===============
-    Smartphone (640px)
-   =============== */
-	  
+   .ko .feature_circle .circle_of_strength {
+    font-size: 1.4em;
+    line-height: 1.6em;
+  }
+
 }
 
 
 @media only screen and (min-width:768px) {
 
-/* ===============
-    Tablet (768px)
-   =============== */
 
 }
 
 
 @media only screen and (min-width:980px) {
 
-/* ===============
-    Tablet (980px)
-   =============== */
+  .ko .feature_circle .circle_of_strength {
+    font-size: 1.1em;
+    line-height: 1.85em;
+  }
     
 }
 
 
 @media only screen and (min-width: 1024px) {
 
-/* ===============
-    Tablet (1024px)
-   =============== */
+  .ko .feature_circle .circle_of_strength {
+    font-size: 1.2em;
+    line-height: 1.85em;
+  }
 
 }
 
 
 @media only screen and (min-width: 1200px)  {
 
-/* ===============
-    Tablet (1200px)
-   =============== */
+  /*Korean*/
+  .ko .stronger_together {
+    font-size: 2.4em;
+  }
+
+  .ko .feature_circle .circle_of_strength {
+    font-size: 1.4em;
+    line-height: 1.6em;
+  }
 
 }
