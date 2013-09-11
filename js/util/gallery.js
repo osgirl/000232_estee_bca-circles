@@ -338,9 +338,9 @@ function Gallery()
 		        $.feed.get(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
 			}else{
 				console.debug("instagram number", instagramNum);
-				// $.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
-				// $.feed.more(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
-				// $.feed.more(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
+				$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
+				$.feed.more(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
+				$.feed.more(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
 			}
 		};
 
