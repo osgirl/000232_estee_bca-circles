@@ -563,12 +563,12 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 							if(circleEnd) enableLazyloader();
 						}else{
 
-								 notEnoughPhoto = true;
-								 morePhotoCount--;
+							 notEnoughPhoto = true;
+							 morePhotoCount--;
 
-								 restNum = photoSum - allPhotoData.length;
+							 restNum = photoSum - allPhotoData.length;
 
-								 $.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
+							 $.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
 
 						}
 					 }	
@@ -831,7 +831,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			restCount = 0;
 			pageNum = 1;
 			current_add_layout = 1;
-			//$.feed.reset();
+			$.feed.reset();
 			currentFilterType = btn.attr('type');
 			if(currentFilterType == "all") pageNum = 2;
 

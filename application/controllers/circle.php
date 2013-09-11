@@ -222,7 +222,6 @@ class Circle extends CI_Controller {
 			    $data['user_photo_url'] = $row->users_photo_url;
 			    $data['goal'] 			= $row->goal;
 			    $data['goal_id'] 		= $row->ref_goal_id;
-			    $data['language'] 		= $row->language;
 			    $data['country'] 		= $row->country;
 			    $data['goal_type'] 		= $row->goal_type;
 
