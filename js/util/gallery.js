@@ -837,7 +837,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			currentFilterType = btn.attr('type');
 			if(currentFilterType == "all") pageNum = 2;
 
-			enableLazyloader();
+			//enableLazyloader();
 			$('#donate_area').show();
 			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 
