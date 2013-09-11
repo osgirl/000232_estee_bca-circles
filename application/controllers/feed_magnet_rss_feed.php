@@ -16,11 +16,11 @@ class Feed_Magnet_Rss_Feed extends CI_Controller {
 		
 		switch ($type) {
 			case 'circles':
-				$result = $this->circles_model->Get(array('limit' => 10, 'offset' =>0) );
+				$result = $this->circles_model->Get(array('limit' => 10) );
 				$title  = 'Circle of Strength Circle data';
 				break;
 			case 'photos':
-				$result = $this->photos_model->Get(array('limit' => 10, 'offset' =>0) );
+				$result = $this->photos_model->Get(array('limit' => 10) );
 				$title  = 'Circle of Strength Photos data';
 				break;
 		}
