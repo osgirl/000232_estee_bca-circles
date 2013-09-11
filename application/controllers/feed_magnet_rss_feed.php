@@ -13,7 +13,7 @@ class Feed_Magnet_Rss_Feed extends CI_Controller {
 	}
 
 	public function get($type){
-		$limit = 50;
+		$limit = 20;
 		switch ($type) {
 			case 'circles':
 				$count  = $this->circles_model->Get(array('count'=>0) );
