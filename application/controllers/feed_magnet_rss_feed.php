@@ -29,6 +29,7 @@ class Feed_Magnet_Rss_Feed extends CI_Controller {
 				break;
 		}
 
+		$data['date']		 		= date("Y-m-d H:i:s");
 		$data['type']		 		= $type;
 		$data['page_title'] 		= $title;
 		$data['encoding'] 			= 'ISO-8859-1';
