@@ -825,6 +825,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			feedEnd = false;
 			onePage = false;
 			oneCircle = false;
+			circleEnd = false;
 			notEnoughPhoto = false;
 			restNum = 0;
 			subRestNum = 0;
