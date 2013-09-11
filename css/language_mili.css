@@ -58,6 +58,16 @@
     font-size:.9em;
   }
 
+  /*Italian*/
+
+  .it #thank_you p{
+    font-size:1.1em;
+  }
+
+  .it .popup #popup_circle_modal #goal{
+    font-size:30%;
+  }
+
 
 @media only screen and (min-width: 360px) {
 
@@ -116,6 +126,13 @@
     font-size:1.1em;
   }
 
+    /*Italian*/
+
+  .it .popup #popup_circle_modal #goal{
+    font-size:40%;
+  }
+
+
 
 }
 
@@ -150,6 +167,16 @@
   }
 
   .el .popup #popup_circle_modal #goal{
+    font-size:60%;
+  }
+
+  /*Italian*/
+
+  .it #thank_you p{
+    font-size:1.4em;
+  }
+
+  .it .popup #popup_circle_modal #goal{
     font-size:60%;
   }
 
@@ -199,6 +226,13 @@
   .el #join_fight_text{
     font-size:.6em;
   }
+
+    /*Italian*/
+
+  .it .popup #popup_circle_modal #goal{
+    font-size:80%;
+  }
+
 
     
 }
