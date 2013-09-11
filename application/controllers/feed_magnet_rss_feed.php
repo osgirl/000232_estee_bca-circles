@@ -23,7 +23,7 @@ class Feed_Magnet_Rss_Feed extends CI_Controller {
 				else{
 					$offset = 0;
 				}
-				$result = $this->circles_model->Get(array('limit' => $limit, 'offset' =>$offset));
+				$result = $this->circles_model->Get(array('limit' => $limit, 'offset' =>$offset, 'sortBy'=>'date', 'sortDirection'=>'asc'));
 				$title  = 'Circle of Strength Circle data';
 				break;
 			case 'photos':
@@ -36,7 +36,7 @@ class Feed_Magnet_Rss_Feed extends CI_Controller {
 					$offset = 0;
 				}
 				
-				$result = $this->photos_model->Get(array('limit' => $limit, 'offset' =>$offset));
+				$result = $this->photos_model->Get(array('limit' => $limit, 'offset' =>$offset, 'sortBy'=>'date', 'sortDirection'=>'asc'));
 				$title  = 'Circle of Strength Photos data';
 				break;
 		}
@@ -47,7 +47,7 @@ class Feed_Magnet_Rss_Feed extends CI_Controller {
 		$data['encoding'] 			= 'ISO-8859-1';
         $data['page_description'] 	= 'Cicrle RSS feed for Feed Magnet';
         $data['url'] 				= base_url();
-        $data['items'] 				= $result;
+        $data['items'] 				= array_reverse($result);
         header("Content-Type: application/rss+xml");
 		$this->load->view('feed_magnet_rss_feed_view', $data);
 	}
