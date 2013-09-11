@@ -563,8 +563,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 							if(circleEnd) enableLazyloader();
 						}else{
 
-							console.log("PHOTO DATA WHAT THE FUCK", allPhotoData.length)
-
 								 notEnoughPhoto = true;
 								 morePhotoCount--;
 
@@ -833,11 +831,11 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			restCount = 0;
 			pageNum = 1;
 			current_add_layout = 1;
-			$.feed.reset();
+			//$.feed.reset();
 			currentFilterType = btn.attr('type');
 			if(currentFilterType == "all") pageNum = 2;
 
-			//enableLazyloader();
+			enableLazyloader();
 			$('#donate_area').show();
 			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 
