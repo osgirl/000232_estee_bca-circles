@@ -58,6 +58,13 @@
         </div>
     </li>
      <li>
+        <div id="hu">
+            <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/hungary.png' />
+            <span class="country">&nbsp;&nbsp;Hungary</span>&nbsp;&nbsp;
+            <a href= "<?=base_url()?>hu/hu/">magyar</a>
+        </div>
+    </li>    
+     <li>
         <div id="il">
             <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/israel.png' />
             <span class="country">&nbsp;&nbsp;Israel</span>&nbsp;&nbsp;
@@ -121,7 +128,7 @@
         </div>
     </li>
     <li>
-        <div id="es">
+        <div id="sl">
             <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/spain.png' />
             <span class="country">&nbsp;&nbsp;Spain</span>&nbsp;&nbsp;
             <a href= "<?=base_url()?>es/sl/">Español</a>
