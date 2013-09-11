@@ -58,6 +58,10 @@
     font-size:.9em;
   }
 
+  .el .popup #popup_photo_upload_agreement_window h2{
+    margin:40px 0 20px 0;
+  }
+
   /*Italian*/
 
   .it #thank_you p{

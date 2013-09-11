@@ -91,6 +91,7 @@ var SCROLL_TO_SHOW_FOOTER;
 var languageData;
 
 var FACEBOOK_FAN_PAGE = "https://www.facebook.com/BCACampaign";
+var donate_link;
 
 
 $(document).ready(function(){	
@@ -120,8 +121,19 @@ $(document).ready(function(){
 
 	facebook.init(fbAppId);
 	translatePage();
+	directDonateLink();
 	
 });
+
+function directDonateLink(){
+	if(selectedLanguage == "it" || selectedCountry == "it")
+		donate_link = "http://www.legatumori.it/versamento_donaonline_form.php?area=1019";
+	else
+		donate_link = "https://donations.bcrfcure.org/sslpage.aspx?pid=298";
+
+	$('.donate_btn').attr('href', donate_link);
+
+}
 
 /*************************************************************
  * Sean: Private function for Main page preloader (jquery extend)

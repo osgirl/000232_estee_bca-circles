@@ -71,6 +71,7 @@ function Gallery()
 		var photoNum;
 		var twitterNum;
 		var instagramNum;
+		var photoEnd = false;
 
 		var uploadedPhotoCount;
 
@@ -149,7 +150,7 @@ function Gallery()
 
 		function loadNextPage(){
 			isMoreFeed = true;
-			if(!circleEnd) pageNum++;
+			if(!circleEnd || !photoEnd) pageNum++;
 			loadLayout();
 		
 			console.log("PAGE PLUS", pageNum)
@@ -292,6 +293,10 @@ function Gallery()
 				//console.debug("CIRCLE LEFT ONE", $data.length);
 			}
 			var data = ored.getIdsFromFeed($data, "circles");
+
+			console.log("parseAllCircleData", circleEnd, oneCircle);
+
+
 
 			createAllLayout();
 
@@ -444,6 +449,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				if($data.length < restNum){
 					subRestNum = restNum - $data.length;
 					$.feed.more(feedmagnet.instagram_feed, function(inData){
+
+						console.debug("instagram", inData.length, subRestNum);
 						if(inData.length < subRestNum ){
 							var subSubRestNum = subRestNum - inData.length;
 							$.feed.more(feedmagnet.twitter_feed, function(twitterData){
@@ -511,7 +518,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 		function handleAllPhotoData(data){
 
-			console.debug( "WHERE IS INSTAGRAM", data);
+			if(allPhotoData.length == 0) photoEnd = true;
 
 			//oc: combine all 3 feeds into 1
 			if(data.length != 0) {
@@ -520,39 +527,43 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 					console.debug( v.data.channel + ' - ' + v.data.text );
 					allPhotoData.push(v);
 				})
-			}
 
+				morePhotoCount++;
 
-			
-			morePhotoCount++;
+				//oc: only call when we have all 3 feeds.
+				 if(morePhotoCount == 3){
+	
+				 	sortByTimestamp(allPhotoData);
 
-			//oc: only call when we have all 3 feeds.
-			 if(morePhotoCount == 3){
+					//console.debug("all photo data", allPhotoData.length, photoSum)
 
-			 	
-			 	sortByTimestamp(allPhotoData);
-				// $(allPhotoData).each(function(i,v){
-				// 	console.debug("THESE ARE ALL DATAS", v.data.channel + " - " + v.data.timestamp)
-				// })
+				 	if(allPhotoData.length >= photoSum ){
+				 		notEnoughPhoto = false;
+		 				ored.masterFeed = allPhotoData;
+						galleryItem.parseAllPhotoData(allPhotoData, false, circleEnd);
+						if(circleEnd) enableLazyloader();
+					}else{
 
-				console.debug("all photo data", allPhotoData.length, photoSum)
+						if(!isMoreFeed){
+							notEnoughPhoto = false;
+			 				ored.masterFeed = allPhotoData;
+							galleryItem.parseAllPhotoData(allPhotoData, false, circleEnd);
+							if(circleEnd) enableLazyloader();
+						}else{
 
-			 	if(allPhotoData.length >= photoSum ){
-			 		notEnoughPhoto = false;
-	 				ored.masterFeed = allPhotoData;
-					galleryItem.parseAllPhotoData(allPhotoData, false, circleEnd);
-					if(circleEnd) enableLazyloader();
-				}else{
+							notEnoughPhoto = true;
+							morePhotoCount--;
 
-					notEnoughPhoto = true;
-					morePhotoCount--;
+							restNum = photoSum - allPhotoData.length;
 
-					restNum = photoSum - allPhotoData.length;
+							$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
 
-					$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
+						}
+					}
+				 }	
+
 
 				}
-			 }	
 			
 		};
 
@@ -804,6 +815,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			onePage = false;
 			oneCircle = false;
 			notEnoughPhoto = false;
+			photoEnd = false;
 			restNum = 0;
 			subRestNum = 0;
 			restCount = 0;
@@ -924,8 +936,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		
 
 		function createAllLayout(data){
-			console.log('createAllLayout');
-			if(!circleEnd){
+			console.log('createAllLayout----------------', photoEnd);
+			if(!circleEnd && !photoEnd){
 				if(oneCircle){
 
 					$.ajax({
@@ -1004,6 +1016,14 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 	      		});
 
 				}
+			}else if(photoEnd){
+
+				console.debug("PHOTO IS ENDED PLEASE LOAD CIRCLE")
+
+				createCircleLayout();
+
+				console.debug("CIRCLE LAYOUT CREATED")
+				$.feed.more(feedmagnet.circle_feed, parseCircleData, getCircleNum);
 
 			}else{
 

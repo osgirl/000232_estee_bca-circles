@@ -199,7 +199,7 @@
 	        	<div id="regular_footer" style="width:100%">
 					<div id='join_fight' class='span2 all_cap light_font span'>
 						<div id='join_fight_text'><span language_id="join_the_fight" language_location="home" >Join the fight</span><br /><span language_id="join_the_fight_donate_ex"  language_location="home" style='font-size:160%'>donate!</span></div>
-						<a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" target="_blank" ><div id='donate_btn' class='pink_btn' language_id="donate_now" language_location="home" >DONATE NOW</div></a>
+						<a id="donate_pink_btn" class='pink_btn donate_btn' target="_blank" language_id="donate_now" language_location="home" >DONATE NOW</a>
 					</div>
 					<div id='join_fight_content' class="span5" language_id="footer_copy" language_location="home" >
 						<p>Breast cancer affects 1 in 8 women in their lifetime. A donation of $50 raised by a Circle funds approximately one hour of lifesaving research through The Breast Cancer Research Foundation. Donate now and take us a step closer to eradicating this disease.</p>
@@ -220,8 +220,6 @@
 	            <div id="load_more_btn_wrapper"><a id="load_more_btn" class="pink_btn all_cap" language_id="load_more" language_location="home" >load more</a></div>
 			</div>	
 		</div>
-
-
 
 		<!-- Facebook --> 
         <script src='http://connect.facebook.net/en_US/all.js'></script>

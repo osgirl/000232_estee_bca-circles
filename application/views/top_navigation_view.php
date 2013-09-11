@@ -30,7 +30,7 @@
                         <ul id='top_main_nav' class="nav">
                             <li><a id="conversation_btn" language_id="conversation" language_location="home" href="#conversation" onclick="$('.popup#popup_circle .btn_close').trigger('click');" class='all_cap'>Conversation</a></li>
                             <li><a href="#video" language_id="video" language_location="home" onclick="return $.popup({type:'video'});" class='all_cap'>video</a></li>
-                            <li><a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" language_id="donate" language_location="home" target="_blank" class='all_cap' onclick="$.gaPageview(/donate/)">donate</a></li>
+                            <li><a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" language_id="donate" language_location="home" target="_blank" class='all_cap donate_btn' onclick="$.gaPageview(/donate/)">donate</a></li>
                             <li><a href="#about" language_id="about" language_location="home" onclick="return $.popup({type:'about'});" class='all_cap'>about</a></li>
                             <li><a id="PP_btn" language_id="privacy_policy" language_location="home" href="#privacy_policy" onclick="return $.popup({type:'privacy_policy'});" class='all_cap'>Privacy Policy</a></li>
                             <li><a id="TC_btn" language_id="terms_and_conditions" language_location="home" href="#terms_and_conditions" onclick="return $.popup({type:'terms_and_conditions'});" class='all_cap'>Terms & Conditions</a></li>
