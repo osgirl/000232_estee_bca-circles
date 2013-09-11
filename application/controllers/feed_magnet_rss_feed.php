@@ -17,13 +17,25 @@ class Feed_Magnet_Rss_Feed extends CI_Controller {
 		switch ($type) {
 			case 'circles':
 				$count  = $this->circles_model->Get(array('count'=>0) );
-				$offset = $count - $limit;
+				if($count > $limit){
+					$offset = $count - $limit;
+				}
+				else{
+					$offset = 0;
+				}
 				$result = $this->circles_model->Get(array('limit' => $limit, 'offset' =>$offset));
 				$title  = 'Circle of Strength Circle data';
 				break;
 			case 'photos':
 				$count  = $this->photos_model->Get(array('count'=>0) );
-				$offset = $count - $limit;			
+				
+				if($count > $limit){
+					$offset = $count - $limit;
+				}
+				else{
+					$offset = 0;
+				}
+				
 				$result = $this->photos_model->Get(array('limit' => $limit, 'offset' =>$offset));
 				$title  = 'Circle of Strength Photos data';
 				break;
