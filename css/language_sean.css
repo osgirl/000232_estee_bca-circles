@@ -9,6 +9,7 @@
     fr    (ok)
     de    (ok)
     ko    (ok)
+    hu    
   ==============*/
 
 /*==============
@@ -90,6 +91,9 @@
 .fr .popup #popup_circle_modal #goal{
   font-size: 35%;
 }
+.fr #popup_footer_share {
+  letter-spacing: 0!important;
+}
 
 /*==============
   DE
@@ -112,6 +116,9 @@
   margin-top: -10px;
   font-size: 35%;
 }
+.de #popup_footer_share {
+  letter-spacing: 0!important;
+}
 
 /*==============
   KO
@@ -126,6 +133,36 @@
 .ko .feature_circle .circle_of_strength {
   font-size: .7em;
   line-height: 1.6em;
+}
+
+/*==============
+  HU
+==============*/  
+.hu .stronger_together {
+  font-size: 1.5em;
+}  
+.hu .copy_text {
+  line-height: 1.2em;
+}  
+.hu .circle_of_strength {
+  font-size: .8em;  
+}
+.hu .circle_goal {
+  margin-top: 10px;
+  font-size: 1em;
+  line-height: 1.1em;
+}
+.hu .feature_circle .circle_goal {
+  margin-top: 5px;
+  font-size: .5em;
+  line-height: 1em;
+}
+.hu .popup #popup_circle_modal #goal{
+  font-size: 32%;
+}   
+.hu #popup_footer_share {
+  font-size: .3em !important;
+  letter-spacing: 0!important;
 }
 
 @media only screen and (min-width: 480px)  {
@@ -205,12 +242,27 @@
   .ko .circle_of_strength {
     font-size: 1.5em;
   }
-
   .ko .feature_circle .circle_of_strength {
     font-size: 1.1em;
     line-height: 1.9em;
   }
 
+  /*==============
+    HU (480px)
+  ==============*/  
+  .hu .circle_of_strength {
+    font-size: 1.3em;
+  }
+  .hu .circle_goal {
+    margin-top: 0;
+    font-size: 1.3em;
+    line-height: 1.1em;
+  }  
+  .hu .feature_circle .circle_goal {
+    margin-top: 0;
+    font-size: .9em;
+    line-height: 1.1em;
+  }  
 }
 
 @media only screen and (min-width: 640px)  {
@@ -277,6 +329,23 @@
     font-size: 1.4em;
     line-height: 1.6em;
   }
+
+  /*==============
+    HU (640px)
+  ==============*/
+  .hu .stronger_together {
+    font-size: 2em;
+  }    
+  .hu .circle_of_strength {
+    font-size: 1.5em;
+  }
+  .hu .feature_circle .circle_goal {
+    font-size: 1.2em;
+    line-height: 1.1em;
+  }
+  .hu .popup #popup_circle_modal #goal{
+    font-size: 65%;
+  } 
 }
 
 @media only screen and (min-width:980px) {
@@ -327,6 +396,14 @@
   .ko .feature_circle .circle_of_strength {
     font-size: 1.1em;
     line-height: 1.85em;
+  }
+
+  /*==============
+    HU (980px)
+  ==============*/  
+  .hu .feature_circle .circle_goal {
+    font-size: .9em;
+    line-height: 1.1em;
   }
 }
 
@@ -393,8 +470,16 @@
     line-height: 1.85em;
   }
 
+  /*==============
+    HU (1024px)
+  ==============*/ 
+  .hu .stronger_together {
+    font-size: 2.4em;
+  }      
+  .hu .popup #popup_circle_modal #goal{
+    font-size: 80%;
+  }
 }
-
 
 @media only screen and (min-width: 1200px)  {
 
@@ -444,6 +529,16 @@
   .ko .feature_circle .circle_of_strength {
     font-size: 1.4em;
     line-height: 1.6em;
+  }
+
+  /*==============
+    HU (1200px)
+  ==============*/
+  .hu .stronger_together {
+    font-size: 2.8em;
+  }      
+  .hu .feature_circle .circle_goal {
+    font-size: 1em;
   }
 
 }
