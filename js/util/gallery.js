@@ -101,6 +101,8 @@ function Gallery()
 
 			//console.log($(window).scrollTop() + $(window).height(), getDocHeight())
 
+			console.log("HERE????")
+
 			if(onePage){
 				$('#donate_area').fadeIn();
   				$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
@@ -443,26 +445,39 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			if(notEnoughPhoto) {
 
-				console.debug("NOT ENOUGH PHOTO", $data.length, restNum);
+				console.debug("NOT ENOUGH everything", $data.length, restNum);
 
 				if($data.length < restNum){
 					subRestNum = restNum - $data.length;
+
+					console.debug("NOT ENOUGH PHOTO", subRestNum);
 					$.feed.more(feedmagnet.instagram_feed, function(inData){
 
-						console.debug("instagram", inData.length, subRestNum);
+						
 						if(inData.length < subRestNum ){
-							var subSubRestNum = subRestNum - inData.length;
-							$.feed.more(feedmagnet.twitter_feed, function(twitterData){
+
+							console.debug("not enough instagram", inData.length, subRestNum);
+							 var subSubRestNum = subRestNum - inData.length;
+							 $.feed.more(feedmagnet.twitter_feed, function(twitterData){
 
 
-								if(twitterData.length < subSubRestNum ) onePage = true;
+							 	if(twitterData.length < subSubRestNum ) {
 
-								handleAllPhotoData(twitterData);
+							 		console.debug("not enough twitter", twitterData.length, subSubRestNum);
+							 		onePage = true;
+							 		enableLazyloader();
+							 	}else{
+							 		handleAllPhotoData(twitterData);
+							 	}
 
-							}, subSubRestNum);
+								
+
+							 }, subSubRestNum);
+						}else{
+							handleAllPhotoData(inData);
 						}
 
-						handleAllPhotoData(inData);
+						
 
 					}, subRestNum);
 				}
@@ -518,46 +533,47 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		function handleAllPhotoData(data){
 
 			//oc: combine all 3 feeds into 1
-			if(data.length != 0) {
-				$(data).each(function (i, v){
-
-					console.debug( v.data.channel + ' - ' + v.data.text );
-					allPhotoData.push(v);
-				})
-			}
 			
-			if(allPhotoData.length == 0) return;
 
-			
-				morePhotoCount++;
+				if(data.length != 0) {
+					$(data).each(function (i, v){
 
-				//oc: only call when we have all 3 feeds.
-				 if(morePhotoCount == 3){
+						console.debug( v.data.channel + ' - ' + v.data.text );
+						allPhotoData.push(v);
+					})
+				}
+				
+					morePhotoCount++;
 
-				 	
-				 	sortByTimestamp(allPhotoData);
-					// $(allPhotoData).each(function(i,v){
-					// 	console.debug("THESE ARE ALL DATAS", v.data.channel + " - " + v.data.timestamp)
-					// })
+					//oc: only call when we have all 3 feeds.
+					 if(morePhotoCount == 3){
 
-					console.debug("all photo data", allPhotoData.length, photoSum)
+					 	
+					 	sortByTimestamp(allPhotoData);
+						// $(allPhotoData).each(function(i,v){
+						// 	console.debug("THESE ARE ALL DATAS", v.data.channel + " - " + v.data.timestamp)
+						// })
 
-				 	if(allPhotoData.length >= photoSum ){
-				 		notEnoughPhoto = false;
-		 				ored.masterFeed = allPhotoData;
-						galleryItem.parseAllPhotoData(allPhotoData, false, circleEnd);
-						if(circleEnd) enableLazyloader();
-					}else{
+						console.debug("all photo data", allPhotoData.length, photoSum)
 
-						notEnoughPhoto = true;
-						morePhotoCount--;
+					 	if(allPhotoData.length >= photoSum ){
+					 		notEnoughPhoto = false;
+			 				ored.masterFeed = allPhotoData;
+							galleryItem.parseAllPhotoData(allPhotoData, false, circleEnd);
+							if(circleEnd) enableLazyloader();
+						}else{
 
-						restNum = photoSum - allPhotoData.length;
+							console.log("PHOTO DATA WHAT THE FUCK", allPhotoData.length)
 
-						$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
+								 notEnoughPhoto = true;
+								 morePhotoCount--;
 
-					}
-				 }	
+								 restNum = photoSum - allPhotoData.length;
+
+								 $.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
+
+						}
+					 }	
 
 
 
