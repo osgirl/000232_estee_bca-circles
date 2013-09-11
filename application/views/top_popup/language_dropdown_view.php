@@ -45,7 +45,7 @@
         <div id="gr">
             <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/greece.png' />
             <span class="country">&nbsp;&nbsp;Greece</span>&nbsp;&nbsp;
-            <a href= "<?=base_url()?>el/gl/">Ελληνικά</a>
+            <a href= "<?=base_url()?>el/gr/">Ελληνικά</a>
         </div>
     </li>
     <li>
