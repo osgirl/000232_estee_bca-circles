@@ -98,6 +98,7 @@ $config['lang_uri_abbr'] =
 		"ko" => "Korean", 
 		"el" => "Greek", 
 		"he" => "Hebrew", 
+		"hu" => "Hungarian", 
 		"cn" => "Chinese", 
 		"it" => "Italian", 
 		"pt" => "Portuguese", 
@@ -115,9 +116,11 @@ $config['country_uri_abbr'] =
 		"ca" => "Canada", 
 		"cl" => "Chile", 
 		"zh" => "China", 
+		"fr" => "France", 
 		"de" => "Germany", 
 		"gr" => "Greece", 
 		"hk" => "Hong Kong", 
+		"hu" => "Hungary", 
 		"kr" => "Korea", 
 		"my" => "Malaysia", 
 		"mx" => "Mexico", 
@@ -130,7 +133,7 @@ $config['country_uri_abbr'] =
 		"tr" => "Turkey", 
 		"uk" => "United Kingdom", 
 		"us" => "United States"		
-	);	
+	);
 
 /*
 |--------------------------------------------------------------------------

@@ -90,20 +90,22 @@ $config['country_abbr'] = "";
 // set available language abbreviations 
 $config['lang_uri_abbr'] = 
 	array(
-		"en" => "English",
-		"fr" => "French", 
-		"es" => "Spanish", 
-		"cn" => "Chinese", 
-		"nl" => "Dutch", 
-		"el" => "Greek", 
-		"ko" => "Korean", 
-		"ru" => "Russian", 
-		"tr" => "Turkish",
-		"pt" => "Portuguese",
-		"vi" => "Vietnamese",
-		"he" => "Hebrew",
-		"it" => "Italian",
+		"en" => "English", 
 		"ar" => "Arabic",
+		"es" => "Spanish", 
+		"fr" => "French", 
+		"de" => "German", 
+		"ko" => "Korean", 
+		"el" => "Greek", 
+		"he" => "Hebrew", 
+		"hu" => "Hungarian", 
+		"cn" => "Chinese", 
+		"it" => "Italian", 
+		"pt" => "Portuguese", 
+		"ru" => "Russian", 
+		"zh" => "Chinese", 
+		"tr" => "Turkish",
+		"vi" => "Vietnamese",
 		"ny" => "New York"
 	);
 
@@ -114,25 +116,24 @@ $config['country_uri_abbr'] =
 		"ca" => "Canada", 
 		"cl" => "Chile", 
 		"zh" => "China", 
-		"fr" => "France",
+		"fr" => "France", 
 		"de" => "Germany", 
 		"gr" => "Greece", 
 		"hk" => "Hong Kong", 
-		"il" => "Israel",
-		"it" => "Italy",
+		"hu" => "Hungary", 
 		"kr" => "Korea", 
 		"my" => "Malaysia", 
 		"mx" => "Mexico", 
 		"ph" => "Philippines", 
 		"ru" => "Russia", 
 		"sc" => "Singapore", 
-		"sy" => "Syria", 		
+		"sy" => "Syria", 
 		"sl" => "Spain", 
 		"tw" => "Taiwan", 
 		"tr" => "Turkey", 
 		"uk" => "United Kingdom", 
 		"us" => "United States"		
-	);	
+	);
 
 /*
 |--------------------------------------------------------------------------

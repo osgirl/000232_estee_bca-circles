@@ -91,15 +91,21 @@ $config['country_abbr'] = "";
 $config['lang_uri_abbr'] = 
 	array(
 		"en" => "English", 
-		"fr" => "French", 
+		"ar" => "Arabic",
 		"es" => "Spanish", 
-		"cn" => "Chinese", 
-		"nl" => "Dutch", 
+		"fr" => "French", 
+		"de" => "German", 
+		"ko" => "Korean", 
 		"el" => "Greek", 
-		"kr" => "Korean", 
+		"he" => "Hebrew", 
+		"hu" => "Hungarian", 
+		"cn" => "Chinese", 
+		"it" => "Italian", 
+		"pt" => "Portuguese", 
 		"ru" => "Russian", 
-		"zh" => "Singapore", 
+		"zh" => "Chinese", 
 		"tr" => "Turkish",
+		"vi" => "Vietnamese",
 		"ny" => "New York"
 	);
 
@@ -110,22 +116,24 @@ $config['country_uri_abbr'] =
 		"ca" => "Canada", 
 		"cl" => "Chile", 
 		"zh" => "China", 
+		"fr" => "France", 
 		"de" => "Germany", 
 		"gr" => "Greece", 
 		"hk" => "Hong Kong", 
+		"hu" => "Hungary", 
 		"kr" => "Korea", 
 		"my" => "Malaysia", 
 		"mx" => "Mexico", 
 		"ph" => "Philippines", 
 		"ru" => "Russia", 
 		"sc" => "Singapore", 
-		"sy" => "Syria", 		
+		"sy" => "Syria", 
 		"sl" => "Spain", 
 		"tw" => "Taiwan", 
 		"tr" => "Turkey", 
 		"uk" => "United Kingdom", 
 		"us" => "United States"		
-	);	
+	);
 
 /*
 |--------------------------------------------------------------------------
