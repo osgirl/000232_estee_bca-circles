@@ -218,6 +218,7 @@ function translatePage(){
 
 		if(selectedLanguage == "it") NAME_TEXTFIELD_WIDTH = 180;
 		if(selectedLanguage == "pt") NAME_TEXTFIELD_WIDTH = 155;
+		if(selectedLanguage == "ru") NAME_TEXTFIELD_WIDTH = 150;
 
 		languageData = e;
    		loadLanguageToElements(e);

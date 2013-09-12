@@ -86,6 +86,8 @@ function Gallery()
 		var subRestNum = 0;
 		var restCount = 0;
 
+		var restPhotoCount = 0;
+		var restPhotoArray = new Array();
 		
 
 
@@ -103,7 +105,7 @@ function Gallery()
 
 			//console.log($(window).scrollTop() + $(window).height(), getDocHeight())
 
-			//console.log("HERE????")
+			console.log("HERE????", onePage)
 
 				if(onePage){
 					$('#donate_area').fadeIn();
@@ -272,8 +274,8 @@ function Gallery()
 
 				case 2:
 					circleNum 		= 1;
-					photoNum 		= 1;
-					twitterNum 		= 2;
+					photoNum 		= 2;
+					twitterNum 		= 1;
 					instagramNum 	= 1;
 				break;
 			}
@@ -455,6 +457,52 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 	   		});//end each
 		};
+
+
+		function handleAllPhotoData(data){
+
+			//oc: combine all 3 feeds into 1
+
+				if(data && data.length != 0) {
+					$(data).each(function (i, v){
+
+						console.debug( v.data.channel + ' - ' + v.data.text );
+						allPhotoData.push(v);
+					})
+				}
+				
+					morePhotoCount++;
+
+					//oc: only call when we have all 3 feeds.
+					 if(morePhotoCount == 3){
+				 	
+					 	sortByTimestamp(allPhotoData);
+
+					 	console.info("all photo data", allPhotoData)
+
+					 	//if(allPhotoData.length >= photoSum ){
+					 		notEnoughPhoto = false;
+			 				ored.masterFeed = allPhotoData;
+							galleryItem.parseAllPhotoData(allPhotoData, false, circleEnd);
+							enableLazyloader();
+	
+						//}
+
+						 // else{
+
+						 // 	notEnoughPhoto = true;
+						 // 	morePhotoCount--;
+
+						 // 	console.info("hmmm", photoSum, allPhotoData.length)
+
+						 // 	restNum = photoSum - allPhotoData.length;
+
+						 // 	$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
+
+						 // }
+					 }	
+			
+		};
 		
 
 		//oc: this handles response from feedmagnet and retreives the data associated with each photo
@@ -463,34 +511,34 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			if(notEnoughPhoto) {
 
-				console.debug("NOT ENOUGH everything", $data.length, restNum);
+				//lookForRestPhotos();
+
+
+				console.info("NOT ENOUGH everything", $data.length, restNum);
 
 				if($data.length < restNum){
 					subRestNum = restNum - $data.length;
 
-					console.debug("NOT ENOUGH PHOTO", subRestNum);
+					console.info("NOT ENOUGH PHOTO, instagram help!!", subRestNum);
 					$.feed.more(feedmagnet.instagram_feed, function(inData){
 
 						
 						if(inData.length < subRestNum ){
 
-							console.debug("not enough instagram", inData.length, subRestNum);
+							console.info("not enough instagram, twitter help!!", inData.length, subRestNum);
 							 var subSubRestNum = subRestNum - inData.length;
 							 $.feed.more(feedmagnet.twitter_feed, function(twitterData){
 
 
 							 	if(twitterData.length < subSubRestNum ) {
 
-							 		console.debug("not enough twitter", twitterData.length, subSubRestNum);
+							 		console.info("not enough twitter go back to photos", twitterData.length, subSubRestNum);
 							 		onePage = true;
 							 		enableLazyloader();
 							 	}else{
 
 							 		handleAllPhotoData(twitterData);
 							 	}
-							 	
-
-								
 
 							 }, subSubRestNum);
 						}else{
@@ -502,6 +550,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 					}, subRestNum);
 				}else{
+
+					console.info("HANDLE ALL PHOTO DATA", $data.length, $data)
 					handleAllPhotoData($data);
 				}
 				
@@ -522,6 +572,73 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 
 		};
+
+		function lookForRestPhotos(){
+			restPhotoCount = 0;
+			//$.feed.more(feedmagnet.photo_feed, checkRestPhotos, 1);
+			
+		}
+
+		function checkRestPhotos(data){
+			//restPhotoCount++;
+
+			console.info("photo GET", data)
+
+			if(data.length!=0) handleAllPhotoData(data);
+
+			// if(data.length!=0) restPhotoArray.push(data);
+
+			// if(restPhotoCount == 3){
+
+			// 	if(restPhotoArray.length >= PHOTO_MORE_TOTAL){
+			// 		// $(restPhotoArray).each(function(i,v){
+			// 		// 	handleAllPhotoData(v);	
+			// 		// })
+					
+			// 	}else if(restPhotoArray.length == 0){
+			// 		onePage = true;
+			// 		enableLazyloader();
+			// 	}else{
+			// 		lookForRestPhotos();
+			// 	}
+			// }
+			
+		}
+
+		function checkRestInstagram(data){
+
+			console.info("instagram GET", data)
+
+			if(data.length!=0) handleAllPhotoData(data);
+			
+		}
+
+		function checkRestTwitter(data){
+			//restPhotoCount++;
+
+			console.info("twitter GET", data)
+
+			if(data.length!=0) handleAllPhotoData(data);
+
+			// if(data.length!=0) restPhotoArray.push(data);
+
+			// if(restPhotoCount == 3){
+
+			// 	if(restPhotoArray.length >= PHOTO_MORE_TOTAL){
+			// 		// $(restPhotoArray).each(function(i,v){
+			// 		// 	handleAllPhotoData(v);	
+			// 		// })
+					
+			// 	}else if(restPhotoArray.length == 0){
+			// 		onePage = true;
+			// 		enableLazyloader();
+			// 	}else{
+			// 		lookForRestPhotos();
+			// 	}
+			// }
+			
+		}
+
 
 		function loadPhotoData($data, $onComplete){
 			console.debug("LOAD PHOTO DATA", $data)
@@ -558,56 +675,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 		};
 
-		function handleAllPhotoData(data){
-
-			//oc: combine all 3 feeds into 1
-
-			console.debug("HANDLE", allPhotoData)
-			
-
-				if(data && data.length != 0) {
-					$(data).each(function (i, v){
-
-						console.debug( v.data.channel + ' - ' + v.data.text );
-						allPhotoData.push(v);
-					})
-				}
-				
-					morePhotoCount++;
-
-					//oc: only call when we have all 3 feeds.
-					 if(morePhotoCount == 3){
-
-					 	
-					 	sortByTimestamp(allPhotoData);
-						// $(allPhotoData).each(function(i,v){
-						// 	console.debug("THESE ARE ALL DATAS", v.data.channel + " - " + v.data.timestamp)
-						// })
-
-						console.debug("all photo data", allPhotoData.length, photoSum)
-
-					 	if(allPhotoData.length >= photoSum ){
-					 		notEnoughPhoto = false;
-			 				ored.masterFeed = allPhotoData;
-							galleryItem.parseAllPhotoData(allPhotoData, false, circleEnd);
-							enableLazyloader();
-	
-						}else{
-
-							notEnoughPhoto = true;
-							morePhotoCount--;
-
-							restNum = photoSum - allPhotoData.length;
-
-							$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
-
-						}
-					 }	
-
-
-
-			
-		};
+		
 
 		function sortByTimestamp(dataArray){
 			//oc: sort by timestamp
@@ -635,7 +703,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			var data 		= ored.getIdsFromFeed($data, "photo");
 			photoFeed = data;
 
-			if(data.length < getPhotoNum) onePage = true;
+			if(data.length < 21) onePage = true;
 
 
 			loadPhotoData(data, getPhotoData);
@@ -692,7 +760,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			//createPhotoLayout();
 
-			if(data.length < getPhotoNum) onePage = true;
+			if(data.length < 21) onePage = true;
 
 			var feed;
 
@@ -749,7 +817,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			//createPhotoLayout();
 
-			if(data.length < getPhotoNum) onePage = true;
+			if(data.length < 21) onePage = true;
 
 
 			var feed;
@@ -991,6 +1059,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			            	dataType: 'html',
 			            	
 			            	success: function(layout3data) {  
+			            		current_add_layout = 2;
 				            	var layout3 = $('<div>');     
 				            	layout3.addClass('layout3 gallery_layout row')
 		            				.html(layout3data); 

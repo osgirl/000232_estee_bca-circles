@@ -38,15 +38,15 @@
     height:230px;
   }
 
-  .el .confirm_content{
+  .el .confirm_content, .ru .confirm_content{
     padding:5% 20% 2% 20%;
   }
 
-  .el #thank_you p, .it #thank_you p, .pt #thank_you p{
+  .el #thank_you p, .it #thank_you p, .pt #thank_you p, .ru #thank_you p{
     font-size:1.1em;
   }
 
-  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal{
+  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal, .ru .popup #popup_circle_modal #goal{
     font-size:30%;
   }
 
@@ -54,11 +54,11 @@
     font-size:.6em;
   }
 
-  .el .gallery_circle .circle_goal, .it .gallery_circle .circle_goal, .pt .gallery_circle .circle_goal{
+  .el .gallery_circle .circle_goal, .it .gallery_circle .circle_goal, .pt .gallery_circle .circle_goal, .ru .gallery_circle .circle_goal{
     font-size:.9em;
   }
 
-  .el .popup #popup_photo_upload_agreement_window h2{
+  .el .popup #popup_photo_upload_agreement_window h2, .ru .popup #popup_photo_upload_agreement_window h2{
     margin:40px 0 20px 0;
   }
 
@@ -77,11 +77,13 @@
     width:130px;
   }
 
+
   .it .popup #popup_circle_modal #popup_footer_share{
     font-size:12px;
   }
 
-  .it .popup #popup_footer_share li{
+
+  .it .popup #popup_footer_share li, .ru .popup #popup_footer_share li{
     margin-left:2px;
   }
 
@@ -95,6 +97,53 @@
   .pt #tagline {
       top: 75px;
   }
+
+  .pt #donate_pink_btn{
+    font-size:10px;
+  }
+
+  .pt #join_fight_text{
+    font-size:.7em;
+  }
+
+  /*Russian*/
+  .ru #tagline {
+      top: 75px;
+  }
+
+  .ru .feature_circle .circle_goal{
+    font-size:.55em;
+  }
+
+  .ru .popup #popup_circle_modal #popup_footer_share{
+    width:140px;
+  }
+
+  .ru .popup #popup_circle_modal #popup_footer_share{
+    font-size:8px;
+  }
+
+ .ru .confirm_content p{
+    font-size:.7em;
+ }
+
+ .ru #donate_pink_btn{
+    font-size:9px;
+  }
+
+  .ru #join_fight_text{
+    font-size:.6em;
+  }
+
+  .ru #join_fight_content{
+    font-size:.7em;
+  }
+
+  .ru #join_fight{
+    padding-left:13%;
+    width:14%;
+  }
+
 
 
 @media only screen and (min-width: 360px) {
@@ -126,11 +175,11 @@
     font-size: 1.3em;
   }
 
-  .el #create_another_circle{
+  .el #create_another_circle, .ru #create_another_circle{
     font-size:.5em;
   }
 
-  .el #log_in_upload_photo_btn{
+  .el #log_in_upload_photo_btn, .ru #log_in_upload_photo_btn{
     font-size:.5em;
   }
 
@@ -142,7 +191,7 @@
     height:360px;
   }
 
-  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal{
+  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal, .ru .popup #popup_circle_modal #goal{
     font-size:40%;
   }
 
@@ -178,6 +227,26 @@
       top: 140px;
   }
 
+  /*Russian*/
+  .ru #tagline {
+      top: 140px;
+  }
+
+  .ru .popup #popup_circle_modal #popup_footer_share{
+    font-size:12px;
+  }
+
+  .ru .feature_circle .circle_goal{
+    font-size:.8em;
+  }
+
+  .ru .gallery_circle .circle_goal{
+    font-size:1.1em;
+  }
+
+  .ru .confirm_content p{
+    font-size:.9em;
+ }
 
 
 }
@@ -208,11 +277,11 @@
     height:420px;
   }
 
-  .el #thank_you p, .it #thank_you p, .pt #thank_you p{
+  .el #thank_you p, .it #thank_you p, .pt #thank_you p, .ru #thank_you p{
     font-size:1.4em;
   }
 
-  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal{
+  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal, .ru .popup #popup_circle_modal #goal{
     font-size:60%;
   }
 
@@ -232,6 +301,11 @@
       top: 220px;
   }
 
+  /*Russian*/
+  .ru #tagline {
+      top: 210px;
+  }
+
 }
 
 
@@ -241,6 +315,9 @@
     Tablet (768px)
    =============== */
 
+.ru .confirm_content p{
+    font-size:1em;
+ }
    
 
 }
@@ -271,7 +348,7 @@
     height:320px;
   }
 
-  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal{
+  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal, .ru .popup #popup_circle_modal #goal{
     font-size:80%;
   }
 
@@ -299,6 +376,11 @@
   /*Portuguese*/
   .pt #tagline {
       top: 160px;
+  }
+
+  /*Russian*/
+  .ru #tagline {
+      top: 140px;
   }
 
 
@@ -376,6 +458,11 @@
   /*Portuguese*/
   .pt #tagline {
       top: 220px;
+  }
+
+  /*Russian*/
+  .ru #tagline {
+      top: 210px;
   }
 
 
