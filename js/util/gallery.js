@@ -482,22 +482,27 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 							 		console.debug("not enough twitter", twitterData.length, subSubRestNum);
 							 		onePage = true;
 							 		enableLazyloader();
-							 	}
+							 	}else{
+
 							 		handleAllPhotoData(twitterData);
+							 	}
 							 	
 
 								
 
 							 }, subSubRestNum);
-						}
+						}else{
 							handleAllPhotoData(inData);
+						}
 						
 
 						
 
 					}, subRestNum);
+				}else{
+					handleAllPhotoData($data);
 				}
-				handleAllPhotoData($data);
+				
 				
 			}else{
 				
@@ -544,7 +549,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			ored.photoData = ored.photoData.concat(data); 
 
-			console.log("iam so tire of this project", ored.photoData)
+
 
 			handleAllPhotoData( ored.photoFeed);
 
