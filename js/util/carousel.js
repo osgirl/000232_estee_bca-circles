@@ -76,7 +76,7 @@ function Carousel()
 		function getFeatureData(){
 			featurePhotoData = new Array();
 
-			//$.feed.featured(feedmagnet.circle_feat_feed, parseFeatureCircleData, 3);
+			$.feed.featured(feedmagnet.circle_feat_feed, parseFeatureCircleData, 3);
 			
 		}
 

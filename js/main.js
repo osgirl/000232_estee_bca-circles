@@ -216,6 +216,8 @@ function translatePage(){
 
 	$.language.load(function(e){
 
+		console.log("LANGUAGE LOADED")
+
 		if(selectedLanguage == "it") NAME_TEXTFIELD_WIDTH = 180;
 		if(selectedLanguage == "el") NAME_TEXTFIELD_WIDTH = 235;
 		if(selectedLanguage == "pt") NAME_TEXTFIELD_WIDTH = 155;
@@ -224,6 +226,8 @@ function translatePage(){
 		languageData = e;
    		loadLanguageToElements(e);
 
+   		$.mainPreloader.loadComplete();
+
    		$.feed();
 			fm_ready(function() {
 				carousel.initCarousel();
@@ -231,7 +235,7 @@ function translatePage(){
 
 				$('body').unbind("ALL_LAYOUT_CREATED").bind('ALL_LAYOUT_CREATED', function(){
 
-					$.mainPreloader.loadComplete();
+					//$.mainPreloader.loadComplete();
 
 					var newPos = $(window).scrollTop() + 300;
 
