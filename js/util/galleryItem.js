@@ -353,9 +353,9 @@ function GalleryItem()
 			console.debug('PHOTO_LOADED');
 			photoLoaded = true;
 
-			// $('.photo_container').each(function(i,v){
-			// 	if($(v).html() == "") $(v).hide();
-			// })
+			$('.photo_container').each(function(i,v){
+				if($(v).html() == "") $(v).hide();
+			})
 
 		},
 
