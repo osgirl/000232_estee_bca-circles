@@ -42,19 +42,19 @@
     padding:5% 20% 2% 20%;
   }
 
-  .el #thank_you p{
+  .el #thank_you p, .it #thank_you p, .pt #thank_you p{
     font-size:1.1em;
   }
 
-  .el .popup #popup_circle_modal #goal{
+  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal{
     font-size:30%;
   }
 
-  .el .feature_circle .circle_goal{
+  .el .feature_circle .circle_goal, .it .feature_circle .circle_goal, .pt .feature_circle .circle_goal{
     font-size:.6em;
   }
 
-  .el .gallery_circle .circle_goal{
+  .el .gallery_circle .circle_goal, .it .gallery_circle .circle_goal, .pt .gallery_circle .circle_goal{
     font-size:.9em;
   }
 
@@ -68,19 +68,12 @@
 
   /*Italian*/
 
-  .it #thank_you p{
-    font-size:1.1em;
-  }
-
-  .it .popup #popup_circle_modal #goal{
-    font-size:30%;
-  }
 
   .it #tagline {
       top: 75px;
   }
 
-  .it .popup #popup_circle_modal #popup_footer_share{
+  .it .popup #popup_circle_modal #popup_footer_share, .pt .popup #popup_circle_modal #popup_footer_share{
     width:130px;
   }
 
@@ -96,6 +89,11 @@
 
   .he #tagline {
       top: 140px;
+  }
+
+  /*Portuguese*/
+  .pt #tagline {
+      top: 75px;
   }
 
 
@@ -144,15 +142,15 @@
     height:360px;
   }
 
-  .el .popup #popup_circle_modal #goal{
+  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal{
     font-size:40%;
   }
 
-  .el .feature_circle .circle_goal{
+  .el .feature_circle .circle_goal, .it .feature_circle .circle_goal, .pt .feature_circle .circle_goal{
     font-size:1em;
   }
 
-  .el .gallery_circle .circle_goal{
+  .el .gallery_circle .circle_goal, .it .gallery_circle .circle_goal, .pt .gallery_circle .circle_goal{
     font-size:1.1em;
   }
 
@@ -163,9 +161,6 @@
 
   /*Italian*/
 
-  .it .popup #popup_circle_modal #goal{
-    font-size:40%;
-  }
 
   .it #tagline {
       top: 140px;
@@ -176,6 +171,11 @@
 
   .he #tagline {
       top: 220px;
+  }
+
+  /*Portuguese*/
+  .pt #tagline {
+      top: 140px;
   }
 
 
@@ -208,11 +208,11 @@
     height:420px;
   }
 
-  .el #thank_you p{
+  .el #thank_you p, .it #thank_you p, .pt #thank_you p{
     font-size:1.4em;
   }
 
-  .el .popup #popup_circle_modal #goal{
+  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal{
     font-size:60%;
   }
 
@@ -220,20 +220,16 @@
       top: 220px;
   }
 
-  /*Italian*/
-
-  .it #thank_you p{
-    font-size:1.4em;
-  }
-
-  .it .popup #popup_circle_modal #goal{
-    font-size:60%;
-  }
 
    /*Hebrew*/
 
   .he #tagline {
       top: 290px;
+  }
+
+  /*Portuguese*/
+  .pt #tagline {
+      top: 220px;
   }
 
 }
@@ -275,7 +271,7 @@
     height:320px;
   }
 
-  .el .popup #popup_circle_modal #goal{
+  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal{
     font-size:80%;
   }
 
@@ -289,20 +285,20 @@
 
     /*Italian*/
 
-  .it .popup #popup_circle_modal #goal{
-    font-size:80%;
-  }
 
   .it #tagline {
       top: 170px;
   }
 
-  
-
    /*Hebrew*/
 
   .he #tagline {
       top: 240px;
+  }
+
+  /*Portuguese*/
+  .pt #tagline {
+      top: 160px;
   }
 
 
@@ -375,6 +371,11 @@
 
   .he #tagline {
       top: 270px;
+  }
+
+  /*Portuguese*/
+  .pt #tagline {
+      top: 220px;
   }
 
 
