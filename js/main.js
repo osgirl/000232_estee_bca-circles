@@ -222,7 +222,7 @@ function translatePage(){
 		if(selectedLanguage == "ru") NAME_TEXTFIELD_WIDTH = 150;
 
 		languageData = e;
-   		//loadLanguageToElements(e);
+   		loadLanguageToElements(e);
 
    		$.feed();
 			fm_ready(function() {
