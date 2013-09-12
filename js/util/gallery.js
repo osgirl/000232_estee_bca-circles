@@ -345,7 +345,10 @@ function Gallery()
 				var circleContainer = (isMoreFeed) ? $($($(".page"+pageNum).find('.gallery_circle')).get(i)) : $($('.gallery_circle').get(i));
 				galleryItem.populateCircleContent(circleContainer, v);
 	            
-	            if(i == $circles.length - 1 )	$('body').trigger('ALL_LAYOUT_CREATED');
+	            if(i == $circles.length - 1 )	{
+	            	$('body').trigger('ALL_LAYOUT_CREATED');
+	            	enableLazyloader();
+	            }
 	            
 			});
 
