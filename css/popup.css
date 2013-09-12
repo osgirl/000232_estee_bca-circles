@@ -244,6 +244,12 @@
 	height: 144px;
 }
 
+.popup #popup_video_footer h1{
+	font-size:16px;
+	line-height: 18px;
+	margin: 10px 0 0 15px; 
+}
+
 .popup #popup_video_footer p{
 	display: inline-block;
 	width: 90%;
@@ -1003,10 +1009,6 @@
 	.popup#popup_video #popup_video_holder {		
 		height: 360px;
 	}  
-
-	.popup #popup_video_footer h1{
-		font-size:16px;
-	}
 
 	.popup #popup_video_footer p{
 		width: 70%;		
