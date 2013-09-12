@@ -373,7 +373,7 @@ function Gallery()
 			twitterNum 		= 3;
 			instagramNum 	= 3;
 			photoSum = PHOTO_INITIAL_TOTAL;
-			$.feed.get(feedmagnet.circle_feed, parseAllCircleData, 3);
+			//$.feed.get(feedmagnet.circle_feed, parseAllCircleData, 3);
 			
 		}
 
