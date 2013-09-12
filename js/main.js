@@ -226,7 +226,7 @@ function translatePage(){
 		languageData = e;
    		loadLanguageToElements(e);
 
-   		$.mainPreloader.loadComplete();
+   		//$.mainPreloader.loadComplete();
 
    		$.feed();
 			fm_ready(function() {
@@ -235,7 +235,7 @@ function translatePage(){
 
 				$('body').unbind("ALL_LAYOUT_CREATED").bind('ALL_LAYOUT_CREATED', function(){
 
-					//$.mainPreloader.loadComplete();
+					$.mainPreloader.loadComplete();
 
 					var newPos = $(window).scrollTop() + 300;
 
