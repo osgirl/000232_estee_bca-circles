@@ -320,22 +320,22 @@ function Gallery()
 
 			createAllLayout();
 
-			if(!circleEnd){
-				$('body').unbind('ALL_LAYOUT_SINGLE_CREATED').bind('ALL_LAYOUT_SINGLE_CREATED', function(){ 
+			// if(!circleEnd){
+			// 	$('body').unbind('ALL_LAYOUT_SINGLE_CREATED').bind('ALL_LAYOUT_SINGLE_CREATED', function(){ 
 
-				$.ajax({
-			        		type: 'post',
-			            	url: baseUrl + indexPage + 'circle/fetchAllCircles',
-			            	dataType: 'json',
-			            	data: {
-			            		feedIdsJSON: JSON.stringify(data)
-			            	},
-			            	success: onFetchAllCircles
-			      		});
+			// 	$.ajax({
+			//         		type: 'post',
+			//             	url: baseUrl + indexPage + 'circle/fetchAllCircles',
+			//             	dataType: 'json',
+			//             	data: {
+			//             		feedIdsJSON: JSON.stringify(data)
+			//             	},
+			//             	success: onFetchAllCircles
+			//       		});
 
 
-				});//end binding complete
-			}
+			// 	});//end binding complete
+			// }
 
 		};
 		

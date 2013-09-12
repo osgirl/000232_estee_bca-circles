@@ -121,10 +121,13 @@ $config['country_uri_abbr'] =
 		"gr" => "Greece", 
 		"hk" => "Hong Kong", 
 		"hu" => "Hungary", 
+		"il" => "Israel",
+		"it" => "Italy",
 		"kr" => "Korea", 
 		"my" => "Malaysia", 
 		"mx" => "Mexico", 
 		"ph" => "Philippines", 
+		"pt" => "Portugal", 
 		"ru" => "Russia", 
 		"sc" => "Singapore", 
 		"sy" => "Syria", 
@@ -132,7 +135,8 @@ $config['country_uri_abbr'] =
 		"tw" => "Taiwan", 
 		"tr" => "Turkey", 
 		"uk" => "United Kingdom", 
-		"us" => "United States"		
+		"us" => "United States",	
+		"vn" => "Vietnam"	
 	);
 
 /*
