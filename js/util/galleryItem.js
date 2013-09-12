@@ -251,6 +251,7 @@ function GalleryItem()
 						console.log("searching for :",feed.text);
 						photoIcon 	= baseUrl + "img/icons/bca.png";
 						 pData 		= ored.getPhotoDataById(feed.text);
+						 console.debug("WHAT THE HELL IS PDATA", pData)
 						if(pData != -1){
 		                	popupData 	= {
 											type:'photo', 

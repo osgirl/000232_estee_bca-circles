@@ -544,6 +544,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			ored.photoData = ored.photoData.concat(data); 
 
+			console.log("iam so tire of this project", ored.photoData)
+
 			handleAllPhotoData( ored.photoFeed);
 
 
