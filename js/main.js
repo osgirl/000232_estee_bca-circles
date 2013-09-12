@@ -216,6 +216,8 @@ function translatePage(){
 
 	$.language.load(function(e){
 
+		if(selectedLanguage == "it") NAME_TEXTFIELD_WIDTH = 180;
+
 		languageData = e;
    		loadLanguageToElements(e);
 
@@ -1360,14 +1362,14 @@ function postCircleData(goal_id){
 
 							getUserCircleData(); 
 
-	            			facebook.createCircle({
-	            				circle_id:data.id,
-								id :userID,
-								name: userName,
-								photo: userProfilePhoto,
-								goal: goal,
-								friends: friendSelectedArray
-							});
+	      //       			facebook.createCircle({
+	      //       				circle_id:data.id,
+							// 	id :userID,
+							// 	name: userName,
+							// 	photo: userProfilePhoto,
+							// 	goal: goal,
+							// 	friends: friendSelectedArray
+							// });
 
 							resetCircle();            			 
 	            			openThankYouScreen();

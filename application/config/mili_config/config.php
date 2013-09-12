@@ -19,7 +19,7 @@ $config['file_max_size']	= 5000000;
 $config['fb_app_id'] 		= '704339276259855';
 $config['upload_url']		= 'uploads/';
 
-$config['circle_feed_name'] 		= "bca-circle";
+$config['circle_feed_name'] 		= "bca-circle-dev";
 $config['photo_feed_name'] 			= "bca-photo";
 $config['instagram_feed_name'] 		= "bca-instagram";
 $config['twitter_feed_name'] 		= "bca-twitter";
@@ -121,6 +121,8 @@ $config['country_uri_abbr'] =
 		"gr" => "Greece", 
 		"hk" => "Hong Kong", 
 		"hu" => "Hungary", 
+		"il" => "Israel",
+		"it" => "Italy",
 		"kr" => "Korea", 
 		"my" => "Malaysia", 
 		"mx" => "Mexico", 
