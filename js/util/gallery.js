@@ -482,21 +482,23 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 							 		console.debug("not enough twitter", twitterData.length, subSubRestNum);
 							 		onePage = true;
 							 		enableLazyloader();
-							 	}else{
-							 		handleAllPhotoData(twitterData);
 							 	}
+							 		handleAllPhotoData(twitterData);
+							 	
 
 								
 
 							 }, subSubRestNum);
-						}else{
-							handleAllPhotoData(inData);
 						}
+							handleAllPhotoData(inData);
+						
 
 						
 
 					}, subRestNum);
 				}
+				handleAllPhotoData($data);
+				
 			}else{
 				
 				console.debug('Strait from FM :', $data);
