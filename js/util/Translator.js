@@ -13,8 +13,6 @@ var sameGoalText;
 var createANewOneText;
 var minsAgoText;
 var hoursAgoText;
-var customizeGoalText;
-var enterNameText;
 var selectAtLeastOneFriendText;
 var friendAlreadyExistText;
 

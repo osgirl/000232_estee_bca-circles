@@ -86,6 +86,8 @@ function Gallery()
 		var subRestNum = 0;
 		var restCount = 0;
 
+		
+
 
 
 		//--------------------------------------
@@ -101,57 +103,58 @@ function Gallery()
 
 			//console.log($(window).scrollTop() + $(window).height(), getDocHeight())
 
-			console.log("HERE????")
+			//console.log("HERE????")
 
-			if(onePage){
-				$('#donate_area').fadeIn();
-  				$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
-  				return;
-			}
-
-
-			if($(window).scrollTop() + $(window).height() + 22  >= getDocHeight()) {
-
-				//unlbind scroll event until all new content loaded to screen
-
-				//load content
-
-				console.log("reach bottom")
-
-				$(window).unbind('scroll');
-
-				if($(window).width() >= 980 ) {
-					loadNextPage();
+				if(onePage){
+					$('#donate_area').fadeIn();
+	  				$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+	  				return;
 				}
-				else{
-					enableLazyloader();
-					if(!feedEnd){
-						$('#donate_area').fadeIn();
-	  					$('#donate_area').addClass('footer_fixed').removeClass('footer_relative');
-					}else{
-						$('#donate_area').fadeOut();
-	  					$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+
+
+				if($(window).scrollTop() + $(window).height() + 22  >= getDocHeight()) {
+
+					//unlbind scroll event until all new content loaded to screen
+
+					//load content
+
+					console.log("reach bottom")
+
+					$(window).unbind('scroll');
+
+					if($(window).width() >= 980 ) {
+						loadNextPage();
+					}
+					else{
+						enableLazyloader();
+						if(!feedEnd){
+							$('#donate_area').fadeIn();
+		  					$('#donate_area').addClass('footer_fixed').removeClass('footer_relative');
+						}else{
+							$('#donate_area').fadeOut();
+		  					$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+						}
+						
 					}
 					
-				}
-				
-	  		}else if($(window).scrollTop() > SCROLL_TO_SHOW_FOOTER){
+		  		}else if($(window).scrollTop() > SCROLL_TO_SHOW_FOOTER){
 
-	  			$('#donate_area').fadeIn();
-	  			$('#donate_area').addClass('footer_fixed').removeClass('footer_relative');
-	  			
+		  			$('#donate_area').fadeIn();
+		  			$('#donate_area').addClass('footer_fixed').removeClass('footer_relative');
+		  			
 
-	  		}else if($(window).scrollTop() <= SCROLL_TO_SHOW_FOOTER){
-	  			$('#donate_area').fadeOut();
-	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+		  		}else if($(window).scrollTop() <= SCROLL_TO_SHOW_FOOTER){
+		  			$('#donate_area').fadeOut();
+		  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 
-	  		}
+		  		}
 
 		};
 
 		function loadNextPage(){
 			isMoreFeed = true;
 			if(!circleEnd) pageNum++;
+
 			loadLayout();
 		
 			console.log("PAGE PLUS", pageNum)
@@ -160,15 +163,29 @@ function Gallery()
 
 		function loadLayout(){
 
+
 			if(!isMoreFeed) $('.gallery_layout').remove();
 
 			switch(currentFilterType){
 				case 'all':
 
-					morePhotoCount = 0;
-					allPhotoData = [];
-					
-					(!isMoreFeed) ? getAllFeed() : getMoreAllFeed();
+					if(!isMoreFeed) {
+						getAllFeed();
+						morePhotoCount = 0;
+						allPhotoData = [];
+					}else{
+						if(photoLoaded){
+							getMoreAllFeed();
+							photoLoaded = false;
+							morePhotoCount = 0;
+							allPhotoData = [];
+						}else{
+							pageNum--;
+							handleAllPhotoData(null);
+
+						}
+						
+					}
 					
 
 				break;
@@ -337,7 +354,6 @@ function Gallery()
 		        $.feed.get(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
 		        $.feed.get(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
 			}else{
-				console.debug("instagram number", instagramNum);
 				$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
 				$.feed.more(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
 				$.feed.more(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
@@ -428,7 +444,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 						
 						if(i == $circles.length - 1) {
 							$('body').trigger('ALL_LAYOUT_CREATED');
-							enableLazyloader();
+							//enableLazyloader();
 						}
 						
 						
@@ -495,6 +511,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			}
 
+
 		};
 
 		function loadPhotoData($data, $onComplete){
@@ -533,9 +550,11 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		function handleAllPhotoData(data){
 
 			//oc: combine all 3 feeds into 1
+
+			console.debug("HANDLE", allPhotoData)
 			
 
-				if(data.length != 0) {
+				if(data && data.length != 0) {
 					$(data).each(function (i, v){
 
 						console.debug( v.data.channel + ' - ' + v.data.text );
@@ -560,7 +579,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 					 		notEnoughPhoto = false;
 			 				ored.masterFeed = allPhotoData;
 							galleryItem.parseAllPhotoData(allPhotoData, false, circleEnd);
-							if(circleEnd) enableLazyloader();
+							enableLazyloader();
+	
 						}else{
 
 							notEnoughPhoto = true;
@@ -591,8 +611,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 		function parsePhotoData($data){
 			
-			console.log("parsePhotoData");
-			console.log($data);
+			//console.log("parsePhotoData");
+			//console.log($data);
 			feed = $data;
 
 			if($data.length == 0) {
@@ -613,7 +633,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 		function getPhotoData($data){
 
-			console.debug("GET PHOTO DATA?", $data.length)
+			//console.debug("GET PHOTO DATA?", $data.length)
 
 			$($data).each(function(i,v){
 				
@@ -821,6 +841,9 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		};
 
 		function filterButtonSelected(btn){
+
+			morePhotoCount = 0;
+
 			isMoreFeed = false;
 			feedEnd = false;
 			onePage = false;
@@ -854,9 +877,9 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				return
 			}
 
-		 	console.log("getFriendCircleData");
+		 	//console.log("getFriendCircleData");
 		 	var feedMagnetIds			= ored.getIdsFromFeed(data, "circles");
-		 	console.log(feedMagnetIds);
+		 	//console.log(feedMagnetIds);
 		 	//only get friend's circles if necessary.
 		 	if(feedMagnetIds.length > 0){
 		 		
@@ -876,7 +899,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		};//end getFriendCircleData
 
 		function onFetchFriendCircleData($data){
-			console.log("onFetchFriendCircleData");
+			//console.log("onFetchFriendCircleData");
 
 					//createCircleLayout();
 
@@ -898,7 +921,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			            	dataType: 'html',
 			            	
 			            	success: function(layoutData) {  
-			            		console.log("layout success");
+			            		
 			            		var circleDiv = $('<div>');
 			            			circleDiv.append(layoutData)
 			            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
@@ -947,7 +970,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		
 
 		function createAllLayout(data){
-			console.log('createAllLayout');
+			//console.log('createAllLayout');
 			if(!circleEnd){
 				if(oneCircle){
 
@@ -1079,7 +1102,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		};
 
 		function createPhotoLayout(){
-			console.log('createPhotoLayout');
+			//console.log('createPhotoLayout');
 
 			if(restCount >= 1) return;
 
@@ -1156,7 +1179,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		},
 
 		refreshAsFakePhotoData: function(data){	
-console.log("refreshAsFakePhotoData");
+//console.log("refreshAsFakePhotoData");
 			var divPos = (currentFilterType == "all") ? 2 : 0;
 			var fakeDiv = $('.photo_container').get(divPos);
 			
@@ -1197,7 +1220,6 @@ console.log("refreshAsFakePhotoData");
 		},		
 
 		showFriendCircles: function(){
-			console.debug("SHOW FRIEND");
 			if(currentFilterType == "friend") filterButtonSelected($('#filter_friends_btn'));
 		},
 

@@ -215,7 +215,7 @@ function GalleryItem()
 		},
 
 		parseAllPhotoData:function(data, isFeatured, isRest){
-			console.debug("galleryItem:parseAllPhotoData");
+			console.debug("galleryItem:parseAllPhotoData", data);
 						var feed;
 
 			//oc: loop through all items in the master feed to write them into the gallery
@@ -349,6 +349,9 @@ function GalleryItem()
 			});
 
 			translator.translateSingleItem("view");
+
+			console.debug('PHOTO_LOADED');
+			photoLoaded = true;
 
 			// $('.photo_container').each(function(i,v){
 			// 	if($(v).html() == "") $(v).hide();

@@ -93,6 +93,11 @@ var languageData;
 var FACEBOOK_FAN_PAGE = "https://www.facebook.com/BCACampaign";
 var donate_link;
 
+var customizeGoalText;
+var enterNameText;
+
+var photoLoaded = false;
+
 
 $(document).ready(function(){	
 	
@@ -503,8 +508,8 @@ function getTrendingAction(){
 
 function openCreateCircleScreen(hasGoal){
 
-	checkPlaceHolderForIE($("#custom_action"), "ex: Be more active.");
-	checkPlaceHolderForIE($("#friend_search_field"), "ENTER NAME");
+	checkPlaceHolderForIE($("#custom_action"), customizeGoalText);
+	checkPlaceHolderForIE($("#friend_search_field"), enterNameText);
 
 	$(".overlay").fadeIn(100);
 	$('#content_wrap').css('z-index', '-9999');
