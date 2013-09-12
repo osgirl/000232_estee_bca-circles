@@ -789,6 +789,7 @@
 	/*Video*/
 	.popup#popup_video{
 		width: 384px;
+		padding-bottom: 10px;
 	}
 	.popup#popup_video #popup_video_holder {
 		height: 216px;
@@ -1001,7 +1002,11 @@
 
 	.popup#popup_video #popup_video_holder {		
 		height: 360px;
-	}   
+	}  
+
+	.popup #popup_video_footer h1{
+		font-size:16px;
+	}
 
 	.popup #popup_video_footer p{
 		width: 70%;		

@@ -14,6 +14,7 @@
 		  </video>
 	</div>
 	<div id="popup_video_footer">
+		<h1 language_id="we_are_stronger_together_upload_photo" language_location="video">video name</h1>
 		<p language_id="video_description" language_location="video" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed sodales est. Vivamus non dolor tempus, aliquet diam sagittis, molestie tortor.</p>
 		<ul id="popup_footer_share">
 			<li language_id="share" language_location="video" >SHARE</li>

@@ -135,7 +135,8 @@ $config['country_uri_abbr'] =
 		"tw" => "Taiwan", 
 		"tr" => "Turkey", 
 		"uk" => "United Kingdom", 
-		"us" => "United States"		
+		"us" => "United States",	
+		"vn" => "Vietnam"	
 	);
 
 /*
