@@ -21,7 +21,7 @@
 
  /*Greek*/
   .el .feature_circle .circle_creator_area {
-    font-size: .5em;
+    font-size: .4em;
   }
   .el .feature_circle .circle_of_strength {
     font-size: .6em;
@@ -144,6 +144,10 @@
     width:14%;
   }
 
+  /*chinese*/
+  .cn #join_fight_text{
+    font-size:.7em;
+  }
 
 
 @media only screen and (min-width: 360px) {
@@ -162,7 +166,7 @@
 
              /*Greek*/
   .el .feature_circle .circle_creator_area {
-    font-size: .7em;
+    font-size: .55em;
   }
   .el .feature_circle .circle_of_strength {
     font-size: .9em;
@@ -196,7 +200,7 @@
   }
 
   .el .feature_circle .circle_goal, .it .feature_circle .circle_goal, .pt .feature_circle .circle_goal{
-    font-size:1em;
+    font-size:.8em;
   }
 
   .el .gallery_circle .circle_goal, .it .gallery_circle .circle_goal, .pt .gallery_circle .circle_goal{
@@ -260,7 +264,7 @@
 
   /*Greek*/
   .el .feature_circle .circle_creator_area {
-    font-size: .9em;
+    font-size: .75em;
   }
   .el .feature_circle .circle_of_strength {
     font-size: 1.3em;
@@ -306,6 +310,10 @@
       top: 210px;
   }
 
+  .ru .feature_circle .circle_goal{
+    font-size:.95em;
+  }
+
 }
 
 
@@ -331,7 +339,7 @@
 
        /*Greek*/
   .el .feature_circle .circle_creator_area {
-    font-size: .7em;
+    font-size: .55em;
   }
   .el .feature_circle .circle_of_strength {
     font-size: .95em;
@@ -410,7 +418,7 @@
 
           /*Greek*/
   .el .feature_circle .circle_creator_area {
-    font-size: .9em;
+    font-size: .75em;
   }
   .el .feature_circle .circle_of_strength {
     font-size: 1.3em;
@@ -421,6 +429,10 @@
   }
   .el .gallery_circle .circle_of_strength {
     font-size: 1.7em;
+  }
+
+  .el .feature_circle .circle_goal, .it .feature_circle .circle_goal, .pt .feature_circle .circle_goal{
+    font-size:1em;
   }
 
   .el #join_fight_text{
