@@ -6,32 +6,28 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('home_view');
 	}
-
-	/*
-	public function twitter_share($url ="", $goal, $hashtag_before_url = false)
+	
+	public function twitter_share($url ="", $hashtag_before_url = false, $goal)
 	{
 		$pt = preg_replace('/_/i','/', $url);
 		$pt = preg_replace('/%3F/i','?', $pt);
 		$pt = preg_replace('/%5E/i','=', $pt);
 		$long_url 	= base_url() . index_page() . '/#' . urldecode($pt);
-
 		$short_url 	= file_get_contents( "https://api-ssl.bitly.com/v3/shorten?access_token=".BITLY_ACCESS_TOKEN."&longUrl=".urlencode($long_url)  );
 		$short_url 	= json_decode($short_url);
 		$short_url 	= $short_url->data->url;
 
-		$title 	 	= $goal;
+		$title = preg_replace('/%26apos%3B/i',"'", $goal);
 		if($hashtag_before_url){
-			$title = $title." ".$short_url . " " .SHARE_HASHTAG;
+			$title = str_replace('link', $short_url.'', $title);
+			$title = str_replace(array('%5B','%5D'), '', $title);
 		}
 		else{
-			$title = $title." ".SHARE_HASHTAG." ".$short_url;
+			//Share with circle message (ie: Circle)
+			$title .= " ".$short_url . ' ' .SHARE_HASHTAG;
 		}
-		echo 'test';
-		print_r($goal);
-		echo $title;
-		header( 'Location: https://twitter.com/intent/tweet?text='.$title  );
-	}
-	*/
+		header( 'Location: https://twitter.com/intent/tweet?text='.$title);
+	}	
 
 	public function bitly_url($url)
 	{

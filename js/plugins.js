@@ -279,33 +279,16 @@ $.extend(
         else if (v.type == "twitter")
         {
             var goal = v.action != undefined ? (weWillText+ ' ' + v.action) : twitterShareCopy;
+            var hash = (v.hashtag_before_url != undefined) ? 1 : 0;
             if (v.referral != undefined || v.referral != null) u += "/?referral=twitter-" + v.referral;
-
-            //Swap symbol to entities
+            
+            //Swap speical characters to entities
             u = u.replace(/\//gi, '_').replace(/\?/gi, '%3F').replace(/\=/gi, '%5E');
+            goal = goal.replace(/\'/gi,'&apos;');
 
-            //Get bitly and open twitter
-            $.ajax(
-                {
-                    type: 'get',
-                    url: baseUrl + indexPage + 'home/bitly_url/' + u,
-                    dataType: 'text',
-                    
-                    success: function(data)
-                    {
-                        if(v.hashtag_before_url != undefined)
-                            goal = goal.replace('[link]', data);
-                        else
-                            goal += ' ' + share_hashtag +' ' + data;
-
-                        openShareWindow(575, 380, 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(goal) , 'Twitter');
-
-                    },
-                    error: function(jqXHR, textStatus, errorThrown)
-                    {
-                        console.debug('Error ' + textStatus);
-                    }
-                });
+            var _url = baseUrl + indexPage + 'home/twitter_share/' + u + '/' + hash + '/' + encodeURIComponent(goal);
+            openShareWindow(575, 380, _url , 'Twitter');
+            $.gaEvent((v.post_type).capitalize(), 'Shared', 'by Twitter');           
         }
     }
 });

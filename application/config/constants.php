@@ -22,7 +22,7 @@ define('DIR_READ_MODE', 0755);
 define('DIR_WRITE_MODE', 0777);
 
 define("SHARE_MESSAGE", "Create a Circle of Strength with those who support you most now.");
-define("SHARE_HASHTAG", "#BCAStrength");
+define("SHARE_HASHTAG", "%23BCAStrength");
 define("BITLY_ACCESS_TOKEN", "ce1cb3356808fcf009cda750ef8f1ce940c592a8");
 
 /*
