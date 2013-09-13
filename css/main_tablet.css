@@ -141,7 +141,8 @@
 
 	.lt-ie9 #top_sub_nav{
 		width:30%;
-		margin-right:-120px;
+		text-align: right;
+		margin-right:15px;
 	}
 	
 	.vertical_mode_show{
