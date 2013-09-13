@@ -33,6 +33,7 @@
         <link rel="stylesheet" href="<?= base_url(); ?>css/popup.css?cachebuster=<?= $cacheBuster; ?>">
 
         <script src="<?= base_url(); ?>js/vendor/modernizr-2.6.2-respond-1.1.0.min.js?cachebuster=<?= $cacheBuster; ?>"></script>
+
     </head>
 
     <body>    	
@@ -247,9 +248,7 @@
         <script src="<?= base_url(); ?>js/util/facebook.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/main.js?cachebuster=<?= $cacheBuster; ?>"></script>
 
-        <!--[if gt IE 8]>
-			<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>css/jquery.ie8-and-up.css?cachebuster=<?= $cacheBuster; ?>" />
-		<![endif]-->
+        
 
         <script>
             /*var _gaq=[['_setAccount','<?= GA_ACCOUNT; ?>'],['_trackPageview']];

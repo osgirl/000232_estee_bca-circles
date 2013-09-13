@@ -196,6 +196,10 @@ h2{
 	outline: 0 none;
 }
 
+.lt-ie9 #mobile_language_dropdown{
+	width:16%;
+}
+
 .navbar-inner{
 	background-color:white;
 	color:#333333;

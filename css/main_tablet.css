@@ -138,6 +138,10 @@
 		margin:12px 2% 0 0;
 		display:block;
 	}
+
+	.lt-ie9 #top_sub_nav{
+		width:24%;
+	}
 	
 	.vertical_mode_show{
 		display:none;
@@ -474,11 +478,6 @@
 	    
 	}
 	
-	#top_sub_nav{
-		margin:12px 2% 0 0;
-		display:block;
-	}
-	
 	#content_wrap{
 		max-width:984px;
 	}
@@ -554,13 +553,12 @@
 		max-width:1200px;
 	}
 	
-	#top_sub_nav{
-		margin:12px 2% 0 0;
-		display:block;
-	}
-	
 	#content_wrap{
 		max-width:1200px;
+	}
+
+	.lt-ie9 #top_sub_nav{
+		width:18.5%;
 	}
   
     #top_content{
