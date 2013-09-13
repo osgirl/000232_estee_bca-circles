@@ -191,6 +191,10 @@
     font-size:.7em;
   }
 
+  .cn .stronger_together {
+    line-height: 1.3em;
+  } 
+
   /*turkish*/
 
   .tr .popup #popup_circle_modal #popup_footer_share,
