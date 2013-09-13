@@ -108,7 +108,7 @@
     </li>
     <li>
         <div id="pt">
-            <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/Portugal.png' />
+            <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/portugal.png' />
             <span class="country">&nbsp;&nbsp;Portugal</span>&nbsp;&nbsp;
             <a href= "<?=base_url()?>pt/pt/">Português</a>
         </div>
