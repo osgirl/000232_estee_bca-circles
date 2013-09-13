@@ -278,14 +278,35 @@ $.extend(
         }
         else if (v.type == "twitter")
         {
-            var goal = v.action != undefined ? v.action : "";
-            var hashtag_before_url = v.hashtag_before_url != undefined ? 1 : 0;
-            if (v.referral != undefined || v.referral != null) u += "/?referral=twitter-" + v.referral;
+            var goal = v.action != undefined ? (weWillText+ ' ' + v.action) : twitterShareCopy;
+            // var hashtag_before_url = v.hashtag_before_url != undefined ? 1 : 0;
+            if (v.referral != undefined || v.referral != null) u += "?referral=twitter-" + v.referral;
 
             //Swap symbol to entities
             u = u.replace(/\//gi, '_').replace(/\?/gi, '%3F').replace(/\=/gi, '%5E');
-            openShareWindow(575, 380, baseUrl + indexPage + "home/twitter_share/" + u + "/" + escape(goal) + "/" + hashtag_before_url, 'Twitter');
-            $.gaEvent((v.post_type).capitalize(), 'Shared', 'by Twitter');
+
+            //Get bitly and open twitter
+            $.ajax(
+                {
+                    type: 'get',
+                    url: baseUrl + indexPage + 'home/bitly_url/' + u,
+                    dataType: 'text',
+                    
+                    success: function(data)
+                    {
+                        if(v.hashtag_before_url != undefined)
+                            goal = goal.replace('[link]', data);
+                        else
+                            goal += ' ' + share_hashtag +' ' + data;
+
+                        openShareWindow(575, 380, 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(goal) , 'Twitter');
+
+                    },
+                    error: function(jqXHR, textStatus, errorThrown)
+                    {
+                        console.debug('Error ' + textStatus);
+                    }
+                });
         }
     }
 });
@@ -418,7 +439,7 @@ $.extend(
                 alert('Please use an image in JPG, GIF and PNG format under 5mb.');
                 loadEnd();
             }
-        })
+        });
     };
 
     function uploadFileSuccess(data)
@@ -1191,6 +1212,9 @@ $.extend(
                     console.debug('Error ' + textStatus);
                 }
             });
+        },
+        selectedLanguageField: function(){
+            return $language;
         }
     });
 })(jQuery);

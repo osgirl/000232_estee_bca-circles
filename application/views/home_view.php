@@ -43,7 +43,8 @@
 		  baseUrl = '<?= base_url(); ?>',
 		  indexPage = '<?= index_page(); ?>',
 		  selectedCountry = '<?= $this->config->item('country_abbr')?>',
-		  selectedLanguage = '<?= $this->config->item('language_abbr')?>';
+		  selectedLanguage = '<?= $this->config->item('language_abbr')?>',
+		  share_hashtag = '<?= SHARE_HASHTAG ?>';
 		  if (indexPage !='') indexPage += '/';
 
 		  var feedmagnet = {};
