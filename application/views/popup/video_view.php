@@ -1,5 +1,6 @@
 <script src="<?php echo base_url(); ?>js/vendor/video.js"></script>
 
+
 <script type="text/javascript">
     	videojs.options.flash.swf = "swf/video-js.swf";
 </script>
