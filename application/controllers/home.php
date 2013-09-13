@@ -17,7 +17,7 @@ class Home extends CI_Controller {
 		$short_url 	= json_decode($short_url);
 		$short_url 	= $short_url->data->url;
 
-		$title = preg_replace('/%26apos%3B/i',"'", $goal);
+		$title = preg_replace('/%255E/i',"'", $goal);
 		if($hashtag_before_url){
 			$title = str_replace('link', $short_url.'', $title);
 			$title = str_replace(array('%5B','%5D'), '', $title);

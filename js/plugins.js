@@ -284,11 +284,12 @@ $.extend(
             
             //Swap speical characters to entities
             u = u.replace(/\//gi, '_').replace(/\?/gi, '%3F').replace(/\=/gi, '%5E');
-            goal = goal.replace(/\'/gi,'&apos;');
+            goal = goal.replace(/\'/gi,'%5E');
 
             var _url = baseUrl + indexPage + 'home/twitter_share/' + u + '/' + hash + '/' + encodeURIComponent(goal);
             openShareWindow(575, 380, _url , 'Twitter');
-            $.gaEvent((v.post_type).capitalize(), 'Shared', 'by Twitter');           
+            $.gaEvent((v.post_type).capitalize(), 'Shared', 'by Twitter');
+           
         }
     }
 });
