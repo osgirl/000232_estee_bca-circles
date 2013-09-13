@@ -946,6 +946,10 @@ h2{
 	text-decoration: none;
 	color:#333;
 	text-align: center;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -khtml-opacity: 0;
+    -moz-opacity: 0;
 	opacity: 0;
 }
 
@@ -1706,10 +1710,10 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	font-size: 11px;
 	background-color:#f38dab;
 	color:white;
-	-moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -khtml-border-radius: 50px;
-    border-radius: 50px;
+	-moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -khtml-border-radius: 50%;
+    border-radius: 50%;
     behavior: url(css/PIE.htc);
     padding:6px 13px 6px 13px;
     display:inline-block;

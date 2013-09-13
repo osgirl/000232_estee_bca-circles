@@ -51,6 +51,7 @@ function GalleryItem()
 			$(item.find('.gallery_item_btn')).unbind('mouseenter').mouseenter(function(e){
 				$(e.currentTarget).css('cursor','pointer');
 				$(e.currentTarget).stop(true, true).fadeTo("fast", 1);
+
 				$($(e.currentTarget).next()).find('.share_text').css('color', "#f38dab");
 
 			$(item.find('.gallery_item_btn')).unbind('click').click(function(e){openPopUp(popupData)})
