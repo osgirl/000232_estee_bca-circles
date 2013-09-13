@@ -16,6 +16,10 @@ var hoursAgoText;
 var selectAtLeastOneFriendText;
 var friendAlreadyExistText;
 
+var shareTitle;
+var shareCaption;
+var shareDescription;
+
 
 translator.translateItems = function(language_location){
 
@@ -77,6 +81,10 @@ translator.defineSpecialItems = function(){
         if(v[0] == "enter_name") enterNameText = v[1];
         if(v[0] == "select_at_least_one_friend") selectAtLeastOneFriendText = v[1];
         if(v[0] == "friend_already_exist") friendAlreadyExistText = v[1];
+
+        if(v[0] == "we_are_stronger_together_upload_photo") shareTitle = v[1];
+        if(v[0] == "share_take_action_against") shareCaption = v[1];
+        if(v[0] == "share_create_a_circle_of_strength_with") shareDescription = v[1];
 
     });
 

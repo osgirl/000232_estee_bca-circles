@@ -245,9 +245,13 @@ $.extend(
 
             if (v.photo_url != undefined) _picture = v.photo_url;
 
-            var _title = "Circle of Strength";
-            var _caption = "We're Stronger Together.";
-            var _description = 'Create a Circle of Strength with those who support you most now. ' + goal;
+            var _title = shareTitle;
+            var _caption = shareCaption;
+            var _description = shareDescription;
+
+            if (v.post_type == 'circle')
+                _caption = _caption + " " + goal;
+
             var _link = baseUrl + indexPage + '#' + u;
 
             if (ismobile)

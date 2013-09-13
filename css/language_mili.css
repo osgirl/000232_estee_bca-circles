@@ -171,9 +171,17 @@
     font-size:.7em;
   }
 
-  .ru #join_fight{
+  .ru #join_fight, .hu #join_fight{
     padding-left:13%;
     width:14%;
+  }
+
+  .hu #donate_pink_btn{
+    font-size:11px;
+  }
+
+  .hu #join_fight_text{
+    font-size:.8em;
   }
 
   /*chinese*/
@@ -191,7 +199,7 @@
   }
 
   /*vietnamese*/
-  .vi .stronger_together{
+  .vi .stronger_together, .es .stronger_together{
     letter-spacing: -1px;
   }
 
@@ -511,7 +519,7 @@
       top: 150px;
   }
 
-  .fr .stronger_together {
+  .fr .stronger_together, .es .stronger_together {
     font-size: 2.8em;
   } 
 
@@ -627,7 +635,7 @@
       top: 220px;
   }
 
-  .fr .stronger_together {
+  .fr .stronger_together, .es .stronger_together {
     font-size: 3.2em;
   }  
 

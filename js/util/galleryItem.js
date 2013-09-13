@@ -75,6 +75,7 @@ function GalleryItem()
 
         	$(item.find('.circle_fb_share_btn')).unbind('click').click(function(e){
 				share($(item), "facebook", itemType);
+				console.log("facebook click", itemType)
 			});
 
 			$(item.find('.circle_tw_share_btn')).unbind('click').click(function(e){
