@@ -1328,7 +1328,7 @@ $.extend(
     function saveHistory(v, result)
     {
         var str = '';
-        result.forEach(function(obj)
+        $.each(result, function(i, obj)
         {
             str += obj.data.id + ',';
         });
@@ -1339,7 +1339,7 @@ $.extend(
     function checkDuplicateData(v, result)
     {
         var valid = true;
-        result.forEach(function(obj)
+        $.each(result, function(i, obj)
         {
             if (history[v].indexOf(obj.data.id) != -1)
             {
