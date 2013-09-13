@@ -241,7 +241,9 @@
 }
 
 .popup#popup_video #popup_video_holder {
+	position: relative;
 	height: 144px;
+	background: #00Ff00;
 }
 
 .popup #popup_video_footer h1{
@@ -1091,8 +1093,8 @@
 	}
 
 	.popup #popup_video_footer p{
-		width: 75%;		
-		font-size: 14px;
+		width: 80%;		
+		font-size: 13px;
 		line-height: 18px;
 	}
 
