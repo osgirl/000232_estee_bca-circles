@@ -160,6 +160,10 @@
 	background: rgba(0,0,0, .6);
 }
 
+.lt-ie9 #photo_desc_holder{
+	background: url('../img/assets/black-opacity-70.png');
+}
+
 .popup #photo_desc_holder h3{	
 	font-size: 14px;
 	padding: 5px 0 0;
