@@ -13,6 +13,11 @@
   font-style: normal;
 }
 
+.video-js {
+  height:100% !important;
+  width:100% !important;
+}
+
 .vjs-bca-skin {
   color: #f48eab;
 }
@@ -387,7 +392,7 @@
   content: "\e001"; /* Play icon */
   font-family: VideoJS;
   font-size: 3em;
-  line-height: 1.7;
+  line-height: 1.7em;
   /*text-shadow: 0.05em 0.05em 0.1em #000;*/
   text-align: center; /* Needed for IE8 */
 
@@ -397,7 +402,6 @@
   height: 100%;
   color: #FFF !important;
 }
-
 
 @media only screen and (min-width: 480px)  {
   .vjs-bca-skin .vjs-big-play-button {
@@ -409,8 +413,8 @@
 
 
   .vjs-bca-skin .vjs-big-play-button:before {
-    font-size: 3em;
-    line-height: 2;
+    /*font-size: 3em;*/
+    line-height: 2em;
   }
 }
 
@@ -424,8 +428,8 @@
 
 
   .vjs-bca-skin .vjs-big-play-button:before {
-    font-size: 3em;
-    line-height: 2.66;
+    /*font-size: 3em;*/
+    line-height: 2.66em;
   }
 }
 
