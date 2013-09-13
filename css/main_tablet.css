@@ -140,7 +140,8 @@
 	}
 
 	.lt-ie9 #top_sub_nav{
-		width:24%;
+		width:30%;
+		margin-right:-120px;
 	}
 	
 	.vertical_mode_show{
@@ -555,10 +556,6 @@
 	
 	#content_wrap{
 		max-width:1200px;
-	}
-
-	.lt-ie9 #top_sub_nav{
-		width:18.5%;
 	}
   
     #top_content{
