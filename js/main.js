@@ -188,11 +188,11 @@ function createMainCirclePhoto( _data, _callback ){
 		type : "post",
 		data : {data: JSON.stringify(_data)},
 		success : function(_response){
-			console.log('---- create photo success. ' + _response + ' ----'); 
+			//console.log('---- create photo success. ' + _response + ' ----'); 
 			if(_callback) _callback( JSON.parse(_response) );
 		},
 		fail : function(_response){ 
-			console.log('---- create photo failed. ----'); 
+			//console.log('---- create photo failed. ----'); 
 		}
 	});
 }
@@ -203,7 +203,7 @@ function deleteMainCirclePhoto(_filename){
 		type: 'post',
 		data: {data: _filename},
 		success : function(){
-			console.log('Deleted');
+			//console.log('Deleted');
 		}
 	});
 }
@@ -296,8 +296,6 @@ function enableEventBinds(){
 	$('body').bind(GOT_FRIEND_LIST, getFriendList);
 	$('body').bind("SAME_GOAL_BUTTON_CLICKED", function(e){
 		(isLogin) ? openCreateCircleScreen(true) : facebook.login(function(){openCreateCircleScreen(true)});
-
-		console.debug("same goal clicked", isLogin);
 	});
 
 	$('body').bind("CREATE_NEW_CIRCLE_BUTTON_CLICKED", function(e){
@@ -308,8 +306,6 @@ function enableEventBinds(){
 //oc: cookie photo id.
 //===============================================
 	$('body').bind('PHOTO_UPLOADED', function(e){
-
-		console.log("photo name", fakePhotoData)
 
 		 var newlyUploadedPhotoData 			= {};
 			newlyUploadedPhotoData.file_name 	= fakePhotoData.file_name;
@@ -449,8 +445,6 @@ function createGoalDropdown(){
     	},
     	success: function(data) { 
 
-    	console.debug("GOAL --------", data, goalTextArray); 
-
     		goalData = data;
 
     		$('#goal_selected').html(goalTextArray[0].text);      
@@ -485,7 +479,6 @@ function getTrendingAction(){
     	success: function(data) {  
 
     		trendingData = data;
-    		console.debug("tranding", trendingData)
 
 			var actionCount = 0;
 
@@ -584,7 +577,6 @@ function openEditFriend(){
 
 
 	$(currentCircleViewData.friends_data).each(function(i, v){
-		console.log("checking from inside", v);
 		curSelectedFriendName = v.name;
 		curSelectedFriendID = v.fb_id;
 		curSelectedFriendPic = v.url;
@@ -775,7 +767,7 @@ function getFriendList(e){
 				    $('#name_plus_btn').show();
 
 			      } else {
-			        console.log('friend names goes wrong', response);
+			       // console.log('friend names goes wrong', response);
 			      }
 			    });
 
@@ -1071,10 +1063,8 @@ function getUserCircleData(){
         	}
 
         	if(selectedLanguage == "en"){
-        		console.log("is english??")
         		$('#circle_num').html(data.length + circlePlural);
         	}else{
-        		console.log("is not english??", belongCircleText)
         		belongCircleText = belongCircleText.replace("#", data.length);
         		$("#user_circle_num").html(belongCircleText);
         	}
@@ -1145,14 +1135,14 @@ function createStatItem(item, parent, line1, line2, data, isCircle){
 }
 
 function createCircle(){	
-	console.log("createCircle");
-	console.log("user info", userID, userName)
-	console.log("user photo", userProfilePhoto);
-	console.log("user friends info", friendSelectedArray);
-	console.log("friend tags", friendTagIDs);
-	console.log("goal", goal);
-	console.log("goalID", goalID);
-	console.log("language", language);
+	// console.log("createCircle");
+	// console.log("user info", userID, userName)
+	// console.log("user photo", userProfilePhoto);
+	// console.log("user friends info", friendSelectedArray);
+	// console.log("friend tags", friendTagIDs);
+	// console.log("goal", goal);
+	// console.log("goalID", goalID);
+	// console.log("language", language);
 
 	isCustomizeGoal = ($("#custom_action").val() == "") ? false : true;
 
@@ -1190,8 +1180,8 @@ function createCircle(){
 
 				             	},
 				             	error: function(jqXHR, textStatus, errorThrown){
-									console.log(jqXHR.responseText);
-									console.log(jqXHR.status);
+									//console.log(jqXHR.responseText);
+									//console.log(jqXHR.status);
 								}
 				      		});
 						}else{
@@ -1217,7 +1207,7 @@ ored.getPhotoDataById = function ($id){
 	return -1;
 }
 ored.addCookiePhotosToFeed = function(){
-	console.log("ored.addCookiePhotosToFeed");
+	//console.log("ored.addCookiePhotosToFeed");
 	if(ored.cookieMonster.checkCookie("photo")){
 
 		var photoIds = $.cookie("photo");
@@ -1236,7 +1226,7 @@ ored.addCookiePhotosToFeed = function(){
 
 	//oc: save cookie.
 ored.cookieMonster.saveIdToCookie = function ($id, $type){
-	console.log("ored.cookieMonster.saveIdToCookie:", $type, $id);
+	//console.log("ored.cookieMonster.saveIdToCookie:", $type, $id);
 
 	var arr = $.cookie($type) ? $.cookie($type) : new Array();
 	arr.push($id.toString());
@@ -1263,7 +1253,7 @@ ored.cookieMonster.deleteCookieIfNecessary = function ($id, $type){
 				var arr = ored.cookieMonster.getCookie($type);
 				for (var i in arr){
 					if($id == arr[i]){
-						console.warn("delete: "+$id);
+						//console.warn("delete: "+$id);
 						var index = arr.indexOf($id);
 						arr.splice(index, 1);
 						//oc: set cookie valid for 1 days, across whole site
@@ -1285,16 +1275,16 @@ ored.getIdsFromFeed = function($feed, $type){
 		//oc: push ids from cookie if anything's there. 
 		if($.cookie($type)){
 			//oc: push cookie circle ids onto the array
-			console.log("combine", ids, $.cookie($type))
+			//console.log("combine", ids, $.cookie($type))
 			ids = ids.concat(ored.cookieMonster.getCookie($type));
 		}
 	} 
-	console.log("ids from feedbag merged with cookie:",ids);
+	//console.log("ids from feedbag merged with cookie:",ids);
 	return ids;
 };
 
 ored.getIdsFromFriends = function($list){
-	console.log($list);
+	//console.log($list);
 	var ids 	= [];
 	$($list).each(function(i,v){
 	
@@ -1306,7 +1296,6 @@ ored.getIdsFromFriends = function($list){
 function postCircleData(goal_id){
 
 	console.log("USER ID -----------------", userID)
-	
 
 	var value = {
 		'users_fb_id' 	  : userID,

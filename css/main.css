@@ -196,6 +196,10 @@ h2{
 	outline: 0 none;
 }
 
+.lt-ie9 #mobile_language_dropdown{
+	width:16%;
+}
+
 .navbar-inner{
 	background-color:white;
 	color:#333333;
@@ -946,6 +950,10 @@ h2{
 	text-decoration: none;
 	color:#333;
 	text-align: center;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -khtml-opacity: 0;
+    -moz-opacity: 0;
 	opacity: 0;
 }
 
