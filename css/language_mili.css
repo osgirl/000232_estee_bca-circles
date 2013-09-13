@@ -195,6 +195,10 @@
     line-height: 1.3em;
   } 
 
+  .cn .tributton_mid_wrapper{
+    width:17%;
+  }
+
   /*turkish*/
 
   .tr .popup #popup_circle_modal #popup_footer_share,
@@ -541,6 +545,10 @@
   .fr #log_in_upload_photo_btn
   {
     font-size:.7em;
+  }
+
+  .cn .tributton_mid_wrapper{
+    width:10%;
   }
 
 

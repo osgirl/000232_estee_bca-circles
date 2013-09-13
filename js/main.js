@@ -216,12 +216,15 @@ function translatePage(){
 
 	$.language.load(function(e){
 
-		console.log("LANGUAGE LOADED")
-
-		if(selectedLanguage == "it") NAME_TEXTFIELD_WIDTH = 180;
-		if(selectedLanguage == "el") NAME_TEXTFIELD_WIDTH = 235;
-		if(selectedLanguage == "pt") NAME_TEXTFIELD_WIDTH = 155;
-		if(selectedLanguage == "ru") NAME_TEXTFIELD_WIDTH = 150;
+		if(selectedLanguage == "en") NAME_TEXTFIELD_WIDTH = 135;
+		if(selectedLanguage == "hu") NAME_TEXTFIELD_WIDTH = 175;
+		if(selectedLanguage == "de") NAME_TEXTFIELD_WIDTH = 165;
+		if(selectedLanguage == "fr") NAME_TEXTFIELD_WIDTH = 170;
+		if(selectedLanguage == "es") NAME_TEXTFIELD_WIDTH = 260;
+		if(selectedLanguage == "it") NAME_TEXTFIELD_WIDTH = 190;
+		if(selectedLanguage == "el") NAME_TEXTFIELD_WIDTH = 245;
+		if(selectedLanguage == "pt") NAME_TEXTFIELD_WIDTH = 165;
+		if(selectedLanguage == "ru") NAME_TEXTFIELD_WIDTH = 160;
 
 		languageData = e;
    		loadLanguageToElements(e);
