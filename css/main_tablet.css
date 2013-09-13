@@ -191,13 +191,7 @@
 		background:url('../img/assets/v-divider.png') no-repeat left center;
 	}
 
-	#custom_action{	
-        min-width: 650px;
-        /*font-size:1.3em;*/
-    }
-	
-	
-	
+
 	/*DONATE*/
 	
 	
@@ -245,7 +239,7 @@
     }
 
     .confirm_content{
-		padding:5% 26% 2% 26%;
+		padding:0 26% 0 26%;
 	}
 
 
@@ -445,6 +439,11 @@
 	}
 
 	#custom_action{
+		min-width: 590px;
+		font-size:1.7em;
+	}
+
+	#pre_pop{
 		font-size:1.7em;
 	}
 

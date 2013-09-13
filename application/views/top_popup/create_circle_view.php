@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<div class="steps"><span language_id="or" language_location="home" >Or</span> <span class="pink_text" language_id="create_your_own_action" language_location="home" >Create your own action!</span></div>
-		<input id="custom_action" autocomplete="off" type="text" maxlength="80" placeholder="ex: Be more active."></input>
+		<span id="pre_pop" language_id="we_will_text" language_location="home">We Will -</span>&nbsp;&nbsp;<input id="custom_action" autocomplete="off" type="text" maxlength="80" placeholder="ex: Be more active."></input>
 		<table class="btn_control">
 			<tr>
 			    <td class="button_left_wrapper"><a class='pink_btn pull_right cancel_create_circle_btn' language_id="cancel" language_location="home" >cancel</a></td>

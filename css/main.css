@@ -1250,10 +1250,14 @@ h2{
 	-moz-border-radius: 0;
     -webkit-border-radius: 0;
     border-radius: 0;	
-    min-width: 290px;
+    min-width: 200px;
 	padding: 8px 0 8px 15px;
 	background-color:#e8e8e8;
 	border:none;
+}
+
+#pre_pop{
+	font-size:1.3em;
 }
 
 /*CREATE YOUR OWN CIRCLE SCREEN - CHOOSE FRIENDS*/
@@ -1546,7 +1550,7 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }*/
 
 .confirm_content{
-	padding:5% 16% 2% 16%;
+	padding:0 16% 0 16%;
 }
 
 .confirm_content p{

@@ -31,7 +31,7 @@
 	}
 
 	#custom_action{
-		min-width: 325px;
+		min-width: 255px;
 	}
 
 
@@ -596,14 +596,15 @@
 	}
 
 	#custom_action{
-		min-width: 510px;
+		min-width: 410px;
+		font-size:1.5em;
 	}
 
 	.select_action_text{
 		font-size:1.4em;
 	}
 
-	#custom_action{
+	#pre_pop{
 		font-size:1.5em;
 	}
 

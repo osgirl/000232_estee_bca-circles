@@ -34,7 +34,7 @@
   }
 
   .el .confirm_content, .ru .confirm_content{
-    padding:5% 20% 2% 20%;
+    padding:0 20% 0 20%;
   }
 
   .el #create_another_circle, 
@@ -155,7 +155,9 @@
     font-size:8px;
   }
 
- .ru .confirm_content p{
+ .ru .confirm_content p,
+ .el .confirm_content p
+ {
     font-size:.7em;
  }
 
@@ -333,7 +335,9 @@
     font-size:1.1em;
   }
 
-  .ru .confirm_content p{
+  .ru .confirm_content p,
+  .el .confirm_content p
+  {
     font-size:.9em;
  }
 
@@ -419,7 +423,9 @@
     Tablet (768px)
    =============== */
 
-.ru .confirm_content p{
+.ru .confirm_content p,
+.el .confirm_content p
+{
     font-size:1em;
  }
 
