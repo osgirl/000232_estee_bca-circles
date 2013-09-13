@@ -275,7 +275,10 @@ class Photo extends CI_Controller {
 		$data = json_decode($this->input->post('data'));
 		$this->load->library("image_smooth_arc");
 
-		$canvas         = imagecreatetruecolor( 500, 580 );
+		$m = 6; //Multiply size
+
+		// $canvas         = imagecreatetruecolor( 500, 580 );
+		$canvas         = imagecreatetruecolor( 500 * $m, 580 * $m );
 		$bgColor        = imagecolorallocate( $canvas, 243, 141, 171 );
 		$bgCircleColor  = array( 245, 113, 157, 0 );
 
@@ -293,15 +296,15 @@ class Photo extends CI_Controller {
 		$filename       = "circle_photo_".$id.".jpg";
 
 		$steps          = count( $friends ) + 1;
-		$radius         = 180;
-		$cx             = 250;
-		$cy             = 340;
+		$radius         = 180 *$m;
+		$cx             = 250 *$m;
+		$cy             = 340 *$m;
 
 		// Create canvas
 		imagefill( $canvas, 0, 0, $bgColor );
-		$this->image_smooth_arc->imageSmoothArc( $canvas, 250, 340, 265, 265, $bgCircleColor, M_PI/2, 0 );
-		$dotted = @imagecreatefrompng(base_url(). "img/circle_dotted_outline.png");
-		imagecopy($canvas, $dotted, 70,160,0,0,imagesx($dotted), imagesy($dotted));
+		$this->image_smooth_arc->imageSmoothArc( $canvas, 250*$m, 340*$m, 265*$m, 265*$m, $bgCircleColor, M_PI/2, 0 );
+		$dotted = @imagecreatefrompng(base_url(). "img/circle_dotted_outline-hq.png");
+		imagecopy($canvas, $dotted, 70*$m,160*$m,0,0,imagesx($dotted), imagesy($dotted));
 
 		$tag_positions = array();
 
@@ -339,21 +342,21 @@ class Photo extends CI_Controller {
 		    $mask = imagecreatetruecolor( $w_h,$w_h );
 		    $this->image_smooth_arc->imageSmoothArc( $mask, $w_h/2, $w_h/2, $w_h-4, $w_h-4, array( 255, 0, 0, 0 ), M_PI/2, 0 );
 		    $this->image_mask( $thumb, $mask );
-		    imagecopyresampled( $canvas, $thumb, $x-40, $y-40, 0, 0, 80, 80, $w_h, $w_h );
+		    imagecopyresampled( $canvas, $thumb, $x-(80*$m/2), $y-(80*$m/2), 0, 0, 80*$m, 80*$m, $w_h, $w_h );
 		  } else {
 		  	//If image is not available, draw whie dot
-		    $this->image_smooth_arc->imageSmoothArc( $canvas, $x, $y, 20, 20, array( 255, 255, 255, 0 ), M_PI/2, 0 );
+		    $this->image_smooth_arc->imageSmoothArc( $canvas, $x*$m, $y*$m, 20*$m, 20*$m, array( 255, 255, 255, 0 ), M_PI/2, 0 );
 		  }
 		}
 
 		//Create a header
-		imagefttext( $canvas, 15, 0, 20, 30, $colorWhite, $fontNormal, $user_name . " created a" );
-		imagefttext( $canvas, 30, 0, 20, 70, $colorWhite, $fontNormal, "Circle of Strength" );
-		imageline($canvas, 20, 85, 480, 85, $colorWhite);
+		imagefttext( $canvas, 15*$m, 0, 20*$m, 30*$m, $colorWhite, $fontNormal, $user_name . " created a" );
+		imagefttext( $canvas, 30*$m, 0, 20*$m, 70*$m, $colorWhite, $fontNormal, "Circle of Strength" );
+		imageline($canvas, 20*$m, 85*$m, 480*$m, 85*$m, $colorWhite);
 
 		// Create texts in a center of circle
-		imagefttext( $canvas, 14, 0, 160, 290, $colorWhite, $fontBold, "We Will -" );
-		$this->multiline_text( $canvas, 18, $colorWhite, $fontLight, $content_text, 160, 315, 200 );
+		imagefttext( $canvas, 14*$m, 0, 160*$m, 290*$m, $colorWhite, $fontBold, "We Will -" );
+		$this->multiline_text( $canvas, 18*$m, $colorWhite, $fontLight, $content_text, 160*$m, 315*$m, 200*$m );
 
 		$file_location 	= config_item('upload_url') . 'facebook/' . $filename;
 

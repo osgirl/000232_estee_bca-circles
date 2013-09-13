@@ -174,29 +174,54 @@ facebook.logOut = function( _callback ){
 }
 
 facebook.createCircle = function(_friendsData){
-	var photo_message = facebook.photoMessage.replace("[GOAL]",_friendsData.goal).replace("[URL]", baseUrl + indexPage + "#circle/" + _friendsData.circle_id);
+	//Sean: Bitly
+	 //Get bitly and open twitter
+	var u = "circle/" + _friendsData.circle_id;
+	//Swap speical characters to entities
+	u = u.replace(/\//gi, '_').replace(/\?/gi, '%3F').replace(/\=/gi, '%5E');
+    $.ajax(
+        {
+            type: 'get',
+            url: baseUrl + indexPage + 'home/bitly_url/' + u,
+            dataType: 'text',
+            
+            success: function(data)
+            {
+                savePhotoToServer(data);
 
-	//save photo to server 
-	createMainCirclePhoto( _friendsData, function( _create_response ){		
-		console.log(_create_response);
-		_friendsData
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+                console.debug('Error ' + textStatus);
+            }
+        });
 
-		//create facebook album
-		facebook.createAlbum( {name: facebook.albumName, message:facebook.albumMessage}, function( _album_response ){
+    function savePhotoToServer(_url)
+    {
+		var photo_message = facebook.photoMessage.replace("[GOAL]",_friendsData.goal).replace("[URL]", _url);
+		//save photo to server 
+		createMainCirclePhoto( _friendsData, function( _create_response ){		
+			console.log(_create_response);
+			_friendsData
 
-			//post photo to album
-			facebook.postPhotoToAlbum( {album_id:_album_response.id, url: baseUrl + _create_response['file_location'] + "?cachebuster=" + Math.random().toString(), message:photo_message}, function( _photo_response ){ 
+			//create facebook album
+			facebook.createAlbum( {name: facebook.albumName, message:facebook.albumMessage}, function( _album_response ){
 
-				//tag the phogo "http://staging.click3x.com/estee_lauder/bca/uploads/photo_1377294239.jpg" 
-			 	facebook.tagPhoto({photo_id:_photo_response.id, users:_friendsData.friends, tag_positions:_create_response['tag_positions']}, function(){
-			 		console.log("create circle complete");
+				//post photo to album
+				facebook.postPhotoToAlbum( {album_id:_album_response.id, url: baseUrl + _create_response['file_location'] + "?cachebuster=" + Math.random().toString(), message:photo_message}, function( _photo_response ){ 
 
-			 		//delete the photo. wer're done here. (main.js)
-			 		deleteMainCirclePhoto( _create_response['file_location'] );
-			 	});
+					//tag the phogo "http://staging.click3x.com/estee_lauder/bca/uploads/photo_1377294239.jpg" 
+				 	facebook.tagPhoto({photo_id:_photo_response.id, users:_friendsData.friends, tag_positions:_create_response['tag_positions']}, function(){
+				 		console.log("create circle complete");
+
+				 		//delete the photo. wer're done here. (main.js)
+				 		deleteMainCirclePhoto( _create_response['file_location'] );
+				 	});
+				});
 			});
 		});
-	});
+	};
+
 }
 
 facebook.createAlbum = function( _data, _callback ){

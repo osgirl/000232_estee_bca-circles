@@ -554,4 +554,5 @@ RewriteRule ^(.*)$ index.php?/$1 [L]
   php_value session.cookie_httponly true
 </IfModule>
 
-php_value memory_limit 64M 
+#php_value memory_limit 64M 
+php_value memory_limit 128M 
