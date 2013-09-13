@@ -1355,9 +1355,9 @@ function postCircleData(goal_id){
 									is_user:true
 								}
 							}
-							$($('#close_create_circle_btn').parent()).click(function(e){
+							$($('#close_create_circle_btn').parent()).unbind('click').click(function(e){
 								galleryItem.openPopUp(popupData);
-							})
+							});
 
 							getUserCircleData(); 
 

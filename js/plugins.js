@@ -679,10 +679,11 @@ $.extend(
     var $this, $d, $c, $win_abs_y, $scroll_y, $margin_top, $margin_bottom, $padding_top, $gap, $bound = {}, $hasPhoto, $pagn, $nav_count;
     $.fn.init_circle = function(v)
     {
+        console.debug(">>>>> init_circle");
         $this = $(this);
         $c = '.' + $(this).attr('class');
         $d = v;
-        $pagn = $($c + ' #popup_circle_photo_carousel_pagn')
+        $pagn = $($c + ' #popup_circle_photo_carousel_pagn');
         $this.attr('cid', $d.id);
         $d.child = true;
         if ($d.circle_id == null) $d.circle_id = $d.id;
