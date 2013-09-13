@@ -26,8 +26,8 @@
         <link rel="stylesheet" href="<?= base_url(); ?>css/main_tablet.css?cachebuster=<?= $cacheBuster; ?>">
 
         <!-- TEMP -->
-        <link rel="stylesheet" href="<?= base_url(); ?>css/language_mili.css?cachebuster=<?= $cacheBuster; ?>">
         <link rel="stylesheet" href="<?= base_url(); ?>css/language_sean.css?cachebuster=<?= $cacheBuster; ?>">
+        <link rel="stylesheet" href="<?= base_url(); ?>css/language_mili.css?cachebuster=<?= $cacheBuster; ?>">
 
         <!-- This a css for popup window. You can merge this to main.css?cachebuster=<?= $cacheBuster; ?> in final production -->
         <link rel="stylesheet" href="<?= base_url(); ?>css/popup.css?cachebuster=<?= $cacheBuster; ?>">
@@ -159,7 +159,7 @@
 									<div id='user_profile_info'>
 										<div id='bottom_user_name' class='user_name_display'></div>
 										<div class='user_location_display'></div>
-										<div id='user_circle_num'>Belongs to <span id='circle_num'>0 Circle</span></div>
+										<div id='user_circle_num'>Belongs to 0 Circle</div>
 										<a id='create_another_circle' class='start_create_circle_btn pink_btn all_cap light_font' language_id="create_a_circle" language_location="home" >Create a Circle</a><br />
 										<a onclick="return $.popup({type:'photo_upload'});" id="log_in_upload_photo_btn" class='upload_photo_btn pink_btn pull_left all_cap' language_id="upload_a_photo" language_location="home" >UPLOAD A PHOTO</a>
 									</div>

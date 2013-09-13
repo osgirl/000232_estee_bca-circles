@@ -20,18 +20,13 @@
   ==============*/
 
  /*Greek*/
-  .el .feature_circle .circle_creator_area {
-    font-size: .4em;
-  }
-  .el .feature_circle .circle_of_strength {
+  .el .feature_circle .circle_creator_area, 
+  .tr .feature_circle .circle_creator_area {
     font-size: .6em;
   }
-
-  .el .gallery_circle .circle_creator_area {
-    font-size: .6em;
-  }
-  .el .gallery_circle .circle_of_strength {
-    font-size: 1em;
+  .el .feature_circle .circle_of_strength, 
+  .tr .feature_circle .circle_of_strength {
+    font-size: 1.1em;
   }
 
   .el .feature_circle{
@@ -42,23 +37,61 @@
     padding:5% 20% 2% 20%;
   }
 
-  .el #thank_you p, .it #thank_you p, .pt #thank_you p, .ru #thank_you p{
-    font-size:1.1em;
-  }
+  .el #create_another_circle, 
+  .ru #create_another_circle,
+  .de #create_another_circle
 
-  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal, .ru .popup #popup_circle_modal #goal{
-    font-size:30%;
-  }
-
-  .el .feature_circle .circle_goal, .it .feature_circle .circle_goal, .pt .feature_circle .circle_goal{
+  {
     font-size:.6em;
   }
 
-  .el .gallery_circle .circle_goal, .it .gallery_circle .circle_goal, .pt .gallery_circle .circle_goal, .ru .gallery_circle .circle_goal{
-    font-size:.9em;
+  .el #log_in_upload_photo_btn, 
+  .ru #log_in_upload_photo_btn,
+  .de #log_in_upload_photo_btn
+  {
+    font-size:.6em;
   }
 
-  .el .popup #popup_photo_upload_agreement_window h2, .ru .popup #popup_photo_upload_agreement_window h2{
+  .el #thank_you p, 
+  .it #thank_you p, 
+  .pt #thank_you p, 
+  .ru #thank_you p,
+  .vi #thank_you p
+  {
+    font-size:1.1em;
+  }
+
+  .el .popup #popup_circle_modal #goal, 
+  .it .popup #popup_circle_modal #goal, 
+  .pt .popup #popup_circle_modal #goal, 
+  .ru .popup #popup_circle_modal #goal, 
+  .tr .popup #popup_circle_modal #goal,
+  .vi .popup #popup_circle_modal #goal
+  {
+    font-size:30%;
+  }
+
+  .el .feature_circle .circle_goal, 
+  .it .feature_circle .circle_goal, 
+  .pt .feature_circle .circle_goal,
+  .vi .feature_circle .circle_goal
+  {
+    font-size:.6em;
+  }
+
+  .el .gallery_circle .circle_goal, 
+  .it .gallery_circle .circle_goal, 
+  .pt .gallery_circle .circle_goal, 
+  .ru .gallery_circle .circle_goal,
+  .tr .gallery_circle .circle_goal,
+  .vi .gallery_circle .circle_goal
+  {
+    font-size:.9em;
+    line-height: 1.2em;
+  }
+
+  .el .popup #popup_photo_upload_agreement_window h2, 
+  .ru .popup #popup_photo_upload_agreement_window h2{
     margin:40px 0 20px 0;
   }
 
@@ -73,7 +106,8 @@
       top: 75px;
   }
 
-  .it .popup #popup_circle_modal #popup_footer_share, .pt .popup #popup_circle_modal #popup_footer_share{
+  .it .popup #popup_circle_modal #popup_footer_share, 
+  .pt .popup #popup_circle_modal #popup_footer_share{
     width:130px;
   }
 
@@ -83,7 +117,8 @@
   }
 
 
-  .it .popup #popup_footer_share li, .ru .popup #popup_footer_share li{
+  .it .popup #popup_footer_share li, 
+  .ru .popup #popup_footer_share li{
     margin-left:2px;
   }
 
@@ -117,9 +152,6 @@
 
   .ru .popup #popup_circle_modal #popup_footer_share{
     width:140px;
-  }
-
-  .ru .popup #popup_circle_modal #popup_footer_share{
     font-size:8px;
   }
 
@@ -149,6 +181,46 @@
     font-size:.7em;
   }
 
+  /*turkish*/
+
+  .tr .popup #popup_circle_modal #popup_footer_share,
+  .vi .popup #popup_circle_modal #popup_footer_share
+  {
+    width:120px;
+    font-size:8px;
+  }
+
+  /*vietnamese*/
+  .vi .stronger_together{
+    letter-spacing: -1px;
+  }
+
+  .vi #tagline {
+      top: 85px;
+  }
+
+  .vi #donate_pink_btn{
+    font-size:9px;
+  }
+
+  .vi #join_fight_text{
+    font-size:.7em;
+  }
+
+  .vi #join_fight_content{
+    font-size:.7em;
+  }
+
+  .fr #create_another_circle
+  {
+    font-size:.75em;
+  }
+
+  .fr #log_in_upload_photo_btn
+  {
+    font-size:.75em;
+  }
+
 
 @media only screen and (min-width: 360px) {
 
@@ -164,27 +236,14 @@
     Smartphone (480px)
    =============== */
 
-             /*Greek*/
-  .el .feature_circle .circle_creator_area {
-    font-size: .55em;
+/*Greek*/
+  .el .feature_circle .circle_creator_area, 
+  .tr .feature_circle .circle_creator_area {
+    font-size: 1em;
   }
-  .el .feature_circle .circle_of_strength {
-    font-size: .9em;
-  }
-
-  .el .gallery_circle .circle_creator_area {
-    font-size: .9em;
-  }
-  .el .gallery_circle .circle_of_strength {
-    font-size: 1.3em;
-  }
-
-  .el #create_another_circle, .ru #create_another_circle{
-    font-size:.5em;
-  }
-
-  .el #log_in_upload_photo_btn, .ru #log_in_upload_photo_btn{
-    font-size:.5em;
+  .el .feature_circle .circle_of_strength, 
+  .tr .feature_circle .circle_of_strength {
+    font-size: 1.6em;
   }
 
   .el #friend_list{
@@ -195,15 +254,30 @@
     height:360px;
   }
 
-  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal, .ru .popup #popup_circle_modal #goal{
+  .el .popup #popup_circle_modal #goal, 
+  .it .popup #popup_circle_modal #goal, 
+  .pt .popup #popup_circle_modal #goal, 
+  .ru .popup #popup_circle_modal #goal, 
+  .tr .popup #popup_circle_modal #goal,
+  .vi .popup #popup_circle_modal #goal
+  {
     font-size:40%;
   }
 
-  .el .feature_circle .circle_goal, .it .feature_circle .circle_goal, .pt .feature_circle .circle_goal{
+  .el .feature_circle .circle_goal, 
+  .it .feature_circle .circle_goal, 
+  .pt .feature_circle .circle_goal,
+  .vi .feature_circle .circle_goal
+  {
     font-size:.8em;
   }
 
-  .el .gallery_circle .circle_goal, .it .gallery_circle .circle_goal, .pt .gallery_circle .circle_goal{
+  .el .gallery_circle .circle_goal, 
+  .it .gallery_circle .circle_goal, 
+  .pt .gallery_circle .circle_goal,
+  .tr .gallery_circle .circle_goal,
+  .vi .gallery_circle .circle_goal
+  {
     font-size:1.1em;
   }
 
@@ -236,7 +310,10 @@
       top: 140px;
   }
 
-  .ru .popup #popup_circle_modal #popup_footer_share{
+  .ru .popup #popup_circle_modal #popup_footer_share,
+  .tr .popup #popup_circle_modal #popup_footer_share,
+  .vi .popup #popup_circle_modal #popup_footer_share
+  {
     font-size:12px;
   }
 
@@ -252,6 +329,12 @@
     font-size:.9em;
  }
 
+ /*vietnamese*/
+
+  .vi #tagline {
+      top: 150px;
+  }
+
 
 }
 
@@ -263,29 +346,27 @@
 
 
   /*Greek*/
-  .el .feature_circle .circle_creator_area {
-    font-size: .75em;
-  }
-  .el .feature_circle .circle_of_strength {
-    font-size: 1.3em;
-  }
-
-  .el .gallery_circle .circle_creator_area {
-    font-size: 1em;
-  }
-  .el .gallery_circle .circle_of_strength {
-    font-size: 1.7em;
-  }
 
   .el .feature_circle{
     height:420px;
   }
 
-  .el #thank_you p, .it #thank_you p, .pt #thank_you p, .ru #thank_you p{
+  .el #thank_you p, 
+  .it #thank_you p, 
+  .pt #thank_you p, 
+  .ru #thank_you p,
+  .vi #thank_you p
+  {
     font-size:1.4em;
   }
 
-  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal, .ru .popup #popup_circle_modal #goal{
+  .el .popup #popup_circle_modal #goal, 
+  .it .popup #popup_circle_modal #goal, 
+  .pt .popup #popup_circle_modal #goal, 
+  .ru .popup #popup_circle_modal #goal, 
+  .tr .popup #popup_circle_modal #goal,
+  .vi .popup #popup_circle_modal #goal
+  {
     font-size:60%;
   }
 
@@ -314,6 +395,13 @@
     font-size:.95em;
   }
 
+   /*vietnamese*/
+
+  .vi #tagline {
+      top: 220px;
+  }
+
+
 }
 
 
@@ -326,6 +414,21 @@
 .ru .confirm_content p{
     font-size:1em;
  }
+
+ .el #create_another_circle, 
+  .ru #create_another_circle,
+  .de #create_another_circle
+
+  {
+    font-size:.65em;
+  }
+
+  .el #log_in_upload_photo_btn, 
+  .ru #log_in_upload_photo_btn,
+  .de #log_in_upload_photo_btn
+  {
+    font-size:.65em;
+  }
    
 
 }
@@ -338,26 +441,34 @@
    =============== */
 
        /*Greek*/
-  .el .feature_circle .circle_creator_area {
-    font-size: .55em;
-  }
-  .el .feature_circle .circle_of_strength {
-    font-size: .95em;
-  }
-
-  .el .gallery_circle .circle_creator_area {
-    font-size: .8em;
-  }
-  .el .gallery_circle .circle_of_strength {
-    font-size: 1.2em;
-  }
 
   .el .feature_circle{
     height:320px;
   }
 
-  .el .popup #popup_circle_modal #goal, .it .popup #popup_circle_modal #goal, .pt .popup #popup_circle_modal #goal, .ru .popup #popup_circle_modal #goal{
+  .el .popup #popup_circle_modal #goal, 
+  .it .popup #popup_circle_modal #goal, 
+  .pt .popup #popup_circle_modal #goal, 
+  .ru .popup #popup_circle_modal #goal,
+  .tr .popup #popup_circle_modal #goal,
+  .vi .popup #popup_circle_modal #goal
+  {
     font-size:80%;
+  }
+
+  .el #create_another_circle, 
+  .ru #create_another_circle,
+  .de #create_another_circle
+
+  {
+    font-size:.5em;
+  }
+
+  .el #log_in_upload_photo_btn, 
+  .ru #log_in_upload_photo_btn,
+  .de #log_in_upload_photo_btn
+  {
+    font-size:.5em;
   }
 
   .el #join_fight_text{
@@ -391,6 +502,30 @@
       top: 140px;
   }
 
+  /*Vietnamese*/
+  .vi #tagline {
+      top: 150px;
+  }
+
+  .de #tagline {
+      top: 150px;
+  }
+
+  .fr .stronger_together {
+    font-size: 2.8em;
+  } 
+
+  .fr #create_another_circle
+  {
+    font-size:.7em;
+  }
+
+  .fr #log_in_upload_photo_btn
+  {
+    font-size:.7em;
+  }
+
+
 
     
 }
@@ -406,6 +541,23 @@
     height:346px;
   }
 
+  .el .feature_circle .circle_goal, 
+  .it .feature_circle .circle_goal, 
+  .pt .feature_circle .circle_goal,
+  .vi .feature_circle .circle_goal
+  {
+    font-size:1em;
+  }
+
+
+  .el .gallery_circle .circle_goal, 
+  .it .gallery_circle .circle_goal, 
+  .pt .gallery_circle .circle_goal,
+  .tr .gallery_circle .circle_goal,
+  .vi .gallery_circle .circle_goal
+  {
+    font-size:1.2em;
+  }
 
 }
 
@@ -416,34 +568,23 @@
     Tablet (1200px)
    =============== */
 
-          /*Greek*/
-  .el .feature_circle .circle_creator_area {
-    font-size: .75em;
-  }
-  .el .feature_circle .circle_of_strength {
-    font-size: 1.3em;
-  }
-
-  .el .gallery_circle .circle_creator_area {
-    font-size: .9em;
-  }
-  .el .gallery_circle .circle_of_strength {
-    font-size: 1.7em;
-  }
-
-  .el .feature_circle .circle_goal, .it .feature_circle .circle_goal, .pt .feature_circle .circle_goal{
-    font-size:1em;
-  }
+  /*Greek*/
 
   .el #join_fight_text{
     font-size:.7em;
   }
 
-  .el #create_another_circle{
+  .el #create_another_circle,
+  .ru #create_another_circle,
+  .de #create_another_circle
+  {
     font-size:.7em;
   }
 
-  .el #log_in_upload_photo_btn{
+  .el #log_in_upload_photo_btn,
+  .ru #log_in_upload_photo_btn,
+  .de #log_in_upload_photo_btn
+  {
     font-size:.7em;
   }
 
@@ -476,6 +617,31 @@
   .ru #tagline {
       top: 210px;
   }
+
+  /*Vietnamese*/
+  .vi #tagline {
+      top: 220px;
+  }
+
+  .de #tagline {
+      top: 220px;
+  }
+
+  .fr .stronger_together {
+    font-size: 3.2em;
+  }  
+
+  .fr #create_another_circle
+  {
+    font-size:.75em;
+  }
+
+  .fr #log_in_upload_photo_btn
+  {
+    font-size:.75em;
+  }
+
+
 
 
 
