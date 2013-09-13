@@ -1369,14 +1369,14 @@ function postCircleData(goal_id){
 
 							getUserCircleData(); 
 
-	      //       			facebook.createCircle({
-	      //       				circle_id:data.id,
-							// 	id :userID,
-							// 	name: userName,
-							// 	photo: userProfilePhoto,
-							// 	goal: goal,
-							// 	friends: friendSelectedArray
-							// });
+	            			facebook.createCircle({
+	            				circle_id:data.id,
+								id :userID,
+								name: userName,
+								photo: userProfilePhoto,
+								goal: goal,
+								friends: friendSelectedArray
+							});
 
 							resetCircle();            			 
 	            			openThankYouScreen();
