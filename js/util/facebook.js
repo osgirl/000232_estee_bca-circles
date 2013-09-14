@@ -215,7 +215,7 @@ facebook.createCircle = function(_friendsData){
 
     function savePhotoToServer(_url)
     {
-		var photo_message = facebook.photoMessage.replace("[GOAL]",_friendsData.goal).replace("[URL]", _url);
+		var photo_message = facebook.photoMessage.replace("[action]",_friendsData.goal).replace("[URL]", _url);
 		//save photo to server 
 		createMainCirclePhoto( _friendsData, function( _create_response ){		
 			console.log(_create_response);
