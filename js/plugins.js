@@ -257,7 +257,7 @@ $.extend(
 
             if (v.post_type == 'video'){
                 _caption = shareFBVideoCaption;
-                _description = shareFBVideoDescription + _link;
+                _description = shareFBVideoDescription;
             }
 
             if (ismobile)
