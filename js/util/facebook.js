@@ -189,6 +189,8 @@ facebook.logOut = function( _callback ){
 }
 
 facebook.createCircle = function(_friendsData){
+
+
 	//Sean: Bitly
 	 //Get bitly and open twitter
 	var u = "circle/" + _friendsData.circle_id;
@@ -214,11 +216,12 @@ facebook.createCircle = function(_friendsData){
     function savePhotoToServer(_url)
     {
 		var photo_message = facebook.photoMessage.replace("[action]",_friendsData.goal).replace("[URL]", _url);
+
+		console.log("should be here", facebook.albumName, facebook.albumMessage, photo_message)
 		//save photo to server 
 		createMainCirclePhoto( _friendsData, function( _create_response ){		
 			console.log(_create_response);
 			_friendsData
-
 			//create facebook album
 			facebook.createAlbum( {name: facebook.albumName, message:facebook.albumMessage}, function( _album_response ){
 

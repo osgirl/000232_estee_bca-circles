@@ -220,8 +220,6 @@ function translatePage(){
 
 	$.language.load(function(e){
 
-		facebook.defineShareCopy();
-
 		if(selectedLanguage == "en") NAME_TEXTFIELD_WIDTH = 135;
 		if(selectedLanguage == "hu") NAME_TEXTFIELD_WIDTH = 175;
 		if(selectedLanguage == "de") NAME_TEXTFIELD_WIDTH = 165;
@@ -290,6 +288,8 @@ function loadLanguageToElements(languageData){
 	translator.defineOptItems();
 	translator.defineSpecialItems();
 	translator.defineThankYouItems();
+
+	facebook.defineShareCopy();
 
 	$('.opt_copy .link').click(function(e){
 		$.popup({type: ($(this).hasClass('terms')) ? 'terms_and_conditions' : 'privacy_policy' });
