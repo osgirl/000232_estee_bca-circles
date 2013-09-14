@@ -3,10 +3,10 @@ var facebook = {};
 facebook.access_token		= "";
 facebook.friendids			= [];
 facebook.scope 				= "user_photos,publish_stream,publish_actions";
-// facebook.albumName 			= "Circle of Strength";
-// facebook.albumMessage 		= "We're Stronger Totether";
-// facebook.photoMessage 		= "We're Stronger Together. I created a Circle of Strength to take action against breast cancer. We will: [GOAL] Create your Circle of Strength with those who support you most. [URL]";
-// facebook.photoUrl 			= "http://firstknowwhatyouwant.com/wp-content/uploads/2011/08/iStock_000002337513Medium.jpg";
+facebook.albumName 			= "Circle of Strength";
+facebook.albumMessage 		= "We're Stronger Totether";
+facebook.photoMessage 		= "We're Stronger Together. I created a Circle of Strength to take action against breast cancer. We will: [GOAL] Create your Circle of Strength with those who support you most. [URL]";
+facebook.photoUrl 			= "http://firstknowwhatyouwant.com/wp-content/uploads/2011/08/iStock_000002337513Medium.jpg";
 
 facebook.init = function( _appid ){
 	console.log("-- initializing facebook api --");
@@ -15,13 +15,6 @@ facebook.init = function( _appid ){
 	FB.init({ appId:_appid, status: true, cookie: true });
 
 	facebook.checkLoginStatus();
-}
-
-facebook.defineShareCopy = function(){
-	facebook.albumName 			= circleOfStrengh;
-	facebook.albumMessage 		= shareTitle;
-	facebook.photoMessage 		= shareTitle + " " + shareICreated + " " + "[URL]";
-	facebook.photoUrl 			= "http://firstknowwhatyouwant.com/wp-content/uploads/2011/08/iStock_000002337513Medium.jpg";
 }
 
 facebook.checkLoginStatus = function(){
@@ -215,12 +208,12 @@ facebook.createCircle = function(_friendsData){
 
     function savePhotoToServer(_url)
     {
-		var photo_message = facebook.photoMessage.replace("[action]",_friendsData.goal).replace("[URL]", _url);
+		var photo_message = facebook.photoMessage.replace("[GOAL]",_friendsData.goal).replace("[URL]", _url);
 		//save photo to server 
 		createMainCirclePhoto( _friendsData, function( _create_response ){		
-			console.log(_create_response, _friendsData.friends);
-			
+			console.log(_create_response);
 			_friendsData
+
 			//create facebook album
 			facebook.createAlbum( {name: facebook.albumName, message:facebook.albumMessage}, function( _album_response ){
 
@@ -284,8 +277,6 @@ facebook.tagPhoto = function( _data, _callback ){
 	var _tags = [];
 
 	$.each(_data.users, function(i,v){
-
-		console.log('this is the parameter', v.id, _data.tag_positions[i+1].x*100, _data.tag_positions[i+1].y*100)
 		_tags.push( {	
 			"tag_uid":v.id, 
 			"x":_data.tag_positions[i+1].x*100, 
