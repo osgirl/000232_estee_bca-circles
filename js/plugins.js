@@ -254,6 +254,12 @@ $.extend(
 
             var _link = baseUrl + indexPage + '#' + u;
 
+
+            if (v.post_type == 'video'){
+                _caption = shareFBVideoCaption;
+                _description = shareFBVideoDescription + _link;
+            }
+
             if (ismobile)
             {
                 window.open("https://www.facebook.com/dialog/feed?" + "app_id=" + fbAppId + "&" + "link=" + encodeURIComponent(_link) + "&" + "picture=" + encodeURIComponent(_picture) + "&" + "name=" + encodeURIComponent(_title) + "&" + "caption=" + encodeURIComponent(_caption) + "&" + "description=" + encodeURIComponent(_description) + "&" + "redirect_uri=" + encodeURIComponent(baseUrl + indexPage), "_blank");
@@ -276,9 +282,13 @@ $.extend(
                 });
             }
         }
+
         else if (v.type == "twitter")
         {
-            var goal = v.action != undefined ? (weWillText+ ' ' + v.action) : twitterShareCopy;
+
+            var twitterShare = (v.post_type == 'video') ? shareTwVideoCopy : twitterShareCopy;
+
+            var goal = v.action != undefined ? (weWillText+ ' ' + v.action) : twitterShare;
             var hash = (v.hashtag_before_url != undefined) ? 1 : 0;
             if (v.referral != undefined || v.referral != null) u += "/?referral=twitter-" + v.referral;
             
@@ -287,6 +297,7 @@ $.extend(
             goal = goal.replace(/\'/gi,'%5E');
 
             var _url = baseUrl + indexPage + 'home/twitter_share/' + u + '/' + hash + '/' + encodeURIComponent(goal);
+
             openShareWindow(575, 380, _url , 'Twitter');
             $.gaEvent((v.post_type).capitalize(), 'Shared', 'by Twitter');
            
