@@ -1158,6 +1158,9 @@ h2{
 	display:none;
 	background-color:white;
 	font-weight:lighter;
+}
+
+.lt-ie9 #create_circle_screen, .lt-ie9 #circle_confirm_screen, .lt-ie9 #cancel_screen{
 	width:100%;
 }
 
