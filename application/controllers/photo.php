@@ -302,9 +302,9 @@ class Photo extends CI_Controller {
 
 		// Create canvas
 		imagefill( $canvas, 0, 0, $bgColor );
-		$this->image_smooth_arc->imageSmoothArc( $canvas, 250*$m, 340*$m, 265*$m, 265*$m, $bgCircleColor, M_PI/2, 0 );
-		$dotted = @imagecreatefrompng(base_url(). "img/circle_dotted_outline-hq.png");
+		$dotted = @imagecreatefromjpeg(base_url(). "img/circle_dotted_outline-hq.jpg");
 		imagecopy($canvas, $dotted, 70*$m,160*$m,0,0,imagesx($dotted), imagesy($dotted));
+		$this->image_smooth_arc->imageSmoothArc( $canvas, 250*$m, 340*$m, 265*$m, 265*$m, $bgCircleColor, M_PI/2, 0 );
 
 		$tag_positions = array();
 
