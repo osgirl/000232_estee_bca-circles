@@ -96,6 +96,10 @@ var donate_link;
 var customizeGoalText;
 var enterNameText;
 
+var circleOfStrengh;
+var shareTitle;
+var shareICreated;
+
 var photoLoaded = false;
 
 

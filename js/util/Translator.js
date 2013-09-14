@@ -16,11 +16,9 @@ var hoursAgoText;
 var selectAtLeastOneFriendText;
 var friendAlreadyExistText;
 
-var circleOfStrengh;
-var shareTitle;
 var shareCaption;
 var shareDescription;
-var shareICreated;
+
 
 var shareFBVideoCaption;
 var shareFBVideoDescription;
