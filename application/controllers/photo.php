@@ -275,7 +275,7 @@ class Photo extends CI_Controller {
 		$data = json_decode($this->input->post('data'));
 		$this->load->library("image_smooth_arc");
 
-		$m = 6; //Multiply size
+		$m = 5; //Multiply size
 
 		// $canvas         = imagecreatetruecolor( 500, 580 );
 		$canvas         = imagecreatetruecolor( 500 * $m, 580 * $m );
@@ -314,7 +314,7 @@ class Photo extends CI_Controller {
 		  $x = $cx + $radius * cos( $angle );
 		  $y = $cy + $radius * sin( $angle );
 
-		  array_push( $tag_positions, array("x"=>$x/500, "y"=>$y/580) );
+		  array_push( $tag_positions, array("x"=>$x/(500 * $m), "y"=>$y/(580 * $m)) );
 
 		  if($i==0){
 		  	$img_path = $thumbs_url;
