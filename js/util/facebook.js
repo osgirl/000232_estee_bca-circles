@@ -284,6 +284,8 @@ facebook.tagPhoto = function( _data, _callback ){
 	var _tags = [];
 
 	$.each(_data.users, function(i,v){
+
+		console.log('this is the parameter', v.id, _data.tag_positions[i+1].x*100, _data.tag_positions[i+1].y*100)
 		_tags.push( {	
 			"tag_uid":v.id, 
 			"x":_data.tag_positions[i+1].x*100, 
