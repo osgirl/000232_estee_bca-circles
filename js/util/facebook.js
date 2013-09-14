@@ -56,9 +56,15 @@ facebook.checkLoginStatus = function(){
 
 facebook.fetchFriendlist = function( _callback ){
 
+	var friendcount = 0;
+
 	FB.api('/me/friends?limit=5000', function(fbresponse){
 	    if (fbresponse && fbresponse.data){
-	    	console.log("-- successfully retrieved friends list --");
+	    	console.log("-- successfully retrieved friends list --", fbresponse.data);
+
+	    	
+
+			console.log("friendlist reset?", friendProfileList)
 
 	        $(fbresponse.data).each( function(index,value){
 				var friendObj = new Object();
@@ -69,12 +75,16 @@ facebook.fetchFriendlist = function( _callback ){
 	        		//console.log("-- got "+ friendObj.name + "s photo. --" );
 
 			    	if (fbresponse_b && fbresponse_b.data){
+
+
 				       	$(fbresponse_b.data).each(function(i,v){
 				        	friendObj.pic = v.url;
 				        	friendProfileList.push(friendObj);
 				        });
 
-			        	if(index >= fbresponse.data.length-1){
+				        friendcount++;
+
+			        	if(friendcount >= fbresponse.data.length){
 			        		//all friends are here now. we're done.
 			        		$('body').trigger('GOT_FRIEND_LIST');
 

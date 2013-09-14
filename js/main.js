@@ -266,6 +266,12 @@ function translatePage(){
 
 		createGoalDropdown();
 		getTrendingAction();
+
+		var setting = {
+			showArrows: false,
+	        autoReinitialise: true
+		}
+		$('.scroll-pane').jScrollPane(Object(setting));
 	});
 
 }
@@ -328,6 +334,11 @@ function getLoginStatus(e){
 
 function getLogoutStatus(e){
 	//console.log("get logout status");
+
+	friendProfileList = new Array();
+	$('#friend_search_field').off();
+	$('#friend_search_field').data('typeahead', (data = null))
+	$('.friend_row').remove();
 
 	$('.top_user_name').html("");
 	$('.sign_in_btn .sign_in').html(signInText);
@@ -477,6 +488,8 @@ function getTrendingAction(){
     	url: baseUrl + indexPage + 'goal/fetchAllGoalData',
     	dataType: 'json',
     	success: function(data) {  
+
+    		translator.defineTrendingActionNumber();
 
     		trendingData = data;
 
@@ -729,13 +742,13 @@ function actionSelected(e){
 
 
 function getFriendList(e){
-	console.log("getFriendList");
 
 	gallery.showFriendCircles();
 	
 	$('#friend_search_field').unbind('keyup').keyup(function(e){
 		if($(e.currentTarget).val() == "")  resetNameTextfield();
 	})
+
 	
 	$('#friend_search_field').typeahead({
 			source: function (query, process) {
@@ -909,8 +922,8 @@ function createFriendPhotosPanel(){
 
 	for(var r=0; r<rowNum; r++){
 		var row = $('<div>');
-		row.addClass('row')
-			.appendTo('#friend_photos_container')
+		row.addClass('row friend_row')
+			.appendTo('#friend_photos_container .jspPane')
 
 		for(var c=0; c<PHOTO_COLUMN_NUM; c++){
 			var col = $('<div>');
@@ -988,12 +1001,6 @@ function createFriendPhotosPanel(){
 	    }
 	})
 
-	var setting = {
-		showArrows: false,
-        autoReinitialise: true
-	}
-	$('.scroll-pane').jScrollPane(Object(setting));
-
 }
 
 function openFriendPhotosPanel(){
@@ -1048,6 +1055,10 @@ function getUserCircleData(){
     	},
     	success: function(data) {   
 
+    		translator.defineCircleNumber();
+
+    		var circleNum = data.length;
+
     	data.reverse();     
 
         	var circlePlural;
@@ -1063,15 +1074,17 @@ function getUserCircleData(){
         	}
 
         	if(selectedLanguage == "en"){
-        		$('#circle_num').html(data.length + circlePlural);
+        		$('#circle_num').html(circleNum + circlePlural);
         	}else{
-        		belongCircleText = belongCircleText.replace("#", data.length);
+
+
+        		belongCircleText = belongCircleText.replace("#", circleNum);
         		$("#user_circle_num").html(belongCircleText);
+
+        		console.log("circle number", belongCircleText, circleNum)
         	}
 
-        	
 
-        	
 
         	$(data).each(function(i,v){
 
@@ -1080,18 +1093,18 @@ function getUserCircleData(){
         		var line2 = myCircleFriendNumText;
         		line2 = line2.replace("#", v.friends_data.length);
 
-        		var interval = setInterval(function(){ 
+        		//var interval = setInterval(function(){ 
         			//console.log("what the", $('#my_circle_scroll .jspPane'), $('#my_circle_scroll'))
 
-	        		if($('#my_circle_scroll .jspPane').is(":visible")){
+	        		//if($('#my_circle_scroll .jspPane').is(":visible")){
 
 	        			//console.log('done??', $('#my_circle_scroll .jspPane'))
-	        			clearInterval(interval);
+	        			//clearInterval(interval);
 	        			var parent = $('#my_circle_scroll .jspPane');
 						createStatItem(v, parent, line1, line2, v, true);
-	        		}
+	        		//}
         			
-				}, 100);
+				//}, 100);
 
         	})
      	}

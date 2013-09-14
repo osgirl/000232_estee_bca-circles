@@ -69,13 +69,31 @@ translator.defineDynamicItems = function(){
         if(v[0] == "logout") signOutText = v[1];
         if(v[0] == "create_a_circle") createACircleText = v[1];
         if(v[0] == "create_another_circle") createAnotherCircleText = v[1];
-        if(v[0] == "belongs_to_n_circles") belongCircleText = v[1];
-        if(v[0] == "n_people_will") trendingActionPeopleNumText = v[1];
-        if(v[0] == "n_friend_taking_action") myCircleFriendNumText = v[1];
         if(v[0] == "same_goal") sameGoalText = v[1];
         if(v[0] == "create_a_new_one") createANewOneText = v[1];
         if(v[0] == "n_hours_ago") hoursAgoText = v[1];
         if(v[0] == "n_min_ago") minsAgoText = v[1];
+        if(v[0] == "belongs_to_n_circles") belongCircleText = v[1];
+        if(v[0] == "n_people_will") trendingActionPeopleNumText = v[1];
+        if(v[0] == "n_friend_taking_action") myCircleFriendNumText = v[1];
+        
+    });  
+
+}
+
+translator.defineCircleNumber = function(){
+     $(languageData).each(function(i,v){
+
+        if(v[0] == "belongs_to_n_circles") belongCircleText = v[1];
+        if(v[0] == "n_friend_taking_action") myCircleFriendNumText = v[1];
+        
+    });  
+}
+
+translator.defineTrendingActionNumber = function(){
+     $(languageData).each(function(i,v){
+
+        if(v[0] == "n_people_will") trendingActionPeopleNumText = v[1];
         
     });  
 }
