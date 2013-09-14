@@ -185,6 +185,14 @@ function windowResize(){
 		SCROLL_TO_SHOW_FOOTER = 4000;
 	}
 
+	$('.friend_btn').each(function(i, v){
+
+		$(v).width($(v).next('.temp_name_input_container').width() + 5);
+
+	})
+//$('.friend_btn').width($('.friend_btn').next('.temp_name_input_container').width() + 5);
+
+
 	carousel.windowResize();
 }
 
