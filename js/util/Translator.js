@@ -19,12 +19,10 @@ var friendAlreadyExistText;
 var shareCaption;
 var shareDescription;
 
-
 var shareFBVideoCaption;
 var shareFBVideoDescription;
 var shareTwVideoCopy;
 
-var weWillText;
 var twitterShareCopy;
 
 
@@ -76,6 +74,7 @@ translator.defineDynamicItems = function(){
         if(v[0] == "belongs_to_n_circles") belongCircleText = v[1];
         if(v[0] == "n_people_will") trendingActionPeopleNumText = v[1];
         if(v[0] == "n_friend_taking_action") myCircleFriendNumText = v[1];
+        if(v[0] == "created_a") createA = v[1];
         
     });  
 

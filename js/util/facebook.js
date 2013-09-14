@@ -3,10 +3,10 @@ var facebook = {};
 facebook.access_token		= "";
 facebook.friendids			= [];
 facebook.scope 				= "user_photos,publish_stream,publish_actions";
-facebook.albumName 			= "Circle of Strength";
-facebook.albumMessage 		= "We're Stronger Totether";
-facebook.photoMessage 		= "We're Stronger Together. I created a Circle of Strength to take action against breast cancer. We will: [GOAL] Create your Circle of Strength with those who support you most. [URL]";
-facebook.photoUrl 			= "http://firstknowwhatyouwant.com/wp-content/uploads/2011/08/iStock_000002337513Medium.jpg";
+// facebook.albumName 			= "Circle of Strength";
+// facebook.albumMessage 		= "We're Stronger Totether";
+// facebook.photoMessage 		= "We're Stronger Together. I created a Circle of Strength to take action against breast cancer. We will: [GOAL] Create your Circle of Strength with those who support you most. [URL]";
+// facebook.photoUrl 			= "http://firstknowwhatyouwant.com/wp-content/uploads/2011/08/iStock_000002337513Medium.jpg";
 
 facebook.init = function( _appid ){
 	console.log("-- initializing facebook api --");
@@ -217,6 +217,9 @@ facebook.createCircle = function(_friendsData){
     {
 		var photo_message = facebook.photoMessage.replace("[action]",_friendsData.goal).replace("[URL]", _url);
 		//save photo to server 
+
+		console.log("create a -- ", createA, ", circle of strength -- ", circleOfStrengh, ", goal -- ", _friendsData.goal);
+		
 		createMainCirclePhoto( _friendsData, function( _create_response ){		
 			console.log(_create_response);
 			_friendsData

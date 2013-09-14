@@ -99,6 +99,8 @@ var enterNameText;
 var circleOfStrengh;
 var shareTitle;
 var shareICreated;
+var createA;
+var weWillText;
 
 var photoLoaded = false;
 
