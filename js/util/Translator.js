@@ -16,9 +16,11 @@ var hoursAgoText;
 var selectAtLeastOneFriendText;
 var friendAlreadyExistText;
 
+var circleOfStrengh;
 var shareTitle;
 var shareCaption;
 var shareDescription;
+var shareICreated;
 
 var shareFBVideoCaption;
 var shareFBVideoDescription;
@@ -107,9 +109,11 @@ translator.defineSpecialItems = function(){
         if(v[0] == "select_at_least_one_friend") selectAtLeastOneFriendText = v[1];
         if(v[0] == "friend_already_exist") friendAlreadyExistText = v[1];
 
+        if(v[0] == "circle_of_strength") circleOfStrengh = v[1];
         if(v[0] == "we_are_stronger_together_upload_photo") shareTitle = v[1];
         if(v[0] == "share_take_action_against") shareCaption = v[1];
         if(v[0] == "share_create_a_circle_of_strength_with") shareDescription = v[1];
+        if(v[0] == "share_i_created_a_circle_of_strength") shareICreated = v[1];
 
         if(v[0] == "share_video_facebook_caption") shareFBVideoCaption = v[1];
         if(v[0] == "share_video_facebook_description") shareFBVideoDescription = v[1];
