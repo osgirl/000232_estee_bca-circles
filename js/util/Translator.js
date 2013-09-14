@@ -115,6 +115,7 @@ translator.defineSpecialItems = function(){
         if(v[0] == "share_create_a_circle_of_strength_with") shareDescription = v[1];
         if(v[0] == "share_i_created_a_circle_of_strength") shareICreated = v[1];
 
+
         if(v[0] == "share_video_facebook_caption") shareFBVideoCaption = v[1];
         if(v[0] == "share_video_facebook_description") shareFBVideoDescription = v[1];
         if(v[0] == "share_video_twitter") shareTwVideoCopy = v[1];

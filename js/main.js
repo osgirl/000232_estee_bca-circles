@@ -216,6 +216,8 @@ function translatePage(){
 
 	$.language.load(function(e){
 
+		facebook.defineShareCopy();
+
 		if(selectedLanguage == "en") NAME_TEXTFIELD_WIDTH = 135;
 		if(selectedLanguage == "hu") NAME_TEXTFIELD_WIDTH = 175;
 		if(selectedLanguage == "de") NAME_TEXTFIELD_WIDTH = 165;

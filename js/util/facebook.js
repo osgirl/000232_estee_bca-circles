@@ -4,10 +4,7 @@ facebook.access_token		= "";
 facebook.friendids			= [];
 facebook.scope 				= "user_photos,publish_stream,publish_actions";
 
-facebook.albumName 			= circleOfStrengh;
-facebook.albumMessage 		= shareTitle;
-facebook.photoMessage 		= shareTitle + " " + shareICreated + " " + "[URL]";
-facebook.photoUrl 			= "http://firstknowwhatyouwant.com/wp-content/uploads/2011/08/iStock_000002337513Medium.jpg";
+
 
 facebook.init = function( _appid ){
 	console.log("-- initializing facebook api --");
@@ -16,6 +13,13 @@ facebook.init = function( _appid ){
 	FB.init({ appId:_appid, status: true, cookie: true });
 
 	facebook.checkLoginStatus();
+}
+
+facebook.defineShareCopy = function(){
+	facebook.albumName 			= circleOfStrengh;
+	facebook.albumMessage 		= shareTitle;
+	facebook.photoMessage 		= shareTitle + " " + shareICreated + " " + "[URL]";
+	facebook.photoUrl 			= "http://firstknowwhatyouwant.com/wp-content/uploads/2011/08/iStock_000002337513Medium.jpg";
 }
 
 facebook.checkLoginStatus = function(){
