@@ -289,7 +289,7 @@ function loadLanguageToElements(languageData){
 	translator.defineSpecialItems();
 	translator.defineThankYouItems();
 
-	//facebook.defineShareCopy();
+	facebook.defineShareCopy();
 
 	$('.opt_copy .link').click(function(e){
 		$.popup({type: ($(this).hasClass('terms')) ? 'terms_and_conditions' : 'privacy_policy' });
