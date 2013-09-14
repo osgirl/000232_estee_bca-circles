@@ -183,6 +183,13 @@ facebook.logOut = function( _callback ){
 	});	
 }
 
+facebook.defineShareCopy = function(){
+	facebook.albumName 			= circleOfStrengh;
+	facebook.albumMessage 		= shareTitle;
+	facebook.photoMessage 		= shareTitle + " " + shareICreated + " " + "[URL]";
+	facebook.photoUrl 			= "http://firstknowwhatyouwant.com/wp-content/uploads/2011/08/iStock_000002337513Medium.jpg";
+}
+
 facebook.createCircle = function(_friendsData){
 	//Sean: Bitly
 	 //Get bitly and open twitter
@@ -271,14 +278,15 @@ facebook.postPhotoToAlbum = function( _data, _callback ){
 	});
 }
 
+
 facebook.tagPhoto = function( _data, _callback ){
 	console.log("-- attempting to tag photo : " + _data.photo_id + ". --");
 
 	var _tags = [];
 
-	console.log("parameters", vid, _data.tag_positions[i+1].x*100, _data.tag_positions[i+1].y*100);
-
 	$.each(_data.users, function(i,v){
+
+		console.log("parameters", v.id, _data.tag_positions[i+1].x*100, _data.tag_positions[i+1].y*100);
 		_tags.push( {	
 			"tag_uid":v.id, 
 			"x":_data.tag_positions[i+1].x*100, 
