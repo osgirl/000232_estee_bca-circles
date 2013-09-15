@@ -393,11 +393,17 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			circleFeed = $data;
 			if($data.length == 0){
 				feedEnd = true; 
+				$('#donate_area').fadeIn();
+	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+
 				return;
 			} 
 			
 
-			if($data.length < getCircleNum) onePage = true;
+			if($data.length < getCircleNum) {
+				onePage = true;
+
+			}
 
 			var data = ored.getIdsFromFeed($data, "circles");
 
@@ -463,6 +469,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			//oc: combine all 3 feeds into 1
 
+
 				if(data && data.length != 0) {
 					$(data).each(function (i, v){
 
@@ -480,26 +487,27 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 					 	console.info("all photo data", allPhotoData)
 
-					 	//if(allPhotoData.length >= photoSum ){
+
+					 	if(allPhotoData.length >= photoSum ){
 					 		notEnoughPhoto = false;
 			 				ored.masterFeed = allPhotoData;
 							galleryItem.parseAllPhotoData(allPhotoData, false, circleEnd);
 							enableLazyloader();
 	
-						//}
+						}
 
-						 // else{
+						 else{
 
-						 // 	notEnoughPhoto = true;
-						 // 	morePhotoCount--;
+						 	notEnoughPhoto = true;
+						 	morePhotoCount--;
 
-						 // 	console.info("hmmm", photoSum, allPhotoData.length)
+						 	console.info("hmmm", photoSum, allPhotoData.length)
 
-						 // 	restNum = photoSum - allPhotoData.length;
+						 	restNum = photoSum - allPhotoData.length;
 
-						 // 	$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
+						 	$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
 
-						 // }
+						 }
 					 }	
 			
 		};
@@ -693,17 +701,22 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			//console.log("parsePhotoData");
 			//console.log($data);
 			feed = $data;
-
-			if($data.length == 0) {
-				feedEnd = true;
-				return;
-			}
-			
 			
 			var data 		= ored.getIdsFromFeed($data, "photo");
 			photoFeed = data;
 
-			if(data.length < 21) onePage = true;
+			console.log("PARSE PHOTO DATA LENGHT", data.length)
+
+			if(data.length == 0) {
+				feedEnd = true;
+				$('#donate_area').fadeIn();
+	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+				return;
+			}
+
+			console.log("PARSE PHOTO is not zero", data.length)
+
+			if(data.length < 12) onePage = true;
 
 
 			loadPhotoData(data, getPhotoData);
@@ -742,7 +755,10 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				populatePhotoContent(contentData);
 				if(i == $data.length - 1) enableLazyloader();
 
+
+
 			});
+
 
 			$('body').trigger("ALL_LAYOUT_CREATED");
 		}
@@ -755,12 +771,14 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			if(data.length == 0) {
 				feedEnd = true;
+				$('#donate_area').fadeIn();
+	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 				return;
 			}
 
 			//createPhotoLayout();
 
-			if(data.length < 21) onePage = true;
+			if(data.length < 12) onePage = true;
 
 			var feed;
 
@@ -812,12 +830,14 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			if(data.length == 0) {
 				feedEnd = true;
+				$('#donate_area').fadeIn();
+	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 				return;
 			}
 
 			//createPhotoLayout();
 
-			if(data.length < 21) onePage = true;
+			if(data.length < 12) onePage = true;
 
 
 			var feed;
@@ -863,6 +883,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				}
 
 				populatePhotoContent(contentData);
+				
 
 				//enableLazyloader();
 		}
@@ -953,6 +974,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			if(data.length == 0) {
 				feedEnd = true;
+				$('#donate_area').fadeIn();
+	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 				return
 			}
 
@@ -1092,6 +1115,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 	            				.html(layout1data);     
 
 	            		$(layout1).appendTo(gallery_container);
+
 	            		
 						if(isMoreFeed){
 							$(layout1).addClass('layout' + current_add_layout)
@@ -1150,6 +1174,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			var circleLayout = $('<div>');
 			circleLayout.addClass('layout_circle gallery_layout page' + pageNum)
 						.appendTo(gallery_container);
+
 		};
 
 		function photoDiv(index){

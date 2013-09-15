@@ -101,6 +101,15 @@
 		width:93%;
 	}
 
+	#friend_list{
+		font-size:2.2em;
+		/*line-height: 1.4em;*/
+	}
+
+	#create_circle_user{
+		font-size:.8em;
+	}
+
 }
 
 
@@ -140,7 +149,7 @@
 	}
 
 	.lt-ie9 #top_sub_nav{
-		width:30%;
+		width:40%;
 		text-align: right;
 		margin-right:15px;
 	}
@@ -293,6 +302,10 @@
 			margin-right:0;
 		}
 
+	.lt-ie9 .layout2 .photo_col .photo_col_last_child{
+			margin-right:0;
+		}
+
 	.layout2 .circle_col{
 		width:48%;
 		margin-right:2%;
@@ -309,9 +322,18 @@
 	.layout_photo{
 		width:98%;
 	}
+
+	.lt-ie9 .layout_photo{
+		width:100%;
+	}
+
 	.layout_photo .photo_container{
 		width:23.5%;
 		margin-right:2%;
+	}
+
+	.lt-ie9 .layout_photo .photo_container{
+		margin-right:1.5%;
 	}
 
 	.layout_photo .photo_container:nth-child(even){
@@ -324,6 +346,10 @@
 
 	.flex_margin_bottom{
 		margin-bottom:22px;
+	}
+
+	.lt-ie9 .flex_margin_bottom{
+		margin-bottom:17px;
 	}
 
 	.twitter_author{
@@ -436,6 +462,10 @@
 		margin-right: 0;
 	}
 
+	.lt-ie9 .gallery_circle .circle_even_child{
+		margin-right: 0;
+	}
+
 	#filter_nav{
 		margin-top:0px;
 	}
@@ -465,6 +495,18 @@
 		width:85%;
 		height:400px;
 	}
+
+	#friend_list{
+		font-size:2.2em;
+		line-height: 1.4em;
+	}
+
+
+	#create_circle_user{
+		font-size:.9em;
+	}
+
+	
     
 }
 
@@ -474,6 +516,14 @@
 /* ===============
     Tablet (1024px)
    =============== */
+
+   #friend_list{
+		font-size:2.7em;
+	}
+
+   #create_circle_user{
+		font-size:1em;
+	}
  
 	#top_nav{
 		max-width:984px;

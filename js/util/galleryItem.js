@@ -54,7 +54,9 @@ function GalleryItem()
 
 				$($(e.currentTarget).next()).find('.share_text').css('color', "#f38dab");
 
-			$(item.find('.gallery_item_btn')).unbind('click').click(function(e){openPopUp(popupData)})
+				$(item.find('.gallery_item_btn')).unbind('click').click(function(e){
+					//$('.popup#popup_circle .btn_close').trigger('click');
+					openPopUp(popupData)})
 				centerRollOverContent(.55);
 			})
 

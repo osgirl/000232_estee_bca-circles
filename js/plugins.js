@@ -241,7 +241,7 @@ $.extend(
         {
             if (v.referral != undefined || v.referral != null) u += "/?referral=facebook-" + v.referral;
 
-            var _picture = baseUrl + 'img/assets/fb_share.jpg';
+            var _picture = baseUrl + 'img/assets/fb_share.png';
 
             if (v.photo_url != undefined) _picture = v.photo_url;
 
@@ -401,6 +401,17 @@ $.extend(
                 //Load image to canvas
                 loadEnd();
                 createImageBound(img, canvas);
+
+                $(".btn_rotate").show();
+
+                var imageRotation = 0;
+                
+                $(".btn_rotate").unbind('click').click(function(e){
+                    imageRotation +=90;
+                    if(imageRotation >= 360) imageRotation  = 0;
+                    $(img).rotate(imageRotation);
+                })
+
             }
             img.src = event.target.result;
         }

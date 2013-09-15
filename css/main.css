@@ -314,7 +314,7 @@ h2{
 
 #tagline{
 	position:absolute;
-	top:110px;
+	top:100px;
 	left:0;
 	text-align: center;
 	width:100%;
@@ -594,6 +594,7 @@ h2{
 
 #feed_magnet {
 	height: 100% !important;
+	width:100% !important;
 }
 
 
@@ -696,9 +697,9 @@ h2{
 	/*float:left;*/
 }
 
-.layout2 .photo_container:last-child{
+/*.layout2 .photo_container:last-child{
 	margin-right:0;
-}
+}*/
 
 /*LAYOUT PHOTO*/
 
@@ -710,6 +711,14 @@ h2{
 .layout_photo .photo_container{
 	width:48%;
 	margin-right:4%;
+	float: none !important;
+	display: inline-block !important;
+	vertical-align: top;
+	/*float:left;*/
+}
+
+.lt-ie9 .layout_photo .photo_container{
+	margin-right:2%;
 	/*float:left;*/
 }
 
@@ -717,11 +726,6 @@ h2{
 	margin-right:0;
 }
 
-.layout_photo .photo_container{
-	float: none !important;
-	display: inline-block !important;
-	vertical-align: top;
-}
 
 /*GALLERY ASSETS*/
 
@@ -741,6 +745,9 @@ h2{
 .layout_circle .gallery_circle{
 	margin-right:0;
 	width:100%;
+	float: none !important;
+	display: inline-block !important;
+	vertical-align: top;
 }
 
 .gallery_layout:last-child{
@@ -1287,17 +1294,22 @@ h2{
 }
 
 #friend_list{
-	font-size:2.8em;
+	font-size:2em;
 	position:relative;
-}
-
-#name_plus_btn, #close_friend_photos_btn, #select_action_button{
-	cursor:pointer;
+	/*line-height: 1.1em;*/
 }
 
 .temp_name_input_container{
 	font-size:1em;
-    display:none;
+	display:none;
+}
+
+#create_circle_user{
+		font-size:.6em;
+	}
+
+#name_plus_btn, #close_friend_photos_btn, #select_action_button{
+	cursor:pointer;
 }
 
 #friend_search_wrapper{

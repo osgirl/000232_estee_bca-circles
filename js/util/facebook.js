@@ -60,7 +60,7 @@ facebook.fetchFriendlist = function( _callback ){
 
 	FB.api('/me/friends?limit=5000', function(fbresponse){
 	    if (fbresponse && fbresponse.data){
-	    	console.log("-- successfully retrieved friends list --", fbresponse.data);
+	    	//console.log("-- successfully retrieved friends list --", fbresponse.data);
 
 	    	
 
