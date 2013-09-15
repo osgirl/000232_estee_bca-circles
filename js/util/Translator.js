@@ -117,6 +117,7 @@ translator.defineSpecialItems = function(){
         if(v[0] == "share_video_facebook_description") shareFBVideoDescription = v[1];
         if(v[0] == "share_video_twitter") shareTwVideoCopy = v[1];
 
+        if(v[0] == "created_a") createAText = v[1];
         if(v[0] == "we_will_text") weWillText = v[1];
         if(v[0] == "share_we_are_stronger_together") twitterShareCopy = v[1];
 

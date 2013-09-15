@@ -34,7 +34,7 @@ class Photo extends CI_Controller {
 				switch($_FILES[$file_name]['error'])
 				{
 					case '1':
-						$error = 'The uploaded file exceeds the upload_max_filesize directive in php.ini';
+						$error = 'The uploaded file exceeds the uplowead_max_filesize directive in php.ini';
 						break;
 					case '2':
 						$error = 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form';
@@ -282,10 +282,6 @@ class Photo extends CI_Controller {
 		$bgColor        = imagecolorallocate( $canvas, 243, 141, 171 );
 		$bgCircleColor  = array( 245, 113, 157, 0 );
 
-		//Font location musr be a relative
-		$fontNormal     = 'fonts/HelveticaBQ-Roman.otf';
-		$fontLight      = 'fonts/HelveticaBQ-Light.otf';
-		$fontBold       = 'fonts/HelveticaBQ-Medium.otf';
 		$colorWhite     = imagecolorallocate( $canvas, 255, 255, 255 );
 
 		$thumbs_url     = $data->photo;
@@ -293,12 +289,44 @@ class Photo extends CI_Controller {
 		$content_text   = $data->goal;
 		$id 	        = $data->id;
 		$friends 	    = $data->friends;
+		
+		$createAText 	= $data->createAText;
+		$weWillText 	= $data->weWillText;
+		$circleOfStrengh= $data->circleOfStrengh;
+		$language 		= $data->selectedLanguage;
+
 		$filename       = "circle_photo_".$id.".jpg";
 
 		$steps          = count( $friends ) + 1;
 		$radius         = 180 *$m;
 		$cx             = 250 *$m;
 		$cy             = 340 *$m;
+
+
+		//Font location musr be a relative
+
+		switch ($language) {
+			case 'en':
+				$fontNormal     = 'fonts/HelveticaBQ-Roman.otf';
+				$fontLight      = 'fonts/HelveticaBQ-Light.otf';
+				$fontBold       = 'fonts/HelveticaBQ-Medium.otf';
+				break;
+			case 'cn':
+				$fontNormal     = 'fonts/simsun.ttf';
+				$fontLight      = 'fonts/simsun.ttf';
+				$fontBold       = 'fonts/simsun.ttf';
+				break;			
+			case 'ko':
+				$fontNormal     = 'fonts/Daum_Regular.ttf';
+				$fontLight      = 'fonts/Daum_Regular.ttf';
+				$fontBold       = 'fonts/Daum_Regular.ttf';
+				break;			
+			default:
+				$fontNormal     = 'fonts/DejaVuSans.ttf';
+				$fontLight      = 'fonts/DejaVuSans.ttf';
+				$fontBold       = 'fonts/DejaVuSans.ttf';
+				break;
+		}
 
 		// Create canvas
 		imagefill( $canvas, 0, 0, $bgColor );
@@ -350,13 +378,17 @@ class Photo extends CI_Controller {
 		}
 
 		//Create a header
-		imagefttext( $canvas, 15*$m, 0, 20*$m, 30*$m, $colorWhite, $fontNormal, $user_name . " created a" );
-		imagefttext( $canvas, 30*$m, 0, 20*$m, 70*$m, $colorWhite, $fontNormal, "Circle of Strength" );
+		imagettftext( $canvas, 15*$m, 0, 20*$m, 30*$m, $colorWhite, $fontNormal, $user_name . " ".$createAText);
+		imagettftext( $canvas, 20*$m, 0, 20*$m, 70*$m, $colorWhite, $fontNormal, $circleOfStrengh );
 		imageline($canvas, 20*$m, 85*$m, 480*$m, 85*$m, $colorWhite);
 
 		// Create texts in a center of circle
-		imagefttext( $canvas, 14*$m, 0, 160*$m, 290*$m, $colorWhite, $fontBold, "We Will -" );
-		$this->multiline_text( $canvas, 18*$m, $colorWhite, $fontLight, $content_text, 160*$m, 315*$m, 200*$m );
+		$center_x = imagesx($canvas)/2;
+		$dim = imagettfbbox( 14*$m, 0, $fontBold, $weWillText );
+	    $_x = $center_x - $dim[4]/2;
+
+		imagettftext( $canvas, 14*$m, 0, $_x, 265*$m, $colorWhite, $fontBold, $weWillText );
+		$this->multiline_text( $canvas, 14*$m, $colorWhite, $fontLight, $content_text, $center_x, 290*$m, 220*$m );
 
 		$file_location 	= config_item('upload_url') . 'facebook/' . $filename;
 
@@ -416,12 +448,17 @@ class Photo extends CI_Controller {
 	    } else {
 	      $i--;
 	      $tmp_string = "";
-	      imagefttext( $image, $font_size, 0, $start_x, $start_y, $color, $font, $string );
+
+	      $dim = imagettfbbox( $font_size, 0, $font, $string );
+	      $_x = $start_x - $dim[4]/2;
+	      imagettftext( $image, $font_size, 0, $_x, $start_y, $color, $font, $string );
 
 	      $string = "";
 	      $start_y += $font_size + ( $font_size/1.8 );
 	    }
 	  }
-	  imagefttext( $image, $font_size, 0, $start_x, $start_y, $color, $font, $string );
+	  $dim = imagettfbbox( $font_size, 0, $font, $string );
+	  $_x = $start_x - $dim[4]/2;
+	  imagettftext( $image, $font_size, 0, $_x, $start_y, $color, $font, $string );
 	}
 }
