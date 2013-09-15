@@ -480,7 +480,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 					 	console.info("all photo data", allPhotoData)
 
-					 	//if(allPhotoData.length >= photoSum ){
+					 	if(allPhotoData.length >= photoSum ){
 					 		notEnoughPhoto = false;
 			 				ored.masterFeed = allPhotoData;
 							galleryItem.parseAllPhotoData(allPhotoData, false, circleEnd);
