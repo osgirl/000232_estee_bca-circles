@@ -594,6 +594,7 @@ h2{
 
 #feed_magnet {
 	height: 100% !important;
+	width:100% !important;
 }
 
 
@@ -696,9 +697,9 @@ h2{
 	/*float:left;*/
 }
 
-.layout2 .photo_container:last-child{
+/*.layout2 .photo_container:last-child{
 	margin-right:0;
-}
+}*/
 
 /*LAYOUT PHOTO*/
 
@@ -710,6 +711,11 @@ h2{
 .layout_photo .photo_container{
 	width:48%;
 	margin-right:4%;
+	/*float:left;*/
+}
+
+.lt-ie9 .layout_photo .photo_container{
+	margin-right:2%;
 	/*float:left;*/
 }
 

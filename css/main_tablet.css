@@ -302,6 +302,10 @@
 			margin-right:0;
 		}
 
+	.lt-ie9 .layout2 .photo_col .photo_col_last_child{
+			margin-right:0;
+		}
+
 	.layout2 .circle_col{
 		width:48%;
 		margin-right:2%;
@@ -318,9 +322,18 @@
 	.layout_photo{
 		width:98%;
 	}
+
+	.lt-ie9 .layout_photo{
+		width:100%;
+	}
+
 	.layout_photo .photo_container{
 		width:23.5%;
 		margin-right:2%;
+	}
+
+	.lt-ie9 .layout_photo .photo_container{
+		margin-right:1.5%;
 	}
 
 	.layout_photo .photo_container:nth-child(even){
@@ -333,6 +346,10 @@
 
 	.flex_margin_bottom{
 		margin-bottom:22px;
+	}
+
+	.lt-ie9 .flex_margin_bottom{
+		margin-bottom:17px;
 	}
 
 	.twitter_author{
@@ -442,6 +459,10 @@
 	}
 
 	.gallery_circle:nth-child(even){
+		margin-right: 0;
+	}
+
+	.lt-ie9 .gallery_circle .circle_even_child{
 		margin-right: 0;
 	}
 

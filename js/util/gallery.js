@@ -742,7 +742,14 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				populatePhotoContent(contentData);
 				if(i == $data.length - 1) enableLazyloader();
 
+
+
 			});
+
+			console.log("is last child here", $('.layout_photo .photo_container:nth-child(4n)'))
+
+			$('.layout_photo .photo_container:nth-child(4n)').addClass('photo_last_child');
+
 
 			$('body').trigger("ALL_LAYOUT_CREATED");
 		}
@@ -801,6 +808,10 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				}
 
 				populatePhotoContent(contentData);
+
+				console.log("is last child here", $('.layout_photo .photo_container:nth-child(4n)'))
+
+			$('.layout_photo .photo_container:nth-child(4n)').addClass('photo_last_child');
 
 				
 		}
@@ -863,6 +874,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				}
 
 				populatePhotoContent(contentData);
+				
 
 				//enableLazyloader();
 		}
@@ -1092,6 +1104,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 	            				.html(layout1data);     
 
 	            		$(layout1).appendTo(gallery_container);
+
 	            		
 						if(isMoreFeed){
 							$(layout1).addClass('layout' + current_add_layout)
@@ -1150,6 +1163,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			var circleLayout = $('<div>');
 			circleLayout.addClass('layout_circle gallery_layout page' + pageNum)
 						.appendTo(gallery_container);
+
 		};
 
 		function photoDiv(index){

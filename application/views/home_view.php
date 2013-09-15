@@ -247,8 +247,11 @@
         <script src="<?= base_url(); ?>js/util/gallery.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/util/facebook.js?cachebuster=<?= $cacheBuster; ?>"></script>
         <script src="<?= base_url(); ?>js/main.js?cachebuster=<?= $cacheBuster; ?>"></script>
+        <!--[if (gte IE 6)&(lte IE 8)]>
+		  <script type="text/javascript" src="<?= base_url(); ?>js/vendor/selectivizr.js?cachebuster=<?= $cacheBuster; ?>"></script>
+		<![endif]-->
 
-        
+
 
         <script>
             /*var _gaq=[['_setAccount','<?= GA_ACCOUNT; ?>'],['_trackPageview']];
