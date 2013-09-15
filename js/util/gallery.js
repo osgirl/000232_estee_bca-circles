@@ -705,7 +705,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			var data 		= ored.getIdsFromFeed($data, "photo");
 			photoFeed = data;
 
-			if(data.length < 21) onePage = true;
+			if(data.length < 12) onePage = true;
 
 
 			loadPhotoData(data, getPhotoData);
@@ -765,7 +765,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			//createPhotoLayout();
 
-			if(data.length < 21) onePage = true;
+			if(data.length < 12) onePage = true;
 
 			var feed;
 
@@ -822,7 +822,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			//createPhotoLayout();
 
-			if(data.length < 21) onePage = true;
+			if(data.length < 12) onePage = true;
 
 
 			var feed;
