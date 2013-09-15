@@ -403,6 +403,8 @@ $.extend(
                 createImageBound(img, canvas);
 
                 $(".btn_rotate").show();
+
+                var imageRotation = 0;
                 
                 $(".btn_rotate").unbind('click').click(function(e){
                     imageRotation +=90;
@@ -581,7 +583,6 @@ $.extend(
                 var ctx = canvas.getContext('2d');
                 canvas.width = $length;
                 canvas.height = $length;
-                //ctx.rotate(imageRotation);
                 ctx.drawImage($($img)[0], $l, $t, $w, $h);
 
                 var canvasData = canvas.toDataURL("image/png");
@@ -600,12 +601,10 @@ $.extend(
                     success: function(data)
                     {
                         saveFileSuccess(data, $desc);
-                        imageRotation = 0;
                     },
                     error: function(jqXHR, textStatus, errorThrown)
                     {
                         saveFileFailed(jqXHR, textStatus, errorThrown);
-                        imageRotation = 0;
                     }
                 });
             }
