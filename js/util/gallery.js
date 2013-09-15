@@ -66,6 +66,7 @@ function Gallery()
 		var morePhotoCount = 0;
 		var onePage = false;
 		var circleEnd = false;
+		var photoEnd = false;
 
 		var circleNum;
 		var photoNum;
@@ -463,6 +464,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			//oc: combine all 3 feeds into 1
 
+
 				if(data && data.length != 0) {
 					$(data).each(function (i, v){
 
@@ -480,12 +482,15 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 					 	console.info("all photo data", allPhotoData)
 
+
 					 	if(allPhotoData.length >= photoSum ){
 					 		notEnoughPhoto = false;
 			 				ored.masterFeed = allPhotoData;
 							galleryItem.parseAllPhotoData(allPhotoData, false, circleEnd);
 							enableLazyloader();
 	
+						// }else if(allPhotoData.length == 0){
+						// 	photoEnd = true;
 						}
 
 						 else{
@@ -940,6 +945,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			onePage = false;
 			oneCircle = false;
 			circleEnd = false;
+			photoEnd = false;
 			notEnoughPhoto = false;
 			restNum = 0;
 			subRestNum = 0;
@@ -1087,7 +1093,12 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			             	}
 			      		});
+				}else if(photoEnd){
 
+					console.log("photo is done create circle alyout")
+
+					createCircleLayout();
+					$.feed.more(feedmagnet.circle_feed, parseCircleData, getCircleNum);
 				}else{
 
 					$.ajax({
