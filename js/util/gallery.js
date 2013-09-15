@@ -393,11 +393,15 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			circleFeed = $data;
 			if($data.length == 0){
 				feedEnd = true; 
+				circleEnd = true;
 				return;
 			} 
 			
 
-			if($data.length < getCircleNum) onePage = true;
+			if($data.length < getCircleNum) {
+				onePage = true;
+
+			}
 
 			var data = ored.getIdsFromFeed($data, "circles");
 
@@ -695,15 +699,18 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			//console.log("parsePhotoData");
 			//console.log($data);
 			feed = $data;
-
-			if($data.length == 0) {
-				feedEnd = true;
-				return;
-			}
-			
 			
 			var data 		= ored.getIdsFromFeed($data, "photo");
 			photoFeed = data;
+
+			console.log("PARSE PHOTO DATA LENGHT", data.length)
+
+			if(data.length == 0) {
+				feedEnd = true;
+				return;
+			}
+
+			console.log("PARSE PHOTO is not zero", data.length)
 
 			if(data.length < 12) onePage = true;
 
@@ -959,6 +966,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			if(data.length == 0) {
 				feedEnd = true;
+				circleEnd = true;
+				onePage = true;
 				return
 			}
 
