@@ -393,7 +393,9 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			circleFeed = $data;
 			if($data.length == 0){
 				feedEnd = true; 
-				circleEnd = true;
+				$('#donate_area').fadeIn();
+	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
+
 				return;
 			} 
 			
@@ -707,6 +709,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			if(data.length == 0) {
 				feedEnd = true;
+				$('#donate_area').fadeIn();
+	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 				return;
 			}
 
@@ -767,6 +771,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			if(data.length == 0) {
 				feedEnd = true;
+				$('#donate_area').fadeIn();
+	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 				return;
 			}
 
@@ -824,6 +830,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			if(data.length == 0) {
 				feedEnd = true;
+				$('#donate_area').fadeIn();
+	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 				return;
 			}
 
@@ -966,8 +974,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			if(data.length == 0) {
 				feedEnd = true;
-				circleEnd = true;
-				onePage = true;
+				$('#donate_area').fadeIn();
+	  			$('#donate_area').removeClass('footer_fixed').addClass('footer_relative');
 				return
 			}
 

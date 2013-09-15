@@ -711,6 +711,9 @@ h2{
 .layout_photo .photo_container{
 	width:48%;
 	margin-right:4%;
+	float: none !important;
+	display: inline-block !important;
+	vertical-align: top;
 	/*float:left;*/
 }
 
@@ -723,11 +726,6 @@ h2{
 	margin-right:0;
 }
 
-.layout_photo .photo_container{
-	float: none !important;
-	display: inline-block !important;
-	vertical-align: top;
-}
 
 /*GALLERY ASSETS*/
 
@@ -747,6 +745,9 @@ h2{
 .layout_circle .gallery_circle{
 	margin-right:0;
 	width:100%;
+	float: none !important;
+	display: inline-block !important;
+	vertical-align: top;
 }
 
 .gallery_layout:last-child{
