@@ -401,6 +401,15 @@ $.extend(
                 //Load image to canvas
                 loadEnd();
                 createImageBound(img, canvas);
+
+                $(".btn_rotate").show();
+                
+                $(".btn_rotate").unbind('click').click(function(e){
+                    imageRotation +=90;
+                    if(imageRotation >= 360) imageRotation  = 0;
+                    $(img).rotate(imageRotation);
+                })
+
             }
             img.src = event.target.result;
         }
@@ -572,6 +581,7 @@ $.extend(
                 var ctx = canvas.getContext('2d');
                 canvas.width = $length;
                 canvas.height = $length;
+                //ctx.rotate(imageRotation);
                 ctx.drawImage($($img)[0], $l, $t, $w, $h);
 
                 var canvasData = canvas.toDataURL("image/png");
@@ -590,10 +600,12 @@ $.extend(
                     success: function(data)
                     {
                         saveFileSuccess(data, $desc);
+                        imageRotation = 0;
                     },
                     error: function(jqXHR, textStatus, errorThrown)
                     {
                         saveFileFailed(jqXHR, textStatus, errorThrown);
+                        imageRotation = 0;
                     }
                 });
             }

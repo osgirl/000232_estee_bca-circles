@@ -104,6 +104,8 @@ var weWillText;
 
 var photoLoaded = false;
 
+var imageRotation = 0;
+
 
 $(document).ready(function(){	
 	
