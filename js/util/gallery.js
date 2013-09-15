@@ -66,7 +66,6 @@ function Gallery()
 		var morePhotoCount = 0;
 		var onePage = false;
 		var circleEnd = false;
-		var photoEnd = false;
 
 		var circleNum;
 		var photoNum;
@@ -489,8 +488,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 							galleryItem.parseAllPhotoData(allPhotoData, false, circleEnd);
 							enableLazyloader();
 	
-						// }else if(allPhotoData.length == 0){
-						// 	photoEnd = true;
 						}
 
 						 else{
@@ -751,10 +748,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			});
 
-			console.log("is last child here", $('.layout_photo .photo_container:nth-child(4n)'))
-
-			$('.layout_photo .photo_container:nth-child(4n)').addClass('photo_last_child');
-
 
 			$('body').trigger("ALL_LAYOUT_CREATED");
 		}
@@ -813,10 +806,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				}
 
 				populatePhotoContent(contentData);
-
-				console.log("is last child here", $('.layout_photo .photo_container:nth-child(4n)'))
-
-			$('.layout_photo .photo_container:nth-child(4n)').addClass('photo_last_child');
 
 				
 		}
@@ -945,7 +934,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			onePage = false;
 			oneCircle = false;
 			circleEnd = false;
-			photoEnd = false;
 			notEnoughPhoto = false;
 			restNum = 0;
 			subRestNum = 0;
@@ -1093,12 +1081,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			             	}
 			      		});
-				}else if(photoEnd){
 
-					console.log("photo is done create circle alyout")
-
-					createCircleLayout();
-					$.feed.more(feedmagnet.circle_feed, parseCircleData, getCircleNum);
 				}else{
 
 					$.ajax({
