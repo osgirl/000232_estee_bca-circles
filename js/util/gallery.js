@@ -488,18 +488,18 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 	
 						//}
 
-						 // else{
+						 else{
 
-						 // 	notEnoughPhoto = true;
-						 // 	morePhotoCount--;
+						 	notEnoughPhoto = true;
+						 	morePhotoCount--;
 
-						 // 	console.info("hmmm", photoSum, allPhotoData.length)
+						 	console.info("hmmm", photoSum, allPhotoData.length)
 
-						 // 	restNum = photoSum - allPhotoData.length;
+						 	restNum = photoSum - allPhotoData.length;
 
-						 // 	$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
+						 	$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
 
-						 // }
+						 }
 					 }	
 			
 		};
