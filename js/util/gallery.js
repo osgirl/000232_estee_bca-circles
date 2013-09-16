@@ -88,8 +88,8 @@ function Gallery()
 
 		var restPhotoCount = 0;
 		var restPhotoArray = new Array();
+		
 
-		var	pageNum = 1;
 
 
 		//--------------------------------------
@@ -956,7 +956,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			pageNum = 1;
 			current_add_layout = 1;
 			$.feed.reset();
-			currentFilterType = $(btn).attr('type');
+			currentFilterType = btn.attr('type');
 			if(currentFilterType == "all") pageNum = 2;
 
 			enableLazyloader();
@@ -1274,8 +1274,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 	  				$('#donate_area').fadeIn();
 	  			else
 	  				$('#donate_area').hide();
-
-	  		//filterButtonSelected("all");
 
 		},
 
