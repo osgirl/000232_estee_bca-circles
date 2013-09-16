@@ -349,21 +349,19 @@ function Gallery()
 	            
 	            if(i == $circles.length - 1 )	{
 	            	$('body').trigger('ALL_LAYOUT_CREATED');
-
-	            	if(!isMoreFeed){				
-						$.feed.get(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
-				        $.feed.get(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
-				        $.feed.get(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
-					}else{
-						$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
-						$.feed.more(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
-						$.feed.more(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
-					}
 	            }
 	            
 			});
 
-			
+			if(!isMoreFeed){				
+				$.feed.get(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
+		        $.feed.get(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
+		        $.feed.get(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
+			}else{
+				$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
+				$.feed.more(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
+				$.feed.more(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
+			}
 		};
 
 
@@ -519,51 +517,51 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		//		prior to the parse of the combining of all 3 feeds, this way, there is no asynchronous lapse.
 		function onPhotoFeedLoadComplete($data){
 
-			if(notEnoughPhoto) {
+			// if(notEnoughPhoto) {
 
-				//lookForRestPhotos();
+			// 	//lookForRestPhotos();
 
 
-				console.info("NOT ENOUGH everything", $data.length, restNum);
+			// 	console.info("NOT ENOUGH everything", $data.length, restNum);
 
-				if($data.length < restNum){
-					subRestNum = restNum - $data.length;
+			// 	if($data.length < restNum){
+			// 		subRestNum = restNum - $data.length;
 
-					console.info("NOT ENOUGH PHOTO, instagram help!!", subRestNum);
-					$.feed.more(feedmagnet.instagram_feed, function(inData){
+			// 		console.info("NOT ENOUGH PHOTO, instagram help!!", subRestNum);
+			// 		$.feed.more(feedmagnet.instagram_feed, function(inData){
 
 						
-						if(inData.length < subRestNum ){
+			// 			if(inData.length < subRestNum ){
 
-							console.info("not enough instagram, twitter help!!", inData.length, subRestNum);
-							 var subSubRestNum = subRestNum - inData.length;
-							 $.feed.more(feedmagnet.twitter_feed, function(twitterData){
+			// 				console.info("not enough instagram, twitter help!!", inData.length, subRestNum);
+			// 				 var subSubRestNum = subRestNum - inData.length;
+			// 				 $.feed.more(feedmagnet.twitter_feed, function(twitterData){
 
 
-							 	if(twitterData.length < subSubRestNum ) {
+			// 				 	if(twitterData.length < subSubRestNum ) {
 
-							 		console.info("not enough twitter go back to photos", twitterData.length, subSubRestNum);
-							 		onePage = true;
-							 		enableLazyloader();
-							 	}else{
+			// 				 		console.info("not enough twitter go back to photos", twitterData.length, subSubRestNum);
+			// 				 		onePage = true;
+			// 				 		enableLazyloader();
+			// 				 	}else{
 
-							 		handleAllPhotoData(twitterData);
-							 	}
+			// 				 		handleAllPhotoData(twitterData);
+			// 				 	}
 
-							 }, subSubRestNum);
-						}else{
-							handleAllPhotoData(inData);
-						}
+			// 				 }, subSubRestNum);
+			// 			}else{
+			// 				handleAllPhotoData(inData);
+			// 			}
 
-					}, subRestNum);
-				}else{
+			// 		}, subRestNum);
+			// 	}else{
 
-					console.info("HANDLE ALL PHOTO DATA", $data.length, $data)
-					handleAllPhotoData($data);
-				}
+			// 		console.info("HANDLE ALL PHOTO DATA", $data.length, $data)
+			// 		handleAllPhotoData($data);
+			// 	}
 				
 				
-			}else{
+			// }else{
 				
 				console.debug('Strait from FM :', $data);
 				ored.photoFeed 	= $data;
@@ -575,7 +573,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				if(!isMoreFeed && !circleEnd) ored.addCookiePhotosToFeed();
 				loadPhotoData(data, onPhotoDataLoadComplete);
 
-			}
+			//}
 
 
 		};
