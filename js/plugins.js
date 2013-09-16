@@ -241,7 +241,7 @@ $.extend(
         {
             if (v.referral != undefined || v.referral != null) u += "/?referral=facebook-" + v.referral;
 
-            var _picture = baseUrl + 'img/assets/fb_share.png';
+            var _picture = baseUrl + 'img/assets/fb_share.jpg';
 
             if (v.photo_url != undefined) _picture = v.photo_url;
 
