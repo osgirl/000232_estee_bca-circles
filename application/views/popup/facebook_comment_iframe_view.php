@@ -6,7 +6,6 @@
 			body{
 				text-align: center;
 			}
-
 			.fb-comments, .fb-comments span, .fb-comments iframe {
  			   width: 100% !important;
 			}

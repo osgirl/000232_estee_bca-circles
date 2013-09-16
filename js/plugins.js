@@ -329,7 +329,7 @@ $.extend(
         $($c + ' input[type=file]').change(fileChangeListener);
 
         //IE9 or lower version fix (using a default file browse)
-        if (!$('html').hasClass('lte-ie9'))
+        if (!$('html').hasClass('ie'))
         {
             $($c + ' .btn_browse').click(browseFile);
             $parent.click(function()
@@ -375,7 +375,7 @@ $.extend(
 
     function fileChangeListener(e)
     {
-        if (Modernizr.canvas && !ismobile && !$('html').hasClass('lte-ie9'))
+        if (Modernizr.canvas && !ismobile && !$('html').hasClass('ie'))
         {
             uploadToCanvas(e);
         }
@@ -429,7 +429,7 @@ $.extend(
             fileElementId: 'uploadFile',
             dataType: 'json',
             success: function(data, status)
-            {
+            {                   
                 if (typeof(data.error) != 'undefined')
                 {
                     if (data.error != '') alert(data.error);
@@ -1020,7 +1020,7 @@ $.extend(
     {
         var $holder = $($c + ' #popup_circle_comment_holder');
         var iframeSrc = baseUrl + indexPage + 'popup/facebook_comment_iframe/' + $d.id;
-        $('<iframe src="' + iframeSrc + '"></iframe>').appendTo($holder);
+        $('<iframe frameborder="0" border="0" src="' + iframeSrc + '"></iframe>').appendTo($holder);
     };
 
     function resizeCirclePhotosNav()
