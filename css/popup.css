@@ -541,7 +541,6 @@
 	position: relative;	
 	margin: 0 auto;
 	top:0;
-	height: 234px;
 	max-width: 605px;
 	max-height: 605px;
 	line-height: 0;
@@ -856,10 +855,6 @@
 		top:-50px;
 	}
 
-	.popup #popup_circle_modal #dot_container {
-		height: 378px;
-	}	
-
 	.popup #popup_circle_modal #goal {
 		top: 30%;
 		font-size: 50%;
@@ -1081,10 +1076,6 @@
 	}
 
 	/*Circle*/
-	.popup #popup_circle_modal #dot_container {
-		height: 486px;
-	}
-
 	.popup #popup_circle_photo_carousel_wrapper #container{
 		width: 660px;
 	}
@@ -1178,12 +1169,8 @@
 		top: 10px;
 	}	
 
-	.popup #popup_circle_modal #dot_container {
-		height: 605px;
-	}
-
 	.popup #popup_circle_modal #goal {
-		font-size: 100%;
+		font-size: 100%;`
 	}
 
 	.popup #popup_circle_photo_carousel_wrapper #container{

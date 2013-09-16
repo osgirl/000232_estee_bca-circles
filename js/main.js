@@ -162,13 +162,15 @@ function directDonateLink(){
 	{
         loadComplete: function()
     	{
-			$loader.animate({'opacity':0}, 250, function()
-				{ 
-					$(this).remove();
-					$this.css('display','inherit');
-					$this.delay(250).animate({'opacity':1}, 250);
-					checkAndLoadExternalUrl();
-				});			
+    		$('<img src="' + baseUrl + 'img/popups/circle/dotted_circle.png"/>').load(function(){
+				$loader.animate({'opacity':0}, 250, function()
+					{ 
+						$(this).remove();
+						$this.css('display','inherit');
+						$this.delay(250).animate({'opacity':1}, 250);
+						checkAndLoadExternalUrl();
+					});
+    		});
     	},
     });
 })(jQuery);
