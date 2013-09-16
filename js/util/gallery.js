@@ -354,7 +354,7 @@ function Gallery()
 			});
 
 			if(!isMoreFeed){				
-				$.feed.get(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
+				$.feed.get(feedmagnet.photo_feed, handleAllPhotoData, photoNum);
 		        $.feed.get(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
 		        $.feed.get(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
 			}else{
@@ -552,9 +552,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 						}else{
 							handleAllPhotoData(inData);
 						}
-						
-
-						
 
 					}, subRestNum);
 				}else{
@@ -580,72 +577,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 
 		};
-
-		function lookForRestPhotos(){
-			restPhotoCount = 0;
-			//$.feed.more(feedmagnet.photo_feed, checkRestPhotos, 1);
-			
-		}
-
-		function checkRestPhotos(data){
-			//restPhotoCount++;
-
-			console.info("photo GET", data)
-
-			if(data.length!=0) handleAllPhotoData(data);
-
-			// if(data.length!=0) restPhotoArray.push(data);
-
-			// if(restPhotoCount == 3){
-
-			// 	if(restPhotoArray.length >= PHOTO_MORE_TOTAL){
-			// 		// $(restPhotoArray).each(function(i,v){
-			// 		// 	handleAllPhotoData(v);	
-			// 		// })
-					
-			// 	}else if(restPhotoArray.length == 0){
-			// 		onePage = true;
-			// 		enableLazyloader();
-			// 	}else{
-			// 		lookForRestPhotos();
-			// 	}
-			// }
-			
-		}
-
-		function checkRestInstagram(data){
-
-			console.info("instagram GET", data)
-
-			if(data.length!=0) handleAllPhotoData(data);
-			
-		}
-
-		function checkRestTwitter(data){
-			//restPhotoCount++;
-
-			console.info("twitter GET", data)
-
-			if(data.length!=0) handleAllPhotoData(data);
-
-			// if(data.length!=0) restPhotoArray.push(data);
-
-			// if(restPhotoCount == 3){
-
-			// 	if(restPhotoArray.length >= PHOTO_MORE_TOTAL){
-			// 		// $(restPhotoArray).each(function(i,v){
-			// 		// 	handleAllPhotoData(v);	
-			// 		// })
-					
-			// 	}else if(restPhotoArray.length == 0){
-			// 		onePage = true;
-			// 		enableLazyloader();
-			// 	}else{
-			// 		lookForRestPhotos();
-			// 	}
-			// }
-			
-		}
 
 
 		function loadPhotoData($data, $onComplete){
