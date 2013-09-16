@@ -252,8 +252,11 @@ function translatePage(){
 
    		$.feed();
 			fm_ready(function() {
+
+
 				carousel.initCarousel();
 				gallery.loadGallery();	
+
 
 				$('body').unbind("ALL_LAYOUT_CREATED").bind('ALL_LAYOUT_CREATED', function(){
 
