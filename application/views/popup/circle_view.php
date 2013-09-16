@@ -1,4 +1,5 @@
 <div class="popup" id="popup_circle">
+<div id="popup_circle_header"><p>John long name Doe's Circle of Strength</p><span></span></div>
 	<div id="popup_circle_detail_holder">
 		<div class="popup_round_button btn_edit" id="popup_btn_pink" language_id="edit_friends" language_location="circle_view" >
 		<!-- <div class="pink_btn" id="edit_friends_btn"> -->
@@ -11,7 +12,7 @@
 					<img src="<?echo $avatar ?>">
 				</div>
 				<p id="goal">
-					<span language_id="we_will_text" language_location="circle_view" ><b>We Will - </b></span><br /><?echo $content ?>
+					<span language_id="we_will_text" language_location="circle_view" ></span><br /><?echo $content ?>
 					</p>
 				<ul id="popup_footer_share">
 					<li language_id="share" language_location="circle_view" >SHARE

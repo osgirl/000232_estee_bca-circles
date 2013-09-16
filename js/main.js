@@ -97,6 +97,7 @@ var customizeGoalText;
 var enterNameText;
 
 var circleOfStrengh;
+var nameCircleOfStrength;
 var shareTitle;
 var shareICreated;
 var createA;
@@ -1396,10 +1397,12 @@ function postCircleData(goal_id){
 								type:'circle',
 								data:{
 									id:data.id,
+									author: userName,
 									content:goal,
 									avatar:userProfilePhoto,
 									friends_data:friendsData,
 									num_friends:friendsData.length,
+									country: data.country,
 									is_user:true
 								}
 							}
@@ -1469,7 +1472,7 @@ function updateFriends(){
 					$('.circle_container').each(function(i,v){
 						if($(v).attr('circle_id') == currentCircleViewData.id){
 							updatedCircle = $(v);
-							galleryItem.updateUserCirclePopupContent(updatedCircle, circle_id, circle_content, circle_photo, userID, friendsData, true);
+							galleryItem.updateUserCirclePopupContent(updatedCircle, circle_id, user_name, circle_content, circle_photo, userID, friendsData, country, true);
 
 						}
 					})
