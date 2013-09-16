@@ -717,9 +717,7 @@ $.extend(
 
         //add user data to header area
         $($c + ' #popup_circle_header p').text(nameCircleOfStrength.replace('[name]', $d.author) );
-        // $($c + ' #popup_circle_header span').text($d.country );
-        $($c + ' #popup_circle_header span').css("background-image", 'url("' + baseUrl + 'img/flags/large/' + $d.country + '.png")');
-
+        $($c + ' #popup_circle_header img').attr('src', baseUrl + 'img/flags/large/' + $d.country + '.png');
 
         //Hide edit user button
         if (!v.is_user) $($c + ' .btn_edit').hide();
@@ -1002,11 +1000,14 @@ $.extend(
             {
                 var $c, $p = $(this).parent();
                 $p.css('background', 'none');
-                $c = $('<span/>').appendTo($p).css(
+                $c = $('<img/>').attr('src', $(this).attr('src')).appendTo($p).css(
                 {
                     'opacity': 0,
-                    'background-image': 'url(' + $(this).attr('src') + ')',
-                    'background-size': 'contain'
+                    'position': 'absolute',
+                    'width': '100%',
+                    'height': '100%',
+                    'left': 0,
+                    'top': 0
                 }).animate(
                 {
                     opacity: 1

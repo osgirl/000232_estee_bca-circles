@@ -2,6 +2,7 @@
 .popup {
 	margin: 0;
 	background: #FFFFFF;
+	font-weight: 300;
 }
 
 .popup .disable-select{
@@ -453,26 +454,37 @@
 }
 
 .popup#popup_circle #popup_circle_header p {
+	display: inline-block;
 	padding: 10px 0 0 2%;
 	color:#FFF;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: 300;
 	font-size: 40%;	
+	vertical-align: top;
 }
 
 .popup#popup_circle #popup_circle_header span {
-	position: absolute;
-	display: inline-block;
+	position: relative;
+	
+	float: right;
 	width: 28px;
 	height: 28px;
 	top: 4px;
 	right: 2%;
 	border-radius: 50%;
 	background-size: contain;
+}
+
+.popup#popup_circle #popup_circle_header img {
+	position: absolute;
+	width: 100%;
+	height: !00%;
+	top:0;
+	left: 0;
 	-webkit-border-radius: 50%;
 	   -moz-border-radius: 50%;
 	   	 -o-border-radius: 50%;
-	 		border-radius: 50%;
+	 		border-radius: 50%;	
 }
 
 .popup#popup_circle .btn_edit {
@@ -482,8 +494,8 @@
 .popup #popup_circle_detail_holder{
 	position: relative;
 	max-width: 100%;
-	/*height: 100%;*/
 	padding: 30px 30px 60px 30px;
+	clear: both;
 }
 
 .popup#popup_circle .btn_close{
@@ -692,6 +704,7 @@
 	opacity: 0;
 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
+    z-index: 2;
 }
 
 .popup #popup_circle_photo_carousel_wrapper #container .photo_rollover div {
