@@ -58,7 +58,6 @@
 		  feedmagnet.twitter_feed 		 = '<?= config_item("twitter_feed_name"); ?>';
 		  feedmagnet.twitter_feat_feed   = '<?= config_item("twitter_feed_feat_name"); ?>';
 
-		  console.log(feedmagnet);
 		</script>
     	
         <!--[if lt IE 7]>

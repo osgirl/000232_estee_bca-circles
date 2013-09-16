@@ -135,7 +135,7 @@ function GalleryItem()
 			}
 		}
 
-		function updateUserCirclePopupContent(circle, id, content, avatar, userID, friendData, isUser){
+		function updateUserCirclePopupContent(circle, id, user_name, content, avatar, userID, friendData, country, isUser){
 			//console.log("updateUserCirclePopupContent", friendData);
 			//if(friendData != undefined)
 	        	placeCircleInAngles(circle.find('.circle_area'), avatar, friendData.length);
@@ -145,13 +145,14 @@ function GalleryItem()
 					data:{
 						id:id,
 						circle_id:id,
+						author: user_name,
 						content:content, 
 						avatar:avatar,
 						users_fb_id:userID,
 						num_friends: friendData.length,
 						friends_data: friendData,
+						country: country,
 						is_user:isUser
-
 					}}
 
 	        	enableItemButton(circle, popupData);
@@ -191,11 +192,12 @@ function GalleryItem()
 			//console.log("populateCircleContent");
 			//console.log(circle);
 			//console.log(data);
-			
 			circle.attr('circle_id', data.circle_id);
+			circle.attr('user_name', data.user_name);
 			circle.attr('user_id', data.user_id);
 			circle.attr('goal_id', data.goal_id);
 			circle.attr('goal_type', data.goal_type);
+			circle.attr('country', data.country);
 			circle.find('.circle_flag').css("background-image", 'url("' + baseUrl + 'img/flags/large/' + data.country + '.png")');
 			circle.find('.circle_creator').html(data.user_name);
 			var goalText = (data.goal_type == "default") ? goalTextArray[data.goal_id-1].text : data.goal;
@@ -209,11 +211,11 @@ function GalleryItem()
 			else
 				isUser = false;		
 
-			updateUserCirclePopupContent(circle, data.circle_id, goalText, data.user_photo_url, data.user_id, data.friends_data, isUser);
+			updateUserCirclePopupContent(circle, data.circle_id, data.user_name, goalText, data.user_photo_url, data.user_id, data.friends_data, data.country, isUser);
 
 		},
 
-		updateUserCirclePopupContent:function(circle, id, content, avatar, userID, friendData, isUser){
+		updateUserCirclePopupContent:function(circle, id, user_name, content, avatar, userID, friendData, country, isUser){
 			updateUserCirclePopupContent(circle, id, content, avatar, userID, friendData, isUser);
 			
 		},

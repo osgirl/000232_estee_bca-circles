@@ -701,7 +701,6 @@ $.extend(
     var $this, $d, $c, $win_abs_y, $scroll_y, $margin_top, $margin_bottom, $padding_top, $gap, $bound = {}, $hasPhoto, $pagn, $nav_count;
     $.fn.init_circle = function(v)
     {
-        console.debug(">>>>> init_circle");
         $this = $(this);
         $c = '.' + $(this).attr('class');
         $d = v;
@@ -715,6 +714,12 @@ $.extend(
 
         //initalize scroll detection
         windowEventListener();
+
+        //add user data to header area
+        $($c + ' #popup_circle_header p').text(nameCircleOfStrength.replace('[name]', $d.author) );
+        // $($c + ' #popup_circle_header span').text($d.country );
+        $($c + ' #popup_circle_header span').css("background-image", 'url("' + baseUrl + 'img/flags/large/' + $d.country + '.png")');
+
 
         //Hide edit user button
         if (!v.is_user) $($c + ' .btn_edit').hide();
@@ -1466,16 +1471,17 @@ function checkAndLoadExternalUrl()
 
         function circle_success(data)
         {
-
             $.popup(
             {
                 type: 'circle',
                 data: {
                     id: data.circle_id,
+                    author: data.user_name,
                     content: data.goal,
                     avatar: data.user_photo_url,
                     users_fb_id: data.user_id,
                     num_friends: data.friends_data.length,
+                    country: data.country,
                     outlink: true,
                     child_id: (adr[5] != undefined) ? adr[5] : null
                 }

@@ -134,6 +134,9 @@
   font-size: .7em;
   line-height: 1.6em;
 }
+.ko #popup_footer_share {
+  letter-spacing: 0!important;
+}
 
 /*==============
   HU

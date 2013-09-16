@@ -1,8 +1,6 @@
 <script src="<?php echo base_url(); ?>js/vendor/video.js"></script>
-
-
 <script type="text/javascript">
-    	videojs.options.flash.swf = "swf/video-js.swf";
+	videojs.options.flash.swf = baseUrl + "swf/video-js.swf";
 </script>
 
 <div class="popup" id="popup_video">	
@@ -25,16 +23,15 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-    	//FF Bug fix. hide control when video loaded.
-		videojs("embeded_video").ready(function(){
-			var myPlayer = this;
-			var t =setTimeout(function(){
-				clearTimeout(t);
-				myPlayer.trigger('mouseout');
-			},1000);
-		});
-</script>
-<script>
+<script type="text/javascript">	
+	//FF Bug fix. hide control when video loaded.
+	videojs("embeded_video").ready(function(){
+		var myPlayer = this;
+		var t =setTimeout(function(){
+			clearTimeout(t);
+			myPlayer.trigger('mouseout');
+		},1000);
+	});
+
 	translator.translateItems("video");
 </script>
