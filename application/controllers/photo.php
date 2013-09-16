@@ -388,7 +388,7 @@ class Photo extends CI_Controller {
 	    $_x = $center_x - $dim[4]/2;
 
 		imagettftext( $canvas, 14*$m, 0, $_x, 265*$m, $colorWhite, $fontBold, $weWillText );
-		$this->multiline_text( $canvas, 14*$m, $colorWhite, $fontLight, $content_text, $center_x, 290*$m, 220*$m );
+		$this->multiline_text( $canvas, 14*$m, $colorWhite, $fontLight, $content_text, $center_x, 290*$m, 220*$m, $language );
 
 		$file_location 	= config_item('upload_url') . 'facebook/' . $filename;
 
@@ -432,10 +432,17 @@ class Photo extends CI_Controller {
 	  $img = $newPicture;
 	}
 
-	function multiline_text( $image, $font_size, $color, $font, $text, $start_x, $start_y, $max_width ) {
-	  $words = explode( " ", $text );
+	function multiline_text( $image, $font_size, $color, $font, $text, $start_x, $start_y, $max_width, $language ) {
 	  $string = "";
 	  $tmp_string = "";
+
+	  //Chinese word does not have enough space between word to split. Use str_split instead. 
+	  if($language == 'cn'){
+	  	$words = str_split($text, 3);
+	  }
+	  else{
+	  	$words = explode( " ", $text);
+	  }
 
 	  for ( $i = 0; $i < count( $words ); $i++ ) {
 	    $tmp_string .= $words[$i]." ";
