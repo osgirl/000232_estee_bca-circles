@@ -262,14 +262,17 @@ function translatePage(){
 		if(selectedLanguage == "ru") NAME_TEXTFIELD_WIDTH = 160;
 
 		languageData = e;
-   		loadLanguageToElements(e);
+   		//loadLanguageToElements(e);
 
    		//$.mainPreloader.loadComplete();
 
    		$.feed();
 			fm_ready(function() {
+
+
 				carousel.initCarousel();
 				gallery.loadGallery();	
+
 
 				$('body').unbind("ALL_LAYOUT_CREATED").bind('ALL_LAYOUT_CREATED', function(){
 
