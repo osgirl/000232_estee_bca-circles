@@ -355,8 +355,6 @@ function Gallery()
 	            
 			});
 
-			console.log("IS THAT YOU MESSING WITH THINGS", isMoreFeed)
-
 			if(!isMoreFeed){				
 				$.feed.get(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
 		        $.feed.get(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);

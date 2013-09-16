@@ -101,8 +101,8 @@ function Carousel()
 
 	            		console.log("CAROUSLE CIRCLE IS FINE")
 
-						//galleryItem.populateCircleContent($(circleDiv), feedData);
-						//galleryItem.enableShareButton($(circleDiv));
+						galleryItem.populateCircleContent($(circleDiv), feedData);
+						galleryItem.enableShareButton($(circleDiv));
 
 	             	}
 	      		})
