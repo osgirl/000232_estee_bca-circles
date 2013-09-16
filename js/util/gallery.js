@@ -349,19 +349,21 @@ function Gallery()
 	            
 	            if(i == $circles.length - 1 )	{
 	            	$('body').trigger('ALL_LAYOUT_CREATED');
+
+	            	if(!isMoreFeed){				
+						$.feed.get(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
+				        $.feed.get(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
+				        $.feed.get(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
+					}else{
+						$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
+						$.feed.more(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
+						$.feed.more(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
+					}
 	            }
 	            
 			});
 
-			if(!isMoreFeed){				
-				$.feed.get(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
-		        $.feed.get(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
-		        $.feed.get(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
-			}else{
-				$.feed.more(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
-				$.feed.more(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
-				$.feed.more(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
-			}
+			
 		};
 
 
@@ -1205,9 +1207,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 	  				$('#donate_area').fadeIn();
 	  			else
 	  				$('#donate_area').hide();
-
-			
-
 
 		},
 
