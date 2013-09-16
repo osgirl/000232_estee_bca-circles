@@ -354,7 +354,7 @@ function Gallery()
 			});
 
 			if(!isMoreFeed){				
-				$.feed.get(feedmagnet.photo_feed, handleAllPhotoData, photoNum);
+				$.feed.get(feedmagnet.photo_feed, onPhotoFeedLoadComplete, photoNum);
 		        $.feed.get(feedmagnet.instagram_feed, handleAllPhotoData, instagramNum);
 		        $.feed.get(feedmagnet.twitter_feed, handleAllPhotoData, twitterNum);
 			}else{
@@ -1179,6 +1179,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		
 		loadGallery: function(){
 
+			$.feed.reset();
+
 			$(window).scrollTop(0);
 
 			gallery_container = $('#feed_magnet');
@@ -1190,12 +1192,10 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			$('.gallery_item').hide();
 
 			initFilterButtons();
+
 			loadLayout();
 
-			if(currentFilterType == "all") {
-				pageNum = 2;
-				// $('#gallery').height(DEFAULT_GALLERY_HEIGHT);
-			}
+			if(currentFilterType == "all") pageNum = 2;
 
 			$(window).resize(function(e){
 				galleryItem.centerRollOverContent();
@@ -1205,6 +1205,9 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 	  				$('#donate_area').fadeIn();
 	  			else
 	  				$('#donate_area').hide();
+
+			
+
 
 		},
 
