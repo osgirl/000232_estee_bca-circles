@@ -100,6 +100,7 @@ var circleOfStrengh;
 var shareTitle;
 var shareICreated;
 var createA;
+var createAText;
 var weWillText;
 
 var photoLoaded = false;
@@ -197,6 +198,26 @@ function windowResize(){
 }
 
 function createMainCirclePhoto( _data, _callback ){
+	//createAText;
+	//weWillText
+	//circleOfStrengh	
+	_data.createAText = createAText;
+	_data.weWillText = weWillText;
+	_data.circleOfStrengh = circleOfStrengh;
+	_data.selectedLanguage = selectedLanguage;
+
+	var goal = _data.goal;	
+
+	console.debug(goal);
+
+	goal = goal.replace('/，/gi',',');
+	goal = goal.replace('/：/gi',':');
+	goal = goal.replace('/。/gi','.');
+
+	console.debug(goal);
+
+
+	console.debug(_data);
 	$.ajax({
 		url	: baseUrl + indexPage + 'photo/save_facebook_photo',
 		type : "post",
