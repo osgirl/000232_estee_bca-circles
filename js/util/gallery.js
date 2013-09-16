@@ -340,14 +340,13 @@ function Gallery()
 		};
 		
 		function onFetchAllCircles($circles){
-			//console.log("onFetchAllCircles", $circles);
+			console.info("onFetchAllCircles", $circles);
+
 
 			$($circles).each(function(i,v){
 				console.log("populate circle:",v.circle_id);
 				var circleContainer = (isMoreFeed) ? $($($(".page"+pageNum).find('.gallery_circle')).get(i)) : $($('.gallery_circle').get(i));
 				galleryItem.populateCircleContent(circleContainer, v);
-
-				console.log("IPAD GO DIE", i, $circles.length);
 	            
 	            if(i == $circles.length - 1 )	{
 	            	$('body').trigger('ALL_LAYOUT_CREATED');
@@ -409,6 +408,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			var data = ored.getIdsFromFeed($data, "circles");
 
+			console.info("CIRCLE ID", JSON.stringify(data))
+
 			$.ajax({
 		        		type: 'post',
 		            	url: baseUrl + indexPage + 'circle/fetchAllCircles',
@@ -422,7 +423,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		};
 
 		function onFetchCircles($circles){
-		console.log("onFetchCircles", $circles.length);
+		console.info("onFetchCircles", $circles);
 
 			$($circles).each(function(i,v){
         		$.ajax({
