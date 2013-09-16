@@ -255,12 +255,15 @@ function translatePage(){
 
 
 				carousel.initCarousel();
-				gallery.loadGallery();	
+				gallery.loadGallery();
+				
 
 
 				$('body').unbind("ALL_LAYOUT_CREATED").bind('ALL_LAYOUT_CREATED', function(){
 
-					$.mainPreloader.loadComplete();
+					$.mainPreloader.loadComplete();	
+
+					console.log("ALL LAYOUT AM I TRIGGER TWICE")
 
 					var newPos = $(window).scrollTop() + 300;
 

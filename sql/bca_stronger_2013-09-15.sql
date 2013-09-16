@@ -7,7 +7,7 @@
 #
 # Host: 40west.esteeonline.com (MySQL 5.5.19-log)
 # Database: bca_stronger
-# Generation Time: 2013-09-16 02:00:01 +0000
+# Generation Time: 2013-09-16 03:42:04 +0000
 # ************************************************************
 
 
@@ -70,7 +70,11 @@ VALUES
 	(64,'1311819004','Heather Bergstein','https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash4/c50.50.621.621/s480x480/488387_4504454892083_1750235000_n.jpg','Walk together, cook healthy together, and support each other.','2013-09-15 20:40:21',5,'united-states'),
 	(65,'100003864400490','MiliTest Kuo','https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c65.0.390.390/541355_102947009844112_1320561337_n.jpg','Live healthily. Eat antioxidant-rich food and maintain a healthy weight.','2013-09-15 21:02:43',2,'united-states'),
 	(66,'100003864400490','MiliTest Kuo','https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash2/c65.0.390.390/541355_102947009844112_1320561337_n.jpg','Donate. Fund breast cancer research and help eradicate this disease.','2013-09-15 21:16:49',3,'united-states'),
-	(67,'621136361','Ephraim Kehlmann','https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash4/c0.29.351.351/s200x200/228510_8457006361_572_n.jpg','Live healthily. Eat antioxidant-rich food and maintain a healthy weight.','2013-09-15 21:26:34',2,'united-states');
+	(67,'621136361','Ephraim Kehlmann','https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash4/c0.29.351.351/s200x200/228510_8457006361_572_n.jpg','Live healthily. Eat antioxidant-rich food and maintain a healthy weight.','2013-09-15 21:26:34',2,'united-states'),
+	(68,'100003988000326','Sean\'ouch O\'siwon Oh','https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/602151_222830621193203_2008726580_a.jpg','活得健康。多吃含豐富抗氧化物的食物，保持體重適中。','2013-09-15 22:15:52',2,'united-states'),
+	(69,'100000404706068','Dashus Ciccone','https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c42.42.528.528/s200x200/538792_473845989305554_1241218199_n.jpg','Be proactive. Schedule a mammogram.','2013-09-15 22:25:36',1,'united-states'),
+	(70,'100003988000326','Sean\'ouch O\'siwon Oh','https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/602151_222830621193203_2008726580_a.jpg','Walk together, cook healthy together, and support each other.','2013-09-15 22:29:46',5,'united-states'),
+	(71,'100003988000326','Sean\'ouch O\'siwon Oh','https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash3/602151_222830621193203_2008726580_a.jpg','Drink less. Limit our alcohol intake and toast to a healthier life.','2013-09-15 22:34:53',4,'united-states');
 
 /*!40000 ALTER TABLE `circles` ENABLE KEYS */;
 UNLOCK TABLES;

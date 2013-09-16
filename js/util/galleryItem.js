@@ -219,7 +219,8 @@ function GalleryItem()
 		},
 
 		parseAllPhotoData:function(data, isFeatured, isRest){
-			console.debug("galleryItem:parseAllPhotoData", data);
+
+			console.debug("galleryItem:parseAllPhotoData", data, isFeatured);
 						var feed;
 
 			//oc: loop through all items in the master feed to write them into the gallery

@@ -99,8 +99,10 @@ function Carousel()
 	            	},
 	            	success: function(feedData) { 
 
-						galleryItem.populateCircleContent($(circleDiv), feedData);
-						galleryItem.enableShareButton($(circleDiv));
+	            		console.log("CAROUSLE CIRCLE IS FINE")
+
+						//galleryItem.populateCircleContent($(circleDiv), feedData);
+						//galleryItem.enableShareButton($(circleDiv));
 
 	             	}
 	      		})
