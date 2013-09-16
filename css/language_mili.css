@@ -569,16 +569,6 @@
     height:346px;
   }
 
-  .el .feature_circle .circle_goal, 
-  .it .feature_circle .circle_goal, 
-  .pt .feature_circle .circle_goal,
-  .vi .feature_circle .circle_goal,
-  .tr .feature_circle .circle_goal
-  {
-    font-size:1em;
-  }
-
-
   .el .gallery_circle .circle_goal, 
   .it .gallery_circle .circle_goal, 
   .pt .gallery_circle .circle_goal,
@@ -598,6 +588,15 @@
    =============== */
 
   /*Greek*/
+
+  .el .feature_circle .circle_goal, 
+  .it .feature_circle .circle_goal, 
+  .pt .feature_circle .circle_goal,
+  .vi .feature_circle .circle_goal,
+  .tr .feature_circle .circle_goal
+  {
+    font-size:1em;
+  }
 
   .el #join_fight_text{
     font-size:.7em;

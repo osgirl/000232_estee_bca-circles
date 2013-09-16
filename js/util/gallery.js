@@ -408,7 +408,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			var data = ored.getIdsFromFeed($data, "circles");
 
-			console.info("CIRCLE ID", JSON.stringify(data))
+			console.log("CIRCLE ID", JSON.stringify(data))
 
 			$.ajax({
 		        		type: 'post',
