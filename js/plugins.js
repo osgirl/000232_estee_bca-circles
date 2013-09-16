@@ -1124,7 +1124,6 @@ $.extend(
             },
             success: function(data)
             {
-                console.log(data);
                 $.popup(
                 {
                     type: 'photo',
@@ -1434,11 +1433,10 @@ function checkAndLoadExternalUrl()
             loadLocalData();
             break;
         case 'photo':
-
             //Load from local
             if (adr[2] == 'bca')
             {
-                u = baseUrl + indexPage + "photo/fetchUploadedPhotoData";
+                u = baseUrl + indexPage + "photo/OLDfetchUploadedPhotoData";
                 $data = {
                     photo_id: adr[3]
                 };
@@ -1472,6 +1470,10 @@ function checkAndLoadExternalUrl()
                     photo_success(data)
                     break;
                 }
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+                console.debug('Error ' + textStatus);
             }
         });
 
