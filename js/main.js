@@ -553,6 +553,7 @@ function getTrendingAction(){
 
 function openCreateCircleScreen(hasGoal){
 
+
 	checkPlaceHolderForIE($("#custom_action"), customizeGoalText);
 	checkPlaceHolderForIE($("#friend_search_field"), enterNameText);
 
@@ -563,6 +564,12 @@ function openCreateCircleScreen(hasGoal){
 	$("html, body").animate({ scrollTop: 0 }, "slow");
 	createCircleWindowOpen = true;
 	createCircleClicked = false;
+
+	friendSelectedArray = new Array();
+	curSelectedFriendName = null;
+	curSelectedFriendID = null;
+	curSelectedFriendPic = null;
+
 
 
 	if(hasGoal){
@@ -804,6 +811,7 @@ function getFriendList(e){
 			        //resize the field
 			        $("#temp_name_enter_container").html(response.name);
 				    $('#friend_search_field').width($("#temp_name_enter_container").width() + 25);
+				    $('#friend_search_field').blur();
 				    $('#name_plus_btn').show();
 
 			      } else {
