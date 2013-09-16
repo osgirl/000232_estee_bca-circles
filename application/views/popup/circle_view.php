@@ -39,8 +39,7 @@
 		</ul>
 	</div>
 	<div class="h_divider_top"></div>
-	<div id="popup_circle_comment_holder">
-	</div>
+	<div id="popup_circle_comment_holder"></div>
 </div>
 
 <script>

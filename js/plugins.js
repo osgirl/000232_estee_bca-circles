@@ -1019,8 +1019,13 @@ $.extend(
     function loadCommentBox()
     {
         var $holder = $($c + ' #popup_circle_comment_holder');
-        var iframeSrc = baseUrl + indexPage + 'popup/facebook_comment_iframe/' + $d.id;
-        $('<iframe frameborder="0" border="0" src="' + iframeSrc + '"></iframe>').appendTo($holder);
+        if ($holder.children().length == 0){
+            var iframeSrc = baseUrl + indexPage + 'popup/facebook_comment_iframe/' + $d.id;
+            $('<iframe frameborder="0" border="0" src="' + iframeSrc + '"></iframe>').appendTo($holder);
+        }
+        else{
+            console.debug('CommentBox is already running');
+        }
     };
 
     function resizeCirclePhotosNav()
