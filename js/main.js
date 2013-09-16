@@ -246,7 +246,7 @@ function translatePage(){
 		if(selectedLanguage == "ru") NAME_TEXTFIELD_WIDTH = 160;
 
 		languageData = e;
-   		//loadLanguageToElements(e);
+   		loadLanguageToElements(e);
 
    		//$.mainPreloader.loadComplete();
 
