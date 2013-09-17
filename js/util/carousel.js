@@ -99,6 +99,8 @@ function Carousel()
 	            	},
 	            	success: function(feedData) { 
 
+	            		console.log("CAROUSLE CIRCLE IS FINE")
+
 						galleryItem.populateCircleContent($(circleDiv), feedData);
 						galleryItem.enableShareButton($(circleDiv));
 

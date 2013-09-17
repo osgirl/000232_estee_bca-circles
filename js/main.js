@@ -81,7 +81,6 @@ var country = "united-states";
 var fakePhotoData;
 
 var currentCircleViewData;
-var currentCircleViewIsUser;
 var currentCircleView;
 
 var ismobile = false;
@@ -97,6 +96,7 @@ var customizeGoalText;
 var enterNameText;
 
 var circleOfStrengh;
+var nameCircleOfStrength;
 var shareTitle;
 var shareICreated;
 var createA;
@@ -161,13 +161,15 @@ function directDonateLink(){
 	{
         loadComplete: function()
     	{
-			$loader.animate({'opacity':0}, 250, function()
-				{ 
-					$(this).remove();
-					$this.css('display','inherit');
-					$this.delay(250).animate({'opacity':1}, 250);
-					checkAndLoadExternalUrl();
-				});			
+    		$('<img src="' + baseUrl + 'img/popups/circle/dotted_circle.png"/>').load(function(){
+				$loader.animate({'opacity':0}, 250, function()
+					{ 
+						$(this).remove();
+						$this.css('display','inherit');
+						$this.delay(250).animate({'opacity':1}, 250);
+						checkAndLoadExternalUrl();
+					});
+    		});
     	},
     });
 })(jQuery);
@@ -255,12 +257,16 @@ function translatePage(){
 
 
 				carousel.initCarousel();
-				gallery.loadGallery();	
+				gallery.loadGallery();
+				$.mainPreloader.loadComplete();	
+				
 
 
 				$('body').unbind("ALL_LAYOUT_CREATED").bind('ALL_LAYOUT_CREATED', function(){
 
-					$.mainPreloader.loadComplete();
+					//$.mainPreloader.loadComplete();	
+
+					console.log("ALL LAYOUT AM I TRIGGER TWICE")
 
 					var newPos = $(window).scrollTop() + 300;
 
@@ -345,8 +351,18 @@ function enableEventBinds(){
 			gallery.refreshAsFakePhotoData(newlyUploadedPhotoData);
 	});
 
-	$('body').bind("EDIT_FRIEND", openEditFriend);
+	$('body').bind("EDIT_FRIEND", openCreateCircleScreenFromCircleView);
 
+}
+
+function openCreateCircleScreenFromCircleView(){
+
+	console.info("IS USER?", currentCircleViewData, currentCircleViewData.isUser)
+
+	if(currentCircleViewData.is_user)
+		openEditFriend();
+	else
+		openCreateCircleScreen(false);
 }
 
 function getLoginStatus(e){
@@ -400,7 +416,7 @@ function displayUserInfo(e){
 	$('.log_out_status').hide();
 	$('.log_in_status').show();
 
-    if(currentCircleViewIsUser) 
+    if(currentCircleViewData.is_user) 
     	$(currentCircleView + ' .btn_edit').show();
     else
     	$(currentCircleView + ' .btn_edit').hide();
@@ -550,6 +566,7 @@ function getTrendingAction(){
 
 function openCreateCircleScreen(hasGoal){
 
+
 	checkPlaceHolderForIE($("#custom_action"), customizeGoalText);
 	checkPlaceHolderForIE($("#friend_search_field"), enterNameText);
 
@@ -560,6 +577,12 @@ function openCreateCircleScreen(hasGoal){
 	$("html, body").animate({ scrollTop: 0 }, "slow");
 	createCircleWindowOpen = true;
 	createCircleClicked = false;
+
+	friendSelectedArray = new Array();
+	curSelectedFriendName = null;
+	curSelectedFriendID = null;
+	curSelectedFriendPic = null;
+
 
 
 	if(hasGoal){
@@ -618,7 +641,7 @@ function openEditFriend(){
 		curSelectedFriendID = v.fb_id;
 		curSelectedFriendPic = v.url;
 
-		console.log(curSelectedFriendName, curSelectedFriendID, curSelectedFriendPic);
+		console.info("friends data", curSelectedFriendName, curSelectedFriendID, curSelectedFriendPic);
 		addFriend();
 	})
 	
@@ -801,6 +824,7 @@ function getFriendList(e){
 			        //resize the field
 			        $("#temp_name_enter_container").html(response.name);
 				    $('#friend_search_field').width($("#temp_name_enter_container").width() + 25);
+				    $('#friend_search_field').blur();
 				    $('#name_plus_btn').show();
 
 			      } else {
@@ -1385,10 +1409,12 @@ function postCircleData(goal_id){
 								type:'circle',
 								data:{
 									id:data.id,
+									author: userName,
 									content:goal,
 									avatar:userProfilePhoto,
 									friends_data:friendsData,
 									num_friends:friendsData.length,
+									country: data.country,
 									is_user:true
 								}
 							}
@@ -1458,7 +1484,7 @@ function updateFriends(){
 					$('.circle_container').each(function(i,v){
 						if($(v).attr('circle_id') == currentCircleViewData.id){
 							updatedCircle = $(v);
-							galleryItem.updateUserCirclePopupContent(updatedCircle, circle_id, circle_content, circle_photo, userID, friendsData, true);
+							galleryItem.updateUserCirclePopupContent(updatedCircle, circle_id, user_name, circle_content, circle_photo, userID, friendsData, country, true);
 
 						}
 					})

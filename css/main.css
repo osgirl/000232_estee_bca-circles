@@ -200,6 +200,11 @@ h2{
 	width:16%;
 }
 
+.lt-ie9 .language_menu_dropdown li{
+	text-align: left;
+	float:left;
+}
+
 .navbar-inner{
 	background-color:white;
 	color:#333333;

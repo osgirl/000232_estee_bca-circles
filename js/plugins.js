@@ -241,7 +241,7 @@ $.extend(
         {
             if (v.referral != undefined || v.referral != null) u += "/?referral=facebook-" + v.referral;
 
-            var _picture = baseUrl + 'img/assets/fb_share.png';
+            var _picture = baseUrl + 'img/assets/fb_share_arial1.png';
 
             if (v.photo_url != undefined) _picture = v.photo_url;
 
@@ -310,7 +310,7 @@ $.extend(
  ******************************************/
 (function($)
 {
-    var $c, $agr, $desc_active, $preview_img_path, $circle_id, $users_fb_id, $parent;
+    var $c, $agr, $desc_active, $preview_img_path, $circle_id, $users_fb_id, $parent, $img_deg;
     $.fn.init_upload = function()
     {
         $c = '.' + $(this).attr('class');
@@ -328,8 +328,11 @@ $.extend(
         $($c + ' #popup_photo_desc_holder textarea').focus(descFocus);
         $($c + ' input[type=file]').change(fileChangeListener);
 
+        //TEMP rotate Bind 
+        $($c + ' .btn_rotate').click(rotateImage);
+
         //IE9 or lower version fix (using a default file browse)
-        if (!$('html').hasClass('lte-ie9'))
+        if (!$('html').hasClass('ie'))
         {
             $($c + ' .btn_browse').click(browseFile);
             $parent.click(function()
@@ -375,8 +378,10 @@ $.extend(
 
     function fileChangeListener(e)
     {
-        if (Modernizr.canvas && !ismobile && !$('html').hasClass('lte-ie9'))
-        {
+        //Reset the image degree
+        $img_deg = 0;
+        if (Modernizr.canvas && !ismobile && !$('html').hasClass('ie'))
+        {            
             uploadToCanvas(e);
         }
         else
@@ -401,23 +406,11 @@ $.extend(
                 //Load image to canvas
                 loadEnd();
                 createImageBound(img, canvas);
-
-                $(".btn_rotate").show();
-
-                var imageRotation = 0;
-                
-                $(".btn_rotate").unbind('click').click(function(e){
-                    imageRotation +=90;
-                    if(imageRotation >= 360) imageRotation  = 0;
-                    $(img).rotate(imageRotation);
-                })
-
             }
             img.src = event.target.result;
         }
         reader.readAsDataURL(e.target.files[0]);
     };
-
 
     function uploadFile()
     {
@@ -429,7 +422,7 @@ $.extend(
             fileElementId: 'uploadFile',
             dataType: 'json',
             success: function(data, status)
-            {
+            {                   
                 if (typeof(data.error) != 'undefined')
                 {
                     if (data.error != '') alert(data.error);
@@ -481,7 +474,7 @@ $.extend(
     function createImageBound(img, canvas)
     {
         var $length = $parent.parent().width(),
-            $bound = $('<div style="position:absolute; margin:0; padding:0; background:#FFFFFF"/>'),
+            $bound = $('<div id="bound" style="position:absolute; margin:0; padding:0; background:#FFFFFF"/>'),
             $ratio = 1,
             $top = 0,
             $left = 0,
@@ -489,9 +482,9 @@ $.extend(
 
         if (img.width > img.height)
         { // landscape
-            // alert('landscape')
             $ratio = $length / img.height;
-            $left = (-50 * $ratio);
+            $left = (img.width * $ratio - $length) *-.5;
+
             $(img).draggable(
             {
                 containment: $bound,
@@ -501,9 +494,8 @@ $.extend(
         }
         else if (img.width < img.height)
         { // portrait
-            // alert('portrait')
             $ratio = $length / img.width;
-            $top = (-50 * $ratio);
+            $top = (img.height * $ratio - $length) *-.5;
             $(img).draggable(
             {
                 containment: $bound,
@@ -516,7 +508,6 @@ $.extend(
             $ratio = $length / img.width;
             $parent.removeClass('scroll_y').removeClass('scroll_x');
         }
-
         $w = img.width * $ratio;
         $h = img.height * $ratio;
 
@@ -528,6 +519,7 @@ $.extend(
             canvas.height = $length;
             ctx.drawImage(img, 0, 0, $w, $h);
         }
+
         // //set bound div
         if ($left != 0)
         {
@@ -536,7 +528,8 @@ $.extend(
             {
                 'width': $bw,
                 'height': $h,
-                'left': ($bw / 2 - $length / 2) * -1 + 'px'
+                'left': ($bw / 2 - $length / 2) * -1 + 'px',
+                'top':0
             }).appendTo($parent);
         }
         else if ($top != 0)
@@ -546,20 +539,153 @@ $.extend(
             {
                 'width': $w,
                 'height': $bh,
+                'left': 0,
                 'top': ($bh / 2 - $length / 2) * -1 + 'px'
             }).appendTo($parent);
         }
-        $(img).css(
+        $(img).appendTo($parent)
+        .css(
         {
             'min-width': $w + 'px',
             'min-height': $h + 'px',
             'max-width': $bound.css('width'),
             'max-height': $bound.css('height'),
-            'left': $left + '%',
-            'top': $top + '%'
-        }).appendTo($parent);
+            'left': $left + 'px',
+            'top': $top + 'px'
+        });
         $($c + ' .btn_submit').css('opacity', 1);
         loadEnd();
+    }
+
+    function updateImageBound()
+    {
+        var $bound  = $($c + ' #bound'),
+            $img    = $parent.children('img'),
+            $i_minw = $img.css('min-width'),
+            $i_minh = $img.css('min-height'),
+            $i_maxw = $img.css('max-width'),
+            $i_maxh = $img.css('max-height'),
+            $il     = $img.css('left'),
+            $it     = $img.css('top'),
+            $bw     = $bound.width(),
+            $bh     = $bound.height(),
+            $bl     = $bound.css('left'),
+            $bt     = $bound.css('top'),
+            _deg;
+
+        $img_deg += 45;
+        $img_deg %= 360;
+
+        //Rotate bound area
+        $bound.css({
+            'width': $bh,
+            'height': $bw,
+            'left': $bt,
+            'top': $bl,
+        });
+
+        //Rotate image
+        $img.css({
+            /*'min-width': $i_minh,
+            'min-height': $i_minw,
+            'max-width': $i_maxh,
+            'max-height': $i_maxw,*/
+            // 'left': 0,
+            // 'top': 0
+        });
+
+        if(Modernizr.canvas){
+            //CSS3 transition
+            console.debug($img_deg);
+            _deg = 'rotate(' + $img_deg +'deg)';
+            console.debug(_deg);
+
+            $img.css({
+                '-webkit-transform': _deg,
+                '-moz-transform': _deg,
+                '-ms-transform': _deg,
+                '-o-transform': _deg,
+                'transform': _deg,
+            });
+        }
+        else{
+            //VML
+        }
+
+        //update draggable event
+        if($parent.hasClass('scroll_x') || $parent.hasClass('scroll_y')){
+            var _axis;            
+            $img.draggable('destroy');
+
+            if($parent.hasClass('scroll_x')){
+                _axis = 'y';
+                $parent.addClass('scroll_y').removeClass('scroll_x');
+            }
+            else{
+                _axis = 'x';
+                 $parent.addClass('scroll_x').removeClass('scroll_y');
+            }
+            $img.draggable({
+                containment: $bound,
+                axis: _axis
+            });
+        }
+
+            // $(img).draggable(
+            // {
+            //     containment: $bound,
+            //     axis: "x"
+            // });
+            // $parent.addClass('scroll_x').removeClass('scroll_y');
+
+
+
+        // $img.draggable( axis: 'y');
+
+
+
+        // if (canvas != null)
+        // {   
+
+
+
+            
+            // $parent.css('-webkit-transform', 'rotate(90deg)');
+            // $parent.find('img').css('-webkit-transform', 'rotate(90deg)');
+            // $($c + ' #bound').css('-webkit-transform', 'rotate(90deg)');
+            // $parent.find('div').remove();
+            
+            // $parent.find('img').unbind('draggable').draggable(
+            // {
+            //     containment: $($c + ' #bound'),
+            //     axis: "y"
+            // });
+
+            // // console.log($parent.find('div').width());
+
+            // $parent.addClass('scroll_y').removeClass('scroll_x');
+
+            // var ctx = canvas.getContext('2d');
+            // var new_img = new Image();
+            // new_img.src = img;
+            // // canvas.width = $length;
+            // // canvas.height = $length;
+            // // ctx.setTransform(1, 0, 0, 1, 0, 0);
+            // // console.log(canvas.width);
+            // // console.log(canvas.height);
+            // ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // ctx.rotate(.5);
+            // ctx.drawImage(new_img, 10, 0, 300, 300);
+
+            // createImageBound(new_img, canvas)
+        // }
+    }
+
+    function rotateImage()
+    {           
+
+        updateImageBound();
+
     }
 
     function saveFile()
@@ -701,7 +827,6 @@ $.extend(
     var $this, $d, $c, $win_abs_y, $scroll_y, $margin_top, $margin_bottom, $padding_top, $gap, $bound = {}, $hasPhoto, $pagn, $nav_count;
     $.fn.init_circle = function(v)
     {
-        console.debug(">>>>> init_circle");
         $this = $(this);
         $c = '.' + $(this).attr('class');
         $d = v;
@@ -710,21 +835,32 @@ $.extend(
         $d.child = true;
         if ($d.circle_id == null) $d.circle_id = $d.id;
 
+        // THIS IS FRIEND'S DATA!
+        // THIS IS FRIEND'S DATA!
+        // THIS IS FRIEND'S DATA!
+        console.log($d.friends_data);
+        // THIS IS FRIEND'S DATA!
+        // THIS IS FRIEND'S DATA!
+        // THIS IS FRIEND'S DATA!
+
         //Disable lazyLoader first
         gallery.disableLazyloader();
 
         //initalize scroll detection
         windowEventListener();
 
+        //add user data to header area
+        $($c + ' #popup_circle_header p').text(nameCircleOfStrength.replace('[name]', $d.author) );
+        $($c + ' #popup_circle_header img').attr('src', baseUrl + 'img/flags/large/' + $d.country + '.png');
+
         //Hide edit user button
-        if (!v.is_user) $($c + ' .btn_edit').hide();
-        currentCircleViewIsUser = v.is_user;
+        if (!v.is_user) $($c + ' .btn_edit').html("create a circle");
         currentCircleView = $c;
 
         //Start bind
         $($c + ' .btn_edit').click(function()
         {
-            editFriends(v)
+            openCreateCircleScreen(v)
         });
         $($c + ' .btn_close').click(closeWindow);
         $($c + ' .btn_add_photo').click(addPhoto);
@@ -997,11 +1133,14 @@ $.extend(
             {
                 var $c, $p = $(this).parent();
                 $p.css('background', 'none');
-                $c = $('<span/>').appendTo($p).css(
+                $c = $('<img/>').attr('src', $(this).attr('src')).appendTo($p).css(
                 {
                     'opacity': 0,
-                    'background-image': 'url(' + $(this).attr('src') + ')',
-                    'background-size': 'contain'
+                    'position': 'absolute',
+                    'width': '100%',
+                    'height': '100%',
+                    'left': 0,
+                    'top': 0
                 }).animate(
                 {
                     opacity: 1
@@ -1014,8 +1153,13 @@ $.extend(
     function loadCommentBox()
     {
         var $holder = $($c + ' #popup_circle_comment_holder');
-        var iframeSrc = baseUrl + indexPage + 'popup/facebook_comment_iframe/' + $d.id;
-        $('<iframe src="' + iframeSrc + '"></iframe>').appendTo($holder);
+        if ($holder.children().length == 0){
+            var iframeSrc = baseUrl + indexPage + 'popup/facebook_comment_iframe/' + $d.id;
+            $('<iframe frameborder="0" border="0" src="' + iframeSrc + '"></iframe>').appendTo($holder);
+        }
+        else{
+            console.debug('CommentBox is already running');
+        }
     };
 
     function resizeCirclePhotosNav()
@@ -1095,7 +1239,7 @@ $.extend(
         if ($pagn.css('display') == 'block') navPhoto(e.type);
     };
 
-    function editFriends(v)
+    function openCreateCircleScreen(v)
     {
         currentCircleViewData = v;
         $('body').trigger('EDIT_FRIEND');
@@ -1113,7 +1257,6 @@ $.extend(
             },
             success: function(data)
             {
-                console.log(data);
                 $.popup(
                 {
                     type: 'photo',
@@ -1248,7 +1391,7 @@ $.extend(
             }
             else
             {
-                console.debug('--->FEED: Connecting...');
+                // console.debug('--->FEED: Connecting...');
                 window.setTimeout(function()
                 {
                     fm_ready.call(null, fx);
@@ -1423,11 +1566,10 @@ function checkAndLoadExternalUrl()
             loadLocalData();
             break;
         case 'photo':
-
             //Load from local
             if (adr[2] == 'bca')
             {
-                u = baseUrl + indexPage + "photo/fetchUploadedPhotoData";
+                u = baseUrl + indexPage + "photo/OLDfetchUploadedPhotoData";
                 $data = {
                     photo_id: adr[3]
                 };
@@ -1461,21 +1603,26 @@ function checkAndLoadExternalUrl()
                     photo_success(data)
                     break;
                 }
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+                console.debug('Error ' + textStatus);
             }
         });
 
         function circle_success(data)
         {
-
             $.popup(
             {
                 type: 'circle',
                 data: {
                     id: data.circle_id,
+                    author: data.user_name,
                     content: data.goal,
                     avatar: data.user_photo_url,
                     users_fb_id: data.user_id,
                     num_friends: data.friends_data.length,
+                    country: data.country,
                     outlink: true,
                     child_id: (adr[5] != undefined) ? adr[5] : null
                 }

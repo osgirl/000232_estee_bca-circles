@@ -222,7 +222,6 @@ facebook.createCircle = function(_friendsData){
 		
 		createMainCirclePhoto( _friendsData, function( _create_response ){		
 			console.log(_create_response);
-			_friendsData
 
 			//create facebook album
 			facebook.createAlbum( {name: facebook.albumName, message:facebook.albumMessage}, function( _album_response ){

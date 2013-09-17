@@ -1,4 +1,5 @@
 <div class="popup" id="popup_circle">
+<div id="popup_circle_header"><p>John long name Doe's Circle of Strength</p><span><img/></span></div>
 	<div id="popup_circle_detail_holder">
 		<div class="popup_round_button btn_edit" id="popup_btn_pink" language_id="edit_friends" language_location="circle_view" >
 		<!-- <div class="pink_btn" id="edit_friends_btn"> -->
@@ -11,7 +12,7 @@
 					<img src="<?echo $avatar ?>">
 				</div>
 				<p id="goal">
-					<span language_id="we_will_text" language_location="circle_view" ><b>We Will - </b></span><br /><?echo $content ?>
+					<span language_id="we_will_text" language_location="circle_view" ></span><br /><?echo $content ?>
 					</p>
 				<ul id="popup_footer_share">
 					<li language_id="share" language_location="circle_view" >SHARE
@@ -24,7 +25,7 @@
 	</div>
 	<div id="popup_circle_photo_holder">
 		<div id="popup_circle_photo_button_wrapper">
-			<span language_id="circle_of_strengh_photos" language_location="circle_view" >CIRCLE OF STRENGTH PHOTOS</span>
+			<span language_id="circle_of_strengh_photos" language_location="circle_view" class="all_cap" >Share comments and photos with your circle</span>
 			<div class="popup_round_button btn_add_photo" id="popup_btn_pink" language_id="add_photos" language_location="circle_view" >
 				ADD PHOTOS
 			</div>			
@@ -38,8 +39,7 @@
 		</ul>
 	</div>
 	<div class="h_divider_top"></div>
-	<div id="popup_circle_comment_holder">
-	</div>
+	<div id="popup_circle_comment_holder"></div>
 </div>
 
 <script>

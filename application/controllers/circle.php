@@ -76,6 +76,8 @@ class Circle extends CI_Controller {
 			if ($query->num_rows() > 0) {
 			  foreach($query->result() as $row) {
 
+			  	$friends_data 			= array();
+
 			  	$goal_id = $row->ref_goal_id;
 
 			  	$data['circle_id'] = $circle_id;
@@ -132,7 +134,7 @@ class Circle extends CI_Controller {
 
 			$circles 		= array();
 			$data 			= array();
-			$friends_data 	= array();
+			
 
 			$query = $this->db->select("circles.*, g.goal_type")	
 				->from("circles")
@@ -144,6 +146,8 @@ class Circle extends CI_Controller {
 
 			if ($query->num_rows() > 0) {
 			  foreach($query->result() as $row) {
+
+			  	$friends_data 			= array();
 
 			  	$circle_id 				= $row->id;
 

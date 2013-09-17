@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if IE 9]>         <html class="no-js lte-ie9"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9 ie"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lte-ie9 ie"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
@@ -58,7 +58,6 @@
 		  feedmagnet.twitter_feed 		 = '<?= config_item("twitter_feed_name"); ?>';
 		  feedmagnet.twitter_feat_feed   = '<?= config_item("twitter_feed_feat_name"); ?>';
 
-		  console.log(feedmagnet);
 		</script>
     	
         <!--[if lt IE 7]>

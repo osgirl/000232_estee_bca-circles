@@ -66,10 +66,6 @@ function GalleryItem()
 				$($(e.currentTarget).next()).find('.share_text').css('color', "#ffffff")
 
 			})
-
-			$(item.find('.view_circle_btn')).unbind('click').click(function(e){openPopUp(popupData)});
-
-
         	enableShareButton(item);
         }
 
@@ -135,23 +131,26 @@ function GalleryItem()
 			}
 		}
 
-		function updateUserCirclePopupContent(circle, id, content, avatar, userID, friendData, isUser){
+		function updateUserCirclePopupContent(circle, id, user_name, content, avatar, userID, friendData, country, isUser){
 			//console.log("updateUserCirclePopupContent", friendData);
 			//if(friendData != undefined)
 	        	placeCircleInAngles(circle.find('.circle_area'), avatar, friendData.length);
+
+	        	circle.attr('is_user', isUser);	
 
 			var popupData = {
 					type:'circle', 
 					data:{
 						id:id,
 						circle_id:id,
+						author: user_name,
 						content:content, 
 						avatar:avatar,
 						users_fb_id:userID,
 						num_friends: friendData.length,
 						friends_data: friendData,
+						country: country,
 						is_user:isUser
-
 					}}
 
 	        	enableItemButton(circle, popupData);
@@ -191,11 +190,12 @@ function GalleryItem()
 			//console.log("populateCircleContent");
 			//console.log(circle);
 			//console.log(data);
-			
 			circle.attr('circle_id', data.circle_id);
+			circle.attr('user_name', data.user_name);
 			circle.attr('user_id', data.user_id);
 			circle.attr('goal_id', data.goal_id);
 			circle.attr('goal_type', data.goal_type);
+			circle.attr('country', data.country);
 			circle.find('.circle_flag').css("background-image", 'url("' + baseUrl + 'img/flags/large/' + data.country + '.png")');
 			circle.find('.circle_creator').html(data.user_name);
 			var goalText = (data.goal_type == "default") ? goalTextArray[data.goal_id-1].text : data.goal;
@@ -204,22 +204,26 @@ function GalleryItem()
 
 			var isUser;
 
-			if(isLogin)
+			if(isLogin){
 				isUser = (data.user_id == userID) ? true : false;
-			else
-				isUser = false;		
+			}
+			else{
+				isUser = false;	
+			}
 
-			updateUserCirclePopupContent(circle, data.circle_id, goalText, data.user_photo_url, data.user_id, data.friends_data, isUser);
+			
+			updateUserCirclePopupContent(circle, data.circle_id, data.user_name, goalText, data.user_photo_url, data.user_id, data.friends_data, data.country, isUser);
 
 		},
 
-		updateUserCirclePopupContent:function(circle, id, content, avatar, userID, friendData, isUser){
+		updateUserCirclePopupContent:function(circle, id, user_name, content, avatar, userID, friendData, country, isUser){
 			updateUserCirclePopupContent(circle, id, content, avatar, userID, friendData, isUser);
 			
 		},
 
 		parseAllPhotoData:function(data, isFeatured, isRest){
-			console.debug("galleryItem:parseAllPhotoData", data);
+
+			console.debug("galleryItem:parseAllPhotoData", data, isFeatured);
 						var feed;
 
 			//oc: loop through all items in the master feed to write them into the gallery

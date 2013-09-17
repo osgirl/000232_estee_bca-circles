@@ -243,14 +243,14 @@
 	
 	/*CREATE YOUR OWN CIRCLE SCREEN*/
     #create_circle_header{
-	    font-size:3.6em;
+	    font-size:3.2em;
 	    margin-top:55px;
 	    text-align:left;
     }
 
     #create_circle_screen h1{ 
 	    line-height:1.2em;
-	    font-size:4.2em;
+	    font-size:3.2em;
     }
 
     .confirm_content{
@@ -599,6 +599,14 @@
 /* ===============
     Tablet (1200px)
    =============== */
+
+    #create_circle_screen h1{ 
+	    font-size:4.2em;
+    }
+
+    #create_circle_header{
+	    font-size:3.6em;
+    }
   
 	
 	#top_nav{
