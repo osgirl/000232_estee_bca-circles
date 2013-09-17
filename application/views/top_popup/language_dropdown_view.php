@@ -51,9 +51,9 @@
 </ul>
 <script>
 
-    $("#language_menu a").each(function(v.i){
-        var route = $(v).attr('href') + selectedCountry + "/";
-        $(v).attr("href", route);
-    })
 
+    // $("#language_menu a").each(function(v.i){
+    //     var route = $(v).attr('href') + selectedCountry + "/";
+    //     $(v).attr("href", route);
+    // })
 </script>

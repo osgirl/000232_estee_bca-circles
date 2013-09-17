@@ -182,8 +182,7 @@ function windowResize(){
 		$('#regular_footer').show();
 		$('#load_more_btn_wrapper').hide();
 		SCROLL_TO_SHOW_FOOTER = 2100;
-	}
-	else{
+	}else{
 		$('#regular_footer').hide();
 		$('#load_more_btn_wrapper').show();
 		SCROLL_TO_SHOW_FOOTER = 4000;
@@ -195,7 +194,6 @@ function windowResize(){
 
 	})
 //$('.friend_btn').width($('.friend_btn').next('.temp_name_input_container').width() + 5);
-
 
 	carousel.windowResize();
 }
@@ -254,7 +252,7 @@ function translatePage(){
 		languageData = e;
    		loadLanguageToElements(e);
 
-   		//$.mainPreloader.loadComplete();
+   		$.mainPreloader.loadComplete();
 
    		$.feed();
 			fm_ready(function() {
@@ -262,7 +260,7 @@ function translatePage(){
 
 				carousel.initCarousel();
 				gallery.loadGallery();
-				$.mainPreloader.loadComplete();	
+				//$.mainPreloader.loadComplete();	
 				
 
 
@@ -361,12 +359,13 @@ function enableEventBinds(){
 
 function openCreateCircleScreenFromCircleView(){
 
-	console.info("IS USER?", currentCircleViewData, currentCircleViewData.isUser)
+	if(currentCircleViewData){
+		if(currentCircleViewData.is_user)
+			openEditFriend();
+		else
+			openCreateCircleScreen(false);
+	}
 
-	if(currentCircleViewData.is_user)
-		openEditFriend();
-	else
-		openCreateCircleScreen(false);
 }
 
 function getLoginStatus(e){
@@ -420,10 +419,12 @@ function displayUserInfo(e){
 	$('.log_out_status').hide();
 	$('.log_in_status').show();
 
-    if(currentCircleViewData.is_user) 
-    	$(currentCircleView + ' .btn_edit').show();
-    else
-    	$(currentCircleView + ' .btn_edit').hide();
+	if(currentCircleViewData){
+		if(currentCircleViewData.is_user) 
+	    	$(currentCircleView + ' .btn_edit').show();
+	    else
+	    	$(currentCircleView + ' .btn_edit').hide();
+	}
     
 
 	var shortenName = userFirstName + " " + userLastName.substr(0,1) + ".";
