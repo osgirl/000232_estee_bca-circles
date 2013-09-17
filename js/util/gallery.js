@@ -555,9 +555,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 						}else{
 							handleAllPhotoData(inData);
 						}
-						
-
-						
 
 					}, subRestNum);
 				}else{
@@ -1017,32 +1014,32 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		function createAllLayout(data){
 			//console.log('createAllLayout');
 			if(!circleEnd){
-				if(oneCircle){
+				// if(oneCircle){
 
-					$.ajax({
-			        		type: 'get',
-			            	url: baseUrl + 'layout/loadLayout3',
-			            	dataType: 'html',
+				// 	$.ajax({
+			 //        		type: 'get',
+			 //            	url: baseUrl + 'layout/loadLayout3',
+			 //            	dataType: 'html',
 			            	
-			            	success: function(layout3data) {  
-			            		current_add_layout = 2;
-				            	var layout3 = $('<div>');     
-				            	layout3.addClass('layout3 gallery_layout row')
-		            				.html(layout3data); 
+			 //            	success: function(layout3data) {  
+			 //            		current_add_layout = 2;
+				//             	var layout3 = $('<div>');     
+				//             	layout3.addClass('layout3 gallery_layout row')
+		  //           				.html(layout3data); 
 
-		            			$(layout3).appendTo(gallery_container);
+		  //           			$(layout3).appendTo(gallery_container);
 
-								$(layout3).addClass('page'+pageNum);
-								galleryItem.centerRollOverContent(.55);
+				// 				$(layout3).addClass('page'+pageNum);
+				// 				galleryItem.centerRollOverContent(.55);
 
-	  			 				if(isMoreFeed)  enableLazyloader();
-	  			 				$('body').trigger('ALL_LAYOUT_SINGLE_CREATED');
+	  	// 		 				if(isMoreFeed)  enableLazyloader();
+	  	// 		 				$('body').trigger('ALL_LAYOUT_SINGLE_CREATED');
 
 
-			             	}
-			      		});
+			 //             	}
+			 //      		});
 
-				}else{
+				// }else{
 
 					$.ajax({
 	        		type: 'get',
@@ -1095,7 +1092,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 	             	}
 	      		});
 
-				}
+				//}
 
 			}else{
 

@@ -86,9 +86,9 @@
 			                		<div id='featured_header' class="span6">
 			                			<div id="around_the_world" language_id="featured_around_world" language_location="home" class="all_cap">featured from around the world</div>
 			                			<div class='pull_left'>
-											<div class='featured_dot featured_selected'></div>
-											<div class='featured_dot featured_deselected'></div>
-											<div class='featured_dot featured_deselected'></div>
+											<div class='featured_selected featured_dot'></div>
+											<div class='featured_deselected featured_dot'></div>
+											<div class='featured_deselected featured_dot'></div>
 										</div>
 			                		</div> 
 			                    </div>

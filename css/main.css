@@ -384,6 +384,7 @@ h2{
 }
 
 .featured_dot{
+	background-color: white;
 	margin:11px 0 0 5px;
 	width:12px;
 	height:12px;
@@ -391,9 +392,14 @@ h2{
     -webkit-border-radius: 50%;
     -khtml-border-radius: 50%;
     border-radius: 50%;	
-    behavior: url(css/PIE.htc);
+   
     float:left;
     cursor: pointer;
+}
+
+.lt-ie9 .featured_dot{
+	 behavior: url(/css/PIE.htc);
+	 position:relative;
 }
 
 .featured_selected{
@@ -483,13 +489,17 @@ h2{
     -webkit-border-radius: 50%;
     -khtml-border-radius: 50%;
     border-radius: 50%;	
-    behavior: url(css/PIE.htc);
 	width:140px;
 	height:140px;
 	background:center center no-repeat;
 	background-size: 160px auto;
 	margin-right:5%;
 	background-color:#ede1e4;
+}
+
+.lt-ie9 #user_profile_pic{
+	behavior: url(/css/PIE.htc);
+	background-size: 140px auto;
 }
 
 #bottom_user_name{
@@ -629,13 +639,17 @@ h2{
 	-moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     -khtml-border-radius: 50%;
-    border-radius: 50%;	
-    behavior: url(css/PIE.htc);
+    border-radius: 50%;	 
 	width:39px;
 	height:39px;
 	background-size: 42px auto;
 	background-image: url('../img/flags/large/united-states.png');
 	background-position: -1px -1px;
+}
+
+.lt-ie9 .circle_flag{
+	behavior: url(/css/PIE.htc);
+	background-size: 39px auto;
 }
 
 .rollover_link{
@@ -894,7 +908,7 @@ h2{
     -webkit-border-radius: 50%;
     -khtml-border-radius: 50%;
     border-radius: 50%;	
-    behavior: url(css/PIE.htc);
+    
 	width:70px;
 	height:70px;
 	background:center center no-repeat;
@@ -903,6 +917,10 @@ h2{
 	position:absolute;
 	margin-left:-22px;
 	margin-top:-25px;
+}
+
+.lt-ie9 .profile_image_small{
+	behavior: url(/css/PIE.htc);
 }
 
 .share_circle div{
@@ -1324,10 +1342,14 @@ h2{
     -webkit-border-radius: 50px;
     -khtml-border-radius: 50px;
     border-radius: 50px;
-    behavior: url(css/PIE.htc);
+   
     padding:13px 10px 0px 15px;
     background-color:#e8e8e8;
     height: 26px;
+}
+
+.lt-ie9 #friend_search_wrapper{
+	 behavior: url(/css/PIE.htc);
 }
 
 #friend_search_field{
@@ -1420,7 +1442,6 @@ h2{
     -webkit-border-radius: 50px;
     -khtml-border-radius: 50px;
     border-radius: 50px;
-    behavior: url(css/PIE.htc);
     padding:6px 10px 1px 15px;
 	font-size:1em;
     background-color:#e8e8e8;
@@ -1433,6 +1454,14 @@ h2{
     -webkit-box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 -moz-box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
+}
+
+.lt-ie9 .friend_btn_over{
+	-moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -khtml-border-radius: 50px;
+    border-radius: 50px;
+    behavior: url(/css/PIE.htc);
 }
 
 .name_delete_btn{
@@ -1739,7 +1768,6 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
     -webkit-border-radius: 50px;
     -khtml-border-radius: 50px;
     border-radius: 50px;
-    behavior: url(css/PIE.htc);
     padding:6px 13px 6px 13px;
     display:inline-block;
     *display: inline;
@@ -1749,6 +1777,15 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	text-align:center;
 	text-transform: uppercase;
 	cursor:pointer;
+}
+
+.lt-ie9 .pink_btn{
+	behavior: url(/css/PIE.htc);
+	position:relative;
+}
+
+.lt-ie9 .view_circle_btn{
+	display:none;
 }
 
 .pink_btn:hover{
@@ -1823,7 +1860,7 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 #language_menu.dropdown-menu a{
-	text-decoration: underline;
+	/*text-decoration: underline;*/
 	color:#333;	
 }
 
