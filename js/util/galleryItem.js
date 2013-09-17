@@ -66,10 +66,6 @@ function GalleryItem()
 				$($(e.currentTarget).next()).find('.share_text').css('color', "#ffffff")
 
 			})
-
-			$(item.find('.view_circle_btn')).unbind('click').click(function(e){openPopUp(popupData)});
-
-
         	enableShareButton(item);
         }
 
