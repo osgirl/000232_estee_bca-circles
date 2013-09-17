@@ -231,8 +231,8 @@ function deleteMainCirclePhoto(_filename){
 // Temp!
 function translatePage(){
 	console.info(selectedLanguage)
-	var country = $('#country_menu.dropdown-menu #' + selectedCountry);
-	var language = $('#language_menu.dropdown-menu #l_' + selectedLanguage);
+	var country = $('#language_menu.dropdown-menu #' + selectedCountry);
+	//var language = $('#language_menu.dropdown-menu #l_' + selectedLanguage);
 	$('.country_name').html(selectedCountry);
 	$('.language_name').html($(language).html());
 	$('.flag img').attr('src', $(country).children('img').attr('src') );

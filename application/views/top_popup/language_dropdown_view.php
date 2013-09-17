@@ -1,5 +1,5 @@
 <span class="dropdown-toggle all_cap" data-toggle="dropdown">
-    <span class='flag'><img style="display:inline-block; width:16px" src='<?php echo base_url(); ?>img/flags/small/us.png' /></span>
+    <span class='flag'><img style="display:inline-block; width:13px" src='<?php echo base_url(); ?>img/flags/small/us.png' /></span>
     <span class="country_name" style="display:inline-block;vertical-align:center; width:18px"></span>    
     <span class='language_arrow'><img style="display:inline-block; width:10px" src='<?php echo base_url(); ?>img/icons/language-arrow.png'/> </span>
 </span>
@@ -135,7 +135,7 @@
         </div>
     </li>
     <li>
-        <div id="se">
+        <div id="sy">
             <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/se.png' />
             <span class="country">&nbsp;&nbsp;Syria</span>&nbsp;&nbsp;
             <a href= "<?=base_url()?>ar/sy/">العربية</a>
