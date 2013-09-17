@@ -175,7 +175,8 @@ function directDonateLink(){
 })(jQuery);
 
 function windowResize(){
-	$('.language_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");
+	$('.language_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -80) + "px");
+	$('.country_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");
 
 	if($(window).width() >= 980 ){
 		$('#regular_footer').show();
@@ -231,8 +232,11 @@ function deleteMainCirclePhoto(_filename){
 
 // Temp!
 function translatePage(){
-	var country = $('#language_menu.dropdown-menu #' + selectedCountry);
+	console.info(selectedLanguage)
+	var country = $('#country_menu.dropdown-menu #' + selectedCountry);
+	var language = $('#language_menu.dropdown-menu #l_' + selectedLanguage);
 	$('.country_name').html(selectedCountry);
+	$('.language_name').html($(language).html());
 	$('.flag img').attr('src', $(country).children('img').attr('src') );
 
 	$.language.load(function(e){
