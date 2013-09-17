@@ -82,7 +82,7 @@
         <div id="kp">
             <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/kp.png' />
             <span class="country">&nbsp;&nbsp;Korea</span>&nbsp;&nbsp;
-            <a href= "<?=base_url()?>ko/kr/">한국어</a>
+            <a href= "<?=base_url()?>ko/kp/">한국어</a>
         </div>
     </li>
     <li>
@@ -124,14 +124,14 @@
         <div id="sg">
             <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/sg.png' />
             <span class="country">&nbsp;&nbsp;Singapore</span>&nbsp;&nbsp;
-            <a href= "<?=base_url()?>en/sc/">English</a>
+            <a href= "<?=base_url()?>en/sg/">English</a>
         </div>
     </li>
     <li>
         <div id="es">
             <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/es.png' />
             <span class="country">&nbsp;&nbsp;Spain</span>&nbsp;&nbsp;
-            <a href= "<?=base_url()?>es/sl/">Español</a>
+            <a href= "<?=base_url()?>es/es/">Español</a>
         </div>
     </li>
     <li>
@@ -159,7 +159,7 @@
         <div id="uk">
             <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/gb.png' />
             <span class="country">&nbsp;&nbsp;United Kingdom</span>&nbsp;&nbsp;
-            <a href= "<?=base_url()?>en/uk/">English</a>
+            <a href= "<?=base_url()?>en/gb/">English</a>
         </div>
     </li>
     <li>
@@ -171,7 +171,7 @@
     </li>
     <li>
         <div id="vn">
-            <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/vi.png' />
+            <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/vn.png' />
             <span class="country">&nbsp;&nbsp;Vietnam</span>&nbsp;&nbsp;
             <a href= "<?=base_url()?>vi/vn/">tiếng Việt</a>
         </div>

@@ -77,7 +77,6 @@ var currentSameGoalID;
 var currentSameGoalType;
 var isCustomizeGoal;
 
-var country = "united-states";
 var fakePhotoData;
 
 var currentCircleViewData;
@@ -231,11 +230,13 @@ function deleteMainCirclePhoto(_filename){
 // Temp!
 function translatePage(){
 	console.info(selectedLanguage)
-	var country = $('#language_menu.dropdown-menu #' + selectedCountry);
+	var countryItem = $('#language_menu.dropdown-menu #' + selectedCountry);
 	//var language = $('#language_menu.dropdown-menu #l_' + selectedLanguage);
 	$('.country_name').html(selectedCountry);
 	$('.language_name').html($(language).html());
-	$('.flag img').attr('src', $(country).children('img').attr('src') );
+	$('.flag img').attr('src', $(countryItem).children('img').attr('src') );
+
+	console.info(selectedCountry)
 
 	$.language.load(function(e){
 
@@ -1371,7 +1372,7 @@ function postCircleData(goal_id){
 		'users_photo_url' : userProfilePhoto,
 		'goal'			  : goal,
 		'ref_goal_id'	  : goal_id,	
-		'country'		  : country
+		'country'		  : selectedCountry
 	};
 
 	$.ajax({
