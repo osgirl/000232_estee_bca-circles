@@ -140,6 +140,8 @@ function GalleryItem()
 			//if(friendData != undefined)
 	        	placeCircleInAngles(circle.find('.circle_area'), avatar, friendData.length);
 
+	        	circle.attr('is_user', isUser);	
+
 			var popupData = {
 					type:'circle', 
 					data:{
@@ -206,11 +208,14 @@ function GalleryItem()
 
 			var isUser;
 
-			if(isLogin)
+			if(isLogin){
 				isUser = (data.user_id == userID) ? true : false;
-			else
-				isUser = false;		
+			}
+			else{
+				isUser = false;	
+			}
 
+			
 			updateUserCirclePopupContent(circle, data.circle_id, data.user_name, goalText, data.user_photo_url, data.user_id, data.friends_data, data.country, isUser);
 
 		},
