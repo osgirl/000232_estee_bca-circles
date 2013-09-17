@@ -1098,6 +1098,8 @@ function getUserCircleData(){
 	$('#my_circles .action_item').remove();
 
 	//console.log('get user circle data', userID);
+	belongCircleText = belongCircleText.replace("#", "0");
+	$("#user_circle_num").html(belongCircleText);
 
 	$.ajax({
 		type: 'post',

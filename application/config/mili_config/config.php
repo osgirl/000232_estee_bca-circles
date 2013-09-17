@@ -220,6 +220,7 @@ $config['country_uri_abbr'] =
 		"sz" =>	"Swaziland",
 		"se" =>	"Sweden",
 		"ch" =>	'Switzerland',
+		"sy" =>	"Syria",
 		"tz" =>	"Tanzania, United Republic of",
 		"th" =>	"Thailand",
 		"tt" =>	"Trinidad and Tobago",
