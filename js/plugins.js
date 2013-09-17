@@ -854,14 +854,13 @@ $.extend(
         $($c + ' #popup_circle_header img').attr('src', baseUrl + 'img/flags/large/' + $d.country + '.png');
 
         //Hide edit user button
-        if (!v.is_user) $($c + ' .btn_edit').hide();
-        currentCircleViewIsUser = v.is_user;
+        if (!v.is_user) $($c + ' .btn_edit').html("create a circle");
         currentCircleView = $c;
 
         //Start bind
         $($c + ' .btn_edit').click(function()
         {
-            editFriends(v)
+            openCreateCircleScreen(v)
         });
         $($c + ' .btn_close').click(closeWindow);
         $($c + ' .btn_add_photo').click(addPhoto);
@@ -1240,7 +1239,7 @@ $.extend(
         if ($pagn.css('display') == 'block') navPhoto(e.type);
     };
 
-    function editFriends(v)
+    function openCreateCircleScreen(v)
     {
         currentCircleViewData = v;
         $('body').trigger('EDIT_FRIEND');

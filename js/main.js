@@ -81,7 +81,6 @@ var country = "united-states";
 var fakePhotoData;
 
 var currentCircleViewData;
-var currentCircleViewIsUser;
 var currentCircleView;
 
 var ismobile = false;
@@ -259,12 +258,13 @@ function translatePage(){
 
 				carousel.initCarousel();
 				gallery.loadGallery();
+				$.mainPreloader.loadComplete();	
 				
 
 
 				$('body').unbind("ALL_LAYOUT_CREATED").bind('ALL_LAYOUT_CREATED', function(){
 
-					$.mainPreloader.loadComplete();	
+					//$.mainPreloader.loadComplete();	
 
 					console.log("ALL LAYOUT AM I TRIGGER TWICE")
 
@@ -351,8 +351,18 @@ function enableEventBinds(){
 			gallery.refreshAsFakePhotoData(newlyUploadedPhotoData);
 	});
 
-	$('body').bind("EDIT_FRIEND", openEditFriend);
+	$('body').bind("EDIT_FRIEND", openCreateCircleScreenFromCircleView);
 
+}
+
+function openCreateCircleScreenFromCircleView(){
+
+	console.info("IS USER?", currentCircleViewData, currentCircleViewData.isUser)
+
+	if(currentCircleViewData.is_user)
+		openEditFriend();
+	else
+		openCreateCircleScreen(false);
 }
 
 function getLoginStatus(e){
@@ -406,7 +416,7 @@ function displayUserInfo(e){
 	$('.log_out_status').hide();
 	$('.log_in_status').show();
 
-    if(currentCircleViewIsUser) 
+    if(currentCircleViewData.is_user) 
     	$(currentCircleView + ' .btn_edit').show();
     else
     	$(currentCircleView + ' .btn_edit').hide();
@@ -631,7 +641,7 @@ function openEditFriend(){
 		curSelectedFriendID = v.fb_id;
 		curSelectedFriendPic = v.url;
 
-		console.log(curSelectedFriendName, curSelectedFriendID, curSelectedFriendPic);
+		console.info("friends data", curSelectedFriendName, curSelectedFriendID, curSelectedFriendPic);
 		addFriend();
 	})
 	
