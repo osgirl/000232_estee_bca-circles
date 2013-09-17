@@ -51,12 +51,6 @@
                             </span>
                             <span class="language_divider"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
                             <span class='top_sub_nav_item'>
-                                <span class="language_toggle_btn dropdown">
-                                    <?php include('top_popup/country_dropdown_view.php');?>
-                                </span>
-                            </span>
-                            <span class="language_divider"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
-                            <span class='top_sub_nav_item'>
                                 <span class='all_cap' style="vertical-align:center;" language_location="home" language_id="share" >share</span>
                                 <a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'facebook', referral:'site'})" style="margin-top:-1px" class='facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></a>
                                 <a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'twitter', referral:'site', hashtag_before_url:true})" style="margin-top:-1px" class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></a>

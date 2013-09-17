@@ -175,8 +175,8 @@ function directDonateLink(){
 })(jQuery);
 
 function windowResize(){
-	$('.language_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -80) + "px");
-	$('.country_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");
+	$('.language_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");
+	//$('.country_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");
 
 	if($(window).width() >= 980 ){
 		$('#regular_footer').show();
