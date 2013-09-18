@@ -1158,6 +1158,8 @@ function getUserCircleData(){
 
         	belongCircleText = belongCircleText.replace("#", circleNum);
 
+        	console.info(belongCircleText)
+
         	if(selectedLanguage == "en"){
         		belongCircleText = belongCircleText.replace("Circles", circlePlural);
         		$("#user_circle_num").html(belongCircleText);
