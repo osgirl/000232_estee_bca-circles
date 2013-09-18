@@ -275,7 +275,6 @@ function translatePage(){
 		languageData = e;
    		loadLanguageToElements(e);
 
-   		$.mainPreloader.loadComplete();
 
    		$("body").trigger("LANGUAGE_LOADED");
 
@@ -287,13 +286,9 @@ function translatePage(){
 
 				carousel.initCarousel();
 				gallery.loadGallery();
-				//$.mainPreloader.loadComplete();	
-				
 
 
 				$('body').unbind("ALL_LAYOUT_CREATED").bind('ALL_LAYOUT_CREATED', function(){
-
-					//$.mainPreloader.loadComplete();	
 
 					console.log("ALL LAYOUT AM I TRIGGER TWICE")
 

@@ -889,16 +889,13 @@ $.extend(
 
 
         updateBrowerProperties();
-
-        $(window).bind('resize scroll', function(e)
-        {
-
+        $(window).bind('resize scroll', windowResizeScrollEventlistener);
+        function windowResizeScrollEventlistener(e){ 
             if (e.type == 'resize')
             {
                 $margin_top = getMarginTop();
                 updateBrowerProperties();
             }
-
             $scroll_y = $(this).scrollTop() - $win_abs_y;
             $bound.w = $this.parent().outerWidth();
             $bound.l = $this.parent().offset().left;
@@ -907,6 +904,8 @@ $.extend(
             if ($bound.y > $margin_top && $padding_top == 0) $bound.y = $margin_top;
             $gap = ($(window).height() < $this.height()) ? $this.height() - $(window).height() : 0;
             $bound.top = $margin_top + $gap;
+
+
 
             if ($scroll_y < ($bound.top + $padding_top))
             {
@@ -933,7 +932,7 @@ $.extend(
             {
                 resizeCirclePhotosNav();
             }
-        });
+        };
 
         function getMarginTop()
         {
