@@ -344,6 +344,24 @@
 	background: #f2f2f2;
 }
 
+.popup #popup_photo_img_holder .btn_rotate{
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	width: 60px;
+	height: 60px;
+	background: #f38dab;
+	opacity: .8;
+	z-index: 3;
+	cursor: pointer;
+	display: none;
+	-webkit-border-radius:14px;
+	   -moz-border-radius:14px;
+		 -o-border-radius:14px;
+			border-radius:14px;
+
+}
+
 .popup #popup_photo_img_holder #message {
 	position: absolute;
 	margin: 16% auto 0;

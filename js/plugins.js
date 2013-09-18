@@ -327,8 +327,6 @@ $.extend(
         $($c + ' #popup_checkbox').click(toggleCheckbox);
         $($c + ' #popup_photo_desc_holder textarea').focus(descFocus);
         $($c + ' input[type=file]').change(fileChangeListener);
-
-        //TEMP rotate Bind 
         $($c + ' .btn_rotate').click(rotateImage);
 
         //IE9 or lower version fix (using a default file browse)
@@ -557,6 +555,10 @@ $.extend(
             'top': $top + 'px'
         });
         $($c + ' .btn_submit').css('opacity', 1);
+        
+        //Show rotate button 
+        if(!$('html').hasClass('lt-ie9'))
+            $('.btn_rotate').show();
         loadEnd();
     }
 
@@ -1677,7 +1679,7 @@ $.extend(
     {
         if (_label == undefined) _label = '';
         console.log(_category, _action, _label);
-        // _gaq.push(['_trackEvent', _category, _action, _label]);
+        _gaq.push(['_trackEvent', _category, _action, _label]);
         ga('send', 'event', _category, _action, _label);
     },
     gaPageview: function(_url)
