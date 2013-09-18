@@ -3,7 +3,6 @@ var translator = {};
 var translatedItem;
 var signInText;
 var signOutText;
-var createACircleText;
 var createAnotherCircleText;
 var goalTextArray;
 var belongCircleText;

@@ -105,13 +105,14 @@ function GalleryItem()
 			})
 		}
 
-		function placeCircleInAngles(parent, profileImageUrl, friendNum){
+		function placeCircleInAngles(parent, profileImageUrl, friendData, isUser){
 			$(parent).find('.point').remove();
 			$(parent).find('.profile_image_small').remove();
+			$(parent).find('.friend_image_small').remove();
 			var radius 	= 44.7,
 				cx 		= 47,
 				cy 		= 47,
-				steps 	= friendNum + 1,
+				steps 	= friendData.length + 1,
 				angle, x, y;
 
 			for(var i = 0; i < steps; i++){
@@ -119,22 +120,37 @@ function GalleryItem()
 				x = cx + radius * Math.cos(angle);
 				y = cy + radius * Math.sin(angle);
 
-				var dotClass = (i==0) ? 'profile_image_small' : 'point';
-				var dotItem = $('<div>')
+				var dotClass;
+				var dotItem = $('<div>');
+
+				if(i == 0){
+					dotClass = 'profile_image_small';
+				}else{
+
+					dotClass = (isUser) ? 'friend_image_small' : 'point';
+
+				}
+
 
 				dotItem
 					.addClass(dotClass)
 					.css({'left': x + "%", 'top': y + "%"})
 					.appendTo(parent);
 
-				if(i == 0) dotItem.css('background-image', 'url(' + profileImageUrl + ')');
+				if(i == 0) {
+					dotItem.css('background-image', 'url(' + profileImageUrl + ')');
+				}else if(i>0){
+					if(isUser) {
+						$(dotItem).css('background-image', 'url(' + friendData[i-1].url + ')');
+					}
+				}
 			}
 		}
 
 		function updateUserCirclePopupContent(circle, id, user_name, content, avatar, userID, friendData, country, isUser){
 			//console.log("updateUserCirclePopupContent", friendData);
 			//if(friendData != undefined)
-	        	placeCircleInAngles(circle.find('.circle_area'), avatar, friendData.length);
+	        	placeCircleInAngles(circle.find('.circle_area'), avatar, friendData, isUser);
 
 	        	circle.attr('is_user', isUser);	
 
@@ -211,7 +227,8 @@ function GalleryItem()
 				isUser = false;	
 			}
 
-			
+			console.info("populatecircle content", isUser)
+
 			updateUserCirclePopupContent(circle, data.circle_id, data.user_name, goalText, data.user_photo_url, data.user_id, data.friends_data, data.country, isUser);
 
 		},

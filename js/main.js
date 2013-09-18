@@ -101,6 +101,7 @@ var shareICreated;
 var createA;
 var createAText;
 var weWillText;
+var createACircleText;
 
 var photoLoaded = false;
 
@@ -141,7 +142,7 @@ function defineLanguageMenus(){
 	var country = selectedCountry;
 
     $("#language_menu li a").each(function(i,v){
-        $(v).attr("href", $(v).attr("href")+country);
+        $(v).attr("href", $(v).attr("href")+country + "/");
     });
 
      $("#country_menu li a").each(function(i,v){
@@ -398,11 +399,14 @@ function getLoginStatus(e){
 	$('.start_create_circle_btn').unbind('click').click(function(e){openCreateCircleScreen(false);})
 	
 	if(createCircleClicked) openCreateCircleScreen(false);
+	gallery.refreshCircles();
+	carousel.refreshCircles();
 
 }
 
 function getLogoutStatus(e){
 	//console.log("get logout status");
+	isLogin = false
 
 	friendProfileList = new Array();
 	$('#friend_search_field').off();
@@ -433,12 +437,15 @@ function getLogoutStatus(e){
 	$('.btn_edit').hide();
 
 	gallery.showAllCircles();
+	gallery.refreshCircles();
+	carousel.refreshCircles();
 
 	
 }
 
 function getLoginCancelStatus(){
 	gallery.showAllCircles();
+
 }
 
 function displayUserInfo(e){
