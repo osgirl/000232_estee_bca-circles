@@ -229,7 +229,6 @@ $config['country_uri_abbr'] =
 		"ae" =>	"United Arab Emirates",
 		"gb" =>	"United Kingdom",
 		"us" =>	"United States",
-		"um" =>	"US Minor Outlying Islands",
 		"uy" =>	"Uruguay",
 		"ve" =>	"Venezuela",
 		"vn" =>	"Viet Nam",
