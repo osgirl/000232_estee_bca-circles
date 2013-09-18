@@ -110,7 +110,7 @@ $(document).ready(function(){
 	
 	//sean: check the url first and redirect to en/us if the first parameter is NY.
     if(indexPage.split('/')[0] == "ny" ){
-    	$.gaPageview(/NY/);    	
+    	$.gaPageview(/NY/);
         location.replace(baseUrl + "en/us");
         return true;
     }

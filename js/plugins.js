@@ -98,9 +98,11 @@ $.extend(
         {
         case 'about':
             u = "popup/about/";
+            $.gaPageview(indexPage +'about/');
             break;
         case 'video':
             u = "popup/video/";
+            $.gaPageview(indexPage +'video/');
             break;
         case 'photo':
             u = "popup/photo/";
@@ -119,9 +121,11 @@ $.extend(
             break;
         case 'privacy_policy':
             u = "popup/privacy_policy/";
+            $.gaPageview(indexPage +'privacy_policy/');
             break;
         case 'terms_and_conditions':
             u = "popup/terms_and_conditions/";
+            $.gaPageview(indexPage +'terms_and_conditions/');
             break;
         }
         if ($isCircle)
@@ -823,7 +827,6 @@ $.extend(
         $this.attr('cid', $d.id);
         $d.child = true;
         if ($d.circle_id == null) $d.circle_id = $d.id;
-
 
         //Disable lazyLoader first
         gallery.disableLazyloader();

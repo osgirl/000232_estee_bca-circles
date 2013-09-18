@@ -57,7 +57,7 @@
 
 .popup_round_button {
 	display: inline-block;
-	width: 110px;
+	width: 125px;
 	height: 28px;
 	margin: 0 3px;
 	padding: 0;
@@ -514,7 +514,7 @@
 .popup #popup_circle_detail_holder{
 	position: relative;
 	max-width: 100%;
-	padding: 30px 30px 60px 30px;
+	padding: 30px 5px 60px;
 	clear: both;
 }
 
@@ -1010,6 +1010,11 @@
 		width: 32px;
 		height: 32px;
 		top: 2px;
+	}
+
+	.popup #popup_circle_detail_holder{
+		padding-left: 30px; 
+		padding-right: 30px; 
 	}
 
 	.popup #popup_circle_modal #avatar{

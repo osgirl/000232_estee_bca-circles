@@ -1,10 +1,7 @@
 <div class="popup" id="popup_circle">
 <div id="popup_circle_header"><p>John long name Doe's Circle of Strength</p><span><img/></span></div>
 	<div id="popup_circle_detail_holder">
-		<div class="popup_round_button btn_edit" id="popup_btn_pink" language_id="edit_friends" language_location="circle_view" >
-		<!-- <div class="pink_btn" id="edit_friends_btn"> -->
-			EDIT FRIENDS
-		</div>
+		<div class="popup_round_button btn_edit" id="popup_btn_pink" language_id="edit_friends" language_location="circle_view" >EDIT FRIENDS</div>
 		<div class="btn_close"></div>
 		<div id="popup_circle_modal">
 			<div id="dot_container">
