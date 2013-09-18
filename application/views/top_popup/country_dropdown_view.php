@@ -367,8 +367,8 @@
         </a>
     </li>
     <li>
-        <a id="c_kp" href="<?=base_url()?>en/kp">
-            <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/kp.png' />
+        <a id="c_kr" href="<?=base_url()?>en/kr">
+            <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/kr.png' />
             <span class="country">Korea</span>
         </a>
     </li>
