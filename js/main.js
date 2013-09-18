@@ -1156,12 +1156,13 @@ function getUserCircleData(){
         		$('#create_another_circle').html(createACircleText);
         	}
 
+        	belongCircleText = belongCircleText.replace("#", circleNum);
+
         	if(selectedLanguage == "en"){
-        		$('#circle_num').html(circleNum + circlePlural);
+        		belongCircleText = belongCircleText.replace("Circles", circlePlural);
+        		$("#user_circle_num").html(belongCircleText);
         	}else{
 
-
-        		belongCircleText = belongCircleText.replace("#", circleNum);
         		$("#user_circle_num").html(belongCircleText);
 
         		console.log("circle number", belongCircleText, circleNum)
