@@ -593,7 +593,6 @@ $.extend(
 
         if(Modernizr.canvas){
             //CSS3 transition
-            
             //Center image first berfore rotation (Do not use $orientation, always get the current image dimension)
             if ($img.width() > $img.height())
             { // landscape
@@ -646,9 +645,7 @@ $.extend(
 
     function rotateImage()
     {           
-
         updateImageBound();
-
     }
 
     function saveFile()
@@ -735,9 +732,10 @@ $.extend(
                         filePath: $preview_img_path,
                         x: $l,
                         y: $t,
+                        deg: $img_deg,
                         desc: $desc,
                         circleId: $circle_id,
-                        usersFbId: $users_fb_id
+                        usersFbId: $users_fb_id,
                     },
                     success: function(data)
                     {
@@ -759,7 +757,6 @@ $.extend(
 
     function saveFileSuccess(data, des)
     {
-
         loadEnd();
         //alert('Image saved successfully.');
         if ($('#popup_circle').length != 0)

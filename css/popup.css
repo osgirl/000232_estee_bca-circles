@@ -273,9 +273,11 @@
 
 /*Photo upload*/
 .popup#popup_photo_upload {
+	position: relative;
 	width: 300px;
 	height: 435px;
 	font: 11px/14px Helvetica, Arial, sans-serif;
+	overflow: hidden;
 }
 
 .popup#popup_photo_upload .popup_round_button {
