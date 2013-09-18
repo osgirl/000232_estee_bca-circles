@@ -354,8 +354,6 @@ function Gallery()
 	            }
 
 	            allCircleDataStorage.push(v);
-
-	            console.info("saved data", allCircleDataStorage);
 	            
 			});
 
@@ -428,7 +426,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		};
 
 		function onFetchCircles($circles){
-		console.info("onFetchCircles", $circles);
 
 			$($circles).each(function(i,v){
 				circleDataStorage.push(v);
@@ -495,9 +492,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				 	
 					 	sortByTimestamp(allPhotoData);
 
-					 	console.info("all photo data", allPhotoData)
-
-
 					 	if(allPhotoData.length >= photoSum ){
 					 		notEnoughPhoto = false;
 			 				ored.masterFeed = allPhotoData;
@@ -510,8 +504,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 						 	notEnoughPhoto = true;
 						 	morePhotoCount--;
-
-						 	console.info("hmmm", photoSum, allPhotoData.length)
 
 						 	restNum = photoSum - allPhotoData.length;
 
@@ -1166,7 +1158,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 			if(circleEnd) restCount++;
 
-
 		}
 
 
@@ -1196,9 +1187,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		*/
 		
 		loadGallery: function(){
-
-
-
 			$(window).scrollTop(0);
 
 			gallery_container = $('#feed_magnet');
@@ -1281,21 +1269,22 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 		showAllCircles: function(){
 			if(currentFilterType == "friend") filterButtonSelected($('#filter_all_btn'));
-			
 		},
 
 		refreshCircles: function(){
+
+
 			if(currentFilterType == "all"){
 				$(".gallery_circle").each(function(i,v){
-					galleryItem.populateCircleContent($(v), allCircleDataStorage[i]);
+					if(allCircleDataStorage[i]) galleryItem.populateCircleContent($(v), allCircleDataStorage[i]);
 				});
 			}else if(currentFilterType == "circle"){
 				$(".gallery_circle").each(function(i,v){
-					galleryItem.populateCircleContent($(v), circleDataStorage[i]);
+					if(circleDataStorage[i]) galleryItem.populateCircleContent($(v), circleDataStorage[i]);
 				});
 			}
-			
 		},
+
 
 
 		/**

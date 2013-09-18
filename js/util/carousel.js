@@ -233,7 +233,7 @@ function Carousel()
 		refreshCircles: function(){
 
 			$(".feature_circle").each(function(i,v){
-				galleryItem.populateCircleContent($(v), circleDataStorage[i]);
+				if(circleDataStorage[i]) galleryItem.populateCircleContent($(v), circleDataStorage[i]);
 			});
 			
 		},

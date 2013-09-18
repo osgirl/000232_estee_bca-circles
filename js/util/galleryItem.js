@@ -150,6 +150,7 @@ function GalleryItem()
 		function updateUserCirclePopupContent(circle, id, user_name, content, avatar, userID, friendData, country, isUser){
 			//console.log("updateUserCirclePopupContent", friendData);
 			//if(friendData != undefined)
+
 	        	placeCircleInAngles(circle.find('.circle_area'), avatar, friendData, isUser);
 
 	        	circle.attr('is_user', isUser);	
@@ -227,14 +228,12 @@ function GalleryItem()
 				isUser = false;	
 			}
 
-			console.info("populatecircle content", isUser)
-
 			updateUserCirclePopupContent(circle, data.circle_id, data.user_name, goalText, data.user_photo_url, data.user_id, data.friends_data, data.country, isUser);
 
 		},
 
 		updateUserCirclePopupContent:function(circle, id, user_name, content, avatar, userID, friendData, country, isUser){
-			updateUserCirclePopupContent(circle, id, content, avatar, userID, friendData, isUser);
+			updateUserCirclePopupContent(circle, id, user_name, content, avatar, userID, friendData, country, isUser);
 			
 		},
 

@@ -1522,10 +1522,11 @@ function updateFriends(){
 					var updatedCircle;
 
 					$('.circle_container').each(function(i,v){
+						console.info("friend updated, checking circle id", $(v).attr('circle_id'), currentCircleViewData.id)
 						if($(v).attr('circle_id') == currentCircleViewData.id){
 							updatedCircle = $(v);
-							galleryItem.updateUserCirclePopupContent(updatedCircle, circle_id, user_name, circle_content, circle_photo, userID, friendsData, country, true);
 
+							galleryItem.updateUserCirclePopupContent(updatedCircle, circle_id, updatedCircle.attr("user_name"), circle_content, circle_photo, updatedCircle.attr("user_id"), friendsData, updatedCircle.attr("country"), true);
 						}
 					})
 

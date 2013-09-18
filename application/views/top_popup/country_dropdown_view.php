@@ -701,12 +701,6 @@
         </a>
     </li>
     <li>
-        <a id="c_um" href="<?=base_url()?>en/um/">
-            <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/um.png' />
-            <span class="country">US Minor Outlying Islands</span>
-        </a>
-    </li>
-    <li>
         <a id="c_uy" href="<?=base_url()?>en/uy/">
             <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/uy.png' />
             <span class="country">Uruguay</span>
