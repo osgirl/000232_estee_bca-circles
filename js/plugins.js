@@ -824,13 +824,6 @@ $.extend(
         $d.child = true;
         if ($d.circle_id == null) $d.circle_id = $d.id;
 
-        // THIS IS FRIEND'S DATA!
-        // THIS IS FRIEND'S DATA!
-        // THIS IS FRIEND'S DATA!
-        console.log($d.friends_data);
-        // THIS IS FRIEND'S DATA!
-        // THIS IS FRIEND'S DATA!
-        // THIS IS FRIEND'S DATA!
 
         //Disable lazyLoader first
         gallery.disableLazyloader();
@@ -843,7 +836,7 @@ $.extend(
         $($c + ' #popup_circle_header img').attr('src', baseUrl + 'img/flags/large/' + $d.country + '.png');
 
         //Hide edit user button
-        if (!v.is_user) $($c + ' .btn_edit').html(createACircleText);
+        if (!$d.is_user) $($c + ' .btn_edit').html(createACircleText);
         currentCircleView = $c;
 
         //Start bind
@@ -986,7 +979,7 @@ $.extend(
             $cy = 0,
             $count = 1,
             $parent = $($c + ' #dot_container'),
-            $i, $angle, $x, $y;
+            $dot, $i, $angle, $x, $y;
 
         for ($i = 0; $i < $steps; $i++)
         {
@@ -996,12 +989,18 @@ $.extend(
 
             if ($i != 0)
             {
-                // $('<div class="dot"><img src="' + baseUrl + 'img/popups/circle/dot.png"/></div>').css(
-                $('<div class="dot"/>').css(
+                if (!$d.is_user){
+                    $dot = $('<div class="dot"/>');
+                }
+                else{                    
+                    $dot = $('<div class="friend_avatar"/>').append($('<img src="'+ $d.friends_data[$i-1].url +'"/>'));
+                }
+                $dot.css(
                 {
                     'left': $x + '%',
                     'top': $y + '%'
-                }).appendTo($parent).hide().delay($i * 100).show(500, function()
+                })
+                .appendTo($parent).hide().delay($i * 100).show(500, function()
                 {
                     $count++;
                     if ($count == $steps) loadCirclePhotos();
