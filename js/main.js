@@ -190,8 +190,8 @@ function directDonateLink(){
 })(jQuery);
 
 function windowResize(){
-	$('#language_menu').css('left', (($(window).width() < 980) ? 0 : -30) + "px");
-	$('#country_menu').css('left', (($(window).width() < 980) ? -140 : -177) + "px");
+	$('#language_menu').css('left', (($(window).width() < 640) ? -60 : -30) + "px");
+	$('#country_menu').css('left', (($(window).width() < 640) ? -240 : -177) + "px");
 
 	if($(window).width() >= 980 ){
 		$('#regular_footer').show();

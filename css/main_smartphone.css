@@ -43,10 +43,6 @@
 /* ===============
     Smartphone (480px)
    =============== */
-
-   .language_name, .sign_in_btn{
-		letter-spacing: 1px;
-	}
   
     #content_wrap{
 	  	max-width:480px;
@@ -354,6 +350,12 @@
 /* ===============
     Smartphone (640px)
    =============== */
+
+   #language_tool{
+		clear:none; 
+		float:left;
+		margin:0 0 0 15px ;
+	}
 
 	.photo_container{
 		height:290px;

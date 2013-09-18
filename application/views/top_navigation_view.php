@@ -15,20 +15,23 @@
 					</span>
 					<span id="collapse_share_module" class='top_sub_nav_item pull-left vertical_mode_show'>
                     	<a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'facebook', referral:'site'})" style="margin-right:5px;" class='facebook_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/facebook-large.png'/></a>
-						<a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'twitter', referral:'site', hashtag_before_url:true})" class='twitter_share_btn pull-left'><img src='<?php echo base_url(); ?>img/icons/twitter-mid.png'/></a>
+						<a href="#" onclick="$.popup_share({post_type:'page', url:'', type:'twitter', referral:'site', hashtag_before_url:true})" class='twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter-mid.png'/></a>
 					</span>
-					<span class="pull-left vertical_mode_show" style="margin:0px 6px 0 6px;"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
-					<span id="mobile_language_dropdown" class='top_sub_nav_item pull-left vertical_mode_show'>   
-                        <span class="language_toggle_btn dropdown">
-                            <?php include('top_popup/language_dropdown_view.php');?>
+
+                    <div id="language_tool">
+                    
+    					<span id="mobile_language_dropdown" class='top_sub_nav_item vertical_mode_show' style="float:left">   
+                            <span class="language_toggle_btn dropdown">
+                                <?php include('top_popup/language_dropdown_view.php');?>
+                            </span>
                         </span>
-                    </span>
-                    <span class="language_divider vertical_mode_show" style="margin-left:5px"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
-                    <span class='top_sub_nav_item vertical_mode_show' style="margin-left:5px">
-                        <span class="language_toggle_btn dropdown">
-                            <?php include('top_popup/country_dropdown_view.php');?>
+                        <span class="language_divider vertical_mode_show" style="margin-left:5px; float:left"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
+                        <span class='top_sub_nav_item vertical_mode_show' style="margin-left:5px; float:left">
+                            <span class="language_toggle_btn dropdown">
+                                <?php include('top_popup/country_dropdown_view.php');?>
+                            </span>
                         </span>
-                    </span>
+                    </div>
 
 
                     <div class="nav-collapse collapse">

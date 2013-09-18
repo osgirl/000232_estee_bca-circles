@@ -1870,6 +1870,12 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8e8e8', endColorstr='#e8e8e8', GradientType=0);
 }
 
+#language_tool{
+	clear:both; 
+	float:right;
+	margin:-25px 5px 0 0;
+}
+
 .language_menu_dropdown {
 	font-family: Arial, 'Arial', arial, sans-serif;
 	font-size: 1em;
@@ -1888,10 +1894,6 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	min-width: 120px;
 	left:-30px;
 	padding-bottom:10px;
-}
-
-.language_name, .sign_in_btn{
-	letter-spacing: 0px;
 }
 
 #country_menu img{
