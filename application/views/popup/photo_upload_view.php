@@ -25,6 +25,7 @@
 				<img src="<?= base_url(); ?>img/popups/icons/ico_photo_upload-preview.png"/>
 				<p language_id="who_makes_you_stronger" language_location="upload_photo" >Who makes you stronger? Upload a photo to show us your Circle of Strength.</p>
 			</div>
+			<div class="btn_rotate"></div>
 			<div id ="holder">
 			</div>
 			<span id="anim_loading"></span>
@@ -36,8 +37,7 @@
 			<input type="hidden" id="circle_id" name="circle_id" value="<? echo $circle_id?>">
 			<input type="hidden" id="users_fb_id" name="users_fb_id" value="<? echo $users_fb_id?>">
 			<div id="button_wrapper">
-				<input name="uploadFile" type="file" class="hidden" id="uploadFile"/>
-				<div class="popup_round_button btn_rotate" id="popup_btn_pink" language_id="rotate" language_location="upload_photo" >ROTATE</div>
+				<input name="uploadFile" type="file" class="hidden" id="uploadFile"/>				
 				<div class="popup_round_button btn_browse" id="popup_btn_pink" language_id="browse" language_location="upload_photo" >BROWSE</div>
 				<div class="popup_round_button btn_cancel" id="popup_btn_pink" language_id="cancel" language_location="upload_photo" >CANCEL</div>
 				<div class="popup_round_button btn_submit dim" id="popup_btn_pink" language_id="submit" language_location="upload_photo" >SUBMIT</div>

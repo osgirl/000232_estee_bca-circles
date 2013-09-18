@@ -25,7 +25,7 @@
 	</div>
 	<div id="popup_circle_photo_holder">
 		<div id="popup_circle_photo_button_wrapper">
-			<span language_id="circle_of_strengh_photos" language_location="circle_view" class="all_cap" >Share comments and photos with your circle</span>
+			<span language_id="circle_of_strengh_photos" language_location="circle_view" class="all_cap"></span>
 			<div class="popup_round_button btn_add_photo" id="popup_btn_pink" language_id="add_photos" language_location="circle_view" >
 				ADD PHOTOS
 			</div>			
