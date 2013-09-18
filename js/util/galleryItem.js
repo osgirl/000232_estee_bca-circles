@@ -377,6 +377,7 @@ function GalleryItem()
 
 			console.debug('PHOTO_LOADED');
 			photoLoaded = true;
+			$.mainPreloader.loadComplete();
 
 			// $('.photo_container').each(function(i,v){
 			// 	if($(v).html() == "") $(v).hide();
