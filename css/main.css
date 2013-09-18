@@ -196,13 +196,10 @@ h2{
 	outline: 0 none;
 }
 
-.lt-ie9 #mobile_language_dropdown{
-	width:16%;
-}
-
 .lt-ie9 .language_menu_dropdown li{
 	text-align: left;
 	float:left;
+	width:100%;
 }
 
 .navbar-inner{
@@ -1803,6 +1800,7 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 
 .lt-ie9 .view_circle_btn{
 	display:none;
+	margin-bottom:10px;
 }
 
 .pink_btn:hover{
@@ -1910,10 +1908,6 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 
 #country_menu .country_flag{
 	margin-right:10px;
-}
-
-::-webkit-scrollbar-thumb:vertical {
-background-color: #f38dab;
 }
 
 

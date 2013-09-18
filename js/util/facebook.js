@@ -64,7 +64,7 @@ facebook.fetchFriendlist = function( _callback ){
 
 	    	
 
-			console.log("friendlist reset?", friendProfileList)
+			//console.log("friendlist reset?", friendProfileList)
 
 	        $(fbresponse.data).each( function(index,value){
 				var friendObj = new Object();

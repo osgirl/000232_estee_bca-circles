@@ -26,7 +26,7 @@
                             </span>
                         </span>
                         <span class="language_divider vertical_mode_show" style="margin-left:5px; float:left"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
-                        <span class='top_sub_nav_item vertical_mode_show' style="margin-left:5px; float:left">
+                        <span id="mobile_country_dropdown" class='top_sub_nav_item vertical_mode_show' style="margin-left:5px; float:left">
                             <span class="language_toggle_btn dropdown">
                                 <?php include('top_popup/country_dropdown_view.php');?>
                             </span>

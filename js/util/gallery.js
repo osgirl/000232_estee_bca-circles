@@ -322,8 +322,6 @@ function Gallery()
 			if(!circleEnd){
 				$('body').unbind('ALL_LAYOUT_SINGLE_CREATED').bind('ALL_LAYOUT_SINGLE_CREATED', function(){ 
 
-					console.log("CIRCLE IS NOT END DAMN IT", JSON.stringify(data))
-
 				$.ajax({
 			        		type: 'post',
 			            	url: baseUrl + indexPage + 'circle/fetchAllCircles',
