@@ -43,6 +43,10 @@
 /* ===============
     Smartphone (480px)
    =============== */
+
+   .language_name, .sign_in_btn{
+		letter-spacing: 1px;
+	}
   
     #content_wrap{
 	  	max-width:480px;
@@ -282,7 +286,7 @@
 	}
 
 	.feature_photo .twitter_author{
-		font-size:1em;
+		font-size:.8em;
 	}
 
 	.feature_photo .twitter_time{

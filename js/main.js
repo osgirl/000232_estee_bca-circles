@@ -191,7 +191,7 @@ function directDonateLink(){
 
 function windowResize(){
 	$('#language_menu').css('left', (($(window).width() < 980) ? 0 : -30) + "px");
-	$('#country_menu').css('left', (($(window).width() < 980) ? 0 : -177) + "px");
+	$('#country_menu').css('left', (($(window).width() < 980) ? -140 : -177) + "px");
 
 	if($(window).width() >= 980 ){
 		$('#regular_footer').show();

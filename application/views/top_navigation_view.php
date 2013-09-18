@@ -23,8 +23,8 @@
                             <?php include('top_popup/language_dropdown_view.php');?>
                         </span>
                     </span>
-                    <span class="language_divider vertical_mode_show pull-left" style="margin-left:5px"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
-                    <span class='top_sub_nav_item vertical_mode_show pull-left' style="margin-left:5px">
+                    <span class="language_divider vertical_mode_show" style="margin-left:5px"><img src='<?php echo base_url(); ?>img/assets/btn-divider.png' /></span>
+                    <span class='top_sub_nav_item vertical_mode_show' style="margin-left:5px">
                         <span class="language_toggle_btn dropdown">
                             <?php include('top_popup/country_dropdown_view.php');?>
                         </span>
