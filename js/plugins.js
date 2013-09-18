@@ -310,7 +310,7 @@ $.extend(
  ******************************************/
 (function($)
 {
-    var $c, $agr, $desc_active, $preview_img_path, $circle_id, $users_fb_id, $parent, $img_deg;
+    var $c, $agr, $desc_active, $preview_img_path, $circle_id, $users_fb_id, $parent, $img_deg, $orientation;
     $.fn.init_upload = function()
     {
         $c = '.' + $(this).attr('class');
@@ -482,6 +482,7 @@ $.extend(
 
         if (img.width > img.height)
         { // landscape
+            $orientation = 'landscape';
             $ratio = $length / img.height;
             $left = (img.width * $ratio - $length) *-.5;
 
@@ -494,6 +495,7 @@ $.extend(
         }
         else if (img.width < img.height)
         { // portrait
+            $orientation = 'portrait';
             $ratio = $length / img.width;
             $top = (img.height * $ratio - $length) *-.5;
             $(img).draggable(
@@ -505,6 +507,7 @@ $.extend(
         }
         else
         { //square
+            $orientation = 'square';
             $ratio = $length / img.width;
             $parent.removeClass('scroll_y').removeClass('scroll_x');
         }
@@ -559,8 +562,11 @@ $.extend(
 
     function updateImageBound()
     {
-        var $bound  = $($c + ' #bound'),
+        var $length = $parent.parent().width(),
+            $bound  = $($c + ' #bound'),
             $img    = $parent.children('img'),
+            $iw     = $img.width(),
+            $ih     = $img.height(),            
             $i_minw = $img.css('min-width'),
             $i_minh = $img.css('min-height'),
             $i_maxw = $img.css('max-width'),
@@ -573,7 +579,7 @@ $.extend(
             $bt     = $bound.css('top'),
             _deg;
 
-        $img_deg += 45;
+        $img_deg += 90;
         $img_deg %= 360;
 
         //Rotate bound area
@@ -584,22 +590,27 @@ $.extend(
             'top': $bl,
         });
 
-        //Rotate image
-        $img.css({
-            /*'min-width': $i_minh,
-            'min-height': $i_minw,
-            'max-width': $i_maxh,
-            'max-height': $i_maxw,*/
-            // 'left': 0,
-            // 'top': 0
-        });
 
         if(Modernizr.canvas){
             //CSS3 transition
-            console.debug($img_deg);
-            _deg = 'rotate(' + $img_deg +'deg)';
-            console.debug(_deg);
+            
+            //Center image first berfore rotation (Do not use $orientation, always get the current image dimension)
+            if ($img.width() > $img.height())
+            { // landscape
+                $img.css({
+                    'left': ($img.width()- $length) *-.5,
+                    'top' : 0
+                });
+            }
+            else if ($img.width() < $img.height())
+            { // portrait
+                $img.css({
+                    'left': 0,
+                    'top': ($img.height()- $length) *-.5
+                });
+            }
 
+            _deg = 'rotate(' + $img_deg +'deg)';
             $img.css({
                 '-webkit-transform': _deg,
                 '-moz-transform': _deg,
@@ -631,54 +642,6 @@ $.extend(
             });
         }
 
-            // $(img).draggable(
-            // {
-            //     containment: $bound,
-            //     axis: "x"
-            // });
-            // $parent.addClass('scroll_x').removeClass('scroll_y');
-
-
-
-        // $img.draggable( axis: 'y');
-
-
-
-        // if (canvas != null)
-        // {   
-
-
-
-            
-            // $parent.css('-webkit-transform', 'rotate(90deg)');
-            // $parent.find('img').css('-webkit-transform', 'rotate(90deg)');
-            // $($c + ' #bound').css('-webkit-transform', 'rotate(90deg)');
-            // $parent.find('div').remove();
-            
-            // $parent.find('img').unbind('draggable').draggable(
-            // {
-            //     containment: $($c + ' #bound'),
-            //     axis: "y"
-            // });
-
-            // // console.log($parent.find('div').width());
-
-            // $parent.addClass('scroll_y').removeClass('scroll_x');
-
-            // var ctx = canvas.getContext('2d');
-            // var new_img = new Image();
-            // new_img.src = img;
-            // // canvas.width = $length;
-            // // canvas.height = $length;
-            // // ctx.setTransform(1, 0, 0, 1, 0, 0);
-            // // console.log(canvas.width);
-            // // console.log(canvas.height);
-            // ctx.clearRect(0, 0, canvas.width, canvas.height);
-            // ctx.rotate(.5);
-            // ctx.drawImage(new_img, 10, 0, 300, 300);
-
-            // createImageBound(new_img, canvas)
-        // }
     }
 
     function rotateImage()
@@ -704,15 +667,42 @@ $.extend(
             loadStart();
             if ($('#imageCanvas').length)
             {
-                $('<canvas id="outputCanvas"></canvas>').appendTo($parent);
+                $('<canvas id="outputCanvas" style="z-index:-1"></canvas>').appendTo($parent);
                 var canvas = document.getElementById('outputCanvas');
                 var ctx = canvas.getContext('2d');
                 canvas.width = $length;
                 canvas.height = $length;
-                ctx.drawImage($($img)[0], $l, $t, $w, $h);
+                ctx.translate(canvas.width/2, canvas.height/2);
+                ctx.rotate($img_deg * Math.PI/180);
+                ctx.translate(-canvas.width/2,-canvas.height/2);
+                
+                //rule by degree
+                console.debug('orientation: ' + $orientation);
+                switch($img_deg){
+                    case 0:
+                        ctx.drawImage($($img)[0], $l, $t, $w, $h);
+                        break;
+                    case 90:
+                        if($orientation == 'portrait')
+                            ctx.drawImage($($img)[0], 0, $t-$l, $w, $h);
+                        else
+                            ctx.drawImage($($img)[0], $l+$t, 0, $w, $h);
+                        break;
+                    case 180:
+                        if($orientation == 'portrait')
+                            ctx.drawImage($($img)[0], 0 , $t*-1 - ($h-$length), $w, $h);
+                        else
+                            ctx.drawImage($($img)[0], $l*-1 - ($w-$length) , $t, $w, $h);
+                        break;
+                    case 270:
+                        if($orientation == 'portrait')
+                            ctx.drawImage($($img)[0], 0, $t+$l, $w, $h);
+                        else
+                            ctx.drawImage($($img)[0], $l-$t, 0, $w, $h);
+                        break;
+                }
 
                 var canvasData = canvas.toDataURL("image/png");
-                // $parent.remove(canvas);
                 $.ajax(
                 {
                     type: 'post',
