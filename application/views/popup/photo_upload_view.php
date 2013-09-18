@@ -25,7 +25,7 @@
 				<img src="<?= base_url(); ?>img/popups/icons/ico_photo_upload-preview.png"/>
 				<p language_id="who_makes_you_stronger" language_location="upload_photo" >Who makes you stronger? Upload a photo to show us your Circle of Strength.</p>
 			</div>
-			<div class="btn_rotate">R</div>
+			<div class="btn_rotate"></div>
 			<div id ="holder">
 			</div>
 			<span id="anim_loading"></span>

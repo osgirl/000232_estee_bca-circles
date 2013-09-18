@@ -450,7 +450,7 @@ $.extend(
 
         //remove old input element and create a new one
         $($c + ' input[type=file]').unbind('fileChangeListener').remove();
-        // $('<input name="uploadFile" type="file" class="file" id="uploadFile"/>').prependTo($($c + ' #button_wrapper'));
+        $('<input name="uploadFile" type="file" class="hidden" id="uploadFile"/>').prependTo($($c + ' #button_wrapper'));
         $($c + ' input[type=file]').change(fileChangeListener);
 
         //Load image to html
