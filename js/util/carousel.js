@@ -43,6 +43,8 @@ function Carousel()
 
 		var featurePhotoData;
 
+		var circleDataStorage = new Array();
+
 		//--------------------------------------
 		//+ PRIVATE & PROTECTED INSTANCE METHODS
 		//--------------------------------------
@@ -83,7 +85,7 @@ function Carousel()
 		function parseFeatureCircleData(data){
 			var feed;
 
-			$(data).each(function(i){
+			$(data).each(function(i,v){
 				feed = data[i].data;
 
 				console.log("feature circle", feed)
@@ -99,7 +101,9 @@ function Carousel()
 	            	},
 	            	success: function(feedData) { 
 
-	            		console.log("CAROUSLE CIRCLE IS FINE")
+	            		circleDataStorage.push(feedData);
+
+	            		console.info("feature cirlce", circleDataStorage)
 
 						galleryItem.populateCircleContent($(circleDiv), feedData);
 						galleryItem.enableShareButton($(circleDiv));
@@ -224,6 +228,14 @@ function Carousel()
 		windowResize: function(){
 			carouselItemWidth = $('#carousel_slider').width()/3;
 			onDotSelected(0);
+		},
+
+		refreshCircles: function(){
+
+			$(".feature_circle").each(function(i,v){
+				galleryItem.populateCircleContent($(v), circleDataStorage[i]);
+			});
+			
 		},
 
 		

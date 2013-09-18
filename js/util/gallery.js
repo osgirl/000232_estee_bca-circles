@@ -88,6 +88,9 @@ function Gallery()
 
 		var restPhotoCount = 0;
 		var restPhotoArray = new Array();
+
+		var allCircleDataStorage = new Array();
+		var circleDataStorage = new Array();
 		
 
 
@@ -314,8 +317,6 @@ function Gallery()
 			}
 			var data = ored.getIdsFromFeed($data, "circles");
 
-			console.log("parseAllCircleData", circleEnd, oneCircle);
-
 			createAllLayout();
 
 			if(!circleEnd){
@@ -351,6 +352,10 @@ function Gallery()
 	            if(i == $circles.length - 1 )	{
 	            	$('body').trigger('ALL_LAYOUT_CREATED');
 	            }
+
+	            allCircleDataStorage.push(v);
+
+	            console.info("saved data", allCircleDataStorage);
 	            
 			});
 
@@ -426,6 +431,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		console.info("onFetchCircles", $circles);
 
 			$($circles).each(function(i,v){
+				circleDataStorage.push(v);
+
         		$.ajax({
 	        		type: 'get',
 	            	url: baseUrl + indexPage + 'layout/loadLayoutCircle',
@@ -895,6 +902,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			restCount = 0;
 			pageNum = 1;
 			current_add_layout = 1;
+			allCircleDataStorage = new Array();
+		    circleDataStorage = new Array();
 			$.feed.reset();
 			currentFilterType = btn.attr('type');
 			if(currentFilterType == "all") pageNum = 2;
@@ -1272,6 +1281,19 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 		showAllCircles: function(){
 			if(currentFilterType == "friend") filterButtonSelected($('#filter_all_btn'));
+			
+		},
+
+		refreshCircles: function(){
+			if(currentFilterType == "all"){
+				$(".gallery_circle").each(function(i,v){
+					galleryItem.populateCircleContent($(v), allCircleDataStorage[i]);
+				});
+			}else if(currentFilterType == "circle"){
+				$(".gallery_circle").each(function(i,v){
+					galleryItem.populateCircleContent($(v), circleDataStorage[i]);
+				});
+			}
 			
 		},
 

@@ -124,6 +124,12 @@
 	margin-right:0;
 }
 
+	.friend_image_small{
+		width:40px;
+		height:40px;
+		background-size: 50px auto;
+	}
+
 
    /*OVERLAYS*/
 	.overlay{
@@ -696,6 +702,12 @@
 	#friend_photos_container{
 		width:85%;
 		height:330px;
+	}
+
+	.friend_image_small{
+		width:50px;
+		height:50px;
+		background-size: 60px auto;
 	}
 
 }

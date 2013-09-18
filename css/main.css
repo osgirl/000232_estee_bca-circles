@@ -842,7 +842,7 @@ h2{
 
 
 .feature_photo .twitter_author{
-	font-size:.8em;
+	font-size:.6em;
 }
 
 .feature_photo .twitter_time{
@@ -917,6 +917,23 @@ h2{
 	position:absolute;
 	margin-left:-22px;
 	margin-top:-25px;
+}
+
+.friend_image_small{
+	float:left;
+	-moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -khtml-border-radius: 50%;
+    border-radius: 50%;	
+    
+	width:30px;
+	height:30px;
+	background:center center no-repeat;
+	background-color:#ede1e4;
+	background-size: 40px auto;
+	position:absolute;
+	margin-left:0px;
+	margin-top:0px;
 }
 
 .lt-ie9 .profile_image_small{
