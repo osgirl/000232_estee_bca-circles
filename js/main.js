@@ -138,14 +138,14 @@ $(document).ready(function(){
 });
 
 function defineLanguageMenus(){
-	var country = "<?= $this->config->item('country_abbr')?>";
+	var country = selectedCountry;
 
     $("#language_menu li a").each(function(i,v){
         $(v).attr("href", $(v).attr("href")+country);
     });
 
      $("#country_menu li a").each(function(i,v){
-        var language = "<?= $this->config->item('language_abbr')?>";
+        var language = selectedLanguage;
         var url = $(v).attr("href").replace("en", selectedLanguage);
         $(v).attr("href", url);
     });
