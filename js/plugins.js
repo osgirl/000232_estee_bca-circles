@@ -844,7 +844,7 @@ $.extend(
         $($c + ' #popup_circle_header img').attr('src', baseUrl + 'img/flags/large/' + $d.country + '.png');
 
         //Hide edit user button
-        if (!v.is_user) $($c + ' .btn_edit').html("create a circle");
+        if (!v.is_user) $($c + ' .btn_edit').html(createACircleText);
         currentCircleView = $c;
 
         //Start bind
