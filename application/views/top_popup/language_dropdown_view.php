@@ -1,5 +1,3 @@
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?cachebuster=<?= $cacheBuster; ?>"></script>  
-
 <span class="dropdown-toggle all_cap" data-toggle="dropdown">
     <span class="language_name" style="display:inline-block;vertical-align:center;"></span>    
     <span class='language_arrow'><img style="display:inline-block; width:10px" src='<?php echo base_url(); ?>img/icons/language-arrow.png'/> </span>
@@ -51,11 +49,3 @@
         <a id="l_vi" href="<?=base_url()?>vi/">Tiếng Việt</a>
     </li>
 </ul>
-<script type="text/javascript">  
-    var country = '<?= $this->config->item('country_abbr')?>';
-
-    $("#language_menu li a").each(function(i,v){
-        $(v).attr("href", $(v).attr("href")+country);
-    });
-
-</script>

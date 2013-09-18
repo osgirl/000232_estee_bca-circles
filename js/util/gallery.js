@@ -1195,13 +1195,13 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			gallery_container = $('#feed_magnet');
 
 			//enableLazyloader();
-			gallery_container.masonry();
+			 gallery_container.masonry();
 
-			galleryItem.centerRollOverContent();
-			$('.gallery_item').hide();
+			 galleryItem.centerRollOverContent();
+			 $('.gallery_item').hide();
 
-			initFilterButtons();
-			loadLayout();
+			 initFilterButtons();
+			 loadLayout();
 
 			if(currentFilterType == "all") {
 				pageNum = 2;
@@ -1213,7 +1213,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			})	
 
 			if($(window).width() >= 980 )
-	  				$('#donate_area').fadeIn();
+	  				$('#donate_area').show();
 	  			else
 	  				$('#donate_area').hide();
 

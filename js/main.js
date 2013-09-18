@@ -133,8 +133,23 @@ $(document).ready(function(){
 	facebook.init(fbAppId);
 	translatePage();
 	directDonateLink();
+	defineLanguageMenus();
 	
 });
+
+function defineLanguageMenus(){
+	var country = "<?= $this->config->item('country_abbr')?>";
+
+    $("#language_menu li a").each(function(i,v){
+        $(v).attr("href", $(v).attr("href")+country);
+    });
+
+     $("#country_menu li a").each(function(i,v){
+        var language = "<?= $this->config->item('language_abbr')?>";
+        var url = $(v).attr("href").replace("en", selectedLanguage);
+        $(v).attr("href", url);
+    });
+}
 
 function directDonateLink(){
 	if(selectedLanguage == "it" || selectedCountry == "it")
@@ -265,6 +280,8 @@ function translatePage(){
 
    		$.feed();
 			fm_ready(function() {
+
+				console.log("feed ready")
 
 
 				carousel.initCarousel();

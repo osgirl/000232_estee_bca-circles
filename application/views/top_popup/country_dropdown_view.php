@@ -1,5 +1,3 @@
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?cachebuster=<?= $cacheBuster; ?>"></script>  
-
 <span class="dropdown-toggle all_cap" data-toggle="dropdown">
     <span class='flag'><img style="display:inline-block; width:12px" src='<?php echo base_url(); ?>img/flags/small/blank.png' /></span>
     <span class="country_name" style="display:inline-block;vertical-align:center; width:18px"></span>    
@@ -751,12 +749,3 @@
         </a>
     </li>
 </ul>
-<script type="text/javascript">
-
-    $("#country_menu li a").each(function(i,v){
-        var language = '<?= $this->config->item('language_abbr')?>';
-        var url = $(v).attr("href").replace("en", selectedLanguage);
-        $(v).attr("href", url);
-    });
-
-</script>
