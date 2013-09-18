@@ -174,8 +174,8 @@ function directDonateLink(){
 })(jQuery);
 
 function windowResize(){
-	$('.language_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");
-	//$('.country_menu_dropdown').css('left', (($(window).width() < 980) ? 0 : -200) + "px");
+	$('#language_menu').css('left', (($(window).width() < 980) ? 0 : -30) + "px");
+	$('#country_menu').css('left', (($(window).width() < 980) ? 0 : -177) + "px");
 
 	if($(window).width() >= 980 ){
 		$('#regular_footer').show();
@@ -229,16 +229,22 @@ function deleteMainCirclePhoto(_filename){
 
 // Temp!
 function translatePage(){
-	console.info(selectedLanguage)
-	var countryItem = $('#language_menu.dropdown-menu #' + selectedCountry);
-	//var language = $('#language_menu.dropdown-menu #l_' + selectedLanguage);
+
+
+	var countryItem = $('#country_menu #c_' + selectedCountry);
+	var languageItem = $('#language_menu #l_' + selectedLanguage);
+
+	console.info(selectedCountry, selectedLanguage, countryItem, language)
+
 	$('.country_name').html(selectedCountry);
-	$('.language_name').html($(language).html());
+	$('.language_name').html($(languageItem).html());
 	$('.flag img').attr('src', $(countryItem).children('img').attr('src') );
 
-	console.info(selectedCountry)
+	
 
 	$.language.load(function(e){
+
+
 
 		if(selectedLanguage == "en") NAME_TEXTFIELD_WIDTH = 135;
 		if(selectedLanguage == "hu") NAME_TEXTFIELD_WIDTH = 175;
@@ -254,6 +260,8 @@ function translatePage(){
    		loadLanguageToElements(e);
 
    		$.mainPreloader.loadComplete();
+
+   		$("body").trigger("LANGUAGE_LOADED");
 
    		$.feed();
 			fm_ready(function() {

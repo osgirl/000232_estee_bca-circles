@@ -10,6 +10,6 @@ medical research. The BCA Campaign will continue spreading its lifesaving awaren
 	</div>
 	<span style="clear:right"/>	
 </div>
-<script>
+<script type="text/javascript">
 	translator.translateItems("about");
 </script>

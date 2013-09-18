@@ -42,6 +42,6 @@
 	<div id="popup_circle_comment_holder"></div>
 </div>
 
-<script>
+<script type="text/javascript">
 	translator.translateItems("circle_view");
 </script>

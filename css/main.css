@@ -1847,61 +1847,50 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
     background-color: #e8e8e8;
     background-image: none;
-    color: #333;
+    color: #f38dab;
     outline: 0 none;
     text-decoration: none;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8e8e8', endColorstr='#e8e8e8', GradientType=0);
 }
 
-
-#language_menu.dropdown-menu {
+.language_menu_dropdown {
 	font-family: Arial, 'Arial', arial, sans-serif;
 	font-size: 1em;
 }
 
-#language_menu.dropdown-menu a{
+.language_menu_dropdown a{
 	/*text-decoration: underline;*/
 	color:#333;	
 }
 
-#language_menu.dropdown-menu a:hover{
-	color:#f38dab;
-}
-
-#language_menu.dropdown-menu img{
-	margin-top:-2px;
-}
-
-#language_menu.dropdown-menu li div{
-	min-width: 220px;
+#language_menu li{
 	height:20px;
-	margin: 2px 20px;
 }
 
-#language_menu.dropdown-menu li span{
-	display: inline-block;
+#language_menu{
+	min-width: 120px;
+	left:-30px;
+	padding-bottom:10px;
 }
 
-#language_menu .country{
-	color:#9c9c9c;
+#country_menu img{
+	margin-top:-1px;
 }
 
-#language_menu .language{
-	text-decoration: underline;
-	color:#777;
+#country_menu{
+	height:410px;
+	width: 270px;
+	left:-177px;
+	overflow-y:auto;
+	overflow-x:hidden;
 }
 
-#language_menu .language:hover{
-	color:#f38dab;
+#country_menu .country_flag{
+	margin-right:10px;
 }
 
-#language_menu .language_divider{
-	color:#333;	
-	
-}
-
-.language_divider{
-	margin: 0 5px 0 5px;
+::-webkit-scrollbar-thumb:vertical {
+background-color: #f38dab;
 }
 
 
