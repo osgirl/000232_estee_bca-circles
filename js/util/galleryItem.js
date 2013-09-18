@@ -175,10 +175,36 @@ function GalleryItem()
 	        	setTimeout(function(){
 	        		centerRollOverContent(.4);
 	        	},200);
+
+	        	//---------------------------------------------------------------------
+    			//SEAN: Circle translator code has been moved here from layout_circle
+				translator.translateItems("circle");
+
+				var sameGoal = '<a class="same_goal_btn rollover_link">' + sameGoalText + '</a>';
+				var createANewOne = '<a class="create_a_new_one_btn rollover_link">' + createANewOneText + '</a>';
+
+				var rollOverText = $(".roll_over_text").html().replace("[samegoal]", sameGoal);
+				rollOverText = rollOverText.replace("[createanewone]", createANewOne);
+
+				$(".roll_over_text").html(rollOverText);
+
+				$('.same_goal_btn').click(function(e){
+			    		var circleContainer = $($(e.currentTarget).parents('.circle_container'));
+			    		$(circleContainer.find('.gallery_item_btn')).unbind('click');
+			    		currentSameGoal = $(circleContainer.find('.goal_text')).html();
+			    		currentSameGoalID = circleContainer.attr('goal_id');
+			    		currentSameGoalType = circleContainer.attr('goal_type');
+
+			    		$('body').trigger('SAME_GOAL_BUTTON_CLICKED');
+			    	})
+				$('.create_a_new_one_btn').click(function(e){
+					var circleContainer = $($(e.currentTarget).parents('.circle_container'));
+					$(circleContainer.find('.gallery_item_btn')).unbind('click');
+					$('body').trigger('CREATE_NEW_CIRCLE_BUTTON_CLICKED');
+				});
+				//---------------------------------------------------------------------
 		}
 
-		
-		
 		return {
 			
 		//--------------------------------------
@@ -228,8 +254,10 @@ function GalleryItem()
 				isUser = false;	
 			}
 
-			updateUserCirclePopupContent(circle, data.circle_id, data.user_name, goalText, data.user_photo_url, data.user_id, data.friends_data, data.country, isUser);
+			if(data.friends_data == undefined)
+				data.friends_data = {};
 
+			updateUserCirclePopupContent(circle, data.circle_id, data.user_name, goalText, data.user_photo_url, data.user_id, data.friends_data, data.country, isUser);
 		},
 
 		updateUserCirclePopupContent:function(circle, id, user_name, content, avatar, userID, friendData, country, isUser){

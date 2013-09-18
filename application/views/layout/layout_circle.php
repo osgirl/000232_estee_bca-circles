@@ -21,31 +21,3 @@
 	<div class='circle_fb_share_btn facebook_share_btn'><img src='<?php echo base_url(); ?>img/icons/facebook.png'/></div>
 	<div class='circle_tw_share_btn twitter_share_btn'><img src='<?php echo base_url(); ?>img/icons/twitter.png'/></div>
 </div>
-
-<script type="text/javascript">
-	translator.translateItems("circle");
-
-	var sameGoal = '<a class="same_goal_btn rollover_link">' + sameGoalText + '</a>';
-	var createANewOne = '<a class="create_a_new_one_btn rollover_link">' + createANewOneText + '</a>';
-
-	var rollOverText = $(".roll_over_text").html().replace("[samegoal]", sameGoal);
-	rollOverText = rollOverText.replace("[createanewone]", createANewOne);
-
-	$(".roll_over_text").html(rollOverText);
-
-	$('.same_goal_btn').click(function(e){
-    		var circleContainer = $($(e.currentTarget).parents('.circle_container'));
-    		$(circleContainer.find('.gallery_item_btn')).unbind('click');
-    		currentSameGoal = $(circleContainer.find('.goal_text')).html();
-    		currentSameGoalID = circleContainer.attr('goal_id');
-    		currentSameGoalType = circleContainer.attr('goal_type');
-
-    		$('body').trigger('SAME_GOAL_BUTTON_CLICKED');
-    	})
-	$('.create_a_new_one_btn').click(function(e){
-		var circleContainer = $($(e.currentTarget).parents('.circle_container'));
-		$(circleContainer.find('.gallery_item_btn')).unbind('click');
-		$('body').trigger('CREATE_NEW_CIRCLE_BUTTON_CLICKED');
-	})
-
-</script>

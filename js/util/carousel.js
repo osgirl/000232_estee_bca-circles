@@ -76,8 +76,7 @@ function Carousel()
 		}
 
 		function getFeatureData(){
-			featurePhotoData = new Array();
-
+			featurePhotoData = new Array();			
 			$.feed.featured(feedmagnet.circle_feat_feed, parseFeatureCircleData, 3);
 			
 		}
@@ -100,14 +99,9 @@ function Carousel()
 	            		circle_id: feed.text
 	            	},
 	            	success: function(feedData) { 
-
 	            		circleDataStorage.push(feedData);
-
-	            		console.info("feature cirlce", circleDataStorage)
-
 						galleryItem.populateCircleContent($(circleDiv), feedData);
 						galleryItem.enableShareButton($(circleDiv));
-
 	             	}
 	      		})
 	      	});
