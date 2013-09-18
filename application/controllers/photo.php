@@ -103,9 +103,27 @@ class Photo extends CI_Controller {
                      	break;
        			}
 
-				
-
 				imagecopyresampled($canvas, $image, 0, 0, 0, 0, $w, $h, $o_w, $o_h);
+
+				//Check if the original photo has orientation info
+				$exif = exif_read_data($file_location);
+
+				//Adjust image rotation
+		        if (!empty($exif['Orientation'])) {
+			        switch ($exif['Orientation']) {
+			            case 3:
+			                $canvas = imagerotate($canvas, 180, 0);
+			                break;
+
+			            case 6:
+			                $canvas = imagerotate($canvas, -90, 0);
+			                break;
+
+			            case 8:
+			                $canvas = imagerotate($canvas, 90, 0);
+			                break;
+			        };
+			    };
 				
 				// Output
 				ob_start (); 
@@ -137,7 +155,7 @@ class Photo extends CI_Controller {
 			$o_w = imagesx( $image );
 			$o_h = imagesy( $image );
 			imagecopyresampled($canvas, $image, $data['x'], $data['y'], 0,0, $o_w, $o_h, $o_w, $o_h);
-
+			$canvas = imagerotate($canvas, $data['deg'], 0);
 			$result = $this->saveOutput($canvas, $data);
 
 			//Delete temporary file
