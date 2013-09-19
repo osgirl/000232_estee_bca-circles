@@ -54,7 +54,7 @@ function GalleryItem()
 
 				$($(e.currentTarget).next()).find('.share_text').css('color', "#f38dab");
 
-				$($(e.currentTarget).find('.view_circle_btn')).show();
+				//$($(e.currentTarget).find('.view_circle_btn')).show();
 
 				$(item.find('.gallery_item_btn')).unbind('click').click(function(e){
 					//$('.popup#popup_circle .btn_close').trigger('click');
@@ -66,7 +66,7 @@ function GalleryItem()
 
 				$(e.currentTarget).stop(true, true).fadeTo("fast", 0);
 				$($(e.currentTarget).next()).find('.share_text').css('color', "#ffffff");
-				$($(e.currentTarget).find('.view_circle_btn')).hide();
+				//$($(e.currentTarget).find('.view_circle_btn')).hide();
 
 			})
         	enableShareButton(item);
