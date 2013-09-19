@@ -59,7 +59,7 @@ function GalleryItem()
 				$(item.find('.gallery_item_btn')).unbind('click').click(function(e){
 					//$('.popup#popup_circle .btn_close').trigger('click');
 					openPopUp(popupData)})
-				centerRollOverContent(.55);
+					centerRollOverContent(.55);
 			})
 
 			$(item.find('.gallery_item_btn')).unbind('mouseleave').mouseleave(function(e){
@@ -157,6 +157,8 @@ function GalleryItem()
 	        	placeCircleInAngles(circle.find('.circle_area'), avatar, friendData, isUser);
 
 	        	circle.attr('is_user', isUser);	
+
+	        	console.log("hmmmmm user name??", user_name)
 
 			var popupData = {
 					type:'circle', 

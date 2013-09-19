@@ -105,6 +105,8 @@ var createACircleText;
 
 var photoLoaded = false;
 
+var friendCount = 0;
+
 
 $(document).ready(function(){	
 	
@@ -260,7 +262,7 @@ function translatePage(){
 
 	$.language.load(function(e){
 
-
+		$('.log_out_status').show();
 
 		if(selectedLanguage == "en") NAME_TEXTFIELD_WIDTH = 135;
 		if(selectedLanguage == "hu") NAME_TEXTFIELD_WIDTH = 175;
@@ -1484,6 +1486,7 @@ function postCircleData(goal_id){
 
 function updateFriends(){
 	console.log("updateFriends");
+
 	$.ajax({
     		type: 'post',
         	url: baseUrl + indexPage + 'friend/create',
@@ -1500,22 +1503,8 @@ function updateFriends(){
         		    var circle_content 	= currentCircleViewData.content;
         		    var circle_photo 	= currentCircleViewData.avatar;
 
-					var popupData = {
-						type:'circle',
-						data:{
-							id:circle_id,
-							circle_id:circle_id,
-							content:circle_content,
-							avatar:circle_photo,
-							users_fb_id:userID,
-							friends_data:friendsData,
-							num_friends:friendsData.length,
-							is_user:true
-						}
-					}
-
-					galleryItem.openPopUp(popupData);
-					closeEditFriend();
+					
+					
 
 					var updatedCircle;
 
@@ -1524,9 +1513,29 @@ function updateFriends(){
 						if($(v).attr('circle_id') == currentCircleViewData.id){
 							updatedCircle = $(v);
 
+							var popupData = {
+								type:'circle',
+								data:{
+									id:circle_id,
+									circle_id:circle_id,
+									content:circle_content,
+									author:updatedCircle.attr("user_name"),
+									avatar:circle_photo,
+									users_fb_id:updatedCircle.attr("user_id"),
+									friends_data:friendsData,
+									num_friends:friendsData.length,
+									country:updatedCircle.attr("country"),
+									is_user:true
+								}
+							}
+
 							galleryItem.updateUserCirclePopupContent(updatedCircle, circle_id, updatedCircle.attr("user_name"), circle_content, circle_photo, updatedCircle.attr("user_id"), friendsData, updatedCircle.attr("country"), true);
+							galleryItem.openPopUp(popupData);
 						}
 					})
+
+					
+					closeEditFriend();
 
 					getUserCircleData(); 
 					getTrendingAction();

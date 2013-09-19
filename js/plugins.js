@@ -834,6 +834,8 @@ $.extend(
         //initalize scroll detection
         windowEventListener();
 
+        console.info("author name", $d.author);
+
         //add user data to header area
         $($c + ' #popup_circle_header p').text(nameCircleOfStrength.replace('[name]', $d.author) );
         $($c + ' #popup_circle_header img').attr('src', baseUrl + 'img/flags/large/' + $d.country + '.png');
