@@ -196,11 +196,7 @@ h2{
 	outline: 0 none;
 }
 
-.lt-ie9 .language_menu_dropdown li{
-	text-align: left;
-	float:left;
-	width:100%;
-}
+
 
 .navbar-inner{
 	background-color:white;
@@ -394,10 +390,7 @@ h2{
     cursor: pointer;
 }
 
-/*.lt-ie9 .featured_dot{
-	 behavior: url(/css/PIE.htc);
-	 position:relative;
-}*/
+
 
 .featured_selected{
 	background-color:#f38dab;
@@ -494,10 +487,7 @@ h2{
 	background-color:#ede1e4;
 }
 
-/*.lt-ie9 #user_profile_pic{
-	behavior: url(/css/PIE.htc);
-	background-size: 140px auto;
-}*/
+
 
 #bottom_user_name{
 	font-size:2.4em;
@@ -643,11 +633,6 @@ h2{
 	background-image: url('../img/flags/large/united-states.png');
 	background-position: -1px -1px;
 }
-
-/*.lt-ie9 .circle_flag{
-	behavior: url(/css/PIE.htc);
-	background-size: 39px auto;
-}*/
 
 .rollover_link{
 	color:#f38dab;
@@ -932,10 +917,6 @@ h2{
 	margin-left:0px;
 	margin-top:0px;
 }
-
-/*.lt-ie9 .profile_image_small{
-	behavior: url(/css/PIE.htc);
-}*/
 
 .share_circle div{
 	float:left;
@@ -1362,10 +1343,6 @@ h2{
     height: 26px;
 }
 
-/*.lt-ie9 #friend_search_wrapper{
-	 behavior: url(/css/PIE.htc);
-}*/
-
 #friend_search_field{
 	font-size:1.8em;
     background-color:#e8e8e8;
@@ -1469,14 +1446,6 @@ h2{
 -moz-box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
-
-/*.lt-ie9 .friend_btn_over{
-	-moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -khtml-border-radius: 50px;
-    border-radius: 50px;
-    behavior: url(/css/PIE.htc);
-}*/
 
 .name_delete_btn{
 	position:absolute;
@@ -1793,15 +1762,6 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	cursor:pointer;
 }
 
-/*.lt-ie9 .pink_btn{
-	behavior: url(/css/PIE.htc);
-	position:relative;
-}
-
-.lt-ie9 .view_circle_btn{
-	display:none;
-	margin-bottom:10px;
-}*/
 
 .pink_btn:hover{
 	background-color:#f33c72;
@@ -1908,6 +1868,42 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 
 #country_menu .country_flag{
 	margin-right:10px;
+}
+
+
+
+/* IE 8 Rounded corners*/
+
+.lt-ie9 .pink_btn, 
+.lt-ie9 .featured_dot,
+.lt-ie9 #user_profile_pic,
+.lt-ie9 .circle_flag,
+.lt-ie9 .profile_image_small,
+.lt-ie9 #friend_search_wrapper,
+.lt-ie9 .friend_btn_over
+{
+	behavior: url(/css/PIE.htc);
+}
+
+.lt-ie9 .language_menu_dropdown li{
+	text-align: left;
+	float:left;
+	width:100%;
+}
+
+.lt-ie9 .featured_dot,
+.lt-ie9 .pink_filter_btn,
+.lt-ie9 #donate_pink_btn{
+	 position:relative;
+}
+
+
+.lt-ie9 #user_profile_pic{
+	background-size: 140px auto;
+}
+
+.lt-ie9 .circle_flag{
+	background-size: 39px auto;
 }
 
 
