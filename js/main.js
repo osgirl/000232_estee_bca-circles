@@ -289,7 +289,6 @@ function translatePage(){
 				carousel.initCarousel();
 				gallery.loadGallery();
 
-
 				$('body').unbind("ALL_LAYOUT_CREATED").bind('ALL_LAYOUT_CREATED', function(){
 
 					console.log("ALL LAYOUT AM I TRIGGER TWICE")

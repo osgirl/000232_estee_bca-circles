@@ -7,9 +7,9 @@
 	<div id="popup_video_holder">
 		<video id="embeded_video" class="video-js vjs-bca-skin" controls preload="auto" 
 		width="100%" height="100%" poster="<?= base_url(); ?>img/popups/test_video_cover_003.jpg" data-setup="{}">
-		    <source src="<?= base_url(); ?>video/highRes.mp4" type='video/mp4' />
-		    <source src="<?= base_url(); ?>video/highRes.webm" type='video/webm' />
-		    <source src="<?= base_url(); ?>video/highRes.ogv" type='video/ogg' />
+		    <source src="<?= base_url(); ?>video/bca.mp4" type='video/mp4' />
+		    <source src="<?= base_url(); ?>video/bca.webm" type='video/webm' />
+		    <source src="<?= base_url(); ?>video/bca.ogv" type='video/ogg' />
 		  </video>
 	</div>
 	<div id="popup_video_footer">

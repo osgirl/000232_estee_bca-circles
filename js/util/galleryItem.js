@@ -245,6 +245,7 @@ function GalleryItem()
 			circle.attr('goal_type', data.goal_type);
 			circle.attr('country', data.country);
 			circle.find('.circle_flag').css("background-image", 'url("' + baseUrl + 'img/flags/large/' + data.country + '.png")');
+
 			circle.find('.circle_creator').html(data.user_name);
 			var goalText = (data.goal_type == "default") ? goalTextArray[data.goal_id-1].text : data.goal;
 			circle.find('.goal_text').html(goalText);
