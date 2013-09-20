@@ -1883,7 +1883,9 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 .lt-ie9 #friend_search_wrapper,
 .lt-ie9 .friend_image_small,
 .lt-ie9 .friend_btn_over,
-.lt-ie9 #popup_circle_header img
+.lt-ie9 #popup_circle_header img,
+.lt-ie9 #avatar,
+.lt-ie9 .friend_avatar
 {
 	behavior: url(../../css/PIE.htc);
 }
