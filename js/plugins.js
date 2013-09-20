@@ -263,7 +263,7 @@ $.extend(
                 _caption        = shareFBVideoCaption;
                 _description    = shareFBVideoDescription;
                 //oc: different video thumb
-                _picture        = baseUrl + 'img/popups/video/video-thumb.jpg';
+                _picture        = baseUrl + 'img/popups/video/video-thumbnail.jpg';
 
             }
 
