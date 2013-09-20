@@ -260,8 +260,11 @@ $.extend(
 
 
             if (v.post_type == 'video'){
-                _caption = shareFBVideoCaption;
-                _description = shareFBVideoDescription;
+                _caption        = shareFBVideoCaption;
+                _description    = shareFBVideoDescription;
+                //oc: different video thumb
+                _picture        = baseUrl + 'img/popups/video/video-thumb.jpg';
+
             }
 
             if (ismobile)
