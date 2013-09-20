@@ -129,9 +129,15 @@ function GalleryItem()
 
 				if(i == 0){
 					dotClass = 'profile_image_small';
+					dotImg.appendTo(dotItem);
 				}else{
 
-					dotClass = (isUser) ? 'friend_image_small' : 'point';
+					if(isUser){
+						dotClass = 'friend_image_small';
+						dotImg.appendTo(dotItem);
+					}else{
+						dotClass='point';
+					}
 
 				}
 
@@ -140,7 +146,7 @@ function GalleryItem()
 					.addClass(dotClass)
 					.css({'left': x + "%", 'top': y + "%"})
 					.appendTo(parent);
-				dotImg.appendTo(dotItem);
+				
 
 
 				if(i == 0) {
