@@ -1902,9 +1902,9 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 
 }
 
-.lt-ie9 .circle_flag{
+/*.lt-ie9 .circle_flag{
 	-pie-background: url("../img/flags/large/united-states.png") no-repeat 80% 80% / cover;
-}
+}*/
 
 .lt-ie9 .profile_image_small{
 	background-size: 70px auto;
