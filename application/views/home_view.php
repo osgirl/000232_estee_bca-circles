@@ -70,6 +70,7 @@
 
 
 	        <div id="content_wrap" class="container">
+
 	        <div class="overlay"></div>
 	                <div id='top_content'>
 		             	<div class="row">
