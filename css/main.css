@@ -1915,6 +1915,8 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	behavior: none;
 	background-color: none;
 	background-image: url('../img/buttons/view_btn_bg.png');
+	text-align: center;
+	padding:0;
 	width:130px;
 	height:33px;
 }
