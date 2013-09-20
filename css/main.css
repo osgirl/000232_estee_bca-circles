@@ -1882,7 +1882,8 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 .lt-ie9 .profile_image_small,
 .lt-ie9 #friend_search_wrapper,
 .lt-ie9 .friend_image_small,
-.lt-ie9 .friend_btn_over
+.lt-ie9 .friend_btn_over,
+.lt-ie9 .popup_round_button
 {
 	behavior: url(../../css/PIE.htc);
 }
