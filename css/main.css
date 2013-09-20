@@ -1220,6 +1220,7 @@ h2{
 	font-size:1.1em;
 	position:relative;
 	margin-bottom:20px;
+	z-index:9999;
 }
 
 #goal_selected{
@@ -1904,10 +1905,6 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	 z-index:1;
 }
 
-.li-ie9 #select_action{
-	position:relative;
-	z-index:2;
-}
 
 
 
