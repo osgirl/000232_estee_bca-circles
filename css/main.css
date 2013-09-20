@@ -1900,6 +1900,10 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	 position:relative;
 }
 
+.lt-ie9 .btn_control .pink_btn{
+	z-index: -1;
+}
+
 
 
 /*.lt-ie9 .circle_flag{
