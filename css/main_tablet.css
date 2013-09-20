@@ -403,9 +403,8 @@
 	 .feature_circle .profile_image_small{
 		width:55px;
 		height:55px;
-		background-size: 55px auto;
-		margin-left:-15px;
-		margin-top:-22px;
+		margin-left:-20px;
+		margin-top:-17px;
 	}
 
 	.feature_circle .circle_of_strength{

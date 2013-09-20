@@ -858,7 +858,7 @@ h2{
     margin-left:-14px;
 }
 
-.circle_area img{
+.dotted_circle{
 	position:absolute;
 	top:12px;
 	left:15px;
@@ -890,36 +890,32 @@ h2{
 
 .profile_image_small{
 	float:left;
-	-moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -khtml-border-radius: 50%;
-    border-radius: 50%;	
-    
 	width:70px;
 	height:70px;
-	background:center center no-repeat;
-	background-color:#ede1e4;
-	background-size: 70px auto;
 	position:absolute;
 	margin-left:-22px;
 	margin-top:-25px;
 }
 
+
+
 .friend_image_small{
 	float:left;
-	-moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -khtml-border-radius: 50%;
-    border-radius: 50%;	
-    
 	width:30px;
 	height:30px;
-	background:center center no-repeat;
-	background-color:#ede1e4;
-	background-size: 40px auto;
 	position:absolute;
 	margin-left:0px;
 	margin-top:0px;
+}
+
+.profile_image_small img,
+.friend_image_small img{
+	-moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -khtml-border-radius: 50px;
+    border-radius: 50px;
+	width:100%;
+	height:auto;
 }
 
 .share_circle div{
@@ -1039,7 +1035,7 @@ h2{
 	height:165px;
 }
 
-.feature_circle .circle_area img{
+.feature_circle .dotted_circle{
 	top:17px;
 	left:15px;
 	max-width:91%;

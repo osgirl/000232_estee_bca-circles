@@ -125,6 +125,7 @@ function GalleryItem()
 
 				var dotClass;
 				var dotItem = $('<div>');
+				var dotImg = $('<img>');
 
 				if(i == 0){
 					dotClass = 'profile_image_small';
@@ -139,12 +140,16 @@ function GalleryItem()
 					.addClass(dotClass)
 					.css({'left': x + "%", 'top': y + "%"})
 					.appendTo(parent);
+				dotImg.appendTo(dotItem);
+
 
 				if(i == 0) {
-					dotItem.css('background-image', 'url(' + profileImageUrl + ')');
+					//dotItem.css('background-image', 'url(' + profileImageUrl + ')');
+					dotImg.attr('src', profileImageUrl);
 				}else if(i>0){
 					if(isUser) {
-						$(dotItem).css('background-image', 'url(' + friendData[i-1].url + ')');
+						//$(dotItem).css('background-image', 'url(' + friendData[i-1].url + ')');
+						dotImg.attr('src', friendData[i-1].url);
 					}
 				}
 			}

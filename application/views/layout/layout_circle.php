@@ -5,7 +5,7 @@
 <div class="circle_divider"></div>
 <div class="circle_area_wrapper">
 	<div class="circle_area">
-		<img src="<?php echo base_url(); ?>img/assets/dotted-circle-small.png"/>
+		<img class="dotted_circle" src="<?php echo base_url(); ?>img/assets/dotted-circle-small.png"/>
 		<div class="circle_goal"><span language_id="we_will_text" language_location="circle" ><b>We Will - </b></span><br /><span class="goal_text"></span></div>
 	</div>
 </div>

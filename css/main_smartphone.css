@@ -168,7 +168,7 @@
 	    margin-left:0px;
 	}
 
-	.circle_area img{
+	.dotted_circle{
 		position:absolute;
 		top:20px;
 		left:18px;
@@ -193,9 +193,8 @@
 	.feature_circle .profile_image_small{
 		width:60px;
 		height:60px;
-		background-size: 60px auto;
-		margin-left:-15px;
-		margin-top:-22px;
+		margin-left:-20px;
+		margin-top:-17px;
 	}
 
 	.feature_circle .circle_area{
