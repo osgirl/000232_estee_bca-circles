@@ -75,6 +75,12 @@
 			transition: opacity 250ms;
 }
 
+.lt-ie9 .popup_round_button
+{
+	behavior: url(../../css/PIE.htc);
+	position:relative;
+}
+
 .popup_round_button#popup_btn_white {
 	color: #f38dab;
 	background: #FFF;
