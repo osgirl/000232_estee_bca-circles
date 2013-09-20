@@ -1899,7 +1899,9 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 .lt-ie9 .featured_dot,
 .lt-ie9 .pink_filter_btn,
 .lt-ie9 #donate_pink_btn,
-.lt-ie9 #choose_photos_btn
+.lt-ie9 #choose_photos_btn,
+.profile_image_small img,
+.friend_image_small img
 {
 	 position:relative;
 }
