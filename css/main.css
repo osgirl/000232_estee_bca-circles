@@ -897,8 +897,6 @@ h2{
 	margin-top:-25px;
 }
 
-
-
 .friend_image_small{
 	float:left;
 	width:30px;
@@ -1885,7 +1883,9 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 .lt-ie9 .friend_btn_over,
 .lt-ie9 #popup_circle_header img,
 .lt-ie9 #avatar img,
-.lt-ie9 .friend_avatar img
+.lt-ie9 .friend_avatar img,
+.profile_image_small img,
+.friend_image_small img
 {
 	behavior: url(../../css/PIE.htc);
 }
