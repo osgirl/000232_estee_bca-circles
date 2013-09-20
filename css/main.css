@@ -1900,8 +1900,11 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 .lt-ie9 .btn_control{
-	z-index: 1;
 	 position:relative;
+}
+
+.li-ie9 #select_action{
+	position:relative;
 }
 
 
