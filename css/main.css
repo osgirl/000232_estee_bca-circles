@@ -471,7 +471,7 @@ h2{
 	text-decoration: none;
 }
 
-#user_profile_pic{
+#user_profile_pic img{
 	margin-left:25%;
 	margin-bottom:10px;
 	float:none;
@@ -1877,7 +1877,7 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 
 .lt-ie9 .pink_btn, 
 .lt-ie9 .featured_dot,
-.lt-ie9 #user_profile_pic,
+.lt-ie9 #user_profile_pic img,
 .lt-ie9 .circle_flag,
 .lt-ie9 .profile_image_small,
 .lt-ie9 #friend_search_wrapper,

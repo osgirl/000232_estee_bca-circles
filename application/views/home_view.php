@@ -157,7 +157,7 @@
 						<div class='log_in_status'>
 							<div class="row">
 								<div class="user_info span4">
-									<div id='user_profile_pic'></div>
+									<div id='user_profile_pic'><img/></div>
 									<div id='user_profile_info'>
 										<div id='bottom_user_name' class='user_name_display'></div>
 										<div class='user_location_display'></div>

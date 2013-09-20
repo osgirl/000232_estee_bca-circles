@@ -468,7 +468,7 @@ function displayUserInfo(e){
 }
 
 function displayUserProfilePic(e){
-	$('#user_profile_pic').css('background-image', 'url(' + userProfilePhoto + ')');
+	$('#user_profile_pic img').attr('src', userProfilePhoto);
 }
 
 function enableButtons(){
