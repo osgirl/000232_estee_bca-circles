@@ -1912,6 +1912,7 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 }
 
 .lt-ie9 .view_circle_btn{
+	behavior: none;
 	background-image: url('../img/buttons/view_btn_bg.png');
 }
 
