@@ -392,7 +392,7 @@ function openCreateCircleScreenFromCircleView(){
 }
 
 function getLoginStatus(e){
-	$('.start_create_circle_btn').unbind('click').click(function(e){openCreateCircleScreen(false);})
+	$('#create_another_circle').unbind('click').click(function(e){openCreateCircleScreen(false);})
 	
 	if(createCircleClicked) openCreateCircleScreen(false);
 	gallery.refreshCircles();
