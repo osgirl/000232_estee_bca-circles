@@ -75,7 +75,7 @@
 			transition: opacity 250ms;
 }
 
-.lt-ie9 .popup_round_button
+.lt-ie9 .popup#popup_circle .popup_round_button
 {
 	behavior: url(../../css/PIE.htc);
 	position:relative;
@@ -322,8 +322,6 @@
 	width:100%; 
 	margin-top: 30px;
 	text-align:center;
-	position:relative;
-	z-index: 9999;
 } 
 
 .popup #popup_photo_upload_preview_window {
