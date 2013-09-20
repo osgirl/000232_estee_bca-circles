@@ -479,10 +479,8 @@ h2{
     -webkit-border-radius: 50%;
     -khtml-border-radius: 50%;
     border-radius: 50%;	
-	width:140px;
-	height:140px;
-	background:center center no-repeat;
-	background-size: 160px auto;
+	width: 100%;
+	height: 100%;
 	margin-right:5%;
 	background-color:#ede1e4;
 }
