@@ -1917,9 +1917,9 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	background-image: url('../img/buttons/view_btn_bg.png');
 	text-align: center;
 	padding:0;
-	padding-top:5px;
+	padding-top:8px;
 	width:130px;
-	height:27px;
+	height:20px;
 }
 
 .lt-ie9 .view_circle_btn:hover{
