@@ -33,6 +33,7 @@ if( ! ini_get('date.timezone') )
 		case "bcasite.dev": 				define('ENVIRONMENT','mili_config'); break;
 		case "10.0.1.4": 					define('ENVIRONMENT','mili_config'); break;
 		case "199.95.137.158": 				define('ENVIRONMENT','mili_config'); break;
+		case "192.168.1.102": 				define('ENVIRONMENT','mili_config'); break;
 		case "bcastronger.dev": 			define('ENVIRONMENT','jason'); break;
 		//TODO enter more environments as needed
         default : define('ENVIRONMENT', 'production');

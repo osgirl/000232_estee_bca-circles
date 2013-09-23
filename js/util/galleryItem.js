@@ -50,7 +50,7 @@ function GalleryItem()
 		function enableItemButton(item, popupData){
 			$(item.find('.gallery_item_btn')).unbind('mouseenter').mouseenter(function(e){
 				$(e.currentTarget).css('cursor','pointer');
-				$(e.currentTarget).stop(true, true).fadeTo("fast", 1);
+				$(e.currentTarget).stop(true, true).animate({opacity:1,filter:''});
 
 				$($(e.currentTarget).next()).find('.share_text').css('color', "#f38dab");
 
@@ -64,7 +64,7 @@ function GalleryItem()
 
 			$(item.find('.gallery_item_btn')).unbind('mouseleave').mouseleave(function(e){
 
-				$(e.currentTarget).stop(true, true).fadeTo("fast", 0);
+				$(e.currentTarget).stop(true, true).animate({opacity:0,filter:''});
 				$($(e.currentTarget).next()).find('.share_text').css('color', "#ffffff");
 				//$($(e.currentTarget).find('.view_circle_btn')).hide();
 
