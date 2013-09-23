@@ -1684,7 +1684,7 @@ $.extend(
     gaEvent: function(_category, _action, _label)
     {
         if (_label == undefined) _label = '';
-        console.log(_category, _action, _label);
+        console.log("gaEvent: ",_category, _action, _label);
         _gaq.push(['_trackEvent', _category, _action, _label]);
         ga('send', 'event', _category, _action, _label);
     },

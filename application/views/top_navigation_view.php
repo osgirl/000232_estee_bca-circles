@@ -36,7 +36,7 @@
 
                     <div class="nav-collapse collapse">
                         <ul id='top_main_nav' class="nav">
-                            <li><a id="conversation_btn" language_id="conversation" language_location="home" href="#conversation" onclick="$('.popup#popup_circle .btn_close').trigger('click');" class='all_cap'>Conversation</a></li>
+                            <li><a id="conversation_btn" language_id="conversation" language_location="home" href="#conversation" onclick="$.gaPageview(indexPage +'conversation/');$('.popup#popup_circle .btn_close').trigger('click');" class='all_cap'>Conversation</a></li>
                             <li><a href="#video" language_id="video" language_location="home" onclick="return $.popup({type:'video'});" class='all_cap'>video</a></li>
                             <li><a href="https://donations.bcrfcure.org/sslpage.aspx?pid=298" language_id="donate" language_location="home" target="_blank" class='all_cap donate_btn' onclick="$.gaPageview(/donate/)">donate</a></li>
                             <li><a href="#about" language_id="about" language_location="home" onclick="return $.popup({type:'about'});" class='all_cap'>about</a></li>
