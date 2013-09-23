@@ -66,7 +66,7 @@ function GalleryItem()
 				//$(e.currentTarget).hide();
 				$(e.currentTarget).stop(true, true).fadeTo('fast',0);
 				$(e.currentTarget).css("filter", "alpha(opacity=0)");
-				$($(e.currentTarget).next()).find('.share_te;xt').css('color', "#ffffff");
+				$($(e.currentTarget).next()).find('.share_text').css('color', "#ffffff");
 
 			})
         	enableShareButton(item);
