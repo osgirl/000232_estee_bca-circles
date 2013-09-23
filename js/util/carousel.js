@@ -64,7 +64,7 @@ function Carousel()
 		}
 
 		function scrollCarousel(){
-			console.log('scroll', carouselItemWidth*carouselItemID, carouselItemWidth, carouselItemID);
+			console.log('scroll', carouselItemID);
 
 			$('#carousel_slider').stop(true).animate({
 				left:-carouselItemWidth*carouselItemID
@@ -209,7 +209,8 @@ function Carousel()
 
 
 		    $('.featured_dot').click(function(e){
-		    	onDotSelected($(e.currentTarget).index())
+		    	var currentId = $(e.currentTarget).attr('id').substr(3,1);
+		    	onDotSelected(currentId);
 		    });
 
 		    getFeatureData();
