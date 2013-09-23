@@ -19,6 +19,7 @@
     vi
   ==============*/
 
+
  /*Greek*/
   .el .feature_circle .circle_creator_area, 
   .tr .feature_circle .circle_creator_area {
@@ -115,6 +116,15 @@
 
   .it .popup #popup_circle_modal #popup_footer_share{
     font-size:12px;
+  }
+
+  .it #join_fight, .it #join_fight_content{
+    display:none;
+  }
+
+  .it #watch_video{
+    background:none;
+    padding:0 40%;
   }
 
 

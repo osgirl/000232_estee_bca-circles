@@ -156,7 +156,7 @@ function defineLanguageMenus(){
 
 function directDonateLink(){
 	if(selectedLanguage == "it" || selectedCountry == "it")
-		donate_link = "http://www.legatumori.it/versamento_donaonline_form.php?area=1019";
+		donate_link = "http://www.nastrorosa.it/";
 	else
 		donate_link = "https://donations.bcrfcure.org/sslpage.aspx?pid=298";
 
@@ -534,6 +534,10 @@ function createGoalDropdown(){
 
     		$('#goal_selected').html(goalTextArray[0].text);      
         	$(goalData).each(function(i, v){
+
+        		if(selectedLanguage == "it" || selectedCountry == "it"){
+        			if(i == 2) return;
+        		}
 
  
     			var list = $('<li>');
