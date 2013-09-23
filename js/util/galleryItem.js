@@ -50,11 +50,10 @@ function GalleryItem()
 		function enableItemButton(item, popupData){
 			$(item.find('.gallery_item_btn')).unbind('mouseenter').mouseenter(function(e){
 				$(e.currentTarget).css('cursor','pointer');
+				//$(e.currentTarget).stop(true, true).fadeTo('fast', 1);
 				$(e.currentTarget).stop(true, true).animate({opacity:1,filter:''});
 
 				$($(e.currentTarget).next()).find('.share_text').css('color', "#f38dab");
-
-				//$($(e.currentTarget).find('.view_circle_btn')).show();
 
 				$(item.find('.gallery_item_btn')).unbind('click').click(function(e){
 					//$('.popup#popup_circle .btn_close').trigger('click');
@@ -64,9 +63,10 @@ function GalleryItem()
 
 			$(item.find('.gallery_item_btn')).unbind('mouseleave').mouseleave(function(e){
 
-				$(e.currentTarget).stop(true, true).animate({opacity:0,filter:''});
-				$($(e.currentTarget).next()).find('.share_text').css('color', "#ffffff");
-				//$($(e.currentTarget).find('.view_circle_btn')).hide();
+				//$(e.currentTarget).hide();
+				$(e.currentTarget).stop(true, true).fadeTo('fast',0);
+				$(e.currentTarget).css("filter", "alpha(opacity=0)");
+				$($(e.currentTarget).next()).find('.share_te;xt').css('color', "#ffffff");
 
 			})
         	enableShareButton(item);
@@ -77,7 +77,7 @@ function GalleryItem()
 
         	$(item.find('.circle_fb_share_btn')).unbind('click').click(function(e){
 				share($(item), "facebook", itemType);
-				console.log("facebook click", itemType)
+				console.log("facebook click", itemType);
 			});
 
 			$(item.find('.circle_tw_share_btn')).unbind('click').click(function(e){
