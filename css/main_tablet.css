@@ -110,6 +110,14 @@
 		font-size:.8em;
 	}
 
+	#choose_photos_wrapper{
+		position:relative; 
+		display:inline-block; 
+		top:-8px; 
+		left:0;
+
+	}
+
 }
 
 

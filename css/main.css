@@ -1366,7 +1366,7 @@ h2{
 #choose_photos_wrapper{
 	white-space:nowrap; 
 	position:relative; 
-	display:block; 
+	display:inline-block; 
 	margin-top:20px;
 }
 
