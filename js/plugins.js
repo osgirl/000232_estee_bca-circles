@@ -1684,19 +1684,26 @@ $.extend(
     gaEvent: function(_category, _action, _label)
     {
         if (_label == undefined) _label = '';
-        console.log(_category, _action, _label);
-        _gaq.push(['_trackEvent', _category, _action, _label]);
-        ga('send', 'event', _category, _action, _label);
+        console.log("gaEvent: ",_category, _action, _label);
+        // _gaq.push(['_trackEvent', _category, _action, _label]);
+        // ga('send', 'event', _category, _action, _label);
+        ga('send',
+        {
+            'hitType': 'event',
+            'eventCategory': _category,
+            'eventAction': _action,
+            'eventLabel': _label
+        });
     },
     gaPageview: function(_url)
     {
-        var title = _url.toString().replace(/\//gi, '');
-        console.log('Pageview: ' + _url + ' Title is: ' + title);
+        // var title = _url.toString().replace(/\//gi, '');
+        console.log('Pageview: ' + _url /*+ ' Title is: ' + title.replace()*/);
         ga('send',
         {
             'hitType': 'pageview',
             'page': _url,
-            'title': title
+            'title': _url
         });
     }
 });

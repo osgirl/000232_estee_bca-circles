@@ -106,24 +106,29 @@ class Photo extends CI_Controller {
 				imagecopyresampled($canvas, $image, 0, 0, 0, 0, $w, $h, $o_w, $o_h);
 
 				//Check if the original photo has orientation info
-				$exif = exif_read_data($file_location);
 
-				//Adjust image rotation
-		        if (!empty($exif['Orientation'])) {
-			        switch ($exif['Orientation']) {
-			            case 3:
-			                $canvas = imagerotate($canvas, 180, 0);
-			                break;
+				//Bypass is exif_read_data is not available
+				if(function_exists('exif_read_data')){
 
-			            case 6:
-			                $canvas = imagerotate($canvas, -90, 0);
-			                break;
+					$exif = exif_read_data($file_location);
 
-			            case 8:
-			                $canvas = imagerotate($canvas, 90, 0);
-			                break;
-			        };
-			    };
+					//Adjust image rotation
+			        if (!empty($exif['Orientation'])) {
+				        switch ($exif['Orientation']) {
+				            case 3:
+				                $canvas = imagerotate($canvas, 180, 0);
+				                break;
+
+				            case 6:
+				                $canvas = imagerotate($canvas, -90, 0);
+				                break;
+
+				            case 8:
+				                $canvas = imagerotate($canvas, 90, 0);
+				                break;
+				        };
+				    };
+				};
 				
 				// Output
 				ob_start (); 
