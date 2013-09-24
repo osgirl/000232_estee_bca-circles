@@ -1321,7 +1321,7 @@ $.extend(
             //Manual language selector (possible update)
             if ($language == 'en')
             {
-                if (selectedCountry == 'gb') $language = 'en-gb';
+                if (selectedCountry == 'uk') $language = 'en-uk';
                 else $language = 'en-us';
             }
             else if ($language == 'es' && selectedCountry == 'mx') {

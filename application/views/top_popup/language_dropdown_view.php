@@ -10,7 +10,13 @@
          <a id="l_es" href="<?=base_url()?>es/">Español</a>
     </li>
     <li>
+         <a id="l_es_mx" href="<?=base_url()?>es/mx/">Español MX</a>
+    </li>
+    <li>
          <a id="l_fr" href="<?=base_url()?>fr/">Français</a>
+    </li>
+    <li>
+         <a id="l_fr_ca" href="<?=base_url()?>fr/ca/">Français CA</a>
     </li>
     <li>
         <a id="l_de" href="<?=base_url()?>de/">Deutsch</a>

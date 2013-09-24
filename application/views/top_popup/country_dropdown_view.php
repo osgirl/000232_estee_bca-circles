@@ -689,7 +689,7 @@
         </a>
     </li>
     <li>
-        <a id="c_gb" href="<?=base_url()?>en/gb/">
+        <a id="c_uk" href="<?=base_url()?>en/uk/">
             <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/gb.png' />
             <span class="country">United Kingdom</span>
         </a>

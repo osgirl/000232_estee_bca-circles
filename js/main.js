@@ -144,7 +144,13 @@ function defineLanguageMenus(){
 	var country = selectedCountry;
 
     $("#language_menu li a").each(function(i,v){
+
+    	if($(v).attr('id')=="l_es_mx" || $(v).attr('id')=="l_fr_ca" ) return;
+
         $(v).attr("href", $(v).attr("href")+country + "/");
+    	
+
+        console.log("language id", $(v).attr("href"))
     });
 
      $("#country_menu li a").each(function(i,v){
