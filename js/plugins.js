@@ -35,9 +35,12 @@ function tsToDate(ts)
         else
         {
             df = t.getHours() - d.getHours();
-            if(selectedLanguage == "en"){ 
+            if (selectedLanguage == "en")
+            {
                 result = df + ' hour' + ((df == 1) ? '' : 's') + ' ago';
-            }else{
+            }
+            else
+            {
                 result = hoursAgoText;
                 result = result.replace("#", df);
             }
@@ -98,11 +101,11 @@ $.extend(
         {
         case 'about':
             u = "popup/about/";
-            $.gaPageview(indexPage +'about/');
+            $.gaPageview(indexPage + 'about/');
             break;
         case 'video':
             u = "popup/video/";
-            $.gaPageview(indexPage +'video/');
+            $.gaPageview(indexPage + 'video/');
             break;
         case 'photo':
             u = "popup/photo/";
@@ -120,12 +123,12 @@ $.extend(
             $isCircle = true;
             break;
         case 'privacy_policy':
-            u = "popup/privacy_policy/";
-            $.gaPageview(indexPage +'privacy_policy/');
+            u = "popup/privacy_policy/" + document.body.className;
+            $.gaPageview(indexPage + 'privacy_policy/');
             break;
         case 'terms_and_conditions':
-            u = "popup/terms_and_conditions/";
-            $.gaPageview(indexPage +'terms_and_conditions/');
+            u = "popup/terms_and_conditions/" + document.body.className;
+            $.gaPageview(indexPage + 'terms_and_conditions/');
             break;
         }
         if ($isCircle)
@@ -253,17 +256,17 @@ $.extend(
             var _caption = shareCaption;
             var _description = shareDescription;
 
-            if (v.post_type == 'circle')
-                _caption = _caption + " " + goal;
+            if (v.post_type == 'circle') _caption = _caption + " " + goal;
 
             var _link = baseUrl + indexPage + '#' + u;
 
 
-            if (v.post_type == 'video'){
-                _caption        = shareFBVideoCaption;
-                _description    = shareFBVideoDescription;
+            if (v.post_type == 'video')
+            {
+                _caption = shareFBVideoCaption;
+                _description = shareFBVideoDescription;
                 //oc: different video thumb
-                _picture        = baseUrl + 'img/popups/video/video-thumbnail.jpg';
+                _picture = baseUrl + 'img/popups/video/video-thumbnail.jpg';
 
             }
 
@@ -295,19 +298,19 @@ $.extend(
 
             var twitterShare = (v.post_type == 'video') ? shareTwVideoCopy : twitterShareCopy;
 
-            var goal = v.action != undefined ? (weWillText+ ' ' + v.action) : twitterShare;
+            var goal = v.action != undefined ? (weWillText + ' ' + v.action) : twitterShare;
             var hash = (v.hashtag_before_url != undefined) ? 1 : 0;
             if (v.referral != undefined || v.referral != null) u += "/?referral=twitter-" + v.referral;
-            
+
             //Swap speical characters to entities
             u = u.replace(/\//gi, '_').replace(/\?/gi, '%3F').replace(/\=/gi, '%5E');
-            goal = goal.replace(/\'/gi,'%5E');
+            goal = goal.replace(/\'/gi, '%5E');
 
             var _url = baseUrl + indexPage + 'home/twitter_share/' + u + '/' + hash + '/' + encodeURIComponent(goal);
 
-            openShareWindow(575, 380, _url , 'Twitter');
+            openShareWindow(575, 380, _url, 'Twitter');
             $.gaEvent((v.post_type).capitalize(), 'Shared', 'by Twitter');
-           
+
         }
     }
 });
@@ -386,7 +389,7 @@ $.extend(
         //Reset the image degree
         $img_deg = 0;
         if (Modernizr.canvas && !ismobile && !$('html').hasClass('ie'))
-        {            
+        {
             uploadToCanvas(e);
         }
         else
@@ -427,7 +430,7 @@ $.extend(
             fileElementId: 'uploadFile',
             dataType: 'json',
             success: function(data, status)
-            {                   
+            {
                 if (typeof(data.error) != 'undefined')
                 {
                     if (data.error != '') alert(data.error);
@@ -483,13 +486,13 @@ $.extend(
             $ratio = 1,
             $top = 0,
             $left = 0,
-            $w,$h,$bw,$bh;
+            $w, $h, $bw, $bh;
 
         if (img.width > img.height)
         { // landscape
             $orientation = 'landscape';
             $ratio = $length / img.height;
-            $left = (img.width * $ratio - $length) *-.5;
+            $left = (img.width * $ratio - $length) * -.5;
 
             $(img).draggable(
             {
@@ -502,7 +505,7 @@ $.extend(
         { // portrait
             $orientation = 'portrait';
             $ratio = $length / img.width;
-            $top = (img.height * $ratio - $length) *-.5;
+            $top = (img.height * $ratio - $length) * -.5;
             $(img).draggable(
             {
                 containment: $bound,
@@ -537,7 +540,7 @@ $.extend(
                 'width': $bw,
                 'height': $h,
                 'left': ($bw / 2 - $length / 2) * -1 + 'px',
-                'top':0
+                'top': 0
             }).appendTo($parent);
         }
         else if ($top != 0)
@@ -551,8 +554,7 @@ $.extend(
                 'top': ($bh / 2 - $length / 2) * -1 + 'px'
             }).appendTo($parent);
         }
-        $(img).appendTo($parent)
-        .css(
+        $(img).appendTo($parent).css(
         {
             'min-width': $w + 'px',
             'min-height': $h + 'px',
@@ -562,37 +564,37 @@ $.extend(
             'top': $top + 'px'
         });
         $($c + ' .btn_submit').css('opacity', 1);
-        
+
         //Show rotate button 
-        if(!$('html').hasClass('lt-ie9'))
-            $('.btn_rotate').show();
+        if (!$('html').hasClass('lt-ie9')) $('.btn_rotate').show();
         loadEnd();
     }
 
     function updateImageBound()
     {
         var $length = $parent.parent().width(),
-            $bound  = $($c + ' #bound'),
-            $img    = $parent.children('img'),
-            $iw     = $img.width(),
-            $ih     = $img.height(),            
+            $bound = $($c + ' #bound'),
+            $img = $parent.children('img'),
+            $iw = $img.width(),
+            $ih = $img.height(),
             $i_minw = $img.css('min-width'),
             $i_minh = $img.css('min-height'),
             $i_maxw = $img.css('max-width'),
             $i_maxh = $img.css('max-height'),
-            $il     = $img.css('left'),
-            $it     = $img.css('top'),
-            $bw     = $bound.width(),
-            $bh     = $bound.height(),
-            $bl     = $bound.css('left'),
-            $bt     = $bound.css('top'),
+            $il = $img.css('left'),
+            $it = $img.css('top'),
+            $bw = $bound.width(),
+            $bh = $bound.height(),
+            $bl = $bound.css('left'),
+            $bt = $bound.css('top'),
             _deg;
 
         $img_deg += 90;
         $img_deg %= 360;
 
         //Rotate bound area
-        $bound.css({
+        $bound.css(
+        {
             'width': $bh,
             'height': $bw,
             'left': $bt,
@@ -600,26 +602,30 @@ $.extend(
         });
 
 
-        if(Modernizr.canvas){
+        if (Modernizr.canvas)
+        {
             //CSS3 transition
             //Center image first berfore rotation (Do not use $orientation, always get the current image dimension)
             if ($img.width() > $img.height())
             { // landscape
-                $img.css({
-                    'left': ($img.width()- $length) *-.5,
-                    'top' : 0
+                $img.css(
+                {
+                    'left': ($img.width() - $length) * -.5,
+                    'top': 0
                 });
             }
             else if ($img.width() < $img.height())
             { // portrait
-                $img.css({
+                $img.css(
+                {
                     'left': 0,
-                    'top': ($img.height()- $length) *-.5
+                    'top': ($img.height() - $length) * -.5
                 });
             }
 
-            _deg = 'rotate(' + $img_deg +'deg)';
-            $img.css({
+            _deg = 'rotate(' + $img_deg + 'deg)';
+            $img.css(
+            {
                 '-webkit-transform': _deg,
                 '-moz-transform': _deg,
                 '-ms-transform': _deg,
@@ -627,24 +633,29 @@ $.extend(
                 'transform': _deg,
             });
         }
-        else{
+        else
+        {
             //VML
         }
 
         //update draggable event
-        if($parent.hasClass('scroll_x') || $parent.hasClass('scroll_y')){
-            var _axis;            
+        if ($parent.hasClass('scroll_x') || $parent.hasClass('scroll_y'))
+        {
+            var _axis;
             $img.draggable('destroy');
 
-            if($parent.hasClass('scroll_x')){
+            if ($parent.hasClass('scroll_x'))
+            {
                 _axis = 'y';
                 $parent.addClass('scroll_y').removeClass('scroll_x');
             }
-            else{
+            else
+            {
                 _axis = 'x';
-                 $parent.addClass('scroll_x').removeClass('scroll_y');
+                $parent.addClass('scroll_x').removeClass('scroll_y');
             }
-            $img.draggable({
+            $img.draggable(
+            {
                 containment: $bound,
                 axis: _axis
             });
@@ -653,7 +664,7 @@ $.extend(
     }
 
     function rotateImage()
-    {           
+    {
         updateImageBound();
     }
 
@@ -678,34 +689,29 @@ $.extend(
                 var ctx = canvas.getContext('2d');
                 canvas.width = $length;
                 canvas.height = $length;
-                ctx.translate(canvas.width/2, canvas.height/2);
-                ctx.rotate($img_deg * Math.PI/180);
-                ctx.translate(-canvas.width/2,-canvas.height/2);
-                
+                ctx.translate(canvas.width / 2, canvas.height / 2);
+                ctx.rotate($img_deg * Math.PI / 180);
+                ctx.translate(-canvas.width / 2, - canvas.height / 2);
+
                 //rule by degree
                 console.debug('orientation: ' + $orientation);
-                switch($img_deg){
-                    case 0:
-                        ctx.drawImage($($img)[0], $l, $t, $w, $h);
-                        break;
-                    case 90:
-                        if($orientation == 'portrait')
-                            ctx.drawImage($($img)[0], 0, $t-$l, $w, $h);
-                        else
-                            ctx.drawImage($($img)[0], $l+$t, 0, $w, $h);
-                        break;
-                    case 180:
-                        if($orientation == 'portrait')
-                            ctx.drawImage($($img)[0], 0 , $t*-1 - ($h-$length), $w, $h);
-                        else
-                            ctx.drawImage($($img)[0], $l*-1 - ($w-$length) , $t, $w, $h);
-                        break;
-                    case 270:
-                        if($orientation == 'portrait')
-                            ctx.drawImage($($img)[0], 0, $t+$l, $w, $h);
-                        else
-                            ctx.drawImage($($img)[0], $l-$t, 0, $w, $h);
-                        break;
+                switch ($img_deg)
+                {
+                case 0:
+                    ctx.drawImage($($img)[0], $l, $t, $w, $h);
+                    break;
+                case 90:
+                    if ($orientation == 'portrait') ctx.drawImage($($img)[0], 0, $t - $l, $w, $h);
+                    else ctx.drawImage($($img)[0], $l + $t, 0, $w, $h);
+                    break;
+                case 180:
+                    if ($orientation == 'portrait') ctx.drawImage($($img)[0], 0, $t * -1 - ($h - $length), $w, $h);
+                    else ctx.drawImage($($img)[0], $l * -1 - ($w - $length), $t, $w, $h);
+                    break;
+                case 270:
+                    if ($orientation == 'portrait') ctx.drawImage($($img)[0], 0, $t + $l, $w, $h);
+                    else ctx.drawImage($($img)[0], $l - $t, 0, $w, $h);
+                    break;
                 }
 
                 var canvasData = canvas.toDataURL("image/png");
@@ -840,7 +846,7 @@ $.extend(
         console.info("author name", $d.author);
 
         //add user data to header area
-        $($c + ' #popup_circle_header p').text(nameCircleOfStrength.replace('[name]', $d.author) );
+        $($c + ' #popup_circle_header p').text(nameCircleOfStrength.replace('[name]', $d.author));
         $($c + ' #popup_circle_header img').attr('src', baseUrl + 'img/flags/large/' + $d.country + '.png');
 
         //Hide edit user button
@@ -895,7 +901,9 @@ $.extend(
 
         updateBrowerProperties();
         $(window).bind('resize scroll', windowResizeScrollEventlistener);
-        function windowResizeScrollEventlistener(e){ 
+
+        function windowResizeScrollEventlistener(e)
+        {
             if (e.type == 'resize')
             {
                 $margin_top = getMarginTop();
@@ -996,18 +1004,19 @@ $.extend(
 
             if ($i != 0)
             {
-                if (!$d.is_user){
+                if (!$d.is_user)
+                {
                     $dot = $('<div class="dot"/>');
                 }
-                else{                    
-                    $dot = $('<div class="friend_avatar"/>').append($('<img src="'+ $d.friends_data[$i-1].url +'"/>'));
+                else
+                {
+                    $dot = $('<div class="friend_avatar"/>').append($('<img src="' + $d.friends_data[$i - 1].url + '"/>'));
                 }
                 $dot.css(
                 {
                     'left': $x + '%',
                     'top': $y + '%'
-                })
-                .appendTo($parent).hide().delay($i * 100).show(500, function()
+                }).appendTo($parent).hide().delay($i * 100).show(500, function()
                 {
                     $count++;
                     if ($count == $steps) loadCirclePhotos();
@@ -1148,11 +1157,13 @@ $.extend(
     function loadCommentBox()
     {
         var $holder = $($c + ' #popup_circle_comment_holder');
-        if ($holder.children().length == 0){
+        if ($holder.children().length == 0)
+        {
             var iframeSrc = baseUrl + indexPage + 'popup/facebook_comment_iframe/' + $d.id;
             $('<iframe frameborder="0" border="0" src="' + iframeSrc + '"></iframe>').appendTo($holder);
         }
-        else{
+        else
+        {
             console.debug('CommentBox is already running');
         }
     };
@@ -1324,9 +1335,11 @@ $.extend(
                 if (selectedCountry == 'uk') $language = 'en-uk';
                 else $language = 'en-us';
             }
-            else if ($language == 'es' && selectedCountry == 'mx') {
+            else if ($language == 'es' && selectedCountry == 'mx')
+            {
                 $language = 'es-mx';
-            }else if ($language == 'fr' && selectedCountry == 'ca') $language = 'fr-ca';
+            }
+            else if ($language == 'fr' && selectedCountry == 'ca') $language = 'fr-ca';
 
             //add langage abbreviation as class into body
             $('body').addClass($language);
@@ -1359,7 +1372,8 @@ $.extend(
                 }
             });
         },
-        selectedLanguageField: function(){
+        selectedLanguageField: function()
+        {
             return $language;
         }
     });
@@ -1384,7 +1398,7 @@ $.extend(
             if (typeof $FM !== 'undefined' && typeof $FM.ready === 'function')
             {
                 console.debug('--->FEED: Connected---');
-                $FM.ready(fx);                
+                $FM.ready(fx);
             }
             else
             {
@@ -1686,9 +1700,7 @@ $.extend(
     gaEvent: function(_category, _action, _label)
     {
         if (_label == undefined) _label = '';
-        console.log("gaEvent: ",_category, _action, _label);
-        // _gaq.push(['_trackEvent', _category, _action, _label]);
-        // ga('send', 'event', _category, _action, _label);
+        console.log("gaEvent: ", _category, _action, _label);
         ga('send',
         {
             'hitType': 'event',
@@ -1699,8 +1711,7 @@ $.extend(
     },
     gaPageview: function(_url)
     {
-        // var title = _url.toString().replace(/\//gi, '');
-        console.log('Pageview: ' + _url /*+ ' Title is: ' + title.replace()*/);
+        console.log('Pageview: ' + _url /*+ ' Title is: ' + title.replace()*/ );
         ga('send',
         {
             'hitType': 'pageview',

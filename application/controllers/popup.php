@@ -65,14 +65,14 @@ class Popup extends CI_Controller {
 		$this->load->view('popup/facebook_comment_iframe_view', $data);
 	}
 
-	public function privacy_policy()
+	public function privacy_policy($lang)
 	{
-		$this->load->view('popup/privacy_policy_view');		
+		$this->load->view('popup/privacy_policy_view_'.$lang);
 	}
 
-	public function terms_and_conditions()
+	public function terms_and_conditions($lang)
 	{
-		$this->load->view('popup/terms_and_conditions_view');
+		$this->load->view('popup/terms_and_conditions_view_'.$lang);
 	}
 
 }
