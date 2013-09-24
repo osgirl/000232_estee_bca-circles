@@ -21,7 +21,7 @@
 								<li><a href="#policy_a2_a1">Cookies, Web Server Logs and Web Beacons</a></li>
 								<li><a href="#policy_a2_a2">Third Party Web Analytics Services</a></li>
 							</ul>
-							<li><a href="#policy_a2_b">Targeted Advertising</a></li>
+							<li>Targeted Advertising</li>
 							<li><a href="#policy_a2_c">How We Use the Information Collected by Automated Means</a></li>
 						</ul>
 					</li>
