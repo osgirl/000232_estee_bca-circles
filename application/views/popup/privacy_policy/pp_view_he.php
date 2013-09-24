@@ -7,40 +7,40 @@
 		<p>Click on one of the links below to jump to the listed section:</p>
 
 		<ul>
-			<li>Information We Collect
+			<li><a href="#policy_a">Information We Collect</a>
 				<ul>
-					<li>Information You Provide
+					<li><a href="#policy_a1">Information You Provide</a>
 						<ul>
-							<li>How We Use the Information</li>
+							<li><a href="#policy_a1_a">How We Use the Information</a></li>
 						</ul>
 					</li>
-					<li>Information We Collect by Automated Means
+					<li><a href="#policy_a2">Information We Collect by Automated Means</a>
 						<ul>
-							<li>Technologies We Use
+							<li><a href="#policy_a2_a">Technologies We Use</a>
 							<ul>
-								<li>Cookies, Web Server Logs and Web Beacons</li>
-								<li>Third Party Web Analytics Services</li>
+								<li><a href="#policy_a2_a1">Cookies, Web Server Logs and Web Beacons</a></li>
+								<li><a href="#policy_a2_a2">Third Party Web Analytics Services</a></li>
 							</ul>
-							<li>Targeted Advertising</li>
-							<li>How We Use the Information Collected by Automated Means</li>
+							<li><a href="#policy_a2_b">Targeted Advertising</a></li>
+							<li><a href="#policy_a2_c">How We Use the Information Collected by Automated Means</a></li>
 						</ul>
 					</li>
 				</ul>
 			</li>
-			<li>Information We Share</li>
-			<li>Your Rights And Choices</li>
-			<li>Data Transfers</li>
-			<li>Children’s Privacy</li>
-			<li>How We Protect Personal Information</li>
-			<li>Links To Other Websites</li>
-			<li>Updates To Our Privacy Policy</li>
-			<li>How To Contact Us</li>
+			<li><a href="#policy_b">Information We Share</a></li>
+			<li><a href="#policy_c">Your Rights And Choices</a></li>
+			<li><a href="#policy_d">Data Transfers</a></li>
+			<li><a href="#policy_e">Children’s Privacy</a></li>
+			<li><a href="#policy_f">How We Protect Personal Information</a></li>
+			<li><a href="#policy_g">Links To Other Websites</a></li>
+			<li><a href="#policy_h">Updates To Our Privacy Policy</a></li>
+			<li><a href="#policy_i">How To Contact Us</a></li>
 		</ul>
 
-		<h3>Information We Collect</h3>
+		<h3 id="policy_a" name="policy_a">Information We Collect</h3>
 		<p>We may obtain personal information about you from the Breast Cancer Awareness campaign website, located at BCACampaign.com/StrongerTogether (the “BCA Site”) or in connection with our social networking or mobile applications. When you visit the BCA Site or our social networking or mobile applications, we may also collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
 		
-		<h3 class="sub1">Information You Provide</h3>
+		<h3 id="policy_a1" name="policy_a1" class="sub1">Information You Provide</h3>
 		<p>You may choose to provide personal information to us, and the types of personal information you may provide to us includes: </p>
 		<ul>
 			<li>Contact information (such as name, postal address, email address, and mobile or other phone number)</li>
@@ -50,7 +50,7 @@
 			<li>Information provided to us by social networks or mobile applications when you use one of our social networking or mobile applications (such as your name, profile picture, likes, location, friend list and other information described in the social networking application sign-up page, or your geo-location details when using one of our mobile applications)</li>
 		</ul>
 
-		<h3 class="sub2">How We Use The Information</h3>
+		<h3 id="policy_a1_a" name="policy_a1_a" class="sub2">How We Use The Information</h3>
 		<p>We may use the information you provide to:</p>
 		<ul>
 			<li>Communicate with you about, and administer your participation in, the Breast Cancer Awareness campaign</li>
@@ -62,22 +62,22 @@
 		</ul>
 		<p>We also may use the information in other ways for which we provide specific notice at the time of collection.</p>
 
-		<h3 class="sub1">Information We Collect by Automated Means</h3>
+		<h3 id="policy_a2" name="policy_a2" class="sub1">Information We Collect by Automated Means</h3>
 		<p>When you visit this site or our online advertisements or use one of our social networking or mobile applications, we collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
 
-		<h3 class="sub2">Technologies We Use</h3>
-		<h3 class="sub3">Cookies, Web Server Logs and Web Beacons</h3>
+		<h3 id="policy_a2_a" name="policy_a2_a" class="sub2">Technologies We Use</h3>
+		<h3 id="policy_a2_a1" name="policy_a2_a1" class="sub3">Cookies, Web Server Logs and Web Beacons</h3>
 		<p>Cookies are small text files that websites send to your computer or other Internet-connected device to uniquely identify your browser or to store information or settings in your browser. Your browser may tell you how to be notified when you receive certain types of cookies and how to restrict or disable certain cookies. Please note, however, that without cookies you may not be able to use all of the features of our website.</p>
 		<p>In conjunction with obtaining information through cookies, our web servers may log details such as your operating system type, browser type, domain, and other system settings, as well as the language your system uses and the country and time zone in which your device is located. The web server logs also may record information such as the address of the web page that linked you to our site and the IP address of the device you use to connect to the Internet.</p>
 		<p>To control which web servers collect this information, we may place tags on our web pages called “web beacons.” These are computer instructions that link web pages to particular web servers and their cookies.</p>
 
-		<h3 class="sub3">Third Party Web Analytics Services</h3>
-		<p>We may use third party web analytics services on this site.   Such third party web analytics service providers may include, but is not limited to, Google Analytics.  The service providers that administer these services use technologies such as cookies, web server logs and web beacons to help us analyze how visitors use the site. The information collected through these means (including IP address) is disclosed to these service providers, who use the information to evaluate use of the website. To disable the Google Analytics cookie and any other third party web analytics service provider cookies, some browsers indicate when a cookie is being sent and allow you to decline cookies on a case-by-case basis.</p>
+		<h3 id="policy_a2_a2" name="policy_a2_a2" class="sub3">Third Party Web Analytics Services</h3>
+		<p>We may use third party web analytics services on this site. Such third party web analytics service providers may include, but is not limited to, Google Analytics.  The service providers that administer these services use technologies such as cookies, web server logs and web beacons to help us analyze how visitors use the site. The information collected through these means (including IP address) is disclosed to these service providers, who use the information to evaluate use of the website. To disable the Google Analytics cookie and any other third party web analytics service provider cookies, some browsers indicate when a cookie is being sent and allow you to decline cookies on a case-by-case basis.</p>
 
-		<h3 class="sub2">How We Use the Information Collected by Automated Means</h3>
+		<h3 id="policy_a2_c" name="policy_a2_c" class="sub2">How We Use the Information Collected by Automated Means</h3>
 		<p>We may use the information collected through automated means on this site for market research, data analytics and system administration purposes, such as to determine whether you’ve visited us before or are new to the site, and for compliance with our legal obligations, policies and procedures, including compliance with relevant industry standards and the enforcement of our <u>Terms and Conditions</u>. We also may use the information in other ways for which specific notice is provided at the time of collection.</p>
 
-		<h3>Information We Share</h3>
+		<h3 id="policy_b" name="policy_b">Information We Share</h3>
 		<p>We do not rent lists, or sell or otherwise disclose personal information we collect about you, except as described here. We may share your personal information with:</p>
 		<ul>
 			<li>Our affiliates within The Estee Lauder Companies’ umbrella of companies</li>
@@ -87,7 +87,7 @@
 		<p>In addition, we may disclose information about you (i) if we are required to do so by law or legal process, (ii) to law enforcement authorities or other government officials, or (iii) when we believe disclosure is necessary or appropriate to prevent physical harm or financial loss, or in connection with an investigation of suspected or actual fraudulent or illegal activity.</p>
 		<p>We also reserve the right to transfer personal information we have about you in the event we sell or transfer all or a portion of our business or assets. Should such a sale or transfer occur, we will use reasonable efforts to direct the transferee to use personal information you have provided to us in a manner that is consistent with our Privacy Policy. Following such a sale or transfer, you may contact the entity to which we transferred your personal information with any inquiries concerning the processing of that information.</p>
 
-		<h3>Your Rights and Choices</h3>
+		<h3 id="policy_c" name="policy_c">Your Rights and Choices</h3>
 		<p>We offer you certain choices in connection with the personal information we collect from you, such as how we use the information and how we communicate with you. To update your preferences, please contact us as specified below.</p>
 		<ul>
 			<li>
@@ -104,22 +104,22 @@
 			</li>
 		</ul>
 
-		<h3>Data Transfers</h3>
+		<h3 id="policy_d" name="policy_d">Data Transfers</h3>
 		<p>We may transfer the personal information we collect about you to countries other than the country in which the information was originally collected. Our servers hosting the BCA Site are located in the United States, which with other countries may not have the same data protection laws as the country in which you initially provided the information. When we transfer your information to other countries, we will protect that information as described in this Privacy Policy.</p>
 
-		<h3>Children's Privacy</h3>
+		<h3 id="policy_e" name="policy_e">Children's Privacy</h3>
 		<p>If you are under thirteen years of age, you may browse our site. However, you may not provide personal information to us. This site is not directed to children under the age of thirteen and we do not knowingly collect personal information from children under the age of thirteen on the site. If we become aware that we have inadvertently received personal information from a visitor under the age of thirteen on the site, we will delete the information from our records.</p>
 
-		<h3>How We Protect Personal Information</h3>
+		<h3 id="policy_f" name="policy_f">How We Protect Personal Information</h3>
 		<p>We maintain appropriate administrative, technical and physical safeguards designed to protect the personal information you provide against accidental, unlawful or unauthorized destruction, loss, alteration, access, disclosure or use.</p>
 
-		<h3>Links To Other Websites</h3>
+		<h3 id="policy_g" name="policy_g">Links To Other Websites</h3>
 		<p>Our website may provide links to other websites for your convenience and information. These websites may operate independently from us. Linked sites may have their own privacy notices or policies, which we strongly suggest you review if you visit any linked websites. To the extent any linked websites you visit are not owned or controlled by us, we are not responsible for the sites’ content, any use of the sites, or the privacy practices of the sites.</p>
 
-		<h3>Updates To Our Privacy Policy</h3>
+		<h3 id="policy_h" name="policy_h">Updates To Our Privacy Policy</h3>
 		<p>This Privacy Policy may be updated periodically and without prior notice to you to reflect changes in our personal information practices. We will post a prominent notice on our website to notify you of any significant changes to our Privacy Policy and indicate at the top of the Policy when it was most recently updated.</p>
 
-		<h3>How To Contact Us</h3>
+		<h3 id="policy_i" name="policy_i">How To Contact Us</h3>
 		<p>If you have any questions or comments about this Privacy Policy, or if you would like us to update information we have about you or your preferences, please contact us by email at consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
 
 		<p>Copyright © The Estée Lauder Companies Inc. All worldwide rights reserved.</p>
