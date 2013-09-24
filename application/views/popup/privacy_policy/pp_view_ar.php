@@ -1,128 +1,128 @@
 <div class="popup" id="popup_legal">	
 	<div id="popup_legal_content">
-		<h2>2013 BCA CAMPAIGN: PRIVACY POLICY</h2>
-		<h3>Effective Date: August 1, 2013</h3>
-		<h2>Breast Cancer Awareness Campaign Privacy Policy</h3>
-		<p>The Estée Lauder Companies (“we, us, or our”) respect your concerns about privacy and value the relationship we have with you. This Privacy Policy describes the types of personal information we collect in connection with the Breast Cancer Awareness campaign, how we use the information, with whom we share it, and the choices available to our participants regarding our use of the information. We also describe the measures we take to protect the security of the information and how our participants can contact us about our privacy practices.</p>
-		<p>Click on one of the links below to jump to the listed section:</p>
+		<h2>حملة التوعية بسرطان الثدي لعام 2013: سياسة الخصوصية</h2>
+		<h3>تاريخ السريان: 1 أغسطس 2013</h3>
+		<h2>سياسة الخصوصية لحملة التوعية بسرطان الثدي</h3>
+		<p>شركات استي لودر Estée Lauder ("نحن أو شركاتنا") تتفهم قلقك بشأن الخصوصية وتقدّر العلاقة التي تربطنا بك. توضح سياسة الخصوصية هذه أنواع المعلومات الشخصية التي نقوم بجمعها في إطار حملة التوعية بسرطان الثدي، وطريقة استخدامنا للمعلومات، والجهات التي نتشاركها معها، والخيارات المتاحة أمام المشاركات بصدد استخدام المعلومات. كما سنوضح التدابير التي نتخذها لحماية أمان المعلومات وكيف تستطيع المشاركات التواصل معنا بشأن ممارسات الخصوصية الخاصة بنا.</p>
+		<p>اضغطي على أحد الروابط أدناه للانتقال إلى القسم المدرج:</p>
 
 		<ul>
-			<li>Information We Collect
+			<li><a href="#policy_a">لمعلومات التي نجمعها</a>
 				<ul>
-					<li>Information You Provide
+					<li>ا<a href="#policy_a1">لمعلومات التي تقدمينها</a>
 						<ul>
-							<li>How We Use the Information</li>
+							<li><a href="#policy_a1_a">كيف نستخدم المعلومات</a></li>
 						</ul>
 					</li>
-					<li>Information We Collect by Automated Means
+					<li><a href="#policy_a2">المعلومات التي نجمعها بوسائل آلية</a>
 						<ul>
-							<li>Technologies We Use
+							<li><a href="#policy_a2_a">التقنيات التي نستخدمها</a>
 							<ul>
-								<li>Cookies, Web Server Logs and Web Beacons</li>
-								<li>Third Party Web Analytics Services</li>
+								<li><a href="#policy_a2_a1">لكوكيز، وسجلات ملقمات الويب، وكاشف المستخدم</a></li>
+								<li><a href="#policy_a2_a2">خدمات طرف ثالث محلل الويب</a></li>
 							</ul>
-							<li>Targeted Advertising</li>
-							<li>How We Use the Information Collected by Automated Means</li>
+							<li>الإعلانات الموجهة</li>
+							<li><a href="#policy_a2_c">كيفية استخدام المعلومات المجمعة بوسائل آلية</a></li>
 						</ul>
 					</li>
 				</ul>
 			</li>
-			<li>Information We Share</li>
-			<li>Your Rights And Choices</li>
-			<li>Data Transfers</li>
-			<li>Children’s Privacy</li>
-			<li>How We Protect Personal Information</li>
-			<li>Links To Other Websites</li>
-			<li>Updates To Our Privacy Policy</li>
-			<li>How To Contact Us</li>
+			<li><a href="#policy_b">المعلومات التي نشاركها</a></li>
+			<li><a href="#policy_c">حقوقك واختياراتك</a></li>
+			<li><a href="#policy_d">عمليات نقل البيانات</a></li>
+			<li><a href="#policy_e">خصوصية الأطفال</a></li>
+			<li><a href="#policy_f">كيف نحمي المعلومات الشخصية</a></li>
+			<li><a href="#policy_g">روابط لمواقع ويب أخرى</a></li>
+			<li><a href="#policy_h">تحديثات لسياسة الخصوصية</a></li>
+			<li><a href="#policy_i">كيف تتواصلين معنا</a></li>
 		</ul>
 
-		<h3>Information We Collect</h3>
-		<p>We may obtain personal information about you from the Breast Cancer Awareness campaign website, located at BCACampaign.com/StrongerTogether (the “BCA Site”) or in connection with our social networking or mobile applications. When you visit the BCA Site or our social networking or mobile applications, we may also collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
+		<h3 id="policy_a" name="policy_a">المعلومات التي نجمعها</h3>
+		<p>نحصل على المعلومات الشخصية الخاصة بك من موقع حملة التوعية بسرطان الثدي، على العنوان BCACampaign.com/StrongerTogether ("موقع BCA") أو عبر أنشطة شبكة التواصل الاجتماعي الخاصة بنا أو تطبيقات الهاتف المحمول. عندما تقومين بزيارة موقع BCA أو صفحتنا على مواقع التواصل الاجتماعي أو تطبيقات الهاتف المحمول، قد نقوم أيضاً بجمع معلومات معينة بوسائل آلية بالاعتماد على تقنيات مثل الكوكيز، وسجلات ملقمات الويب، وكاشفات المستخدم.</p>
 		
-		<h3 class="sub1">Information You Provide</h3>
-		<p>You may choose to provide personal information to us, and the types of personal information you may provide to us includes: </p>
+		<h3 id="policy_a1" name="policy_a1" class="sub1">المعلومات التي تقدمينها</h3>
+		<p>ربما ترغبين في تقديم معلوماتك الشخصية لنا، وتشمل أنواع المعلومات الشخصية التي ستقدمينها لنا:</p>
 		<ul>
-			<li>Contact information (such as name, postal address, email address, and mobile or other phone number)</li>
-			<li>Gender</li>
-			<li>Contact information for friends or other people you would like us to contact</li>
-			<li>Content you provide (such as photographs, articles and comments)</li>
-			<li>Information provided to us by social networks or mobile applications when you use one of our social networking or mobile applications (such as your name, profile picture, likes, location, friend list and other information described in the social networking application sign-up page, or your geo-location details when using one of our mobile applications)</li>
+			<li>معلومات الاتصال (مثل الاسم، وعنوان الرمز البريدي، والعنوان البريدي، ورقم الهاتف المحمول أو أي هاتف)</li>
+			<li>الجنس</li>
+			<li>معلومات الاتصال بصديقات أو أشخاص آخرين ترغبين في أن نتواصل بهم</li>
+			<li>المحتوى الذي تقدمينه (مثل الصور الفوتوغرافية، والمقالات، والتعليقات)</li>
+			<li>المعلومات التي تردنا من شبكات التواصل الاجتماعي أو تطبيقات الهاتف المحمول عندما تستخدمين إحدى أنشطة شبكات التواصل الاجتماعي أو تطبيقات الهاتف المحمول الخاصة بنا (مثل اسمك، أو صورتك، أو تفضيلاتك، أو موقعك، أو قائمة أصدقائك، أو غيرها من المعلومات المذكورة في صفحة التسجيل في شبكة التواصل الاجتماعي، أو تفاصيل عن موقعك الجغرافي أثناء استخدام إحدى تطبيقات الهاتف المحمول الخاصة بنا)</li>
 		</ul>
 
-		<h3 class="sub2">How We Use The Information</h3>
-		<p>We may use the information you provide to:</p>
+		<h3 id="policy_a1_a" name="policy_a1_a" class="sub2">كيف نستخدم المعلومات</h3>
+		<p>قد نستخدم المعلومات التي تقدميها لنا في الأغراض التالية:</p>
 		<ul>
-			<li>Communicate with you about, and administer your participation in, the Breast Cancer Awareness campaign</li>
-			<li>Provide services to you </li>
-			<li>Respond to your inquiries</li>
-			<li>Operate and communicate with you about our social networking or mobile applications</li>
-			<li>Operate, evaluate and improve our business (including developing new products and services; managing our communications; analyzing our products; performing data analytics; and performing accounting, auditing and other internal functions)
-			<li>Comply with applicable legal requirements, relevant industry standards and our policies</li>
+			<li>التواصل معك وإدارة عملية مشاركتك في حملة التوعية بسرطان الثدي</li>
+			<li>تقديم خدمات لك</li>
+			<li>الإجابة على استفساراتك</li>
+			<li>العمل والتواصل معك حول أنشطة صفحات التواصل الاجتماعي أو تطبيقات الهاتف المحمول الخاصة بنا</li>
+			<li>إجراء أعمالنا وتقييمها وتحسينها باستمرار (بما في ذلك ابتكار منتجات وخدمات جديدة؛ وإدارة اتصالاتنا، وتحليل منتجاتنا، وإجراء تحليلات للبيانات، وإجراء عمليات الحسابات والمراجعات وغيرها من الوظائف الداخلية)</li>
+			<li>الالتزام بالمتطلبات القانونية السارية، والمعايير الصناعية ذات الصلة، وسياساتنا</li>
 		</ul>
-		<p>We also may use the information in other ways for which we provide specific notice at the time of collection.</p>
+		<p>قد نستخدم المعلومات أيضاً بوسائل أخرى مع الإشارة إليها بشكل خاص وقت جمعها.</p>
 
-		<h3 class="sub1">Information We Collect by Automated Means</h3>
-		<p>When you visit this site or our online advertisements or use one of our social networking or mobile applications, we collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
+		<h3 id="policy_a2" name="policy_a2" class="sub1">المعلومات التي نجمعها بوسائل آلية</h3>
+		<p>عندما تقومين بزيارة موقعنا أو إعلاناتنا على الإنترنت أو تستخدمين واحدة من صفحات مواقع التواصل الاجتماعي أو تطبيقات الهاتف المحمول الخاصة بنا، قد نقوم بجمع معلومات معينة بوسائل آلية بالاعتماد على تقنيات مثل الكوكيز، وسجلات ملقمات الويب، وكاشفات المستخدم.</p>
 
-		<h3 class="sub2">Technologies We Use</h3>
-		<h3 class="sub3">Cookies, Web Server Logs and Web Beacons</h3>
-		<p>Cookies are small text files that websites send to your computer or other Internet-connected device to uniquely identify your browser or to store information or settings in your browser. Your browser may tell you how to be notified when you receive certain types of cookies and how to restrict or disable certain cookies. Please note, however, that without cookies you may not be able to use all of the features of our website.</p>
-		<p>In conjunction with obtaining information through cookies, our web servers may log details such as your operating system type, browser type, domain, and other system settings, as well as the language your system uses and the country and time zone in which your device is located. The web server logs also may record information such as the address of the web page that linked you to our site and the IP address of the device you use to connect to the Internet.</p>
-		<p>To control which web servers collect this information, we may place tags on our web pages called “web beacons.” These are computer instructions that link web pages to particular web servers and their cookies.</p>
+		<h3 id="policy_a2_a" name="policy_a2_a" class="sub2">التقنيات التي نستخدمها</h3>
+		<h3 id="policy_a2_a1" name="policy_a2_a1" class="sub3">الكوكيز، وسجلات ملقمات الويب، وكاشف المستخدم</h3>
+		<p>الكوكيز عبارة عن ملفات نصية صغيرة ترسلها مواقع الويب لجهاز الكمبيوتر الخاص بك أو أي جهاز متصل بالإنترنت بهدف تحديد متصفحك بدقة أو لتخزين معلومات أو إعدادات في متصفحك. قد يبلغك متصفحك بطريقة إخطارك عند استلام أنواع معينة من الكوكيز وكيف تمنعين بعض الكوكيز أو توقفين عملها. تجدر الإشارة إلى أنه بدون الكوكيز لن تتمكنين من استخدام كل المزايا والخصائص في موقعنا الإلكتروني.</p>
+		<p>علاوة على جمع المعلومات باستخدام الكوكيز، قد تقوم ملقمات موقعنا بتسجيل تفاصيل مثل نوع نظام التشغيل عندك، ونوع المتصفح، والنطاق، وغيرها من إعدادات النظام، فضلاً عن اللغة التي يستخدمها نظامك والبلد والنطاق الزمني الذي يقع فيه جهازك. ربما تسجل سجلات ملقم الويب معلومات أيضاً مثل عنوان صفحة الويب التي أوصلتك لموقعنا وعنوان IP للجهاز الذي تستخدمينه للاتصال بالإنترنت.</p>
+		<p>للتحكم في ملقمات الويب التي تجمع هذه المعلومات، ربما نضع علامات مرجعية على صفحات الويب الخاصة بنا تسمى "كاشف المستخدم". وهي تعليمات للكمبيوتر تربط صفحات الويب بملقمات ويب معينة والكوكيز الخاصة بها.</p>
 
-		<h3 class="sub3">Third Party Web Analytics Services</h3>
-		<p>We may use third party web analytics services on this site.   Such third party web analytics service providers may include, but is not limited to, Google Analytics.  The service providers that administer these services use technologies such as cookies, web server logs and web beacons to help us analyze how visitors use the site. The information collected through these means (including IP address) is disclosed to these service providers, who use the information to evaluate use of the website. To disable the Google Analytics cookie and any other third party web analytics service provider cookies, some browsers indicate when a cookie is being sent and allow you to decline cookies on a case-by-case basis.</p>
+		<h3 id="policy_a2_a2" name="policy_a2_a2" class="sub3">خدمات طرف ثالث محلل الويب</h3>
+		<p>قد نطلب خدمات طرف ثالث محلل ويب في هذا الموقع. يقدم موفرو خدمة الطرف الثالث محلل الويب خدمات تتضمن على سبيل المثال لا الحصر Google Analytics. يستخدم موفرو الخدمة الذين يديرون هذه الخدمات تقنيات مثل الكوكيز، وسجلات ملقمات الويب، وكاشف المستخدم لمساعدتنا في تحليل طريقة استخدام الزوار للموقع. يتم كشف المعلومات المجموعة بهذه الوسائل (بما في ذلك عنوان IP) لموفري هذه الخدمة، الذين يستخدمون المعلومات لتقييم استخدام الموقع. لوقف عمل كوكيز Google Analytics وأي كوكيز لموفري خدمة طرف ثالث محلل للويب، تقوم بعض المتصفحات بإخطارك عند وصول كوكيز وتسمح لك برفض الكوكيز على أساس كل حالة على حدة.</p>
 
-		<h3 class="sub2">How We Use the Information Collected by Automated Means</h3>
-		<p>We may use the information collected through automated means on this site for market research, data analytics and system administration purposes, such as to determine whether you’ve visited us before or are new to the site, and for compliance with our legal obligations, policies and procedures, including compliance with relevant industry standards and the enforcement of our <u>Terms and Conditions</u>. We also may use the information in other ways for which specific notice is provided at the time of collection.</p>
+		<h3 id="policy_a2_c" name="policy_a2_c" class="sub2">كيفية استخدام المعلومات المجمعة بوسائل آلية</h3>
+		<p>قد نستخدم المعلومات المجمعة بوسائل آلية في هذا الموقع لأغراض أبحاث السوق، وتحليل البيانات، وعمليات إدارة النظام، على سبيل المثال لتحديد ما إذا كنت زائرة جديدة أو زرتنا من قبل، وللامتثال بواجباتنا القانونية وسياساتنا وإجراءاتنا، بما في ذلك الامتثال بالمعايير الصناعية ذات الصلة وتنفيذ <u>الشروط والأحكام</u> الخاصة بنا. قد نستخدم المعلومات أيضاً بوسائل أخرى مع الإشارة إليها بشكل خاص وقت جمعها.</p>
 
-		<h3>Information We Share</h3>
-		<p>We do not rent lists, or sell or otherwise disclose personal information we collect about you, except as described here. We may share your personal information with:</p>
+		<h3 id="policy_b" name="policy_b">المعلومات التي نشاركها</h3>
+		<p>لا نقوم بتأجير القوائم أو بيعها أو إفشاء معلوماتك الشخصية إلي:</p>
 		<ul>
-			<li>Our affiliates within The Estee Lauder Companies’ umbrella of companies</li>
-			<li>Service providers who perform services on our behalf based on our instructions. We do not authorize these service providers to use or disclose the information except as necessary to perform services on our behalf or comply with legal requirements. Examples of these service providers include entities that process credit card payments, fulfill orders, and provide web hosting and marketing services.</li>
-			<li>Other third parties with your consent (e.g., some of our Facebook applications may share information collected through those apps with your Facebook friends or other Facebook users).</li>
+			<li>الشركات التابعة لنا أو المنتسبة لمجموعة شركات استي لودر Estée Lauder</li>
+			<li>موفرو الخدمات الذين يقدمون خدمات بالنيابة عنا وفقاً لتوجيهاتنا. كما لا نفوض موفري الخدمات في استخدام أو إفشاء المعلومات إلا عند الضرورة لأداء خدمات بالنيابة عنا أو الالتزام بالمتطلبات القانونية. من أمثلة موفري الخدمة هؤلاء الكيانات التي تتابع مدفوعات بطاقات الائتمان، وتنفيذ الأوامر، وموفري خدمات الاستضافة على الويب والتسويق.</li>
+			<li>الأطراف الثالثة الأخرى بموافقتك (على سبيل المثال: بعض تطبيقات الفيسبوك الخاصة بنا قد تشارك المعلومات المجموعة عبر هذه التطبيقات مع أصدقائك في الفيسبوك أو غيرهم من مستخدمي الفيسبوك).</li>
 		</ul>
-		<p>In addition, we may disclose information about you (i) if we are required to do so by law or legal process, (ii) to law enforcement authorities or other government officials, or (iii) when we believe disclosure is necessary or appropriate to prevent physical harm or financial loss, or in connection with an investigation of suspected or actual fraudulent or illegal activity.</p>
-		<p>We also reserve the right to transfer personal information we have about you in the event we sell or transfer all or a portion of our business or assets. Should such a sale or transfer occur, we will use reasonable efforts to direct the transferee to use personal information you have provided to us in a manner that is consistent with our Privacy Policy. Following such a sale or transfer, you may contact the entity to which we transferred your personal information with any inquiries concerning the processing of that information.</p>
+		<p>فضلاً عن ذلك، قد نفشي معلومات خاصة بك (1) إذا اضطررنا لذلك بقوة القانون أو إجراءات قانونية، أو (2) لسلطات تنفيذ القانون أو غيرهم من المسؤولين الحكوميين، أو (3) إذا شعرنا أن إفشاء المعلومات أمر ضروري أو ملائم لمنع ضرر جسماني أو خسارة مالية، أو في سياق التحقيق في عملية احتيال محتملة أو فعلية أو نشاط غير قانوني.</p>
+		<p>كما نحتفظ بالحق في نقل المعلومات الشخصية التي نمتلكها عنك في حالة البيع أو التنازل عن كل أعمالنا أو أصولنا أو جزء منها. حال وقوع مثل هذا البيع أو التنازل، سنبذل كل الجهود المعقولة لتوجيه الجهة المتنازل إليها لاستخدام المعلومات الشخصية التي قدمتها لنا بطريقة متسقة مع سياسة الخصوصية الخاصة بنا. عقب إتمام عملية البيع أو التنازل، يمكنك التواصل مع الكيان الذي انتقلت إليه معلوماتك الشخصية بشأن أي استفسار حول طريقة معالجة هذه المعلومات.</p>
 
-		<h3>Your Rights and Choices</h3>
-		<p>We offer you certain choices in connection with the personal information we collect from you, such as how we use the information and how we communicate with you. To update your preferences, please contact us as specified below.</p>
+		<h3 id="policy_c" name="policy_c">حقوقك واختياراتك</h3>
+		<p>نتيح لك عدداً من الخيارات الخاصة بالمعلومات الشخصية التي نجمعها منك، مثل طريقة استخدامنا للمعلومات وطريقة تواصلنا معك. لتحديث تفضيلاتك، يرجى الاتصال بنا كما هو موضح أدناه.</p>
 		<ul>
 			<li>
-				<h3 class="sub1">Social Networking Application Opt-Out</h3>
-				<p>To remove or delete our apps from your social networking account, follow the instructions from the social network:</br>Facebook: https://www.facebook.com/help/?faq=170585223002660 provided by the Facebook Help Center.</p>
+				<h3 class="sub1">اختيار عدم المشاركة في تطبيق شبكات التواصل الاجتماعي</h3>
+				<p>لإزالة أو حذف تطبيقاتنا من حسابك على مواقع التواصل الاجتماعي، اتبعي التعليمات الواردة في شبكة التواصل الاجتماعي:<br/ >الفيسبوك: https://www.facebook.com/help/?faq=170585223002660 المقدمة من مركز مساعدة شبكة الفيسبوك.</p>
 			</li>
 			<li>
-				<h3 class="sub1">Withdrawing Consent</h3>
-				<p>You may withdraw any consent you previously provided to us, or object at any time on legitimate grounds, to the processing of your personal information. We will apply your preferences going forward. In some circumstances, withdrawing your consent to our use or disclosure of your personal information will mean that you cannot take advantage of some of our products or services.</p>
+				<h3 class="sub1">سحب موافقة</h3>
+				<p>يمكنك الرجوع في أي موافقة منحتيها لنا في السابق، أو الاعتراض في أي وقت على أساس شرعي على معالجة معلوماتك الشخصية. وسنقوم بتنفيذ تفضيلاتك منذ تلك اللحظة وصاعداً. في بعض الظروف، قد يعني سحب موافقتك على الاستخدام أو إفشاء معلوماتك الشخصية عدم قدرتك على الانتفاع من بعض منتجاتنا أو خدماتنا.</p>
 			</li>
 			<li>
-				<h3 class="sub1">Reviewing, Updating and Modifying Personal Information</h3>
-				<p>Subject to applicable law, you may have the right to request access to and receive details about the personal information we maintain about you, update and correct inaccuracies in your personal data, and have the information blocked or deleted, as appropriate. The right to access personal information may be limited in some circumstances by local law requirements. You may request to review, change or delete your personal information by sending an email to consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
+				<h3 class="sub1">مراجعة وتحديث وتعديل المعلومات الشخصية</h3>
+				<p>يحق لك بموجب القانون الساري طلب الوصول إلى واستلام تفاصيل عن المعلومات الشخصية التي نحتقظ بها عنك وتحديثها وتصحيح البيانات الشخصية غير الدقيقة، وطلب حجز أو حذف المعلومات كما ينبغي. قد يقتصر الحق على الوصول إلى المعلومات الشخصية على ظروف معينة بموجب متطلبات القانون المحلي. يحق لك طلب مراجعة أو تغيير أو حذف معلوماتك الشخصية من خلال إرسال بريد إلكتروني إلى العنوان . consumercare-us@gcc.elc.estee.com [قم بإدراج عنوان الممثل المحلي للسوق].</p>
 			</li>
 		</ul>
 
-		<h3>Data Transfers</h3>
-		<p>We may transfer the personal information we collect about you to countries other than the country in which the information was originally collected. Our servers hosting the BCA Site are located in the United States, which with other countries may not have the same data protection laws as the country in which you initially provided the information. When we transfer your information to other countries, we will protect that information as described in this Privacy Policy.</p>
+		<h3 id="policy_d" name="policy_d">عمليات نقل البيانات</h3>
+		<p>قد نقوم بنقل المعلومات الشخصية التي نجمعها عنك إلى دول أخرى بخلاف الدول التي تم جمع المعلومات فيها في الأساس. تقع ملقماتنا التي تستضيف موقع BCA في الولايات المتحدة، والتي قد لا تخضع هي وبعض الدول إلى نفس قوانين حماية البيانات السارية في الدولة التي قمت بتقديم المعلومات فيها. عندما نقوم بنقل معلوماتك إلى دول أخرى، نقوم بحماية هذه المعلومات كما هو موضح في سياسة الخصوصية الحالية.</p>
 
-		<h3>Children's Privacy</h3>
-		<p>If you are under thirteen years of age, you may browse our site. However, you may not provide personal information to us. This site is not directed to children under the age of thirteen and we do not knowingly collect personal information from children under the age of thirteen on the site. If we become aware that we have inadvertently received personal information from a visitor under the age of thirteen on the site, we will delete the information from our records.</p>
+		<h3 id="policy_e" name="policy_e">خصوصية الأطفال</h3>
+		<p>إذا كنت أقل من 13 عاماً يحق لك تصفح موقعنا، لكن لا يحق لك تقديم معلومات شخصية لنا. هذا الموقع غير موجه للأطفال الأقل من 13 عاماً، ولا نقوم بقصد جمع معلومات شخصية من أطفال أقل من 13 عاماً في موقعنا. إذا بلغنا أننا قمنا بدون قصد بتلقي معلومات شخصية من زائر أقل من 13 عاماً على الموقع، سنقوم بحذف المعلومات من سجلاتنا.</p>
 
-		<h3>How We Protect Personal Information</h3>
-		<p>We maintain appropriate administrative, technical and physical safeguards designed to protect the personal information you provide against accidental, unlawful or unauthorized destruction, loss, alteration, access, disclosure or use.</p>
+		<h3 id="policy_f" name="policy_f">كيف نحمي المعلومات الشخصية</h3>
+		<p>نقوم بتطبيق إجراءات وقائية إدارية وفنية ومادية مصممة لحماية المعلومات الشخصية التي تقدمينها لنا ضد الإتلاف أو الفقد أو التغيير أو الوصول أو الإفشاء أو الاستخدام العرضي أو غير القانوني أو غير المرخص.</p>
 
-		<h3>Links To Other Websites</h3>
-		<p>Our website may provide links to other websites for your convenience and information. These websites may operate independently from us. Linked sites may have their own privacy notices or policies, which we strongly suggest you review if you visit any linked websites. To the extent any linked websites you visit are not owned or controlled by us, we are not responsible for the sites’ content, any use of the sites, or the privacy practices of the sites.</p>
+		<h3 id="policy_g" name="policy_g">روابط لمواقع ويب أخرى</h3>
+		<p>قد يقدم موقعنا روابط لمواقع أخرى قد تفيدك أو تزودك بالمعلومات. تعمل هذه المواقع بصورة مستقلة عنا وقد يكون لها إشعارات وسياسات خصوصية خاصة بها، والتي ننصحك بشدة باستعراضها عند زيارة أي من المواقع التي نذكر روابطها. جدير بالذكر أن مواقع الويب التي نذكر روابطها لتقومي بزيارتها غير مملوكة لنا وغير واقعة تحت إدارتنا وتحكمنا، وبالتالي لسنا مسؤولين عن محتوى هذه المواقع، أو أي استخدام لها، أو ممارسات الخصوصية فيها.</p>
 
-		<h3>Updates To Our Privacy Policy</h3>
-		<p>This Privacy Policy may be updated periodically and without prior notice to you to reflect changes in our personal information practices. We will post a prominent notice on our website to notify you of any significant changes to our Privacy Policy and indicate at the top of the Policy when it was most recently updated.</p>
+		<h3 id="policy_h" name="policy_h">تحديثات لسياسة الخصوصية</h3>
+		<p>قد يتم تحديث سياسة الخصوصية بصورة دورية ودون إشعار مسبق لإبلاغك بمستجدات ممارسات المعلومات الشخصية. سنقوم بنشر إشعار واضح على موقعنا لإبلاغك بأي تغييرات جوهرية في سياسة الخصوصية وسنشير إليها في أعلى السياسة عند تحديثها مباشرة.</p>
 
-		<h3>How To Contact Us</h3>
-		<p>If you have any questions or comments about this Privacy Policy, or if you would like us to update information we have about you or your preferences, please contact us by email at consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
+		<h3 id="policy_i" name="policy_i">كيف تتواصلين معنا</h3>
+		<p>إذا كانت لديك أي استفسارات أو تعليقات عن سياسة الخصوصية، أو إذا أردت تحديث معلوماتك لدينا أو تفضيلاتك، يرجى التواصل معنا عبر البريد الإلكتروني consumercare-us@gcc.elc.estee.com [قم بإدراج عنوان الممثل المحلي للسوق].</p>
 
-		<p>Copyright © The Estée Lauder Companies Inc. All worldwide rights reserved.</p>
+		<p>حقوق الملكية © لشركات استي لودر Estée Lauder. جميع الحقوق العالمية محفوظة.</p>
 	</div>
 </div>
 <script type="text/javascript">
@@ -151,3 +151,18 @@
 		}
 	);
 </script>
+<style>
+
+	#popup_legal_content p
+	{
+		direction: rtl;
+	}
+	#popup_legal_content h2,
+	#popup_legal_content h3,
+	#popup_legal_content li
+	{
+		direction: rtl;
+		margin-right:20px;
+	}
+
+</style>

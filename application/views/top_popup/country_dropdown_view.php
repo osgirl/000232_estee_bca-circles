@@ -239,6 +239,12 @@
         </a>
     </li>
     <li>
+        <a id="c_de" href="<?=base_url()?>en/de/">
+            <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/de.png' />
+            <span class="country">Germany</span>
+        </a>
+    </li>
+    <li>
         <a id="c_gr" href="<?=base_url()?>en/gr/">
             <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/gr.png' />
             <span class="country">Greece</span>
