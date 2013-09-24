@@ -19,6 +19,104 @@
     vi
   ==============*/
 
+  /*Hebrew and Arabic right to left*/
+
+  .he #top_sub_nav,
+  .ar #top_sub_nav,
+  .he #popup_video_footer,
+  .ar #popup_video_footer,
+  .he .popup #about_content p,
+  .ar .popup #about_content p,
+  .he .copy_text,
+  .ar .copy_text,
+  .he .circle_creator_area,
+  .ar .circle_creator_area,
+  .he .circle_of_strength,
+  .ar .circle_of_strength,
+  .he .circle_goal,
+  .ar .circle_goal,
+  .he .roll_over_text,
+  .ar .roll_over_text,
+  .he #join_text,
+  .ar #join_text,
+  .he .action_line_1,
+  .ar .action_line_1,
+  .he .action_line_2,
+  .ar .action_line_2,
+  .he #goal,
+  .ar #goal,
+  .he #popup_circle_header p,
+  .ar #popup_circle_header p,
+  .he .create_circle_content,
+  .ar .create_circle_content,
+  .he .confirm_content,
+  .ar .confirm_content,
+  .he #join_fight_text,
+  .ar #join_fight_text,
+  .he #join_fight_content,
+  .ar #join_fight_content,
+  .he #watch_video_text,
+  .ar #watch_video_text,
+  .he .popup #popup_photo_upload_agreement_window,
+  .ar .popup #popup_photo_upload_agreement_window,
+  .he .popup #popup_photo_img_holder #message p,
+  .ar .popup #popup_photo_img_holder #message p
+  {
+    direction:rtl;
+  }
+
+  .he .popup #popup_video_footer h1,
+  .ar .popup #popup_video_footer h1{
+    margin:10px 130px 0 0;
+  }
+
+  .he .popup #popup_video_footer p,
+  .ar .popup #popup_video_footer p{
+    margin:10px 20px 0 0;
+  }
+
+  .he .popup #about_logo,
+  .ar .popup #about_logo
+  {
+    float:right;
+  }
+
+  .he .circle_creator_area,
+  .ar .circle_creator_area,
+  .he .circle_of_strength,
+  .ar .circle_of_strength,
+  .he .action_line_1,
+  .ar .action_line_1,
+  .he .action_line_2,
+  .ar .action_line_2
+  {
+    /*margin-right:10%;*/
+    text-align: left;
+  }
+
+  .he #create_circle_header,
+  .ar #create_circle_header,
+  .he #join_fight_content,
+  .ar #join_fight_content
+  {
+    text-align: right
+  }
+
+  .he .goal_dropdown_list,
+  .ar .goal_dropdown_list{
+    padding:10px 15px 7px 0;
+  }
+
+  .he .select_field,
+  .ar .select_field{
+    padding:8px 50px 5px 15px;
+  }
+
+  .he #custom_action,
+  .ar #custom_action{
+    padding:8px 15px 8px 0;
+  }
+
 
  /*Greek*/
   .el .feature_circle .circle_creator_area, 
