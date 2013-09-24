@@ -338,12 +338,14 @@
     font-size:.7em;
   }
 
-  .fr #create_another_circle
+  .fr #create_another_circle,
+  .fr-ca #create_another_circle
   {
     font-size:.75em;
   }
 
-  .fr #log_in_upload_photo_btn
+  .fr #log_in_upload_photo_btn,
+  .fr-ca #log_in_upload_photo_btn
   {
     font-size:.75em;
   }
@@ -643,16 +645,20 @@
       top: 150px;
   }
 
-  .fr .stronger_together, .es .stronger_together {
+  .fr .stronger_together, 
+  .fr-ca .stronger_together,
+  .es .stronger_together {
     font-size: 2.8em;
   } 
 
-  .fr #create_another_circle
+  .fr #create_another_circle,
+  .fr-ca #create_another_circle
   {
     font-size:.7em;
   }
 
-  .fr #log_in_upload_photo_btn
+  .fr #log_in_upload_photo_btn,
+  .fr-ca #log_in_upload_photo_btn
   {
     font-size:.7em;
   }
@@ -763,16 +769,20 @@
       top: 220px;
   }
 
-  .fr .stronger_together, .es .stronger_together {
+  .fr .stronger_together, 
+  .fr-ca .stronger_together, 
+  .es .stronger_together {
     font-size: 3.2em;
   }  
 
-  .fr #create_another_circle
+  .fr #create_another_circle,
+  .fr-ca #create_another_circle
   {
     font-size:.75em;
   }
 
-  .fr #log_in_upload_photo_btn
+  .fr #log_in_upload_photo_btn,
+  .fr-ca #log_in_upload_photo_btn
   {
     font-size:.75em;
   }

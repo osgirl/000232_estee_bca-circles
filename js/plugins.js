@@ -1321,10 +1321,12 @@ $.extend(
             //Manual language selector (possible update)
             if ($language == 'en')
             {
-                if (selectedCountry == 'uk') $language = 'en-uk';
+                if (selectedCountry == 'gb') $language = 'en-gb';
                 else $language = 'en-us';
             }
-            else if ($language == 'es' && selectedCountry == 'mx') $language = 'es-mx';
+            else if ($language == 'es' && selectedCountry == 'mx') {
+                $language = 'es-mx';
+            }else if ($language == 'fr' && selectedCountry == 'ca') $language = 'fr-ca';
 
             //add langage abbreviation as class into body
             $('body').addClass($language);

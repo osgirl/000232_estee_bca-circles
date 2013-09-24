@@ -74,24 +74,30 @@
 /*==============
   FR
 ==============*/
-.fr .stronger_together {
+.fr .stronger_together,
+.fr-ca .stronger_together{
   font-size: 1.5em;
 }
-.fr .copy_text {
+.fr .copy_text,
+.fr-ca .copy_text {
   line-height: 1.2em;
 }  
-.fr .circle_goal {
+.fr .circle_goal,
+.fr-ca .circle_goal {
   line-height: 1.1em;
 }
-.fr .feature_circle .circle_goal {
+.fr .feature_circle .circle_goal,
+.fr-ca .feature_circle .circle_goal {
   margin-top: 10px;
   font-size: .6em;
   line-height: 1em;
 }
-.fr .popup #popup_circle_modal #goal{
+.fr .popup #popup_circle_modal #goal,
+.fr-ca .popup #popup_circle_modal #goal{
   font-size: 35%;
 }
-.fr #popup_footer_share {
+.fr #popup_footer_share,
+.fr-ca #popup_footer_share {
   letter-spacing: 0!important;
 }
 
@@ -217,10 +223,12 @@
   /*==============
     FR (480px)
   ==============*/ 
-  .fr .stronger_together {
+  .fr .stronger_together,
+  .fr-ca .stronger_together {
     font-size: 2em;
   }  
-  .fr .feature_circle .circle_goal {
+  .fr .feature_circle .circle_goal,
+  .fr-ca .feature_circle .circle_goal {
     font-size: 1em;
     line-height: 1.1em;
   }
@@ -299,13 +307,16 @@
   /*==============
     FR (640px)
   ==============*/
-  .fr .stronger_together {
+  .fr .stronger_together,
+  .fr-ca .stronger_together {
     font-size: 3.2em;
   }  
-  .fr .feature_circle .circle_goal {
+  .fr .feature_circle .circle_goal,
+  .fr-ca .feature_circle .circle_goal {
     font-size: 1.1em;
   }
-  .fr .popup #popup_circle_modal #goal{
+  .fr .popup #popup_circle_modal #goal,
+  .fr-ca .popup #popup_circle_modal #goal{
     font-size: 70%;
   } 
 
@@ -378,7 +389,8 @@
   /*==============
     FR (980px)
   ==============*/
-  .fr .feature_circle .circle_goal {
+  .fr .feature_circle .circle_goal,
+  .fr-ca .feature_circle .circle_goal {
     margin-top: 10px;
     font-size: .8em;
     line-height: 1em;
@@ -446,11 +458,13 @@
   /*==============
     FR (1024px)
   ==============*/
-  .fr .feature_circle .circle_goal {
+  .fr .feature_circle .circle_goal,
+  .fr-ca .feature_circle .circle_goal {
     font-size: .9em;
     line-height: 1.1em;
   }
-  .fr .popup #popup_circle_modal #goal{
+  .fr .popup #popup_circle_modal #goal,
+  .fr-ca .popup #popup_circle_modal #goal{
     font-size: 90%;
   }
 
@@ -510,7 +524,8 @@
   /*==============
     FR (1200px)
   ==============*/
-  .fr .feature_circle .circle_goal {
+  .fr .feature_circle .circle_goal,
+  .fr-ca .feature_circle .circle_goal {
     margin-top: -5px;
     font-size: 1.1em;
   }
