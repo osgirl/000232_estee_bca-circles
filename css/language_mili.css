@@ -155,7 +155,8 @@
   .it #thank_you p, 
   .pt #thank_you p, 
   .ru #thank_you p,
-  .vi #thank_you p
+  .vi #thank_you p,
+  .ko #thank_you p
   {
     font-size:1.1em;
   }
@@ -487,7 +488,8 @@
   .it #thank_you p, 
   .pt #thank_you p, 
   .ru #thank_you p,
-  .vi #thank_you p
+  .vi #thank_you p,
+  .ko #thank_you p
   {
     font-size:1.4em;
   }

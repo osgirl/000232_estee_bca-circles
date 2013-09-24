@@ -467,6 +467,7 @@ function displayUserInfo(e){
 	$('.user_name_display').html(shortenName);
 	$('.user_location_display').html(userLocation);
 	$('#create_circle_user').html(fullName);
+	if(selectedLanguage == "ko") $('#create_circle_user').html(fullName+"님");
 	$('.sign_in_btn  .sign_in').html(signOutText);
 	$('.sign_in_btn').unbind('click').click(facebook.logOut);
 
@@ -1137,6 +1138,7 @@ function getUserCircleData(){
 	$('#my_circles .action_item').remove();
 
 	//console.log('get user circle data', userID);
+	if(selectedLanguage == "ko") belongCircleText = "아직 서약한 내용이 없습니다";
 	belongCircleText = belongCircleText.replace("#", "0");
 	$("#user_circle_num").html(belongCircleText);
 
@@ -1157,19 +1159,24 @@ function getUserCircleData(){
 
         	var circlePlural;
 
-        	if(data.length > 0) {
+        	console.info("CIRCLE NUMBER", circleNum)
+
+        	if(circleNum > 0) {
         		$('#create_another_circle').html(createAnotherCircleText);
-        		if(data.length > 1)
+        		if(circleNum > 1)
         			circlePlural = " Circles";
         		else
         			circlePlural = " Circle";
+
         	}else{
         		$('#create_another_circle').html(createACircleText);
+
+        		if(selectedLanguage == "ko") belongCircleText = "아직 서약한 내용이 없습니다";
         	}
 
         	belongCircleText = belongCircleText.replace("#", circleNum);
 
-        	console.info(belongCircleText)
+        	//console.info(belongCircleText)
 
         	if(selectedLanguage == "en"){
         		belongCircleText = belongCircleText.replace("Circles", circlePlural);
