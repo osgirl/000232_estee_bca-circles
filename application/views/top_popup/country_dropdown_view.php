@@ -533,12 +533,6 @@
         </a>
     </li>
     <li>
-        <a id="c_tw" href="<?=base_url()?>en/tw/">
-            <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/tw.png' />
-            <span class="country">Taiwan</span>
-        </a>
-    </li>
-    <li>
         <a id="c_ro" href="<?=base_url()?>en/ro/">
             <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/ro.png' />
             <span class="country">Romania</span>
@@ -644,6 +638,12 @@
         <a id="c_ch" href="<?=base_url()?>en/ch/">
             <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/ch.png' />
             <span class="country">Switzerland</span>
+        </a>
+    </li>
+    <li>
+        <a id="c_tw" href="<?=base_url()?>en/tw/">
+            <img class="country_flag" src='<?php echo base_url(); ?>img/flags/small/tw.png' />
+            <span class="country">Taiwan</span>
         </a>
     </li>
     <li>
