@@ -1,128 +1,128 @@
 <div class="popup" id="popup_legal">	
 	<div id="popup_legal_content">
-		<h2>2013 BCA CAMPAIGN: PRIVACY POLICY</h2>
-		<h3>Effective Date: August 1, 2013</h3>
-		<h2>Breast Cancer Awareness Campaign Privacy Policy</h3>
-		<p>The Estée Lauder Companies (“we, us, or our”) respect your concerns about privacy and value the relationship we have with you. This Privacy Policy describes the types of personal information we collect in connection with the Breast Cancer Awareness campaign, how we use the information, with whom we share it, and the choices available to our participants regarding our use of the information. We also describe the measures we take to protect the security of the information and how our participants can contact us about our privacy practices.</p>
-		<p>Click on one of the links below to jump to the listed section:</p>
+		<h2>2013 MKF KAMPANYASI: GİZLİLİK POLİTİKASI</h2>
+		<h3>Yürürlük Tarihi: 1 Ağustos 2013</h3>
+		<h2>Meme Kanseri Farkındalık Kampanyası Gizlilik Politikası</h3>
+		<p>Estée Lauder Şirketleri (“biz, bizler veya bizim”) gizlilik ile ilgili endişelerinize saygı gösterir ve sizinle sahip olduğumuz ilişkiye değer verir. İşbu Gizlilik Politikası Meme Kanseri Farkındalık Kampanyası ile bağlantılı olarak topladığımız kişisel bilgi türlerini, bilgileri nasıl kullandığımızı, kimlerle paylaştığımızı ve bilgileri kullanımımız hakkında katılımcılarımızın sahip olduğu seçenekleri tanımlamaktadır. Ayrıca, bilgilerin güvenliğini korumak için aldığımız önlemleri ve katılımcılarımızın gizlilik uygulamalarımız ile ilgili olarak bizlerle nasıl irtibat kurabileceğini de tarif ediyoruz.</p>
+		<p>CListelenen bölümlere atlamak için aşağıdaki bağlantılardan birini tıklayınız:</p>
 
 		<ul>
-			<li><a href="#policy_a">Information We Collect</a>
+			<li><a href="#policy_a">Topladığımız Bilgiler</a>
 				<ul>
-					<li><a href="#policy_a1">Information You Provide</a>
+					<li><a href="#policy_a1">Tarafınızca Sağlanan Bilgiler</a>
 						<ul>
-							<li><a href="#policy_a1_a">How We Use the Information</a></li>
+							<li><a href="#policy_a1_a">Bilgileri Nasıl Kullanıyoruz</a></li>
 						</ul>
 					</li>
-					<li><a href="#policy_a2">Information We Collect by Automated Means</a>
+					<li><a href="#policy_a2">Otomatik Yollardan Topladığımız Bilgiler</a>
 						<ul>
-							<li><a href="#policy_a2_a">Technologies We Use</a>
+							<li><a href="#policy_a2_a">Kullandığımız Teknolojiler</a>
 							<ul>
-								<li><a href="#policy_a2_a1">Cookies, Web Server Logs and Web Beacons</a></li>
-								<li><a href="#policy_a2_a2">Third Party Web Analytics Services</a></li>
+								<li><a href="#policy_a2_a1">Çerezler, Ağ Sağlayıcı Kayıtları ve Ağ İşaretçileri</a></li>
+								<li><a href="#policy_a2_a2">Üçüncü Kişilerin Ağ Analiz Hizmetleri</a></li>
 							</ul>
-							<li>Targeted Advertising</li>
-							<li><a href="#policy_a2_c">How We Use the Information Collected by Automated Means</a></li>
+							<li>Hedefli Reklamlar</li>
+							<li><a href="#policy_a2_c">Otomatik Yollardan Toplanan Bilgileri Nasıl Kullandığımız</a></li>
 						</ul>
 					</li>
 				</ul>
 			</li>
-			<li><a href="#policy_b">Information We Share</a></li>
-			<li><a href="#policy_c">Your Rights And Choices</a></li>
-			<li><a href="#policy_d">Data Transfers</a></li>
-			<li><a href="#policy_e">Children’s Privacy</a></li>
-			<li><a href="#policy_f">How We Protect Personal Information</a></li>
-			<li><a href="#policy_g">Links To Other Websites</a></li>
-			<li><a href="#policy_h">Updates To Our Privacy Policy</a></li>
-			<li><a href="#policy_i">How To Contact Us</a></li>
+			<li><a href="#policy_b">Paylaştığımız Bilgiler</a></li>
+			<li><a href="#policy_c">Haklarınız ve Seçimleriniz</a></li>
+			<li><a href="#policy_d">Veri Transferleri</a></li>
+			<li><a href="#policy_e">Çocukların Gizliliği</a></li>
+			<li><a href="#policy_f">Kişisel Bilgileri Nasıl Koruyoruz</a></li>
+			<li><a href="#policy_g">Diğer Web Sitelerine Bağlantılar</a></li>
+			<li><a href="#policy_h">Gizlilik Politikamıza İlişkin Güncellemeler</a></li>
+			<li><a href="#policy_i">Bizimle İrtibat Kurmak İçin</a></li>
 		</ul>
 
-		<h3 id="policy_a" name="policy_a">Information We Collect</h3>
-		<p>We may obtain personal information about you from the Breast Cancer Awareness campaign website, located at BCACampaign.com/StrongerTogether (the “BCA Site”) or in connection with our social networking or mobile applications. When you visit the BCA Site or our social networking or mobile applications, we may also collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
+		<h3 id="policy_a" name="policy_a">Topladığımız Bilgiler</h3>
+		<p>Sizinle ilgili kişisel bilgileri BCACampaign.com/StrongerTogether (“MKF Sitesi”) adresinde bulunan Meme Kanseri Farkındalık kampanyası web sitesinden veya sosyal ağlarımız veya mobil uygulamalarımız ile bağlantılı olarak alabiliriz. MKF Sitesi’ni veya sosyal ağlarımızı veya mobil uygulamalarımızı ziyaret ettiğinizde, çerezler, ağ sağlayıcı kayıtları ve ağ işaretçileri gibi teknolojileri kullanarak otomatik yollardan da bazı bilgileri toplayabiliriz.</p>
 		
-		<h3 id="policy_a1" name="policy_a1" class="sub1">Information You Provide</h3>
-		<p>You may choose to provide personal information to us, and the types of personal information you may provide to us includes: </p>
+		<h3 id="policy_a1" name="policy_a1" class="sub1">Tarafınızca Sağlanan Bilgiler</h3>
+		<p>Bize kişisel bilgilerinizi sağlamayı seçebilirsiniz ve tarafımıza sağladığınız kişisel bilgi türleri aşağıdakileri içerir:</p>
 		<ul>
-			<li>Contact information (such as name, postal address, email address, and mobile or other phone number)</li>
-			<li>Gender</li>
-			<li>Contact information for friends or other people you would like us to contact</li>
-			<li>Content you provide (such as photographs, articles and comments)</li>
-			<li>Information provided to us by social networks or mobile applications when you use one of our social networking or mobile applications (such as your name, profile picture, likes, location, friend list and other information described in the social networking application sign-up page, or your geo-location details when using one of our mobile applications)</li>
+			<li>İrtibat bilgileri (isim, posta adresi, e-posta adresi, cep telefonu veya başka bir telefon numarası gibi)</li>
+			<li>Cinsiyet</li>
+			<li>İrtibat kurmamızı istediğiniz arkadaşlarınız veya diğer kişilerin irtibat bilgileri</li>
+			<li>Sağladığınız içerik (fotoğraflar, makaleler ve yorumlar gibi)</li>
+			<li>Sosyal ağ veya mobil uygulamalarımızdan birisini kullandığınızda, sosyal ağlar veya mobil uygulamalar vasıtasıyla tarafımıza sağladığınız bilgiler (adınız, profil fotoğrafınız, beğenileriniz, konumunuz, arkadaş listeniz veya sosyal ağ uygulamasının kayıt sayfasında tarif edilen diğer bilgiler veya mobil uygulamalarımızdan birisini kullandığınızda coğrafi konumunuza ilişkin bilgiler gibi)</li>
 		</ul>
 
-		<h3 id="policy_a1_a" name="policy_a1_a" class="sub2">How We Use The Information</h3>
-		<p>We may use the information you provide to:</p>
+		<h3 id="policy_a1_a" name="policy_a1_a" class="sub2">Bilgileri Nasıl Kullanıyoruz</h3>
+		<p>Tarafınızca sağlanan bilgileri:</p>
 		<ul>
-			<li>Communicate with you about, and administer your participation in, the Breast Cancer Awareness campaign</li>
-			<li>Provide services to you </li>
-			<li>Respond to your inquiries</li>
-			<li>Operate and communicate with you about our social networking or mobile applications</li>
-			<li>Operate, evaluate and improve our business (including developing new products and services; managing our communications; analyzing our products; performing data analytics; and performing accounting, auditing and other internal functions)
-			<li>Comply with applicable legal requirements, relevant industry standards and our policies</li>
+			<li>Meme Kanseri Farkındalık kampanyası hakkında sizinle iletişim kurmak ve bu kampanyaya katılımınızı idare etmek,</li>
+			<li>Size hizmetler sağlamak,</li>
+			<li>Sorularınızı cevaplandırmak,</li>
+			<li>Sosyal ağ ve mobil uygulamalarımızı işletmek ve sizlerle bunlar hakkında iletişim kurmak,</li>
+			<li>İşimizi yürütmek, değerlendirmek ve ilerletmek (yeni ürün ve hizmetlerin geliştirilmesi; haberleşmelerimizin yönetilmesi; ürünlerimizin analizi; veri analizlerinin yapılması; ve muhasebe, denetim ve diğer dahili işlevlerin yerine getirilmesi de dahil)</li>
+			<li>Tabi olunan yasal gerekliliklere, ilgili endüstri standartlarına ve politikalarımıza uymak için kullanabiliriz.</li>
 		</ul>
-		<p>We also may use the information in other ways for which we provide specific notice at the time of collection.</p>
+		<p>Bilgileri, toplama anında özel bir bildirimde bulunmak suretiyle başka şekillerde de kullanabiliriz.</p>
 
-		<h3 id="policy_a2" name="policy_a2" class="sub1">Information We Collect by Automated Means</h3>
-		<p>When you visit this site or our online advertisements or use one of our social networking or mobile applications, we collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
+		<h3 id="policy_a2" name="policy_a2" class="sub1">Otomatik Yollardan Topladığımız Bilgiler</h3>
+		<p>Bu siteyi veya çevrimiçi reklamlarımızı ziyaret ettiğinizde veya sosyal ağlarımız veya mobil uygulamalarımızdan birisini kullandığınızda, bazı bilgileri çerezler, ağ sağlayıcı kayıtları ve ağ işaretçileri gibi teknolojileri kullanarak, otomatik yollardan toplarız.</p>
 
-		<h3 id="policy_a2_a" name="policy_a2_a" class="sub2">Technologies We Use</h3>
-		<h3 id="policy_a2_a1" name="policy_a2_a1" class="sub3">Cookies, Web Server Logs and Web Beacons</h3>
-		<p>Cookies are small text files that websites send to your computer or other Internet-connected device to uniquely identify your browser or to store information or settings in your browser. Your browser may tell you how to be notified when you receive certain types of cookies and how to restrict or disable certain cookies. Please note, however, that without cookies you may not be able to use all of the features of our website.</p>
-		<p>In conjunction with obtaining information through cookies, our web servers may log details such as your operating system type, browser type, domain, and other system settings, as well as the language your system uses and the country and time zone in which your device is located. The web server logs also may record information such as the address of the web page that linked you to our site and the IP address of the device you use to connect to the Internet.</p>
-		<p>To control which web servers collect this information, we may place tags on our web pages called “web beacons.” These are computer instructions that link web pages to particular web servers and their cookies.</p>
+		<h3 id="policy_a2_a" name="policy_a2_a" class="sub2">Kullandığımız Teknolojiler</h3>
+		<h3 id="policy_a2_a1" name="policy_a2_a1" class="sub3">Çerezler, Ağ Sağlayıcı Kayıtları ve Ağ İşaretçileri</h3>
+		<p>Çerezler, web sitelerinin, tarayıcınızı tek başına tanımlamak veya tarayıcınızda bazı bilgi veya ayarları saklamak üzere bilgisayarınıza veya İnternet’e bağlı diğer cihazlarınıza gönderdiği küçük metin dosyalarıdır. Tarayıcınız bazı tür çerezleri aldığınızda ne şekilde bilgilendirileceğinizi veya bazı çerezleri nasıl kısıtlayabileceğinizi veya etkisiz hale getirebileceğinizi söyleyebilir. Ancak, çerezler olmadan web sitemizin tüm özelliklerini kullanamayabileceğinizi de lütfen not ediniz.</p>
+		<p>Çerezler aracılığıyla bilgi alınması ile bağlantılı olarak, ağ sağlayıcılarımız, işletim sistemi türünüz, tarayıcı türünüz, alan ve diğer sistem ayarlarınız ile sisteminizin kullandığı dil ve cihazınızın bulunduğu ülke ve zaman dilimi gibi detayları kaydedebilir. Ağ sağlayıcı kayıtları ayrıca sizi sitemize bağlayan web sayfasının adresi ve İnternet’e bağlanmak için kullandığınız cihazın IP adresi gibi bilgileri de kaydedebilir.</p>
+		<p>Bu bilgileri hangi ağ sağlayıcılarının topladığını kontrol etmek için, web sayfalarımıza “ağ işaretçileri” adı verilen bazı etiketler yerleştirebiliriz. Bunlar, web sayfalarını belirli ağ sağlayıcıları ve bunların çerezlerine bağlayan bilgisayar talimatlarıdır.</p>
 
-		<h3 id="policy_a2_a2" name="policy_a2_a2" class="sub3">Third Party Web Analytics Services</h3>
-		<p>We may use third party web analytics services on this site. Such third party web analytics service providers may include, but is not limited to, Google Analytics.  The service providers that administer these services use technologies such as cookies, web server logs and web beacons to help us analyze how visitors use the site. The information collected through these means (including IP address) is disclosed to these service providers, who use the information to evaluate use of the website. To disable the Google Analytics cookie and any other third party web analytics service provider cookies, some browsers indicate when a cookie is being sent and allow you to decline cookies on a case-by-case basis.</p>
+		<h3 id="policy_a2_a2" name="policy_a2_a2" class="sub3">Üçüncü Kişilerin Ağ Analiz Hizmetleri</h3>
+		<p>Bu sitede üçüncü kişilerin ağ analiz hizmetlerini kullanabiliriz. Söz konusu üçüncü kişilerin ağ analiz hizmet sağlayıcıları, bununla sınırlı olmamak üzere Google Analytics’i de içerebilir. Bu hizmetleri idare eden hizmet sağlayıcıları, ziyaretçilerin siteyi nasıl kullandıklarını analiz etmemize yardımcı olmak için çerezler, ağ sağlayıcı kayıtları ve ağ işaretçileri gibi teknolojileri kullanmaktadırlar. Bu araçlar vasıtasıyla toplanan bilgiler (IP adresleri de dahil) bu bilgileri web sitesinin kullanımını değerlendirmek üzere kullanacak olan söz konusu hizmet sağlayıcılarına ifşa edilir. Google Analitik çerezini ve herhangi başkaca bir üçüncü kişinin ağ analiz hizmeti sağlayıcının çerezlerini etkisizleştirmek için, bazı tarayıcılar çerez gönderildiğini belirterek her olay bazında çerezleri reddetmenize müsaade etmektedir.</p>
 
-		<h3 id="policy_a2_c" name="policy_a2_c" class="sub2">How We Use the Information Collected by Automated Means</h3>
-		<p>We may use the information collected through automated means on this site for market research, data analytics and system administration purposes, such as to determine whether you’ve visited us before or are new to the site, and for compliance with our legal obligations, policies and procedures, including compliance with relevant industry standards and the enforcement of our <u>Terms and Conditions</u>. We also may use the information in other ways for which specific notice is provided at the time of collection.</p>
+		<h3 id="policy_a2_c" name="policy_a2_c" class="sub2">Otomatik Yollardan Toplanan Bilgileri Nasıl Kullandığımız</h3>
+		<p>Bu site üzerinden otomatik yollardan toplanan bilgileri, pazar araştırmaları, veri analizleri ve bizi daha önceden ziyaret edip etmediğinizin veya sitemize yeni olup olmadığınız gibi sisteme ilişkin idari amaçlarla ve ilgili endüstri standartlarına uyulması ve <u>Hüküm ve Şartlarımız</u>’ın yerine getirilmesi de dahil olmak üzere yasal yükümlülüklerimize, politikalarımıza ve prosedürlerimize uyum sağlamak üzere kullanabiliriz. Bilgileri ayrıca, toplama anında özel bir bildirimde bulunmak suretiyle başka şekillerde de kullanabiliriz. </p>
 
-		<h3 id="policy_b" name="policy_b">Information We Share</h3>
-		<p>We do not rent lists, or sell or otherwise disclose personal information we collect about you, except as described here. We may share your personal information with:</p>
+		<h3 id="policy_b" name="policy_b">Paylaştığımız Bilgiler</h3>
+		<p>Burada tarif edilen haller dışında, listeleri kiralamayız veya hakkınızda topladığımız kişisel bilgileri satmayız veya başkaca bir şekilde ifşa etmeyiz. Kişisel bilgilerinizi:</p>
 		<ul>
-			<li>Our affiliates within The Estee Lauder Companies’ umbrella of companies</li>
-			<li>Service providers who perform services on our behalf based on our instructions. We do not authorize these service providers to use or disclose the information except as necessary to perform services on our behalf or comply with legal requirements. Examples of these service providers include entities that process credit card payments, fulfill orders, and provide web hosting and marketing services.</li>
-			<li>Other third parties with your consent (e.g., some of our Facebook applications may share information collected through those apps with your Facebook friends or other Facebook users).</li>
+			<li>Estee Lauder Şirketleri çatısı altındaki şirketler arasındaki bağlı kuruluşlarımız ile,</li>
+			<li>Talimatlarımız doğrultusunda adımıza hizmet sunan hizmet sağlayıcılar ile; bu hizmet sağlayıcılara, hizmetleri adımıza sunmak veya yasal gerekliliklere uymak için gerekli olan haller dışında bilgileri kullanma veya ifşa etme yetkisi vermiyoruz. Bu hizmet sağlayıcılara örnek olarak, kredi kartı ile yapılan ödemeleri işleyen, siparişleri yerine getiren ve ağ barındıran (hosting) ve pazarlama hizmetleri sunan kuruluşlar verilebilir.</li>
+			<li>Sizin rızanız ile diğer üçüncü kişiler ile paylaşabiliriz (örn. Facebook uygulamalarımızdan bazıları söz konusu uygulamalar yoluyla toplanan bilgileri Facebook arkadaşlarınız veya diğer Facebook kullanıcıları ile paylaşabilir). </li>
 		</ul>
-		<p>In addition, we may disclose information about you (i) if we are required to do so by law or legal process, (ii) to law enforcement authorities or other government officials, or (iii) when we believe disclosure is necessary or appropriate to prevent physical harm or financial loss, or in connection with an investigation of suspected or actual fraudulent or illegal activity.</p>
-		<p>We also reserve the right to transfer personal information we have about you in the event we sell or transfer all or a portion of our business or assets. Should such a sale or transfer occur, we will use reasonable efforts to direct the transferee to use personal information you have provided to us in a manner that is consistent with our Privacy Policy. Following such a sale or transfer, you may contact the entity to which we transferred your personal information with any inquiries concerning the processing of that information.</p>
+		<p>Buna ilaveten, (i) kanun veya hukuki bir süreç tarafından zorunlu kılındığımız takdirde, (ii) emniyet makamlarına veya diğer resmi görevlilere; veya (iii) fiziksel bir hasar veya mali bir kaybı önlemek adına veya şüphe duyulan veya gerçek bir hileli veya yasadışı bir faaliyet ile bağlantılı olarak ifşanın gerekli ve uygun olduğuna inandığımız hallerde, hakkınızdaki bilgileri ifşa edebiliriz.</p>
+		<p>Ayrıca, hakkınızda sahip olduğumuz kişisel bilgileri, işimizin veya varlıklarımızın tamamını veya bir kısmını satmamız veya devretmemiz halinde de devretme hakkımızı saklı tutuyoruz. Böylesi bir satış veya devrin meydana gelmesi durumunda, devralan kişinin de tarafımıza sağlamış olduğunuz kişisel bilgileri Gizlilik Politikamız ile tutarlı bir şekilde kullanmaya yönlendirmek üzere makul düzeyde çaba göstereceğiz. Böyle bir satış ve devrin ardından, bu bilgilerin işlenmesi ile ilgili herhangi bir sorunuz ile birlikte kişisel bilgilerinizi devretmiş olduğumuz kuruluş ile irtibata geçebilirsiniz.</p>
 
-		<h3 id="policy_c" name="policy_c">Your Rights and Choices</h3>
-		<p>We offer you certain choices in connection with the personal information we collect from you, such as how we use the information and how we communicate with you. To update your preferences, please contact us as specified below.</p>
+		<h3 id="policy_c" name="policy_c">Haklarınız ve Seçimleriniz</h3>
+		<p>Sizden topladığımız kişisel bilgiler ile bağlantılı olarak, bilgileri nasıl kullanacağımız ve sizinle nasıl haberleşeceğimiz gibi hususlar hakkında sizlere bazı seçimler sunuyoruz. Tercihlerinizi güncellemek için lütfen bizlerle aşağıda belirtilen şekilde irtibat kurunuz.</p>
 		<ul>
 			<li>
-				<h3 class="sub1">Social Networking Application Opt-Out</h3>
-				<p>To remove or delete our apps from your social networking account, follow the instructions from the social network:</br>Facebook: https://www.facebook.com/help/?faq=170585223002660 provided by the Facebook Help Center.</p>
+				<h3 class="sub1">Sosyal Ağ Uygulamasından çıkma opsiyonu </h3>
+				<p>Uygulamamızı sosyal ağ hesabınızdan kaldırmak veya silmek için, sosyal ağ üzerindeki talimatları takip ediniz:</br>Facebook: Facebook Yardım Merkezi tarafından sağlanan https://www.facebook.com/help/?faq=170585223002660.</p>
 			</li>
 			<li>
-				<h3 class="sub1">Withdrawing Consent</h3>
-				<p>You may withdraw any consent you previously provided to us, or object at any time on legitimate grounds, to the processing of your personal information. We will apply your preferences going forward. In some circumstances, withdrawing your consent to our use or disclosure of your personal information will mean that you cannot take advantage of some of our products or services.</p>
+				<h3 class="sub1">Rızanın geri alınması</h3>
+				<p>Tarafımıza daha önceden vermiş olduğunuz herhangi bir rızayı geri alabilirsiniz veya kişisel bilgilerinizin işlenmesine meşru gerekçelerle herhangi bir zamanda itiraz edebilirsiniz. Tercihlerinizi geleceğe yönelik olarak uygulamaya koyacağız. Bazı durumlarda kişisel bilgilerinizin tarafımızca kullanımı veya ifşa edilmesine dair rızanın geri alınması bazı ürün veya hizmetlerimizden faydalanamayacağınız anlamına gelebilir.</p>
 			</li>
 			<li>
-				<h3 class="sub1">Reviewing, Updating and Modifying Personal Information</h3>
-				<p>Subject to applicable law, you may have the right to request access to and receive details about the personal information we maintain about you, update and correct inaccuracies in your personal data, and have the information blocked or deleted, as appropriate. The right to access personal information may be limited in some circumstances by local law requirements. You may request to review, change or delete your personal information by sending an email to consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
+				<h3 class="sub1">Kişisel Bilgilerin İncelenmesi, Güncellenmesi ve Değiştirilmesi</h3>
+				<p>Uygulanan hukuka tabi olmak üzere, hakkınızda sakladığımız kişisel bilgilere erişim ve bunlarla ilgili detayları talep etme, bunları güncelleme ve kişisel bilgilerinizdeki doğru olmayan hususları düzeltme ve duruma göre bilgilerin bloke edilmesini veya silinmesini talep etme hakkını haiz olabilirsiniz. Kişisel bilgilere erişim hakkı yerel hukuki gereklilikler ile bazı durumlarda sınırlanmış olabilir. consumercare-us@gcc.elc.estee.com. [PAZAR’IN YEREL İRTİBAT ADRESİNİ GİRİNİZ] adresine e-posta göndermek suretiyle kişisel bilgilerinizi incelemeyi, değiştirmeyi veya silmeyi talep edebilirsiniz.</p>
 			</li>
 		</ul>
 
-		<h3 id="policy_d" name="policy_d">Data Transfers</h3>
-		<p>We may transfer the personal information we collect about you to countries other than the country in which the information was originally collected. Our servers hosting the BCA Site are located in the United States, which with other countries may not have the same data protection laws as the country in which you initially provided the information. When we transfer your information to other countries, we will protect that information as described in this Privacy Policy.</p>
+		<h3 id="policy_d" name="policy_d">Veri Transferleri</h3>
+		<p>Hakkınızda topladığımız kişisel bilgileri, bilgilerin orijinal olarak toplandığı ülke dışındaki ülkelere devredebiliriz. MKF Sitesi’ne ev sahipliği yapan sunucularımız Amerika Birleşik Devletleri’nde bulunmaktadır ve bu ülkede diğer ülkeler gibi, ilk olarak bilgileri sağlamış olduğunuz ülkelerdeki ile aynı seviyede veri koruma kanunları bulunmayabilir. Bilgilerinizi diğer ülkelere devrederken, bu bilgileri, işbu Gizlilik Politikası’nda tarif edilen şekilde koruyacağız.</p>
 
-		<h3 id="policy_e" name="policy_e">Children's Privacy</h3>
-		<p>If you are under thirteen years of age, you may browse our site. However, you may not provide personal information to us. This site is not directed to children under the age of thirteen and we do not knowingly collect personal information from children under the age of thirteen on the site. If we become aware that we have inadvertently received personal information from a visitor under the age of thirteen on the site, we will delete the information from our records.</p>
+		<h3 id="policy_e" name="policy_e">Çocukların Gizliliği</h3>
+		<p>On üç yaşın altında iseniz, sitemizi gezebilirsiniz. Ancak, bizlere kişisel bilgilerinizi veremezsiniz. Bu site on üç yaşın altındaki çocuklara yönelik değildir ve bu sitede on üç yaşın altındaki çocuklardan bilerek kişisel bilgi toplamıyoruz. Bu sitede on üç yaşın altındaki bir ziyaretçiden istemeden kişisel bilgi aldığımızı fark ettiğimiz takdirde, bu bilgiyi kayıtlarımızdan sileceğiz.</p>
 
-		<h3 id="policy_f" name="policy_f">How We Protect Personal Information</h3>
-		<p>We maintain appropriate administrative, technical and physical safeguards designed to protect the personal information you provide against accidental, unlawful or unauthorized destruction, loss, alteration, access, disclosure or use.</p>
+		<h3 id="policy_f" name="policy_f">Kişisel Bilgileri Nasıl Koruyoruz</h3>
+		<p>Sağladığınız kişisel bilgileri arızi, hukuka aykırı veya yetkisiz tahrip, kayıp, değiştirme, erişim, ifşa veya kullanıma karşı korumak üzere tasarlanan uygun idari, teknik ve fiziksel korumaları bulunduruyoruz.</p>
 
-		<h3 id="policy_g" name="policy_g">Links To Other Websites</h3>
-		<p>Our website may provide links to other websites for your convenience and information. These websites may operate independently from us. Linked sites may have their own privacy notices or policies, which we strongly suggest you review if you visit any linked websites. To the extent any linked websites you visit are not owned or controlled by us, we are not responsible for the sites’ content, any use of the sites, or the privacy practices of the sites.</p>
+		<h3 id="policy_g" name="policy_g">Diğer Web Sitelerine Bağlantılar</h3>
+		<p>Web sitemiz, size kolaylık ve bilgi sağlamak amacıyla diğer web sitelerine bağlantılar içerebilir. Bu web siteleri bizden bağımsız olarak işletilebilirler. Bağlantılı siteler kendi gizlilik bildirimleri ve politikalarına sahip olabilecek olup, herhangi bir bağlantılı web sitesini ziyaret ettiğiniz takdirde, bunları incelemeniz şiddetle tavsiye olunur. Ziyaret ettiğiniz herhangi bir bağlantılı web sitesi tarafımızca sahip olunmadığı veya kontrol edilmediği takdirde, bu sitelerin içeriğinden, sitelerin herhangi bir kullanımından veya sitelerin gizlilik uygulamalarından sorumlu değiliz.</p>
 
-		<h3 id="policy_h" name="policy_h">Updates To Our Privacy Policy</h3>
-		<p>This Privacy Policy may be updated periodically and without prior notice to you to reflect changes in our personal information practices. We will post a prominent notice on our website to notify you of any significant changes to our Privacy Policy and indicate at the top of the Policy when it was most recently updated.</p>
+		<h3 id="policy_h" name="policy_h">Gizlilik Politikamıza İlişkin Güncellemeler</h3>
+		<p>İşbu Gizlilik Politikası, kişisel bilgi uygulamalarımızı yansıtmak üzere periyodik olarak ve tarafınıza önceden bildirimde bulunmaksızın güncellenebilir. Gizlilik Politikamız’daki herhangi bir önemli değişikliği tarafınıza bildirmek üzere web sitemizde göze çarpan bir bildirim yayınlayacak ve Politika’nın en üst kısmında, bu Politika’nın en son ne zaman güncellendiğini belirteceğiz.</p>
 
-		<h3 id="policy_i" name="policy_i">How To Contact Us</h3>
-		<p>If you have any questions or comments about this Privacy Policy, or if you would like us to update information we have about you or your preferences, please contact us by email at consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
+		<h3 id="policy_i" name="policy_i">Bizimle İrtibat Kurmak İçin</h3>
+		<p>İşbu Gizlilik Politikası ile ilgili herhangi bir sorunuz olduğunda veya size veya tercihlerinize ait sahip olduğumuz bilgileri güncellememizi arzu ettiğinizde, consumercare-us@gcc.elc.estee.com. [PAZAR’IN YEREL İRTİBAT ADRESİNİ GİRİNİZ] adresinden e-posta ile bizimle irtibata geçiniz.</p>
 
-		<p>Copyright © The Estée Lauder Companies Inc. All worldwide rights reserved.</p>
+		<p>Telif Hakkı © The Estée Lauder Companies Inc. Dünya çapında tüm hakları saklıdır.</p>
 	</div>
 </div>
 <script type="text/javascript">

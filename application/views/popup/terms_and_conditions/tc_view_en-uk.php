@@ -7,7 +7,7 @@
 		<p>The Estée Lauder Companies Inc. provides the content and services available on the Application to you subject to the following terms and conditions, our Privacy Policy and other terms and conditions and policies which you may find throughout our Application in connection with certain functionality, features or promotions as well as customer service, all of which are deemed a part of and included within these terms and conditions (collectively, <i>"Terms and Conditions"</i>). By accessing or using the Application, you are acknowledging that you have read, understand, and agree, without limitation or qualification, to be bound by these Terms and Conditions.</p>
 
 		<h3>1. Privacy</h3>
-		<p>Please review our <strong>Privacy Policy</strong>  so that you may understand our privacy practices.</p>
+		<p>Please review our <strong>Privacy Policy</strong> so that you may understand our privacy practices.</p>
 
 		<h3>2. Intellectual Property</h3>
 		<p>Except from any information and/or content that is provided by Facebook, Inc. with respect to use of its platform, all information and content otherwise available on the Application and its “look and feel”, including but not limited to trademarks, logos, service marks, text, graphics, logos, button icons, images, audio clips, data compilations and software, and the compilation and organization thereof (collectively, the <stong><i>"Content"</i></strong>) is the property of The Estée Lauder Companies Inc., our affiliates, partners or licensors, and is protected by United States and international laws, including laws governing copyrights and trademarks.</p>

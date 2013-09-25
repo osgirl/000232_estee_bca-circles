@@ -1,126 +1,127 @@
 <div class="popup" id="popup_legal">	
 	<div id="popup_legal_content">
-		<h2>2013 BCA CAMPAIGN: PRIVACY POLICY</h2>
-		<h3>Effective Date: August 1, 2013</h3>
-		<h2>Breast Cancer Awareness Campaign Privacy Policy</h3>
-		<p>The Estée Lauder Companies (“we, us, or our”) respect your concerns about privacy and value the relationship we have with you. This Privacy Policy describes the types of personal information we collect in connection with the Breast Cancer Awareness campaign, how we use the information, with whom we share it, and the choices available to our participants regarding our use of the information. We also describe the measures we take to protect the security of the information and how our participants can contact us about our privacy practices.</p>
-		<p>Click on one of the links below to jump to the listed section:</p>
+		<h2>2013 유방암 의식 향상 캠페인: 개인정보 보호정책</h2>
+		<h3>발효일: 2013년 8월 1일</h3>
+		<h2>유방암 의식 향상 캠페인 개인정보 보호정책</h3>
+		<p>에스티로더 컴퍼니즈(이하 “회사”)는 이용자의 개인정보를 중요시하며, 이용자와의 관계를 중시합니다. 이 개인정보 보호정책은 유방암 의식 향상 캠페인과 관련하여 어떤 유형의 개인정보를 수집하고, 이용하고, 공유하고, 정보 사용에 관련된 이용자들의 권리 및 행사방법에 대해 설명합니다.  또한 개인정보 보호를 위해 어떠한 조치가 취해지고 있는지, 이용자들이 회사의 개인정보 보호정책에 대해 문의할 수 있는 방법을 알려드릴 것입니다.</p>
+		<p>다음 링크를 누르면 좀 더 자세한 내용을 볼 수 있습니다.:</p>
 
 		<ul>
-			<li><a href="#policy_a">Information We Collect</a>
+			<li><a href="#policy_a">수집하는 개인정보 항목</a>
 				<ul>
-					<li><a href="#policy_a1">Information You Provide</a>
+					<li><a href="#policy_a1">이용자 제공 정보</a>
 						<ul>
-							<li><a href="#policy_a1_a">How We Use the Information</a></li>
+							<li><a href="#policy_a1_a">개인정보 사용 용도</a></li>
 						</ul>
 					</li>
-					<li><a href="#policy_a2">Information We Collect by Automated Means</a>
+					<li><a href="#policy_a2">자동 수집 장치에 의한 개인정보 수집</a>
 						<ul>
-							<li><a href="#policy_a2_a">Technologies We Use</a>
+							<li><a href="#policy_a2_a">사용 기술</a>
 							<ul>
-								<li><a href="#policy_a2_a1">Cookies, Web Server Logs and Web Beacons</a></li>
-								<li><a href="#policy_a2_a2">Third Party Web Analytics Services</a></li>
+								<li><a href="#policy_a2_a1">쿠키, 웹 서버 로그, 웹 비콘</a></li>
+								<li><a href="#policy_a2_a2">타사 웹 분석 서비스</a></li>
 							</ul>
-							<li>Targeted Advertising</li>
-							<li><a href="#policy_a2_c">How We Use the Information Collected by Automated Means</a></li>
+							<li>타겟 광고</li>
+							<li><a href="#policy_a2_c">자동 수집 장치에 의해 수집된 개인정보의 이용 </a></li>
 						</ul>
 					</li>
 				</ul>
 			</li>
-			<li><a href="#policy_b">Information We Share</a></li>
-			<li><a href="#policy_c">Your Rights And Choices</a></li>
-			<li><a href="#policy_d">Data Transfers</a></li>
-			<li><a href="#policy_e">Children’s Privacy</a></li>
-			<li><a href="#policy_f">How We Protect Personal Information</a></li>
-			<li><a href="#policy_g">Links To Other Websites</a></li>
-			<li><a href="#policy_h">Updates To Our Privacy Policy</a></li>
-			<li><a href="#policy_i">How To Contact Us</a></li>
+		<li><a href="#policy_b">개인정보의 공유</a></li>
+		<li><a href="#policy_c">이용자의 권리 및 행사 방법</a></li>
+		<li><a href="#policy_b">수집한 개인정보의 국외 이전</a></li>
+		<li><a href="#policy_b">미성년자 보호정책</a></li>
+		<li><a href="#policy_f">개인정보 보호 조치</a></li>
+		<li><a href="#policy_g">다른 웹사이트로의 연결</a></li>
+		<li><a href="#policy_h">개인정보 보호정책 변경에 관한 사항</a></li>
+		<li><a href="#policy_i">문의처</a></li>
+
 		</ul>
 
-		<h3 id="policy_a" name="policy_a">Information We Collect</h3>
-		<p>We may obtain personal information about you from the Breast Cancer Awareness campaign website, located at BCACampaign.com/StrongerTogether (the “BCA Site”) or in connection with our social networking or mobile applications. When you visit the BCA Site or our social networking or mobile applications, we may also collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
+		<h3 id="policy_a" name="policy_a">수집하는 개인정보 항목</h3>
+		<p>회사는 유방암 의식 향상 캠페인 웹사이트인 BCACampaign.com/Stronger Together(이하 “BCA Site”) 혹은 회사의 소셜 네트워크나 모바일 어플리케이션을 통해 이용자에 대한 개인정보를 수집할 수 있습니다. 이용자가 BCA Site, 회사의 소셜 네트워크나 모바일 어플리케이션을 방문할 때, 회사는 쿠키, 웹 서버 로그, 웹 비콘과 같은 자동 수집 장치에 의해 특정 정보를 수집할 수도 있습니다.</p>
 		
-		<h3 id="policy_a1" name="policy_a1" class="sub1">Information You Provide</h3>
-		<p>You may choose to provide personal information to us, and the types of personal information you may provide to us includes: </p>
+		<h3 id="policy_a1" name="policy_a1" class="sub1">이용자 제공 정보</h3>
+		<p>이용자는 다음과 같은 유형의 개인정보에 대해 회사에 제공 여부를 결정할 수 있습니다.:</p>
 		<ul>
-			<li>Contact information (such as name, postal address, email address, and mobile or other phone number)</li>
-			<li>Gender</li>
-			<li>Contact information for friends or other people you would like us to contact</li>
-			<li>Content you provide (such as photographs, articles and comments)</li>
-			<li>Information provided to us by social networks or mobile applications when you use one of our social networking or mobile applications (such as your name, profile picture, likes, location, friend list and other information described in the social networking application sign-up page, or your geo-location details when using one of our mobile applications)</li>
+			<li>연락처(이름, 우편 주소, 이메일 주소, 휴대폰 번호 및 기타 전화번호 등)</li>
+			<li>성별</li>
+			<li>회사가 연락을 취할 수 있는 친구나 다른 사람의 연락처 정보</li>
+			<li>이용자가 제공한 컨텐츠(사진, 글 및 댓글 등)</li>
+			<li>이용자가 회사의 SNS나 모바일 어플리케이션을 사용할 때 이를 통해 제공된 정보(이용자 이름, 프로필 사진, 좋아요, 위치, 친구 목록, SNS 어플리케이션 가입 페이지에서의 다른 정보들, 지리적 위치 상세정보 등)</li>
 		</ul>
 
-		<h3 id="policy_a1_a" name="policy_a1_a" class="sub2">How We Use The Information</h3>
-		<p>We may use the information you provide to:</p>
+		<h3 id="policy_a1_a" name="policy_a1_a" class="sub2">개인정보 사용 용도</h3>
+		<p>회사는 수집한 개인정보를 다음의 목적을 위해 사용합니다.</p>
 		<ul>
-			<li>Communicate with you about, and administer your participation in, the Breast Cancer Awareness campaign</li>
-			<li>Provide services to you </li>
-			<li>Respond to your inquiries</li>
-			<li>Operate and communicate with you about our social networking or mobile applications</li>
-			<li>Operate, evaluate and improve our business (including developing new products and services; managing our communications; analyzing our products; performing data analytics; and performing accounting, auditing and other internal functions)
-			<li>Comply with applicable legal requirements, relevant industry standards and our policies</li>
+			<li>유방암 의식 향상 캠페인에 이용자가 참여하는 것을 관리하고 소통</li>
+			<li>서비스 제공</li>
+			<li>이용자의 요청에 응답</li>
+			<li>회사의 소셜 네트워크나 모바일 어플리케이션을 관리하고, 이용자와 소통</li>
+			<li>회사의 사업을 운영, 평가하고 개선(신제품이나 서비스를 개발; 커뮤니케이션 관리; 제품 분석; 데이터 분석 수행; 회계 감사 및 기타 내부 기능 수행을 포함)</li>
+			<li>해당 법적 요구사항, 관련업계 표준 및 회사의 정책 준수</li>
 		</ul>
-		<p>We also may use the information in other ways for which we provide specific notice at the time of collection.</p>
+		<p>회사는 또한 수집 시 특정 알림을 제공하기 위한 다른 방법으로 정보를 사용할 수 있습니다.</p>
 
-		<h3 id="policy_a2" name="policy_a2" class="sub1">Information We Collect by Automated Means</h3>
-		<p>When you visit this site or our online advertisements or use one of our social networking or mobile applications, we collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
+		<h3 id="policy_a2" name="policy_a2" class="sub1">자동 수집 장치에 의한 개인정보 수집</h3>
+		<p>이 사이트를 방문하거나 회사의 온라인 광고에 노출될 때, 혹은 회사의 소셜 네트워크나 모바일 어플리케이션을 사용할 때 회사는 쿠키, 웹 서버 로그, 웹 비콘과 같은 기술을 사용한 자동 수집 장치를 통해 특정 정보를 수집합니다.</p>
 
-		<h3 id="policy_a2_a" name="policy_a2_a" class="sub2">Technologies We Use</h3>
-		<h3 id="policy_a2_a1" name="policy_a2_a1" class="sub3">Cookies, Web Server Logs and Web Beacons</h3>
-		<p>Cookies are small text files that websites send to your computer or other Internet-connected device to uniquely identify your browser or to store information or settings in your browser. Your browser may tell you how to be notified when you receive certain types of cookies and how to restrict or disable certain cookies. Please note, however, that without cookies you may not be able to use all of the features of our website.</p>
-		<p>In conjunction with obtaining information through cookies, our web servers may log details such as your operating system type, browser type, domain, and other system settings, as well as the language your system uses and the country and time zone in which your device is located. The web server logs also may record information such as the address of the web page that linked you to our site and the IP address of the device you use to connect to the Internet.</p>
-		<p>To control which web servers collect this information, we may place tags on our web pages called “web beacons.” These are computer instructions that link web pages to particular web servers and their cookies.</p>
+		<h3 id="policy_a2_a" name="policy_a2_a" class="sub2">사용 기술</h3>
+		<h3 id="policy_a2_a1" name="policy_a2_a1" class="sub3">쿠키, 웹 서버 로그, 웹 비콘</h3>
+		<p>쿠키는 웹사이트가 브라우저를 고유하게 식별하거나 이용자의 브라우저에있는 정보나 설정을 저장하기 위해 컴퓨터나 다른 인터넷에 연결된 장치로 전송하는 작은 텍스트 파일입니다. 귀하는 쿠키 설치에 대한 선택권을 가지고 있습니다. 따라서, 귀하는 웹브라우저에서 옵션을 설정함으로써 모든 쿠키를 허용하거나, 쿠키가 저장될 때마다 확인을 거치거나, 아니면 모든 쿠키의 저장을 거부할 수도 있습니다. 단, 귀하께서 쿠키 설치를 거부하였을 경우 서비스 제공에 어려움이 있을 수 있습니다.</p>
+		<p>쿠키를 통해 정보를 얻는 것과 동시에 회사의 웹 서버는 이용자의 장치가 위치한 시간대, 국가, 사용언어와 더불어 운영체제, 브라우저, 도메인 외 다른 시스템 설정사항 등과 같은 세부사항을 기록할 수 있습니다. 또한 웹서버는 회사의 웹사이트로 이용자를 연결한 웹페이지의 주소와 이용자가 인터넷에 연결하기 위하여 사용한 장치의 IP주소와 같은 레코드 정보를 기록할 수 있습니다.</p>
+		<p>이 정보를 수집하는 웹 서버를 제어하기 위해서, 회사는 “웹 비콘”이라 불리우는 태그를 회사의 웹페이지에 배치할 수 있습니다. “웹 비콘”이란 웹 페이지를 특정 웹 서버로 링크되게 하는 컴퓨터 명령어와 그것의 쿠키를 말합니다.</p>
 
-		<h3 id="policy_a2_a2" name="policy_a2_a2" class="sub3">Third Party Web Analytics Services</h3>
-		<p>We may use third party web analytics services on this site. Such third party web analytics service providers may include, but is not limited to, Google Analytics.  The service providers that administer these services use technologies such as cookies, web server logs and web beacons to help us analyze how visitors use the site. The information collected through these means (including IP address) is disclosed to these service providers, who use the information to evaluate use of the website. To disable the Google Analytics cookie and any other third party web analytics service provider cookies, some browsers indicate when a cookie is being sent and allow you to decline cookies on a case-by-case basis.</p>
+		<h3 id="policy_a2_a2" name="policy_a2_a2" class="sub3">타사  웹 분석 서비스</h3>
+		<p>우리는 이 사이트에 대한 타사의 웹 분석 서비스를 사용할 수 있습니다. 타사의 웹 분석 서비스 공급자는 구글 웹 로그 분석을 포함하며 이에 한정되지 않습니다. 이런 서비스를 관리하는 서비스 공급자는 쿠키, 웹 서버 로그, 웹 비콘과 같은 기술을 사용하여 회사가 방문자들의 사이트 사용을 분석하는 것을 도와줍니다. 이러한 방법(IP주소 등)을 통해 수집된 정보는 서비스 공급자에게 알려지고, 이 정보를 이용하여 그들은 이용자의 웹사이트 사용을 평가합니다. 구글 웹 로그 분석 쿠키 외 기타 타사 웹 분석 서비스 공급자의 쿠키를 허용하지 않기 위해, 어떤 브라우저는 쿠키가 전송될 때 이용자에게 그것을 알리고 경우에 따라 그것을 거부할 수 있음을 알립니다.</p>
 
-		<h3 id="policy_a2_c" name="policy_a2_c" class="sub2">How We Use the Information Collected by Automated Means</h3>
-		<p>We may use the information collected through automated means on this site for market research, data analytics and system administration purposes, such as to determine whether you’ve visited us before or are new to the site, and for compliance with our legal obligations, policies and procedures, including compliance with relevant industry standards and the enforcement of our <u>Terms and Conditions</u>. We also may use the information in other ways for which specific notice is provided at the time of collection.</p>
+		<h3 id="policy_a2_c" name="policy_a2_c" class="sub2">자동 수집 장치에 의해 수집된 정보의 사용</h3>
+		<p>본 사이트에서 자동 수집 장치에 의해 수집된 정보는 회사의 시장 조사, 데이터 분석, 시스템 관리 목적으로 이용자의 회사 웹사이트에 방문한 적이 있는 지의 여부를 결정하는 데 사용되며 관련 업계 표준 및 이용 약관의 시행 규정 등 우리의 법적 의무, 정책 및 절차를 준수합니다. 회사는 또한 수집 시 특정 알림을 제공하기 위한 다른 방법으로 정보를 사용할 수 있습니다.</p>
 
-		<h3 id="policy_b" name="policy_b">Information We Share</h3>
-		<p>We do not rent lists, or sell or otherwise disclose personal information we collect about you, except as described here. We may share your personal information with:</p>
+		<h3 id="policy_b" name="policy_b">개인정보의 공유 및 제공</h3>
+		<p>회사는 아래의 경우를 제외하고, 이용자에 대해 수집한 개인정보를 대여, 판매하거나 공개하지 않습니다. 회사는 이용자의 개인정보를 다음의 경우에 공유할 수 있습니다:</p>
 		<ul>
-			<li>Our affiliates within The Estee Lauder Companies’ umbrella of companies</li>
-			<li>Service providers who perform services on our behalf based on our instructions. We do not authorize these service providers to use or disclose the information except as necessary to perform services on our behalf or comply with legal requirements. Examples of these service providers include entities that process credit card payments, fulfill orders, and provide web hosting and marketing services.</li>
-			<li>Other third parties with your consent (e.g., some of our Facebook applications may share information collected through those apps with your Facebook friends or other Facebook users).</li>
+			<li>에스티로더 컴퍼니즈의 계열사</li>
+			<li>회사의 지침에 따라 회사를 대신하여 서비스를 수행하는 서비스 공급자. 회사를 대신하여 서비스를 수행하는 데 필요하거나 법적 요구 사항을 준수하기 위한 목적을 제외하고, 회사는 서비스 공급자에게 개인정보를 사용하거나 공개하는 권한을 허용하지 않습니다. 이러한 서비스 공급자의 예로는 신용 카드 결제 처리, 주문 이행, 웹 호스팅 제공 및 마케팅 서비스 등이 있습니다.</li>
+			<li>기타 이용자의 동의에 따른 위탁자(회사의 페이스북 어플리케이션 중 일부는 수집된 개인정보를 이용자의 페이스북 친구나 다른 페이스북 유저의 앱을 통해 공유할 수 있습니다.)</li>
 		</ul>
-		<p>In addition, we may disclose information about you (i) if we are required to do so by law or legal process, (ii) to law enforcement authorities or other government officials, or (iii) when we believe disclosure is necessary or appropriate to prevent physical harm or financial loss, or in connection with an investigation of suspected or actual fraudulent or illegal activity.</p>
-		<p>We also reserve the right to transfer personal information we have about you in the event we sell or transfer all or a portion of our business or assets. Should such a sale or transfer occur, we will use reasonable efforts to direct the transferee to use personal information you have provided to us in a manner that is consistent with our Privacy Policy. Following such a sale or transfer, you may contact the entity to which we transferred your personal information with any inquiries concerning the processing of that information.</p>
+		<p>회사는 다음의 경우 이용자에 대한 개인정보를 공개할 수 있습니다. (i) 법 또는 법적 절차에 따른 요구가 있는 경우, (ii) 법 집행 기관이나 기타 정부 공무원, 혹은 (iii) 회사가 공개가 필요하다고 판단하거나 신체적 상해나 재정적 손해를 예방하기에 적합하거나, 또는 실제 사기 또는 불법 행위가 의심되는 사건에 대한 조사와 연결될 경우</p>
+		<p>회사는 또한 회사의 사업이나 자산의 전부 또는 일부를 판매하거나 양도하는 경우에 이용자에 대해 회사가 가지고 있는 개인정보를 양도할 수 있는 권리를 보유합니다. 이러한 판매 또는 양도가 발생할 때, 회사는 양수인이 이용자가 회사에 제공한 개인정보를 당사의 개인정보 보호정책과 일치하는 방식으로 사용하도록 지시하기 위해 합리적인 노력을 기울일 것입니다. 이러한 판매 또는 양도 후, 이용자는 회사가 양도한 이용자의 개인정보 및 그 정보의 처리에 관해 회사에 문의할 수 있습니다.</p>
 
-		<h3 id="policy_c" name="policy_c">Your Rights and Choices</h3>
-		<p>We offer you certain choices in connection with the personal information we collect from you, such as how we use the information and how we communicate with you. To update your preferences, please contact us as specified below.</p>
+		<h3 id="policy_c" name="policy_c">이용자의 권리 및 행사 방법</h3>
+		<p>회사는 이용자에게서 수집한 개인정보와 관련하여 회사가 어떤 방법으로 개인정보를 사용할 지, 어떻게 이용자와 연락할 지와 같은 특정한 선택을 제공합니다.  이러한 이용자 환경을 조정하기 위해서는 아래에 명시된 바와 같이 연락을 주시기 바랍니다.</p>
 		<ul>
 			<li>
-				<h3 class="sub1">Social Networking Application Opt-Out</h3>
-				<p>To remove or delete our apps from your social networking account, follow the instructions from the social network:</br>Facebook: https://www.facebook.com/help/?faq=170585223002660 provided by the Facebook Help Center.</p>
+				<h3 class="sub1">소셜 네트워킹 어플리케이션 탈퇴</h3>
+				<p>이용자의 소셜 네트워킹 계정에서 당사의 앱을 지우거나 제거하기 위해, 소셜 네트워크에서 다음의 <u>지시사항</u>을 따르십시오:</br>페이스북: https://www.facebook.com/help/?faq=170585223002660 페이스북 고객센터에서 제공</p>
 			</li>
 			<li>
-				<h3 class="sub1">Withdrawing Consent</h3>
-				<p>You may withdraw any consent you previously provided to us, or object at any time on legitimate grounds, to the processing of your personal information. We will apply your preferences going forward. In some circumstances, withdrawing your consent to our use or disclosure of your personal information will mean that you cannot take advantage of some of our products or services.</p>
+				<h3 class="sub1">동의철회</h3>
+				<p>이용자는 본인의 개인정보 처리에 대해 이전에 회사에 제공한 모든 동의를 철회하거나 언제나 합법적인 근거에 의해 반대할 수 있습니다. 회사는 이용자의 요청에 따라 처리할 것입니다. 상황에 따라, 회사의 개인정보 사용이나 공개에 대한 동의 철회는 회사의 제품이나 서비스에 대한 이익을 취할 수 없음을 뜻할 수도 있습니다.</p>
 			</li>
 			<li>
-				<h3 class="sub1">Reviewing, Updating and Modifying Personal Information</h3>
-				<p>Subject to applicable law, you may have the right to request access to and receive details about the personal information we maintain about you, update and correct inaccuracies in your personal data, and have the information blocked or deleted, as appropriate. The right to access personal information may be limited in some circumstances by local law requirements. You may request to review, change or delete your personal information by sending an email to consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
+				<h3 class="sub1">개인정보 검토, 업데이트 및 수정</h3>
+				<p>해당 법률에 따라, 이용자는 회사가 이용자에 대해 보유하고 있는 개인정보에 접근 요청을 하고 상세 내용을 받아볼 수 있는 권리가 있습니다. 또한 이용자는 개인정보에 대해 정확하지 않은 부분을 고치거나 업데이트 할 수 있으며, 정보를 적절하게 차단하거나 삭제할 수 있습니다.  개인정보에 접근할 수 있는 권한은 지역법 요구 상 제한될 수도 있습니다. 이용자는 consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS]에 전자메일을 보내 개인정보를 검토, 수정하거나 삭제할 수 있습니다.</p>
 			</li>
 		</ul>
 
-		<h3 id="policy_d" name="policy_d">Data Transfers</h3>
-		<p>We may transfer the personal information we collect about you to countries other than the country in which the information was originally collected. Our servers hosting the BCA Site are located in the United States, which with other countries may not have the same data protection laws as the country in which you initially provided the information. When we transfer your information to other countries, we will protect that information as described in this Privacy Policy.</p>
+		<h3 id="policy_d" name="policy_d">수집된 개인정보의 국외 이전</h3>
+		<p>회사는 수집한 개인정보를 본래 수집했던 국가가 아닌 국외로 이전시킬 수 있습니다. BCA Site의 서버 호스팅은 미국에 있기 때문에 개인정보가 최초로 수집된 국가와는 다른 정보보호법이 적용될 수 있습니다. 회사가 이용자의 개인정보를 국외로 이전시킬 때는 이 개인정보 보호정책상에 나와있는 대로 이용자의 정보를 보호할 것입니다.</p>
 
-		<h3 id="policy_e" name="policy_e">Children's Privacy</h3>
-		<p>If you are under thirteen years of age, you may browse our site. However, you may not provide personal information to us. This site is not directed to children under the age of thirteen and we do not knowingly collect personal information from children under the age of thirteen on the site. If we become aware that we have inadvertently received personal information from a visitor under the age of thirteen on the site, we will delete the information from our records.</p>
+		<h3 id="policy_e" name="policy_e">미성년자 보호정책</h3>
+		<p>이용자가 만13세 미만일 경우에도, 본 사이트를 조회할 수 있습니다. 그러나 본인의 개인정보를 제공할 수는 없습니다. 본 사이트는 만 13세 미만인 자를 위한 사이트가 아니며, 만 13세 미만의 아동으로부터 의도적으로 개인정보를 수집하지 않습니다. 만13세 미만의  방문자로부터 의도치 않게 개인정보를 입수한 사실을 알게 된 경우, 회사는 그 정보를 회사 기록에서 삭제할 것입니다.</p>
 
-		<h3 id="policy_f" name="policy_f">How We Protect Personal Information</h3>
-		<p>We maintain appropriate administrative, technical and physical safeguards designed to protect the personal information you provide against accidental, unlawful or unauthorized destruction, loss, alteration, access, disclosure or use.</p>
+		<h3 id="policy_f" name="policy_f">개인정보 보호 조치</h3>
+		<p>회사는 실수, 불법 또는 무단 파괴, 손실, 변경, 접근, 공개 또는 사용으로부터 이용자가 제공한 개인정보를 보호하기 위해 적절하게 관리하고 기술적, 물리적으로 안전을 유지하고 있습니다.</p>
 
-		<h3 id="policy_g" name="policy_g">Links To Other Websites</h3>
-		<p>Our website may provide links to other websites for your convenience and information. These websites may operate independently from us. Linked sites may have their own privacy notices or policies, which we strongly suggest you review if you visit any linked websites. To the extent any linked websites you visit are not owned or controlled by us, we are not responsible for the sites’ content, any use of the sites, or the privacy practices of the sites.</p>
+		<h3 id="policy_g" name="policy_g">다른 웹사이트로의 연결</h3>
+		<p>당사의 웹사이트는 이용자의 편의와 정보탐색을 위해 다른 사이트로의 링크를 제공하고 있습니다. 이 웹사이트들은 회사와 무관하게 운영되고 있습니다. 연결된 사이트들은 각각의 개인정보 보호정책을 가지고 있을 수도 있으므로, 링크된 웹사이트를 방문했을 경우 반드시 방문한 사이트의 개인정보 보호정책을 확인하시기 바랍니다. 회사 소유가 아니며  회사에 의해 제어되지 않는 링크된 웹사이트로 이용자가 방문하는 경우에 그 사이트의 컨텐츠, 활용, 개인정보 보호정책에 대해 회사는 전혀 책임을 지지 않습니다.</p>
 
-		<h3 id="policy_h" name="policy_h">Updates To Our Privacy Policy</h3>
-		<p>This Privacy Policy may be updated periodically and without prior notice to you to reflect changes in our personal information practices. We will post a prominent notice on our website to notify you of any significant changes to our Privacy Policy and indicate at the top of the Policy when it was most recently updated.</p>
+		<h3 id="policy_h" name="policy_h">개인정보 보호정책 변경에 관한 사항</h3>
+		<p>본 개인정보 보호정책은 회사의 개인정보 운영방침에 따라 사전 통지 없이 주기적으로 변경될 수 있습니다. 개인정보 보호정책에 중요한 변경사항이 있을 경우, 당사의 웹사이트에 눈에 잘 띄도록 공지사항을 게시할 것입니다. 또한 가장 최신 버전의 개인정보 보호정책일 경우 상단에 표시하여 알리겠습니다.</p>
 
-		<h3 id="policy_i" name="policy_i">How To Contact Us</h3>
-		<p>If you have any questions or comments about this Privacy Policy, or if you would like us to update information we have about you or your preferences, please contact us by email at consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
+		<h3 id="policy_i" name="policy_i">문의처</h3>
+		<p>본 개인정보 보호정책에 문의사항, 의견이 있거나 이용자에 대한 정보 변경을 원하는 경우consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS]로 메일을 보내주시기 바랍니다.</p>
 
 		<p>Copyright © The Estée Lauder Companies Inc. All worldwide rights reserved.</p>
 	</div>
