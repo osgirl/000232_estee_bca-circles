@@ -1,128 +1,45 @@
 <div class="popup" id="popup_legal">	
 	<div id="popup_legal_content">
-		<h2>2013 BCA CAMPAIGN: PRIVACY POLICY</h2>
-		<h3>Effective Date: August 1, 2013</h3>
-		<h2>Breast Cancer Awareness Campaign Privacy Policy</h3>
-		<p>The Estée Lauder Companies (“we, us, or our”) respect your concerns about privacy and value the relationship we have with you. This Privacy Policy describes the types of personal information we collect in connection with the Breast Cancer Awareness campaign, how we use the information, with whom we share it, and the choices available to our participants regarding our use of the information. We also describe the measures we take to protect the security of the information and how our participants can contact us about our privacy practices.</p>
-		<p>Click on one of the links below to jump to the listed section:</p>
+		<h2>CAMPAGNE BCA 2013: POLITIQUE DE CONFIDENTIALITE</h2>
+		<h3>Entrée en vigueur: 01 Aout 2013</h3>
+		<h2>Politique de confidentialité de l’application Cancer du Sein 2013</h3>
+		<p>Nous, Estée Lauder Companies («nous») respectons votre vie privée et la valeur des relations que nous entretenons avec vous. L’utilisation de cette application est soumise à cette Politique de confidentialité. L’utilisation de Facebook de manière générale est soumise à des règles et des conditions propres à Facebook, décrites dans la politique de confidentialité de Facebook sur laquelle Estée Lauder Companies n’a aucun contrôle. Cette politique de confidentialité décrit de quelle manière nous, Estée Lauder Companies, utilisons les informations que nous récupérons dans cette application Facebook et avec qui nous pouvons les partager.</p>
 
-		<ul>
-			<li><a href="#policy_a">Information We Collect</a>
-				<ul>
-					<li><a href="#policy_a1">Information You Provide</a>
-						<ul>
-							<li><a href="#policy_a1_a">How We Use the Information</a></li>
-						</ul>
-					</li>
-					<li><a href="#policy_a2">Information We Collect by Automated Means</a>
-						<ul>
-							<li><a href="#policy_a2_a">Technologies We Use</a>
-							<ul>
-								<li><a href="#policy_a2_a1">Cookies, Web Server Logs and Web Beacons</a></li>
-								<li><a href="#policy_a2_a2">Third Party Web Analytics Services</a></li>
-							</ul>
-							<li>Targeted Advertising</li>
-							<li><a href="#policy_a2_c">How We Use the Information Collected by Automated Means</a></li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-			<li><a href="#policy_b">Information We Share</a></li>
-			<li><a href="#policy_c">Your Rights And Choices</a></li>
-			<li><a href="#policy_d">Data Transfers</a></li>
-			<li><a href="#policy_e">Children’s Privacy</a></li>
-			<li><a href="#policy_f">How We Protect Personal Information</a></li>
-			<li><a href="#policy_g">Links To Other Websites</a></li>
-			<li><a href="#policy_h">Updates To Our Privacy Policy</a></li>
-			<li><a href="#policy_i">How To Contact Us</a></li>
-		</ul>
-
-		<h3 id="policy_a" name="policy_a">Information We Collect</h3>
-		<p>We may obtain personal information about you from the Breast Cancer Awareness campaign website, located at BCACampaign.com/StrongerTogether (the “BCA Site”) or in connection with our social networking or mobile applications. When you visit the BCA Site or our social networking or mobile applications, we may also collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
+		<h3 id="policy_a" name="policy_a">Informations que nous récupérons</h3>
+		<p>Nous pouvons recueillir deux types de renseignements personnels avec cette application: (i) l'information et le contenu que vous ou d’autres utilisateurs ont fourni à Facebook, ou que Facebook a associé à un utilisateur particulier («renseignements que nous recevons de Facebook") et (ii) l'information et le contenu que vous nous fournissez directement, par exemple en vous inscrivant via un formulaire ("Information Indépendante").</p>
 		
-		<h3 id="policy_a1" name="policy_a1" class="sub1">Information You Provide</h3>
-		<p>You may choose to provide personal information to us, and the types of personal information you may provide to us includes: </p>
-		<ul>
-			<li>Contact information (such as name, postal address, email address, and mobile or other phone number)</li>
-			<li>Gender</li>
-			<li>Contact information for friends or other people you would like us to contact</li>
-			<li>Content you provide (such as photographs, articles and comments)</li>
-			<li>Information provided to us by social networks or mobile applications when you use one of our social networking or mobile applications (such as your name, profile picture, likes, location, friend list and other information described in the social networking application sign-up page, or your geo-location details when using one of our mobile applications)</li>
-		</ul>
+		<h3 id="policy_a1" name="policy_a1" class="sub1">Renseignements que nous recevons de Facebook</h3>
+		<p>Lorsque vous accédez à l’application, nous collectons, avec votre consentement, les informations que vous avez rendues visibles « à tous » ainsi que les informations que Facebook désigne comme « publiquement disponibles ». </p>
+		<p>« Information indépendante »<br/>
+		L'utilisation de l’application peut imposer de nous fournir certaines informations, telles que par votre nom, prénom, adresse email, adresse postale, âge et date de naissance. Nous utilisons l'information indépendante de la même manière que les renseignements que nous recevons de Facebook. Nous pouvons, à notre seule discrétion et si nous le jugeons nécessaire, communiquer une information indépendante dans le but de se conformer à la loi en vigueur, au règlement, ou à  toute procédure légale ou demande gouvernementale. En outre, nous pouvons communiquer une information indépendante lorsque nous croyons, à notre seule discrétion, la divulgation nécessaire ou appropriée pour prévenir des dommages physiques, des pertes financières ou une activité illégale présumée ou réelle.</p>
 
-		<h3 id="policy_a1_a" name="policy_a1_a" class="sub2">How We Use The Information</h3>
-		<p>We may use the information you provide to:</p>
-		<ul>
-			<li>Communicate with you about, and administer your participation in, the Breast Cancer Awareness campaign</li>
-			<li>Provide services to you </li>
-			<li>Respond to your inquiries</li>
-			<li>Operate and communicate with you about our social networking or mobile applications</li>
-			<li>Operate, evaluate and improve our business (including developing new products and services; managing our communications; analyzing our products; performing data analytics; and performing accounting, auditing and other internal functions)
-			<li>Comply with applicable legal requirements, relevant industry standards and our policies</li>
-		</ul>
-		<p>We also may use the information in other ways for which we provide specific notice at the time of collection.</p>
+		<h3 id="policy_a1_a" name="policy_a1_a" class="sub2">Comment nous partageons des renseignements que nous recevons de Facebook</h3>
+		<p>Nous communiquons l'information que nous recevons de Facebook à nos sociétés affiliées et fournisseurs de services dans les termes de la politique de confidentialité de Facebook. Nous ne fournirons pas ces informations à des tiers dans un but commercial sans votre consentement. Nous ne contrôlons pas l’utilisation que Facebook fait des informations et du contenu recueillis suite à votre utilisation de l’application.</p>
 
-		<h3 id="policy_a2" name="policy_a2" class="sub1">Information We Collect by Automated Means</h3>
-		<p>When you visit this site or our online advertisements or use one of our social networking or mobile applications, we collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
+		<h3 id="policy_a2" name="policy_a2" class="sub1">Renseignements que nous recueillons par des moyens automatisés</h3>
+		<p>Nous recueillons également des informations par des moyens automatisés, en utilisant des technologies telles que les cookies, fichiers journaux de serveur Web et les balises Web.</p>
 
-		<h3 id="policy_a2_a" name="policy_a2_a" class="sub2">Technologies We Use</h3>
-		<h3 id="policy_a2_a1" name="policy_a2_a1" class="sub3">Cookies, Web Server Logs and Web Beacons</h3>
-		<p>Cookies are small text files that websites send to your computer or other Internet-connected device to uniquely identify your browser or to store information or settings in your browser. Your browser may tell you how to be notified when you receive certain types of cookies and how to restrict or disable certain cookies. Please note, however, that without cookies you may not be able to use all of the features of our website.</p>
-		<p>In conjunction with obtaining information through cookies, our web servers may log details such as your operating system type, browser type, domain, and other system settings, as well as the language your system uses and the country and time zone in which your device is located. The web server logs also may record information such as the address of the web page that linked you to our site and the IP address of the device you use to connect to the Internet.</p>
-		<p>To control which web servers collect this information, we may place tags on our web pages called “web beacons.” These are computer instructions that link web pages to particular web servers and their cookies.</p>
+		<p><u>Technologies que nous utilisons</u><br/>
+		Cookies, fichiers log du serveur Web et balises Web</p>
+		<p>Les cookies sont de petits fichiers texte que les sites web envoient à votre ordinateur ou un autre appareil connecté à Internet pour identifier votre navigateur ou pour stocker des informations ou des paramètres dans votre navigateur. Votre navigateur peut vous dire comment être averti lorsque vous recevez certains types de cookies et comment restreindre ou désactiver certains cookies. Veuillez noter, toutefois, que sans ces cookies, vous pourriez ne pas être en mesure d'utiliser toutes les fonctionnalités de cette application.</p>
+		<p>En collaboration avec l'obtention d'informations par le biais des cookies, nos serveurs Web peuvent  accéder à des détails tels que le type de système d'exploitation, le type de navigateur, le domaine et d'autres paramètres du système, ainsi que le langage utilisé par votre système et le pays et le fuseau horaire dans lequel votre appareil est situé. Les journaux des serveurs Web peuvent également enregistrer des informations telles que l'adresse de la page web par laquelle vous avez accédé à l’application Facebook Cancer du Sein 2013et l'adresse IP de l'appareil que vous utilisez pour vous connecter à Internet.</p>
+		<p>Pour contrôler quels serveurs Web recueillent cette information, nous pouvons placer des étiquettes sur nos pages appelées «balises Web». Ce sont des instructions informatiques qui relient les pages Web des à leurs serveurs de diffusion et aux cookies collectés.</p>
 
-		<h3 id="policy_a2_a2" name="policy_a2_a2" class="sub3">Third Party Web Analytics Services</h3>
-		<p>We may use third party web analytics services on this site. Such third party web analytics service providers may include, but is not limited to, Google Analytics.  The service providers that administer these services use technologies such as cookies, web server logs and web beacons to help us analyze how visitors use the site. The information collected through these means (including IP address) is disclosed to these service providers, who use the information to evaluate use of the website. To disable the Google Analytics cookie and any other third party web analytics service provider cookies, some browsers indicate when a cookie is being sent and allow you to decline cookies on a case-by-case basis.</p>
+		<p><u>Services Tiers</u><br/>
+		Nous pouvons utiliser des services tiers sur cette application. Les fournisseurs qui administrent ces services utilisent des technologies telles que les cookies, fichiers journaux de serveur Web et des balises Web pour nous aider à analyser la façon dont les visiteurs utilisent l'application. Les renseignements recueillis grâce à ces moyens (y compris votre adresse IP) seront divulguées à ces fournisseurs de services qui utilisent les informations pour évaluer l'utilisation de l'application. Pour désactiver les cookies utilisés par les fournisseurs de services, certains navigateurs indiquent quand un cookie est envoyé et vous permettent de refuser les cookies au cas par cas.</p>
 
-		<h3 id="policy_a2_c" name="policy_a2_c" class="sub2">How We Use the Information Collected by Automated Means</h3>
-		<p>We may use the information collected through automated means on this site for market research, data analytics and system administration purposes, such as to determine whether you’ve visited us before or are new to the site, and for compliance with our legal obligations, policies and procedures, including compliance with relevant industry standards and the enforcement of our <u>Terms and Conditions</u>. We also may use the information in other ways for which specific notice is provided at the time of collection.</p>
+		<h3 id="policy_b" name="policy_b">Comment nous utilisons les informations collectées par des moyens automatisés</h3>
+		<p>Nous pouvons utiliser les informations recueillies par des moyens automatisés sur cette application afin de réaliser des études de marché, analyse de données et à des fins d'administration du système, de manière à déterminer si vous avez déjà visité notre site ou si vous êtes nouveau sur l'application. Nous pouvons utiliser les informations recueillies par des moyens automatisés sur cette application pour assurer le respect de nos obligations juridiques, y compris le respect de la loi informatique et liberté et de l'exécution de notre règlement.</p>
 
-		<h3 id="policy_b" name="policy_b">Information We Share</h3>
-		<p>We do not rent lists, or sell or otherwise disclose personal information we collect about you, except as described here. We may share your personal information with:</p>
-		<ul>
-			<li>Our affiliates within The Estee Lauder Companies’ umbrella of companies</li>
-			<li>Service providers who perform services on our behalf based on our instructions. We do not authorize these service providers to use or disclose the information except as necessary to perform services on our behalf or comply with legal requirements. Examples of these service providers include entities that process credit card payments, fulfill orders, and provide web hosting and marketing services.</li>
-			<li>Other third parties with your consent (e.g., some of our Facebook applications may share information collected through those apps with your Facebook friends or other Facebook users).</li>
-		</ul>
-		<p>In addition, we may disclose information about you (i) if we are required to do so by law or legal process, (ii) to law enforcement authorities or other government officials, or (iii) when we believe disclosure is necessary or appropriate to prevent physical harm or financial loss, or in connection with an investigation of suspected or actual fraudulent or illegal activity.</p>
-		<p>We also reserve the right to transfer personal information we have about you in the event we sell or transfer all or a portion of our business or assets. Should such a sale or transfer occur, we will use reasonable efforts to direct the transferee to use personal information you have provided to us in a manner that is consistent with our Privacy Policy. Following such a sale or transfer, you may contact the entity to which we transferred your personal information with any inquiries concerning the processing of that information.</p>
+		<h3 id="policy_c" name="policy_c">Transfert de données</h3>
+		<p>Nous pouvons transférer des renseignements personnels que nous recueillons à votre sujet aux États-Unis, qui n'ont pas forcément les mêmes lois de protection des données que le pays dans lequel vous avez initialement fourni l'information. Lorsque nous transférons vos informations aux États-Unis, nous protégeons ces informations comme décrit dans cette Politique de confidentialité. Si vous résidez dans l'Espace économique européen ou en Suisse, nous nous conformons aux exigences légales applicables fournissant une protection adéquate pour le transfert de renseignements personnels à des pays hors de l'Espace économique européen ou de la Suisse. </p>
 
-		<h3 id="policy_c" name="policy_c">Your Rights and Choices</h3>
-		<p>We offer you certain choices in connection with the personal information we collect from you, such as how we use the information and how we communicate with you. To update your preferences, please contact us as specified below.</p>
-		<ul>
-			<li>
-				<h3 class="sub1">Social Networking Application Opt-Out</h3>
-				<p>To remove or delete our apps from your social networking account, follow the instructions from the social network:</br>Facebook: https://www.facebook.com/help/?faq=170585223002660 provided by the Facebook Help Center.</p>
-			</li>
-			<li>
-				<h3 class="sub1">Withdrawing Consent</h3>
-				<p>You may withdraw any consent you previously provided to us, or object at any time on legitimate grounds, to the processing of your personal information. We will apply your preferences going forward. In some circumstances, withdrawing your consent to our use or disclosure of your personal information will mean that you cannot take advantage of some of our products or services.</p>
-			</li>
-			<li>
-				<h3 class="sub1">Reviewing, Updating and Modifying Personal Information</h3>
-				<p>Subject to applicable law, you may have the right to request access to and receive details about the personal information we maintain about you, update and correct inaccuracies in your personal data, and have the information blocked or deleted, as appropriate. The right to access personal information may be limited in some circumstances by local law requirements. You may request to review, change or delete your personal information by sending an email to consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
-			</li>
-		</ul>
+		<h3 id="policy_d" name="policy_d">Mises à jour cette politique de confidentialité</h3>
+		<p>Cette politique de confidentialité peut être modifiée en fonction de l’évolution des règles d’utilisation de Facebook.</p>
 
-		<h3 id="policy_d" name="policy_d">Data Transfers</h3>
-		<p>We may transfer the personal information we collect about you to countries other than the country in which the information was originally collected. Our servers hosting the BCA Site are located in the United States, which with other countries may not have the same data protection laws as the country in which you initially provided the information. When we transfer your information to other countries, we will protect that information as described in this Privacy Policy.</p>
+		<h3 id="policy_i" name="policy_i">Comment nous contacter</h3>
+		<p>Si vous avez des questions ou des commentaires concernant la politique de confidentialité, merci de nous contacter par email à l’adresse communitymanagement@fr.estee.com</p>
 
-		<h3 id="policy_e" name="policy_e">Children's Privacy</h3>
-		<p>If you are under thirteen years of age, you may browse our site. However, you may not provide personal information to us. This site is not directed to children under the age of thirteen and we do not knowingly collect personal information from children under the age of thirteen on the site. If we become aware that we have inadvertently received personal information from a visitor under the age of thirteen on the site, we will delete the information from our records.</p>
-
-		<h3 id="policy_f" name="policy_f">How We Protect Personal Information</h3>
-		<p>We maintain appropriate administrative, technical and physical safeguards designed to protect the personal information you provide against accidental, unlawful or unauthorized destruction, loss, alteration, access, disclosure or use.</p>
-
-		<h3 id="policy_g" name="policy_g">Links To Other Websites</h3>
-		<p>Our website may provide links to other websites for your convenience and information. These websites may operate independently from us. Linked sites may have their own privacy notices or policies, which we strongly suggest you review if you visit any linked websites. To the extent any linked websites you visit are not owned or controlled by us, we are not responsible for the sites’ content, any use of the sites, or the privacy practices of the sites.</p>
-
-		<h3 id="policy_h" name="policy_h">Updates To Our Privacy Policy</h3>
-		<p>This Privacy Policy may be updated periodically and without prior notice to you to reflect changes in our personal information practices. We will post a prominent notice on our website to notify you of any significant changes to our Privacy Policy and indicate at the top of the Policy when it was most recently updated.</p>
-
-		<h3 id="policy_i" name="policy_i">How To Contact Us</h3>
-		<p>If you have any questions or comments about this Privacy Policy, or if you would like us to update information we have about you or your preferences, please contact us by email at consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
-
-		<p>Copyright © The Estée Lauder Companies Inc. All worldwide rights reserved.</p>
 	</div>
 </div>
 <script type="text/javascript">
