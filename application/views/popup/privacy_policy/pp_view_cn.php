@@ -1,128 +1,126 @@
 <div class="popup" id="popup_legal">	
 	<div id="popup_legal_content">
-		<h2>2013 BCA CAMPAIGN: PRIVACY POLICY</h2>
-		<h3>Effective Date: August 1, 2013</h3>
-		<h2>Breast Cancer Awareness Campaign Privacy Policy</h3>
-		<p>The Estée Lauder Companies (“we, us, or our”) respect your concerns about privacy and value the relationship we have with you. This Privacy Policy describes the types of personal information we collect in connection with the Breast Cancer Awareness campaign, how we use the information, with whom we share it, and the choices available to our participants regarding our use of the information. We also describe the measures we take to protect the security of the information and how our participants can contact us about our privacy practices.</p>
-		<p>Click on one of the links below to jump to the listed section:</p>
+		<h2>2013關注乳癌運動: 私隱政策</h2>
+		<h3>生效日期： 2013年8月1日</h3>
+		<h2>關注乳癌運動私隱政策</h3>
+		<p>雅詩蘭黛集團 ("我們")尊重閣下對私隱的關注及重視我們與閣下之關係。此私隱政策說明我們收集有關關注乳癌運動參與者的個人資料的種類、我們如何使用有關資料、我們與何人共用有關資料以及顧客對於我們使用有關資料的選擇。我們亦會說明我們保護有關資料安全的措施及我們的參與者就我們的私隱行事方式可如何聯絡我們。</p>
+		<p>請按下列任何一個連結以跳至相關部份：</p>
 
 		<ul>
-			<li><a href="#policy_a">Information We Collect</a>
+			<li><a href="#policy_a">我們收集的資料</a>
 				<ul>
-					<li><a href="#policy_a1">Information You Provide</a>
+					<li><a href="#policy_a1">閣下提供的資料</a>
 						<ul>
-							<li><a href="#policy_a1_a">How We Use the Information</a></li>
+							<li><a href="#policy_a1_a">我們如何使用有關資料</a></li>
 						</ul>
 					</li>
-					<li><a href="#policy_a2">Information We Collect by Automated Means</a>
+					<li><a href="#policy_a2">我們透過自動方式收集的資料</a>
 						<ul>
-							<li><a href="#policy_a2_a">Technologies We Use</a>
+							<li><a href="#policy_a2_a">我們使用的技術</a>
 							<ul>
-								<li><a href="#policy_a2_a1">Cookies, Web Server Logs and Web Beacons</a></li>
-								<li><a href="#policy_a2_a2">Third Party Web Analytics Services</a></li>
+								<li><a href="#policy_a2_a1">“曲奇”(Cookies)、網絡伺服器記錄檔(Web Server Logs)及網絡信標(Web Beacons)</a></li>
+								<li><a href="#policy_a2_a2">協力廠商的網絡分析服務</a></li>
 							</ul>
-							<li>Targeted Advertising</li>
-							<li><a href="#policy_a2_c">How We Use the Information Collected by Automated Means</a></li>
+							<li>目標廣告</li>
+							<li><a href="#policy_a2_c">我們如何使用透過自動方式收集的資料</a></li>
 						</ul>
 					</li>
 				</ul>
 			</li>
-			<li><a href="#policy_b">Information We Share</a></li>
-			<li><a href="#policy_c">Your Rights And Choices</a></li>
-			<li><a href="#policy_d">Data Transfers</a></li>
-			<li><a href="#policy_e">Children’s Privacy</a></li>
-			<li><a href="#policy_f">How We Protect Personal Information</a></li>
-			<li><a href="#policy_g">Links To Other Websites</a></li>
-			<li><a href="#policy_h">Updates To Our Privacy Policy</a></li>
-			<li><a href="#policy_i">How To Contact Us</a></li>
+			<li><a href="#policy_b">我們共用的資料</a></li>
+			<li><a href="#policy_c">閣下的權利及選擇</a></li>
+			<li><a href="#policy_d">資料轉移</a></li>
+			<li><a href="#policy_f">我們如何保護個人資料</a></li>
+			<li><a href="#policy_g">前往其他網站的連結</a></li>
+			<li><a href="#policy_h">更新我們的私隱政策</a></li>
+			<li><a href="#policy_i">如何聯絡我們</a></li>
 		</ul>
 
-		<h3 id="policy_a" name="policy_a">Information We Collect</h3>
-		<p>We may obtain personal information about you from the Breast Cancer Awareness campaign website, located at BCACampaign.com/StrongerTogether (the “BCA Site”) or in connection with our social networking or mobile applications. When you visit the BCA Site or our social networking or mobile applications, we may also collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
+		<h3 id="policy_a" name="policy_a">我們收集的資料</h3>
+		<p>我們可能從關注乳癌運動(Breast Cancer Awareness)的網站，網址為BCACampaign.com/StrongerTogether，或我們相關的社交網絡或手機應用程序取得與閣下有關的個人資料。當閣下瀏覽我們的活動網站或社交網絡或手機應用程序，我們亦會利用科技，如“曲奇”(Cookies)、網絡伺服器記錄檔(Web Server Logs)及網絡信標(Web Beacons)，透過自動方式收集相關資料。</p>
 		
-		<h3 id="policy_a1" name="policy_a1" class="sub1">Information You Provide</h3>
-		<p>You may choose to provide personal information to us, and the types of personal information you may provide to us includes: </p>
+		<h3 id="policy_a1" name="policy_a1" class="sub1">閣下提供的資料</h3>
+		<p>閣下可選擇以不同方式，例如，當閣下參與我們的優惠或推廣或在我們百貨公司專櫃、專門店、我們的網站購物，向我們提供個人資料。閣下可能向我們提供的個人資料包括：</p>
 		<ul>
-			<li>Contact information (such as name, postal address, email address, and mobile or other phone number)</li>
-			<li>Gender</li>
-			<li>Contact information for friends or other people you would like us to contact</li>
-			<li>Content you provide (such as photographs, articles and comments)</li>
-			<li>Information provided to us by social networks or mobile applications when you use one of our social networking or mobile applications (such as your name, profile picture, likes, location, friend list and other information described in the social networking application sign-up page, or your geo-location details when using one of our mobile applications)</li>
+			<li>聯絡資料（如姓名、郵遞地址、電郵地址、及手提或其它電話號碼）</li>
+			<li>性別</li>
+			<li>閣下指示我們聯絡的朋友或其他人的聯絡資料</li>
+			<li>閣下提供的內容（如圖片、文章及意見）</li>
+			<li>閣下使用我們的社交網絡或手機應用程式時，透過這些途徑提供的資料（如閣下姓名，個人資料相片，讚好，地點，好友列表和社交網絡應用程序註冊頁面描述的其他資料，或使用我們其中之一手機應用程式時的地區位置詳細信息</li>
 		</ul>
 
-		<h3 id="policy_a1_a" name="policy_a1_a" class="sub2">How We Use The Information</h3>
-		<p>We may use the information you provide to:</p>
+		<h3 id="policy_a1_a" name="policy_a1_a" class="sub2">我們如何使用有關資料</h3>
+		<p>我們可能使用閣下提供的資料以：</p>
 		<ul>
-			<li>Communicate with you about, and administer your participation in, the Breast Cancer Awareness campaign</li>
-			<li>Provide services to you </li>
-			<li>Respond to your inquiries</li>
-			<li>Operate and communicate with you about our social networking or mobile applications</li>
-			<li>Operate, evaluate and improve our business (including developing new products and services; managing our communications; analyzing our products; performing data analytics; and performing accounting, auditing and other internal functions)
-			<li>Comply with applicable legal requirements, relevant industry standards and our policies</li>
+			<li>與閣下溝通或協助閣下參與關注乳癌運動</li>
+			<li>向閣下提供服務</li>
+			<li>回應閣下的問題</li>
+			<li>營運、評估及改善我們的業務（包括開發新產品及服務；管理我們的溝通；分析我們的產品；進行數據分析；進行會計、審計及其它內部工作）</li>
+			<li>遵守適用法律要求、有關工業標準及我們的政策</li>
 		</ul>
-		<p>We also may use the information in other ways for which we provide specific notice at the time of collection.</p>
+		<p>我們亦可能使用有關資料在收集有關資料時所提供的通知中指明的用途。</p>
 
-		<h3 id="policy_a2" name="policy_a2" class="sub1">Information We Collect by Automated Means</h3>
-		<p>When you visit this site or our online advertisements or use one of our social networking or mobile applications, we collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
+		<h3 id="policy_a2" name="policy_a2" class="sub1">我們透過自動方式收集的資料</h3>
+		<p>當閣下瀏覽我們的網站或我們的網上廣告，或使用我們其中之一的社交網絡或手機應用程式，我們會利用科技，如“曲奇”(Cookies)、網絡伺服器記錄檔(Web Server Logs)及網絡信標(Web Beacons)，透過自動方式收集相關資料。</p>
 
-		<h3 id="policy_a2_a" name="policy_a2_a" class="sub2">Technologies We Use</h3>
-		<h3 id="policy_a2_a1" name="policy_a2_a1" class="sub3">Cookies, Web Server Logs and Web Beacons</h3>
-		<p>Cookies are small text files that websites send to your computer or other Internet-connected device to uniquely identify your browser or to store information or settings in your browser. Your browser may tell you how to be notified when you receive certain types of cookies and how to restrict or disable certain cookies. Please note, however, that without cookies you may not be able to use all of the features of our website.</p>
-		<p>In conjunction with obtaining information through cookies, our web servers may log details such as your operating system type, browser type, domain, and other system settings, as well as the language your system uses and the country and time zone in which your device is located. The web server logs also may record information such as the address of the web page that linked you to our site and the IP address of the device you use to connect to the Internet.</p>
-		<p>To control which web servers collect this information, we may place tags on our web pages called “web beacons.” These are computer instructions that link web pages to particular web servers and their cookies.</p>
+		<h3 id="policy_a2_a" name="policy_a2_a" class="sub2">我們使用的技術</h3>
+		<h3 id="policy_a2_a1" name="policy_a2_a1" class="sub3">“曲奇”(Cookies)、網絡伺服器記錄檔(Web Server Logs)及網絡信標(Web Beacons)</h3>
+		<p>“曲奇”(Cookies)為網站發送到閣下的電腦或其他互聯網相關設備的小型文字檔案，以單獨地辨別出閣下的瀏覽器或在閣下的瀏覽器儲存資料或設定。閣下的瀏覽器可能會告知閣下，當閣下接收到某些類型的“曲奇”(Cookies)時，閣下會如何收到通知，及閣下如何限制或封鎖某些“曲奇”(Cookies)。但當沒有“曲奇”(Cookies)時，閣下可能無法使用我們網站中的全部功能，敬請注意。</p>
+		<p>透過“曲奇”(Cookies)收集有關資料，我們可能記錄相關詳情，如閣下的作業系統種類、瀏覽器種類、領域、及其它系統設定、以及閣下使用系統的語言及閣下的設備所在的國家及時區。</p>
+		<p>網絡伺服器記錄檔(Web Server Logs)亦可能記錄有關資料，如將閣下連接到我們的網站的網頁位址及閣下所使用的設備以連接互聯網的網路位址。</p>
+		<p>我們可能會在我們的網頁上設置稱為“網絡信標(Web Beacons)”的標籤，以控制由某些網絡伺服器收集有關資料。這些為連接網頁到特定網絡伺服器及其“曲奇”(Cookies)的電腦指示。</p>
 
-		<h3 id="policy_a2_a2" name="policy_a2_a2" class="sub3">Third Party Web Analytics Services</h3>
-		<p>We may use third party web analytics services on this site. Such third party web analytics service providers may include, but is not limited to, Google Analytics.  The service providers that administer these services use technologies such as cookies, web server logs and web beacons to help us analyze how visitors use the site. The information collected through these means (including IP address) is disclosed to these service providers, who use the information to evaluate use of the website. To disable the Google Analytics cookie and any other third party web analytics service provider cookies, some browsers indicate when a cookie is being sent and allow you to decline cookies on a case-by-case basis.</p>
+		<h3 id="policy_a2_a2" name="policy_a2_a2" class="sub3">第三者的網絡分析服務</h3>
+		<p>我們可能在我們的網站中使用第三者的網絡分析服務，所指的第三者網絡分析服務提供商可能包括但不限於， Google分析。提供這些服務的服務供應商會利用科技，如“曲奇”(Cookies)、網絡伺服器記錄檔(Web Server Logs)及網絡信標(Web Beacons)，以協助我們分析到訪者如何使用我們的網站。我們會向這些服務供應商透露透過這些方式（包括網路位元址）所收集的有關資料，而這些服務供應商會利用有關資料為我們網站的使用作出評估。要停止Google分析“曲奇”(Cookies)和其他任何第三者網絡分析服務提供商“曲奇”(Cookies) ，有些瀏覽器會在“曲奇”(Cookies)發出時按個別情況作出指示及容許閣下拒收“曲奇”(Cookies)。</p>
 
-		<h3 id="policy_a2_c" name="policy_a2_c" class="sub2">How We Use the Information Collected by Automated Means</h3>
-		<p>We may use the information collected through automated means on this site for market research, data analytics and system administration purposes, such as to determine whether you’ve visited us before or are new to the site, and for compliance with our legal obligations, policies and procedures, including compliance with relevant industry standards and the enforcement of our <u>Terms and Conditions</u>. We also may use the information in other ways for which specific notice is provided at the time of collection.</p>
+		<h3 id="policy_a2_c" name="policy_a2_c" class="sub2">我們如何使用透過自動方式收集的資料</h3>
+		<p>我們可能使用在我們網站透過自動方式收集的資料以作市場研究、數據分析及系統管理用途，如斷定閣下之前有否到訪過我們或是第一次到訪我們網站，及遵守我們的法律責任、政策及實務守則，包括遵守有關工業標準及執行我們<u>條款及細則</u>。我們亦可能使用有關資料在收集有關資料時所提供的通知中指明的用途。</p>
 
-		<h3 id="policy_b" name="policy_b">Information We Share</h3>
-		<p>We do not rent lists, or sell or otherwise disclose personal information we collect about you, except as described here. We may share your personal information with:</p>
+		<h3 id="policy_b" name="policy_b">我們共用的資料</h3>
+		<p>除此處說明外，我們不會租出或出售或以其他形式處置我們收集有關閣下的個人資料。我們可能與下列各方共用閣下的私人資料：</p>
 		<ul>
-			<li>Our affiliates within The Estee Lauder Companies’ umbrella of companies</li>
-			<li>Service providers who perform services on our behalf based on our instructions. We do not authorize these service providers to use or disclose the information except as necessary to perform services on our behalf or comply with legal requirements. Examples of these service providers include entities that process credit card payments, fulfill orders, and provide web hosting and marketing services.</li>
-			<li>Other third parties with your consent (e.g., some of our Facebook applications may share information collected through those apps with your Facebook friends or other Facebook users).</li>
+			<li>雅詩蘭黛集團旗下的附屬成員；</li>
+			<li>按我們指示代表我們履行服務的服務供應商。除為代表我們履行服務或遵守法律規定的需要外，我們不會授權這些服務供應商使用或披露有關資料。這些服務供應商的例子包括處理信用卡付款及執行訂單，提供網頁寄存及市場推廣服務的個體；</li>
+			<li>獲閣下同意的其他第三者。（例如，我們一些Facebook應用程式可能分享通過這些應用程式與你的Facebook朋友或其他Facebook用戶而收集的信息）</li>
 		</ul>
-		<p>In addition, we may disclose information about you (i) if we are required to do so by law or legal process, (ii) to law enforcement authorities or other government officials, or (iii) when we believe disclosure is necessary or appropriate to prevent physical harm or financial loss, or in connection with an investigation of suspected or actual fraudulent or illegal activity.</p>
-		<p>We also reserve the right to transfer personal information we have about you in the event we sell or transfer all or a portion of our business or assets. Should such a sale or transfer occur, we will use reasonable efforts to direct the transferee to use personal information you have provided to us in a manner that is consistent with our Privacy Policy. Following such a sale or transfer, you may contact the entity to which we transferred your personal information with any inquiries concerning the processing of that information.</p>
+		<p>此外，我們在下列情況可能會披露有關閣下的資料：(i)如我們被法例或法律程式要求，(ii)向司法執行機關或其他政府人員，或(iii)當我們相信披露為必需或適合以防止身體損害或經濟損失，或與涉嫌或實際欺詐或非法活動有關連時。</p>
+		<p>我們亦保留在我們出售或轉移我們全部或部份的業務或資產時，轉移我們擁有有關閣下個人資料的權利。若發生該出售或轉移時，我們會使用合理的努力，指示轉讓人以符合我們私隱政策的方式，使用閣下向我們提供的個人資料。在該出售或轉移後，如有任何涉及處理該資料的程式的查詢，閣下可聯絡我們把閣下的個人資料轉移到的個體。</p>
 
-		<h3 id="policy_c" name="policy_c">Your Rights and Choices</h3>
-		<p>We offer you certain choices in connection with the personal information we collect from you, such as how we use the information and how we communicate with you. To update your preferences, please contact us as specified below.</p>
+		<h3 id="policy_c" name="policy_c">閣下的權利及選擇</h3>
+		<p>就我們從閣下收集的個人資料，我們向閣下提供多項選擇，如我們如何使用資料及我們如何與閣下聯絡。若要更新閣下的選擇時，請按下列方法聯絡我們。</p>
 		<ul>
 			<li>
-				<h3 class="sub1">Social Networking Application Opt-Out</h3>
-				<p>To remove or delete our apps from your social networking account, follow the instructions from the social network:</br>Facebook: https://www.facebook.com/help/?faq=170585223002660 provided by the Facebook Help Center.</p>
+				<h3 class="sub1">移除或刪除社交網絡應用程式</h3>
+				<p>閣下可按社交網絡指示，從閣下社交網絡帳戶移除或刪除我們的應用程序</br>Facebook:  https://www.facebook.com/help/?faq=170585223002660 由 Facebook幫助中心提供。</p>
 			</li>
 			<li>
-				<h3 class="sub1">Withdrawing Consent</h3>
-				<p>You may withdraw any consent you previously provided to us, or object at any time on legitimate grounds, to the processing of your personal information. We will apply your preferences going forward. In some circumstances, withdrawing your consent to our use or disclosure of your personal information will mean that you cannot take advantage of some of our products or services.</p>
+				<h3 class="sub1">撤回同意</h3>
+				<p>就處理閣下個人資料的程式，閣下可撤回任何閣下早前給我們的任何同意，或在合法理由下在任何時間作出反對。我們會在合理時間內辦理閣下的選擇。在某些情況下，閣下撤回我們使用或披露閣下個人資料的同意，即表示閣下不可優先使用我們某些產品或服務。</p>
 			</li>
 			<li>
-				<h3 class="sub1">Reviewing, Updating and Modifying Personal Information</h3>
-				<p>Subject to applicable law, you may have the right to request access to and receive details about the personal information we maintain about you, update and correct inaccuracies in your personal data, and have the information blocked or deleted, as appropriate. The right to access personal information may be limited in some circumstances by local law requirements. You may request to review, change or delete your personal information by sending an email to consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
+				<h3 class="sub1">查閱、更新及修改個人資料</h3>
+				<p>按照適用法律，閣下可有權要求查閱及收取我們持有有關閣下的個人資料、更新及更正閣下不准確的個人資料、及封鎖或刪除有關資料（視乎何者適用而定）。查閱個人資料的權利可能因應本地法律要求只限於某些情況。閣下可電郵至consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].，要求查閱、更改或刪除閣下的個人資料。</p>
 			</li>
 		</ul>
 
-		<h3 id="policy_d" name="policy_d">Data Transfers</h3>
-		<p>We may transfer the personal information we collect about you to countries other than the country in which the information was originally collected. Our servers hosting the BCA Site are located in the United States, which with other countries may not have the same data protection laws as the country in which you initially provided the information. When we transfer your information to other countries, we will protect that information as described in this Privacy Policy.</p>
+		<h3 id="policy_d" name="policy_d">資料轉移</h3>
+		<p>我們可能轉移我們所收集有關閣下的個人資料至最初收集資料所在國家以外的國家。關注乳癌運動網站的伺服器均位於美國，而可能與閣下最初提供資料所在國家的數據保護法例有所不同。當我們轉移閣下的資料至其他國家，我們會按照在此所述的私隱政策保護該些資料。</p>
 
-		<h3 id="policy_e" name="policy_e">Children's Privacy</h3>
-		<p>If you are under thirteen years of age, you may browse our site. However, you may not provide personal information to us. This site is not directed to children under the age of thirteen and we do not knowingly collect personal information from children under the age of thirteen on the site. If we become aware that we have inadvertently received personal information from a visitor under the age of thirteen on the site, we will delete the information from our records.</p>
+		<h3 id="policy_f" name="policy_f">我們如何保護個人資料</h3>
+		<p>我們會維持適當為保護閣下提供的個人資料的行政、技術及實際措施，以防止意外、非法或未經授權的毀壞、損失、改動、閱覽、披露或使用。</p>
 
-		<h3 id="policy_f" name="policy_f">How We Protect Personal Information</h3>
-		<p>We maintain appropriate administrative, technical and physical safeguards designed to protect the personal information you provide against accidental, unlawful or unauthorized destruction, loss, alteration, access, disclosure or use.</p>
+		<h3 id="policy_g" name="policy_g">前往其他網頁的連結</h3>
+		<p>我們網站可能提供前往其他網站的連結，為方便閣下而設及供閣下參考。該些網站可能與我們獨立經營。連結網址可能備有其本身的私隱通知或政策，如閣下到訪任何連結網址，我們強烈建議閣下閱讀該私隱通知或政策。閣下到訪任何非由我們擁有或控制的連結網址，對於網址的內容、任何網址的使用，或網址的私隱行事方式，我們不負責任。</p>
 
-		<h3 id="policy_g" name="policy_g">Links To Other Websites</h3>
-		<p>Our website may provide links to other websites for your convenience and information. These websites may operate independently from us. Linked sites may have their own privacy notices or policies, which we strongly suggest you review if you visit any linked websites. To the extent any linked websites you visit are not owned or controlled by us, we are not responsible for the sites’ content, any use of the sites, or the privacy practices of the sites.</p>
+		<h3 id="policy_h" name="policy_h">更新我們的私隱政策</h3>
+		<p>此私隱政策可能會在沒有向閣下發出事先通知時作定期更新，以反映我們的個人資料行事方式的改變。我們會在我們網站張貼當眼告示，通知閣下任何私隱政策的重大改變，及當在其最新更新時於政策頂端表明。</p>
 
-		<h3 id="policy_h" name="policy_h">Updates To Our Privacy Policy</h3>
-		<p>This Privacy Policy may be updated periodically and without prior notice to you to reflect changes in our personal information practices. We will post a prominent notice on our website to notify you of any significant changes to our Privacy Policy and indicate at the top of the Policy when it was most recently updated.</p>
+		<h3 id="policy_i" name="policy_i">如何聯絡我們</h3>
+		<p>如閣下對此私隱政策有任何疑問或意見，或如閣下想我們更新我們擁有有關閣下的資料或閣下的選擇，敬請以電郵consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
 
-		<h3 id="policy_i" name="policy_i">How To Contact Us</h3>
-		<p>If you have any questions or comments about this Privacy Policy, or if you would like us to update information we have about you or your preferences, please contact us by email at consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
-
-		<p>Copyright © The Estée Lauder Companies Inc. All worldwide rights reserved.</p>
+		<p>版權©雅詩蘭黛集團</br>
+			保留所有全球的權利。
+		</p>
 	</div>
 </div>
 <script type="text/javascript">

@@ -1,128 +1,130 @@
 <div class="popup" id="popup_legal">	
 	<div id="popup_legal_content">
-		<h2>2013 BCA CAMPAIGN: PRIVACY POLICY</h2>
-		<h3>Effective Date: August 1, 2013</h3>
-		<h2>Breast Cancer Awareness Campaign Privacy Policy</h3>
-		<p>The Estée Lauder Companies (“we, us, or our”) respect your concerns about privacy and value the relationship we have with you. This Privacy Policy describes the types of personal information we collect in connection with the Breast Cancer Awareness campaign, how we use the information, with whom we share it, and the choices available to our participants regarding our use of the information. We also describe the measures we take to protect the security of the information and how our participants can contact us about our privacy practices.</p>
-		<p>Click on one of the links below to jump to the listed section:</p>
+		<h2>2013 BCA CAMPAIGN: ΠΟΛΙΤΙΚΗ ΙΔΙΩΤΙΚΟΤΗΤΑΣ</h2>
+		<h3>Ημερομηνία Έναρξης Ισχύος:  1 Αυγούστου 2013</h3>
+		<h2>Πολιτική Ιδιωτικότητας της Εκστρατείας Ενημέρωσης για τον Καρκίνο του Μαστού</h3>
+		<p>Η Estée Lauder Companies (“εμείς, εμάς, ή μας”) σέβεται τις ανησυχίες σας σχετικά με την ιδιωτικότητα και εκτιμά την σχέση που έχουμε μαζί σας.  Αυτή η Πολιτική Ιδιωτικότητας περιγράφει τους τύπους προσωπικών πληροφοριών που συλλέγουμε αναφορικά με την Εκστρατεία Ενημέρωσης για τον Καρκίνο του Μαστού, το πώς χρησιμοποιούμε τις πληροφορίες, με ποιον τις μοιραζόμαστε και τις διαθέσιμες επιλογές που έχουν οι συμμετέχοντες σχετικά με την χρήση των πληροφοριών από εμάς.  Περιγράφουμε επίσης τα μέτρα που λαμβάνουμε για να προστατεύσουμε την ασφάλεια των πληροφοριών και το πώς οι συμμετέχοντες μπορούν να επικοινωνήσουν μαζί μας σχετικά με τις δικές μας πολιτικές ιδιωτικότητας.</p>
+		<p>Κάντε κλικ σε έναν από τους παρακάτω συνδέσμους για να μεταβείτε στο αναγραφόμενο τμήμα:</p>
 
 		<ul>
-			<li><a href="#policy_a">Information We Collect</a>
+			<li><a href="#policy_a">Πληροφορίες που Συλλέγουμε</a>
 				<ul>
-					<li><a href="#policy_a1">Information You Provide</a>
+					<li><a href="#policy_a1">Πληροφορίες που Παρέχετε</a>
 						<ul>
-							<li><a href="#policy_a1_a">How We Use the Information</a></li>
+							<li><a href="#policy_a1_a">Πώς χρησιμοποιούμε τις Πληροφορίες</a></li>
 						</ul>
 					</li>
-					<li><a href="#policy_a2">Information We Collect by Automated Means</a>
+					<li><a href="#policy_a2">Πληροφορίες που Συλλέγουμε από Αυτοματοποιημένα Μέσα </a>
 						<ul>
-							<li><a href="#policy_a2_a">Technologies We Use</a>
+							<li><a href="#policy_a2_a">Οι Τεχνολογίες που Χρησιμοποιούμε</a>
 							<ul>
-								<li><a href="#policy_a2_a1">Cookies, Web Server Logs and Web Beacons</a></li>
-								<li><a href="#policy_a2_a2">Third Party Web Analytics Services</a></li>
+								<li><a href="#policy_a2_a1">Cookies, Καταγραφές Διακομιστή Ιστού (Web Server Logs) και Ιστοφάροι (Web Beacons)</a></li>
+								<li><a href="#policy_a2_a2">Υπηρεσίες Στατιστικής Ανάλυσης από Τρίτα Μέρη </a></li>
 							</ul>
-							<li>Targeted Advertising</li>
-							<li><a href="#policy_a2_c">How We Use the Information Collected by Automated Means</a></li>
+							<li>Στοχευμένη Διαφήμιση</li>
+							<li><a href="#policy_a2_c">Πώς Χρησιμοποιούμε τις Πληροφορίες που Συλλέγονται από Αυτοματοποιημένα Μέσα </a></li>
 						</ul>
 					</li>
 				</ul>
 			</li>
-			<li><a href="#policy_b">Information We Share</a></li>
-			<li><a href="#policy_c">Your Rights And Choices</a></li>
-			<li><a href="#policy_d">Data Transfers</a></li>
-			<li><a href="#policy_e">Children’s Privacy</a></li>
-			<li><a href="#policy_f">How We Protect Personal Information</a></li>
-			<li><a href="#policy_g">Links To Other Websites</a></li>
-			<li><a href="#policy_h">Updates To Our Privacy Policy</a></li>
-			<li><a href="#policy_i">How To Contact Us</a></li>
+			<li><a href="#policy_b">Πληροφορίες που Μοιραζόμαστε</a></li>
+			<li><a href="#policy_c">Τα Δικαιώματα και οι Επιλογές σας</a></li>
+			<li><a href="#policy_d">Μεταφορά Δεδομένων</a></li>
+			<li><a href="#policy_e">Ιδιωτικότητα Παιδιών</a></li>
+			<li><a href="#policy_f">Πώς Προστατεύουμε τις Προσωπικές Πληροφορίες </a></li>
+			<li><a href="#policy_g">Σύνδεσμοι με άλλους Ιστότοπους</a></li>
+			<li><a href="#policy_h">Ενημερώσεις στην Πολιτική Ιδιωτικότητας </a></li>
+			<li><a href="#policy_i">Τρόπος Επικοινωνίας</a></li>
 		</ul>
 
-		<h3 id="policy_a" name="policy_a">Information We Collect</h3>
-		<p>We may obtain personal information about you from the Breast Cancer Awareness campaign website, located at BCACampaign.com/StrongerTogether (the “BCA Site”) or in connection with our social networking or mobile applications. When you visit the BCA Site or our social networking or mobile applications, we may also collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
+		<h3 id="policy_a" name="policy_a">Πληροφορίες που Συλλέγουμε</h3>
+		<p>Μπορούμε να αποκτήσουμε προσωπικές πληροφορίες σχετικά με εσάς από τον ιστότοπο της Εκστρατείας Ενημέρωσης για τον Καρκίνο του Μαστού, που βρίσκεται στο BCACampaign.com/ StrongerTogether (το “BCA Site”) ή από τις εφαρμογές μας κοινωνικής δικτύωσης ή κινητής τηλεφωνίας.  Όταν επισκέπτεσθε το BCA Site ή τις εφαρμογές μας κοινωνικής δικτύωσης ή κινητής τηλεφωνίας, μπορεί επίσης να συλλέξουμε κάποιες πληροφορίες με αυτοματοποιημένα μέσα, χρησιμοποιώντας τεχνολογίες όπως cookies, καταγραφές διακομιστή διαδικτύου (web server logs) και ιστοφάροι (web beacons).</p>
 		
-		<h3 id="policy_a1" name="policy_a1" class="sub1">Information You Provide</h3>
-		<p>You may choose to provide personal information to us, and the types of personal information you may provide to us includes: </p>
+		<h3 id="policy_a1" name="policy_a1" class="sub1">Πληροφορίες που Παρέχετε</h3>
+		<p>Μπορείτε να επιλέξετε να παρέχετε προσωπικές πληροφορίες σε εμάς, και οι τύποι προσωπικών πληροφοριών που μπορεί να μας παρέχετε περιλαμβάνουν: </p>
 		<ul>
-			<li>Contact information (such as name, postal address, email address, and mobile or other phone number)</li>
-			<li>Gender</li>
-			<li>Contact information for friends or other people you would like us to contact</li>
-			<li>Content you provide (such as photographs, articles and comments)</li>
-			<li>Information provided to us by social networks or mobile applications when you use one of our social networking or mobile applications (such as your name, profile picture, likes, location, friend list and other information described in the social networking application sign-up page, or your geo-location details when using one of our mobile applications)</li>
+			<li>Πληροφορίες επαφής (όπως όνομα, ταχυδρομική διεύθυνση, διεύθυνση email, και κινητό ή άλλο τηλέφωνο)</li>
+			<li>Φύλο</li>
+			<li>Πληροφορίες επαφής για φίλους ή άλλα άτομα που θα θέλατε να επικοινωνήσουμε</li>
+			<li>Περιεχόμενο που παρέχετε (όπως φωτογραφίες, άρθρα και σχόλια)</li>
+			<li>Πληροφορίες που παρέχονται σε εμάς μέσω εφαρμογών κοινωνικής δικτύωσης ή κινητής τηλεφωνίας όταν χρησιμοποιείτε μία από τις δικές μας εφαρμογές κοινωνικής δικτύωσης ή κινητής τηλεφωνίας (όπως όνομα, εικόνα προφίλ, likes, τοποθεσία, λίστα φίλων και άλλες πληροφορίες που περιγράφονται στην σελίδα εγγραφής της κοινωνικής δικτύωσης, ή τα στοιχεία γεωγραφικής θέσης σας όταν χρησιμοποιείτε κάποια εφαρμογή μας κινητής τηλεφωνίας)</li>
 		</ul>
 
-		<h3 id="policy_a1_a" name="policy_a1_a" class="sub2">How We Use The Information</h3>
-		<p>We may use the information you provide to:</p>
+		<h3 id="policy_a1_a" name="policy_a1_a" class="sub2">Πώς Χρησιμοποιούμε τις Πληροφορίες</h3>
+		<p>Μπορεί να χρησιμοποιήσουμε τις πληροφορίες που μας παρέχετε:</p>
 		<ul>
-			<li>Communicate with you about, and administer your participation in, the Breast Cancer Awareness campaign</li>
-			<li>Provide services to you </li>
-			<li>Respond to your inquiries</li>
-			<li>Operate and communicate with you about our social networking or mobile applications</li>
-			<li>Operate, evaluate and improve our business (including developing new products and services; managing our communications; analyzing our products; performing data analytics; and performing accounting, auditing and other internal functions)
-			<li>Comply with applicable legal requirements, relevant industry standards and our policies</li>
+			<li>Για να επικοινωνήσουμε μαζί σας σχετικά με, και να διαχειριστούμε την συμμετοχή σας στην Εκστρατεία Ενημέρωσης για τον Καρκίνο του Μαστού </li>
+			<li>Για να σας παρέχουμε υπηρεσίες </li>
+			<li>Για να απαντήσουμε στις ερωτήσεις σας</li>
+			<li>Για να λειτουργήσουμε τις, και να επικοινωνήσουμε μαζί σας για τις, εφαρμογές μας κοινωνικής δικτύωσης και κινητής τηλεφωνίας </li>
+			<li>Για να λειτουργήσουμε, αξιολογήσουμε και βελτιώσουμε την επιχείρησή μας (συμπεριλαμβανομένου του σχεδιασμού νέων προϊόντων και υπηρεσιών, την διαχείριση των επικοινωνιών μας, την ανάλυση των προϊόντων μας, την διεξαγωγή ανάλυσης δεδομένων και τη διενέργεια λογιστικών, ελεγκτικών και άλλων εσωτερικών ελέγχων)</li>
+			<li>Για να συμμορφωθούμε με τις απαιτήσεις της νομοθεσίας, τις σχετικές προδιαγραφές του κλάδου και τις πολιτικές μας </li>
 		</ul>
-		<p>We also may use the information in other ways for which we provide specific notice at the time of collection.</p>
+		<p>Μπορεί επίσης να χρησιμοποιήσουμε τις πληροφορίες με άλλους τρόπους για τους οποίους παρέχουμε συγκεκριμένη ειδοποίηση κατά τον χρόνο συλλογής τους.</p>
 
-		<h3 id="policy_a2" name="policy_a2" class="sub1">Information We Collect by Automated Means</h3>
-		<p>When you visit this site or our online advertisements or use one of our social networking or mobile applications, we collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
+		<h3 id="policy_a2" name="policy_a2" class="sub1">Πληροφορίες που Συλλέγουμε από Αυτοματοποιημένα Μέσα</h3>
+		<p>Όταν επισκέπτεστε αυτόν τον ιστότοπο ή τις online διαφημίσεις μας ή μία από τις εφαρμογές μας κοινωνικής δικτύωσης ή κινητής τηλεφωνίας, συλλέγουμε συγκεκριμένες πληροφορίες με αυτοματοποιημένα μέσα, χρησιμοποιώντας τεχνολογίες όπως cookies, καταγραφές διακομιστή ιστού (Web Server Logs) και Ιστοφάροι (Web Beacons). </p>
 
-		<h3 id="policy_a2_a" name="policy_a2_a" class="sub2">Technologies We Use</h3>
-		<h3 id="policy_a2_a1" name="policy_a2_a1" class="sub3">Cookies, Web Server Logs and Web Beacons</h3>
-		<p>Cookies are small text files that websites send to your computer or other Internet-connected device to uniquely identify your browser or to store information or settings in your browser. Your browser may tell you how to be notified when you receive certain types of cookies and how to restrict or disable certain cookies. Please note, however, that without cookies you may not be able to use all of the features of our website.</p>
-		<p>In conjunction with obtaining information through cookies, our web servers may log details such as your operating system type, browser type, domain, and other system settings, as well as the language your system uses and the country and time zone in which your device is located. The web server logs also may record information such as the address of the web page that linked you to our site and the IP address of the device you use to connect to the Internet.</p>
-		<p>To control which web servers collect this information, we may place tags on our web pages called “web beacons.” These are computer instructions that link web pages to particular web servers and their cookies.</p>
+		<h3 id="policy_a2_a" name="policy_a2_a" class="sub2">Οι Τεχνολογίες που Χρησιμοποιούμε</h3>
+		<h3 id="policy_a2_a1" name="policy_a2_a1" class="sub3">Cookies, Καταγραφές Διακομιστή Ιστού (Web Server Logs) και Ιστοφάροι (Web Beacons)</h3>
+		<p>Τα Cookies είναι μικρά αρχεία κειμένου που οι ιστότοποι στέλνουν στον υπολογιστή σας ή άλλη συνδεόμενη με το διαδίκτυο συσκευή για να αναγνωρίσουν τον φυλλομετρητή σας ή για να αποθηκεύσουν πληροφορίες και ρυθμίσεις στον φυλλομετρητή σας (browser).  Ο φυλλομετρητής σας μπορεί να σας πει πώς θα ειδοποιηθείτε όταν λαμβάνετε τέτοιου είδους cookies και πώς θα περιορίσετε ή απενεργοποιήσετε συγκεκριμένα cookies.  Εντούτοις, παρακαλούμε σημειώστε ότι χωρίς cookies ίσως να μην μπορείτε να χρησιμοποιήσετε όλα τα στοιχεία του ιστότοπού μας.</p>
+		<p>Μαζί με την απόκτηση πληροφοριών μέσω των cookies, οι δικοί μας διακομιστές ιστού μπορεί να καταγράφουν στοιχεία όπως ο τύπος λειτουργικού συστήματος σας, ο τύπος φυλλομετρητή, το domain, και άλλες ρυθμίσεις του συστήματος, καθώς και την γλώσσα που χρησιμοποιεί το σύστημά σας και την χώρα και την ζώνη ώρας όπου βρίσκεται η συσκευή σας. Οι καταγραφές διακομιστή ιστού μπορούν επίσης να καταγράφουν πληροφορίες όπως η διεύθυνση της ιστοσελίδας μέσω της οποίας συνδεθήκατε στον ιστότοπό μας και η διεύθυνση IP της συσκευής που χρησιμοποιείτε για να συνδεθείτε στο Διαδίκτυο. </p>
+		<p>Για να ελέγξουμε ποιοι διακομιστές ιστού συλλέγουν αυτές τις πληροφορίες, μπορεί να τοποθετούμε ετικέτες στις ιστοσελίδες μας που ονομάζονται «ιστοφάροι» (“web beacons”).  Είναι οδηγίες υπολογιστή που συνδέουν ιστοσελίδες σε συγκεκριμένους διακομιστές και τα cookies τους.</p>
 
-		<h3 id="policy_a2_a2" name="policy_a2_a2" class="sub3">Third Party Web Analytics Services</h3>
-		<p>We may use third party web analytics services on this site. Such third party web analytics service providers may include, but is not limited to, Google Analytics.  The service providers that administer these services use technologies such as cookies, web server logs and web beacons to help us analyze how visitors use the site. The information collected through these means (including IP address) is disclosed to these service providers, who use the information to evaluate use of the website. To disable the Google Analytics cookie and any other third party web analytics service provider cookies, some browsers indicate when a cookie is being sent and allow you to decline cookies on a case-by-case basis.</p>
+		<h3 id="policy_a2_a2" name="policy_a2_a2" class="sub3">Υπηρεσίες Στατιστικής Ανάλυσης από Τρίτα Μέρη</h3>
+		<p>Μπορεί να χρησιμοποιούμε Υπηρεσίες Στατιστικής Ανάλυσης από Τρίτα Μέρη σε αυτόν τον ιστότοπο. Τέτοιοι πάροχοι υπηρεσιών Στατιστικής Ανάλυσης από Τρίτα Μέρη μπορεί να περιλαμβάνουν, αλλά όχι περιοριστικά, Google Analytics. Οι πάροχοι υπηρεσιών που διαχειρίζονται αυτές τις υπηρεσίες χρησιμοποιούν τεχνολογίες όπως cookies, καταγραφές διακομιστή ιστού (Web Server Logs) και Ιστοφάρους (Web Beacons) προκειμένου να μας βοηθήσουν να αναλύσουμε το πώς οι επισκέπτες χρησιμοποιούν τον ιστότοπο. Οι πληροφορίες που συλλέγονται με αυτά τα μέσα (συμπεριλαμβανομένης της διεύθυνσης IP) γνωστοποιούνται σε αυτούς τους παρόχους υπηρεσιών, οι οποίοι χρησιμοποιούν τις πληροφορίες για να αξιολογήσουν τη χρήση του ιστότοπου. Για να ενεργοποιηθεί το Google Analytics cookie και οποιαδήποτε άλλα cookies υπηρεσιών στατιστικής ανάλυσης από τρίτα μέρη, κάποιοι φυλλομετρητές υποδεικνύουν πότε στέλνεται ένα cookie και σας επιτρέπουν να αρνηθείτε τα cookies ανά περίπτωση. </p>
 
-		<h3 id="policy_a2_c" name="policy_a2_c" class="sub2">How We Use the Information Collected by Automated Means</h3>
-		<p>We may use the information collected through automated means on this site for market research, data analytics and system administration purposes, such as to determine whether you’ve visited us before or are new to the site, and for compliance with our legal obligations, policies and procedures, including compliance with relevant industry standards and the enforcement of our <u>Terms and Conditions</u>. We also may use the information in other ways for which specific notice is provided at the time of collection.</p>
+		<h3 id="policy_a2_c" name="policy_a2_c" class="sub2">Πώς Χρησιμοποιούμε τις Πληροφορίες που Συλλέγονται από Αυτοματοποιημένα Μέσα</h3>
+		<p>Μπορεί να χρησιμοποιούμε τις πληροφορίες που συλλέχθηκαν με αυτοματοποιημένα μέσα σε αυτόν τον ιστότοπο για σκοπούς έρευνας αγοράς, ανάλυσης δεδομένων και διαχείρισης συστήματος, ώστε να καθορίσουμε αν μας έχετε επισκεφθεί ξανά ή είστε νέοι στον ιστότοπο, και για να συμμορφωθούμε με τις νόμιμες υποχρεώσεις μας, τις πολιτικές και διαδικασίες, συμπεριλαμβάνοντας την συμμόρφωση με τις σχετικές προδιαγραφές του κλάδου και την εφαρμογή των <u>Όρων και Προϋποθέσεων</u>.  Μπορεί επίσης να χρησιμοποιούμε τις πληροφορίες με άλλους τρόπους για τους οποίους παρέχουμε συγκεκριμένη ειδοποίηση κατά τον χρόνο συλλογής τους.</p>
 
-		<h3 id="policy_b" name="policy_b">Information We Share</h3>
-		<p>We do not rent lists, or sell or otherwise disclose personal information we collect about you, except as described here. We may share your personal information with:</p>
+		<h3 id="policy_b" name="policy_b">Πληροφορίες που Μοιραζόμαστε</h3>
+		<p>Δεν νοικιάζουμε λίστες, δεν πουλάμε ή γνωστοποιούμε διαφορετικά τις προσωπικές πληροφορίες που συλλέγουμε σχετικά με εσάς, εκτός από τον τρόπο που περιγράφεται στο παρόν.  Μπορεί να μοιραζόμαστε τις προσωπικές σας πληροφορίες με:</p>
 		<ul>
-			<li>Our affiliates within The Estee Lauder Companies’ umbrella of companies</li>
-			<li>Service providers who perform services on our behalf based on our instructions. We do not authorize these service providers to use or disclose the information except as necessary to perform services on our behalf or comply with legal requirements. Examples of these service providers include entities that process credit card payments, fulfill orders, and provide web hosting and marketing services.</li>
-			<li>Other third parties with your consent (e.g., some of our Facebook applications may share information collected through those apps with your Facebook friends or other Facebook users).</li>
+			<li>Τις συνδεόμενες εταιρείες μας κάτω από την ομπρέλα της Estee Lauder Companies </li>
+			<li>Παρόχους υπηρεσιών που διενεργούν υπηρεσίες εκ μέρους μας με βάση τις οδηγίες μας.  Δεν εξουσιοδοτούμε αυτούς τους παρόχους να χρησιμοποιούν ή να γνωστοποιούν τις πληροφορίες εκτός αν είναι απαραίτητο ώστε να διενεργήσουν υπηρεσίες εκ μέρους μας ή να συμμορφωθούν με απαιτήσεις της νομοθεσίας.  Παραδείγματα τέτοιων παρόχων περιλαμβάνουν οντότητες που επεξεργάζονται πληρωμές πιστωτικών καρτών, εκτελούν παραγγελίες, και παρέχουν υπηρεσίες φιλοξενίας ιστοσελίδων (web hosting) και μάρκετινγκ.  </li>
+			<li>Άλλα τρίτα μέρη με την συναίνεση σας (π.χ., κάποιες εφαρμογές μας στο Facebook μπορεί να μοιράζονται πληροφορίες που συλλέγονται από αυτές τις εφαρμογές με τους φίλους σας στο Facebook ή άλλους χρήστες του Facebook).  </li>
 		</ul>
-		<p>In addition, we may disclose information about you (i) if we are required to do so by law or legal process, (ii) to law enforcement authorities or other government officials, or (iii) when we believe disclosure is necessary or appropriate to prevent physical harm or financial loss, or in connection with an investigation of suspected or actual fraudulent or illegal activity.</p>
-		<p>We also reserve the right to transfer personal information we have about you in the event we sell or transfer all or a portion of our business or assets. Should such a sale or transfer occur, we will use reasonable efforts to direct the transferee to use personal information you have provided to us in a manner that is consistent with our Privacy Policy. Following such a sale or transfer, you may contact the entity to which we transferred your personal information with any inquiries concerning the processing of that information.</p>
+		<p>Επιπρόσθετα, μπορεί να γνωστοποιήσουμε πληροφορίες σχετικά με εσάς (i) αν απαιτείται από την νομοθεσία ή νομικές διαδικασίες, (ii) σε αρχές εφαρμογής της νομοθεσίας ή άλλους κυβερνητικούς αξιωματούχους, ή (iii) όταν πιστεύουμε ότι η γνωστοποίηση είναι απαραίτητη ή κατάλληλη για να εμποδίσει σωματική βλάβη ή οικονομικές απώλειες, ή σε σχέση με μια έρευνα για πιθανολογούμενη ή πραγματική απάτη ή παράνομη δραστηριότητα.</p>
+		<p>Διατηρούμε επίσης το δικαίωμα να μεταφέρουμε τις προσωπικές πληροφορίες που έχουμε σχετικά με εσάς σε περίπτωση που πουλήσουμε ή μεταβιβάσουμε όλη ή μέρος της επιχείρησής μας ή του ενεργητικού μας.  Αν συμβεί τέτοια πώληση ή μεταβίβαση, θα κάνουμε εύλογες προσπάθειες να κατευθύνουμε τον εκδοχέα να χρησιμοποιήσει τις προσωπικές πληροφορίες που παρέχετε σε εμάς με τρόπο που να είναι σε συνάφεια προς την δική μας Πολιτική Ιδιωτικότητας.  Μετά από τέτοια πώληση ή μεταβίβαση, μπορείτε να έρθετε σε επαφή με την οντότητα στην οποία μεταβιβάσαμε τις προσωπικές σας πληροφορίες για να ενημερωθείτε για την επεξεργασία αυτών των πληροφοριών. </p>
 
-		<h3 id="policy_c" name="policy_c">Your Rights and Choices</h3>
-		<p>We offer you certain choices in connection with the personal information we collect from you, such as how we use the information and how we communicate with you. To update your preferences, please contact us as specified below.</p>
+		<h3 id="policy_c" name="policy_c">Τα Δικαιώματα και οι Επιλογές σας</h3>
+		<p>Σας προσφέρουμε συγκεκριμένες επιλογές σχετικά με τις προσωπικές πληροφορίες που συλλέγουμε από εσάς, όπως το πώς χρησιμοποιούμε τις πληροφορίες και πώς επικοινωνούμε μαζί σας.  Για να ενημερώσετε τις προτιμήσεις σας, παρακαλούμε επικοινωνήστε μαζί μας όπως αναφέρεται παρακάτω. </p>
 		<ul>
 			<li>
-				<h3 class="sub1">Social Networking Application Opt-Out</h3>
-				<p>To remove or delete our apps from your social networking account, follow the instructions from the social network:</br>Facebook: https://www.facebook.com/help/?faq=170585223002660 provided by the Facebook Help Center.</p>
+				<h3 class="sub1">Επιλεκτικός Αποκλεισμός (Opt-Out) Εφαρμογών Κοινωνικής Δικτύωσης </h3>
+				<p>Για να αφαιρέσετε ή να διαγράψετε τις εφαρμογές μας από τον λογαριασμό σας κοινωνικής δικτύωσης, ακολουθείστε τις οδηγίες από το κοινωνικό δίκτυο:<br/>
+				Facebook:  https://www.facebook.com/help/?faq=170585223002660 που παρέχεται από το Facebook Help Center.  
+				</p>
 			</li>
 			<li>
-				<h3 class="sub1">Withdrawing Consent</h3>
-				<p>You may withdraw any consent you previously provided to us, or object at any time on legitimate grounds, to the processing of your personal information. We will apply your preferences going forward. In some circumstances, withdrawing your consent to our use or disclosure of your personal information will mean that you cannot take advantage of some of our products or services.</p>
+				<h3 class="sub1">Απόσυρση Συναίνεσης</h3>
+				<p>Μπορείτε να αποσύρετε οποιαδήποτε συναίνεση μας παρείχατε, ή να εκφράσετε την αντίθεσή σας για οποιουσδήποτε νόμιμους λόγους, σχετικά με την επεξεργασία των προσωπικών σας πληροφοριών.  Θα προωθήσουμε τις προτιμήσεις σας.  Σε κάποιες περιπτώσεις, η απόσυρση της συναίνεσής σας στο να χρησιμοποιούμε ή να γνωστοποιούμε τις προσωπικές σας πληροφορίες θα έχει την έννοια ότι δεν μπορείτε να επωφεληθείτε από κάποια προϊόντα ή υπηρεσίες μας. </p>
 			</li>
 			<li>
-				<h3 class="sub1">Reviewing, Updating and Modifying Personal Information</h3>
-				<p>Subject to applicable law, you may have the right to request access to and receive details about the personal information we maintain about you, update and correct inaccuracies in your personal data, and have the information blocked or deleted, as appropriate. The right to access personal information may be limited in some circumstances by local law requirements. You may request to review, change or delete your personal information by sending an email to consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
+				<h3 class="sub1">Επανεξέταση, Ενημέρωση και Τροποποίηση Προσωπικών Πληροφοριών </h3>
+				<p>Σύμφωνα με τον ισχύοντα νόμο, μπορεί να έχετε το δικαίωμα να ζητήσετε πρόσβαση σε και να λάβετε λεπτομέρειες για τις προσωπικές πληροφορίες που τηρούμε σχετικά με εσάς, να ενημερώσετε και να διορθώσετε ανακρίβειες στα προσωπικά σας δεδομένα, και να μπλοκάρετε ή να διαγράψετε τις πληροφορίες.  Το δικαίωμα πρόσβασης στις προσωπικές πληροφορίες μπορεί να περιορίζεται σε κάποιες περιπτώσεις από απαιτήσεις της τοπικής νομοθεσίας.  Μπορείτε να ζητήσετε να επανεξετάσετε, να αλλάξετε ή να διαγράψετε τις προσωπικές σας πληροφορίες στέλνοντας email στο consumercare-us@gcc.elc.estee.com.</p>
 			</li>
 		</ul>
 
-		<h3 id="policy_d" name="policy_d">Data Transfers</h3>
-		<p>We may transfer the personal information we collect about you to countries other than the country in which the information was originally collected. Our servers hosting the BCA Site are located in the United States, which with other countries may not have the same data protection laws as the country in which you initially provided the information. When we transfer your information to other countries, we will protect that information as described in this Privacy Policy.</p>
+		<h3 id="policy_d" name="policy_d">Μεταφορά Δεδομένων</h3>
+		<p>Μπορεί να μεταφέρουμε τις προσωπικές πληροφορίες που συλλέξαμε σχετικά με εσάς σε χώρες πέραν εκείνης στην οποία οι πληροφορίες συλλέχθηκαν αρχικά. Οι διακομιστές μας που φιλοξενούν το BCA Site βρίσκονται στις Ηνωμένες Πολιτείες, όπου μαζί με άλλες χώρες μπορεί να μην έχει τους ίδιους νόμους προστασίας δεδομένων με την χώρα στην οποία παρείχατε αρχικά τις πληροφορίες. Όταν μεταφέρουμε τις πληροφορίες σας σε άλλες χώρες, θα τις προστατέψουμε όπως περιγράφεται στην παρούσα Πολιτική Ιδιωτικότητας.</p>
 
-		<h3 id="policy_e" name="policy_e">Children's Privacy</h3>
-		<p>If you are under thirteen years of age, you may browse our site. However, you may not provide personal information to us. This site is not directed to children under the age of thirteen and we do not knowingly collect personal information from children under the age of thirteen on the site. If we become aware that we have inadvertently received personal information from a visitor under the age of thirteen on the site, we will delete the information from our records.</p>
+		<h3 id="policy_e" name="policy_e">Ιδιωτικότητα Παιδιών</h3>
+		<p>Αν είστε κάτω των 13 ετών, μπορείτε να περιηγηθείτε στον ιστότοπό μας. Εντούτοις, δεν μπορείτε να μας παρέχετε προσωπικές πληροφορίες. Αυτός ο ιστότοπος δεν απευθύνεται σε παιδιά κάτω των 13 ετών και δεν συλλέγουμε εν γνώσει μας προσωπικές πληροφορίες για παιδιά κάτω των 13 ετών σε αυτόν τον ιστότοπο. Αν καταλάβουμε ότι ακουσίως λάβαμε προσωπικές πληροφορίες από έναν επισκέπτη κάτω των 13 ετών στον ιστότοπο, θα διαγράψουμε τις πληροφορίες από τα αρχεία μας.</p>
 
-		<h3 id="policy_f" name="policy_f">How We Protect Personal Information</h3>
-		<p>We maintain appropriate administrative, technical and physical safeguards designed to protect the personal information you provide against accidental, unlawful or unauthorized destruction, loss, alteration, access, disclosure or use.</p>
+		<h3 id="policy_f" name="policy_f">Πώς Προστατεύουμε τις Προσωπικές Πληροφορίες</h3>
+		<p>Διατηρούμε κατάλληλες διαχειριστικές, τεχνικές και φυσικές δικλείδες ασφαλείας που σχεδιάστηκαν για να προστατεύουν τις προσωπικές πληροφορίες που παρέχετε ενάντια σε τυχαίες, παράνομες ή μη εξουσιοδοτημένες καταστροφές, απώλειες, μεταβολές, προσβάσεις, γνωστοποιήσεις ή χρήσεις. </p>
 
-		<h3 id="policy_g" name="policy_g">Links To Other Websites</h3>
-		<p>Our website may provide links to other websites for your convenience and information. These websites may operate independently from us. Linked sites may have their own privacy notices or policies, which we strongly suggest you review if you visit any linked websites. To the extent any linked websites you visit are not owned or controlled by us, we are not responsible for the sites’ content, any use of the sites, or the privacy practices of the sites.</p>
+		<h3 id="policy_g" name="policy_g">Σύνδεσμοι με άλλους Ιστότοπους</h3>
+		<p>Ο ιστότοπός μας θα παρέχει συνδέσεις με άλλους ιστότοπους για την διευκόλυνση και την πληροφόρησή σας.  Αυτοί οι ιστότοποι μπορεί να λειτουργούν ανεξάρτητα από εμάς.  Οι συνδεμένοι ιστότοποι μπορεί να έχουν τις δικές τους ειδοποιήσεις ή πολιτικές, τις οποίες σας προτείνουμε να ελέγξετε πριν επισκεφθείτε κάποιον από αυτούς.  Στον βαθμό που συνδεμένοι ιστότοποι που επισκέπτεσθε δεν ανήκουν σε εμάς ή δεν ελέγχονται από εμάς, δεν είμαστε υπεύθυνοι για το περιεχόμενό τους, την χρήση τους ή τις πρακτικές ιδιωτικότητας αυτών των ιστότοπων.</p>
 
-		<h3 id="policy_h" name="policy_h">Updates To Our Privacy Policy</h3>
-		<p>This Privacy Policy may be updated periodically and without prior notice to you to reflect changes in our personal information practices. We will post a prominent notice on our website to notify you of any significant changes to our Privacy Policy and indicate at the top of the Policy when it was most recently updated.</p>
+		<h3 id="policy_h" name="policy_h">Ενημερώσεις στην Πολιτική Ιδιωτικότητας</h3>
+		<p>Αυτή η Πολιτική Ιδιωτικότητας μπορεί να ενημερώνεται περιοδικά και χωρίς προηγούμενη ειδοποίηση σε εσάς ώστε να αντανακλά τις αλλαγές στις πρακτικές μας για τις προσωπικές πληροφορίες.  Θα αναρτήσουμε μία χαρακτηριστική ειδοποίηση στον ιστότοπό μας ώστε να σας ειδοποιήσουμε για τυχόν σημαντικές αλλαγές στην Πολιτική Ιδιωτικότητας και θα υποδεικνύουμε στην κορυφή της Πολιτικής πότε ενημερώθηκε τελευταία φορά.</p>
 
-		<h3 id="policy_i" name="policy_i">How To Contact Us</h3>
-		<p>If you have any questions or comments about this Privacy Policy, or if you would like us to update information we have about you or your preferences, please contact us by email at consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
+		<h3 id="policy_i" name="policy_i">Τρόπος Επικοινωνίας</h3>
+		<p>Αν έχετε ερωτήσεις ή σχόλια σχετικά με αυτή την Πολιτική Ιδιωτικότητας, ή αν θέλετε να ενημερώσουμε τις πληροφορίες που έχουμε για εσάς ή τις προτιμήσεις σας, παρακαλούμε επικοινωνήστε μαζί μας μέσω email στο consumercare-us@gcc.elc.estee.com. </p>
 
-		<p>Copyright © The Estée Lauder Companies Inc. All worldwide rights reserved.</p>
+		<p>Πνευματική ιδιοκτησία © The Estée Lauder Companies Inc. Με επιφύλαξη όλων των παγκοσμίων δικαιωμάτων.</p>
 	</div>
 </div>
 <script type="text/javascript">

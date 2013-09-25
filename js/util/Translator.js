@@ -145,7 +145,7 @@ translator.defineOptItems = function(){
         var termsAndConditions = '<a class="link terms" href="#">' + termsAndConditionsText + '</a>';
         var privacyPolicy = '<a class="link privacy" href="#">' + privacyPolicyText + '</a>';
         optCopyText = optCopyText.replace("[termsandconditions]", termsAndConditions);
-        optCopyText = optCopyText.replace("[privacypolicy]", privacyPolicy);
+        optCopyText = optCopyText.replace(/\[privacypolicy\]/g, privacyPolicy);
         $(".opt_copy").html(optCopyText);
     }
 }

@@ -1,126 +1,127 @@
 <div class="popup" id="popup_legal">	
 	<div id="popup_legal_content">
-		<h2>2013 BCA CAMPAIGN: PRIVACY POLICY</h2>
-		<h3>Effective Date: August 1, 2013</h3>
-		<h2>Breast Cancer Awareness Campaign Privacy Policy</h3>
-		<p>The Estée Lauder Companies (“we, us, or our”) respect your concerns about privacy and value the relationship we have with you. This Privacy Policy describes the types of personal information we collect in connection with the Breast Cancer Awareness campaign, how we use the information, with whom we share it, and the choices available to our participants regarding our use of the information. We also describe the measures we take to protect the security of the information and how our participants can contact us about our privacy practices.</p>
-		<p>Click on one of the links below to jump to the listed section:</p>
+		<h2>קמפיין מודעות לסרטן השד 2013: מדיניות פרטיות</h2>
+		<h3>תקף החל מתאריך: אוגוסט 2013</h3>
+		<h2>קמפיין מודעות לסרטן השד - מדיניות פרטיות</h3>
+		<p>אסתי לאודר ("אנחנו, שלנו"), מכבדת את חששותיכם בנוגע לפרטיות ומעריכה את היחסים שיש לנו אתכם. מדיניות הפרטיות להלן מתארת את סוגי המידע אישי שאנו אוספים באתר זה על המשתמשים, כיצד אנו משתמשים במידע, עם מי אנו חולקים איתו והבחירות העומדות בפני המשתמשים שלנו לגבי השימוש במידע. אנו גם מתארים את האמצעים שאנו נוקטים בהם כדי להגן על בטיחות המידע וכיצד המשתמשים שלנו יכולים ליצור עמנו קשר לגבי נהלי הפרטיות שלנו.</p>
+		<p>לחצו על הקישורים מתחת כדי לעבור לחלק הרצוי:</p>
 
 		<ul>
-			<li><a href="#policy_a">Information We Collect</a>
+			<li><a href="#policy_a">אינפורמציה שאנו אוספים</a>
 				<ul>
-					<li><a href="#policy_a1">Information You Provide</a>
+					<li><a href="#policy_a1">מידע שאת מספקת</a>
 						<ul>
-							<li><a href="#policy_a1_a">How We Use the Information</a></li>
+							<li><a href="#policy_a1_a">איך אנו משתמשים במידע</a></li>
 						</ul>
 					</li>
-					<li><a href="#policy_a2">Information We Collect by Automated Means</a>
+					<li><a href="#policy_a2">מידע שאנו אוספים באמצעים אוטומטיים</a>
 						<ul>
-							<li><a href="#policy_a2_a">Technologies We Use</a>
+							<li><a href="#policy_a2_a">טכנולוגיות שאנו משתמשים בהן</a>
 							<ul>
-								<li><a href="#policy_a2_a1">Cookies, Web Server Logs and Web Beacons</a></li>
-								<li><a href="#policy_a2_a2">Third Party Web Analytics Services</a></li>
+								<li><a href="#policy_a2_a1">קוקיס, רישומי שרתי אינטרנט, Web Beacons</a></li>
+								<li><a href="#policy_a2_a2">שירותי צד שלישי של ניתוחי מידע אינטרנטי</a></li>
 							</ul>
-							<li>Targeted Advertising</li>
-							<li><a href="#policy_a2_c">How We Use the Information Collected by Automated Means</a></li>
+							<li>שיווק מכוון</li>
+							<li><a href="#policy_a2_c">כיצד אנו משתמשים במידע שאספנו באמצעים אוטומטיים</a></li>
 						</ul>
 					</li>
 				</ul>
 			</li>
-			<li><a href="#policy_b">Information We Share</a></li>
-			<li><a href="#policy_c">Your Rights And Choices</a></li>
-			<li><a href="#policy_d">Data Transfers</a></li>
-			<li><a href="#policy_e">Children’s Privacy</a></li>
-			<li><a href="#policy_f">How We Protect Personal Information</a></li>
-			<li><a href="#policy_g">Links To Other Websites</a></li>
-			<li><a href="#policy_h">Updates To Our Privacy Policy</a></li>
-			<li><a href="#policy_i">How To Contact Us</a></li>
+			<li><a href="#policy_b">מידע שאנו חולקים</a></li>
+			<li><a href="#policy_c">הזכויות והבחירות שלך</a></li>
+			<li><a href="#policy_d">העברות מידע</a></li>
+			<li><a href="#policy_e">פרטיות ילדים</a></li>
+			<li><a href="#policy_f">כיצד אנו מגנים על מידע אישי?</a></li>
+			<li><a href="#policy_g">לינקים לאתרים אחרים</a></li>
+			<li><a href="#policy_h">עדכונים למדיניות הפרטיות שלנו</a></li>
+			<li><a href="#policy_i">איך ליצור איתנו קשר?</a></li>
 		</ul>
 
-		<h3 id="policy_a" name="policy_a">Information We Collect</h3>
-		<p>We may obtain personal information about you from the Breast Cancer Awareness campaign website, located at BCACampaign.com/StrongerTogether (the “BCA Site”) or in connection with our social networking or mobile applications. When you visit the BCA Site or our social networking or mobile applications, we may also collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
+		<h3 id="policy_a" name="policy_a">מידע שאנו אוספים</h3>
+		<p>יתכן ונשיג מידע אישי עלייך מאתר הקמפיין למודעות סרטן השד, הממוקם ב- BCACampaign.com/StrongerTogether (אתר ה-BCA) או ע"י חיבור עם הרשתות החברתיות או עם אפליקציות בנייד. מדיניות הפרטיות מתייחסת אך ורק לאיסוף מידע באתר ואינה מתייחסת לאיסוף מידע בכל האתרים האחרים שלנו או באתרי שותפינו הקמעונאים. כאשר אנו מבקרים באתר זה, אנו עשויים לאסוף מידע ע"י אמצעים אוטומטיים, בשימוש בטכנולוגיות כמו קוקיס,  web server logs ו- web beacons.</p>
 		
-		<h3 id="policy_a1" name="policy_a1" class="sub1">Information You Provide</h3>
-		<p>You may choose to provide personal information to us, and the types of personal information you may provide to us includes: </p>
+		<h3 id="policy_a1" name="policy_a1" class="sub1">מידע שאת מספקת</h3>
+		<p>את יכולה לבחור לספק לנו מידע אישי במספר דרכים. סוגי המידע האישי שאת עשויה לספק לנו הם:</p>
 		<ul>
-			<li>Contact information (such as name, postal address, email address, and mobile or other phone number)</li>
-			<li>Gender</li>
-			<li>Contact information for friends or other people you would like us to contact</li>
-			<li>Content you provide (such as photographs, articles and comments)</li>
-			<li>Information provided to us by social networks or mobile applications when you use one of our social networking or mobile applications (such as your name, profile picture, likes, location, friend list and other information described in the social networking application sign-up page, or your geo-location details when using one of our mobile applications)</li>
+			<li>פרטי קשר (כמו שם, כתובת, כתובת אי-מייל, מספר נייד או מספר טלפון אחר)</li>
+			<li>מין</li>
+			<li>פרטי קשר של חברים או אנשים אחרים שתרצה שניצור עימם קשר</li>
+			<li>תוכן שאת מספקת (כמו תמונות, מאמרים והערות)</li>
+			<li>מידע המסופק לנו ע"י רשתות חברתיות או אפליקציות מהנייד כאשר את מתחברת לאחד מחשבונות המדיה החברתית שלך או משתמש באפליקציה (כמו שמך, תמונות פרופיל, לייקים, רשימת חברים ומידע אחר שאת מאשרת להיכנס אליו)</li>
+			<li>מיקומך הגיאוגרפי</li>
 		</ul>
 
-		<h3 id="policy_a1_a" name="policy_a1_a" class="sub2">How We Use The Information</h3>
-		<p>We may use the information you provide to:</p>
+		<h3 id="policy_a1_a" name="policy_a1_a" class="sub2">כיצד אנו משתמשים במידע?</h3>
+		<p>אנו עשויים להשתמש במידע שסיפקת כדי:</p>
 		<ul>
-			<li>Communicate with you about, and administer your participation in, the Breast Cancer Awareness campaign</li>
-			<li>Provide services to you </li>
-			<li>Respond to your inquiries</li>
-			<li>Operate and communicate with you about our social networking or mobile applications</li>
-			<li>Operate, evaluate and improve our business (including developing new products and services; managing our communications; analyzing our products; performing data analytics; and performing accounting, auditing and other internal functions)
-			<li>Comply with applicable legal requirements, relevant industry standards and our policies</li>
+			<li>לתקשר איתך ולנהל את ההשתתפות שלך בקמפיין המודעות לסרטן השד</li>
+			<li>לספק לך שירותים </li>
+			<li>להשיב לשאלותיך</li>
+			<li>לפעול ולתקשר איתך לגבי הרשתות החברתיות או האפליקציות שלנו</li>
+			<li>לתפעל, להעריך ולשפר את העסק שלנו (כולל פיתוח מוצרים ושירותים חדשים; ניהול התקשורת שלנו; ניתוח המוצרים שלנו; ניתוח של המידע; ביצוע פעולות חשבונאיות; עריכות ופונקציות פנימיות אחרות)</li>
+			<li>התאמה לדרישות חוקתיות, סטנדרטים רלוונטיים של התעשייה והמדיניות שלנו</li>
 		</ul>
-		<p>We also may use the information in other ways for which we provide specific notice at the time of collection.</p>
+		<p>אנו עשויים גם להשתמש במידע בדרכים אחרות שעליהן נספק התראה ספציפית בזמן איסופו. </p>
 
-		<h3 id="policy_a2" name="policy_a2" class="sub1">Information We Collect by Automated Means</h3>
-		<p>When you visit this site or our online advertisements or use one of our social networking or mobile applications, we collect certain information by automated means, using technologies such as cookies, web server logs and web beacons.</p>
+		<h3 id="policy_a2" name="policy_a2" class="sub1">מידע שאנחנו אוספים באמצעים אוטומטיים</h3>
+		<p>כאשר את מבקרת באתר זה או בפרסומות האונליין שלנו או כשאר את משתמשת ברשתות החברתיות או באפליקציות שלנו, אנו אוספים מידע מסויים ע"י אמצעים אוטומטיים בשימוש בטכנולוגיות כמו קוקיס, web server logs או web beacons.</p>
 
-		<h3 id="policy_a2_a" name="policy_a2_a" class="sub2">Technologies We Use</h3>
-		<h3 id="policy_a2_a1" name="policy_a2_a1" class="sub3">Cookies, Web Server Logs and Web Beacons</h3>
-		<p>Cookies are small text files that websites send to your computer or other Internet-connected device to uniquely identify your browser or to store information or settings in your browser. Your browser may tell you how to be notified when you receive certain types of cookies and how to restrict or disable certain cookies. Please note, however, that without cookies you may not be able to use all of the features of our website.</p>
-		<p>In conjunction with obtaining information through cookies, our web servers may log details such as your operating system type, browser type, domain, and other system settings, as well as the language your system uses and the country and time zone in which your device is located. The web server logs also may record information such as the address of the web page that linked you to our site and the IP address of the device you use to connect to the Internet.</p>
-		<p>To control which web servers collect this information, we may place tags on our web pages called “web beacons.” These are computer instructions that link web pages to particular web servers and their cookies.</p>
+		<h3 id="policy_a2_a" name="policy_a2_a" class="sub2">הטכנולוגיות בהן אנו משתמשים</h3>
+		<h3 id="policy_a2_a1" name="policy_a2_a1" class="sub3">קוקיס, Web Server Logs  ו- Web Beacons</h3>
+		<p>קוקיס הן קבצי טקסט קטנים שאתרים שולחים למחשב שלך או למכשירים אחרים המחוברים לאינטרנט כדי לזהות באופן ייחודי את הדפדפן שלך, כדי לאחסן מידע או הגדרות בדפדפן שלך. הדפדפן שלך יאמר לך כיצד להיות מיודע כאשר אתה מקבל סוגים שונים של קוקיס ואיך להגביל או לנטרל קוקיס מסויימים. עם זאת, אנא שים לב, שבלי קוקיס לא תהיה מסוגל להשתמש בכל המאפיינים של האתר. </p>
+		<p>בשילוב עם קבלת מידע דרך קוקיס, שרתי האינטרנט שלנו יכולים לרשום פרטים כמו סוג מערכת ההפעלה שלך, סוג הדפדפן, דומיין והגדרות מערכת אחרות, כמו השפה שהמערכת שלך משתמשת בה, המדינה ואזור הזמן בו המכשיר שלך ממוקם. רישומי שרת האינטרנט יכולים לשמור מידע כמו כתובת של דף האינטרנט שקישר אותך לאתר שלנו וכתובת ה- IP של המכשיר שאת משתמשת בו כדי להתחבר לאינטרנט.</p>
+		<p>כדי לשלוט בשרתי האינטרנט שאוספים את המידע, אנו עשויים לשים תוויות על דפי האינטרנט שלנו הנקראים " web beacons". אלו הן הנחיות למחשב אשר מקשרות את דפי האינטרנט לשרתי אינטרנט מסויימים ולקוקיס שלהם.</p>
 
-		<h3 id="policy_a2_a2" name="policy_a2_a2" class="sub3">Third Party Web Analytics Services</h3>
-		<p>We may use third party web analytics services on this site. Such third party web analytics service providers may include, but is not limited to, Google Analytics.  The service providers that administer these services use technologies such as cookies, web server logs and web beacons to help us analyze how visitors use the site. The information collected through these means (including IP address) is disclosed to these service providers, who use the information to evaluate use of the website. To disable the Google Analytics cookie and any other third party web analytics service provider cookies, some browsers indicate when a cookie is being sent and allow you to decline cookies on a case-by-case basis.</p>
+		<h3 id="policy_a2_a2" name="policy_a2_a2" class="sub3">שירותי צד שלישי של ניתוחי מידע אינטרנטי</h3>
+		<p>אנו עשויים להשתמש בשירותי צד שלישי לניתוחי מידע אינטרנטי. ספקי צד שלישי לניתוח מידע אינטרנטי עשויים לכלול (אך אינם מוגבל רק לכך), אנליטיקאים של גוגל. ספקי השירות המספקים את השירותים האלה משתמשים בטכנולוגיות כדוגמת קוקיס, web server logs  ו web beacons כדי לסייע לנו בניתוח כיצד מבקרים משתמשים באתר. המידע הנאסף דרך אמצעים אלה (כולל כתובת IP) נמסר לספקי השירות האלה, אשר משתמשים במידע כדי להעריך את השימוש באתר. כדי לנטרל את הקוקי של ניתוח גוגל וכל ספק צד שלישי , מספר דפדפנים מעידים מתי נשלח קוקי ומאפשרת לך לסרב לקוקיס על בסיס של מקרה אינדיבידואלי.</p>
 
-		<h3 id="policy_a2_c" name="policy_a2_c" class="sub2">How We Use the Information Collected by Automated Means</h3>
-		<p>We may use the information collected through automated means on this site for market research, data analytics and system administration purposes, such as to determine whether you’ve visited us before or are new to the site, and for compliance with our legal obligations, policies and procedures, including compliance with relevant industry standards and the enforcement of our <u>Terms and Conditions</u>. We also may use the information in other ways for which specific notice is provided at the time of collection.</p>
+		<h3 id="policy_a2_c" name="policy_a2_c" class="sub2">כיצד אנחנו משתמשים במידע שנאסף באמצעים אוטומטיים</h3>
+		<p>אנו עשויים להשתמש במידע שנאסף באמצעים אוטומטיים באתר זה עבור מטרות של מחקר שוק, ניתוח מידע וניתוח מערכות, כמו לקבוע האם ביקרת אותנו כבר או האם אתה חדש באתר ולהסכמה להתחייבויות החוקיות, מדיניות ותהליכים, כולל התאמה לסטנדרטים רלוונטיים בתעשייה ואכיפה של [<u>לתנאי ההסכם</u>]. אנו גם עשויים להשתמש במידע בדרכים אחרות לגביהן תימסר הודעה ספציפית בזמן איסוף המידע.</p>
 
-		<h3 id="policy_b" name="policy_b">Information We Share</h3>
-		<p>We do not rent lists, or sell or otherwise disclose personal information we collect about you, except as described here. We may share your personal information with:</p>
+		<h3 id="policy_b" name="policy_b">מידע שאנו חולקים</h3>
+		<p>איננו משכירים רשימות, מוכרים או מוסרים מידע אישי שאנו אוספים עליך, למעט מה שמתואר כאן. אנו עשויים לחלוק את המידע האישי שלך עם:</p>
 		<ul>
-			<li>Our affiliates within The Estee Lauder Companies’ umbrella of companies</li>
-			<li>Service providers who perform services on our behalf based on our instructions. We do not authorize these service providers to use or disclose the information except as necessary to perform services on our behalf or comply with legal requirements. Examples of these service providers include entities that process credit card payments, fulfill orders, and provide web hosting and marketing services.</li>
-			<li>Other third parties with your consent (e.g., some of our Facebook applications may share information collected through those apps with your Facebook friends or other Facebook users).</li>
+			<li>הסניפים השונים שלנו בתוך מטריית החברות של אסתי לאודר</li>
+			<li>ספקי שירות אשר מבצעים שירותים בשמנו בהסתמך על הנחיותינו. אנו לא מאשרים לספקי שירות אלה להשתמש או למסור את המידע, למעט למה שנדרש כדי לבצע שירותים בשמנו או לעמוד בדרישות חוקתיות. דוגמאות לספקי שירותים אלה כוללות ישויות המספקות אירוח שרת ושירותי מייל.</li>
+			<li>שותפי צד שלישי אחרים בהסכמתך (כמה מאפליקציות הפייסבוק שלנו עשויות לשתף מידע שנאסף ע"י אפליקציות אלה עם חברי הפייסבוק שלך או משתמשי פייסבוק אחרים), או היכן שיש בסיס חוקי לשיתוף.</li>
 		</ul>
-		<p>In addition, we may disclose information about you (i) if we are required to do so by law or legal process, (ii) to law enforcement authorities or other government officials, or (iii) when we believe disclosure is necessary or appropriate to prevent physical harm or financial loss, or in connection with an investigation of suspected or actual fraudulent or illegal activity.</p>
-		<p>We also reserve the right to transfer personal information we have about you in the event we sell or transfer all or a portion of our business or assets. Should such a sale or transfer occur, we will use reasonable efforts to direct the transferee to use personal information you have provided to us in a manner that is consistent with our Privacy Policy. Following such a sale or transfer, you may contact the entity to which we transferred your personal information with any inquiries concerning the processing of that information.</p>
+		<p>בנוסף, בכפוף לחוק המתאים, אנו עשויים לחשוף מידע עליך (i) אם אנו נדרשים לעשות כן ע"י חוק או תהליך חוקי (ii) לרשויות אוכפות חוק או לגורמי ממשל, או (iii) כאשר אנו סבורים שחשיפה היא הכרחית או נדרשת כדי למנוע נזק גופני, הפסד כספי או בהקשר לחקירה של חשוד או הונאה למעשה או פעילות בלתי חוקית.</p>
+		<p>בנוסף, אנו שומרים על זכותנו להעביר מידע אישי שיש לנו עלייך במקרה ונמכור או נעביר חלק או את כל נכסינו או עסקינו. במקרה ואכן תתבצע מכירה או העברה כזו, נפעיל מאמצים סבירים לכך שהשימוש במידע המועבר יהיה עקבי עם מדיניות הפרטיות שלנו. בהמשך למכירה או העברה כזאת, את יכולה ליצור קשר עם הישות אליה הועבר המידע האישי שלך על כל שאלה בנוגע למידע זה.</p>
 
-		<h3 id="policy_c" name="policy_c">Your Rights and Choices</h3>
-		<p>We offer you certain choices in connection with the personal information we collect from you, such as how we use the information and how we communicate with you. To update your preferences, please contact us as specified below.</p>
+		<h3 id="policy_c" name="policy_c">הזכויות והבחירות שלך</h3>
+		<p>אנחנו מציעים לך בחירות מסוימות בקשר למידע האישי שאנחנו אוספים ממך; כיצד אנו משתמשים במידע וכיצד אנו מתקשרים איתך. על מנת לעדכן את ההעדפות שלך, אנא צרי קשר לכתובת הרשומה מטה.</p>
 		<ul>
 			<li>
-				<h3 class="sub1">Social Networking Application Opt-Out</h3>
-				<p>To remove or delete our apps from your social networking account, follow the instructions from the social network:</br>Facebook: https://www.facebook.com/help/?faq=170585223002660 provided by the Facebook Help Center.</p>
+				<h3 class="sub1">Opt-Out  מאפליקציית מדיה חברתית </h3>
+				<p>כדי להסיר או לבטל את האפליקציות שלנו מחשבון המדיה החברתית שלך, מלאי אחר ההוראות מהמדיה החברתית הרלוונטית:</br>מסופק ע"י מרכז העזרה של פייסבוק: Facebook:  https://www.facebook.com/help/?faq=170585223002660</p>
 			</li>
 			<li>
-				<h3 class="sub1">Withdrawing Consent</h3>
-				<p>You may withdraw any consent you previously provided to us, or object at any time on legitimate grounds, to the processing of your personal information. We will apply your preferences going forward. In some circumstances, withdrawing your consent to our use or disclosure of your personal information will mean that you cannot take advantage of some of our products or services.</p>
+				<h3 class="sub1">חזרה מהסכמה</h3>
+				<p>את יכולה לחזור בך מכל הסכמה שסיפקת לנו בעבר, או להתנגד בכל זמן לעילה לגיטימית, לעיבוד המידע האישי שלך. בנסיבות מסוימות, משמעות החזרה בך מהסכמתך לשימוש שלנו או לחשיפת המידע האישי שלך תהיה שלא תוכלי לנצל את המוצרים או השירותים שלנו.</p>
 			</li>
 			<li>
-				<h3 class="sub1">Reviewing, Updating and Modifying Personal Information</h3>
-				<p>Subject to applicable law, you may have the right to request access to and receive details about the personal information we maintain about you, update and correct inaccuracies in your personal data, and have the information blocked or deleted, as appropriate. The right to access personal information may be limited in some circumstances by local law requirements. You may request to review, change or delete your personal information by sending an email to consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
+				<h3 class="sub1">בחינה, עדכון והתאמה של מידע אישי</h3>
+				<p>בכפוף לחוק, יש לך את הזכות לבקש כניסה ולקבל פרטים על מידע אישי שאנו שומרים עליך, לעדכן ולתקן אי דיוקים במידע האישי שלך ולבקש שהמידע ייחסם או יימחק, כפי שראוי. ההרשאה לכניסה למידע אישי יכולה להיות מוגבלת בנסיבות מסוימות עקב דרישות חוקיות מקומיות. את עשויה לבקש לבחון, לשנות או לבטל את המידע האישי שלך ע"י יצירת קשר עם שרות לקוחות בטלפון: 03-7696900</p>
 			</li>
 		</ul>
 
-		<h3 id="policy_d" name="policy_d">Data Transfers</h3>
-		<p>We may transfer the personal information we collect about you to countries other than the country in which the information was originally collected. Our servers hosting the BCA Site are located in the United States, which with other countries may not have the same data protection laws as the country in which you initially provided the information. When we transfer your information to other countries, we will protect that information as described in this Privacy Policy.</p>
+		<h3 id="policy_d" name="policy_d">העברת מידע</h3>
+		<p>אנו יכולים להעביר את המידע האישי שאנו אוספים עליך לארצות הברית, היכן שנמצאים שרתי האתר שעשויים להעביר את המידע האישי שלך למדינות אחרות מהמדינה בה נאסף המידע עליך מלכתחילה. יכול להיות שבמדינות האלה לא חלים חוקי הגנת מידע כמו במדינה בה סיפקת את המידע לראשונה. כאשר אנו מעבירים את המידע למדינות אחרות, אנו נגן על המידע כפי שמתואר במדיניות הפרטיות הזו. באם אינך מסכימה להעברת המידע לחו"ל נא הימנע מכל העברת מידע כלשהו ו/או כל הגשה. העברת מידע ו/או הגשה תחשב כהסכמה מלאה לאמור כאן.</p>
 
-		<h3 id="policy_e" name="policy_e">Children's Privacy</h3>
-		<p>If you are under thirteen years of age, you may browse our site. However, you may not provide personal information to us. This site is not directed to children under the age of thirteen and we do not knowingly collect personal information from children under the age of thirteen on the site. If we become aware that we have inadvertently received personal information from a visitor under the age of thirteen on the site, we will delete the information from our records.</p>
+		<h3 id="policy_e" name="policy_e">מדיניות לגבי ילדים</h3>
+		<p>אם את בת 14 ומטה, את יכולה לגלוש באתר שלנו. עם זאת, את לא יכולה לספק לנו מידע אישי. האתר אינו מיועד לילדים בני 14 ומטה ואנו לא אוספים ביודעין מידע אישי באתר מילדים מתחת לגיל זה. אם אנו מודעים לעובדה שקיבלנו בשוגג מידע אישי ממבקש מתחת לגיל 14 אנו נמחק את המידע מן הרשומות שלנו.</p>
 
-		<h3 id="policy_f" name="policy_f">How We Protect Personal Information</h3>
-		<p>We maintain appropriate administrative, technical and physical safeguards designed to protect the personal information you provide against accidental, unlawful or unauthorized destruction, loss, alteration, access, disclosure or use.</p>
+		<h3 id="policy_f" name="policy_f">כיצד אנו מגנים על מידע אישי?</h3>
+		<p>אנו מקפידים על אדמיניסטרציה מתאימה, שומרים טכניים ופיזיים המתוכננים להגן על המידע האישי שסיפקת מהרס, אובדן, תיקון, כניסה, חשיפה או שימוש נעשו בשגגה, שאינם חוקיים או מאושרים.</p>
 
-		<h3 id="policy_g" name="policy_g">Links To Other Websites</h3>
-		<p>Our website may provide links to other websites for your convenience and information. These websites may operate independently from us. Linked sites may have their own privacy notices or policies, which we strongly suggest you review if you visit any linked websites. To the extent any linked websites you visit are not owned or controlled by us, we are not responsible for the sites’ content, any use of the sites, or the privacy practices of the sites.</p>
+		<h3 id="policy_g" name="policy_g">לינקים לאתרים אחרים</h3>
+		<p>האתר שלנו יכול לספק קישורים לאתרים אחרים למידע ולנוחיותך. אתרים אלה יכולים לפעול עצמאית. לאתרים מקושרים יכולה להיות מדיניות פרטיות משלהם. אנו ממליצים לעבור על מדיניות פרטיות כזאת במידה ותבקרי באתרים מקושרים. במידה רבה, כל אתר מקושר בו ביקרת אינם בבעלותנו או בשליטתנו, אנחנו לא אחראיים על תוכן, שימוש ומנהגי הפרטיות באתרים אלה.</p>
 
-		<h3 id="policy_h" name="policy_h">Updates To Our Privacy Policy</h3>
-		<p>This Privacy Policy may be updated periodically and without prior notice to you to reflect changes in our personal information practices. We will post a prominent notice on our website to notify you of any significant changes to our Privacy Policy and indicate at the top of the Policy when it was most recently updated.</p>
+		<h3 id="policy_h" name="policy_h">עדכונים למדיניות הפרטיות שלנו</h3>
+		<p>מדיניות הפרטיות עשויה להיות מעודכנת מדי תקופה וללא הודעה מוקדמת כדי לשקף שינויים  בנהלי המידע האישי שלנו. אנו נעלה הודעה בולטת באתר שלנו כדי להודיע לך על שינויים מהותיים במדיניות הפרטיות שלנו ונעדכן בראש מסמך המדיניות מתי עודכן המסמך לאחרונה. </p>
 
-		<h3 id="policy_i" name="policy_i">How To Contact Us</h3>
-		<p>If you have any questions or comments about this Privacy Policy, or if you would like us to update information we have about you or your preferences, please contact us by email at consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
+		<h3 id="policy_i" name="policy_i">כיצד ליצור איתנו קשר</h3>
+		<p>אם יש לך שאלות או הערות לגבי מדיניות הפרטיות, או אם ברצונך שנעדכן מידע שיש לנו לגביך או לגבי העדפותיך, אנא צרי קשר עם שרות לקוחות בטלפון: 03-7696900</p>
 
 		<p>Copyright © The Estée Lauder Companies Inc. All worldwide rights reserved.</p>
 	</div>
@@ -151,3 +152,18 @@
 		}
 	);
 </script>
+<style>
+
+	#popup_legal_content p
+	{
+		direction: rtl;
+	}
+	#popup_legal_content h2,
+	#popup_legal_content h3,
+	#popup_legal_content li
+	{
+		direction: rtl;
+		margin-right:20px;
+	}
+
+</style>
