@@ -77,7 +77,7 @@
 
 .lt-ie9 .popup#popup_circle .popup_round_button
 {
-	behavior: url(http://staging.click3x.com/estee_lauder/bca/css/PIE.htc);
+	behavior: url(http://www.bcacampaign.com/_efb/bca_strongertogether/css/PIE.htc);
 	position:relative;
 }
 
@@ -86,6 +86,7 @@
 	background: #FFF;
 	text-transform: uppercase;
 }
+
 
 .popup_round_button#popup_btn_white:hover{
 	background: #ffedf2;

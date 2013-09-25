@@ -100,7 +100,7 @@
 			</li>
 			<li>
 				<h3 class="sub1">Xem Xét, Cập Nhật và Thay Đổi Thông Tin Cá Nhân</h3>
-				<p>Dựa theo luật hiện hành, bạn có thể có quyền yêu cầu được truy cập và nhận chi tiết về thông tin cá nhân chúng tôi đang lưu giữ, cập nhật hoặc sửa đổi những dữ liệu cá nhân không chính xác, và ngăn chặn hoặc xóa thông tin, nếu thích hợp. Quyền được truy cập thông tin cá nhân có thể bị giới hạn trong một số trường hợp bởi những yêu cầu hợp pháp trong nước. Bạn cũng có thể yêu cầu để xem lại, thay đổi hoặc xóa thông tin cá nhân của mình bằng cách gửi email tới consumercare-us@gcc.elc.estee.com [NHẬP ĐỊA CHỈ LIÊN LẠC CỦA BẠN]</p>
+				<p>Dựa theo luật hiện hành, bạn có thể có quyền yêu cầu được truy cập và nhận chi tiết về thông tin cá nhân chúng tôi đang lưu giữ, cập nhật hoặc sửa đổi những dữ liệu cá nhân không chính xác, và ngăn chặn hoặc xóa thông tin, nếu thích hợp. Quyền được truy cập thông tin cá nhân có thể bị giới hạn trong một số trường hợp bởi những yêu cầu hợp pháp trong nước. Bạn cũng có thể yêu cầu để xem lại, thay đổi hoặc xóa thông tin cá nhân của mình bằng cách gửi email tới consumercare-us@gcc.elc.estee.com</p>
 			</li>
 		</ul>
 
@@ -120,7 +120,7 @@
 		<p>Chính sách bảo mật này có thể được cập nhật theo kỳ và không cần gửi thông báo trước đến bạn. Chúng tôi sẽ cho đăng tải những thông báo nổi bật trên trang web của chúng tôi để báo cho bạn những thay đổi quan trọng trong Chính Sách Bảo Mật và nêu ra những điểm được cập nhật gần đây nhất ở phần trên cùng của Chính Sách.</p>
 
 		<h3 id="policy_i" name="policy_i">Liên Hệ Chúng tôi</h3>
-		<p>Nếu có bất kỳ thắc mắc hoặc bình luận nào về Chính Sách Bảo Mật, hoặc nếu bạn muốn chúng tôi cập nhật thông tin chúng tôi có về bạn hoặc những mục ưu tiên của bạn, vui lòng liên hệ chúng tôi qua email consumercare-us@gcc.elc.estee.com [NHẬP ĐỊA LIÊN LẠC CỦA BẠN]</p>
+		<p>Nếu có bất kỳ thắc mắc hoặc bình luận nào về Chính Sách Bảo Mật, hoặc nếu bạn muốn chúng tôi cập nhật thông tin chúng tôi có về bạn hoặc những mục ưu tiên của bạn, vui lòng liên hệ chúng tôi qua email consumercare-us@gcc.elc.estee.com</p>
 
 		<p>Copyright © The Estée Lauder Companies Inc. All worldwide rights reserved.</p>
 	</div>

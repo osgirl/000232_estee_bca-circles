@@ -191,6 +191,7 @@
     line-height: 1.2em;
   }
 
+  .es .popup #popup_photo_upload_agreement_window h2,
   .el .popup #popup_photo_upload_agreement_window h2, 
   .ru .popup #popup_photo_upload_agreement_window h2{
     margin:40px 0 20px 0;

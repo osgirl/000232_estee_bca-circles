@@ -100,7 +100,7 @@
 			</li>
 			<li>
 				<h3 class="sub1">Reviewing, Updating and Modifying Personal Information</h3>
-				<p>Subject to applicable law, you may have the right to request access to and receive details about the personal information we maintain about you, update and correct inaccuracies in your personal data, and have the information blocked or deleted, as appropriate.  The right to access personal information may be limited in some circumstances by local law requirements. You may request to review, change or delete your personal information by sending an email to consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS]</p>
+				<p>Subject to applicable law, you may have the right to request access to and receive details about the personal information we maintain about you, update and correct inaccuracies in your personal data, and have the information blocked or deleted, as appropriate.  The right to access personal information may be limited in some circumstances by local law requirements. You may request to review, change or delete your personal information by sending an email to consumercare-us@gcc.elc.estee.com.</p>
 			</li>
 		</ul>
 
@@ -120,7 +120,7 @@
 		<p>This Privacy Policy may be updated periodically and without prior notice to you to reflect changes in our personal information practices. We will post a prominent notice on our website to notify you of any significant changes to our Privacy Policy and indicate at the top of the Policy when it was most recently updated.</p>
 
 		<h3 id="policy_i" name="policy_i">How To Contact Us</h3>
-		<p>If you have any questions or comments about this Privacy Policy, or if you would like us to update information we have about you or your preferences, please contact us by email at consumercare-us@gcc.elc.estee.com. [INSERT MARKET’S LOCAL CONTACT ADDRESS].</p>
+		<p>If you have any questions or comments about this Privacy Policy, or if you would like us to update information we have about you or your preferences, please contact us by email at consumercare-us@gcc.elc.estee.com.</p>
 
 		<p>Copyright © The Estée Lauder Companies Inc. All worldwide rights reserved.</p>
 	</div>

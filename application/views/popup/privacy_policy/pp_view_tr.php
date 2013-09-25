@@ -100,7 +100,7 @@
 			</li>
 			<li>
 				<h3 class="sub1">Kişisel Bilgilerin İncelenmesi, Güncellenmesi ve Değiştirilmesi</h3>
-				<p>Uygulanan hukuka tabi olmak üzere, hakkınızda sakladığımız kişisel bilgilere erişim ve bunlarla ilgili detayları talep etme, bunları güncelleme ve kişisel bilgilerinizdeki doğru olmayan hususları düzeltme ve duruma göre bilgilerin bloke edilmesini veya silinmesini talep etme hakkını haiz olabilirsiniz. Kişisel bilgilere erişim hakkı yerel hukuki gereklilikler ile bazı durumlarda sınırlanmış olabilir. consumercare-us@gcc.elc.estee.com. [PAZAR’IN YEREL İRTİBAT ADRESİNİ GİRİNİZ] adresine e-posta göndermek suretiyle kişisel bilgilerinizi incelemeyi, değiştirmeyi veya silmeyi talep edebilirsiniz.</p>
+				<p>Uygulanan hukuka tabi olmak üzere, hakkınızda sakladığımız kişisel bilgilere erişim ve bunlarla ilgili detayları talep etme, bunları güncelleme ve kişisel bilgilerinizdeki doğru olmayan hususları düzeltme ve duruma göre bilgilerin bloke edilmesini veya silinmesini talep etme hakkını haiz olabilirsiniz. Kişisel bilgilere erişim hakkı yerel hukuki gereklilikler ile bazı durumlarda sınırlanmış olabilir. consumercare-us@gcc.elc.estee.com adresine e-posta göndermek suretiyle kişisel bilgilerinizi incelemeyi, değiştirmeyi veya silmeyi talep edebilirsiniz.</p>
 			</li>
 		</ul>
 
@@ -120,7 +120,7 @@
 		<p>İşbu Gizlilik Politikası, kişisel bilgi uygulamalarımızı yansıtmak üzere periyodik olarak ve tarafınıza önceden bildirimde bulunmaksızın güncellenebilir. Gizlilik Politikamız’daki herhangi bir önemli değişikliği tarafınıza bildirmek üzere web sitemizde göze çarpan bir bildirim yayınlayacak ve Politika’nın en üst kısmında, bu Politika’nın en son ne zaman güncellendiğini belirteceğiz.</p>
 
 		<h3 id="policy_i" name="policy_i">Bizimle İrtibat Kurmak İçin</h3>
-		<p>İşbu Gizlilik Politikası ile ilgili herhangi bir sorunuz olduğunda veya size veya tercihlerinize ait sahip olduğumuz bilgileri güncellememizi arzu ettiğinizde, consumercare-us@gcc.elc.estee.com. [PAZAR’IN YEREL İRTİBAT ADRESİNİ GİRİNİZ] adresinden e-posta ile bizimle irtibata geçiniz.</p>
+		<p>İşbu Gizlilik Politikası ile ilgili herhangi bir sorunuz olduğunda veya size veya tercihlerinize ait sahip olduğumuz bilgileri güncellememizi arzu ettiğinizde, consumercare-us@gcc.elc.estee.com adresinden e-posta ile bizimle irtibata geçiniz.</p>
 
 		<p>Telif Hakkı © The Estée Lauder Companies Inc. Dünya çapında tüm hakları saklıdır.</p>
 	</div>

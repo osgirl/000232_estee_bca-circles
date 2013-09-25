@@ -2,7 +2,7 @@
 	<div id="popup_legal_content">
 		<h2>CAMPAÑA BCA 2013: POLÍTICA DE PRIVACIDAD</h2>
 		<h3>Fecha Efectiva:  1 de Agosto 2013</h3>
-		<h2>Breast Cancer Awareness Campaign Privacy Policy</h3>
+		<h2>Breast Cancer Awareness Campaign Política de Privacidad</h3>
 		<p>The Estée Lauder Companies ("nosotros, o nuestro") respeta sus preocupaciones sobre la privacidad y valoramos la relación que tenemos con usted. Esta Política de Privacidad describe los tipos de información personal que recopilamos en relación con la campaña de Cáncer de Mama, Cómo se utiliza la información, con quién lo compartimos, y las opciones disponibles para los participantes con respecto al uso de la información. También describe las medidas que tomamos para proteger la seguridad de la información y cómo los participantes pueden ponerse en contacto con nosotros acerca de nuestras prácticas de privacidad.</p>
 		<p>Pulse sobre uno de los enlaces de abajo para saltar a la sección de la lista:</p>
 
