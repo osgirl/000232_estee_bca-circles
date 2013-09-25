@@ -254,7 +254,7 @@ $.extend(
 
             var _title = shareTitle;
             var _caption = shareCaption;
-            var _description = shareDescription;
+            var _description = shareDescription + ' ' + share_hashtag.replace('%23','#');
 
             if (v.post_type == 'circle') _caption = _caption + " " + goal;
 
