@@ -1932,28 +1932,10 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	background-color: transparent;
 }
 
-/*.lt-ie9 .popup_round_button{
-	width:125px;
+.lt-ie9 #country_menu{
+	text-align: left;
+	direction: ltr;
 }
-
-.lt-ie9 .popup_round_button#popup_btn_white{
-	behavior: none;
-	background-color: transparent;
-	background-image: url('../img/buttons/white_btn_bg.png');
-	text-align: center;
-	padding:0;
-	padding-top:5px;
-	width:125px;
-	height:27px;
-
-}
-
-.lt-ie9 .popup_round_button#popup_btn_white:hover{
-	background-color: transparent;
-	background-image: url('../img/buttons/white_btn_bg.png');
-}*/
-
-
 
 /* ==========================================================================
    Helper classes
