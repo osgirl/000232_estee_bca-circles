@@ -264,8 +264,6 @@ function translatePage(){
 	$('.language_name').html($(languageItem).html());
 	$('.flag img').attr('src', $(countryItem).children('img').attr('src') );
 
-	
-
 	$.language.load(function(e){
 
 		$('.log_out_status').show();
@@ -288,10 +286,6 @@ function translatePage(){
 
    		$.feed();
 			fm_ready(function() {
-
-				console.log("feed ready")
-
-
 				carousel.initCarousel();
 				gallery.loadGallery();
 
@@ -439,7 +433,6 @@ function getLogoutStatus(e){
 	gallery.refreshCircles();
 	carousel.refreshCircles();
 
-	
 }
 
 function getLoginCancelStatus(){
@@ -624,8 +617,6 @@ function openCreateCircleScreen(hasGoal){
 	curSelectedFriendName = null;
 	curSelectedFriendID = null;
 	curSelectedFriendPic = null;
-
-
 
 	if(hasGoal){
 		curSelectedGoal = goal = currentSameGoal;

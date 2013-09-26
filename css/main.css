@@ -1219,7 +1219,7 @@ h2{
 	font-size:1.1em;
 	position:relative;
 	margin-bottom:20px;
-	z-index:9999;
+	z-index:999;
 }
 
 #goal_selected{
