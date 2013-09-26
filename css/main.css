@@ -594,8 +594,8 @@ h2{
 #load_more_btn_wrapper{
 	width:100%;
 	text-align: center;
-	position:absolute;
-	bottom:0;
+	/*position:absolute;*/
+	/*bottom:0;*/
 }
 
 #feed_magnet {
