@@ -152,7 +152,7 @@
 										<div id='join_text' class='light_font' language_id="join_the_conversation_copy" language_location="home" >Show how you're fighting breast cancer by creating a circle, uploading a photo, or tagging posts on Instagram and Twitter with <b>#BCAstrength</b>.</div>
 										<table class="btn_control">
 											<tr>
-											    <td class="button_left_wrapper"><a class='start_create_circle_btn pink_btn all_cap' language_id="create_a_circle" language_location="home" >CREATE A CIRCLE</a></td>
+											    <td class="button_left_wrapper"><a id='create_a_circle' class='start_create_circle_btn pink_btn all_cap' language_id="create_a_circle" language_location="home" >CREATE A CIRCLE</a></td>
 												<td class="button_right_wrapper"><a onclick="return $.popup({type:'photo_upload'});" class='upload_photo_btn pink_btn pull_left all_cap' language_id="upload_a_photo" language_location="home" >UPLOAD A PHOTO</a></td>
 											</tr>
 										</table>

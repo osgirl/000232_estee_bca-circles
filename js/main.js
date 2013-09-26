@@ -398,7 +398,7 @@ function openCreateCircleScreenFromCircleView(){
 }
 
 function getLoginStatus(e){
-	$('.start_create_circle_btn').unbind('click').click(function(e){openCreateCircleScreen(false);})
+	$('#create_another_circle').unbind('click').click(function(e){openCreateCircleScreen(false);})
 	
 	if(createCircleClicked) openCreateCircleScreen(false);
 	gallery.refreshCircles();
@@ -419,7 +419,7 @@ function getLogoutStatus(e){
 	$('.sign_in_btn .sign_in').html(signInText);
 	$('.sign_in_btn').unbind('click').click(facebook.login);
 	
-	$('.start_create_circle_btn').unbind('click').click(function(e){
+	$('#create_a_circle').unbind('click').click(function(e){
 		facebook.login(function(){openCreateCircleScreen(false)});
 		createCircleClicked = true;
 	})
