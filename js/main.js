@@ -207,7 +207,7 @@ function windowResize(){
 		SCROLL_TO_SHOW_FOOTER = 2100;
 	}else{
 		$('#regular_footer').hide();
-		$('#load_more_btn_wrapper').show();
+		if(isMoreFeed)$('#load_more_btn_wrapper').show();
 		SCROLL_TO_SHOW_FOOTER = 4000;
 	}
 
