@@ -136,8 +136,8 @@ translator.defineOptItems = function(){
     var optCopyText;
 
     $(languageData).each(function(i,v){
-        if(v[0] == "terms_and_conditions") termsAndConditionsText = v[1];
-        if(v[0] == "privacy_policy") privacyPolicyText = v[1];
+        if(v[0] == "terms_and_conditions_in_text") termsAndConditionsText = v[1];
+        if(v[0] == "privacy_policy_in_text") privacyPolicyText = v[1];
         if(v[0] == "opt_copy") optCopyText = v[1];
     }); 
 
