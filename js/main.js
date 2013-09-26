@@ -164,7 +164,7 @@ function directDonateLink(){
 	if(selectedLanguage == "it" || selectedCountry == "it")
 		donate_link = "http://www.nastrorosa.it/";
 	else
-		donate_link = "https://donations.bcrfcure.org/sslpage.aspx?pid=298";
+		donate_link = "https://donations.bcrfcure.org/circlesofstrength";
 
 	$('.donate_btn').attr('href', donate_link);
 
