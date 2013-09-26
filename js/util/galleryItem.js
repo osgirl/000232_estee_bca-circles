@@ -255,7 +255,7 @@ function GalleryItem()
 			circle.attr('goal_id', data.goal_id);
 			circle.attr('goal_type', data.goal_type);
 			circle.attr('country', data.country);
-			circle.find('.circle_flag').css("background-image", 'url("' + baseUrl + 'img/flags/large/' + data.country + '.png")');
+			circle.find('.circle_flag img').attr("src", baseUrl + 'img/flags/large/' + data.country + '.png');
 			//circle.find('.lt-ie9 .circle_flag').css("-pie-background", 'url("' + baseUrl + 'img/flags/large/' + data.country + '.png") no-repeat 80% 80% / cover')
 
 			circle.find('.circle_creator').html(data.user_name);

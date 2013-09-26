@@ -627,15 +627,17 @@ h2{
 	position: absolute;
 	top:10px;
 	right:10px;
-	-moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -khtml-border-radius: 50%;
-    border-radius: 50%;	 
 	width:39px;
 	height:39px;
-	background-size: 40px auto;
-	background-image: url('../img/flags/large/united-states.png');
-	background-position: -1px -1px;
+}
+
+.circle_flag img{
+	-moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -khtml-border-radius: 50px;
+    border-radius: 50px;
+	width:100%;
+	height:auto;
 }
 
 .rollover_link{
@@ -1887,7 +1889,8 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 .lt-ie9 .profile_image_small img,
 .lt-ie9 .friend_image_small img
 {
-	behavior: url(http://www.bcacampaign.com/_efb/bca_strongertogether/css/PIE.htc);
+	/*behavior: url(http://www.bcacampaign.com/_efb/bca_strongertogether/css/PIE.htc);*/
+	behavior: url(http://staging.click3x.com/estee_lauder/bca/css/PIE.htc);
 }
 
 .lt-ie9 .language_menu_dropdown li{

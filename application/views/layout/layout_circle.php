@@ -1,5 +1,5 @@
 <!--LAYOUT CIRCLE START-->
-<div class="circle_flag"></div>
+<div class="circle_flag"><img/></div>
 <div class="circle_creator_area"><span class="circle_creator"></span> <span language_id="created_a" language_location="circle" >created a</span></div>
 <div class="circle_of_strength" language_id="circle_of_strength" language_location="circle" >Circle of Strength</div>
 <div class="circle_divider"></div>
