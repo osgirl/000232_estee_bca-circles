@@ -19,6 +19,14 @@
     vi
   ==============*/
 
+  /*korean font*/
+
+  .ko .stronger_together,
+  .ko #around_the_world,
+  .ko #join_header{
+    font-family: "Malgun Gothic", "Apple Gothic", sans-serif;
+  }
+
   /*Hebrew and Arabic right to left*/
 
   .he #top_sub_nav,
