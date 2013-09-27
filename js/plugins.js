@@ -16,6 +16,7 @@
             console[method] = noop;
         }
     }
+
 }());
 
 function tsToDate(ts)

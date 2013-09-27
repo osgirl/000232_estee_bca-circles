@@ -66,37 +66,55 @@ facebook.fetchFriendlist = function( _callback ){
 
 			//console.log("friendlist reset?", friendProfileList)
 
+			var dataCount = 0;
+
 	        $(fbresponse.data).each( function(index,value){
 				var friendObj = new Object();
 				friendObj.id = value.id;
 				friendObj.name = value.name;
-			
-	        	FB.api('/'+value.id+'/picture?width=100&height=100', function(fbresponse_b){
-	        		//console.log("-- got "+ friendObj.name + "s photo. --" );
 
-			    	if (fbresponse_b && fbresponse_b.data){
+				FB.api('/'+value.id, function(response){
+			      if (response){
+			        //curSelectedFriendName = response.first_name + " " + response.last_name.substr(0,1) + ".";
 
+			        friendObj.firstName = response.first_name;
+			        friendObj.lastName = response.last_name;
 
-				       	$(fbresponse_b.data).each(function(i,v){
-				        	friendObj.pic = v.url;
-				        	friendProfileList.push(friendObj);
-				        });
+			        FB.api('/'+value.id+'/picture?width=100&height=100', function(fbresponse_b){
+			     //    		//console.log("-- got "+ friendObj.name + "s photo. --" );
 
-				        friendcount++;
+					    	if (fbresponse_b && fbresponse_b.data){
 
-			        	if(friendcount >= fbresponse.data.length){
-			        		//all friends are here now. we're done.
-			        		$('body').trigger('GOT_FRIEND_LIST');
+						       	$(fbresponse_b.data).each(function(i,v){
+						        	friendObj.pic = v.url;
+						        	friendProfileList.push(friendObj);
+						        });
 
-			        		if(_callback) _callback();
-			        	}
-			    	} else {
-			        	console.log("-- error getting "+ friendObj.name + "s photo. --" );
-			    	}
+						        friendcount++;
 
-			    	if(friendObj.pic == undefined || friendObj.pic == null || friendObj.pic.indexOf(".gif") != -1)
-						friendObj.pic = baseUrl + indexPage + "img/assets/profile_generic.jpg";
+					        	if(friendcount >= fbresponse.data.length){
+					        		//all friends are here now. we're done.
+					        		$('body').trigger('GOT_FRIEND_LIST');
+
+					        		if(_callback) _callback();
+					        	}
+					    	} else {
+					        	console.log("-- error getting "+ friendObj.name + "s photo. --" );
+					    	}
+
+					    	if(friendObj.pic == undefined || friendObj.pic == null || friendObj.pic.indexOf(".gif") != -1)
+								friendObj.pic = baseUrl + indexPage + "img/assets/profile_generic.jpg";
+					    });
+			        
+
+			      } else {
+			       // console.log('friend names goes wrong', response);
+			      }
 			    });
+
+			    
+			
+
 	        });
 	    } else {
 	    	console.log("-- error retrieving friends list --" );

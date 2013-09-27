@@ -691,7 +691,7 @@ function openEditFriend(){
 
 function closeEditFriend(){
 	$(".overlay").hide();
-	$("#create_circle_screen").fadeOut(200);
+	$("#create_circle_screen").hide();
 	$('#content_wrap').css('z-index', '0');
 	$('.overlay').css('z-index', '-9999');
 	createCircleWindowOpen = false;
@@ -838,6 +838,8 @@ function getFriendList(e){
 		if($(e.currentTarget).val() == "")  resetNameTextfield();
 	})
 
+	console.log(friendProfileList);
+
 	
 	$('#friend_search_field').typeahead({
 			source: function (query, process) {
@@ -859,20 +861,20 @@ function getFriendList(e){
 				curSelectedFriendID 	= nameObj[item].id;
 				curSelectedFriendPic 	= nameObj[item].pic;
 
-				FB.api('/'+curSelectedFriendID, function(response){
-			      if (response){
-			        curSelectedFriendName = response.first_name + " " + response.last_name.substr(0,1) + ".";
+				//FB.api('/'+curSelectedFriendID, function(response){
+			    //  if (response){
+			        curSelectedFriendName = nameObj[item].firstName + " " + nameObj[item].lastName.substr(0,1) + ".";
 			        
 			        //resize the field
-			        $("#temp_name_enter_container").html(response.name);
+			        $("#temp_name_enter_container").html(nameObj[item].name);
 				    $('#friend_search_field').width($("#temp_name_enter_container").width() + 25);
 				    $('#friend_search_field').blur();
 				    $('#name_plus_btn').show();
 
-			      } else {
+			     // } else {
 			       // console.log('friend names goes wrong', response);
-			      }
-			    });
+			     // }
+			   // });
 
 			    return item;
 			},
@@ -949,8 +951,6 @@ function addFriend(){
 		$("#friend_list").append(friendList);
 		$("#friend_list").append(tempFriendList);
 
-		console.log("damn it", friendSelectedArray.length)
-
 		if(friendSelectedArray.length < MAX_FRIENDS_NUM) {
 			$("#friend_list").append("<span class='comma'>, </span>"); 
 			
@@ -970,6 +970,12 @@ function addFriend(){
 				$('#friend_search_field').tooltip('hide');
 				resetNameTextfield();
 			},TOOLTIP_TIMEOUT);
+
+			$('.friend_item').each(function(i,v){
+				if($(v).attr('id') == curSelectedFriendID){
+					resetFriendPhotoItem($(v));
+				}
+			})
 	}
 
 }
@@ -978,9 +984,12 @@ function deleteFriend(deleteTarget){
 
 	$('#friend_search_wrapper').show();
 	$('#choose_photos_wrapper').show();
+
 	$('.friend_item').unbind('click').click(function(e){
-             	friendPicClick(e.currentTarget);
-            })
+          friendPicClick(e.currentTarget);
+
+    })
+
 
 	if(friendSelectedArray.length == MAX_FRIENDS_NUM) $("#friend_list").append("<span class='comma'>, </span>");
 	deleteTarget.next('.temp_name_input_container').next('.comma').remove();
