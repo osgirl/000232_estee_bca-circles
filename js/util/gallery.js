@@ -730,6 +730,8 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 
 		function getInstagramData(data, feed){
 
+			if(if(feed.photos[0]){
+
 			var popupData = {
 						type:'photo', 
 						data:{
@@ -756,6 +758,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				}
 
 				populatePhotoContent(contentData);
+			}
 
 				
 		}
