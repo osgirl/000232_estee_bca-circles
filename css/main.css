@@ -1874,6 +1874,10 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 
 /* IE 8 Rounded corners*/
 
+.lt-ie9 {
+	font-family: Arial Unicode MS, Arial, Helvetica, sans-serif;
+}
+
 .lt-ie9 .pink_btn, 
 .lt-ie9 .featured_dot,
 .lt-ie9 #user_profile_pic img,
@@ -1936,6 +1940,8 @@ box-shadow: -1px 5px 11px -5px rgba(0,0,0,0.38);
 	text-align: left;
 	direction: ltr;
 }
+
+
 
 /* ==========================================================================
    Helper classes
