@@ -218,14 +218,14 @@
     font-size:12px;
   }
 
-  .it #join_fight, .it #join_fight_content{
+/*  .it #join_fight, .it #join_fight_content{
     display:none;
   }
 
   .it #watch_video{
     background:none;
     padding:0 40%;
-  }
+  }*/
 
 
   .it .popup #popup_footer_share li, 
@@ -715,6 +715,7 @@
     font-size:1em;
   }
 
+  .it #join_fight_text,
   .el #join_fight_text{
     font-size:.7em;
   }

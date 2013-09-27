@@ -137,6 +137,12 @@ $(document).ready(function(){
 	translatePage();
 	directDonateLink();
 	defineLanguageMenus();
+
+	if(selectedLanguage == "cn"){
+		$("#big_image img").attr('src', baseUrl + "img/pics/stronger-together-new-chinese.jpg");
+		$(".stronger_together").hide();
+		$(".copy_text").hide();
+	}
 	
 });
 
@@ -392,7 +398,7 @@ function openCreateCircleScreenFromCircleView(){
 }
 
 function getLoginStatus(e){
-	$('#create_another_circle').unbind('click').click(function(e){openCreateCircleScreen(false);})
+	
 	
 	if(createCircleClicked) openCreateCircleScreen(false);
 	gallery.refreshCircles();
@@ -413,10 +419,7 @@ function getLogoutStatus(e){
 	$('.sign_in_btn .sign_in').html(signInText);
 	$('.sign_in_btn').unbind('click').click(facebook.login);
 	
-	$('#create_a_circle').unbind('click').click(function(e){
-		facebook.login(function(){openCreateCircleScreen(false)});
-		createCircleClicked = true;
-	})
+	
 	
 	// $('.upload_photo_btn').unbind('click').click(function(e){
 	// 	console.log('do upload photo');
@@ -451,7 +454,6 @@ function displayUserInfo(e){
 	    	$(currentCircleView + ' .btn_edit').hide();
 	}
     
-
 	var shortenName = userFirstName + " " + userLastName.substr(0,1) + ".";
 	var fullName = userFirstName + " " + userLastName;
 	$('.user_name_display').html(shortenName);
@@ -469,6 +471,13 @@ function displayUserProfilePic(e){
 }
 
 function enableButtons(){
+
+	$('#create_a_circle').unbind('click').click(function(e){
+		facebook.login(function(){openCreateCircleScreen(false)});
+		createCircleClicked = true;
+	})
+
+	$('#create_another_circle').unbind('click').click(function(e){openCreateCircleScreen(false);})
 
 	$('#conversation_btn').unbind("click").click(function(e){
 		$('html, body').animate({
