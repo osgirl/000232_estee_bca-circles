@@ -949,11 +949,16 @@ function addFriend(){
 		$("#friend_list").append(friendList);
 		$("#friend_list").append(tempFriendList);
 
+		console.log("damn it", friendSelectedArray.length)
+
 		if(friendSelectedArray.length < MAX_FRIENDS_NUM) {
 			$("#friend_list").append("<span class='comma'>, </span>"); 
+			
+
 		} else{
 			$('#friend_search_wrapper').hide();
 			$('#choose_photos_wrapper').hide();
+			$('.friend_item').unbind('click');
 		}
 		
 		resetNameTextfield();
@@ -973,6 +978,9 @@ function deleteFriend(deleteTarget){
 
 	$('#friend_search_wrapper').show();
 	$('#choose_photos_wrapper').show();
+	$('.friend_item').unbind('click').click(function(e){
+             	friendPicClick(e.currentTarget);
+            })
 
 	if(friendSelectedArray.length == MAX_FRIENDS_NUM) $("#friend_list").append("<span class='comma'>, </span>");
 	deleteTarget.next('.temp_name_input_container').next('.comma').remove();
@@ -1053,10 +1061,19 @@ function createFriendPhotosPanel(){
 
              $(value).unbind('click').click(function(e){
 
-             	if(!$(e.currentTarget).attr('checked')){
+             	friendPicClick(e.currentTarget);
 
-             		curSelectedFriendID = $(e.currentTarget).attr('id');
-             		curSelectedFriendPic = $(e.currentTarget).attr('url');
+            })
+	    }
+	})
+
+}
+
+function friendPicClick(item){
+	if(!$(item).attr('checked')){
+
+             		curSelectedFriendID = $(item).attr('id');
+             		curSelectedFriendPic = $(item).attr('url');
 
              		FB.api('/'+curSelectedFriendID, function(response){
 				      if (response){
@@ -1068,29 +1085,24 @@ function createFriendPhotosPanel(){
 
 				      } 
 				    });
-             		$(e.currentTarget).unbind('mouseout')
-             		$(e.currentTarget).find('.photo_check').show();
-             		$(e.currentTarget).attr('checked', true);
+             		$(item).unbind('mouseout')
+             		$(item).find('.photo_check').show();
+             		$(item).attr('checked', true);
 
              	}else{
 
              		var friendSelectItem;
 
              		$('.friend_btn').each(function(i,v){
-             			if($(v).attr('id') == $(e.currentTarget).attr('id')) {
+             			if($(v).attr('id') == $(item).attr('id')) {
              				friendSelectItem = $(v);
              			}
              		})
 
              		deleteFriend(friendSeleteItem)
-             		resetFriendPhotoItem($(e.currentTarget));
+             		resetFriendPhotoItem($(item));
 
              	}
-
-            })
-	    }
-	})
-
 }
 
 function openFriendPhotosPanel(){
