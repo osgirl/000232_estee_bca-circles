@@ -34,4 +34,11 @@
 	});
 
 	translator.translateItems("video");
+
+	//Play video track
+	$('#embeded_video').click(function(){
+		$.gaEvent('Video', 'Played', 'Watched');
+		$(this).unbind('click');
+	});
+
 </script>
