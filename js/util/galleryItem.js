@@ -353,7 +353,7 @@ function GalleryItem()
 						//console.log(feed.text); 				  // <-- content
 						//console.log("instagram", feed.photos[0].url); 	// <-- photo_url
 
-						if(feed.photos[0].url){
+						if(feed.photos[0]){
 							popupData = {
 									type:'photo', 
 									data:{
