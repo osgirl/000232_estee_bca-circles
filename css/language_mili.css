@@ -20,11 +20,17 @@
   ==============*/
 
   /*korean font*/
-
+  .cn .stronger_together,
   .ko .stronger_together,
+  .cn #around_the_world,
   .ko #around_the_world,
+  .cn #join_header,
   .ko #join_header{
     font-family: "Malgun Gothic", "Apple Gothic", sans-serif;
+  }
+
+  .ko .stronger_together{
+    line-height: 1.3em;
   }
 
   /*Hebrew and Arabic right to left*/
