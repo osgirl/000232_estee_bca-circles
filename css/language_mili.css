@@ -290,6 +290,15 @@
     font-size:9px;
   }
 
+  .tr #donate_pink_btn{
+    font-size:11px;
+  }
+
+  .tr #join_fight{
+    padding-left:16%;
+    width:11%;
+  }
+
   .ru #join_fight_text, .de #join_fight_text{
     font-size:.6em;
   }
@@ -624,6 +633,10 @@
 
   .el #join_fight_text{
     font-size:.6em;
+  }
+
+  .tr #join_fight_text{
+    font-size:.7em;
   }
 
    .el #tagline {
