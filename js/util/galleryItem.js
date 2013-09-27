@@ -353,7 +353,8 @@ function GalleryItem()
 						//console.log(feed.text); 				  // <-- content
 						//console.log("instagram", feed.photos[0].url); 	// <-- photo_url
 
-						popupData = {
+						if(feed.photos[0].url){
+							popupData = {
 									type:'photo', 
 									data:{
 										id: feed.token,
@@ -363,18 +364,21 @@ function GalleryItem()
 										photo_url:feed.photos[0].url
 									}}
 
-						photoIcon = baseUrl + "img/icons/instagram.png";
+							photoIcon = baseUrl + "img/icons/instagram.png";
 
-						html = "<img class='full_photo' src='" + feed.photos[0].url + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
+							html = "<img class='full_photo' src='" + feed.photos[0].url + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 
-						div.html(html);
-						div.attr('type', 'instagram');
+							div.html(html);
+							div.attr('type', 'instagram');
 
-						div.fadeIn(200);
+							div.fadeIn(200);
 
-						enableItemButton(div, popupData);
+							enableItemButton(div, popupData);
 
-						centerRollOverContent(.55);
+							centerRollOverContent(.55);
+						}
+
+						
 
 						break;
 
