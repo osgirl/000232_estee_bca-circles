@@ -291,11 +291,13 @@ function GalleryItem()
 			//oc: loop through all items in the master feed to write them into the gallery
 			ored.allPhotoDataParsed.push(data);
 
+
 			$(data).each(function(i, v){
 				//console.log("FEED:",i);
 				//console.log(data);
 
 				feed = v.data;
+
 				var div;
 
 				if(isFeatured) {
@@ -306,7 +308,9 @@ function GalleryItem()
 						.appendTo($(".page"+pageNum));
 					
 				}else{	
+
 					div = (isMoreFeed) ? $($($(".page"+pageNum).find('.photo_container')).get(i)) : $($('.photo_container').get(i));
+
 				}
 
 				var popupData;
@@ -352,8 +356,9 @@ function GalleryItem()
 						//div.text('author: ' + feed.author.alias); // <-- author
 						//console.log(feed.text); 				  // <-- content
 						//console.log("instagram", feed.photos[0].url); 	// <-- photo_url
+						var photoUrl = (feed.photos[0]) ? feed.photos[0].url : baseUrl+ "img/pics/instagram-video.jpg";
 
-						if(feed.photos[0]){
+
 							popupData = {
 									type:'photo', 
 									data:{
@@ -361,12 +366,12 @@ function GalleryItem()
 										source:'instagram', 
 										author: feed.author.alias,
 										content:feed.text,
-										photo_url:feed.photos[0].url
+										photo_url:photoUrl
 									}}
 
 							photoIcon = baseUrl + "img/icons/instagram.png";
 
-							html = "<img class='full_photo' src='" + feed.photos[0].url + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
+							html = "<img class='full_photo' src='" + photoUrl + "'/><img class='photo_icon' src='" + photoIcon + "'/>" + photoButtonHtml;
 
 							div.html(html);
 							div.attr('type', 'instagram');
@@ -376,7 +381,6 @@ function GalleryItem()
 							enableItemButton(div, popupData);
 
 							centerRollOverContent(.55);
-						}
 
 						
 
