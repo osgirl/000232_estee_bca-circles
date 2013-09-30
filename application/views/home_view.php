@@ -20,6 +20,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>BCA - We're Stronger Together</title>
         <meta name="description" content="">
+        <meta property="og:title" content="Test Post"/>
         <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=0"/> 
 
         <link rel="stylesheet" href="<?= base_url(); ?>css/bootstrap.min.css?cachebuster=<?= $cacheBuster; ?>">
