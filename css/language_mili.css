@@ -29,8 +29,16 @@
     font-family: "Malgun Gothic", "Apple Gothic", sans-serif;
   }
 
+  .ko .nowrap{
+    white-space: nowrap;
+  }
+
   .ko .stronger_together{
     line-height: 1.3em;
+  }
+
+  .ko {
+    word-break: keep-all;
   }
 
   /*Hebrew and Arabic right to left*/
