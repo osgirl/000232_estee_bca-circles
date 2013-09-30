@@ -4,7 +4,28 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('home_view');
+		//Load language model
+		$this->load->model('languages_model');
+
+		//find a selected language
+		$language = $this->config->item('language_abbr');
+		$country  = $this->config->item('country_abbr');
+		if ($language == 'en')
+            {
+                if ($country == 'uk') $language = 'en-uk';
+                else $language = 'en-us';
+            }
+            else if ($language == 'es' && $country == 'mx')
+            {
+                $language = 'es-mx';
+            }
+            else if ($language == 'fr' && $country == 'ca') $language = 'fr-ca';
+
+        $pk = $this->languages_model->pk();
+
+        $data['fb_share_title'] = $this->languages_model->get( array('select'=> $language, $pk => 'we_are_stronger_together_upload_photo'))->$language;
+        $data['fb_share_desc']  = $this->languages_model->get( array('select'=> $language, $pk => 'share_create_a_circle_of_strength_with'))->$language;
+		$this->load->view('home_view', $data);
 	}
 	
 	public function twitter_share($url ="", $hashtag_before_url = false, $goal)
