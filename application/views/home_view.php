@@ -19,8 +19,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>BCA - We're Stronger Together</title>
-        <meta name="description" content="">
-        <meta property="og:title" content="<?=$fb_share_title;?>"/>
+        <meta property="og:title" content="test"/>
         <meta property="og:description" content="<?=$fb_share_desc;?>"/>
         <meta property="og:image" content="http://www.bcacampaign.com/_efb/bca_strongertogether/img/assets/fb_share_arial1.png"/>
         <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=0"/> 
