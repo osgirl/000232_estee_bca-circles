@@ -306,6 +306,7 @@ class Photo extends CI_Controller {
 		$bgCircleColor  = array( 245, 113, 157, 0 );
 
 		$colorWhite     = imagecolorallocate( $canvas, 255, 255, 255 );
+		$colorYellow    = imagecolorallocate( $canvas, 255, 245, 170 );
 
 		$thumbs_url     = $data->photo;
 		$user_name      = $data->name;
@@ -402,7 +403,13 @@ class Photo extends CI_Controller {
 
 		//Create a header
 		imagettftext( $canvas, 15*$m, 0, 20*$m, 30*$m, $colorWhite, $fontNormal, $user_name . " ".$createAText);
-		imagettftext( $canvas, 20*$m, 0, 20*$m, 70*$m, $colorWhite, $fontNormal, $circleOfStrengh );
+		if($language == 'en'){
+			imagettftext( $canvas, 20*$m, 0, 20*$m, 59*$m, $colorWhite, $fontNormal, $circleOfStrengh );
+			imagettftext( $canvas, 10*$m, 0, 23*$m, 77*$m, $colorYellow, $fontNormal, 'to take action in the fight against breast cancer.' );
+		}
+		else{
+			imagettftext( $canvas, 20*$m, 0, 20*$m, 70*$m, $colorWhite, $fontNormal, $circleOfStrengh );
+		}
 		imageline($canvas, 20*$m, 85*$m, 480*$m, 85*$m, $colorWhite);
 
 		// Create texts in a center of circle
