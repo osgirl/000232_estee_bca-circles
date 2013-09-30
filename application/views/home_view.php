@@ -21,6 +21,7 @@
         <title>BCA - We're Stronger Together</title>
         <meta name="description" content="">
         <meta property="og:title" content="Test Post"/>
+        <meta property="og:image" content="http://www.bcacampaign.com/_efb/bca_strongertogether/img/assets/fb_share_arial1.png"/>
         <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=0"/> 
 
         <link rel="stylesheet" href="<?= base_url(); ?>css/bootstrap.min.css?cachebuster=<?= $cacheBuster; ?>">
