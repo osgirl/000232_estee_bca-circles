@@ -292,9 +292,13 @@ function GalleryItem()
 			ored.allPhotoDataParsed.push(data);
 
 
+
 			$(data).each(function(i, v){
 				//console.log("FEED:",i);
 				//console.log(data);
+
+
+			console.log("what is this",feed)
 
 				feed = v.data;
 
@@ -356,7 +360,7 @@ function GalleryItem()
 						//div.text('author: ' + feed.author.alias); // <-- author
 						//console.log(feed.text); 				  // <-- content
 						//console.log("instagram", feed.photos[0].url); 	// <-- photo_url
-						var photoUrl = (feed.photos[0]) ? feed.photos[0].url : baseUrl+ "img/pics/instagram-video.jpg";
+						var photoUrl = (feed.photos[0]) ? feed.photos[0].url : feed.photos[0].url;
 
 
 							popupData = {
