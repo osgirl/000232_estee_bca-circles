@@ -405,7 +405,7 @@ class Photo extends CI_Controller {
 		imagettftext( $canvas, 15*$m, 0, 20*$m, 30*$m, $colorWhite, $fontNormal, $user_name . " ".$createAText);
 		if($language == 'en'){
 			imagettftext( $canvas, 20*$m, 0, 20*$m, 59*$m, $colorWhite, $fontNormal, $circleOfStrengh );
-			imagettftext( $canvas, 10*$m, 0, 23*$m, 77*$m, $colorYellow, $fontNormal, 'to take action in the fight against breast cancer.' );
+			imagettftext( $canvas, 10*$m, 0, 23*$m, 77*$m, $colorWhite, $fontNormal, 'to take action in the fight against breast cancer.' );
 		}
 		else{
 			imagettftext( $canvas, 20*$m, 0, 20*$m, 70*$m, $colorWhite, $fontNormal, $circleOfStrengh );
