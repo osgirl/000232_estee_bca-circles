@@ -426,13 +426,17 @@
     font-size:40%;
   }
 
-  .el .feature_circle .circle_goal, 
+   
   .it .feature_circle .circle_goal, 
   .pt .feature_circle .circle_goal,
   .vi .feature_circle .circle_goal,
   .tr .feature_circle .circle_goal
   {
     font-size:.8em;
+  }
+
+  .el .feature_circle .circle_goal{
+    font-size:.7em;
   }
 
   .el .gallery_circle .circle_goal, 
