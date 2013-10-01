@@ -23,8 +23,14 @@ class Home extends CI_Controller {
 
         $pk = $this->languages_model->pk();
 
-        $data['fb_share_title'] = $this->languages_model->get( array('select'=> $language, $pk => 'we_are_stronger_together_upload_photo'))->$language;
-        $data['fb_share_desc']  = $this->languages_model->get( array('select'=> $language, $pk => 'share_create_a_circle_of_strength_with'))->$language;
+        if($language == 'ny'){
+        	$data['fb_share_title'] = '';
+        	$data['fb_share_desc'] = '';
+        }
+        else{
+        	$data['fb_share_title'] = $this->languages_model->get( array('select'=> $language, $pk => 'we_are_stronger_together_upload_photo'))->$language;
+        	$data['fb_share_desc']  = $this->languages_model->get( array('select'=> $language, $pk => 'share_create_a_circle_of_strength_with'))->$language;
+        }
 		$this->load->view('home_view', $data);
 	}
 	
