@@ -393,10 +393,12 @@ function enableEventBinds(){
 function openCreateCircleScreenFromCircleView(){
 
 	if(currentCircleViewData){
-		if(currentCircleViewData.is_user)
+		if(currentCircleViewData.is_user){
 			openEditFriend();
-		else
-			openCreateCircleScreen(false);
+		}
+		else{
+			(isLogin) ? openCreateCircleScreen(false) : facebook.login(function(){openCreateCircleScreen(false)});
+		}
 	}
 
 }
