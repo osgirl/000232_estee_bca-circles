@@ -43,7 +43,20 @@
 /* ===============
     Smartphone (480px)
    =============== */
-  
+
+   .twitter_avatar{
+		width:30px;
+		height:30px;
+	}
+
+	.twitter_author{
+		font-size:.8em;
+	}
+
+	.twitter_text{
+		font-size:.7em;
+	}
+
     #content_wrap{
 	  	max-width:480px;
 	}
@@ -348,6 +361,10 @@
 /* ===============
     Smartphone (640px)
    =============== */
+
+	.twitter_author{
+		font-size:1em;
+	}
 
    #language_tool{
 		clear:none; 

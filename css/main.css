@@ -789,12 +789,12 @@ h2{
 
 .twitter_avatar{
 	margin:15px 10px 0 10px;
-	width:30px;
-	height:30px;
+	width:22px;
+	height:22px;
 }
 
 .twitter_author{
-	font-size:.8em;
+	font-size:.6em;
 	color:#333388;
 	margin-top:3px;
 }
@@ -805,7 +805,7 @@ h2{
 }
 
 .twitter_text{
-	font-size:.7em;
+	font-size:.65em;
 	color:white;
 	clear:both;
 	width:92%;
