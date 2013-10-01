@@ -32,8 +32,10 @@ facebook.checkLoginStatus = function(){
 			userID = fbresponse.authResponse.userID;
 			facebook.access_token = fbresponse.authResponse.accessToken;
 
-			$('body').trigger('LOGIN_SUCCESS');
 			isLogin = true;
+
+			$('body').trigger('LOGIN_SUCCESS');
+			
 
 			facebook.fetchUserData( facebook.fetchFriendlist );
 		} else if (fbresponse.status === 'not_authorized') {
