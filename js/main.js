@@ -110,14 +110,14 @@ var friendCount = 0;
 
 $(document).ready(function(){	
 
-	console.log = function() {}
-	console.debug = function() {}
-	console.info = function() {}
+	// console.log = function() {}
+	// console.debug = function() {}
+	// console.info = function() {}
 	
 	//sean: check the url first and redirect to en/us if the first parameter is NY.
     if(indexPage.split('/')[0] == "ny" ){
-    	$.gaPageview('/NY/');
-        location.replace(baseUrl + "en/us");
+    	$.gaPageview(/NY/);
+    	var intv = setInterval( function(){location.replace(baseUrl + "en/us");}, 500  );
         return true;
     }
 
