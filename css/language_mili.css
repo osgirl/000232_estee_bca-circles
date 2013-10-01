@@ -727,7 +727,8 @@
   .tr .gallery_circle .circle_goal,
   .vi .gallery_circle .circle_goal
   {
-    font-size:1.2em;
+    font-size:1.1em;
+    line-height: 1.5em;
   }
 
 }
@@ -748,6 +749,7 @@
   .tr .feature_circle .circle_goal
   {
     font-size:1em;
+    line-height: 1.1em;
   }
 
   .it #join_fight_text,

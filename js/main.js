@@ -216,6 +216,7 @@ function windowResize(){
 		$('#load_more_btn_wrapper').hide();
 		SCROLL_TO_SHOW_FOOTER = 2100;
 	}else{
+		console.log("hide");
 		$('#regular_footer').hide();
 		$('#load_more_btn_wrapper').show();
 		SCROLL_TO_SHOW_FOOTER = 4000;
