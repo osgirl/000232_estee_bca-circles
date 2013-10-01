@@ -110,14 +110,14 @@ var friendCount = 0;
 
 $(document).ready(function(){	
 
-	console.log = function() {}
-	console.debug = function() {}
-	console.info = function() {}
+	// console.log = function() {}
+	// console.debug = function() {}
+	// console.info = function() {}
 	
 	//sean: check the url first and redirect to en/us if the first parameter is NY.
     if(indexPage.split('/')[0] == "ny" ){
     	$.gaPageview(/NY/);
-        location.replace(baseUrl + "en/us");
+    	var intv = setInterval( function(){location.replace(baseUrl + "en/us");}, 500  );
         return true;
     }
 
@@ -216,7 +216,6 @@ function windowResize(){
 		$('#load_more_btn_wrapper').hide();
 		SCROLL_TO_SHOW_FOOTER = 2100;
 	}else{
-		console.log("hide");
 		$('#regular_footer').hide();
 		$('#load_more_btn_wrapper').show();
 		SCROLL_TO_SHOW_FOOTER = 4000;
