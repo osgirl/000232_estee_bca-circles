@@ -110,9 +110,9 @@ var friendCount = 0;
 
 $(document).ready(function(){	
 
-	// console.log = function() {}
-	// console.debug = function() {}
-	// console.info = function() {}
+	console.log = function() {}
+	console.debug = function() {}
+	console.info = function() {}
 	
 	//sean: check the url first and redirect to en/us if the first parameter is NY.
     if(indexPage.split('/')[0] == "ny" ){
@@ -1242,6 +1242,8 @@ function getUserCircleData(){
 function createStatItem(item, parent, line1, line2, data, isCircle){
 
 	//to do: pop in goal with different languages
+
+	console.log(data)
 		var statItem = $('<table>');
 		statItem.addClass('action_item');
 
@@ -1262,6 +1264,8 @@ function createStatItem(item, parent, line1, line2, data, isCircle){
 							content:data.goal, 
 							avatar:data.avatar,
 							users_fb_id:userID,
+							author:userName,
+							country:selectedCountry,
 							num_friends: data.friends_data.length,
 							friends_data: data.friends_data,
 							is_user:true
