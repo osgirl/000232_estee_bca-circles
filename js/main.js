@@ -110,9 +110,9 @@ var friendCount = 0;
 
 $(document).ready(function(){	
 
-	console.log = function() {}
-	console.debug = function() {}
-	console.info = function() {}
+	// console.log = function() {}
+	// console.debug = function() {}
+	// console.info = function() {}
 	
 	//sean: check the url first and redirect to en/us if the first parameter is NY.
     if(indexPage.split('/')[0] == "ny" ){
@@ -653,10 +653,18 @@ function openCreateCircleScreen(hasGoal){
 	
 	$("#custom_action").unbind("keyup").keyup(function(e){
 		goal = String($(e.currentTarget).val());
-		if($(e.currentTarget).val() == "")
+		if($(e.currentTarget).val() == ""){
 			$("#select_action").css({ opacity: 1 });
-		else
+			goalID = curSelectedGoalID;
+			goal = curSelectedGoal;
+			isCustomizeGoal = false;
+			currentSameGoalType = "default";
+		}
+		else{
 			$("#select_action").css({ opacity: .3 });
+			isCustomizeGoal = true;
+			currentSameGoalType = "customize";
+		}
 		
 	})
 }
@@ -1299,17 +1307,29 @@ function createCircle(){
 		success: function(data) { 
 
 			goalData = data;
+
+			console.info("goal before final defined", goal, goalID);
+
+			$(goalTextArray).each(function(h,g){
+
+				if(String(goal) == String(g.text)) {
+					isCustomizeGoal = false;
+					goalID = Number(g.id.substr(0,1));
+
+					console.info(goal, g, goalID)
+				}
+
+			})
+
+			console.info("customize goal???", isCustomizeGoal)
 			 
 	    	$(goalData).each(function(i, v){
-
-				if(goal == String(v.goal)) {
-					isCustomizeGoal = false;
-					goalID = v.id;
-				}
 
 				goalCount++; 
 
 				if(goalCount == goalData.length) {
+
+					console.info("is this doing the right thing", goal, goalID)
 
 						if(isCustomizeGoal){
 							$.ajax({
