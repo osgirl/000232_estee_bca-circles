@@ -389,6 +389,10 @@
     font-size:.6em;
   }
 
+  .tr #cancel_screen{
+    font-size:1.1em;
+  }
+
 
 @media only screen and (min-width: 360px) {
 
@@ -580,6 +584,10 @@
   .es .confirm_content p,
   .es #confirm_yes{
     font-size:.8em;
+  }
+
+  .tr #cancel_screen{
+    font-size:1.5em;
   }
 
 
