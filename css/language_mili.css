@@ -41,6 +41,7 @@
     word-break: keep-all;
   }
 
+
   /*Hebrew and Arabic right to left*/
 
   .he #top_sub_nav,
@@ -383,6 +384,11 @@
     font-size:.75em;
   }
 
+  .es .confirm_content p,
+  .es #confirm_yes{
+    font-size:.6em;
+  }
+
 
 @media only screen and (min-width: 360px) {
 
@@ -569,6 +575,11 @@
 
   .vi #tagline {
       top: 220px;
+  }
+
+  .es .confirm_content p,
+  .es #confirm_yes{
+    font-size:.8em;
   }
 
 
@@ -830,6 +841,11 @@
   .fr-ca #log_in_upload_photo_btn
   {
     font-size:.75em;
+  }
+
+  .es .confirm_content p,
+  .es #confirm_yes{
+    font-size:.9em;
   }
 
 
