@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
-# Host: 40west.esteeonline.com (MySQL 5.5.19-log)
-# Database: bca_stronger
-# Generation Time: 2013-10-02 16:18:16 +0000
+# Host: localhost (MySQL 5.5.25)
+# Database: BCA
+# Generation Time: 2013-10-02 16:22:52 +0000
 # ************************************************************
 
 

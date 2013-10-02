@@ -790,6 +790,8 @@ function resetCircle(){
 	stepID = 1;
 	goNextCreateCircleScreen(null);
 	agree = false;
+	$('#final_create_btn').addClass('dim');
+    $('#final_create_btn').unbind("click");
 	createCircleWindowOpen = false;
 
 
