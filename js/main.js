@@ -1316,6 +1316,7 @@ function createCircle(){
 
 				if(String(goal) == String(g.text)) {
 					isCustomizeGoal = false;
+					currentSameGoalType = "default";
 					goalID = Number(g.id.substr(0,1));
 
 					console.info(goal, g, goalID)
