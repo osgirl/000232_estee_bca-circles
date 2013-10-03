@@ -267,10 +267,12 @@
       top: 75px;
   }
 
+  .fr #donate_pink_btn,
   .pt #donate_pink_btn{
     font-size:10px;
   }
 
+  .fr #join_fight_text,
   .pt #join_fight_text{
     font-size:.7em;
   }
