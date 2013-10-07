@@ -147,7 +147,6 @@ translator.defineOptItems = function(){
         optCopyText = optCopyText.replace("[termsandconditions]", termsAndConditions);
         optCopyText = optCopyText.replace(/\[privacypolicy\]/g, privacyPolicy);
 
-        console.log("why why why", termsAndConditionsText, privacyPolicyText);
         $(".opt_copy").html(optCopyText);
     }
 }

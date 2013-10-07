@@ -341,9 +341,7 @@ function Gallery()
 		function onFetchAllCircles($circles){
 			console.info("onFetchAllCircles", $circles);
 
-
 			$($circles).each(function(i,v){
-				console.log("populate circle:",v.circle_id);
 				var circleContainer = (isMoreFeed) ? $($($(".page"+pageNum).find('.gallery_circle')).get(i)) : $($('.gallery_circle').get(i));
 				galleryItem.populateCircleContent(circleContainer, v);
 	            

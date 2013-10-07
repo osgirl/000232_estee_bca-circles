@@ -835,14 +835,15 @@ function actionSelected(e){
 		goal = currentSameGoal;
 		goalID = currentSameGoalID;
 	}
-	
-	
+
+	goal = goal.replace(/"/g, "");
+
 	curSelectedGoal = goal;
 	curSelectedGoalID = goalID;
 	$("#select_action_field").html(goal);
 	$("#custom_action").val("");
 	
-	//console.log("goal", goal);
+	console.info("goal selected", goal);
 }
 
 
@@ -854,7 +855,7 @@ function getFriendList(e){
 		if($(e.currentTarget).val() == "")  resetNameTextfield();
 	})
 
-	console.log(friendProfileList);
+	//console.log(friendProfileList);
 
 	
 	$('#friend_search_field').typeahead({
@@ -1253,7 +1254,7 @@ function createStatItem(item, parent, line1, line2, data, isCircle){
 
 	//to do: pop in goal with different languages
 
-	console.log(data)
+	
 		var statItem = $('<table>');
 		statItem.addClass('action_item');
 
@@ -1265,13 +1266,15 @@ function createStatItem(item, parent, line1, line2, data, isCircle){
 		statItem.find('img').attr('src', baseUrl + "img/icons/actions/" + data.goal_icon + ".png");
 
 		if(isCircle){
+			console.log("create stat item data", data)
+			var replaceGoal = data.goal.replace(/"/g, "");
         	statItem.find('.circle_view_link').unbind('click').click(function(e){
         			var popupData = {
 						type:'circle', 
 						data:{
 							id:data.circle_id,
 							circle_id:data.circle_id,
-							content:data.goal, 
+							content:replaceGoal, 
 							avatar:data.avatar,
 							users_fb_id:userID,
 							author:userName,
@@ -1310,7 +1313,7 @@ function createCircle(){
 
 			goalData = data;
 
-			console.info("goal before final defined", goal, goalID);
+			console.info("goal before final defined", goal, goalID, goalTextArray);
 
 			$(goalTextArray).each(function(h,g){
 
@@ -1463,8 +1466,6 @@ ored.getIdsFromFriends = function($list){
 
 function postCircleData(goal_id){
 
-	console.log("USER ID -----------------", userID)
-
 	var value = {
 		'users_fb_id' 	  : userID,
 		'users_name'  	  : userName,
@@ -1484,7 +1485,7 @@ function postCircleData(goal_id){
 			//oc: save circle id in cookie.
 			ored.cookieMonster.saveIdToCookie(data.id, "circles");
 
-			console.log("friends array", friendSelectedArray)
+			console.info("what goal am i getting here", goal, data.goal)
 
     		$.ajax({
 	        		type: 'post',
@@ -1570,13 +1571,10 @@ function updateFriends(){
         		    var circle_content 	= currentCircleViewData.content;
         		    var circle_photo 	= currentCircleViewData.avatar;
 
-					
-					
-
 					var updatedCircle;
 
 					$('.circle_container').each(function(i,v){
-						console.info("friend updated, checking circle id", $(v).attr('circle_id'), currentCircleViewData.id)
+
 						if($(v).attr('circle_id') == currentCircleViewData.id){
 							updatedCircle = $(v);
 
