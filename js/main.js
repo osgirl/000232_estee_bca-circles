@@ -278,7 +278,10 @@ function translatePage(){
 
 		$('.log_out_status').show();
 
-		if(selectedLanguage == "en") NAME_TEXTFIELD_WIDTH = 135;
+		if(selectedLanguage == "en") {
+			NAME_TEXTFIELD_WIDTH = 135;
+			$('#video_bar').show();
+		}
 		if(selectedLanguage == "hu") NAME_TEXTFIELD_WIDTH = 175;
 		if(selectedLanguage == "de") NAME_TEXTFIELD_WIDTH = 165;
 		if(selectedLanguage == "fr") NAME_TEXTFIELD_WIDTH = 170;

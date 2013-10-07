@@ -446,7 +446,11 @@
 	}
 
 	#tagline{
-		top:175px;
+		top:135px;
+	}
+
+	#video_bar{
+		bottom:113px;
 	}
 
 	.stronger_together{
@@ -605,6 +609,14 @@
 	.stronger_together{
 		font-size:3em;
 	}
+
+	#tagline{
+		top:155px;
+	}
+
+	#video_bar{
+		bottom:82px;
+	}
 }
 
 
@@ -716,6 +728,10 @@
 		width:50px;
 		height:50px;
 		background-size: 60px auto;
+	}
+
+	#video_bar{
+		bottom:13px;
 	}
 
 }

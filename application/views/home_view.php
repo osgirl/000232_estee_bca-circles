@@ -81,6 +81,13 @@
 				                    	<div language_id="we_are_stronger_together" language_location="home" class="stronger_together all_cap">we’re stronger<br /><span style="font-size:165%">together</span></div>
 				                    	<div language_id="main_image_copy" language_location="home" class="copy_text">Together, take action in defeating breast cancer by inviting your friends to join your circle of strength. Show how you're fighting breast cancer by adding a photo, creating a circle, or tagging #BCAstrength.</div>
 				                    </div>
+				                    <div id="video_bar">
+					                    <a  href="#video" onclick="return $.popup({type:'video'});">
+					                    	<div class="video_bar_item"><img src="<?= base_url(); ?>img/assets/video-thumb-small.jpg"/></div>
+					                    	<div id="video_bar_playbtn" class="video_bar_item"><img src="<?= base_url(); ?>img/assets/play-button.png"/></div>
+					                    	<div id="video_bar_title" class="all_cap video_bar_item">watch the bca video</div>
+				                    	</a>
+				                    </div>
 			                    </div>
 			                </div>
 			                <div class="top_content_span span6">

@@ -22,8 +22,12 @@
 		min-height:270px;
 	}
 
+	.en-us #big_image{
+		min-height:310px;
+	}
+
 	#tagline{
-		top:100px;
+		top:90px;
 	}
 
 	.stronger_together{
@@ -270,7 +274,7 @@
 		font-size:1.5em;
 	}
 
-	#big_image{
+	#big_image, .en-us #big_image{
 		min-height:374px;
 	}
 
@@ -353,6 +357,15 @@
 	 #confirm_yes{
 	    font-size:1em;
 	  }
+
+	 #tagline{
+		top:130px;
+	}
+
+	#video_bar_title{
+		margin-top:6px;
+		font-size:1em;
+	}
 
 }
 
@@ -599,7 +612,7 @@
 		padding-top:10px;
 	}
 
-	#big_image{
+	#big_image, .en-us #big_image{
 		min-height:505px;
 	}
 

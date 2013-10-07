@@ -303,7 +303,11 @@ h2{
 	overflow: hidden;
 }
 
-#big_image img{
+.en-us #big_image{
+		min-height:310px;
+	}
+
+#big_image > img{
 	position:absolute;
 	top:0;
 	left:0;
@@ -312,7 +316,7 @@ h2{
 
 #tagline{
 	position:absolute;
-	top:100px;
+	top:90px;
 	left:0;
 	text-align: center;
 	width:100%;
@@ -357,6 +361,33 @@ h2{
 	max-width:100%;
 	height:auto;
 	width: auto\9; /* ie8 */
+}
+
+#video_bar{
+	height:36px;
+	position:absolute;
+	bottom:0px;
+	width:100%;
+	background-color: #e7e7e7;
+	border-bottom:white 1px solid;
+	cursor: pointer;
+	display:none;
+}
+
+#video_bar_title{
+	font-family: "Times New Roman",Georgia,Serif;
+	margin-top:9px;
+	color:#555;
+	font-size:.8em;
+}
+
+#video_bar_playbtn{
+	margin-top:3px;
+}
+
+.video_bar_item{
+	float: right;
+	margin-left:10px;
 }
 
 #main_feature{
