@@ -110,9 +110,9 @@ var friendCount = 0;
 
 $(document).ready(function(){	
 
-	// console.log = function() {}
-	// console.debug = function() {}
-	// console.info = function() {}
+	console.log = function() {}
+	console.debug = function() {}
+	console.info = function() {}
 	
 	//sean: check the url first and redirect to en/us if the first parameter is NY.
     if(indexPage.split('/')[0] == "ny" ){
@@ -281,6 +281,10 @@ function translatePage(){
 		if(selectedLanguage == "en") {
 			NAME_TEXTFIELD_WIDTH = 135;
 			$('#video_bar').show();
+			$('#video_bar').click(function(e){
+				$.gaEvent('Video', 'Clicked', 'from Main Image');
+				$(this).unbind('click');
+			});
 		}
 		if(selectedLanguage == "hu") NAME_TEXTFIELD_WIDTH = 175;
 		if(selectedLanguage == "de") NAME_TEXTFIELD_WIDTH = 165;
@@ -407,7 +411,6 @@ function openCreateCircleScreenFromCircleView(){
 }
 
 function getLoginStatus(e){
-	
 	
 	if(createCircleClicked) openCreateCircleScreen(false);
 	gallery.refreshCircles();
