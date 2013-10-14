@@ -19,12 +19,12 @@ $config['file_max_size']	= 5000000;
 $config['fb_app_id'] 		= '307826036019777';
 $config['upload_url']		= 'uploads/';
 
-$config['circle_feed_name'] 		= "bca-circle";
-$config['photo_feed_name'] 			= "bca-photo";
-$config['instagram_feed_name'] 		= "bca-instagram";
-$config['twitter_feed_name'] 		= "bca-twitter";
-$config['circle_feed_feat_name'] 	= "bca-circle-feat";
-$config['photo_feed_feat_name'] 	= "bca-photo-feat";
+$config['circle_feed_name'] 		= "bca-circle-dev";
+$config['photo_feed_name'] 			= "bca-photo-dev";
+$config['instagram_feed_name'] 		= "bca-instagram-dev";
+$config['twitter_feed_name'] 		= "bca-twitter-dev";
+$config['circle_feed_feat_name'] 	= "bca-circle-feat-dev";
+$config['photo_feed_feat_name'] 	= "bca-photo-feat-dev";
 $config['instagram_feed_feat_name'] = "bca-instagram-feat";
 $config['twitter_feed_feat_name'] 	= "bca-twitter-feat";
 
