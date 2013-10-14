@@ -7,7 +7,7 @@ var isLogin;
 var ored 			= {};
 ored.friendsCircles	= [];
 ored.postVars		= {};
-ored.count 			= 128;//oc: how many do we from feedmagnet at a time to see if our friends are in there?
+ored.count 			= 100;//oc: how many do we from feedmagnet at a time to see if our friends are in there?
 ored.cookieMonster	= {};
 ored.photoIds 		= [];
 ored.photoData 		= [];
@@ -110,9 +110,9 @@ var friendCount = 0;
 
 $(document).ready(function(){	
 
-	console.log = function() {}
-	console.debug = function() {}
-	console.info = function() {}
+	// console.log = function() {}
+	// console.debug = function() {}
+	// console.info = function() {}
 	
 	//sean: check the url first and redirect to en/us if the first parameter is NY.
     if(indexPage.split('/')[0] == "ny" ){

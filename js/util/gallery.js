@@ -91,6 +91,8 @@ function Gallery()
 
 		var allCircleDataStorage = new Array();
 		var circleDataStorage = new Array();
+		var allFriendsCircleFeed = new Array();
+		var friendCircleCheckEnd = false;
 		
 
 
@@ -211,7 +213,8 @@ function Gallery()
 										if(!isMoreFeed){	
 											createCircleLayout();
 											$.feed.get(feedmagnet.circle_feed, getFriendCircleData, ored.count);
-										}else{				if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more(feedmagnet.circle_feed, getFriendCircleData, ored.count);
+										}else{				
+											if(checkIfLoadMore(circleFriendFeed, getCircleNum)) $.feed.more(feedmagnet.circle_feed, getFriendCircleData, ored.count);
 										}
 									});
 					} else{
@@ -888,6 +891,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			oneCircle = false;
 			circleEnd = false;
 			notEnoughPhoto = false;
+			friendCircleCheckEnd = false;
 			restNum = 0;
 			subRestNum = 0;
 			restCount = 0;
@@ -908,7 +912,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			loadLayout();
 		}
 
-
 		//oc: give feedmagnet response to php to fetch only friend circles
 		function getFriendCircleData(data){
 
@@ -923,10 +926,24 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 		 	var feedMagnetIds			= ored.getIdsFromFeed(data, "circles");
 		 	//console.log(feedMagnetIds);
 		 	//only get friend's circles if necessary.
+
+
 		 	if(feedMagnetIds.length > 0){
 		 		
 			 	ored.postVars.friendIdsJSON	= JSON.stringify(ored.getIdsFromFriends(friendProfileList));
 			 	ored.postVars.feedIdsJSON	= JSON.stringify(feedMagnetIds);
+
+			 	if(feedMagnetIds.length < 50) {
+			 		friendCircleCheckEnd = true;
+			 		$('#friends_circle_loader').hide();
+			 	}else{
+			 		$('#friends_circle_loader').show();
+			 	}
+
+
+			 	console.info("circle length", feedMagnetIds.length, friendCircleCheckEnd);
+			 	console.info("FRIEND CIRCLE ID", ored.postVars.feedIdsJSON);
+
 			 	$.ajax({
 	        		type: 'post',
 	             	url: baseUrl + indexPage + 'circle/fetchFriendCircleData',
@@ -944,56 +961,70 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			//console.log("onFetchFriendCircleData");
 
 					//createCircleLayout();
+					if($data.length > 0) {
 
-					if($data.length < getCircleNum) onePage = true;
+						$($data).each(function(i,v){
+							allFriendsCircleFeed.push(v);
+						})
+						
+					}
+
+
+					if(!friendCircleCheckEnd) {
+						$.feed.more(feedmagnet.circle_feed, getFriendCircleData, ored.count);
+					}else{
+
+						if(allFriendsCircleFeed.length < getCircleNum) onePage = true;
 					
-					circleFriendFeed 		= $data;
+						circleFriendFeed 		= allFriendsCircleFeed;
 
-					var containerCount 		= 0;
-					var circleFeedDataArray = new Array();
+						var containerCount 		= 0;
+						//var circleFeedDataArray = new Array();
 
-				 	$($data).each(function(i, v){	
-					 	
-				  	 	var feed 				= $data[i];
-		         		circleFeedDataArray.push(feed);
+						console.info("friend circle data", circleFriendFeed)
 
-		        		$.ajax({
-			        		type: 'get',
-			            	url: baseUrl + 'layout/loadLayoutCircle',
-			            	dataType: 'html',
-			            	
-			            	success: function(layoutData) {  
-			            		
-			            		var circleDiv = $('<div>');
-			            			circleDiv.append(layoutData)
-			            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
-			            		//var rowTarget = (containerCount<2) ? 0 : 1;
-						            		$('.page' + pageNum).append(circleDiv);
-			            		$(circleDiv).css('float','left');
-			            		$(circleDiv).css('clear','none');
-			            		$(circleDiv).hide();
-			            		$(circleDiv).fadeIn(200);
+					 	$(circleFriendFeed).each(function(i, v){	
+						 	
+					  	 	var feed 				= $data[i];
+			         		//circleFeedDataArray.push(feed);
 
-			            		containerCount++;
+			        		$.ajax({
+				        		type: 'get',
+				            	url: baseUrl + 'layout/loadLayoutCircle',
+				            	dataType: 'html',
+				            	
+				            	success: function(layoutData) {  
+				            		
+				            		var circleDiv = $('<div>');
+				            			circleDiv.append(layoutData)
+				            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
+				            		//var rowTarget = (containerCount<2) ? 0 : 1;
+							            		$('.page' + pageNum).append(circleDiv);
+				            		$(circleDiv).css('float','left');
+				            		$(circleDiv).css('clear','none');
+				            		$(circleDiv).hide();
+				            		$(circleDiv).fadeIn(200);
 
-			            		var contentData = {
-									index:containerCount,
-									item:$(circleDiv),
-									totalNum: $data.length*pageNum,
-									colNum:CIRCLE_LAYOUT_COLUMN_NUM,
-									type:'circle'
-								}
+				            		containerCount++;
 
-								galleryItem.populateCircleContent($(circleDiv), circleFeedDataArray[containerCount-1]);
+				            		var contentData = {
+										index:containerCount,
+										item:$(circleDiv),
+										totalNum: $data.length*pageNum,
+										colNum:CIRCLE_LAYOUT_COLUMN_NUM,
+										type:'circle'
+									}
 
-								if(contentData.index%2 == 0) updateGalleryHeight($(circleDiv).height()+50);
+									galleryItem.populateCircleContent($(circleDiv), v);
 
-								if(i == $data.length - 1) enableLazyloader();
+									if(contentData.index%2 == 0) updateGalleryHeight($(circleDiv).height()+50);
 
-			             	}
-		        	});
-				 });
-			             	
+									//if(i == $data.length - 1) enableLazyloader();
+
+				             	}
+			        	});
+					 });
+					}      	
 		};
 
 

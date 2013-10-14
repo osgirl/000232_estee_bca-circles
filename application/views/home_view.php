@@ -197,6 +197,7 @@
 							<a id="filter_instagram_btn" type="instagram" class="pink_btn pink_filter_btn blue_btn"><img src='<?= base_url(); ?>img/buttons/instagram.png'></a>
 							<a id="filter_twitter_btn" type="twitter" class="pink_btn pink_filter_btn light_blue_btn"><img src='<?= base_url(); ?>img/buttons/twitter.png'></a>
 							<a id="filter_friends_btn" type="friend" class="pink_btn pink_filter_btn all_cap" language_id="my_friends_circle" language_location="home" >my friend's circle</a>
+							<img id="friends_circle_loader" src="<?= base_url(); ?>img/icons/preloader-anim.gif"/>
 						</div>
 						<div id="feed_magnet">
 						</div>

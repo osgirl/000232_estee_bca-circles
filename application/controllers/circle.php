@@ -205,7 +205,6 @@ class Circle extends CI_Controller {
 			$circles 		= array();
 			$data 			= array();
 
-
 			$query = $this->db->select("circles.*, g.goal_type")	
 				->from("circles")
 				->where_in("circles.id",$feedArr)
@@ -236,6 +235,7 @@ class Circle extends CI_Controller {
 			    	->get();
 
 			    if ($friend_query->num_rows() > 0) {
+
 				  foreach($friend_query->result() as $row) {
 				  	$friends_data[] = array (	'fb_id'=>$row->friends_fb_id,
 				  								'name'=>$row->friends_name,

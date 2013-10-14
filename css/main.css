@@ -607,6 +607,10 @@ h2{
 
 /*GALLERY*/
 
+#friends_circle_loader{
+	display:none;
+}
+
 #filter_nav{
 	margin-top:20px;
 	margin-bottom:15px;
