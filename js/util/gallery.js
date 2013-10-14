@@ -899,6 +899,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 			current_add_layout = 1;
 			allCircleDataStorage = new Array();
 		    circleDataStorage = new Array();
+		    allFriendsCircleFeed = new Array();
 			$.feed.reset();
 			currentFilterType = btn.attr('type');
 			if(currentFilterType == "all") pageNum = 2;
