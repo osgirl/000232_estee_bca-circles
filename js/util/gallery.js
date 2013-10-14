@@ -967,7 +967,6 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 						$($data).each(function(i,v){
 							allFriendsCircleFeed.push(v);
 						})
-						
 					}
 
 
@@ -1000,7 +999,7 @@ parse the circle data from feedmagnet and calls a route on our server to ccreate
 				            			circleDiv.append(layoutData)
 				            			         .addClass('span6 circle_container gallery_item flex_margin_bottom gallery_circle');
 				            		//var rowTarget = (containerCount<2) ? 0 : 1;
-							            		$('.page' + pageNum).append(circleDiv);
+							            		$('.page1').append(circleDiv);
 				            		$(circleDiv).css('float','left');
 				            		$(circleDiv).css('clear','none');
 				            		$(circleDiv).hide();
